@@ -10,16 +10,16 @@ Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated w
 1. WHAT IT ADDS
 ---------------
   New campaigns (in the game's Campaigns menu; campaign and track names are Chilean Spanish place names):
-    Chile                    126 races through Chilean cities, the comunas of Santiago, observatories (among them a
+    Chile                    127 races through Chilean cities, the comunas of Santiago, observatories (among them a
                              long lap round and INSIDE the Extremely Large Telescope under construction), ski
                              centres, volcanoes, Easter Island, Antarctic bases, the beaches of the Valparaíso region
-                             (on jet skis) and the procession of andas round the Plaza de Illapel. A map of Chile to
-                             pick the region and the place.
+                             (on jet skis), the procession of andas round the Plaza de Illapel and a jet ski race
+                             through a Santiago flooded by a thunderstorm. A map of Chile to pick the region and the place.
     Rutas de Chile           point-to-point stages along real roads (Ruta 68, Ruta 47 Los Vilos - Illapel on a horse
                              cart, the coast of the Valparaíso region, Villarrica - Pucón, Coyhaique - Aysén...), with
                              traffic, toll plazas and roads that narrow and widen.
     Aventura Chile           challenges with the mod's own vehicles.
-    Competencia Chile 2026   40 races in 8 cups, from easy to hard.
+    Competencia Chile 2026   40 races in 8 cups, from easy to hard, and a bonus race.
     Grand Prix 2026          a fictional 2026 season with the game's formula cars (fictional teams and drivers).
                              Needs Horizon Chase Turbo's "Senna Forever" DLC (without it the campaign does not show).
   Vehicles of its own: a Chilean taxi, the yellow "micro" bus (8 routes), horse carts (11), jet skis (8) and
