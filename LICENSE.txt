@@ -4,8 +4,7 @@ Copyright (c) 2026 HCT15 contributors
 
 This licence covers the mod's source code (Source\ and the .cmd / .ps1 scripts at the root of this
 repository). The content under Content\ carries the licences of the data it was made from - see CREDITS.txt:
-files derived from OpenStreetMap are under the ODbL 1.0, files derived from Sentinel-2 imagery under CC BY-NC-SA 4.0,
-each photograph under the licence its author gave it on Wikimedia Commons.
+files derived from OpenStreetMap are under the ODbL 1.0 and files derived from Sentinel-2 imagery under CC BY-NC-SA 4.0.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
