@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_comuna_la_reina",
+  "Name": "Sign: La Reina",
+  "Category": "landmark",
+  "Description": "A comuna sign \"LA REINA\" on a pole standing in the flood, facing the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

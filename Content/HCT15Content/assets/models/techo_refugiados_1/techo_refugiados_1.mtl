@@ -1,0 +1,85 @@
+# HCT 1.5 asset kit - flat colours from STYLE.txt
+newmtl wall_pink
+Kd 0.9000 0.6200 0.6200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl roof_red
+Kd 0.6200 0.2500 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl jeans
+Kd 0.2000 0.3000 0.5000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl wall_white
+Kd 0.9400 0.9300 0.9000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl skin_3
+Kd 0.6200 0.4300 0.3000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl hair_black
+Kd 0.1000 0.0800 0.0700
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl sw_green
+Kd 0.2000 0.8200 0.3000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl skin_2
+Kd 0.8400 0.6400 0.4800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl hair_brown
+Kd 0.3600 0.2200 0.1200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl trim_dark
+Kd 0.1600 0.1700 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl sw_red
+Kd 0.9200 0.1400 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl robe_brown
+Kd 0.3800 0.2200 0.1200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl mud_foam
+Kd 0.7000 0.6000 0.4400
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl mud
+Kd 0.4800 0.3600 0.2300
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

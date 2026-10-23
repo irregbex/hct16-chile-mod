@@ -1,0 +1,48 @@
+{
+ "start": [
+  -33.4423,
+  -70.5433
+ ],
+ "end": [
+  -33.5204,
+  -70.6006
+ ],
+ "length_m": 12712,
+ "return_m": 13824,
+ "finish_index": 487,
+ "streets": [
+  "Avenida Príncipe de Gales",
+  "Avenida Ossa",
+  "Los Agustinos",
+  "Avenida Ossa",
+  "Avenida Egaña",
+  "Avenida Américo Vespucio",
+  "Rotonda Grecia",
+  "Avenida Américo Vespucio",
+  "Rotonda Quilín",
+  "Avenida Américo Vespucio"
+ ],
+ "street_marks": [
+  [
+   -33.4404928,
+   -70.5431937,
+   "Avenida Príncipe de Gales"
+  ],
+  [
+   -33.4378977,
+   -70.5734063,
+   "Avenida Ossa"
+  ],
+  [
+   -33.4535928,
+   -70.5708915,
+   "Avenida Egaña"
+  ],
+  [
+   -33.4554015,
+   -70.5713895,
+   "Avenida Américo Vespucio"
+  ]
+ ],
+ "sights": []
+}

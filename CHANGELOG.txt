@@ -1,6 +1,14 @@
 HCT 1.6 - changelog
 ===================
 
+2.2.4
+  - New track "Santiago inundado: La Reina -> La Florida": a jet ski race down the real avenues of Santiago
+    (Principe de Gales, Avenida Ossa, Americo Vespucio; OpenStreetMap), the city flooded by a storm - brown, muddy
+    water, sunk cars and buses, debris, people waiting on the roofs, rescue boats. In the Chile, Rutas de Chile,
+    Competencia Chile (bonus race) and Aventura Chile campaigns.
+  - Thunderstorms (storm.json): lightning flashes and bolts, synthesised thunder, and muddy spray for the jet skis.
+  - Sky recipes: a "Storm" modifier - a dark slate sky, no sun, dim light.
+
 Unreleased
   - The Wikimedia Commons photos of the city tracks (402 pictures and their credits) are no longer included. Their
     slots stay named in each scenery.json, to be filled with free photos (CREDITS.txt).

@@ -1,0 +1,19 @@
+{
+ "Comment": "stgo_inundado.py: a thunderstorm over the flooded city (HCT15.Storm) - lightning, thunder, the water is mud",
+ "Lightning": true,
+ "MinGap": 3.5,
+ "MaxGap": 8.0,
+ "Flash": 0.7,
+ "Thunder": 0.95,
+ "Mud": true,
+ "MudFoam": [
+  0.58,
+  0.47,
+  0.33
+ ],
+ "MudWake": [
+  0.45,
+  0.35,
+  0.23
+ ]
+}

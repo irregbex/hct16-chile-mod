@@ -1,0 +1,11 @@
+{
+  "Id": "auto_inundado_3",
+  "Name": "Flooded car 3",
+  "Category": "prop",
+  "Description": "A car sunk to its door handles in the mud flood, hazard lights on, a stray dog on the roof",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

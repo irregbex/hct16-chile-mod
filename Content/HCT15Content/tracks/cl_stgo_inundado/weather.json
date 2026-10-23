@@ -1,0 +1,19 @@
+{
+ "Comment": "stgo_inundado.py: the downpour that flooded Santiago, never letting up",
+ "RainT": [
+  0.0,
+  0.2,
+  0.45,
+  0.7,
+  1.0
+ ],
+ "RainV": [
+  0.8,
+  0.95,
+  0.85,
+  1.0,
+  0.9
+ ],
+ "Sound": true,
+ "Grip": 0.6
+}

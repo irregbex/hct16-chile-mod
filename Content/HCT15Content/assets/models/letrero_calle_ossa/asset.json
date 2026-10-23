@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_calle_ossa",
+  "Name": "Sign: Av. Ossa",
+  "Category": "landmark",
+  "Description": "A street-name sign \"AV. OSSA\" on a pole standing in the flood, facing the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "micro_inundada",
+  "Name": "Flooded city bus",
+  "Category": "building",
+  "Description": "A white and red Santiago bus in the flood to its windows, 12 m, passengers inside",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

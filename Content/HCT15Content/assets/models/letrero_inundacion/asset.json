@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_inundacion",
+  "Name": "Flood warning sign",
+  "Category": "landmark",
+  "Description": "A yellow road sign PELIGRO / CALLE INUNDADA, half under water, facing the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

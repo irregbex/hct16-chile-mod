@@ -1,0 +1,11 @@
+{
+  "Id": "techo_refugiados_1",
+  "Name": "Rooftop refuge (gable)",
+  "Category": "building",
+  "Description": "The tiled ridge of a drowned house with three people waving from it, 8 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

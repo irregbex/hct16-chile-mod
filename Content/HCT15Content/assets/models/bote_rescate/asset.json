@@ -1,0 +1,11 @@
+{
+  "Id": "bote_rescate",
+  "Name": "Rescue boat",
+  "Category": "prop",
+  "Description": "An orange inflatable of the firefighters with two rescuers in yellow and an outboard, 4.5 m, bow towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

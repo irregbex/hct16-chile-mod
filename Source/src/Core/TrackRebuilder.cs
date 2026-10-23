@@ -136,6 +136,8 @@ namespace HCT15
             catch (System.Exception ex) { Debug.LogError("[HCT15] environment timeline failed: " + ex); }
             try { Weather.Attach(def, _dataRewritten); }               // tracks\<id>\weather.json: rain, and the wet road it brings
             catch (System.Exception ex) { Debug.LogError("[HCT15] weather failed: " + ex); }
+            try { Storm.Attach(def, _dataRewritten); }                 // 2.2.4: tracks\<id>\storm.json: lightning, thunder, mud water
+            catch (System.Exception ex) { Debug.LogError("[HCT15] storm failed: " + ex); }
         }
 
         private static void RewriteWaypoints(Transform root, SplineMaster master, CustomRaceDef def)

@@ -56,7 +56,11 @@ namespace HCT15
         private readonly List<Vector3> _v = new List<Vector3>(512);
         private readonly List<Color> _c = new List<Color>(512);
         private readonly List<int> _tri = new List<int>(1024);
-        private static readonly Color Foam = new Color(0.96f, 0.98f, 1f), FoamBlue = new Color(0.78f, 0.90f, 0.97f), Wake = new Color(0.90f, 0.95f, 0.98f);
+        private static readonly Color SeaFoam = new Color(0.96f, 0.98f, 1f), SeaFoamBlue = new Color(0.78f, 0.90f, 0.97f), SeaWake = new Color(0.90f, 0.95f, 0.98f);
+        // 2.2.4: on a flood of mud (Storm.Mud, storm.json) the spray, the foam and the wake are brown, not white
+        private static Color Foam { get { return Storm.Mud ? Storm.MudFoam : SeaFoam; } }
+        private static Color FoamBlue { get { return Storm.Mud ? Color.Lerp(Storm.MudFoam, Storm.MudWake, 0.6f) : SeaFoamBlue; } }
+        private static Color Wake { get { return Storm.Mud ? Storm.MudWake : SeaWake; } }
 
         private float Kph()
         {
@@ -411,7 +415,7 @@ namespace HCT15
             }
             // the churned trail straight behind the nozzle
             float tl = 1.2f + 2.2f * k;
-            Quad(new Vector3(-0.22f, y + 0.01f, Stern), new Vector3(0.22f, y + 0.01f, Stern), new Vector3(0.45f, y + 0.01f, Stern - tl), new Vector3(-0.45f, y + 0.01f, Stern - tl), Foam);
+            Quad(new Vector3(-0.22f, y + 0.01f, Stern), new Vector3(0.22f, y + 0.01f, Stern), new Vector3(0.45f, y + 0.01f, Stern - tl), new Vector3(-0.45f, y + 0.01f, Stern - tl), Storm.Mud ? Wake : Foam);   // on mud the churned trail is the wake's brown (a pale one read as a path)
         }
 
         /// <summary>A flat quad seen from both faces - each face its own four vertices, so its normals do not cancel out

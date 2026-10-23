@@ -3164,6 +3164,40 @@
     "cl_anda_san_rafael"
    ],
    "Music": "Race/Illapel/Illapel - Chinchinero.wav"
+  },
+  {
+   "RaceId": "cl_stgo_inundado",
+   "Title": "Santiago inundado: La Reina → La Florida",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago inundado: La Reina → La Florida",
+    "Santiago inundado: La Reina → La Florida",
+    "Santiago inundado: La Reina → La Florida",
+    "Santiago inundado: La Reina → La Florida",
+    "Santiago inundado: La Reina → La Florida",
+    "Santiago inundado: La Reina → La Florida"
+   ],
+   "Subtitle": "Diluvio · barro, truenos y relámpagos",
+   "Card": "tracks/cl_stgo_inundado/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ],
+   "Description": "Round 127 · Santiago inundado: La Reina - La Florida (Metropolitana) · 12.7 km · 1 lap · flood, jet skis"
   }
  ],
  "DefaultRace": "cl_alto_hospicio",

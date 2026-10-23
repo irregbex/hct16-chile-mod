@@ -25,6 +25,7 @@ namespace HCT15
             public float[] Overcast;        // [start, end] 0..1
             public float[] Ash;             // [start, end] 0..1
             public float[] Snow;            // [start, end] 0..1
+            public float[] Storm;           // [start, end] 0..1 - 2.2.4: a thunderstorm's dark slate sky and dim light
             public float Aurora;            // strength 0..1
             public float AuroraFrom = 1f;   // progress from which the southern lights show
         }
@@ -264,10 +265,12 @@ namespace HCT15
         private static bool IsColour(Chan c) { return c.Comp >= 0 && c.Comp < 3; }
 
         private static readonly Color AshTint = new Color(0.45f, 0.40f, 0.36f), SnowTint = new Color(0.80f, 0.83f, 0.88f);
+        // 2.2.4: under a thunderstorm the sky, the clouds and the fog go a dark slate, the light a dim cold grey
+        private static readonly Color StormSky = new Color(0.27f, 0.29f, 0.32f), StormFog = new Color(0.36f, 0.35f, 0.33f), StormLight = new Color(0.62f, 0.66f, 0.72f);
 
         private static float Modify(Chan c, Recipe r, float p, float v, Dictionary<string, float> day)
         {
-            float over = Ramp(r.Overcast, p), ash = Ramp(r.Ash, p), snow = Ramp(r.Snow, p);
+            float over = Ramp(r.Overcast, p), ash = Ramp(r.Ash, p), snow = Ramp(r.Snow, p), storm = Ramp(r.Storm, p);
             bool skyish = c.Path == "sky" || c.Path == "clouds" || c.Path == "background";
             if (IsColour(c) && skyish && c.Field != "Sun_Color")
             {
@@ -279,6 +282,15 @@ namespace HCT15
                 }
                 if (ash > 0f) v = Mathf.Lerp(v, AshTint[c.Comp], ash * 0.7f);
                 if (snow > 0f) v = Mathf.Lerp(v, SnowTint[c.Comp], snow * 0.5f);
+                if (storm > 0f) v = Mathf.Lerp(v, (c.Field == "FogColor" ? StormFog : c.Field == "AmbientLight" ? StormFog * 0.8f : StormSky)[c.Comp], storm * 0.8f);
+            }
+            if (storm > 0f)
+            {
+                if (c.Field == "Sun_Color" && IsColour(c)) v = Mathf.Lerp(v, StormSky[c.Comp], storm);          // no sun behind the storm
+                if (c.Field == "m_Color" && IsColour(c)) v = Mathf.Lerp(v, StormLight[c.Comp], storm * 0.7f);
+                if (c.Path == "track_mesh" && IsColour(c)) v *= 1f - 0.25f * storm;
+                if (c.Field == "m_Intensity") v *= 1f - 0.45f * storm;
+                if (c.Field == "FogEndDistance") v *= 1f - 0.35f * storm;
             }
             if (c.Field == "m_Intensity") v *= 1f - 0.4f * over - 0.3f * ash;
             if (c.Field == "FogEndDistance") v *= 1f - 0.5f * ash - 0.45f * snow;
@@ -352,7 +364,7 @@ namespace HCT15
                     for (int k = 0; k <= Samples; k++)
                     {
                         float p = k / (float)Samples;
-                        bool on = dayV > 0.5f || Ramp(r.Overcast, p) > 0.25f || Ramp(r.Ash, p) > 0.03f || (r.Aurora > 0f && p >= r.AuroraFrom);
+                        bool on = dayV > 0.5f || Ramp(r.Overcast, p) > 0.25f || Ramp(r.Ash, p) > 0.03f || Ramp(r.Storm, p) > 0.1f || (r.Aurora > 0f && p >= r.AuroraFrom);
                         float o = on ? 1f : 0f;
                         if (o != prev) { t.Add(p); v.Add(o); prev = o; }
                     }

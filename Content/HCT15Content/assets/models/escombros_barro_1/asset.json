@@ -1,0 +1,11 @@
+{
+  "Id": "escombros_barro_1",
+  "Name": "Flood debris 1",
+  "Category": "prop",
+  "Description": "Planks, a tyre, a barrel, a crate, a plastic chair and a branch drifting in the mud",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

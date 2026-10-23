@@ -1,0 +1,17 @@
+{
+ "Mode": "progress",
+ "Seconds": 0,
+ "Recipe": {
+  "Preset": "day",
+  "NightAt": 1.0,
+  "Overcast": [
+   0.92,
+   0.97
+  ],
+  "Storm": [
+   0.85,
+   1.0
+  ]
+ },
+ "Comment": "stgo_inundado.py: a dark storm day over the flood; time of day = race progress (0 start .. 1 finish): preset 'day', end state at 1.00, overcast 0.92 -> 0.97, thunderstorm 0.85 -> 1.00 - a recipe, composed in the game by HCT15.EnvComposer (the donor's own daylight + the plugin's palette)"
+}

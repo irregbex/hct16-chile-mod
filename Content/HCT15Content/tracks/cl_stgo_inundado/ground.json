@@ -1,0 +1,12 @@
+{
+ "Comment": "stgo_inundado.py: 5 lanes all along - the whole street is under water (no donor transition textures: they are asphalt)",
+ "Sections": [],
+ "Lanes": [
+  {
+   "From": 0.0,
+   "To": 1.0,
+   "Lanes": 5,
+   "Name": "flood"
+  }
+ ]
+}
