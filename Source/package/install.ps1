@@ -1,5 +1,5 @@
 ﻿<#
-  HCT 1.6 v2.2.1 - installer / uninstaller of the mod for Horizon Chase Turbo (Steam).
+  HCT 1.6 v2.2.2 - installer / uninstaller of the mod for Horizon Chase Turbo (Steam).
   INSTALL.cmd and UNINSTALL.cmd call it; there is no need to open it by hand.
 
     install.ps1                     finds the game in Steam and installs
@@ -80,7 +80,7 @@ function Pick-Folder {
 }
 
 Say ""
-Say "HCT 1.6 v2.2.1 - $(if ($Uninstall) {'uninstall'} else {'install'}) the Horizon Chase Turbo mod" 'Cyan'
+Say "HCT 1.6 v2.2.2 - $(if ($Uninstall) {'uninstall'} else {'install'}) the Horizon Chase Turbo mod" 'Cyan'
 Say ""
 if (-not $GameDir) {
   $GameDir = Find-SteamGame
@@ -196,10 +196,10 @@ foreach ($sub in 'HCT15Content\tracks', 'HCT15Content\assets\models') {
 }
 if ($gone -gt 0) { Say "Removed what an old release left behind ($gone folder(s))." }
 if (Test-Path -LiteralPath $oldRecordPath) { Remove-Item -LiteralPath $oldRecordPath -Force }
-$head = @("# HCT 1.6 v2.2.1 - files the installer added to this folder ($(Get-Date -Format 'yyyy-MM-dd HH:mm')).", "# UNINSTALL.cmd removes exactly these; no game file was changed.")
+$head = @("# HCT 1.6 v2.2.2 - files the installer added to this folder ($(Get-Date -Format 'yyyy-MM-dd HH:mm')).", "# UNINSTALL.cmd removes exactly these; no game file was changed.")
 Set-Content -LiteralPath $recordPath -Value ($head + $installed) -Encoding UTF8
 Say ""
-Say "Done: HCT 1.6 v2.2.1 installed in $GameDir ($($installed.Count) file(s))." 'Green'
-Say 'Start the game from Steam as usual. The title screen shows "HCT 1.6 v2.2.1 MOD ACTIVE".'
+Say "Done: HCT 1.6 v2.2.2 installed in $GameDir ($($installed.Count) file(s))." 'Green'
+Say 'Start the game from Steam as usual. The title screen shows "HCT 1.6 v2.2.2 MOD ACTIVE".'
 Say 'The mod''s campaigns are under Campaigns. To remove it: UNINSTALL.cmd.'
 exit 0

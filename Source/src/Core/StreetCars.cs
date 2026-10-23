@@ -2313,15 +2313,27 @@ namespace HCT15
             // 2.1.5 (the andas with their images on top lean a little to the side they are turning, as an unstable load
             // would): a walker's whole body (bearers, litter, image) rolls into the bend, as the horse's head does
             float lean = Cadence > 0f ? -_turn * WalkLean * Mathf.Clamp01(walk * 2f) : 0f;
+            // 2.2.2: the andas hop a little as they walk, for comic effect: one small hop a stride, a parabola off the
+            // ground and back, the whole anda rocking forward on the way up and back on landing
+            float pitch = 0f;
+            if (Cadence > 0f)
+            {
+                float hp = Mathf.Repeat(_phase * 0.5f, 1f);
+                float go = Mathf.Clamp01(walk * 3f);
+                y += WalkHop * go * 4f * hp * (1f - hp);
+                pitch = Mathf.Sin(hp * 2f * Mathf.PI) * WalkRock * go;
+            }
             for (int i = 0; i < _parts.Length; i++)
             {
                 Vector3 p = _parts[i].localPosition;
                 _parts[i].localPosition = new Vector3(p.x, _baseY[i] + y, p.z);
-                if (Cadence > 0f) _parts[i].localRotation = _baseRot[i] * Quaternion.AngleAxis(lean, Vector3.forward);
+                if (Cadence > 0f) _parts[i].localRotation = _baseRot[i] * Quaternion.AngleAxis(lean, Vector3.forward) * Quaternion.AngleAxis(pitch, Vector3.right);
             }
         }
 
-        public const float WalkLean = 18f;   // degrees an anda rolls into a full bend (2.1.5: 6; 2.2.1: three times that)
+        public const float WalkLean = 25f;   // degrees an anda rolls into a full bend (2.1.5: 6; 2.2.1: 18; 2.2.2: 25)
+        public const float WalkHop = 0.3f;   // 2.2.2: the hop's height (body units) at a full walk, once a stride
+        public const float WalkRock = 4f;    // 2.2.2: degrees the anda rocks forward and back with each hop
         private Quaternion[] _baseRot = new Quaternion[0];
     }
 }

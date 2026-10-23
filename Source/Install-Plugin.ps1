@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  HCT 1.6 v2.2.1 - builds HCT15.dll and installs it (with BepInEx and the content) into a game folder.
+  HCT 1.6 v2.2.2 - builds HCT15.dll and installs it (with BepInEx and the content) into a game folder.
 
 .DESCRIPTION
   Paths are relative to the repository root (<root>\Source\ is $PSScriptRoot):
@@ -90,6 +90,6 @@ if (-not (Test-Path $targetMusic)) {
 }
 
 Write-Host ""
-Write-Host "HCT 1.6 v2.2.1 plugin installed in $GameDir"
+Write-Host "HCT 1.6 v2.2.2 plugin installed in $GameDir"
 Write-Host ("  HCT15.dll md5 {0}   game Assembly-CSharp.dll md5 {1} ({2})" -f (Get-FileHash -Algorithm MD5 $dll).Hash.ToLowerInvariant(), $have.ToLowerInvariant(), $(if ($have -eq $Genuine) { 'genuine, unmodified' } else { 'NOT genuine' }))
 $global:LASTEXITCODE = 0
