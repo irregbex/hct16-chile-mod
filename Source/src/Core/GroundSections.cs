@@ -26,7 +26,7 @@ namespace HCT15
     {
         [Serializable] public class Section { public float From; public float To; public string Texture = ""; public string Name = ""; }
         [Serializable] public class LaneSpan { public float From; public float To; public int Lanes; public string Name = ""; }
-        [Serializable] public class GroundJson { public List<Section> Sections = new List<Section>(); public List<LaneSpan> Lanes = new List<LaneSpan>(); public string Comment = ""; public bool CenterLine; }   // CenterLine: 2.0.16, a two-way road's markings
+        [Serializable] public class GroundJson { public List<Section> Sections = new List<Section>(); public List<LaneSpan> Lanes = new List<LaneSpan>(); public string Comment = ""; public bool CenterLine; public string TransitionTexture = ""; }   // CenterLine: 2.0.16, a two-way road's markings
 
         private const float MinLength = 0.006f, MinGap = 0.01f;
 
@@ -95,7 +95,7 @@ namespace HCT15
             }
             result.Sort((x, y) => x.SplinePosition.CompareTo(y.SplinePosition));
             if (g.CenterLine) result = CenterLines(result, def);
-            if (lanes) result = ApplyLanes(data, result, g.Lanes, def.ItemId);
+            if (lanes) result = ApplyLanes(data, result, g.Lanes, def.ItemId, string.IsNullOrEmpty(g.TransitionTexture) ? null : Load(textures, g.TransitionTexture, texDir));
             data.TextureInfos = result;
             var sb = new System.Text.StringBuilder();
             foreach (var s in merged) sb.Append(s.From.ToString("0.000")).Append('-').Append(s.To.ToString("0.000")).Append(' ').Append(s.Texture).Append(string.IsNullOrEmpty(s.Name) ? "" : " (" + s.Name + ")").Append("; ");
@@ -112,11 +112,29 @@ namespace HCT15
         /// </summary>
         private const float MinSnap = 0.012f;
 
-        private static List<SplineTextureInfo> ApplyLanes(RaceData data, List<SplineTextureInfo> list, List<LaneSpan> spans, string id)
+        private static List<SplineTextureInfo> ApplyLanes(RaceData data, List<SplineTextureInfo> list, List<LaneSpan> spans, string id, Texture own = null)
         {
             Dictionary<int, Dictionary<int, Texture>> tr = null;
             try { tr = data.TransitionDictionary; } catch (Exception) { }
             if (tr == null || list.Count == 0) return list;
+            if (own != null)
+            {
+                // 2.2.4 (ground.json TransitionTexture): every width change fades through the track's own strip, not the
+                // donor's - Santiago inundado's flood is water from edge to edge, and the donor's transitions are asphalt
+                for (int hi = 3; hi <= 7; hi++)
+                    for (int lo = 3; lo <= hi; lo++)
+                    {
+                        if (!tr.ContainsKey(hi)) tr[hi] = new Dictionary<int, Texture>();
+                        tr[hi][lo] = own;
+                        try
+                        {
+                            data.TransitionList.RemoveAll(t => t != null && t.OriginalNumberOfLanes == hi && t.NewNumberOfLanes == lo);
+                            data.TransitionList.Add(new TrackTransitionInfo { OriginalNumberOfLanes = hi, NewNumberOfLanes = lo, TransitionTexture = own });
+                        }
+                        catch (Exception) { }
+                    }
+                Debug.Log("[HCT15] lanes of '" + id + "': width changes fade through '" + own.name + "' (ground.json TransitionTexture)");
+            }
             Func<int, int, bool> ok = (x, y) => { int a = Mathf.Max(x, y), b = Mathf.Min(x, y); return tr.ContainsKey(a) && tr[a].ContainsKey(b); };
             var have = new System.Text.StringBuilder();
             foreach (var kv in tr) foreach (var k2 in kv.Value) have.Append(kv.Key).Append('/').Append(k2.Key).Append(' ');

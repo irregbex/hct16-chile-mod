@@ -1,5 +1,5 @@
 {
- "Comment": "stgo_inundado.py: 5 lanes all along - the whole street is under water (no donor transition textures: they are asphalt)",
+ "Comment": "stgo_inundado.py: the flood 3 to 7 lanes wide; width changes fade through the flood's own strip (TransitionTexture, plugin 2.2.4 - the donor's transitions are asphalt)",
  "Sections": [],
  "Lanes": [
   {
@@ -7,6 +7,97 @@
    "To": 1.0,
    "Lanes": 5,
    "Name": "flood"
+  },
+  {
+   "From": 0.0143,
+   "To": 0.0447,
+   "Lanes": 3,
+   "Name": "angosto"
+  },
+  {
+   "From": 0.0524,
+   "To": 0.0728,
+   "Lanes": 7,
+   "Name": "ancho"
+  },
+  {
+   "From": 0.084,
+   "To": 0.1022,
+   "Lanes": 4,
+   "Name": "angosto"
+  },
+  {
+   "From": 0.1109,
+   "To": 0.137,
+   "Lanes": 6,
+   "Name": "ancho"
+  },
+  {
+   "From": 0.1467,
+   "To": 0.1654,
+   "Lanes": 3,
+   "Name": "angosto"
+  },
+  {
+   "From": 0.1753,
+   "To": 0.2003,
+   "Lanes": 5,
+   "Name": "normal"
+  },
+  {
+   "From": 0.2118,
+   "To": 0.2284,
+   "Lanes": 7,
+   "Name": "ancho"
+  },
+  {
+   "From": 0.2406,
+   "To": 0.2598,
+   "Lanes": 3,
+   "Name": "angosto"
+  },
+  {
+   "From": 0.271,
+   "To": 0.2961,
+   "Lanes": 6,
+   "Name": "ancho"
+  },
+  {
+   "From": 0.3075,
+   "To": 0.3268,
+   "Lanes": 4,
+   "Name": "angosto"
+  },
+  {
+   "From": 0.3345,
+   "To": 0.3521,
+   "Lanes": 7,
+   "Name": "ancho"
+  },
+  {
+   "From": 0.3631,
+   "To": 0.3887,
+   "Lanes": 5,
+   "Name": "normal"
+  },
+  {
+   "From": 0.3955,
+   "To": 0.415,
+   "Lanes": 3,
+   "Name": "angosto"
+  },
+  {
+   "From": 0.421,
+   "To": 0.4407,
+   "Lanes": 7,
+   "Name": "ancho"
+  },
+  {
+   "From": 0.45,
+   "To": 0.4621,
+   "Lanes": 4,
+   "Name": "angosto"
   }
- ]
+ ],
+ "TransitionTexture": "road_strip.png"
 }

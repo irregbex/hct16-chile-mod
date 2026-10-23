@@ -28032,7 +28032,91 @@
   0.0
  ],
  "HillGain": 1.0,
- "CurveGain": 1.15,
+ "CurveGain": 1.35,
  "DonorDecor": 0.0,
- "Grandstands": 0
+ "Grandstands": 0,
+ "Bends": [
+  {
+   "From": 0.0508,
+   "To": 0.0768,
+   "Count": 6,
+   "Amp": 9.9,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.0859,
+   "To": 0.1232,
+   "Count": 8,
+   "Amp": 8.2,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.1369,
+   "To": 0.1624,
+   "Count": 8,
+   "Amp": 9.7,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.1773,
+   "To": 0.2015,
+   "Count": 8,
+   "Amp": 8.9,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.227,
+   "To": 0.2536,
+   "Count": 6,
+   "Amp": 8.3,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.2708,
+   "To": 0.2969,
+   "Count": 8,
+   "Amp": 7.8,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.3076,
+   "To": 0.3458,
+   "Count": 6,
+   "Amp": 7.0,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.3485,
+   "To": 0.3865,
+   "Count": 6,
+   "Amp": 8.1,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  },
+  {
+   "From": 0.4052,
+   "To": 0.4285,
+   "Count": 7,
+   "Amp": 6.5,
+   "HillGain": 1.0,
+   "MaxGrade": 0.13,
+   "Name": "slalom entre edificios"
+  }
+ ],
+ "Wiggle": 10.0
 }
