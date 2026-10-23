@@ -11,8 +11,6 @@ HCT 1.6 - changelog
     3 lanes and widens to 7 (ground.json TransitionTexture: width changes fade through the track's own strip).
   - Thunderstorms (storm.json): lightning flashes and bolts, synthesised thunder, and muddy spray for the jet skis.
   - Sky recipes: a "Storm" modifier - a dark slate sky, no sun, dim light.
-
-Unreleased
   - The Wikimedia Commons photos of the city tracks (402 pictures and their credits) are no longer included. Their
     slots stay named in each scenery.json, to be filled with free photos (CREDITS.txt).
 
