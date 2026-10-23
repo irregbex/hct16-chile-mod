@@ -13383,19 +13383,6 @@
  ],
  "Landmarks": [
   {
-   "P": 0.006,
-   "Side": 1,
-   "Dist": 3.5,
-   "W": 6,
-   "D": 1.2,
-   "H": 8.7,
-   "S": 1.0,
-   "Kind": "landmark",
-   "Name": "Bienvenidos a Illapel",
-   "Asset": "cl_illapel_sights/bienvenidos_illapel",
-   "Yaw": -90
-  },
-  {
    "P": 0.32605,
    "Side": 1,
    "Dist": 4.22,

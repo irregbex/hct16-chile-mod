@@ -24,9 +24,9 @@ Photographs
   scenery.json still names them (Kind "photo", the place's name, "Photo": "photos/NN.jpg" in tracks\<track>\photos\)
   for anyone who wants to fill them. Contributions are welcome: please send only photos you took yourself or that
   carry a free licence, with their author and licence. No logos or coats of arms are used.
-  The San Rafael Cathedral of Illapel (model catedral_illapel) was modelled after the photo "20210103-001 Catedral
-  Illapel frontis detalle.jpg", Ariel Mauricio Malla Gallardo, CC BY-SA 4.0 (Wikimedia Commons); the model is published
-  under CC BY-SA 4.0.
+  The San Rafael Cathedral of Illapel (model catedral_illapel, and parroquia_san_rafael in the Illapel city-sights track)
+  was modelled after the photo "20210103-001 Catedral Illapel frontis detalle.jpg", Ariel Mauricio Malla Gallardo,
+  CC BY-SA 4.0 (Wikimedia Commons); the models are published under CC BY-SA 4.0 (the photo itself is not included).
   The Extremely Large Telescope track (cl_obs_armazones) and its elt_* models were drawn from the dimensions published
   by ESO and the colours of its construction photos (Credit: ESO, CC BY 4.0 - potw2430a/b/c, potw2506a, potw2520a at
   https://www.eso.org/public/images/); the photos are not included. The track is not associated with ESO.
