@@ -20,10 +20,10 @@ Map and terrain data
     Because of this licence the mod is, and must remain, NON-COMMERCIAL.
 
 Photographs
-  Photos from Wikimedia Commons are used on the roadside signs and as colour references for some cities. Every track
-  that uses them carries tracks\<track>\photos\credits.json with each photo's author, licence (CC BY, CC BY-SA, public
-  domain...), licence link and Commons file page. Photos under CC BY-SA are redistributed under that same licence. No
-  logos or coats of arms are used.
+  No photographs are included. The roadside photo boards of the city tracks are left as open slots: each track's
+  scenery.json still names them (Kind "photo", the place's name, "Photo": "photos/NN.jpg" in tracks\<track>\photos\)
+  for anyone who wants to fill them. Contributions are welcome: please send only photos you took yourself or that
+  carry a free licence, with their author and licence. No logos or coats of arms are used.
   The San Rafael Cathedral of Illapel (model catedral_illapel) was modelled after the photo "20210103-001 Catedral
   Illapel frontis detalle.jpg", Ariel Mauricio Malla Gallardo, CC BY-SA 4.0 (Wikimedia Commons); the model is published
   under CC BY-SA 4.0.

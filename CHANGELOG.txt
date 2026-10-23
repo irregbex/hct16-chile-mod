@@ -1,6 +1,10 @@
 HCT 1.6 - changelog
 ===================
 
+Unreleased
+  - The Wikimedia Commons photos of the city tracks (402 pictures and their credits) are no longer included. Their
+    slots stay named in each scenery.json, to be filled with free photos (CREDITS.txt).
+
 2.2.3
   - Car selection: the procession andas' top-speed bar is now filled on a walking scale and reads "50 KM/H"
     (on the game's own scale a walking pace was an empty bar).

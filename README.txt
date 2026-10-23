@@ -104,5 +104,5 @@ Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated w
   A free, non-commercial fan mod. Horizon Chase and Horizon Chase Turbo are trademarks of Aquiris Game Studio.
   Credits for data, photos, tools and voices: CREDITS.txt.
   The mod's code is under the MIT licence (LICENSE.txt). The content carries the licences of its data (CREDITS.txt):
-  OpenStreetMap = ODbL 1.0, Sentinel-2 = CC BY-NC-SA 4.0 (which is why the mod is NON-COMMERCIAL), photos = their
-  authors' licences.
+  OpenStreetMap = ODbL 1.0, Sentinel-2 = CC BY-NC-SA 4.0 (which is why the mod is NON-COMMERCIAL). No third-party
+  photos are included (CREDITS.txt, "Photographs").
