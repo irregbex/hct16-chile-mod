@@ -1,0 +1,23 @@
+HCT 1.6 - changelog
+===================
+
+2.2.3
+  - Car selection: the procession andas' top-speed bar is now filled on a walking scale and reads "50 KM/H"
+    (on the game's own scale a walking pace was an empty bar).
+  - Plaza de Illapel: the PROCESION ILLAPEL arch's board is wide enough for its words.
+  - The mod's campaign menus play the game's own music (no third-party music in the mod).
+
+2.2.2
+  - The andas lean up to 25 degrees into the bends and hop a little as they walk, rocking forward and back.
+
+2.2.1
+  - The andas lean three times as far into the bends.
+
+2.2.0 - the mod readied for publication
+  - Campaigns: Chile (126 races), Rutas de Chile (point-to-point stages on real roads), Aventura Chile,
+    Competencia Chile 2026 and Grand Prix 2026 (fictional season, needs the Senna Forever DLC).
+  - New: the Extremely Large Telescope track on Cerro Armazones - the climb, a lap round the dome and one and a half
+    laps inside it, from afternoon into the night.
+  - Plaza de Illapel: the town round the plaza from OpenStreetMap's building footprints.
+  - The mod's own vehicles (taxi, micro, horse carts, jet skis, procession andas), voices, horns and models.
+  - Everything built from open data (OpenStreetMap, SRTM, Sentinel-2) and the mod's own tools; no file of the game.

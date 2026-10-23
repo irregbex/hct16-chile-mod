@@ -33,9 +33,16 @@ Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated w
 
 2. INSTALL (Windows)
 --------------------
-  You need: Horizon Chase Turbo on Steam (installed and started at least once) and the .NET 10 SDK or newer
-  (https://dotnet.microsoft.com/download - the "SDK", not just the "Runtime").
+  You need Horizon Chase Turbo on Steam, installed and started at least once.
 
+  The easy way - the ready-made installer:
+  1. On this repository's page, open Releases (right-hand column) and download HCT16-<version>-Installer.zip.
+  2. Unzip it anywhere, close the game and double-click INSTALL.cmd.
+  3. Start Horizon Chase Turbo from Steam as usual. The title screen shows "HCT 1.6 ... MOD ACTIVE".
+  To remove it: UNINSTALL.cmd from the same folder.
+
+  Building it yourself from the source - also needs the .NET 10 SDK or newer
+  (https://dotnet.microsoft.com/download - the "SDK", not just the "Runtime"):
   1. Download this repository (Code > Download ZIP, or git clone) and unzip it.
   2. Double-click Prepare-References.cmd
        It finds your game in Steam and copies into Source\game-managed the DLLs the mod is compiled against.
