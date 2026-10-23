@@ -1,4 +1,4 @@
-HCT 1.6 v2.2.0 - A MOD FOR HORIZON CHASE TURBO (STEAM)
+HCT 1.6 v2.2.1 - A MOD FOR HORIZON CHASE TURBO (STEAM)
 =====================================================
 
 INSTALL
@@ -6,7 +6,7 @@ INSTALL
   2. Double-click INSTALL.cmd.
      It finds the game in your Steam libraries on its own. If it cannot, it asks for the folder
      (the one that contains HorizonChase.exe).
-  3. Start Horizon Chase Turbo from Steam as usual. The title screen shows "HCT 1.6 v2.2.0 MOD ACTIVE".
+  3. Start Horizon Chase Turbo from Steam as usual. The title screen shows "HCT 1.6 v2.2.1 MOD ACTIVE".
      The mod's campaigns (Chile, Rutas de Chile, Aventura Chile, Competencia Chile 2026, Grand Prix 2026)
      are under Campaigns.
 

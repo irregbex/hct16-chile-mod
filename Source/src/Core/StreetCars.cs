@@ -2321,7 +2321,7 @@ namespace HCT15
             }
         }
 
-        public const float WalkLean = 6f;   // 2.1.5: degrees an anda rolls into a full bend
+        public const float WalkLean = 18f;   // degrees an anda rolls into a full bend (2.1.5: 6; 2.2.1: three times that)
         private Quaternion[] _baseRot = new Quaternion[0];
     }
 }

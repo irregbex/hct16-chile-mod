@@ -1,6 +1,6 @@
 HCT 1.6 - a Chilean fan mod for Horizon Chase Turbo
 ====================================================
-Version 2.2.0. A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game
+Version 2.2.1. A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game
 WITHOUT changing it: it is loaded by BepInEx and removed with one click.
 
 This repository contains NO file of the game. You need your own copy of Horizon Chase Turbo, bought on Steam.
