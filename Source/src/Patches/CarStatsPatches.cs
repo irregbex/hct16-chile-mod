@@ -16,6 +16,7 @@ namespace HCT15.Patches
     internal static class SelectionStatsPatch
     {
         public const int WrapAt = 70;     // characters a description line holds left of the stats column (1280 px wide)
+        public const float ShownSpeedFullBar = 60f;   // 2.2.3: the shown speed that fills the top-speed bar of a car with ShownSpeed
 
         // the colour on the turntable gives the car its stats before the bars and numbers are filled
         private static void Prefix(CarSelectionViewModel __instance)
@@ -44,7 +45,12 @@ namespace HCT15.Patches
                         num = SpeedConverterUtils.ConvertSpeed(SpeedConverterUtils.SpeedUnity.KilometersPerHour, SpeedConverterUtils.SpeedUnity.MilesPerHour, num);
                     string key = unit.ToString().ToLower() + "_abbreviation";
                     float shown = num * 0.55f * f;
-                    __instance.FillSpeedBinding.Value.Stat = (shown < 10f ? shown.ToString("0.0") : Mathf.RoundToInt(shown).ToString()) + TextLocalization.Localize(key);
+                    __instance.FillSpeedBinding.Value.Stat = (shown < 10f ? shown.ToString("0.0") : Mathf.RoundToInt(shown).ToString()) + " " + TextLocalization.Localize(key).Trim();
+                    // 2.2.3: the game fills the bar on the scale of its own cars (~300 km/h), where a walk is an empty bar -
+                    // a car with a shown speed fills it on a walk's scale instead (60 shown = full)
+                    float fill = Mathf.Clamp01(shown / ShownSpeedFullBar);
+                    __instance.FillSpeedBinding.Value.Fill = fill;
+                    __instance.FillSpeedBinding.Value.FillSum = fill;
                     // a car that never reaches 100 km/h: the game's "0-100" reads -1 s - say the seconds to its own top speed
                     __instance.FillAccelerationBinding.Value.Stat = cm.ZeroToMaxSpeedInSeconds.ToString("0.0") + " S";
                     __instance.ForceUpdateFillBindings();

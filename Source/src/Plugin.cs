@@ -21,7 +21,7 @@ namespace HCT15
     {
         public const string Guid = "hct15.mod";
         public const string Name = "HCT 1.6";
-        public const string Version = "2.2.2";   // the plugin line (2.x); the 1.x line was an earlier, private build
+        public const string Version = "2.2.3";   // the plugin line (2.x); the 1.x line was an earlier, private build
 
         internal static Plugin Instance;
         internal static ConfigEntry<string> SteamMode;
