@@ -1,0 +1,25 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl bench_dark
+Kd 0.4800 0.4200 0.3400
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl bench_grey
+Kd 0.5600 0.5500 0.5200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl bench_light
+Kd 0.6600 0.5800 0.4600
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl ore
+Kd 0.4000 0.3600 0.3200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

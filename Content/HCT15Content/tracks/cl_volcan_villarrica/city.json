@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_volcan_villarrica_city",
+ "ItemName": "city_cl_volcan_villarrica",
+ "DisplayName": "Volcán Villarrica, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_volcan_villarrica"
+ ]
+}

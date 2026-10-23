@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_leg_alazan",
+  "Name": "Leg (alazan)",
+  "Category": "prop",
+  "Description": "One leg of the alazan, origin at the hip - hung and swung by HCT15",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_base_ohiggins_city",
+ "ItemName": "city_cl_base_ohiggins",
+ "DisplayName": "Base General Bernardo O'Higgins, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_base_ohiggins"
+ ]
+}

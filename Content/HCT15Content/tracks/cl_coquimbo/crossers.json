@@ -1,0 +1,13 @@
+{
+ "Comment": "A sea lion from the cove settles on the road",
+ "Items": [
+  {
+   "Asset": "lobo_marino",
+   "P": 0.538,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 4.16
+  }
+ ]
+}

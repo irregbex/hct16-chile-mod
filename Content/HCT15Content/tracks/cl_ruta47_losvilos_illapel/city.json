@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_ruta47_losvilos_illapel_city",
+ "ItemName": "city_cl_ruta47_losvilos_illapel",
+ "DisplayName": "Ruta 47: Los Vilos - Illapel, Coquimbo",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_ruta47_losvilos_illapel"
+ ]
+}

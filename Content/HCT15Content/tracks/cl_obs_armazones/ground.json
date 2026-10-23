@@ -1,0 +1,11 @@
+{
+ "Comment": "elt_dress.py: the concrete floor inside the dome",
+ "Sections": [
+  {
+   "From": 0.52204,
+   "To": 0.60391,
+   "Texture": "ground_elt_floor.png",
+   "Name": "piso dentro de la cúpula"
+  }
+ ]
+}

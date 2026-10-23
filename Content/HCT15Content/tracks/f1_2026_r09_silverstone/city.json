@@ -1,0 +1,11 @@
+{
+ "ItemId": "f1_2026_r09",
+ "ItemName": "city_f1_2026_r09",
+ "DisplayName": "Silverstone, United Kingdom",
+ "CupId": "99_f1_2026",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "f1_2026_r09_silverstone"
+ ]
+}

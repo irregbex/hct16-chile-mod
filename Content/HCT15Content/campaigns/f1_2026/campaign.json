@@ -1,0 +1,220 @@
+{
+ "Name": "Grand Prix 2026",
+ "ModeName": "Grand Prix",
+ "Formula1": true,
+ "Pits": false,
+ "ModeNameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "ModeNameTexts": [
+  "Grand Prix",
+  "Gran Premio",
+  "Grande Prêmio",
+  "Grand Prix",
+  "Großer Preis",
+  "Gran Premio"
+ ],
+ "Blade": "blade.png",
+ "Logo": "logo.png",
+ "Rounds": [
+  {
+   "RaceId": "f1_2026_r01_albert_park",
+   "Title": "Melbourne",
+   "Subtitle": "Melbourne, Australia",
+   "Description": "Round 1 · Melbourne, Australia · 5.278 km · 3 laps",
+   "Card": "tracks/f1_2026_r01_albert_park/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r02_shanghai",
+   "Title": "Shanghai",
+   "Subtitle": "Shanghai, China",
+   "Description": "Round 2 · Shanghai, China · 5.451 km · 3 laps",
+   "Card": "tracks/f1_2026_r02_shanghai/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r03_suzuka",
+   "Title": "Suzuka",
+   "Subtitle": "Suzuka, Japan",
+   "Description": "Round 3 · Suzuka, Japan · 5.807 km · 3 laps",
+   "Card": "tracks/f1_2026_r03_suzuka/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r04_miami",
+   "Title": "Miami",
+   "Subtitle": "Miami, USA",
+   "Description": "Round 4 · Miami, USA · 5.412 km · 3 laps",
+   "Card": "tracks/f1_2026_r04_miami/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r05_gilles_villeneuve",
+   "Title": "Montreal",
+   "Subtitle": "Montreal, Canada",
+   "Description": "Round 5 · Montreal, Canada · 4.361 km · 3 laps",
+   "Card": "tracks/f1_2026_r05_gilles_villeneuve/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r06_monaco",
+   "Title": "Monte Carlo",
+   "Subtitle": "Monte Carlo, Monaco",
+   "Description": "Round 6 · Monte Carlo, Monaco · 3.337 km · 4 laps",
+   "Card": "tracks/f1_2026_r06_monaco/card.png",
+   "Laps": 4
+  },
+  {
+   "RaceId": "f1_2026_r07_catalunya",
+   "Title": "Barcelona",
+   "Subtitle": "Barcelona, Spain",
+   "Description": "Round 7 · Barcelona, Spain · 4.657 km · 3 laps",
+   "Card": "tracks/f1_2026_r07_catalunya/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r08_red_bull_ring",
+   "Title": "Spielberg",
+   "Subtitle": "Spielberg, Austria",
+   "Description": "Round 8 · Spielberg, Austria · 4.318 km · 3 laps",
+   "Card": "tracks/f1_2026_r08_red_bull_ring/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r09_silverstone",
+   "Title": "Silverstone",
+   "Subtitle": "Silverstone, United Kingdom",
+   "Description": "Round 9 · Silverstone, United Kingdom · 5.891 km · 3 laps",
+   "Card": "tracks/f1_2026_r09_silverstone/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r10_spa",
+   "Title": "Stavelot",
+   "Subtitle": "Stavelot, Belgium",
+   "Description": "Round 10 · Stavelot, Belgium · 7.004 km · 3 laps",
+   "Card": "tracks/f1_2026_r10_spa/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r11_hungaroring",
+   "Title": "Budapest",
+   "Subtitle": "Budapest, Hungary",
+   "Description": "Round 11 · Budapest, Hungary · 4.381 km · 3 laps",
+   "Card": "tracks/f1_2026_r11_hungaroring/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r12_zandvoort",
+   "Title": "Zandvoort",
+   "Subtitle": "Zandvoort, Netherlands",
+   "Description": "Round 12 · Zandvoort, Netherlands · 4.259 km · 3 laps",
+   "Card": "tracks/f1_2026_r12_zandvoort/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r13_monza",
+   "Title": "Monza",
+   "Subtitle": "Monza, Italy",
+   "Description": "Round 13 · Monza, Italy · 5.793 km · 3 laps",
+   "Card": "tracks/f1_2026_r13_monza/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r14_madring",
+   "Title": "Madrid",
+   "Subtitle": "Madrid, Spain",
+   "Description": "Round 14 · Madrid, Spain · 5.470 km · 3 laps",
+   "Card": "tracks/f1_2026_r14_madring/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r15_baku",
+   "Title": "Baku",
+   "Subtitle": "Baku, Azerbaijan",
+   "Description": "Round 15 · Baku, Azerbaijan · 6.003 km · 3 laps",
+   "Card": "tracks/f1_2026_r15_baku/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r16_marina_bay",
+   "Title": "Singapore",
+   "Subtitle": "Singapore, Singapore",
+   "Description": "Round 16 · Singapore, Singapore · 4.940 km · 3 laps",
+   "Card": "tracks/f1_2026_r16_marina_bay/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r17_cota",
+   "Title": "Austin",
+   "Subtitle": "Austin, USA",
+   "Description": "Round 17 · Austin, USA · 5.513 km · 3 laps",
+   "Card": "tracks/f1_2026_r17_cota/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r18_hermanos_rodriguez",
+   "Title": "Mexico City",
+   "Subtitle": "Mexico City, Mexico",
+   "Description": "Round 18 · Mexico City, Mexico · 4.304 km · 3 laps",
+   "Card": "tracks/f1_2026_r18_hermanos_rodriguez/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r19_interlagos",
+   "Title": "Sao Paulo",
+   "Subtitle": "Sao Paulo, Brazil",
+   "Description": "Round 19 · Sao Paulo, Brazil · 4.309 km · 3 laps",
+   "Card": "tracks/f1_2026_r19_interlagos/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r20_las_vegas",
+   "Title": "Las Vegas",
+   "Subtitle": "Las Vegas, USA",
+   "Description": "Round 20 · Las Vegas, USA · 6.201 km · 3 laps",
+   "Card": "tracks/f1_2026_r20_las_vegas/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r21_lusail",
+   "Title": "Lusail",
+   "Subtitle": "Lusail, Qatar",
+   "Description": "Round 21 · Lusail, Qatar · 5.419 km · 3 laps",
+   "Card": "tracks/f1_2026_r21_lusail/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "f1_2026_r22_yas_marina",
+   "Title": "Abu Dhabi",
+   "Subtitle": "Abu Dhabi, UAE",
+   "Description": "Round 22 · Abu Dhabi, UAE · 5.281 km · 3 laps",
+   "Card": "tracks/f1_2026_r22_yas_marina/card.png",
+   "Laps": 3
+  }
+ ],
+ "DefaultRace": "f1_2026_r02_shanghai",
+ "FreePlay": true,
+ "NameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "NameTexts": [
+  "Grand Prix 2026",
+  "Gran Premio 2026",
+  "Grande Prêmio 2026",
+  "Grand Prix 2026",
+  "Grand Prix 2026",
+  "Gran Premio 2026"
+ ]
+}

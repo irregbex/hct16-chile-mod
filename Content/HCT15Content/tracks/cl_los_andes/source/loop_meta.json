@@ -1,0 +1,29 @@
+{
+ "centre": [
+  -32.8336867,
+  -70.5981609
+ ],
+ "target_m": 4000,
+ "length_m": 3748,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Maipú",
+  "Avenida Argentina",
+  "Avenida Independencia",
+  "Santa Teresita de Los Andes",
+  "Avenida Argentina",
+  "Santa Teresita de Los Andes",
+  "Esmeralda",
+  "Santa Teresita de Los Andes",
+  "República Argentina",
+  "Avenida Chacabuco",
+  "Santa Teresita de Los Andes",
+  "Avenida Independencia",
+  "Avenida Chacabuco",
+  "Avenida Chile",
+  "Colombia",
+  "República Argentina",
+  "Avenida Independencia"
+ ],
+ "sights": []
+}

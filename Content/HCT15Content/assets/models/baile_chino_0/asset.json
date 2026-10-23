@@ -1,0 +1,12 @@
+{
+  "Id": "baile_chino_0",
+  "Name": "Baile chino 0",
+  "Category": "prop",
+  "Description": "A brotherhood of chinos dancing for the Virgin: eight dancers with flutes in two files, the drummer and the banner; facing +X (Anim crowd: they dance)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false,
+  "Anim": "crowd"
+}

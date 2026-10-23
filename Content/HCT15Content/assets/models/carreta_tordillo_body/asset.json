@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_tordillo_body",
+  "Name": "Carreta del tordillo (car body)",
+  "Category": "prop",
+  "Description": "The grey horse cart as a playable car: its own wheels, its legs as carreta_leg_tordillo (legs.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

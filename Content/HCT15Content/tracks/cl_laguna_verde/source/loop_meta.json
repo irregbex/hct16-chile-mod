@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -26.89,
+  -68.47
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.28,
+  "serp": 0.0,
+  "stretch": 1.4,
+  "heading": 40,
+  "seed": 67
+ },
+ "theme": "altiplano"
+}

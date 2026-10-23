@@ -1,0 +1,16 @@
+{
+ "Comment": "An old micro bus cuts across leaving the bus stop",
+ "Items": [
+  {
+   "Asset": "micro_amarilla",
+   "P": 0.7,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.03,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "camion_mixer",
+  "Name": "Concrete mixer truck",
+  "Category": "prop",
+  "Description": "A concrete mixer truck of the site: white cab, the orange-and-white drum tilted up at the back, 9 m, nose to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

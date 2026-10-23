@@ -1,0 +1,11 @@
+{
+  "Id": "cactus_candelabro",
+  "Name": "Candelabra cactus",
+  "Category": "tree",
+  "Description": "Northern Chile, 4 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

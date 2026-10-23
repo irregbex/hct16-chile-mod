@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_rider_turquesa",
+  "Name": "Jet ski rider Turquesa",
+  "Category": "prop",
+  "Description": "The rider of the turquoise jet ski, hips at the origin: hung on the car body and moved in the jumps by HCT15",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

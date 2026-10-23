@@ -1,0 +1,11 @@
+{
+  "Id": "paso_sobre_nivel",
+  "Name": "Overpass",
+  "Category": "landmark",
+  "Description": "The deck of a road bridge crossing over the lap, on its piers (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

@@ -1,0 +1,12 @@
+{
+ "Comment": "playas_v.py: 5 lanes all along (no donor transition textures)",
+ "Sections": [],
+ "Lanes": [
+  {
+   "From": 0.0,
+   "To": 1.0,
+   "Lanes": 5,
+   "Name": "course"
+  }
+ ]
+}

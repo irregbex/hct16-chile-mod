@@ -1,0 +1,17 @@
+{
+ "Comment": "A condor of the Choapa crosses the race's sky",
+ "Items": [
+  {
+   "Asset": "condor",
+   "P": 0.207,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.648,
+   "Hover": 16.0,
+   "Margin": 2.4,
+   "Bob": 1.4,
+   "BobHz": 0.3
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "Comment": "asset_kit: the hips of the animal(s), in this model's file coordinates; HCT15.StreetCars hangs the leg model from each and TrotBob swings it (Phase = share of a stride)",
+ "Leg": "carreta_leg_bayo",
+ "Hips": [
+  [
+   1.9916,
+   1.0878,
+   0.2156
+  ],
+  [
+   1.874,
+   1.0878,
+   -0.2156
+  ],
+  [
+   0.8156,
+   1.0878,
+   0.2156
+  ],
+  [
+   0.7176,
+   1.0878,
+   -0.2156
+  ]
+ ],
+ "Phase": [
+  0.0,
+  0.5,
+  0.5,
+  0.0
+ ],
+ "Swing": 32,
+ "Head": "carreta_head_bayo",
+ "Necks": [
+  [
+   2.07,
+   1.5092,
+   0.0
+  ]
+ ]
+}

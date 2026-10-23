@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_sewell_city",
+ "ItemName": "city_cl_sewell",
+ "DisplayName": "Pueblo de Sewell, O'Higgins",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_sewell"
+ ]
+}

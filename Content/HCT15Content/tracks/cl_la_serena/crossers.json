@@ -1,0 +1,16 @@
+{
+ "Comment": "A cyclist on Avenida del Mar, under the clearest sky in the world",
+ "Items": [
+  {
+   "Asset": "ciclista",
+   "P": 0.625,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 5.5,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

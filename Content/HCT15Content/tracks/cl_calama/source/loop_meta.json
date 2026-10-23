@@ -1,0 +1,40 @@
+{
+ "centre": [
+  -22.4623917,
+  -68.9272181
+ ],
+ "target_m": 6000,
+ "length_m": 6194,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Hurtado de Mendoza",
+  "Almirante Latorre",
+  "Antofagasta",
+  "Tarapacá",
+  "Granaderos",
+  "Hurtado de Mendoza",
+  "Avenida Grecia",
+  "Tarapacá",
+  "Salar San Martín",
+  "Llama",
+  "Paula Jaraquemada",
+  "Avenida Grecia",
+  "Emilio Sotomayor",
+  "Avenida Grecia",
+  "Granaderos",
+  "Cobija",
+  "Guanaco",
+  "Balmaceda",
+  "Ecuador",
+  "Avenida La Paz",
+  "Avenida Matta",
+  "Atacama",
+  "Balmaceda",
+  "Antofagasta",
+  "Avenida Matta",
+  "Bilbao",
+  "Malaquías Concha",
+  "Avenida La Paz"
+ ],
+ "sights": []
+}

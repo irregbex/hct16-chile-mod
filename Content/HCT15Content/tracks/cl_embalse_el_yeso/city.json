@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_embalse_el_yeso_city",
+ "ItemName": "city_cl_embalse_el_yeso",
+ "DisplayName": "Embalse El Yeso, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_embalse_el_yeso"
+ ]
+}

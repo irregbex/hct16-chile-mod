@@ -1,0 +1,19 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl horse_grey_light
+Kd 0.8200 0.8200 0.8000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl white
+Kd 0.9600 0.9600 0.9600
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl horse_dark
+Kd 0.1600 0.1000 0.0700
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

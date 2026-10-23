@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -34.084,
+  -70.384
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.22,
+  "serp_n": 13,
+  "stretch": 1.2,
+  "heading": 60,
+  "seed": 74
+ },
+ "theme": "mining_town"
+}

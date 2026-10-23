@@ -1,0 +1,11 @@
+{
+  "Id": "antena_radio",
+  "Name": "Radio mast",
+  "Category": "landmark",
+  "Description": "A guyed lattice radio mast, 18 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

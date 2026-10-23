@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_conguillio_city",
+ "ItemName": "city_cl_conguillio",
+ "DisplayName": "Parque Nacional Conguillío, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_conguillio"
+ ]
+}

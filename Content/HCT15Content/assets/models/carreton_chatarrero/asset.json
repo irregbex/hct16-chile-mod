@@ -1,0 +1,11 @@
+{
+  "Id": "carreton_chatarrero",
+  "Name": "Scrap cart",
+  "Category": "prop",
+  "Description": "Horse and cart of the scrap collector, 4.4 m, towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

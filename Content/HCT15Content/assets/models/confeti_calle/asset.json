@@ -1,0 +1,12 @@
+{
+  "Id": "confeti_calle",
+  "Name": "Confetti over the street",
+  "Category": "landmark",
+  "Description": "Confetti falling across the whole street, 18 x 6 m (Side 0, Anim confetti)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "confetti"
+}

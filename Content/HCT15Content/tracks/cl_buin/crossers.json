@@ -1,0 +1,21 @@
+{
+ "Comment": "A cow from the farm wanders onto the road",
+ "Items": [
+  {
+   "Asset": "vaca",
+   "P": 0.209,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 2.9
+  },
+  {
+   "Asset": "vaca",
+   "P": 0.539,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 2.668
+  }
+ ]
+}

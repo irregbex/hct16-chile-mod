@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_valdivia_city",
+ "ItemName": "city_cl_valdivia",
+ "DisplayName": "Valdivia, Los Ríos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_valdivia"
+ ]
+}

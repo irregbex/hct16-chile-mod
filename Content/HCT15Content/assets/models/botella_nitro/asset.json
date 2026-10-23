@@ -1,0 +1,11 @@
+{
+  "Id": "botella_nitro",
+  "Name": "Liquor bottle (nitro)",
+  "Category": "prop",
+  "Description": "The andas' nitro pickup: a green liquor bottle, white label with three black X stacked, 1 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

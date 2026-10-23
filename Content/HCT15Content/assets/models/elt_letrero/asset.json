@@ -1,0 +1,11 @@
+{
+  "Id": "elt_letrero",
+  "Name": "ELT site sign",
+  "Category": "landmark",
+  "Description": "A road sign of the site: ELT - CERRO ARMAZONES 3046 M, white letters on blue, two posts, facing +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

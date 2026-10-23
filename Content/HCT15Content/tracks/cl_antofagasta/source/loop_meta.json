@@ -1,0 +1,32 @@
+{
+ "centre": [
+  -23.6463741,
+  -70.3980033
+ ],
+ "target_m": 7000,
+ "length_m": 7164,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Zenteno",
+  "Iquique",
+  "Buenos Aires",
+  "Iquique",
+  "Huanchaca",
+  "Valdivia",
+  "Puerto Nuevo",
+  "Avenida José Manuel Balmaceda",
+  "Avenida Séptimo de Linea",
+  "Aníbal Pinto",
+  "Puerto Nuevo",
+  "21 de Mayo",
+  "Puerto Nuevo",
+  "Avenida Andrés Sabella Gálvez",
+  "21 de Mayo",
+  "Valdivia",
+  "Manuel Antonio Matta",
+  "Chuquisaca",
+  "Manuel Rodríguez",
+  "Avenida Andrés Sabella Gálvez"
+ ],
+ "sights": []
+}

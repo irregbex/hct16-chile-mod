@@ -1,0 +1,11 @@
+{
+  "Id": "banco_rajo",
+  "Name": "Open pit benches (3)",
+  "Category": "landmark",
+  "Description": "Three 12 m benches of a copper pit cut into the hillside, 19 m wide: set in a row along the road to make the pit's face",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

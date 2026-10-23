@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_punta_arenas_city",
+ "ItemName": "city_cl_punta_arenas",
+ "DisplayName": "Punta Arenas, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_punta_arenas"
+ ]
+}

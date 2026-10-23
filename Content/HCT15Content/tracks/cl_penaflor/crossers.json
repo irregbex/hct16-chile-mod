@@ -1,0 +1,13 @@
+{
+ "Comment": "A cart crosses on its way to the market",
+ "Items": [
+  {
+   "Asset": "carreton_chatarrero",
+   "P": 0.554,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.6
+  }
+ ]
+}

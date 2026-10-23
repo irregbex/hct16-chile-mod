@@ -1,0 +1,11 @@
+{
+  "Id": "elt_grua_oruga",
+  "Name": "Crawler crane (red and white)",
+  "Category": "landmark",
+  "Description": "The big crawler crane that lifted the dome's steel: tracks, the red house and a 75 m red-and-white lattice boom leaning towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

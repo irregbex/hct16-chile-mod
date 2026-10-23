@@ -1,0 +1,12 @@
+{
+  "Id": "chimenea_minera",
+  "Name": "Mine chimney (smoking)",
+  "Category": "landmark",
+  "Description": "A 60 m concrete stack of the concentrator, red and white at the crown; HCT15.SmokePlume lets smoke off its top",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false,
+  "Anim": "smoke"
+}

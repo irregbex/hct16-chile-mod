@@ -1,0 +1,11 @@
+{
+  "Id": "elt_celda_m1",
+  "Name": "ELT telescope (M1 cell, a slice)",
+  "Category": "landmark",
+  "Description": "24 m of the telescope as driven round inside: the white hexagonal lattice of the primary mirror's cell high up on its white struts, the dark azimuth track below; facing +X (repeat it along the inside)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

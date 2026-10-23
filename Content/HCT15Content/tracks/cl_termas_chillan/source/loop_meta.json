@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -36.904,
+  -71.408
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.28,
+  "serp": 0.2,
+  "serp_n": 12,
+  "stretch": 1.3,
+  "heading": 110,
+  "seed": 75
+ },
+ "theme": "termas"
+}

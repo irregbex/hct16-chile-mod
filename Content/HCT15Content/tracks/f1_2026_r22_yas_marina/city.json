@@ -1,0 +1,11 @@
+{
+ "ItemId": "f1_2026_r22",
+ "ItemName": "city_f1_2026_r22",
+ "DisplayName": "Abu Dhabi, UAE",
+ "CupId": "99_f1_2026",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "f1_2026_r22_yas_marina"
+ ]
+}

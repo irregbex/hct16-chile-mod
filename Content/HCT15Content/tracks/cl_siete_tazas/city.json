@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_siete_tazas_city",
+ "ItemName": "city_cl_siete_tazas",
+ "DisplayName": "Radal Siete Tazas, Maule",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_siete_tazas"
+ ]
+}

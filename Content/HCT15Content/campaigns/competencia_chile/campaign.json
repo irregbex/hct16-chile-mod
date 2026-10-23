@@ -1,0 +1,1130 @@
+{
+ "Name": "Competencia Chile 2026",
+ "NameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "NameTexts": [
+  "Competencia Chile 2026",
+  "Competencia Chile 2026",
+  "Competencia Chile 2026",
+  "Competencia Chile 2026",
+  "Competencia Chile 2026",
+  "Competencia Chile 2026"
+ ],
+ "ModeName": "Championship",
+ "ModeNameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "ModeNameTexts": [
+  "Championship",
+  "Campeonato",
+  "Campeonato",
+  "Championnat",
+  "Meisterschaft",
+  "Campionato"
+ ],
+ "Order": 5,
+ "Formula1": false,
+ "FreePlay": false,
+ "DefaultRace": "",
+ "Pits": false,
+ "RaceMusicOnly": [
+  "Agregados"
+ ],
+ "MusicAlbums": [],
+ "CarIds": [],
+ "Blade": "blade.png",
+ "Logo": "logo.png",
+ "Rounds": [
+  {
+   "RaceId": "cl_stgo_costanera_moneda",
+   "Title": "Race 1.1 · Cup Novatos - Costanera Center ↔ La Moneda",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 1.1 · Cup Novatos - Costanera Center ↔ La Moneda",
+    "Fecha 1.1 · Copa Novatos - Costanera Center ↔ La Moneda",
+    "Etapa 1.1 · Taça Novatos - Costanera Center ↔ La Moneda",
+    "Manche 1.1 · Coupe Novatos - Costanera Center ↔ La Moneda",
+    "Lauf 1.1 · Pokal Novatos - Costanera Center ↔ La Moneda",
+    "Gara 1.1 · Coppa Novatos - Costanera Center ↔ La Moneda"
+   ],
+   "Subtitle": "Santiago · 404,495 inhabitants",
+   "Description": "Race 1/40 · Cup Novatos · 2 laps",
+   "Card": "tracks/cl_stgo_costanera_moneda/card.png",
+   "Laps": 2,
+   "Music": "Race/Agregados/Avisame el nitro.wav",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_san_felipe",
+   "Title": "Race 1.2 · Cup Novatos - San Felipe",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 1.2 · Cup Novatos - San Felipe",
+    "Fecha 1.2 · Copa Novatos - San Felipe",
+    "Etapa 1.2 · Taça Novatos - San Felipe",
+    "Manche 1.2 · Coupe Novatos - San Felipe",
+    "Lauf 1.2 · Pokal Novatos - San Felipe",
+    "Gara 1.2 · Coppa Novatos - San Felipe"
+   ],
+   "Subtitle": "Valparaíso · 76,009 inhabitants",
+   "Description": "Race 2/40 · Cup Novatos · 2 laps",
+   "Card": "tracks/cl_san_felipe/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_obs_alma",
+   "Title": "Race 1.3 · Cup Novatos - Observatorio ALMA",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 1.3 · Cup Novatos - Observatorio ALMA",
+    "Fecha 1.3 · Copa Novatos - Observatorio ALMA",
+    "Etapa 1.3 · Taça Novatos - Observatorio ALMA",
+    "Manche 1.3 · Coupe Novatos - Observatorio ALMA",
+    "Lauf 1.3 · Pokal Novatos - Observatorio ALMA",
+    "Gara 1.3 · Coppa Novatos - Observatorio ALMA"
+   ],
+   "Subtitle": "Llano de Chajnantor · 5.050 m",
+   "Description": "Race 3/40 · Cup Novatos · 2 laps",
+   "Card": "tracks/cl_obs_alma/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_oasis_pica",
+   "Title": "Race 1.4 · Cup Novatos - Oasis de Pica",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 1.4 · Cup Novatos - Oasis de Pica",
+    "Fecha 1.4 · Copa Novatos - Oasis de Pica",
+    "Etapa 1.4 · Taça Novatos - Oasis de Pica",
+    "Manche 1.4 · Coupe Novatos - Oasis de Pica",
+    "Lauf 1.4 · Pokal Novatos - Oasis de Pica",
+    "Gara 1.4 · Coppa Novatos - Oasis de Pica"
+   ],
+   "Subtitle": "Limones y mangos en el desierto",
+   "Description": "Race 4/40 · Cup Novatos · 2 laps",
+   "Card": "tracks/cl_oasis_pica/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_arica",
+   "Title": "Race 1.5 · Cup Novatos - Arica",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 1.5 · Cup Novatos - Arica",
+    "Fecha 1.5 · Copa Novatos - Arica",
+    "Etapa 1.5 · Taça Novatos - Arica",
+    "Manche 1.5 · Coupe Novatos - Arica",
+    "Lauf 1.5 · Pokal Novatos - Arica",
+    "Gara 1.5 · Coppa Novatos - Arica"
+   ],
+   "Subtitle": "Arica y Parinacota · 221,364 inhabitants",
+   "Description": "Race 5/40 · Cup Novatos · 2 laps",
+   "Card": "tracks/cl_arica/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_melipilla",
+   "Title": "Race 2.1 · Cup Promocional - Melipilla",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 2.1 · Cup Promocional - Melipilla",
+    "Fecha 2.1 · Copa Promocional - Melipilla",
+    "Etapa 2.1 · Taça Promocional - Melipilla",
+    "Manche 2.1 · Coupe Promocional - Melipilla",
+    "Lauf 2.1 · Pokal Promocional - Melipilla",
+    "Gara 2.1 · Coppa Promocional - Melipilla"
+   ],
+   "Subtitle": "Metropolitana · 133,232 inhabitants",
+   "Description": "Race 6/40 · Cup Promocional · 2 laps",
+   "Card": "tracks/cl_melipilla/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_stgo_maipu",
+   "Title": "Race 2.2 · Cup Promocional - Santiago - Maipú",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 2.2 · Cup Promocional - Santiago - Maipú",
+    "Fecha 2.2 · Copa Promocional - Santiago - Maipú",
+    "Etapa 2.2 · Taça Promocional - Santiago - Maipú",
+    "Manche 2.2 · Coupe Promocional - Santiago - Maipú",
+    "Lauf 2.2 · Pokal Promocional - Santiago - Maipú",
+    "Gara 2.2 · Coppa Promocional - Santiago - Maipú"
+   ],
+   "Subtitle": "Santiago · 521,627 inhabitants",
+   "Description": "Race 7/40 · Cup Promocional · 2 laps",
+   "Card": "tracks/cl_stgo_maipu/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_iquique",
+   "Title": "Race 2.3 · Cup Promocional - Iquique",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 2.3 · Cup Promocional - Iquique",
+    "Fecha 2.3 · Copa Promocional - Iquique",
+    "Etapa 2.3 · Taça Promocional - Iquique",
+    "Manche 2.3 · Coupe Promocional - Iquique",
+    "Lauf 2.3 · Pokal Promocional - Iquique",
+    "Gara 2.3 · Coppa Promocional - Iquique"
+   ],
+   "Subtitle": "Tarapacá · 191,468 inhabitants",
+   "Description": "Race 8/40 · Cup Promocional · 2 laps",
+   "Card": "tracks/cl_iquique/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_avdelmar_laserena_coquimbo",
+   "Title": "Race 2.4 · Cup Promocional - Avenida del Mar: La Serena ↔ Coquimbo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 2.4 · Cup Promocional - Avenida del Mar: La Serena ↔ Coquimbo",
+    "Fecha 2.4 · Copa Promocional - Avenida del Mar: La Serena ↔ Coquimbo",
+    "Etapa 2.4 · Taça Promocional - Avenida del Mar: La Serena ↔ Coquimbo",
+    "Manche 2.4 · Coupe Promocional - Avenida del Mar: La Serena ↔ Coquimbo",
+    "Lauf 2.4 · Pokal Promocional - Avenida del Mar: La Serena ↔ Coquimbo",
+    "Gara 2.4 · Coppa Promocional - Avenida del Mar: La Serena ↔ Coquimbo"
+   ],
+   "Subtitle": "Coquimbo · 10 km",
+   "Description": "Race 9/40 · Cup Promocional · 1 lap",
+   "Card": "tracks/cl_avdelmar_laserena_coquimbo/card.png",
+   "Laps": 1,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_valparaiso",
+   "Title": "Race 2.5 · Cup Promocional - Valparaíso",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 2.5 · Cup Promocional - Valparaíso",
+    "Fecha 2.5 · Copa Promocional - Valparaíso",
+    "Etapa 2.5 · Taça Promocional - Valparaíso",
+    "Manche 2.5 · Coupe Promocional - Valparaíso",
+    "Lauf 2.5 · Pokal Promocional - Valparaíso",
+    "Gara 2.5 · Coppa Promocional - Valparaíso"
+   ],
+   "Subtitle": "Valparaíso · 296,655 inhabitants",
+   "Description": "Race 10/40 · Cup Promocional · 2 laps",
+   "Card": "tracks/cl_valparaiso/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_stgo_renca",
+   "Title": "Race 3.1 · Cup Regional - Santiago - Renca",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 3.1 · Cup Regional - Santiago - Renca",
+    "Fecha 3.1 · Copa Regional - Santiago - Renca",
+    "Etapa 3.1 · Taça Regional - Santiago - Renca",
+    "Manche 3.1 · Coupe Regional - Santiago - Renca",
+    "Lauf 3.1 · Pokal Regional - Santiago - Renca",
+    "Gara 3.1 · Coppa Regional - Santiago - Renca"
+   ],
+   "Subtitle": "Santiago · 147,151 inhabitants",
+   "Description": "Race 11/40 · Cup Regional · 3 laps",
+   "Card": "tracks/cl_stgo_renca/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_rapanui_hanga_roa",
+   "Title": "Race 3.2 · Cup Regional - Rapa Nui: Hanga Roa",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 3.2 · Cup Regional - Rapa Nui: Hanga Roa",
+    "Fecha 3.2 · Copa Regional - Rapa Nui: Hanga Roa",
+    "Etapa 3.2 · Taça Regional - Rapa Nui: Hanga Roa",
+    "Manche 3.2 · Coupe Regional - Rapa Nui: Hanga Roa",
+    "Lauf 3.2 · Pokal Regional - Rapa Nui: Hanga Roa",
+    "Gara 3.2 · Coppa Regional - Rapa Nui: Hanga Roa"
+   ],
+   "Subtitle": "Rapa Nui · Hanga Roa",
+   "Description": "Race 12/40 · Cup Regional · 3 laps",
+   "Card": "tracks/cl_rapanui_hanga_roa/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_puerto_natales",
+   "Title": "Race 3.3 · Cup Regional - Puerto Natales",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 3.3 · Cup Regional - Puerto Natales",
+    "Fecha 3.3 · Copa Regional - Puerto Natales",
+    "Etapa 3.3 · Taça Regional - Puerto Natales",
+    "Manche 3.3 · Coupe Regional - Puerto Natales",
+    "Lauf 3.3 · Pokal Regional - Puerto Natales",
+    "Gara 3.3 · Coppa Regional - Puerto Natales"
+   ],
+   "Subtitle": "Seno Última Esperanza",
+   "Description": "Race 13/40 · Cup Regional · 3 laps",
+   "Card": "tracks/cl_puerto_natales/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_ruta68_santiago_curacavi",
+   "Title": "Race 3.4 · Cup Regional - Ruta 68: Santiago → Curacaví",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 3.4 · Cup Regional - Ruta 68: Santiago → Curacaví",
+    "Fecha 3.4 · Copa Regional - Ruta 68: Santiago → Curacaví",
+    "Etapa 3.4 · Taça Regional - Ruta 68: Santiago → Curacaví",
+    "Manche 3.4 · Coupe Regional - Ruta 68: Santiago → Curacaví",
+    "Lauf 3.4 · Pokal Regional - Ruta 68: Santiago → Curacaví",
+    "Gara 3.4 · Coppa Regional - Ruta 68: Santiago → Curacaví"
+   ],
+   "Subtitle": "Metropolitana · 36 km",
+   "Description": "Race 14/40 · Cup Regional · 1 lap",
+   "Card": "tracks/cl_ruta68_santiago_curacavi/card.png",
+   "Laps": 1,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_coquimbo",
+   "Title": "Race 3.5 · Cup Regional - Coquimbo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 3.5 · Cup Regional - Coquimbo",
+    "Fecha 3.5 · Copa Regional - Coquimbo",
+    "Etapa 3.5 · Taça Regional - Coquimbo",
+    "Manche 3.5 · Coupe Regional - Coquimbo",
+    "Lauf 3.5 · Pokal Regional - Coquimbo",
+    "Gara 3.5 · Coppa Regional - Coquimbo"
+   ],
+   "Subtitle": "Coquimbo · 256,735 inhabitants",
+   "Description": "Race 15/40 · Cup Regional · 3 laps",
+   "Card": "tracks/cl_coquimbo/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 1
+  },
+  {
+   "RaceId": "cl_penaflor",
+   "Title": "Race 4.1 · Cup Nacional - Peñaflor",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 4.1 · Cup Nacional - Peñaflor",
+    "Fecha 4.1 · Copa Nacional - Peñaflor",
+    "Etapa 4.1 · Taça Nacional - Peñaflor",
+    "Manche 4.1 · Coupe Nacional - Peñaflor",
+    "Lauf 4.1 · Pokal Nacional - Peñaflor",
+    "Gara 4.1 · Coppa Nacional - Peñaflor"
+   ],
+   "Subtitle": "Metropolitana · 90,201 inhabitants",
+   "Description": "Race 16/40 · Cup Nacional · 3 laps",
+   "Card": "tracks/cl_penaflor/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_linares",
+   "Title": "Race 4.2 · Cup Nacional - Linares",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 4.2 · Cup Nacional - Linares",
+    "Fecha 4.2 · Copa Nacional - Linares",
+    "Etapa 4.2 · Taça Nacional - Linares",
+    "Manche 4.2 · Coupe Nacional - Linares",
+    "Lauf 4.2 · Pokal Nacional - Linares",
+    "Gara 4.2 · Coppa Nacional - Linares"
+   ],
+   "Subtitle": "Maule · 93,602 inhabitants",
+   "Description": "Race 17/40 · Cup Nacional · 3 laps",
+   "Card": "tracks/cl_linares/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_stgo_recoleta",
+   "Title": "Race 4.3 · Cup Nacional - Santiago - Recoleta",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 4.3 · Cup Nacional - Santiago - Recoleta",
+    "Fecha 4.3 · Copa Nacional - Santiago - Recoleta",
+    "Etapa 4.3 · Taça Nacional - Santiago - Recoleta",
+    "Manche 4.3 · Coupe Nacional - Santiago - Recoleta",
+    "Lauf 4.3 · Pokal Nacional - Santiago - Recoleta",
+    "Gara 4.3 · Coppa Nacional - Santiago - Recoleta"
+   ],
+   "Subtitle": "Santiago · 157,851 inhabitants",
+   "Description": "Race 18/40 · Cup Nacional · 3 laps",
+   "Card": "tracks/cl_stgo_recoleta/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_base_prat",
+   "Title": "Race 4.4 · Cup Nacional - Base Antártica Arturo Prat",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 4.4 · Cup Nacional - Base Antártica Arturo Prat",
+    "Fecha 4.4 · Copa Nacional - Base Antártica Arturo Prat",
+    "Etapa 4.4 · Taça Nacional - Base Antártica Arturo Prat",
+    "Manche 4.4 · Coupe Nacional - Base Antártica Arturo Prat",
+    "Lauf 4.4 · Pokal Nacional - Base Antártica Arturo Prat",
+    "Gara 4.4 · Coppa Nacional - Base Antártica Arturo Prat"
+   ],
+   "Subtitle": "Antártica Chilena · isla Greenwich",
+   "Description": "Race 19/40 · Cup Nacional · 3 laps",
+   "Card": "tracks/cl_base_prat/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_los_angeles",
+   "Title": "Race 4.5 · Cup Nacional - Los Ángeles",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 4.5 · Cup Nacional - Los Ángeles",
+    "Fecha 4.5 · Copa Nacional - Los Ángeles",
+    "Etapa 4.5 · Taça Nacional - Los Ángeles",
+    "Manche 4.5 · Coupe Nacional - Los Ángeles",
+    "Lauf 4.5 · Pokal Nacional - Los Ángeles",
+    "Gara 4.5 · Coppa Nacional - Los Ángeles"
+   ],
+   "Subtitle": "Biobío · 212,875 inhabitants",
+   "Description": "Race 20/40 · Cup Nacional · 3 laps",
+   "Card": "tracks/cl_los_angeles/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_copiapo",
+   "Title": "Race 5.1 · Cup Pacífico - Copiapó",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 5.1 · Cup Pacífico - Copiapó",
+    "Fecha 5.1 · Copa Pacífico - Copiapó",
+    "Etapa 5.1 · Taça Pacífico - Copiapó",
+    "Manche 5.1 · Coupe Pacífico - Copiapó",
+    "Lauf 5.1 · Pokal Pacífico - Copiapó",
+    "Gara 5.1 · Coppa Pacífico - Copiapó"
+   ],
+   "Subtitle": "Atacama · 174,309 inhabitants",
+   "Description": "Race 21/40 · Cup Pacífico · 3 laps",
+   "Card": "tracks/cl_copiapo/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_valdivia",
+   "Title": "Race 5.2 · Cup Pacífico - Valdivia",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 5.2 · Cup Pacífico - Valdivia",
+    "Fecha 5.2 · Copa Pacífico - Valdivia",
+    "Etapa 5.2 · Taça Pacífico - Valdivia",
+    "Manche 5.2 · Coupe Pacífico - Valdivia",
+    "Lauf 5.2 · Pokal Pacífico - Valdivia",
+    "Gara 5.2 · Coppa Pacífico - Valdivia"
+   ],
+   "Subtitle": "Los Ríos · 171,725 inhabitants",
+   "Description": "Race 22/40 · Cup Pacífico · 3 laps",
+   "Card": "tracks/cl_valdivia/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_pn_patagonia",
+   "Title": "Race 5.3 · Cup Pacífico - Parque Nacional Patagonia",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 5.3 · Cup Pacífico - Parque Nacional Patagonia",
+    "Fecha 5.3 · Copa Pacífico - Parque Nacional Patagonia",
+    "Etapa 5.3 · Taça Pacífico - Parque Nacional Patagonia",
+    "Manche 5.3 · Coupe Pacífico - Parque Nacional Patagonia",
+    "Lauf 5.3 · Pokal Pacífico - Parque Nacional Patagonia",
+    "Gara 5.3 · Coppa Pacífico - Parque Nacional Patagonia"
+   ],
+   "Subtitle": "Valle Chacabuco · estepa",
+   "Description": "Race 23/40 · Cup Pacífico · 3 laps",
+   "Card": "tracks/cl_pn_patagonia/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_osorno",
+   "Title": "Race 5.4 · Cup Pacífico - Osorno",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 5.4 · Cup Pacífico - Osorno",
+    "Fecha 5.4 · Copa Pacífico - Osorno",
+    "Etapa 5.4 · Taça Pacífico - Osorno",
+    "Manche 5.4 · Coupe Pacífico - Osorno",
+    "Lauf 5.4 · Pokal Pacífico - Osorno",
+    "Gara 5.4 · Coppa Pacífico - Osorno"
+   ],
+   "Subtitle": "Los Lagos · 170,129 inhabitants",
+   "Description": "Race 24/40 · Cup Pacífico · 3 laps",
+   "Card": "tracks/cl_osorno/card.png",
+   "Laps": 3,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_costero_vina_concon",
+   "Title": "Race 5.5 · Cup Pacífico - Camino Costero: Viña del Mar → Concón",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 5.5 · Cup Pacífico - Camino Costero: Viña del Mar → Concón",
+    "Fecha 5.5 · Copa Pacífico - Camino Costero: Viña del Mar → Concón",
+    "Etapa 5.5 · Taça Pacífico - Camino Costero: Viña del Mar → Concón",
+    "Manche 5.5 · Coupe Pacífico - Camino Costero: Viña del Mar → Concón",
+    "Lauf 5.5 · Pokal Pacífico - Camino Costero: Viña del Mar → Concón",
+    "Gara 5.5 · Coppa Pacífico - Camino Costero: Viña del Mar → Concón"
+   ],
+   "Subtitle": "Valparaíso · 9 km",
+   "Description": "Race 25/40 · Cup Pacífico · 1 lap",
+   "Card": "tracks/cl_costero_vina_concon/card.png",
+   "Laps": 1,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_san_antonio",
+   "Title": "Race 6.1 · Cup Cordillera - San Antonio",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 6.1 · Cup Cordillera - San Antonio",
+    "Fecha 6.1 · Copa Cordillera - San Antonio",
+    "Etapa 6.1 · Taça Cordillera - San Antonio",
+    "Manche 6.1 · Coupe Cordillera - San Antonio",
+    "Lauf 6.1 · Pokal Cordillera - San Antonio",
+    "Gara 6.1 · Coppa Cordillera - San Antonio"
+   ],
+   "Subtitle": "Valparaíso · 91,350 inhabitants",
+   "Description": "Race 26/40 · Cup Cordillera · 4 laps",
+   "Card": "tracks/cl_san_antonio/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_punta_arenas",
+   "Title": "Race 6.2 · Cup Cordillera - Punta Arenas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 6.2 · Cup Cordillera - Punta Arenas",
+    "Fecha 6.2 · Copa Cordillera - Punta Arenas",
+    "Etapa 6.2 · Taça Cordillera - Punta Arenas",
+    "Manche 6.2 · Coupe Cordillera - Punta Arenas",
+    "Lauf 6.2 · Pokal Cordillera - Punta Arenas",
+    "Gara 6.2 · Coppa Cordillera - Punta Arenas"
+   ],
+   "Subtitle": "Magallanes · 123,403 inhabitants",
+   "Description": "Race 27/40 · Cup Cordillera · 4 laps",
+   "Card": "tracks/cl_punta_arenas/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_rancagua",
+   "Title": "Race 6.3 · Cup Cordillera - Rancagua",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 6.3 · Cup Cordillera - Rancagua",
+    "Fecha 6.3 · Copa Cordillera - Rancagua",
+    "Etapa 6.3 · Taça Cordillera - Rancagua",
+    "Manche 6.3 · Coupe Cordillera - Rancagua",
+    "Lauf 6.3 · Pokal Cordillera - Rancagua",
+    "Gara 6.3 · Coppa Cordillera - Rancagua"
+   ],
+   "Subtitle": "O'Higgins · 241,774 inhabitants",
+   "Description": "Race 28/40 · Cup Cordillera · 4 laps",
+   "Card": "tracks/cl_rancagua/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_chiloe",
+   "Title": "Race 6.4 · Cup Cordillera - Archipiélago de Chiloé",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 6.4 · Cup Cordillera - Archipiélago de Chiloé",
+    "Fecha 6.4 · Copa Cordillera - Archipiélago de Chiloé",
+    "Etapa 6.4 · Taça Cordillera - Archipiélago de Chiloé",
+    "Manche 6.4 · Coupe Cordillera - Archipiélago de Chiloé",
+    "Lauf 6.4 · Pokal Cordillera - Archipiélago de Chiloé",
+    "Gara 6.4 · Coppa Cordillera - Archipiélago de Chiloé"
+   ],
+   "Subtitle": "Palafitos e iglesias de madera",
+   "Description": "Race 29/40 · Cup Cordillera · 4 laps",
+   "Card": "tracks/cl_chiloe/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_cajon_del_maipo",
+   "Title": "Race 6.5 · Cup Cordillera - Cajón del Maipo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 6.5 · Cup Cordillera - Cajón del Maipo",
+    "Fecha 6.5 · Copa Cordillera - Cajón del Maipo",
+    "Etapa 6.5 · Taça Cordillera - Cajón del Maipo",
+    "Manche 6.5 · Coupe Cordillera - Cajón del Maipo",
+    "Lauf 6.5 · Pokal Cordillera - Cajón del Maipo",
+    "Gara 6.5 · Coppa Cordillera - Cajón del Maipo"
+   ],
+   "Subtitle": "El cañón del río Maipo",
+   "Description": "Race 30/40 · Cup Cordillera · 4 laps",
+   "Card": "tracks/cl_cajon_del_maipo/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 2
+  },
+  {
+   "RaceId": "cl_padre_las_casas",
+   "Title": "Race 7.1 · Cup Extremos - Padre Las Casas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 7.1 · Cup Extremos - Padre Las Casas",
+    "Fecha 7.1 · Copa Extremos - Padre Las Casas",
+    "Etapa 7.1 · Taça Extremos - Padre Las Casas",
+    "Manche 7.1 · Coupe Extremos - Padre Las Casas",
+    "Lauf 7.1 · Pokal Extremos - Padre Las Casas",
+    "Gara 7.1 · Coppa Extremos - Padre Las Casas"
+   ],
+   "Subtitle": "Araucanía · 79,019 inhabitants",
+   "Description": "Race 31/40 · Cup Extremos · 4 laps",
+   "Card": "tracks/cl_padre_las_casas/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_castro",
+   "Title": "Race 7.2 · Cup Extremos - Castro",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 7.2 · Cup Extremos - Castro",
+    "Fecha 7.2 · Copa Extremos - Castro",
+    "Etapa 7.2 · Taça Extremos - Castro",
+    "Manche 7.2 · Coupe Extremos - Castro",
+    "Lauf 7.2 · Pokal Extremos - Castro",
+    "Gara 7.2 · Coppa Extremos - Castro"
+   ],
+   "Subtitle": "Los Lagos · 43,807 inhabitants",
+   "Description": "Race 32/40 · Cup Extremos · 4 laps",
+   "Card": "tracks/cl_castro/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_obs_armazones",
+   "Title": "Race 7.3 · Cup Extremos - Telescopio Extremadamente Grande (ELT)",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 7.3 · Cup Extremos - Telescopio Extremadamente Grande (ELT)",
+    "Fecha 7.3 · Copa Extremos - Telescopio Extremadamente Grande (ELT)",
+    "Etapa 7.3 · Taça Extremos - Telescopio Extremadamente Grande (ELT)",
+    "Manche 7.3 · Coupe Extremos - Telescopio Extremadamente Grande (ELT)",
+    "Lauf 7.3 · Pokal Extremos - Telescopio Extremadamente Grande (ELT)",
+    "Gara 7.3 · Coppa Extremos - Telescopio Extremadamente Grande (ELT)"
+   ],
+   "Subtitle": "Cerro Armazones · 3.046 m",
+   "Description": "Race 33/40 · Cup Extremos · 2 laps",
+   "Card": "tracks/cl_obs_armazones/card.png",
+   "Laps": 2,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_dunas_copiapo",
+   "Title": "Race 7.4 · Cup Extremos - Mar de Dunas de Copiapó",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 7.4 · Cup Extremos - Mar de Dunas de Copiapó",
+    "Fecha 7.4 · Copa Extremos - Mar de Dunas de Copiapó",
+    "Etapa 7.4 · Taça Extremos - Mar de Dunas de Copiapó",
+    "Manche 7.4 · Coupe Extremos - Mar de Dunas de Copiapó",
+    "Lauf 7.4 · Pokal Extremos - Mar de Dunas de Copiapó",
+    "Gara 7.4 · Coppa Extremos - Mar de Dunas de Copiapó"
+   ],
+   "Subtitle": "Dunas del desierto",
+   "Description": "Race 34/40 · Cup Extremos · 4 laps",
+   "Card": "tracks/cl_dunas_copiapo/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_coronel",
+   "Title": "Race 7.5 · Cup Extremos - Coronel",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 7.5 · Cup Extremos - Coronel",
+    "Fecha 7.5 · Copa Extremos - Coronel",
+    "Etapa 7.5 · Taça Extremos - Coronel",
+    "Manche 7.5 · Coupe Extremos - Coronel",
+    "Lauf 7.5 · Pokal Extremos - Coronel",
+    "Gara 7.5 · Coppa Extremos - Coronel"
+   ],
+   "Subtitle": "Biobío · 116,262 inhabitants",
+   "Description": "Race 35/40 · Cup Extremos · 4 laps",
+   "Card": "tracks/cl_coronel/card.png",
+   "Laps": 4,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_obs_tololo",
+   "Title": "Race 8.1 · Cup Gran Final - Observatorio Cerro Tololo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 8.1 · Cup Gran Final - Observatorio Cerro Tololo",
+    "Fecha 8.1 · Copa Gran Final - Observatorio Cerro Tololo",
+    "Etapa 8.1 · Taça Gran Final - Observatorio Cerro Tololo",
+    "Manche 8.1 · Coupe Gran Final - Observatorio Cerro Tololo",
+    "Lauf 8.1 · Pokal Gran Final - Observatorio Cerro Tololo",
+    "Gara 8.1 · Coppa Gran Final - Observatorio Cerro Tololo"
+   ],
+   "Subtitle": "Cerro Tololo · 2.200 m",
+   "Description": "Race 36/40 · Cup Gran Final · 5 laps",
+   "Card": "tracks/cl_obs_tololo/card.png",
+   "Laps": 5,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_conguillio",
+   "Title": "Race 8.2 · Cup Gran Final - Parque Nacional Conguillío",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 8.2 · Cup Gran Final - Parque Nacional Conguillío",
+    "Fecha 8.2 · Copa Gran Final - Parque Nacional Conguillío",
+    "Etapa 8.2 · Taça Gran Final - Parque Nacional Conguillío",
+    "Manche 8.2 · Coupe Gran Final - Parque Nacional Conguillío",
+    "Lauf 8.2 · Pokal Gran Final - Parque Nacional Conguillío",
+    "Gara 8.2 · Coppa Gran Final - Parque Nacional Conguillío"
+   ],
+   "Subtitle": "Araucarias y lava del Llaima",
+   "Description": "Race 37/40 · Cup Gran Final · 5 laps",
+   "Card": "tracks/cl_conguillio/card.png",
+   "Laps": 5,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_volcan_calbuco",
+   "Title": "Race 8.3 · Cup Gran Final - Volcán Calbuco",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 8.3 · Cup Gran Final - Volcán Calbuco",
+    "Fecha 8.3 · Copa Gran Final - Volcán Calbuco",
+    "Etapa 8.3 · Taça Gran Final - Volcán Calbuco",
+    "Manche 8.3 · Coupe Gran Final - Volcán Calbuco",
+    "Lauf 8.3 · Pokal Gran Final - Volcán Calbuco",
+    "Gara 8.3 · Coppa Gran Final - Volcán Calbuco"
+   ],
+   "Subtitle": "Volcán activo · 2.003 m",
+   "Description": "Race 38/40 · Cup Gran Final · 5 laps",
+   "Card": "tracks/cl_volcan_calbuco/card.png",
+   "Laps": 5,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_sewell",
+   "Title": "Race 8.4 · Cup Gran Final - Pueblo de Sewell",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 8.4 · Cup Gran Final - Pueblo de Sewell",
+    "Fecha 8.4 · Copa Gran Final - Pueblo de Sewell",
+    "Etapa 8.4 · Taça Gran Final - Pueblo de Sewell",
+    "Manche 8.4 · Coupe Gran Final - Pueblo de Sewell",
+    "Lauf 8.4 · Pokal Gran Final - Pueblo de Sewell",
+    "Gara 8.4 · Coppa Gran Final - Pueblo de Sewell"
+   ],
+   "Subtitle": "La ciudad de las escaleras · 2.100 m",
+   "Description": "Race 39/40 · Cup Gran Final · 5 laps",
+   "Card": "tracks/cl_sewell/card.png",
+   "Laps": 5,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  },
+  {
+   "RaceId": "cl_termas_chillan",
+   "Title": "Race 8.5 · Cup Gran Final - Termas de Chillán",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Race 8.5 · Cup Gran Final - Termas de Chillán",
+    "Fecha 8.5 · Copa Gran Final - Termas de Chillán",
+    "Etapa 8.5 · Taça Gran Final - Termas de Chillán",
+    "Manche 8.5 · Coupe Gran Final - Termas de Chillán",
+    "Lauf 8.5 · Pokal Gran Final - Termas de Chillán",
+    "Gara 8.5 · Coppa Gran Final - Termas de Chillán"
+   ],
+   "Subtitle": "Nieve y aguas termales",
+   "Description": "Race 40/40 · Cup Gran Final · 5 laps",
+   "Card": "tracks/cl_termas_chillan/card.png",
+   "Laps": 5,
+   "Music": "",
+   "Cars": [],
+   "Difficulty": 3
+  }
+ ]
+}

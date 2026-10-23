@@ -1,0 +1,11 @@
+{
+  "Id": "pinguino",
+  "Name": "Magellanic penguin",
+  "Category": "prop",
+  "Description": "0.7 m, waddling towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

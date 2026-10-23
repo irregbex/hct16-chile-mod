@@ -1,0 +1,11 @@
+{
+  "Id": "peaje",
+  "Name": "Toll plaza",
+  "Category": "landmark",
+  "Description": "Chilean toll plaza over the road (Side 0): canopy, booths on two islands at +-2.3 units, raised arms",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

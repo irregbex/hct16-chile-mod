@@ -1,0 +1,36 @@
+{
+ "centre": [
+  -33.4520804,
+  -70.6585245
+ ],
+ "target_m": 7000,
+ "length_m": 7207,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Tucapel Jiménez",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Lord Cochrane",
+  "Tarapacá",
+  "Arturo Prat",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Avenida Brasil",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Avenida Manuel Rodríguez Norte",
+  "Moneda",
+  "Tucapel Jiménez",
+  "República",
+  "Avenida República",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Avenida Tupper",
+  "Plaza Ercilla",
+  "Avenida Almirante Blanco Encalada",
+  "República",
+  "San Diego",
+  "Avenida Manuel Antonio Matta",
+  "Avenida Tupper",
+  "Arturo Prat",
+  "Eleuterio Ramírez",
+  "San Diego"
+ ],
+ "sights": []
+}

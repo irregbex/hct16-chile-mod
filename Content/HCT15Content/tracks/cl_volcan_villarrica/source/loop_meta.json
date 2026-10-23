@@ -1,0 +1,18 @@
+{
+ "centre": [
+  -39.388,
+  -71.952
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.36,
+  "serp": 0.24,
+  "serp_n": 16,
+  "stretch": 1.15,
+  "heading": 160,
+  "seed": 41,
+  "serp2": 0.18,
+  "serp2_n": 10
+ },
+ "theme": "volcano"
+}

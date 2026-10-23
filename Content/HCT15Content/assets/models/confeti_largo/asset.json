@@ -1,0 +1,12 @@
+{
+  "Id": "confeti_largo",
+  "Name": "Confetti (falling, long)",
+  "Category": "prop",
+  "Description": "Confetti falling over 9 x 18 m of the crowd (Anim confetti)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "confetti"
+}

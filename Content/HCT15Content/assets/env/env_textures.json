@@ -1,0 +1,47 @@
+{
+ "Note": "How EnvironmentTimeline.LoadEnvTexture loads each texture (Tools\\env_textures.py draws them all - our own, nothing from the game). Alpha8 = one channel: the cloud and sun shaders read alpha only, so these are rebuilt in Alpha8 from the PNG's alpha. Textures not listed load as plain RGBA, wrap Repeat, mipmaps.",
+ "Textures": [
+  {
+   "File": "aurora_clouds.png",
+   "Source": "Tools/env_textures.py",
+   "Format": "Alpha8",
+   "Wrap": "Repeat",
+   "Mipmaps": false
+  },
+  {
+   "File": "ash_clouds.png",
+   "Source": "Tools/env_textures.py",
+   "Format": "Alpha8",
+   "Wrap": "Clamp",
+   "Mipmaps": false
+  },
+  {
+   "File": "ash_sun.png",
+   "Source": "Tools/env_textures.py",
+   "Format": "Alpha8",
+   "Wrap": "Clamp",
+   "Mipmaps": false
+  },
+  {
+   "File": "aurora_sun.png",
+   "Source": "Tools/env_textures.py",
+   "Format": "Alpha8",
+   "Wrap": "Repeat",
+   "Mipmaps": false
+  },
+  {
+   "File": "ash_soot.png",
+   "Source": "Tools/env_textures.py",
+   "Format": "RGBA32",
+   "Wrap": "Repeat",
+   "Mipmaps": true
+  },
+  {
+   "File": "day_sun.png",
+   "Source": "Tools/env_textures.py",
+   "Format": "Alpha8",
+   "Wrap": "Clamp",
+   "Mipmaps": false
+  }
+ ]
+}

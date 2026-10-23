@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -35.47,
+  -71.0
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.2,
+  "serp_n": 12,
+  "stretch": 1.3,
+  "heading": 45,
+  "seed": 79
+ },
+ "theme": "waterfalls"
+}

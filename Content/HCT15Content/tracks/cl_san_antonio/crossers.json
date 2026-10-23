@@ -1,0 +1,13 @@
+{
+ "Comment": "A sea lion from the cove crosses in front of the port",
+ "Items": [
+  {
+   "Asset": "lobo_marino",
+   "P": 0.252,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.84
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "jetski",
+  "Name": "Jet ski",
+  "Category": "prop",
+  "Description": "A red jet ski with its rider (scenery: idling off a beach), 3.4 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

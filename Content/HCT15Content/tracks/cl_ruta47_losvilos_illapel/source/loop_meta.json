@@ -1,0 +1,22 @@
+{
+ "start": [
+  -31.9105,
+  -71.503
+ ],
+ "end": [
+  -31.633,
+  -71.164
+ ],
+ "length_m": 43512,
+ "return_m": 43512,
+ "finish_index": 2275,
+ "streets": [
+  "Ruta 47",
+  "Tarcicio Valderrama",
+  "Ruta 47",
+  "Ruta 5 Norte",
+  "Camino a Los Vilos",
+  "Avenida Caupolicán"
+ ],
+ "sights": []
+}

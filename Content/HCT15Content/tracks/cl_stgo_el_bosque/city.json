@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_stgo_el_bosque_city",
+ "ItemName": "city_cl_stgo_el_bosque",
+ "DisplayName": "El Bosque, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_stgo_el_bosque"
+ ]
+}

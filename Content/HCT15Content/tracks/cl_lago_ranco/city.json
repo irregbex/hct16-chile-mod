@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_lago_ranco_city",
+ "ItemName": "city_cl_lago_ranco",
+ "DisplayName": "Lago Ranco, Los Ríos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_lago_ranco"
+ ]
+}

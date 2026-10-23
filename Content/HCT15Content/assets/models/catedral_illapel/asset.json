@@ -1,0 +1,11 @@
+{
+  "Id": "catedral_illapel",
+  "Name": "Catedral San Rafael de Illapel",
+  "Category": "landmark",
+  "Description": "The cathedral on the plaza: a tall A-frame nave with cream walls and a glass gable in a grid with a blue column, the wooden door, an iron railing - from the Commons photo of its front (Ariel Mauricio Malla Gallardo, CC BY-SA 4.0); front +X, 24 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

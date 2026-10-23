@@ -1,0 +1,124 @@
+# HCT 1.6 scenery assets - the house style
+
+Custom models for the track editor live here:
+
+    HCT15Content\assets\models\<id>\<id>.obj     shared library (every track can use it)
+                                     <id>.mtl     material colours
+                                     asset.json   id, name, category, scale, rotation
+                                     *.png        textures, only if you must
+    HCT15Content\tracks\<race>\assets\<id>\...   private to one track (same layout)
+
+The editor (F7, tool **Scenery** > **Asset library**) imports an `.obj` from anywhere on
+the disk into this layout, writes the `asset.json`, checks the rules below and lists the
+model under **Place: asset** for Shift+click and for the **Scatter** tool. **Rescan** picks
+up files you copied by hand.
+
+## What a good asset looks like
+
+Horizon Chase is flat-shaded and saturated. The retail props are a few hundred triangles
+with solid colours per face. Match that and a crude model looks like it belongs.
+
+| Rule | Value |
+|---|---|
+| Units | metres, 1 unit = 1 m (a car is 4.4 m long, the road 10.4 m wide) |
+| Axes | **Y up**. Origin at the centre of the footprint, on the ground (the importer does this for you with `Recenter`) |
+| Front | the side that should face the drivers looks along **+X in the file**. The importer mirrors X like Unity, so in the game the front faces the road when the item stands on the right; copies on the left are turned around automatically |
+| Shading | flat. Every face gets one colour; smoothing groups and normals in the file are ignored |
+| Colour | the material's `Kd` (diffuse colour) in the `.mtl`. Use the palette below, 3 to 6 materials per asset |
+| Textures | avoid. Allowed (`map_Kd`, PNG/JPG, 256-512 px, unlit) for signs and photos; they cost a draw call each |
+| Triangles | tree **300**, prop **600**, building **2000**, landmark **5000** (n-gons are fine, they are fan-triangulated) |
+| Size | trees 4-16 m, props 1-10 m, houses 3-12 m tall. Over 150 m and the importer assumes centimetres and sets `Scale 0.01` |
+| Faces | outward, counter-clockwise seen from outside (every modelling tool does this). If a model shows inside-out, set `DoubleSided: true` in asset.json |
+| Ground | nothing below y = 0 except a few centimetres of plinth; `GroundOffset` in asset.json sinks or lifts the whole model |
+
+Details that read well at 300 km/h: a darker door, a lighter roof edge, a stripe. Details
+that do not: window frames, text, thin rails under 10 cm.
+
+### Palette (Kd values, also the material names `Tools\asset_kit.py` uses)
+
+| material | rgb | material | rgb |
+|---|---|---|---|
+| wall_beige | 0.87 0.79 0.67 | roof_red | 0.62 0.25 0.20 |
+| wall_white | 0.94 0.93 0.90 | roof_grey | 0.40 0.42 0.46 |
+| wall_ochre | 0.80 0.55 0.30 | roof_green | 0.30 0.48 0.30 |
+| wall_blue | 0.45 0.62 0.85 | trim_dark | 0.16 0.17 0.20 |
+| wall_pink | 0.90 0.62 0.62 | wood | 0.45 0.30 0.16 |
+| wall_green | 0.55 0.72 0.55 | trunk | 0.36 0.24 0.13 |
+| stone | 0.55 0.53 0.50 | stone_dark | 0.38 0.37 0.36 |
+| foliage_dark | 0.18 0.42 0.20 | foliage | 0.25 0.55 0.24 |
+| foliage_light | 0.40 0.65 0.25 | cactus | 0.36 0.58 0.30 |
+| metal | 0.60 0.62 0.66 | glass | 0.55 0.72 0.85 |
+| white | 0.96 0.96 0.96 | black | 0.08 0.08 0.09 |
+| red | 0.85 0.15 0.12 | blue | 0.10 0.25 0.65 |
+| turquoise | 0.12 0.62 0.60 | green | 0.13 0.50 0.24 |
+| chrome | 0.80 0.82 0.86 | | |
+| yellow | 0.95 0.80 0.20 | orange | 0.95 0.50 0.15 |
+| glass_dark | 0.26 0.34 0.42 | amber | 0.96 0.62 0.12 |
+
+## asset.json
+
+```json
+{
+  "Id": "kiosco",            // folder name; letters, digits, underscore
+  "Name": "Kiosk",           // shown in the editor
+  "Category": "building",    // tree | building | landmark | prop  (sets the triangle budget,
+                             //   which list the item goes to, and whether Scatter jitters its size)
+  "Description": "",
+  "Scale": 1.0,              // 0.01 for a model made in centimetres, 0.1 for 10 cm voxels
+  "Yaw": 0,                  // default turn in degrees if the front is not along +X
+  "GroundOffset": 0,         // metres up (+) or down (-)
+  "Recenter": true,          // centre the footprint and put the lowest point on the ground
+  "DoubleSided": false       // render both sides of every face (inside-out models)
+}
+```
+
+Per item the editor stores `Asset` (the id), `S` (scale, 0.2-5) and `Yaw` (-180..180, on top of
+the asset's own) in the track's `scenery.json`; `W/D/H` are the model's size for the map.
+
+## Making assets
+
+**Tools\AssetMaker\index.html** - from photos or a scan. Open it in Chrome or Edge: drop
+photos of the object (front, back, sides, top) or a Gaussian splat / point cloud / mesh,
+pick a preset, tune the style, and "Save to library" writes the finished folder here in
+this layout. See `Tools\AssetMaker\README.txt`.
+
+**Tools\asset_kit.py** - the fastest way to build from primitives. A dozen lines of primitives (box, cylinder, cone,
+frustum, extruded polygon, low-poly sphere) with palette materials become an `.obj`, `.mtl`
+and `asset.json`. `python Tools\asset_kit.py` writes the starter kit (pines, round trees,
+Chilean palm, araucaria, cactus, bush, street lamp, bus stop, kiosk, adobe house, chapel,
+moai, water tower, Chilean flag, billboard, fence, fruit stall) into this library; add a
+function with `@asset(...)` for a new one. It prints the triangle count and size per asset
+and flags anything over budget.
+
+**MagicaVoxel** - voxel models export straight to OBJ (`Export > obj`). Build at 1 voxel =
+10 cm and set `Scale: 0.1`; the exporter writes a palette PNG texture, which is fine but
+you can also colour by material in Blender. Front along +X.
+
+**Blockbench** - box-modelling with flat colours; export as OBJ. Blockbench works in
+1/16 m blocks: `Scale: 0.0625` if you build on the block grid.
+
+**Blender** - model in metres, `Apply` all transforms, export **Wavefront (.obj)** with
+`Forward: -Z`, `Up: Y`, `Selection only`, `Materials` on, triangulation off (n-gons are
+fine). Put the front along +X in Blender's viewport before exporting.
+
+Anything that writes a plain OBJ with `usemtl` and a `.mtl` beside it works; the importer
+reads `v`, `vt`, `f`, `usemtl`, `mtllib`, `Kd` and `map_Kd` and ignores the rest.
+
+## What the game does with them
+
+At race load the mod builds one prototype per asset, rotation and side (the `Prototype` in
+`AssetLibrary.cs`), and streams copies along the road exactly like its own box buildings:
+`TrackManager` spawns them by lap fraction, `PropAutoMover` keeps them beside the road at
+the item's distance and grows them in as they come into view. No collision - scenery here
+is visual, the retail game's trackside props are too.
+
+## Skeletons (`<name>.rig.json`)
+
+An asset may carry a skeleton beside its `.obj`: a JSON with `Bones` (`Name`, `Parent`, `Head`,
+`Tail` in the OBJ's own coordinates) and `VertexBone` (the bone index of every `v` line, one bone
+per vertex - rigid, which is all a low-poly figure needs). `TintColor` names a colour that code
+may replace per copy (the mechanic's shirt). Scenery ignores the rig; code that wants a posable
+figure uses `HCT15.RiggedFigure` (bone Transforms + SkinnedMeshRenderer, `Pose(bone, x, y, z)`).
+The first one is `models\mechanic\` - the rider of the novelty car on his feet, made by
+`Tools\make_mechanic.py` (17 bones, used by the pit crew).
+

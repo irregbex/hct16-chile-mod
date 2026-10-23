@@ -1,0 +1,11 @@
+{
+  "Id": "correa_minera",
+  "Name": "Overland ore conveyor",
+  "Category": "landmark",
+  "Description": "A 19 m stretch of the covered ore conveyor that brings the pit's ore down the valley (Los Pelambres' is 13 km long), on legs, running along X; set end to end",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

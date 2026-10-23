@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_e30f_concon_quintero_city",
+ "ItemName": "city_cl_e30f_concon_quintero",
+ "DisplayName": "Ruta E-30-F: Concón - Quintero, Valparaíso",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_e30f_concon_quintero"
+ ]
+}

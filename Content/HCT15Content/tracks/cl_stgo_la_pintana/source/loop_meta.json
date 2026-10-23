@@ -1,0 +1,28 @@
+{
+ "centre": [
+  -33.5912239,
+  -70.6377794
+ ],
+ "target_m": 6000,
+ "length_m": 6428,
+ "edge_reuse": 0.045,
+ "streets": [
+  "Avenida Lo Blanco",
+  "Tucapel",
+  "Avenida Santa Rosa",
+  "Avenida Gabriela",
+  "Avenida Diagonal Gabriela Poniente",
+  "Ciudad de México",
+  "Porto Alegre",
+  "Avenida Lo Blanco",
+  "Lautaro",
+  "Lincoyán",
+  "Lautaro",
+  "Avenida Lo Blanco",
+  "Avenida Santa Rosa",
+  "Batallón Chacabuco",
+  "Avenida Santa Rosa",
+  "Lautaro"
+ ],
+ "sights": []
+}

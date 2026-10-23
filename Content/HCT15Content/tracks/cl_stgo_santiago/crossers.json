@@ -1,0 +1,24 @@
+{
+ "Comment": "A taxi cuts across in the middle of the Alameda",
+ "Items": [
+  {
+   "Asset": "taxi_chileno",
+   "P": 0.249,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.98,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  },
+  {
+   "Asset": "moto_delivery",
+   "P": 0.67,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.0
+  }
+ ]
+}

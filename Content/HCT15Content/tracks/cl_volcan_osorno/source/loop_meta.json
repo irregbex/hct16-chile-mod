@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -41.104,
+  -72.493
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.16,
+  "serp_n": 9,
+  "stretch": 1.2,
+  "heading": 140,
+  "seed": 77
+ },
+ "theme": "snow_volcano"
+}

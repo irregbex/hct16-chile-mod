@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -23.024,
+  -67.754
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.0,
+  "stretch": 1.4,
+  "heading": 70,
+  "seed": 21
+ },
+ "theme": "alma"
+}

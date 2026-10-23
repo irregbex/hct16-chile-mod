@@ -1,0 +1,30 @@
+{
+ "centre": [
+  -33.6644388,
+  -70.9302778
+ ],
+ "target_m": 4000,
+ "length_m": 4503,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Francisco Chacón",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Lucas Pacheco",
+  "Libertad",
+  "Miraflores",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Libertad",
+  "Esmeralda",
+  "Pasaje Los Papiros",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Julio Vrancken",
+  "Avenida 21 de Mayo",
+  "Trebulco",
+  "Libertad",
+  "Lucas Pacheco",
+  "Enrique Alcalde",
+  "José Leyan",
+  "Julio Vrancken"
+ ],
+ "sights": []
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "planta_torre",
+  "Name": "Crusher tower",
+  "Category": "landmark",
+  "Description": "The primary crusher tower of the concentrator: 19 x 19 m, 46 m tall, blue crown, the ore gallery leaning on it",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

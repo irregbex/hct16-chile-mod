@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_alto_hospicio_city",
+ "ItemName": "city_cl_alto_hospicio",
+ "DisplayName": "Alto Hospicio, Tarapacá",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_alto_hospicio"
+ ]
+}

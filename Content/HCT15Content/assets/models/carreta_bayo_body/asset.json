@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_bayo_body",
+  "Name": "Carreta del bayo (car body)",
+  "Category": "prop",
+  "Description": "The palomino cart as a playable car: its own wheels, its legs as carreta_leg_bayo (legs.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

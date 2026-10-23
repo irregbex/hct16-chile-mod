@@ -1,0 +1,8 @@
+{
+ "Comment": "playas_v.py: HCT15.StripWaves rolls the waves onto the beach painted in road_strip.png",
+ "Shore": 1,
+ "Rope": 778,
+ "Water": 150,
+ "Wash": 70,
+ "Period": 3.2
+}

@@ -1,0 +1,88 @@
+# HCT 1.6 - speech bubbles for one car: cl_carreta
+# This file wins over the campaign's taunts.txt, so this car keeps its own voice everywhere.
+# Sections: [random]
+# 50 garabatos del huaso de la carreta del valle del Choapa (2026-10-05): campo, caballo y harto garabato
+[random]
+¡Arre, Colorao, que estos culiaos de la ciudad no saben manejar!
+¡Sale del camino, weón, que la carreta no frena!
+¡Tanto motor y te paso con un caballo, aweonao!
+¡Este caballo tiene más fierro que tu auto, gil!
+¡Ándate a la chucha con tu bencina, yo ando con pasto!
+¡Correte, huevón, que el Colorao patea!
+¡Más lento que buey cansao andái, culiao!
+¡Pa' qué tanto auto si manejái como las weás!
+¡En el campo te comen los zancudos, gil de ciudad!
+¡Te voy a dejar comiendo polvo hasta Illapel, aweonao!
+¡No sabís ni ensillar un caballo y te creí piloto, weón!
+¡Quítate, chanta, que voy cargado de pasto!
+¡Con chupalla y manta te gano igual, culiao!
+¡Este camino es mío desde antes que nacierai, gil!
+¡Bocina tócale a tu abuela, huevón!
+¡Puro ruido y nada de caballo, aweonao!
+¡Te quedaste pegao como carreta en el barro, weón!
+¡Ni pa' tirar una carretilla servís, culiao!
+¡Vuelve a Santiago, que acá no te quieren, gil!
+¡Mi caballo come avena y tú comís polvo, aweonao!
+¡Échate pa' la orilla, que vienen los de a caballo, weón!
+¡Más perdío que huaso en el metro andái, culiao!
+¡Te paso por el lado y ni me ves, chanta!
+¡Tu auto es puro juguete, huevón, esto es fierro y palo!
+¡Ni en la trilla he visto tanta weá junta!
+¡Arre, Colorao, atropella a ese aweonao!
+¡Andái más pegao que chicle en la chupalla, gil!
+¡Aprende a manejar, culiao, que el caballo maneja mejor!
+¡Con este calor y tú con aire acondicionao, flojo culiao!
+¡Mi abuela maneja la carreta mejor que tú, weón!
+¡Te voy a tirar las piedras del camino, aweonao!
+¡Que te pille la noche en la cuesta, gil!
+¡Ni el perro del fundo te sigue, culiao!
+¡Mira pa' adelante, huevón, que se te viene el caballo encima!
+¡Pura pinta y nada de huevos tenís, weón!
+¡En Cuz Cuz te espero pa' sacarte la cresta, culiao!
+¡El que no tiene caballo anda a pata, aweonao!
+¡Correte, que te escupe el Colorao, gil!
+¡Tanta luz pa' ir tan atrás, chanta culiao!
+¡Esto es carrera de huasos, no de flaites, weón!
+¡Te dejo más atrás que el último vagón, aweonao!
+¡Bájate y empuja, que ni con motor avanzái, gil!
+¡Te paso con pasto y todo, culiao!
+¡Andái como vaca en la pista, weón!
+¡Ni pa' espantapájaros servís, aweonao!
+¡Qué te creís, si yo nací arriba de una carreta, culiao!
+¡A este paso llegái pa' la próxima vendimia, gil!
+¡Chao, weón, salúdame a los zorzales!
+¡La carreta manda en el camino viejo, culiao, acostúmbrate!
+¡Arre, arre, que estos aweonaos se quedan dormidos!
+
+[nitro]
+¡Arre, Colorao, a todo galope, conchetumare!
+¡Tome avena, caballo, que ahora sí los dejamos botaos!
+¡Ahora sí que se viene la carreta, culiaos!
+¡Al galope tendido, como en la trilla, weón!
+
+[out_of_nitros]
+¡Se acabó la avena, puta la weá!
+¡El Colorao pide agua, chucha!
+¡Al tranquito no más, que ya no queda nada, culiao!
+
+[crash]
+¡Pucha la weá, se me salió una rueda de palo!
+¡Cuidado con el caballo, bruto culiao!
+¡Casi vuelco la carreta, aweonao!
+¡Me botaste el pasto, gil!
+¡Así no se trata a un animal, huevón!
+
+[overtake]
+¡Permiso, que va pasando la carreta, weón!
+¡Chao, culiao, nos vemos en Illapel!
+¡Ni la Panamericana me ataja, aweonao!
+¡Te pasé por el lado con caballo y todo, gil!
+¡Quédate atrás comiendo polvo, chanta!
+
+[first_place]
+¡Primero el Colorao, después los culiaos con motor!
+¡Llegando a Illapel como en los viejos tiempos, weón!
+¡Puro campo y puro corazón, primerito, aweonaos!
+
+# One line per bubble. '#' starts a comment. UTF-8. Each car gets its own fixed set from these.
+# taunts.cl_carreta.<lang>.txt beside this file is used while the game runs in that language.

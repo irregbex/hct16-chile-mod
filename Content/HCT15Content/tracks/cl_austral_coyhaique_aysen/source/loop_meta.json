@@ -1,0 +1,21 @@
+{
+ "start": [
+  -45.5235,
+  -72.0988
+ ],
+ "end": [
+  -45.403,
+  -72.693
+ ],
+ "length_m": 47064,
+ "return_m": 47064,
+ "finish_index": 1794,
+ "streets": [
+  "Acceso Puerto Aysén",
+  "Ruta 240",
+  "Variante Puerto Aysén",
+  "Ruta 240",
+  "Carretera Austral"
+ ],
+ "sights": []
+}

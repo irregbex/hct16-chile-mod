@@ -1,0 +1,11 @@
+{
+  "Id": "ahu",
+  "Name": "Ahu",
+  "Category": "landmark",
+  "Description": "A Rapa Nui ceremonial stone platform, 20 m long, for a row of moai",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

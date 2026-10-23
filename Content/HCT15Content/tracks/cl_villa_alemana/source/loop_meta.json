@@ -1,0 +1,35 @@
+{
+ "centre": [
+  -33.0441903,
+  -71.3725464
+ ],
+ "target_m": 5000,
+ "length_m": 5030,
+ "edge_reuse": 0.001,
+ "streets": [
+  "Lisboa",
+  "Viena",
+  "Segunda",
+  "Madrid",
+  "Ignacio Carrera Pinto",
+  "Madrid",
+  "Arturo Prat",
+  "Lisboa",
+  "Avenida Valparaíso",
+  "Progreso",
+  "Pasaje Cumming",
+  "Cumming",
+  "Avenida Victoria",
+  "San Enrique",
+  "Díaz",
+  "Pasaje Ferrari",
+  "Avenida Valparaíso",
+  "Almirante Neff",
+  "Cumming",
+  "Pasaje Cumming",
+  "Ignacio Carrera Pinto",
+  "Federico Errázuriz",
+  "Almirante Neff"
+ ],
+ "sights": []
+}

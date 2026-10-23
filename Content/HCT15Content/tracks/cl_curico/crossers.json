@@ -1,0 +1,21 @@
+{
+ "Comment": "The market cart crosses with the grape harvest",
+ "Items": [
+  {
+   "Asset": "carro_feria",
+   "P": 0.814,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.69
+  },
+  {
+   "Asset": "carro_feria",
+   "P": 0.144,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.395
+  }
+ ]
+}

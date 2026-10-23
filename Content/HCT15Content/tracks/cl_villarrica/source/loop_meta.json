@@ -1,0 +1,37 @@
+{
+ "centre": [
+  -39.2780911,
+  -72.2274364
+ ],
+ "target_m": 4000,
+ "length_m": 3936,
+ "edge_reuse": 0.008,
+ "streets": [
+  "Puente Rodrigo de Bastidas",
+  "General Basilio Urrutia",
+  "Isabel Riquelme",
+  "Avenida José Miguel Carrera",
+  "General Basilio Urrutia",
+  "José Manuel Balmaceda",
+  "Bernardo O'Higgins",
+  "Juan Contreras",
+  "Avenida José Miguel Carrera",
+  "Camino Internacional Monseñor Francisco Valdés Subercaseaux",
+  "Avenida Pedro de Valdivia",
+  "Avenida José Miguel Carrera",
+  "Juan Bautista Ulloa",
+  "Carlos Becker",
+  "Valentín Letelier",
+  "Pedro Montt",
+  "Avenida Pedro de Valdivia",
+  "Camilo Henríquez",
+  "Avenida Pedro de Valdivia",
+  "Arturo Prat",
+  "Pedro Montt",
+  "Valentín Letelier",
+  "Bernardo O'Higgins",
+  "Anfión Muñoz",
+  "Arturo Prat"
+ ],
+ "sights": []
+}

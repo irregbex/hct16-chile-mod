@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_arica_city",
+ "ItemName": "city_cl_arica",
+ "DisplayName": "Arica, Arica y Parinacota",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_arica"
+ ]
+}

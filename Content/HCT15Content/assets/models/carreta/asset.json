@@ -1,0 +1,11 @@
+{
+  "Id": "carreta",
+  "Name": "Carreta",
+  "Category": "prop",
+  "Description": "Horse-drawn cart of the Choapa valley with its huaso, 5.9 m, nose to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

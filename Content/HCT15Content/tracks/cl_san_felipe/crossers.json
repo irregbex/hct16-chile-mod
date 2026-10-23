@@ -1,0 +1,13 @@
+{
+ "Comment": "A huaso from the Aconcagua cuts across at a trot",
+ "Items": [
+  {
+   "Asset": "caballo_huaso",
+   "P": 0.521,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.619
+  }
+ ]
+}

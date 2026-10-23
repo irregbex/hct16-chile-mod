@@ -1,0 +1,16 @@
+{
+ "Comment": "A delivery rider on a motorbike crosses between the towers",
+ "Items": [
+  {
+   "Asset": "moto_delivery",
+   "P": 0.182,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 5.0,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

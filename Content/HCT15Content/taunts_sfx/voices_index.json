@@ -1,0 +1,41 @@
+{
+  "format": "wav pcm_s16le 48000Hz mono, -16 LUFS",
+  "cars": {
+    "cl_taxi": {
+      "manifest": "cl_taxi/taunts.cl_taxi.audio.json",
+      "taunts": "cl_taxi/taunts.cl_taxi.txt",
+      "sections": {
+        "random": 19,
+        "nitro": 6,
+        "out_of_nitros": 4,
+        "crash": 8,
+        "overtake": 8,
+        "first_place": 4
+      }
+    },
+    "cl_micro": {
+      "manifest": "cl_micro/taunts.cl_micro.audio.json",
+      "taunts": "cl_micro/taunts.cl_micro.txt",
+      "sections": {
+        "random": 40,
+        "nitro": 6,
+        "out_of_nitros": 4,
+        "crash": 9,
+        "overtake": 9,
+        "first_place": 6
+      }
+    },
+    "cl_carreta": {
+      "manifest": "cl_carreta/taunts.cl_carreta.audio.json",
+      "taunts": "cl_carreta/taunts.cl_carreta.txt",
+      "sections": {
+        "random": 50,
+        "nitro": 4,
+        "out_of_nitros": 3,
+        "crash": 5,
+        "overtake": 5,
+        "first_place": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "iglesia_chilota",
+  "Name": "Chilote church",
+  "Category": "landmark",
+  "Description": "Wooden church of Chiloe: shingled nave, arched portico and a hexagonal tower, 20 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

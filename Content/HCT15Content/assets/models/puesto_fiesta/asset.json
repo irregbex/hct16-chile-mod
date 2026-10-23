@@ -1,0 +1,11 @@
+{
+  "Id": "puesto_fiesta",
+  "Name": "Fiesta stall",
+  "Category": "prop",
+  "Description": "A stall of the fiesta: a striped awning over a table of sweets, sopaipillas and religious souvenirs, the seller behind it; front +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

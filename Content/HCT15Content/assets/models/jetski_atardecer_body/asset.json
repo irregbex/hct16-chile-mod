@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_atardecer_body",
+  "Name": "Jet ski Atardecer (car body)",
+  "Category": "prop",
+  "Description": "The sunset jet ski (No. 17) as a playable car, nose to +X; its rider is jetski_rider_atardecer (rider.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

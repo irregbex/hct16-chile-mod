@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_ruta68_santiago_curacavi_city",
+ "ItemName": "city_cl_ruta68_santiago_curacavi",
+ "DisplayName": "Ruta 68: Santiago - Curacaví, Metropolitana",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_ruta68_santiago_curacavi"
+ ]
+}

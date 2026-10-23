@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_antofagasta_city",
+ "ItemName": "city_cl_antofagasta",
+ "DisplayName": "Antofagasta, Antofagasta",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_antofagasta"
+ ]
+}

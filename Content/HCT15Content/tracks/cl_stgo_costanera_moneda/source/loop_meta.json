@@ -1,0 +1,62 @@
+{
+ "centre": [
+  -33.42872857142857,
+  -70.62802857142857
+ ],
+ "via": [
+  [
+   -33.4175,
+   -70.6062
+  ],
+  [
+   -33.4275,
+   -70.6205,
+   "Avenida Providencia"
+  ],
+  [
+   -33.4372,
+   -70.6345
+  ],
+  [
+   -33.4429,
+   -70.654
+  ],
+  [
+   -33.4305,
+   -70.651,
+   "Avenida Santa Mar"
+  ],
+  [
+   -33.4265,
+   -70.621,
+   "Avenida Santa Mar"
+  ],
+  [
+   -33.419,
+   -70.609,
+   "Avenida Santa Mar"
+  ]
+ ],
+ "length_m": 12837,
+ "edge_reuse": 0.0,
+ "crossings": 0,
+ "streets": [
+  "Avenida Providencia",
+  "Avenida Vitacura",
+  "Nueva Tobalaba",
+  "Avenida Providencia",
+  "Teatinos",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Avenida Providencia",
+  "Avenida Santa María",
+  "Avenida La Paz",
+  "Avenida Cardenal José María Caro",
+  "Avenida Presidente Balmaceda",
+  "Teatinos",
+  "Avenida Santa María",
+  "Nueva Tobalaba",
+  "Avenida El Cerro",
+  "Avenida Santa María"
+ ],
+ "sights": []
+}

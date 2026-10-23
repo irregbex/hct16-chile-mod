@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_base_gonzalez_videla_city",
+ "ItemName": "city_cl_base_gonzalez_videla",
+ "DisplayName": "Base Gabriel González Videla, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_base_gonzalez_videla"
+ ]
+}

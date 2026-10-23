@@ -1,0 +1,11 @@
+{
+  "Id": "micro_amarilla",
+  "Name": "Santiago micro amarilla",
+  "Category": "prop",
+  "Description": "The yellow micro of 1990s Santiago: white roof, two doors, route board, 10.5 m, nose to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

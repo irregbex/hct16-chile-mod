@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -33.677,
+  -70.088
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.32,
+  "serp": 0.14,
+  "serp_n": 9,
+  "stretch": 1.35,
+  "heading": 150,
+  "seed": 65
+ },
+ "theme": "andes_lake"
+}

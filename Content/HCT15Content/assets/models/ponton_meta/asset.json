@@ -1,0 +1,11 @@
+{
+  "Id": "ponton_meta",
+  "Name": "Finish arch on the water",
+  "Category": "landmark",
+  "Description": "The finish of a point-to-point jet ski race (Side 0): the start arch in blue, reading META",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

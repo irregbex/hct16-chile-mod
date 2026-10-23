@@ -1,0 +1,11 @@
+{
+  "Id": "boya_giro",
+  "Name": "Turn mark",
+  "Category": "prop",
+  "Description": "A tall inflatable turn mark of a jet ski race: red and yellow bands, 3.2 m tall, 1.8 m across",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

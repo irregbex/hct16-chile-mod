@@ -1,0 +1,11 @@
+{
+  "Id": "vendedor_globos",
+  "Name": "Balloon seller",
+  "Category": "prop",
+  "Description": "A balloon seller with his bunch of balloons on the plaza's edge, facing +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

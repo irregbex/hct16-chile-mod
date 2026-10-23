@@ -1,0 +1,11 @@
+{
+  "Id": "cerco_madera",
+  "Name": "Wooden fence",
+  "Category": "prop",
+  "Description": "4 m of fence along Z, place several in a row",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

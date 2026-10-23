@@ -1,0 +1,13 @@
+{
+ "Comment": "The scrap dealer's cart crosses the avenue",
+ "Items": [
+  {
+   "Asset": "carreton_chatarrero",
+   "P": 0.732,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.6
+  }
+ ]
+}

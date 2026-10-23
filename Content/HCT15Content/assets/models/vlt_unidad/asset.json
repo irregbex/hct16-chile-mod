@@ -1,0 +1,11 @@
+{
+  "Id": "vlt_unidad",
+  "Name": "Large telescope enclosure",
+  "Category": "landmark",
+  "Description": "One of Paranal's four unit telescopes: a silver drum with a flat roof, 30 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

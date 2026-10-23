@@ -1,0 +1,11 @@
+{
+  "Id": "playa_desde_mar",
+  "Name": "Beach seen from the sea",
+  "Category": "landmark",
+  "Description": "A 9 m slice of beach seen from the water: the surf line at x = 0 (towards the course), wet sand, dry sand back to -8.45 m (cl_vina_jetski; arena_plana is the same beach seen from the promenade)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 1.2,
+  "Recenter": false,
+  "DoubleSided": true
+}

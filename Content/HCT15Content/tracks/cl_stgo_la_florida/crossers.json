@@ -1,0 +1,16 @@
+{
+ "Comment": "A taxi cuts across leaving the Metro",
+ "Items": [
+  {
+   "Asset": "taxi_chileno",
+   "P": 0.312,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.98,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

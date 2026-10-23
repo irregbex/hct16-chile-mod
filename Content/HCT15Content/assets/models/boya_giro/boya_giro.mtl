@@ -1,0 +1,13 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl buoy_yellow
+Kd 1.0000 0.8600 0.1000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl red
+Kd 0.8500 0.1500 0.1200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

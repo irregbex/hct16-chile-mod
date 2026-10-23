@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_overo_body",
+  "Name": "Carreta del overo (car body)",
+  "Category": "prop",
+  "Description": "The pinto cart as a playable car: its own wheels, its legs as carreta_leg_overo (legs.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

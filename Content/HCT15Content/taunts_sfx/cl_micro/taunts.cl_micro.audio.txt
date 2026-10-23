@@ -1,0 +1,88 @@
+# cl_micro - mapa frase -> audio. Mismo orden que taunts.cl_micro.txt
+# linea_origen | archivo | texto
+
+[random]
+  5 | audio/random/random_01.wav           | ¡Súbase atrás, weón, que adelante no cabe ni un alma!
+  6 | audio/random/random_02.wav           | ¡Avance al fondo po, culiao, que no es su living!
+  7 | audio/random/random_03.wav           | ¡El boleto, gil, o se baja en la esquina!
+  8 | audio/random/random_04.wav           | ¡Corre la pasá, aweonao, que esto no es taxi!
+  9 | audio/random/random_05.wav           | ¡No me toque el timbre dos veces, chanta!
+ 10 | audio/random/random_06.wav           | ¡Bájese por atrás, po weón, no por delante!
+ 11 | audio/random/random_07.wav           | ¡Ese auto es puro ruido y nada de fierro, gil!
+ 12 | audio/random/random_08.wav           | ¡Con cuarenta pasajeros arriba y aun así te paso, culiao!
+ 13 | audio/random/random_09.wav           | ¡Sale de la pista, aweonao, que la micro no frena!
+ 14 | audio/random/random_10.wav           | ¡Andái más lento que micro llena en subida!
+ 15 | audio/random/random_11.wav           | ¡Yo manejo con una mano y con la otra doy el vuelto, weón!
+ 16 | audio/random/random_12.wav           | ¡Quedaste pegao en el paradero, chanta!
+ 17 | audio/random/random_13.wav           | ¡Ni pa' paradero de repuesto servís, culiao!
+ 18 | audio/random/random_14.wav           | ¡Longi, que la calle es de la micro!
+ 19 | audio/random/random_15.wav           | ¡Le toco la bocina y se me corre, gil!
+ 20 | audio/random/random_16.wav           | ¡Sin boleto no hay viaje ni carrera, aweonao!
+ 21 | audio/random/random_17.wav           | ¡Estái más quemao que motor de micro vieja!
+ 22 | audio/random/random_18.wav           | ¡Puro humo tirái, weón, igual que mi tubo de escape!
+ 23 | audio/random/random_19.wav           | ¡Ándate a la cresta con tu carrito de juguete!
+ 24 | audio/random/random_20.wav           | ¡La micro manda en la pista, culiao, acostúmbrate!
+ 31 | audio/random/random_21.wav           | ¡Súbete atrás po, gil!
+ 32 | audio/random/random_22.wav           | ¡Esta micro no para, culiao!
+ 33 | audio/random/random_23.wav           | ¡Yo llevo cuarenta y tú ni uno!
+ 34 | audio/random/random_24.wav           | ¡Andái más penca que paradero sin techo!
+ 35 | audio/random/random_25.wav           | ¡Sale de la pista, aweonao!
+ 36 | audio/random/random_26.wav           | ¡Con boleto o sin boleto, igual te paso!
+ 37 | audio/random/random_27.wav           | ¡Ese auto es de juguete, weón!
+ 38 | audio/random/random_28.wav           | ¡Yo manejo con la rodilla, chanta!
+ 39 | audio/random/random_29.wav           | ¡Te falta calle, cabrito!
+ 40 | audio/random/random_30.wav           | ¡Mírate el fierro, rasca entero!
+ 41 | audio/random/random_31.wav           | ¡Pura lata y na' de motor!
+ 42 | audio/random/random_32.wav           | ¡Quedaste en el paradero, gil!
+ 43 | audio/random/random_33.wav           | ¡Ni pa' repuesto servís, culiao!
+ 44 | audio/random/random_34.wav           | ¡Longi, mira pa'l frente!
+ 45 | audio/random/random_35.wav           | ¡Esta cuma le gana a tu nave!
+ 46 | audio/random/random_36.wav           | ¡Toco la bocina y te corrís, po!
+ 47 | audio/random/random_37.wav           | ¡Ándate a la cresta con tu carrito!
+ 48 | audio/random/random_38.wav           | ¡La micro manda en la calle, weón!
+ 49 | audio/random/random_39.wav           | ¡Estái más quemao que motor de micro vieja!
+ 50 | audio/random/random_40.wav           | ¡Puro humo tirái, aweonao!
+
+[nitro]
+ 53 | audio/nitro/nitro_01.wav             | ¡Agárrense po!
+ 54 | audio/nitro/nitro_02.wav             | ¡Esta micro vuela, weón!
+ 55 | audio/nitro/nitro_03.wav             | ¡Con to', culiao!
+ 56 | audio/nitro/nitro_04.wav             | ¡Ahí va la corrida!
+ 57 | audio/nitro/nitro_05.wav             | ¡Sécate, gil!
+ 58 | audio/nitro/nitro_06.wav             | ¡Fuaaa!
+
+[out_of_nitros]
+ 61 | audio/out_of_nitros/out_of_nitros_01.wav | ¡Puta, quedé en pana!
+ 62 | audio/out_of_nitros/out_of_nitros_02.wav | ¡Se acabó el diésel, weón!
+ 63 | audio/out_of_nitros/out_of_nitros_03.wav | ¡Chucha, sin nitro po!
+ 64 | audio/out_of_nitros/out_of_nitros_04.wav | ¡Ando pato!
+
+[crash]
+ 67 | audio/crash/crash_01.wav             | ¡Conchetumare, la micro!
+ 68 | audio/crash/crash_02.wav             | ¡Se me cayeron los pasajeros, culiao!
+ 69 | audio/crash/crash_03.wav             | ¡Mira pa' dónde vai, aweonao!
+ 70 | audio/crash/crash_04.wav             | ¡Me sacaste la chucha!
+ 71 | audio/crash/crash_05.wav             | ¡Ahí va la lata, gil!
+ 72 | audio/crash/crash_06.wav             | ¡Puta la weá!
+ 73 | audio/crash/crash_07.wav             | ¡Andái sin licencia o qué!
+ 74 | audio/crash/crash_08.wav             | ¡Esta micro pesa, weón, cuidao!
+ 75 | audio/crash/crash_09.wav             | ¡Te la cobro en el paradero!
+
+[overtake]
+ 78 | audio/overtake/overtake_01.wav       | ¡Corre la pasá, gil!
+ 79 | audio/overtake/overtake_02.wav       | ¡Chao pescao!
+ 80 | audio/overtake/overtake_03.wav       | ¡Come polvo, weón!
+ 81 | audio/overtake/overtake_04.wav       | ¡Te dejé en el paradero!
+ 82 | audio/overtake/overtake_05.wav       | ¡Pa' la casa, chanta!
+ 83 | audio/overtake/overtake_06.wav       | ¡Sécate, aweonao!
+ 84 | audio/overtake/overtake_07.wav       | ¡La micro pasa por fuera!
+ 85 | audio/overtake/overtake_08.wav       | ¡Anda a llorar po!
+ 86 | audio/overtake/overtake_09.wav       | ¡Ni ahí contigo, culiao!
+
+[first_place]
+ 89 | audio/first_place/first_place_01.wav | ¡Primera la micro po!
+ 90 | audio/first_place/first_place_02.wav | ¡La raja, weón!
+ 91 | audio/first_place/first_place_03.wav | ¡Chúpate esa, gil!
+ 92 | audio/first_place/first_place_04.wav | ¡Ganó la cuma!
+ 93 | audio/first_place/first_place_05.wav | ¡Nadie le gana a la micro!
+ 94 | audio/first_place/first_place_06.wav | ¡Vamos con to'!

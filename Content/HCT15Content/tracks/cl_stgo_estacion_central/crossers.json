@@ -1,0 +1,16 @@
+{
+ "Comment": "A carriage of the southbound train crosses leaving the Station",
+ "Items": [
+  {
+   "Asset": "tren_carro",
+   "P": 0.24,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.0,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "start": [
+  -33.32,
+  -71.405
+ ],
+ "end": [
+  -33.055,
+  -71.59
+ ],
+ "length_m": 34110,
+ "return_m": 34110,
+ "finish_index": 669,
+ "streets": [
+  "Primavera",
+  "Salida Cerro Las Delicias",
+  "José Santos Ossa",
+  "Noruega",
+  "José Santos Ossa",
+  "Ruta 68",
+  "Camino a Lo Ovalle",
+  "Avenida Arturo Prat",
+  "Chacabuco"
+ ],
+ "sights": []
+}

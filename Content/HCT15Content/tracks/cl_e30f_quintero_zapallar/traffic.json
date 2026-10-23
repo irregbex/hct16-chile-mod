@@ -1,0 +1,22 @@
+{
+ "Comment": "road_extras.py: a stage over 20 km has traffic (HCT15.Traffic): cars besides the 19 rivals, not racing",
+ "Cars": 13,
+ "Models": [
+  "cl_micro",
+  "cl_micro",
+  "cl_taxi",
+  "cl_micro",
+  "kombi",
+  "cl_micro",
+  "beetle",
+  "cl_taxi",
+  "uno",
+  "mini"
+ ],
+ "Speed": [
+  0.21,
+  0.28
+ ],
+ "From": 0.02,
+ "To": 0.12
+}

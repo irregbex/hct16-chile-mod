@@ -1,0 +1,34 @@
+{
+ "centre": [
+  -36.8270698,
+  -73.0502064
+ ],
+ "target_m": 6000,
+ "length_m": 6283,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Juan Martínez de Rozas",
+  "Tucapel",
+  "Avenida Los Carrera",
+  "Avenida Paicaví",
+  "Angol",
+  "Manuel Bulnes",
+  "Castellón",
+  "Juan Martínez de Rozas",
+  "Avenida Arturo Prat",
+  "Avenida Los Carrera",
+  "Angol",
+  "Hospicio",
+  "Víctor Lamas",
+  "Serrano",
+  "Avenida Chacabuco",
+  "Avenida Arturo Prat",
+  "Doctor Wilhelm",
+  "Veteranos del 79",
+  "Avenida Paicaví",
+  "O'Higgins",
+  "Tucapel",
+  "Doctor Wilhelm"
+ ],
+ "sights": []
+}

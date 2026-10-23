@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_playa_las_cujas_city",
+ "ItemName": "city_cl_playa_las_cujas",
+ "DisplayName": "Playa Las Cujas, Playas de la Quinta Región",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_playa_las_cujas"
+ ]
+}

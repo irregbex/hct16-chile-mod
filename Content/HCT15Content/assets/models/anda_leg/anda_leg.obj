@@ -1,0 +1,18 @@
+# HCT 1.6 asset kit - anda_leg
+# metres, Y up, origin at the footprint centre on the ground, front faces +X
+mtllib anda_leg.mtl
+o anda_leg
+v -0.0700 -0.4600 -0.0750
+v 0.0700 -0.4600 -0.0750
+v 0.0700 -0.4600 0.0750
+v -0.0700 -0.4600 0.0750
+v -0.0700 0.0000 -0.0750
+v 0.0700 0.0000 -0.0750
+v 0.0700 0.0000 0.0750
+v -0.0700 0.0000 0.0750
+usemtl trousers_dark
+f 1 2 6 5
+f 2 3 7 6
+f 3 4 8 7
+f 4 1 5 8
+f 5 6 7 8

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_angol_city",
+ "ItemName": "city_cl_angol",
+ "DisplayName": "Angol, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_angol"
+ ]
+}

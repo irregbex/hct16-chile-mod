@@ -1,0 +1,17 @@
+{
+ "Comment": "special_tracks.py: snow on the mining town",
+ "SnowT": [
+  0.0,
+  0.5,
+  1.0
+ ],
+ "SnowV": [
+  0.25,
+  0.45,
+  0.35
+ ],
+ "SnowGrip": 0.85,
+ "Rain": 0.0,
+ "Sound": false,
+ "Grip": 0.0
+}

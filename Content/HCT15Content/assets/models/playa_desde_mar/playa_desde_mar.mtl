@@ -1,0 +1,19 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl foam
+Kd 0.9300 0.9600 0.9700
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl sand_dark
+Kd 0.8200 0.7100 0.5000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl sand
+Kd 0.9100 0.8200 0.6000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

@@ -1,0 +1,11 @@
+{
+  "Id": "roca_volcanica",
+  "Name": "Volcanic boulder",
+  "Category": "prop",
+  "Description": "A black lava boulder with grey ash on top, 2.5 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

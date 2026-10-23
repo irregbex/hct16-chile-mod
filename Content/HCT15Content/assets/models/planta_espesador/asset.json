@@ -1,0 +1,11 @@
+{
+  "Id": "planta_espesador",
+  "Name": "Thickener tank",
+  "Category": "landmark",
+  "Description": "A 18 m round thickener of the concentrator with its white rim and rake bridge",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

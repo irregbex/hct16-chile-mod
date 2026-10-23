@@ -1,0 +1,87 @@
+{
+ "centre": [
+  -29.9355,
+  -71.2875
+ ],
+ "via": [
+  [
+   -29.906,
+   -71.274,
+   "Avenida del Mar"
+  ],
+  [
+   -29.93,
+   -71.28,
+   "Avenida del Mar"
+  ],
+  [
+   -29.95,
+   -71.305,
+   "Avenida Costanera"
+  ],
+  [
+   -29.955,
+   -71.335
+  ],
+  [
+   -29.962,
+   -71.32
+  ],
+  [
+   -29.945,
+   -71.27
+  ],
+  [
+   -29.928,
+   -71.26
+  ],
+  [
+   -29.908,
+   -71.256
+  ]
+ ],
+ "length_m": 27341,
+ "edge_reuse": 0.009,
+ "crossings": 0,
+ "streets": [
+  "Avenida del Mar",
+  "Avenida Costanera",
+  "Avenida del Mar",
+  "Avenida Costanera",
+  "Avenida La Cantera",
+  "Ruta 5 Norte",
+  "25 de Mayo",
+  "Maipú",
+  "Avenida Costanera",
+  "Francisco Bilbao",
+  "Avenida Costanera",
+  "Los Cañaverales",
+  "Los Juncos",
+  "Avenida José Manuel Balmaceda",
+  "José Manuel Balmaceda",
+  "Regimiento Arica",
+  "Caletera Ruta 5",
+  "Ruta 5 Norte",
+  "Gerónimo Méndez",
+  "Ruta 5 Norte",
+  "Avenida La Cantera",
+  "Avenida Costanera",
+  "Iris Torres Zeballos",
+  "Avenida José Manuel Balmaceda",
+  "Los Juncos",
+  "Los Cañaverales",
+  "Los Juncos",
+  "Los Cañaverales",
+  "Juan de Dios Pení",
+  "Avenida El Santo",
+  "Las Higueras",
+  "Avenida José Manuel Balmaceda",
+  "Seminario",
+  "Avenida Estadio",
+  "Avenida del Mar",
+  "Avenida Francisco de Aguirre",
+  "Ruta 5 Norte",
+  "Juan de Dios Pení"
+ ],
+ "sights": []
+}

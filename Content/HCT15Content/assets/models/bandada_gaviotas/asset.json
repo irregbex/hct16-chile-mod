@@ -1,0 +1,11 @@
+{
+  "Id": "bandada_gaviotas",
+  "Name": "Flock of gulls",
+  "Category": "prop",
+  "Description": "Five gulls in the air; give it Hover in crossers.json",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

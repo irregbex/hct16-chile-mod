@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -64.876,
+  -63.584
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.08,
+  "serp_n": 6,
+  "stretch": 1.2,
+  "heading": 80,
+  "seed": 94
+ },
+ "theme": "antarctic"
+}

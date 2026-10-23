@@ -1,0 +1,21 @@
+{
+ "Comment": "The La Vega market cart crosses fully loaded",
+ "Items": [
+  {
+   "Asset": "carro_feria",
+   "P": 0.49,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.69
+  },
+  {
+   "Asset": "carro_feria",
+   "P": 0.82,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.395
+  }
+ ]
+}

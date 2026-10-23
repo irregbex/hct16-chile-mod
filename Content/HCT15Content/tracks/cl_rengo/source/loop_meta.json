@@ -1,0 +1,43 @@
+{
+ "centre": [
+  -34.4088744,
+  -70.8616583
+ ],
+ "target_m": 4000,
+ "length_m": 4085,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Elicura",
+  "Colo-Colo",
+  "Manuel Solís",
+  "San Martín",
+  "Guanguali",
+  "Tucapel",
+  "Lautaro",
+  "Copérnico",
+  "Boticelli",
+  "Balmaceda",
+  "José Tomás Valencia",
+  "Balmaceda",
+  "Diego Portales",
+  "Felicinda Durán",
+  "Calasanz Carrasco",
+  "Osvaldo Emparanza",
+  "Avenida Coronel Marzán",
+  "Carlos Condell",
+  "Avenida Coronel Marzán",
+  "Miguel Ángel",
+  "Leonardo Da Vinci",
+  "Copérnico",
+  "Sargento Aldea",
+  "Urriola",
+  "Libertad",
+  "Manuel Rodríguez",
+  "Guacolda",
+  "José Tomás Valencia",
+  "Felicinda Durán",
+  "Guanguali",
+  "Sargento Aldea"
+ ],
+ "sights": []
+}

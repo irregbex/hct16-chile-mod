@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_villarrica_pucon_city",
+ "ItemName": "city_cl_villarrica_pucon",
+ "DisplayName": "Villarrica - Pucón, Araucanía",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_villarrica_pucon"
+ ]
+}

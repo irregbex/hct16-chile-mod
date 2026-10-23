@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -33.348,
+  -70.29
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.2,
+  "serp_n": 12,
+  "stretch": 1.35,
+  "heading": 95,
+  "seed": 31
+ },
+ "theme": "ski"
+}

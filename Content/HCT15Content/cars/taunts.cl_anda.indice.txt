@@ -1,0 +1,83 @@
+# Indice de taunts.cl_anda.txt: archivo de audio ; tipo (seccion) ; linea en el txt ; frase (2026-10-22, version huasa)
+# Tipos: random = en cualquier momento; nitro = al usar nitro; out_of_nitros = sin nitros; crash = al chocar; overtake = al adelantar; first_place = al pasar a primero
+# Audio: taunts_sfx\cl_anda\audio\<tipo>\<tipo>_NN.wav
+random_01.wav ; random ; linea 9 ; ¡Paso firme, chiquillos, que la Virgen no se nos puede ladear, iñor!
+random_02.wav ; random ; linea 10 ; ¡Cuarenta años cargando en Illapel y el hombro todavía me pide más, pue!
+random_03.wav ; random ; linea 11 ; ¡Avise las curvas, capataz, que de aquí atrás no se ve ni una wea!
+random_04.wav ; random ; linea 12 ; ¡Pasito a pasito, compadre, que esto no es la carretera a Los Vilos!
+random_05.wav ; random ; linea 13 ; ¡Ojo con la cuneta de Valdivieso, que el año pasado casi quedamos pa' la foto!
+random_06.wav ; random ; linea 14 ; ¡Le hice una manda a la Virgen y se la estoy pagando con el lomo, oiga!
+random_07.wav ; random ; linea 15 ; ¡Hagan espacio, vecinos de Illapel, que aquí viene la Chinita!
+random_08.wav ; random ; linea 16 ; ¡Los chinos tocan la flauta y nosotros ponemos el tranco!
+random_09.wav ; random ; linea 17 ; ¡Cuidado con los cables de la luz, que la corona no pasa ni a palos!
+random_10.wav ; random ; linea 18 ; ¡A la vuelta de la plaza hay sopaipillas con pebre, chiquillos!
+random_11.wav ; random ; linea 19 ; ¡Que no se apaguen las velas, que el cura nos reta de nuevo!
+random_12.wav ; random ; linea 20 ; ¡Todo el Choapa está mirando, no me hagan pasar vergüenza!
+random_13.wav ; random ; linea 21 ; ¡Mi taita cargaba esta misma anda, y antes mi abuelito!
+random_14.wav ; random ; linea 22 ; ¡Al hombro derecho todos juntos, a la una, a las dos!
+random_15.wav ; random ; linea 23 ; ¡Ni el viento del río Choapa nos mueve a la Virgen!
+random_16.wav ; random ; linea 24 ; ¡Más despacio adelante, que los de atrás vamos al galope!
+random_17.wav ; random ; linea 25 ; ¡Oiga, compadre! ¿Usted me pisó la ojota o fue el de al lado?
+random_18.wav ; random ; linea 26 ; ¡Esta plaza está más llena que la ramada pa'l Dieciocho!
+random_19.wav ; random ; linea 27 ; ¡Pásenle agüita al de la esquina, que viene más blanco que queso de cabra!
+random_20.wav ; random ; linea 28 ; ¡Las flores las trajo la comadre Rosa del mercado, cuidadito con aplastarlas!
+random_21.wav ; random ; linea 29 ; ¡Cachái que esta vuelta a la plaza vale por tres misas!
+random_22.wav ; random ; linea 30 ; ¡El capataz grita más fuerte que el locutor de la radio de Illapel!
+random_23.wav ; random ; linea 31 ; ¡Debajo de los pimientos se camina más fresquito, aprovechen!
+random_24.wav ; random ; linea 32 ; ¡Ya vamos por Constitución, falta poquito, chiquillos!
+random_25.wav ; random ; linea 33 ; ¡La banda va desafinada, pero con harta fe, iñor!
+random_26.wav ; random ; linea 34 ; ¡Ocho cargadores y ni uno se queja... por ahora!
+random_27.wav ; random ; linea 35 ; ¡Los de la anda de Salamanca vienen pisándonos los talones, apúrense!
+random_28.wav ; random ; linea 36 ; ¡Bajé de Cuz Cuz a pie pa' cargar, no me vengan a ganar los de Canela!
+random_29.wav ; random ; linea 37 ; ¡En Combarbalá tallan la piedra, pero aquí cargamos la fe!
+random_30.wav ; random ; linea 38 ; ¡Mi comadre de Chillepín me mandó tortilla de rescoldo pa'l camino!
+random_31.wav ; random ; linea 40 ; ¡Desde Andacollo venimos con la Chinita, y hasta Illapel no paramos!
+random_32.wav ; random ; linea 41 ; ¡Que suenen los tambores de los chinos, que viene la Virgen del Rosario!
+random_33.wav ; random ; linea 42 ; ¡Cuarenta grados en la cuesta y aquí seguimos, por la manda!
+random_34.wav ; random ; linea 43 ; ¡Los danzantes de Andacollo nos abren el camino, chiquillos!
+random_35.wav ; random ; linea 44 ; ¡Prometí cargarla tres años seguidos y este es el último, gracias a Dios!
+random_36.wav ; random ; linea 45 ; ¡En Andacollo bailan los chinos, aquí cargamos nosotros!
+random_37.wav ; random ; linea 46 ; ¡Paso de peregrino, que a la Virgen no se le llega corriendo!
+random_38.wav ; random ; linea 47 ; ¡Que no pare el bombo, que es el corazón de la procesión!
+random_39.wav ; random ; linea 48 ; ¡Los crianceros de Mincha nos mandaron saludos, con cabras y todo!
+random_40.wav ; random ; linea 49 ; ¡Ni el sol del Norte Chico nos quita la promesa, compadre!
+nitro_01.wav ; nitro ; linea 51 ; ¡Ahora sí, chiquillos, a trote de promesa!
+nitro_02.wav ; nitro ; linea 52 ; ¡Paso redoblado, que la Virgen tiene apuro!
+nitro_03.wav ; nitro ; linea 53 ; ¡Apúrense, que se nos hace tarde pa' la misa de doce!
+nitro_04.wav ; nitro ; linea 54 ; ¡Con la fuerza de la fe, a todo lo que da, iñor!
+nitro_05.wav ; nitro ; linea 55 ; ¡Esto es un milagro de velocidad, compadre!
+nitro_06.wav ; nitro ; linea 56 ; ¡Al galope, que los de Salamanca nos vienen pisando!
+nitro_07.wav ; nitro ; linea 57 ; ¡A tranco de cueca, chiquillos, que nos vamos!
+nitro_08.wav ; nitro ; linea 58 ; ¡Más ritmo, que la banda de Illapel va a todo pulmón!
+nitro_09.wav ; nitro ; linea 59 ; ¡Corran como caballo de rodeo, que la medialuna es nuestra!
+nitro_10.wav ; nitro ; linea 60 ; ¡Dele, que la Chinita quiere llegar primero a la iglesia!
+out_of_nitros_01.wav ; out_of_nitros ; linea 62 ; ¡Se nos acabó el resuello, chiquillos, puro paso de procesión no más!
+out_of_nitros_02.wav ; out_of_nitros ; linea 63 ; ¡No me queda hombro, capataz, vamos despacito!
+out_of_nitros_03.wav ; out_of_nitros ; linea 64 ; ¡Ya no hay más promesas pa' correr, a caminar se ha dicho!
+out_of_nitros_04.wav ; out_of_nitros ; linea 65 ; ¡Alguien que me pase un mote con huesillo, por el amor de Dios!
+out_of_nitros_05.wav ; out_of_nitros ; linea 66 ; ¡Se acabó la cueca, ahora puro paso de promesa!
+out_of_nitros_06.wav ; out_of_nitros ; linea 67 ; ¡Me quedé sin aire como en la subida a Andacollo!
+out_of_nitros_07.wav ; out_of_nitros ; linea 68 ; ¡Despacito, que la cuesta cansa hasta a los santos!
+crash_01.wav ; crash ; linea 70 ; ¡Uy, la Virgen casi se nos cae, Dios me libre!
+crash_02.wav ; crash ; linea 71 ; ¡Cuidado con el farol, que la corona es de pan de oro!
+crash_03.wav ; crash ; linea 72 ; ¡Me botaron una vela, ojo que se quema el faldón!
+crash_04.wav ; crash ; linea 73 ; ¡Perdone, señora, no la vi entre tanta gente!
+crash_05.wav ; crash ; linea 74 ; ¡Así no se carga una imagen, compadre, más respeto!
+crash_06.wav ; crash ; linea 75 ; ¡Chocamos con la anda de Salamanca, ahora sí que nos excomulgan!
+crash_07.wav ; crash ; linea 76 ; ¡Casi botamos a la Chinita, por la chita!
+crash_08.wav ; crash ; linea 77 ; ¡Me pisó un danzante de Andacollo, auxilio!
+crash_09.wav ; crash ; linea 78 ; ¡Choqué con el bombo, ahora suena más desafinado!
+crash_10.wav ; crash ; linea 79 ; ¡Cuidado con las lentejuelas, que el traje cuesta una cosecha entera!
+overtake_01.wav ; overtake ; linea 81 ; ¡Con permiso, que pasa la Virgen del Rosario!
+overtake_02.wav ; overtake ; linea 82 ; ¡Adiós, los de Canela, nos vemos en la plaza!
+overtake_03.wav ; overtake ; linea 83 ; ¡Los adelantamos con fe y con hombro, iñor!
+overtake_04.wav ; overtake ; linea 84 ; ¡Háganse a un lado, que esta anda viene bendita!
+overtake_05.wav ; overtake ; linea 85 ; ¡Ni la anda de Salamanca nos alcanza hoy, chiquillos!
+overtake_06.wav ; overtake ; linea 86 ; ¡Permiso, hermano peregrino, la Virgen tiene apuro!
+overtake_07.wav ; overtake ; linea 87 ; ¡Los pasamos como huaso en la medialuna!
+overtake_08.wav ; overtake ; linea 88 ; ¡Ni los chinos de Andacollo nos siguen el tranco!
+first_place_01.wav ; first_place ; linea 90 ; ¡Primeros en la vuelta a la plaza de Illapel, que repiquen las campanas!
+first_place_02.wav ; first_place ; linea 91 ; ¡La Virgen llega primero a la iglesia, como debe ser!
+first_place_03.wav ; first_place ; linea 92 ; ¡Gracias, Chinita, cumplimos la manda en primer lugar!
+first_place_04.wav ; first_place ; linea 93 ; ¡Primeros como en la fiesta de Andacollo, que tiren los voladores!
+first_place_05.wav ; first_place ; linea 94 ; ¡La Chinita llegó primero, promesa cumplida!

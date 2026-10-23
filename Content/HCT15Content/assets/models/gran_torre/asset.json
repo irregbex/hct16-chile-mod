@@ -1,0 +1,11 @@
+{
+  "Id": "gran_torre",
+  "Name": "Landmark skyscraper",
+  "Category": "landmark",
+  "Description": "The tallest kind: about 118 units, four glass faces, stepped crown",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -47.13,
+  -72.38
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.12,
+  "serp_n": 8,
+  "stretch": 1.45,
+  "heading": 120,
+  "seed": 72
+ },
+ "theme": "patagonia"
+}

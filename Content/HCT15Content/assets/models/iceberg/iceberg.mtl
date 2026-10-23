@@ -1,0 +1,13 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl snow
+Kd 0.9500 0.9700 1.0000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl ice
+Kd 0.7800 0.8900 0.9700
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

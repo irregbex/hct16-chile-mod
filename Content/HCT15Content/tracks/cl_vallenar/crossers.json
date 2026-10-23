@@ -1,0 +1,21 @@
+{
+ "Comment": "A donkey from the Huasco valley crosses in no hurry",
+ "Items": [
+  {
+   "Asset": "burro",
+   "P": 0.542,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 5.456
+  },
+  {
+   "Asset": "burro",
+   "P": 0.652,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.02
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -27.25,
+  -70.56
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.16,
+  "serp_n": 10,
+  "stretch": 1.2,
+  "heading": 130,
+  "seed": 68
+ },
+ "theme": "dunes"
+}

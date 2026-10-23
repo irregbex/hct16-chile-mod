@@ -1,0 +1,120 @@
+# HCT 1.6 - speech bubbles for the Chile campaign (Chilean Spanish, strong language as asked)
+# Sections: [random] anything, [nitro] when boosting, [out_of_nitros], [crash] after a hit, [overtake], [first_place]
+# One line per bubble. '#' starts a comment. UTF-8. Each car gets its own fixed set from these.
+# Sources: baselang.com (47 Chilean slang words), trufluency.com (15 Chilean swear words), speakinglatino.com
+
+[random]
+¡Ya po, weón!
+¡Cachái o no cachái?
+¡Puta la weá!
+¡Chucha!
+¡Conchetumare!
+¡Ándate a la chucha!
+¡Ándate a la cresta!
+¡Sale, aweonao!
+¡Mira este gil!
+¡Qué lata, weón!
+¡Fome!
+¡Al tiro!
+¡Bacán!
+¡La raja!
+¡Filo!
+¡Piola no más!
+¡Ni ahí!
+¡Quiubo, cabros!
+¡Manso taco!
+¡Buena onda!
+¡Cuático!
+¡Pura cháchara!
+¡Anda a llorarle a tu mamá!
+¡Sapo culiao!
+¡Qué chucha hacís!
+¡Estás pa' la corneta!
+¡Te fuiste al chancho!
+¡Saco de weas!
+¡Pelao!
+¡Guatón!
+¡Flaite!
+¡Chanta!
+¡No seas quemao!
+¡Pa' la casa, gil!
+¡Chao pescao!
+¡Ándate a freír monos!
+¡Manda cambio!
+¡Apaña, po!
+¡Vamos que se puede!
+¡Ya, po, apúrate!
+¡Estoy chato!
+¡Ni un brillo!
+¡La firme!
+¡Pícate!
+¡Jetón!
+¡Fresco!
+¡Ahueonao!
+¡Culiao!
+¡Saco wea!
+¡Pergüétano!
+¡Hijoeputa!
+¡Condoro tuyo!
+¡Dejá de dar jugo!
+¡Tremendo weón!
+¡Ojo con el piño!
+¡Mueve la cachaña!
+¡Sale de ahí, po!
+¡Weá!
+¡Caleta de gente aquí!
+¡Vamos con to'!
+¡A la punta del cerro!
+¡Puro atao!
+¡Me chorié!
+¡Estás curao o qué!
+¡Quemao!
+
+[nitro]
+¡Con to', weón!
+¡Vamos, po!
+¡A todo chancho!
+¡Al lote!
+¡Sécate!
+¡Come polvo, gil!
+¡Fuaaa!
+¡La raja!
+
+[out_of_nitros]
+¡Puta, se me acabó!
+¡Chucha, sin nitro!
+¡Ando pato de nitro!
+¡Qué lata!
+¡Condoro!
+
+[crash]
+¡Conchetumare!
+¡Me sacaste la chucha!
+¡Me sacaste la cresta!
+¡Aweonao!
+¡Culiao, mirá pa' dónde vas!
+¡Puta la weá!
+¡Chucha!
+¡Qué weá!
+¡Sale, saco de weas!
+¡Ahueonao!
+
+[overtake]
+¡Te pasé, po!
+¡Chao pescao!
+¡Come polvo!
+¡Sécate, weón!
+¡Quedaste pa' la corneta!
+¡Pa' la casa, gil!
+¡Anda a llorar, po!
+¡Ni ahí contigo!
+¡Manda cambio!
+
+[first_place]
+¡La raja, weón!
+¡Bacán!
+¡Primero, po!
+¡Vamos que se puede!
+¡Tremendo!
+¡Chúpate esa!
+¡Nadie me pilla!

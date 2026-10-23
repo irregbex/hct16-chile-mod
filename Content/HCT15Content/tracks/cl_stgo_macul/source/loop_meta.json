@@ -1,0 +1,39 @@
+{
+ "centre": [
+  -33.4901912,
+  -70.5998426
+ ],
+ "target_m": 5000,
+ "length_m": 5194,
+ "edge_reuse": 0.003,
+ "streets": [
+  "Avenida Quilín",
+  "Avenida Pedro de Valdivia",
+  "Avenida Quilín",
+  "Las Constelaciones",
+  "Vasconia",
+  "Pasaje Las Constelaciones",
+  "Avenida Monseñor Carlos Casanueva",
+  "Rotonda Pedro de Valdivia",
+  "Avenida Pedro de Valdivia",
+  "Mariano Latorre",
+  "Luis Durand",
+  "Avenida Macul",
+  "Froilán Roa",
+  "Avenida Monseñor Carlos Casanueva",
+  "Pasaje 13",
+  "Vasconia",
+  "Las Constelaciones",
+  "Luis Valenzuela Aris",
+  "Poeta Juan Guzmán Cruchaga",
+  "Jorge González Bastías",
+  "Mariano Latorre",
+  "Avenida Quilín",
+  "Premio Nobel",
+  "Poeta Vicente Huidobro",
+  "Adolfo Arenas",
+  "Arturo Gordon",
+  "Luis Valenzuela Aris"
+ ],
+ "sights": []
+}

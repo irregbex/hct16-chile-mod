@@ -1,0 +1,43 @@
+{
+ "centre": [
+  -36.6170801,
+  -72.9575043
+ ],
+ "target_m": 4000,
+ "length_m": 5416,
+ "edge_reuse": 0.036,
+ "streets": [
+  "Arturo Prat",
+  "La Marina",
+  "Guillermo Velasco",
+  "Avenida Carlos Werner",
+  "Baquedano",
+  "Nogueira",
+  "Mariano Egaña",
+  "Sargento Aldea",
+  "Sargento Riquelme",
+  "Sotomayor",
+  "Costanera",
+  "Avenida Carlos Werner",
+  "Edmundo Witting",
+  "Peters",
+  "Carlos Ibáñez del Campo",
+  "Inés de Suárez",
+  "José Francisco Gómez",
+  "Cipriano Quiero",
+  "Arturo Prat",
+  "Maipú",
+  "León Luco",
+  "Sargento Riquelme",
+  "Mariano Egaña",
+  "Manuel Montt",
+  "Maipú",
+  "Sotomayor",
+  "Vicuña Mackenna",
+  "Mariano Egaña",
+  "Sargento Aldea",
+  "Aníbal Pinto",
+  "Sotomayor"
+ ],
+ "sights": []
+}

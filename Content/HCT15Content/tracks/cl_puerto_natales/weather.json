@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: drizzle over the sound",
+ "RainT": [
+  0.0,
+  0.5,
+  1.0
+ ],
+ "RainV": [
+  0.15,
+  0.3,
+  0.1
+ ],
+ "Sound": true,
+ "Grip": 0.9
+}

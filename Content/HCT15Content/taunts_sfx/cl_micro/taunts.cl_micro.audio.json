@@ -1,0 +1,537 @@
+{
+  "car": "cl_micro",
+  "source": "taunts.cl_micro.txt",
+  "format": "wav pcm_s16le 48000Hz mono",
+  "sections": {
+    "random": [
+      {
+        "index": 1,
+        "source_line": 5,
+        "text": "¡Súbase atrás, weón, que adelante no cabe ni un alma!",
+        "tts_script": "[shouting] ¡Súbase atrás, weón, que adelante no cabe ni un alma!",
+        "file": "audio/random/random_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 6,
+        "text": "¡Avance al fondo po, culiao, que no es su living!",
+        "tts_script": "[annoyed] ¡Avance al fondo po, culiao, que no es su living!",
+        "file": "audio/random/random_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 7,
+        "text": "¡El boleto, gil, o se baja en la esquina!",
+        "tts_script": "[angry] ¡El boleto, gil, o se baja en la esquina!",
+        "file": "audio/random/random_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 8,
+        "text": "¡Corre la pasá, aweonao, que esto no es taxi!",
+        "tts_script": "[shouting] ¡Corre la pasá, aweonao, que esto no es taxi!",
+        "file": "audio/random/random_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 9,
+        "text": "¡No me toque el timbre dos veces, chanta!",
+        "tts_script": "[annoyed] [clears throat] ¡No me toque el timbre dos veces, chanta!",
+        "file": "audio/random/random_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 10,
+        "text": "¡Bájese por atrás, po weón, no por delante!",
+        "tts_script": "[shouting] ¡Bájese por atrás, po weón, no por delante!",
+        "file": "audio/random/random_06.wav"
+      },
+      {
+        "index": 7,
+        "source_line": 11,
+        "text": "¡Ese auto es puro ruido y nada de fierro, gil!",
+        "tts_script": "[laughs] ¡Ese auto es puro ruido y nada de fierro, gil!",
+        "file": "audio/random/random_07.wav"
+      },
+      {
+        "index": 8,
+        "source_line": 12,
+        "text": "¡Con cuarenta pasajeros arriba y aun así te paso, culiao!",
+        "tts_script": "[mocking] ¡Con cuarenta pasajeros arriba y aun así te paso, culiao!",
+        "file": "audio/random/random_08.wav"
+      },
+      {
+        "index": 9,
+        "source_line": 13,
+        "text": "¡Sale de la pista, aweonao, que la micro no frena!",
+        "tts_script": "[shouting] ¡Sale de la pista, aweonao, que la micro no frena!",
+        "file": "audio/random/random_09.wav"
+      },
+      {
+        "index": 10,
+        "source_line": 14,
+        "text": "¡Andái más lento que micro llena en subida!",
+        "tts_script": "[laughs] [coughs] ¡Andái más lento que micro llena en subida!",
+        "file": "audio/random/random_10.wav"
+      },
+      {
+        "index": 11,
+        "source_line": 15,
+        "text": "¡Yo manejo con una mano y con la otra doy el vuelto, weón!",
+        "tts_script": "[mocking] ¡Yo manejo con una mano y con la otra doy el vuelto, weón!",
+        "file": "audio/random/random_11.wav"
+      },
+      {
+        "index": 12,
+        "source_line": 16,
+        "text": "¡Quedaste pegao en el paradero, chanta!",
+        "tts_script": "[laughs] ¡Quedaste pegao en el paradero, chanta!",
+        "file": "audio/random/random_12.wav"
+      },
+      {
+        "index": 13,
+        "source_line": 17,
+        "text": "¡Ni pa' paradero de repuesto servís, culiao!",
+        "tts_script": "[growls] ¡Ni pa' paradero de repuesto servís, culiao!",
+        "file": "audio/random/random_13.wav"
+      },
+      {
+        "index": 14,
+        "source_line": 18,
+        "text": "¡Longi, que la calle es de la micro!",
+        "tts_script": "[shouting] ¡Longi, que la calle es de la micro!",
+        "file": "audio/random/random_14.wav"
+      },
+      {
+        "index": 15,
+        "source_line": 19,
+        "text": "¡Le toco la bocina y se me corre, gil!",
+        "tts_script": "[mocking] ¡Le toco la bocina y se me corre, gil!",
+        "file": "audio/random/random_15.wav"
+      },
+      {
+        "index": 16,
+        "source_line": 20,
+        "text": "¡Sin boleto no hay viaje ni carrera, aweonao!",
+        "tts_script": "[angry] ¡Sin boleto no hay viaje ni carrera, aweonao!",
+        "file": "audio/random/random_16.wav"
+      },
+      {
+        "index": 17,
+        "source_line": 21,
+        "text": "¡Estái más quemao que motor de micro vieja!",
+        "tts_script": "[coughs] [mocking] ¡Estái más quemao que motor de micro vieja!",
+        "file": "audio/random/random_17.wav"
+      },
+      {
+        "index": 18,
+        "source_line": 22,
+        "text": "¡Puro humo tirái, weón, igual que mi tubo de escape!",
+        "tts_script": "[coughs] ¡Puro humo tirái, weón, igual que mi tubo de escape!",
+        "file": "audio/random/random_18.wav"
+      },
+      {
+        "index": 19,
+        "source_line": 23,
+        "text": "¡Ándate a la cresta con tu carrito de juguete!",
+        "tts_script": "[angry] ¡Ándate a la cresta con tu carrito de juguete!",
+        "file": "audio/random/random_19.wav"
+      },
+      {
+        "index": 20,
+        "source_line": 24,
+        "text": "¡La micro manda en la pista, culiao, acostúmbrate!",
+        "tts_script": "[shouting] ¡La micro manda en la pista, culiao, acostúmbrate!",
+        "file": "audio/random/random_20.wav"
+      },
+      {
+        "index": 21,
+        "source_line": 31,
+        "text": "¡Súbete atrás po, gil!",
+        "tts_script": "[shouting] ¡Súbete atrás po, gil!",
+        "file": "audio/random/random_21.wav"
+      },
+      {
+        "index": 22,
+        "source_line": 32,
+        "text": "¡Esta micro no para, culiao!",
+        "tts_script": "[growls] ¡Esta micro no para, culiao!",
+        "file": "audio/random/random_22.wav"
+      },
+      {
+        "index": 23,
+        "source_line": 33,
+        "text": "¡Yo llevo cuarenta y tú ni uno!",
+        "tts_script": "[mocking] ¡Yo llevo cuarenta y tú ni uno!",
+        "file": "audio/random/random_23.wav"
+      },
+      {
+        "index": 24,
+        "source_line": 34,
+        "text": "¡Andái más penca que paradero sin techo!",
+        "tts_script": "[laughs] ¡Andái más penca que paradero sin techo!",
+        "file": "audio/random/random_24.wav"
+      },
+      {
+        "index": 25,
+        "source_line": 35,
+        "text": "¡Sale de la pista, aweonao!",
+        "tts_script": "[shouting] ¡Sale de la pista, aweonao!",
+        "file": "audio/random/random_25.wav"
+      },
+      {
+        "index": 26,
+        "source_line": 36,
+        "text": "¡Con boleto o sin boleto, igual te paso!",
+        "tts_script": "[mocking] ¡Con boleto o sin boleto, igual te paso!",
+        "file": "audio/random/random_26.wav"
+      },
+      {
+        "index": 27,
+        "source_line": 37,
+        "text": "¡Ese auto es de juguete, weón!",
+        "tts_script": "[laughs] ¡Ese auto es de juguete, weón!",
+        "file": "audio/random/random_27.wav"
+      },
+      {
+        "index": 28,
+        "source_line": 38,
+        "text": "¡Yo manejo con la rodilla, chanta!",
+        "tts_script": "[mocking] ¡Yo manejo con la rodilla, chanta!",
+        "file": "audio/random/random_28.wav"
+      },
+      {
+        "index": 29,
+        "source_line": 39,
+        "text": "¡Te falta calle, cabrito!",
+        "tts_script": "[annoyed] ¡Te falta calle, cabrito!",
+        "file": "audio/random/random_29.wav"
+      },
+      {
+        "index": 30,
+        "source_line": 40,
+        "text": "¡Mírate el fierro, rasca entero!",
+        "tts_script": "[laughs] ¡Mírate el fierro, rasca entero!",
+        "file": "audio/random/random_30.wav"
+      },
+      {
+        "index": 31,
+        "source_line": 41,
+        "text": "¡Pura lata y na' de motor!",
+        "tts_script": "[mocking] ¡Pura lata y na' de motor!",
+        "file": "audio/random/random_31.wav"
+      },
+      {
+        "index": 32,
+        "source_line": 42,
+        "text": "¡Quedaste en el paradero, gil!",
+        "tts_script": "[laughs] ¡Quedaste en el paradero, gil!",
+        "file": "audio/random/random_32.wav"
+      },
+      {
+        "index": 33,
+        "source_line": 43,
+        "text": "¡Ni pa' repuesto servís, culiao!",
+        "tts_script": "[growls] ¡Ni pa' repuesto servís, culiao!",
+        "file": "audio/random/random_33.wav"
+      },
+      {
+        "index": 34,
+        "source_line": 44,
+        "text": "¡Longi, mira pa'l frente!",
+        "tts_script": "[shouting] ¡Longi, mira pa'l frente!",
+        "file": "audio/random/random_34.wav"
+      },
+      {
+        "index": 35,
+        "source_line": 45,
+        "text": "¡Esta cuma le gana a tu nave!",
+        "tts_script": "[proud] ¡Esta cuma le gana a tu nave!",
+        "file": "audio/random/random_35.wav"
+      },
+      {
+        "index": 36,
+        "source_line": 46,
+        "text": "¡Toco la bocina y te corrís, po!",
+        "tts_script": "[laughs] ¡Toco la bocina y te corrís, po!",
+        "file": "audio/random/random_36.wav"
+      },
+      {
+        "index": 37,
+        "source_line": 47,
+        "text": "¡Ándate a la cresta con tu carrito!",
+        "tts_script": "[angry] ¡Ándate a la cresta con tu carrito!",
+        "file": "audio/random/random_37.wav"
+      },
+      {
+        "index": 38,
+        "source_line": 48,
+        "text": "¡La micro manda en la calle, weón!",
+        "tts_script": "[shouting] ¡La micro manda en la calle, weón!",
+        "file": "audio/random/random_38.wav"
+      },
+      {
+        "index": 39,
+        "source_line": 49,
+        "text": "¡Estái más quemao que motor de micro vieja!",
+        "tts_script": "[coughs] ¡Estái más quemao que motor de micro vieja!",
+        "file": "audio/random/random_39.wav"
+      },
+      {
+        "index": 40,
+        "source_line": 50,
+        "text": "¡Puro humo tirái, aweonao!",
+        "tts_script": "[coughs] [angry] ¡Puro humo tirái, aweonao!",
+        "file": "audio/random/random_40.wav"
+      }
+    ],
+    "nitro": [
+      {
+        "index": 1,
+        "source_line": 53,
+        "text": "¡Agárrense po!",
+        "tts_script": "[shouting] ¡AGÁRRENSE po!",
+        "file": "audio/nitro/nitro_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 54,
+        "text": "¡Esta micro vuela, weón!",
+        "tts_script": "[excited] ¡Esta micro vuela, weón!",
+        "file": "audio/nitro/nitro_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 55,
+        "text": "¡Con to', culiao!",
+        "tts_script": "[shouting] ¡Con TO', culiao!",
+        "file": "audio/nitro/nitro_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 56,
+        "text": "¡Ahí va la corrida!",
+        "tts_script": "[excited] ¡Ahí va la corrida!",
+        "file": "audio/nitro/nitro_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 57,
+        "text": "¡Sécate, gil!",
+        "tts_script": "[laughs] ¡Sécate, gil!",
+        "file": "audio/nitro/nitro_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 58,
+        "text": "¡Fuaaa!",
+        "tts_script": "[shouting] ¡FUAAA!",
+        "file": "audio/nitro/nitro_06.wav"
+      }
+    ],
+    "out_of_nitros": [
+      {
+        "index": 1,
+        "source_line": 61,
+        "text": "¡Puta, quedé en pana!",
+        "tts_script": "[sighs] ¡Puta, quedé en pana!",
+        "file": "audio/out_of_nitros/out_of_nitros_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 62,
+        "text": "¡Se acabó el diésel, weón!",
+        "tts_script": "[coughs] ¡Se acabó el diésel, weón!",
+        "file": "audio/out_of_nitros/out_of_nitros_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 63,
+        "text": "¡Chucha, sin nitro po!",
+        "tts_script": "[panting] ¡Chucha, sin nitro po!",
+        "file": "audio/out_of_nitros/out_of_nitros_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 64,
+        "text": "¡Ando pato!",
+        "tts_script": "[wheezing] ¡Ando pato!",
+        "file": "audio/out_of_nitros/out_of_nitros_04.wav"
+      }
+    ],
+    "crash": [
+      {
+        "index": 1,
+        "source_line": 67,
+        "text": "¡Conchetumare, la micro!",
+        "tts_script": "[furious] [shouting] ¡CONCHETUMARE, la micro!",
+        "file": "audio/crash/crash_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 68,
+        "text": "¡Se me cayeron los pasajeros, culiao!",
+        "tts_script": "[shouting] ¡Se me cayeron los pasajeros, culiao!",
+        "file": "audio/crash/crash_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 69,
+        "text": "¡Mira pa' dónde vai, aweonao!",
+        "tts_script": "[furious] ¡Mira pa' dónde vai, aweonao!",
+        "file": "audio/crash/crash_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 70,
+        "text": "¡Me sacaste la chucha!",
+        "tts_script": "[angry] [panting] ¡Me sacaste la chucha!",
+        "file": "audio/crash/crash_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 71,
+        "text": "¡Ahí va la lata, gil!",
+        "tts_script": "[angry] ¡Ahí va la lata, gil!",
+        "file": "audio/crash/crash_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 72,
+        "text": "¡Puta la weá!",
+        "tts_script": "[shouting] ¡PUTA la weá!",
+        "file": "audio/crash/crash_06.wav"
+      },
+      {
+        "index": 7,
+        "source_line": 73,
+        "text": "¡Andái sin licencia o qué!",
+        "tts_script": "[furious] ¡Andái sin licencia o qué!",
+        "file": "audio/crash/crash_07.wav"
+      },
+      {
+        "index": 8,
+        "source_line": 74,
+        "text": "¡Esta micro pesa, weón, cuidao!",
+        "tts_script": "[growls] ¡Esta micro pesa, weón, cuidao!",
+        "file": "audio/crash/crash_08.wav"
+      },
+      {
+        "index": 9,
+        "source_line": 75,
+        "text": "¡Te la cobro en el paradero!",
+        "tts_script": "[angry] ¡Te la cobro en el paradero!",
+        "file": "audio/crash/crash_09.wav"
+      }
+    ],
+    "overtake": [
+      {
+        "index": 1,
+        "source_line": 78,
+        "text": "¡Corre la pasá, gil!",
+        "tts_script": "[shouting] ¡Corre la pasá, gil!",
+        "file": "audio/overtake/overtake_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 79,
+        "text": "¡Chao pescao!",
+        "tts_script": "[laughs] ¡Chao pescao!",
+        "file": "audio/overtake/overtake_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 80,
+        "text": "¡Come polvo, weón!",
+        "tts_script": "[evil laugh] ¡Come polvo, weón!",
+        "file": "audio/overtake/overtake_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 81,
+        "text": "¡Te dejé en el paradero!",
+        "tts_script": "[laughs] [coughs] ¡Te dejé en el paradero!",
+        "file": "audio/overtake/overtake_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 82,
+        "text": "¡Pa' la casa, chanta!",
+        "tts_script": "[mocking] ¡Pa' la casa, chanta!",
+        "file": "audio/overtake/overtake_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 83,
+        "text": "¡Sécate, aweonao!",
+        "tts_script": "[laughs] ¡Sécate, aweonao!",
+        "file": "audio/overtake/overtake_06.wav"
+      },
+      {
+        "index": 7,
+        "source_line": 84,
+        "text": "¡La micro pasa por fuera!",
+        "tts_script": "[proud] ¡La micro pasa por fuera!",
+        "file": "audio/overtake/overtake_07.wav"
+      },
+      {
+        "index": 8,
+        "source_line": 85,
+        "text": "¡Anda a llorar po!",
+        "tts_script": "[mocking] ¡Anda a llorar po!",
+        "file": "audio/overtake/overtake_08.wav"
+      },
+      {
+        "index": 9,
+        "source_line": 86,
+        "text": "¡Ni ahí contigo, culiao!",
+        "tts_script": "[laughs] ¡Ni ahí contigo, culiao!",
+        "file": "audio/overtake/overtake_09.wav"
+      }
+    ],
+    "first_place": [
+      {
+        "index": 1,
+        "source_line": 89,
+        "text": "¡Primera la micro po!",
+        "tts_script": "[shouting] ¡Primera la micro po!",
+        "file": "audio/first_place/first_place_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 90,
+        "text": "¡La raja, weón!",
+        "tts_script": "[laughs] [coughs] ¡La raja, weón!",
+        "file": "audio/first_place/first_place_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 91,
+        "text": "¡Chúpate esa, gil!",
+        "tts_script": "[mocking] ¡Chúpate esa, gil!",
+        "file": "audio/first_place/first_place_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 92,
+        "text": "¡Ganó la cuma!",
+        "tts_script": "[triumphant] ¡Ganó la cuma!",
+        "file": "audio/first_place/first_place_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 93,
+        "text": "¡Nadie le gana a la micro!",
+        "tts_script": "[triumphant] [shouting] ¡Nadie le gana a la micro!",
+        "file": "audio/first_place/first_place_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 94,
+        "text": "¡Vamos con to'!",
+        "tts_script": "[panting] [excited] ¡Vamos con to'!",
+        "file": "audio/first_place/first_place_06.wav"
+      }
+    ]
+  }
+}

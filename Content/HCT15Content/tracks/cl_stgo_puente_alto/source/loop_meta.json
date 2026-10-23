@@ -1,0 +1,43 @@
+{
+ "centre": [
+  -33.5930727,
+  -70.5585755
+ ],
+ "target_m": 7000,
+ "length_m": 7750,
+ "edge_reuse": 0.007,
+ "streets": [
+  "Avenida Las Nieves Oriente",
+  "Ángel Pimentel",
+  "Parque Las Violetas",
+  "Parque Cordillera",
+  "Parque Boscoso",
+  "Pasaje Salitrera Baquedano",
+  "Ángel Pimentel",
+  "Avenida Las Nieves Oriente",
+  "Nonato Coo",
+  "Portal Andino",
+  "Pasaje Salitrera Baquedano",
+  "Los Pehuenches",
+  "Tomé",
+  "Avenida Domingo Tocornal",
+  "Nonato Coo",
+  "Calle 3",
+  "Calle 4",
+  "Calle 1",
+  "Los Portales de San Carlos",
+  "Avenida San Carlos",
+  "Tomé",
+  "Pasaje Los Chonos",
+  "Pasaje Los Pemones",
+  "Los Pehuenches",
+  "Avenida Paseo Pie Andino",
+  "Avenida Canal Troncal San Francisco",
+  "Avenida San Carlos",
+  "Los Portales de San Carlos",
+  "Calle 1",
+  "Calle 5",
+  "Calle 3"
+ ],
+ "sights": []
+}

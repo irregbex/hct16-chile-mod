@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_hualpen_city",
+ "ItemName": "city_cl_hualpen",
+ "DisplayName": "Hualpén, Biobío",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_hualpen"
+ ]
+}

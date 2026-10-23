@@ -1,0 +1,22 @@
+{
+ "centre": [
+  -24.5892,
+  -70.1917
+ ],
+ "streets": [],
+ "theme": "elt",
+ "plan_k": 2.5,
+ "sections": {
+  "base": 0.0,
+  "climb": 0.0203,
+  "ridge": 0.319,
+  "ridge_end": 0.4027,
+  "outside": 0.4428,
+  "door_in": 0.5205,
+  "inside": 0.5344,
+  "door_out": 0.6016,
+  "descent": 0.6069,
+  "return": 0.7874,
+  "end": 0.9997
+ }
+}

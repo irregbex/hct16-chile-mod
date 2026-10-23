@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_pn_villarrica_city",
+ "ItemName": "city_cl_pn_villarrica",
+ "DisplayName": "Parque Nacional Villarrica, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_pn_villarrica"
+ ]
+}

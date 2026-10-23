@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_chiloe_city",
+ "ItemName": "city_cl_chiloe",
+ "DisplayName": "Archipiélago de Chiloé, Los Lagos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_chiloe"
+ ]
+}

@@ -1,0 +1,12 @@
+{
+  "Id": "multitud_larga_3",
+  "Name": "Long fiesta crowd 3",
+  "Category": "prop",
+  "Description": "150 neighbours in five rows along 18 m of the plaza's edge, cheering, flags, balloons, confetti; they face +X (Anim crowd: they jump)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "crowd"
+}

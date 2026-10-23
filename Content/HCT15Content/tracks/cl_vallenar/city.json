@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_vallenar_city",
+ "ItemName": "city_cl_vallenar",
+ "DisplayName": "Vallenar, Atacama",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_vallenar"
+ ]
+}

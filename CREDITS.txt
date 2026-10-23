@@ -1,0 +1,60 @@
+HCT 1.6 - credits and licences
+==============================
+
+Code
+  The mod's code (Source\ and the scripts) is free software under the MIT licence: see LICENSE.txt.
+
+Map and terrain data
+  OpenStreetMap: streets, buildings, trees, squares and places of every Chilean track.
+    (c) OpenStreetMap contributors, data under the ODbL 1.0 - https://www.openstreetmap.org/copyright
+    The files derived from that data (tracks\<track>\osm_overlay.json, scenery*.json, source\*.json, loop_meta.json
+    and the track layouts in race.json) are a Derivative Database and are published under the same ODbL 1.0.
+  SRTM terrain (NASA / USGS, public domain), queried through OpenTopoData (https://www.opentopodata.org) and the open
+    AWS elevation tiles (Terrarium / Skadi).
+  Satellite imagery: "Sentinel-2 cloudless - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus
+    Sentinel data 2020)", licensed CC BY-NC-SA 4.0. The ground tinted from that imagery (tracks\<track>\ground_sat_*.png
+    and the vegetation in scenery.json) of these tracks is a derivative work under the same CC BY-NC-SA 4.0:
+    cl_austral_coyhaique_aysen, cl_e30f_concon_quintero, cl_e30f_quintero_zapallar, cl_e30f_zapallar_laligua,
+    cl_ruta47_losvilos_illapel, cl_ruta5_laligua_losmolles, cl_ruta5_losmolles_losvilos, cl_ruta68_casablanca_valparaiso,
+    cl_ruta68_curacavi_casablanca, cl_ruta68_santiago_curacavi, cl_rutad81_illapel_salamanca, cl_villarrica_pucon.
+    Because of this licence the mod is, and must remain, NON-COMMERCIAL.
+
+Photographs
+  Photos from Wikimedia Commons are used on the roadside signs and as colour references for some cities. Every track
+  that uses them carries tracks\<track>\photos\credits.json with each photo's author, licence (CC BY, CC BY-SA, public
+  domain...), licence link and Commons file page. Photos under CC BY-SA are redistributed under that same licence. No
+  logos or coats of arms are used.
+  The San Rafael Cathedral of Illapel (model catedral_illapel) was modelled after the photo "20210103-001 Catedral
+  Illapel frontis detalle.jpg", Ariel Mauricio Malla Gallardo, CC BY-SA 4.0 (Wikimedia Commons); the model is published
+  under CC BY-SA 4.0.
+  The Extremely Large Telescope track (cl_obs_armazones) and its elt_* models were drawn from the dimensions published
+  by ESO and the colours of its construction photos (Credit: ESO, CC BY 4.0 - potw2430a/b/c, potw2506a, potw2520a at
+  https://www.eso.org/public/images/); the photos are not included. The track is not associated with ESO.
+  The buildings round the Plaza de Illapel come from OpenStreetMap's building footprints (ODbL, above).
+
+Images, skies and sounds of our own
+  The road and ground textures (road_strip.png, ground_*.png), the skies and weather (assets\env\*.png), the maps,
+  cards and campaign logos were drawn with the mod's own tools. The skies are put together in the game: the mod takes
+  the daytime sky of the player's own copy of the game and applies its own palette to it (sunset, night, dawn).
+  The sound effects (neighs, the micro's horn, gallop, the bearers' steps, the bell, the whistle, fireworks) are
+  synthesised by the mod or its tools.
+
+Voices
+  The voices of the speech bubbles (taunts_sfx\) were generated for this mod with speech synthesis: ElevenLabs and, for
+  the anda, XTTS-v2 (Coqui, non-commercial licence) from the voice of one of the mod's contributors, with consent.
+  No voice imitates a famous person.
+
+Grand Prix 2026
+  The campaign uses the cars of the game's own Senna Forever DLC (you must own it). Teams, drivers, chassis and
+  engines are fictional; it is not associated with Formula 1 or any real team or driver. The circuits are named by
+  their city only.
+
+Tools the mod uses (downloaded, not included in the repository)
+  BepInEx 5.4.23.5 - LGPL-2.1 - https://github.com/BepInEx/BepInEx
+  HarmonyX (included in BepInEx) - MIT - https://github.com/BepInEx/HarmonyX
+
+Models
+  Every model in assets\models\ was generated with the mod's own tools (asset_kit), in a low-poly style of its own.
+
+Horizon Chase and Horizon Chase Turbo are trademarks of Aquiris Game Studio. This mod is not affiliated with or endorsed
+by Aquiris and includes no files of the game: you need your own copy, bought on Steam.

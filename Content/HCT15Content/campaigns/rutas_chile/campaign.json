@@ -1,0 +1,427 @@
+{
+ "Name": "Roads of Chile",
+ "NameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "NameTexts": [
+  "Roads of Chile",
+  "Rutas de Chile",
+  "Estradas do Chile",
+  "Routes du Chili",
+  "Straßen Chiles",
+  "Strade del Cile"
+ ],
+ "ModeName": "Road stage",
+ "ModeNameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "ModeNameTexts": [
+  "Road stage",
+  "Etapa de ruta",
+  "Etapa de estrada",
+  "Étape routière",
+  "Straßenetappe",
+  "Tappa su strada"
+ ],
+ "Order": 15,
+ "Formula1": false,
+ "FreePlay": true,
+ "Pits": false,
+ "Blade": "blade.png",
+ "Logo": "logo.png",
+ "DefaultRace": "cl_ruta68_santiago_curacavi",
+ "Rounds": [
+  {
+   "RaceId": "cl_ruta68_santiago_curacavi",
+   "Title": "Ruta 68: Santiago → Curacaví",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta 68: Santiago → Curacaví",
+    "Ruta 68: Santiago → Curacaví",
+    "Ruta 68: Santiago → Curacaví",
+    "Ruta 68: Santiago → Curacaví",
+    "Ruta 68: Santiago → Curacaví",
+    "Ruta 68: Santiago → Curacaví"
+   ],
+   "Subtitle": "Metropolitana · 36 km",
+   "Description": "Stage 1 · Ruta 68: Santiago - Curacaví · 36.2 km of road",
+   "Card": "tracks/cl_ruta68_santiago_curacavi/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_ruta68_curacavi_casablanca",
+   "Title": "Ruta 68: Curacaví → Casablanca",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta 68: Curacaví → Casablanca",
+    "Ruta 68: Curacaví → Casablanca",
+    "Ruta 68: Curacaví → Casablanca",
+    "Ruta 68: Curacaví → Casablanca",
+    "Ruta 68: Curacaví → Casablanca",
+    "Ruta 68: Curacaví → Casablanca"
+   ],
+   "Subtitle": "Valparaíso · 27 km",
+   "Description": "Stage 2 · Ruta 68: Curacaví - Casablanca · 27.4 km of road",
+   "Card": "tracks/cl_ruta68_curacavi_casablanca/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_ruta68_casablanca_valparaiso",
+   "Title": "Ruta 68: Casablanca → Valparaíso",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta 68: Casablanca → Valparaíso",
+    "Ruta 68: Casablanca → Valparaíso",
+    "Ruta 68: Casablanca → Valparaíso",
+    "Ruta 68: Casablanca → Valparaíso",
+    "Ruta 68: Casablanca → Valparaíso",
+    "Ruta 68: Casablanca → Valparaíso"
+   ],
+   "Subtitle": "Valparaíso · 34 km",
+   "Description": "Stage 3 · Ruta 68: Casablanca - Valparaíso · 34.1 km of road",
+   "Card": "tracks/cl_ruta68_casablanca_valparaiso/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_costero_vina_concon",
+   "Title": "Camino Costero: Viña del Mar → Concón",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Camino Costero: Viña del Mar → Concón",
+    "Camino Costero: Viña del Mar → Concón",
+    "Camino Costero: Viña del Mar → Concón",
+    "Camino Costero: Viña del Mar → Concón",
+    "Camino Costero: Viña del Mar → Concón",
+    "Camino Costero: Viña del Mar → Concón"
+   ],
+   "Subtitle": "Valparaíso · 9 km",
+   "Description": "Stage 4 · Camino Costero: Viña del Mar - Concón · 9.4 km of road",
+   "Card": "tracks/cl_costero_vina_concon/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_e30f_concon_quintero",
+   "Title": "Ruta E-30-F: Concón → Quintero",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta E-30-F: Concón → Quintero",
+    "Ruta E-30-F: Concón → Quintero",
+    "Ruta E-30-F: Concón → Quintero",
+    "Ruta E-30-F: Concón → Quintero",
+    "Ruta E-30-F: Concón → Quintero",
+    "Ruta E-30-F: Concón → Quintero"
+   ],
+   "Subtitle": "Valparaíso · 14 km",
+   "Description": "Stage 5 · Ruta E-30-F: Concón - Quintero · 14.2 km of road",
+   "Card": "tracks/cl_e30f_concon_quintero/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_e30f_quintero_zapallar",
+   "Title": "Ruta E-30-F: Quintero → Zapallar",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta E-30-F: Quintero → Zapallar",
+    "Ruta E-30-F: Quintero → Zapallar",
+    "Ruta E-30-F: Quintero → Zapallar",
+    "Ruta E-30-F: Quintero → Zapallar",
+    "Ruta E-30-F: Quintero → Zapallar",
+    "Ruta E-30-F: Quintero → Zapallar"
+   ],
+   "Subtitle": "Valparaíso · 27 km",
+   "Description": "Stage 6 · Ruta E-30-F: Quintero - Zapallar · 27.1 km of road",
+   "Card": "tracks/cl_e30f_quintero_zapallar/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_e30f_zapallar_laligua",
+   "Title": "Ruta E-30-F: Zapallar → Papudo - La Ligua",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta E-30-F: Zapallar → Papudo - La Ligua",
+    "Ruta E-30-F: Zapallar → Papudo - La Ligua",
+    "Ruta E-30-F: Zapallar → Papudo - La Ligua",
+    "Ruta E-30-F: Zapallar → Papudo - La Ligua",
+    "Ruta E-30-F: Zapallar → Papudo - La Ligua",
+    "Ruta E-30-F: Zapallar → Papudo - La Ligua"
+   ],
+   "Subtitle": "Valparaíso · 24 km",
+   "Description": "Stage 7 · Ruta E-30-F: Zapallar - Papudo - La Ligua · 24.1 km of road",
+   "Card": "tracks/cl_e30f_zapallar_laligua/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_ruta5_laligua_losmolles",
+   "Title": "Ruta 5 Norte: La Ligua → Los Molles",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta 5 Norte: La Ligua → Los Molles",
+    "Ruta 5 Norte: La Ligua → Los Molles",
+    "Ruta 5 Norte: La Ligua → Los Molles",
+    "Ruta 5 Norte: La Ligua → Los Molles",
+    "Ruta 5 Norte: La Ligua → Los Molles",
+    "Ruta 5 Norte: La Ligua → Los Molles"
+   ],
+   "Subtitle": "Valparaíso · 35 km",
+   "Description": "Stage 8 · Ruta 5 Norte: La Ligua - Los Molles · 35.4 km of road",
+   "Card": "tracks/cl_ruta5_laligua_losmolles/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_ruta5_losmolles_losvilos",
+   "Title": "Ruta 5 Norte: Los Molles → Los Vilos",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta 5 Norte: Los Molles → Los Vilos",
+    "Ruta 5 Norte: Los Molles → Los Vilos",
+    "Ruta 5 Norte: Los Molles → Los Vilos",
+    "Ruta 5 Norte: Los Molles → Los Vilos",
+    "Ruta 5 Norte: Los Molles → Los Vilos",
+    "Ruta 5 Norte: Los Molles → Los Vilos"
+   ],
+   "Subtitle": "Coquimbo · 36 km",
+   "Description": "Stage 9 · Ruta 5 Norte: Los Molles - Los Vilos · 35.6 km of road",
+   "Card": "tracks/cl_ruta5_losmolles_losvilos/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_avdelmar_laserena_coquimbo",
+   "Title": "Avenida del Mar: La Serena ↔ Coquimbo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Avenida del Mar: La Serena ↔ Coquimbo",
+    "Avenida del Mar: La Serena ↔ Coquimbo",
+    "Avenida del Mar: La Serena ↔ Coquimbo",
+    "Avenida del Mar: La Serena ↔ Coquimbo",
+    "Avenida del Mar: La Serena ↔ Coquimbo",
+    "Avenida del Mar: La Serena ↔ Coquimbo"
+   ],
+   "Subtitle": "Coquimbo · 10 km",
+   "Description": "Stage 10 · Avenida del Mar: La Serena - Coquimbo · 10.1 km of road",
+   "Card": "tracks/cl_avdelmar_laserena_coquimbo/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_villarrica_pucon",
+   "Title": "Villarrica → Pucón",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Villarrica → Pucón",
+    "Villarrica → Pucón",
+    "Villarrica → Pucón",
+    "Villarrica → Pucón",
+    "Villarrica → Pucón",
+    "Villarrica → Pucón"
+   ],
+   "Subtitle": "Araucanía · 23 km",
+   "Description": "Stage 11 · Villarrica - Pucón · 23.2 km of road",
+   "Card": "tracks/cl_villarrica_pucon/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_austral_coyhaique_aysen",
+   "Title": "Ruta 240: Coyhaique → Puerto Aysén",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta 240: Coyhaique → Puerto Aysén",
+    "Ruta 240: Coyhaique → Puerto Aysén",
+    "Ruta 240: Coyhaique → Puerto Aysén",
+    "Ruta 240: Coyhaique → Puerto Aysén",
+    "Ruta 240: Coyhaique → Puerto Aysén",
+    "Ruta 240: Coyhaique → Puerto Aysén"
+   ],
+   "Subtitle": "Aysén · 47 km",
+   "Description": "Stage 12 · Ruta 240: Coyhaique - Puerto Aysén · 47.1 km of road",
+   "Card": "tracks/cl_austral_coyhaique_aysen/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_ruta47_losvilos_illapel",
+   "Title": "Ruta 47: Los Vilos → Illapel",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta 47: Los Vilos → Illapel",
+    "Ruta 47: Los Vilos → Illapel",
+    "Ruta 47: Los Vilos → Illapel",
+    "Ruta 47: Los Vilos → Illapel",
+    "Ruta 47: Los Vilos → Illapel",
+    "Ruta 47: Los Vilos → Illapel"
+   ],
+   "Subtitle": "Coquimbo · 44 km",
+   "Description": "Stage 13 · Ruta 47: Los Vilos - Illapel · 43.5 km of road",
+   "Card": "tracks/cl_ruta47_losvilos_illapel/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_carreta"
+   ],
+   "Music": "Race/Illapel/Illapel - Chinos.wav"
+  },
+  {
+   "RaceId": "cl_rutad81_illapel_salamanca",
+   "Title": "Ruta D-81: Illapel → Salamanca - Minera Los Pelambres",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ruta D-81: Illapel → Salamanca - Minera Los Pelambres",
+    "Ruta D-81: Illapel → Salamanca - Minera Los Pelambres",
+    "Ruta D-81: Illapel → Salamanca - Minera Los Pelambres",
+    "Ruta D-81: Illapel → Salamanca - Minera Los Pelambres",
+    "Ruta D-81: Illapel → Salamanca - Minera Los Pelambres",
+    "Ruta D-81: Illapel → Salamanca - Minera Los Pelambres"
+   ],
+   "Subtitle": "Coquimbo · 61 km",
+   "Description": "Stage 14 · Ruta D-81: Illapel - Salamanca - Minera Los Pelambres · 61.1 km of road",
+   "Card": "tracks/cl_rutad81_illapel_salamanca/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_plaza_illapel",
+   "Title": "Plaza de Illapel",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel"
+   ],
+   "Subtitle": "Procesión de andas · la vuelta a la plaza a paso de procesión",
+   "Description": "Stage 15 · Plaza de Illapel (Coquimbo) · 0.6 km · 5 laps · procession",
+   "Card": "tracks/cl_plaza_illapel/card.png",
+   "Laps": 5,
+   "Cars": [
+    "cl_anda",
+    "cl_anda_andacollo",
+    "cl_anda_purisima",
+    "cl_anda_dolores",
+    "cl_anda_rosario",
+    "cl_anda_san_rafael"
+   ],
+   "Music": "Race/Illapel/Illapel - Chinchinero.wav"
+  }
+ ],
+ "RaceMusicOnly": [
+  "Agregados"
+ ],
+ "MusicAlbums": [
+  "Illapel"
+ ],
+ "MusicPrefer": [
+  "Agregados"
+ ]
+}

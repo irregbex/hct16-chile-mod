@@ -1,0 +1,11 @@
+{
+  "Id": "bandera_chile",
+  "Name": "Chilean flag",
+  "Category": "prop",
+  "Description": "Pole with the flag flying along +Z, 10 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

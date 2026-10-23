@@ -1,0 +1,50 @@
+sat_dress.py - cl_e30f_zapallar_laligua: what Sentinel-2 cloudless shows beside the road, per km (left | right; near samples)
+classes: G green valley, s scrub, d dry hills, S sand, t town, w water
+
+km   0  GGdGGGdddGGGGGGGGGssssGs | sssssddsssssssssssdddddd
+km   1  sGGGGssGGGsGGGGGGGGGGGGG | GGddsGGsddssGssGssGssGss
+km   2  sGsGGGGGGGGGGGGGGssGGGsd | GGGGGGGGGGGGGGGGGGGGGGGG
+km   3  sGGsGGsGGGGGddssGsGGGsGG | ssssdsGGGGGGddsGGGsddsdd
+km   4  ssGssGsGGGGGGGGsGGGsdssG | ssssdssdsssssssdsddsddsd
+km   5  ddsssGdsGssGdssdddssGsss | ssddddddddddsSssGsddssGd
+km   6  ssssGssssGGssGssGsssdssd | ssdsssGGsGssssdsGGGdddss
+km   7  ssddGssGGGGsdGGGdddssGGs | dsGssdssGGGGsddGGGssddsd
+km   8  ddsGsddssGdGGsssssssssss | ddddsssssdddddddddddddds
+km   9  GGGddsGsddsssdddssdssssd | ssddddddddddddsGssssdsGG
+km  10  sGssGGGGssGGGsssGGsssGGs | GGGsssdddddddddddddddddd
+km  11  ddssddsssssddddssss      | dddddddddddssddddsssddds
+km  12  ssssssddssddssdGGGGsGssG | dddsddsssGdddsssssssdsss
+km  13  GGGGGsdddssddddsdddddddd | sssssddddsdddddssddddsds
+km  14  dddsdddddddddddddddddddd | ddddddssdddddddddddddddd
+km  15  ddddddsddddddddddddddsss | sGGsdssGdGdGddsGGGdss
+km  16  sddsssdddddddddddddddddd | GGGdsGssGdsdddddddssdsss
+km  17  dddddd                   | dddssd
+km  18  sdddddddddddddd          | ssddddddddddddd
+km  19  ddddddddddddddd          | ddddddddddddddd
+km  20  dddddsddddddddddddddd    | ddddddddddddddddddddd
+km  21  dddddddddddddddddd       | dddddddddddddddddd
+km  22  ddddddddd                | ddddddddd
+km  23  dddddddddddddddddddddddd | dddddddddddddddddd
+km  24  dddddd                   | dddddd
+km  25  ddddddsddddddddddddddddd | dddddddddddddddddddsdddd
+km  26  sdddddddddddddddddddsddd | ssdddddssdd
+km  27  dddddddddsdddddsddssdsss | dddddddddddddddddddddsdd
+km  28  dsdsddsddsss             | dddddddddddd
+km  29  dddsdddddsdddddsddssdddd | dddddddddddddddddddddddd
+km  30  ssdsddddddddddd          | sdddddddddddddd
+km  31  dddddddddssdddd          | ddddddddddddddd
+km  32  ddddddssddddsddsdddddddd | dddddddddddddddddddddddd
+km  33  ddddddsddd               | dddddddddddddd
+km  34                           | dddssddddsddddddssdddddd
+km  35  dddd                     | dddddssd
+km  36  dddddd                   | dddddd
+km  37  dddddddddddd             | dddddddddddd
+km  38  dddddssddddddsddddddsdds | ddddddddds
+km  39  dddddddddddddddddddddsss | ssdsssdssddddddddddddsds
+km  40  dddsddssddddddsddddssssd | dddssddd
+
+samples by class: {'green': 631, 'dry': 2113, 'scrub': 870, 'water': 38, 'sand': 7, 'town': 1}
+ground stretches: 33, strips: 19
+vegetation items: {'tree_round': 438, 'bush': 83, 'cactus_candelabro': 102, 'roca_costera': 25, 'duna': 2}
+
+Imagery: Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2020), CC BY-NC-SA 4.0.

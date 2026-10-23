@@ -1,0 +1,31 @@
+{
+ "centre": [
+  -42.482375,
+  -73.7642918
+ ],
+ "target_m": 4000,
+ "length_m": 3963,
+ "edge_reuse": 0.021,
+ "streets": [
+  "Pedro Montt",
+  "Sargento Aldea",
+  "Los Carrera",
+  "Gabriela Mistral",
+  "San Martín",
+  "Piloto Pardo",
+  "Pedro Montt",
+  "Ruta 5 Sur",
+  "Portales",
+  "Freire",
+  "Sargento Aldea",
+  "Ruta 5 Sur",
+  "Eusebio Lillo",
+  "Thomson",
+  "Chacabuco",
+  "Esmeralda",
+  "Ruta 5 Sur",
+  "Pedro Montt",
+  "Eusebio Lillo"
+ ],
+ "sights": []
+}

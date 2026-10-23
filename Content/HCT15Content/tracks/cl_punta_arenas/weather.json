@@ -1,0 +1,19 @@
+{
+ "Comment": "snow falling the whole race, easing under the southern lights (2.0.16; before: a shower)",
+ "SnowT": [
+  0.0,
+  0.35,
+  0.75,
+  1.0
+ ],
+ "SnowV": [
+  0.55,
+  0.8,
+  0.5,
+  0.3
+ ],
+ "SnowGrip": 0.85,
+ "Rain": 0.0,
+ "Sound": false,
+ "Grip": 0.0
+}

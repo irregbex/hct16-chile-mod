@@ -1,0 +1,38 @@
+{
+ "centre": [
+  -32.879997,
+  -71.2473555
+ ],
+ "target_m": 5000,
+ "length_m": 4722,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Molinare",
+  "Prat",
+  "Balmaceda",
+  "18 de Septiembre",
+  "Aníbal Pinto",
+  "Chacabuco",
+  "Ramón Freire",
+  "Merced",
+  "Molinare",
+  "Bulnes",
+  "18 de Septiembre",
+  "Balmaceda",
+  "Diego Echeverría",
+  "Bulnes",
+  "Bernardo O'Higgins",
+  "Diego Echeverría",
+  "Ramón Freire",
+  "Esmeralda",
+  "Condell",
+  "Pudeto",
+  "Condell",
+  "Diego Echeverría",
+  "Prat",
+  "Condell",
+  "Chacabuco",
+  "Condell"
+ ],
+ "sights": []
+}

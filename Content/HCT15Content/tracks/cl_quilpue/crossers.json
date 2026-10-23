@@ -1,0 +1,16 @@
+{
+ "Comment": "A cyclist from the City of the Sun crosses without looking",
+ "Items": [
+  {
+   "Asset": "ciclista",
+   "P": 0.648,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 5.0,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

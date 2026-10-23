@@ -1,0 +1,11 @@
+{
+  "Id": "cisne_cuello_negro",
+  "Name": "Black-necked swan",
+  "Category": "prop",
+  "Description": "The bird of Valdivia, 1.4 m, towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

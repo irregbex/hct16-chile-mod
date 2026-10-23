@@ -1,0 +1,74 @@
+{
+ "centre": [
+  -33.03241857142857,
+  -71.63123857142857
+ ],
+ "via": [
+  [
+   -33.04329,
+   -71.62078,
+   "Avenida Errázuriz"
+  ],
+  [
+   -33.03586,
+   -71.62914,
+   "Avenida Errázuriz"
+  ],
+  [
+   -33.03062,
+   -71.62865,
+   "Avenida Altamirano"
+  ],
+  [
+   -33.02038,
+   -71.63395,
+   "Avenida Altamirano"
+  ],
+  [
+   -33.02232,
+   -71.64532,
+   "Avenida Altamirano"
+  ],
+  [
+   -33.03,
+   -71.64
+  ],
+  [
+   -33.04446,
+   -71.62083,
+   "Avenida Brasil"
+  ]
+ ],
+ "length_m": 9349,
+ "edge_reuse": 0.0,
+ "crossings": 0,
+ "streets": [
+  "Avenida Errázuriz",
+  "Antonio Varas",
+  "Avenida Errázuriz",
+  "Avenida Altamirano",
+  "Municipio",
+  "República",
+  "Tucapel",
+  "Río Blanco",
+  "Alcalde Barrios",
+  "Galvarino",
+  "Subida Cementerio",
+  "Avenida Altamirano",
+  "Avenida Brasil",
+  "Blanco Sur",
+  "Blanco",
+  "Carampangue",
+  "Ignacio Carrera Pinto",
+  "Félix Callejas",
+  "Levarte",
+  "Atalaya",
+  "Quebrada Verde",
+  "Vista Hermosa",
+  "Municipio",
+  "Avenida Errázuriz",
+  "Molina",
+  "Avenida Brasil"
+ ],
+ "sights": []
+}

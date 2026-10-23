@@ -1,0 +1,33 @@
+{
+ "Comment": "A Chiloé fox crosses between the stilt houses",
+ "Items": [
+  {
+   "Asset": "zorro_chilote",
+   "P": 0.661,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 7.0
+  },
+  {
+   "Asset": "zorro_chilote",
+   "P": 0.771,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 6.44
+  },
+  {
+   "Asset": "bandada_gaviotas",
+   "P": 0.29,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.78,
+   "Hover": 5.0,
+   "Margin": 2.4,
+   "Bob": 0.6,
+   "BobHz": 1.2
+  }
+ ]
+}

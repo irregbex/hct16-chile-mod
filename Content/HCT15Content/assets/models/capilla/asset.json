@@ -1,0 +1,11 @@
+{
+  "Id": "capilla",
+  "Name": "Chapel",
+  "Category": "building",
+  "Description": "Small white chapel with a tower and a cross, entrance on +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

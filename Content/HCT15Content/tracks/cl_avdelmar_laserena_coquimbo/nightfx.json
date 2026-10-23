@@ -1,0 +1,14 @@
+{
+ "Windows": true,
+ "Lamps": [
+  {
+   "From": 0.0,
+   "To": 1.0,
+   "Side": 2,
+   "Dist": 1.0,
+   "H": 5.5,
+   "Colour": "#ffcf80",
+   "Every": 0.01
+  }
+ ]
+}

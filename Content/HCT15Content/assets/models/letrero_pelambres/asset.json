@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_pelambres",
+  "Name": "Mine gate sign (Minera Los Pelambres)",
+  "Category": "landmark",
+  "Description": "The sign at the mine's gate: MINERA LOS PELAMBRES in blue on a white board on two steel posts, facing the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

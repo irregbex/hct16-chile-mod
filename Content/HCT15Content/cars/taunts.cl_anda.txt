@@ -1,0 +1,94 @@
+# HCT 1.6 - speech bubbles for one car: cl_anda (every anda of the procession speaks with these)
+# This file wins over the campaign's taunts.txt, so this car keeps its own voice everywhere.
+# Sections: [random] [nitro] [out_of_nitros] [crash] [overtake] [first_place]
+# VERSION HUASA (2026-10-22): 80 frases, mismas secciones y cantidades que la version 2026-10-19.
+# Cargadores de anda de la procesion de la Plaza de Illapel, habla de huaso del Choapa y del Norte Chico.
+# Localidades: Illapel, Cuz Cuz, Salamanca, Chillepin, Canela, Mincha, Los Vilos, Combarbala, Andacollo, rio Choapa.
+# Las andas compiten entre si (la de Salamanca, la de Canela). Humor de cargador, sin faltarle el respeto a la imagen.
+[random]
+¡Paso firme, chiquillos, que la Virgen no se nos puede ladear, iñor!
+¡Cuarenta años cargando en Illapel y el hombro todavía me pide más, pue!
+¡Avise las curvas, capataz, que de aquí atrás no se ve ni una wea!
+¡Pasito a pasito, compadre, que esto no es la carretera a Los Vilos!
+¡Ojo con la cuneta de Valdivieso, que el año pasado casi quedamos pa' la foto!
+¡Le hice una manda a la Virgen y se la estoy pagando con el lomo, oiga!
+¡Hagan espacio, vecinos de Illapel, que aquí viene la Chinita!
+¡Los chinos tocan la flauta y nosotros ponemos el tranco!
+¡Cuidado con los cables de la luz, que la corona no pasa ni a palos!
+¡A la vuelta de la plaza hay sopaipillas con pebre, chiquillos!
+¡Que no se apaguen las velas, que el cura nos reta de nuevo!
+¡Todo el Choapa está mirando, no me hagan pasar vergüenza!
+¡Mi taita cargaba esta misma anda, y antes mi abuelito!
+¡Al hombro derecho todos juntos, a la una, a las dos!
+¡Ni el viento del río Choapa nos mueve a la Virgen!
+¡Más despacio adelante, que los de atrás vamos al galope!
+¡Oiga, compadre! ¿Usted me pisó la ojota o fue el de al lado?
+¡Esta plaza está más llena que la ramada pa'l Dieciocho!
+¡Pásenle agüita al de la esquina, que viene más blanco que queso de cabra!
+¡Las flores las trajo la comadre Rosa del mercado, cuidadito con aplastarlas!
+¡Cachái que esta vuelta a la plaza vale por tres misas!
+¡El capataz grita más fuerte que el locutor de la radio de Illapel!
+¡Debajo de los pimientos se camina más fresquito, aprovechen!
+¡Ya vamos por Constitución, falta poquito, chiquillos!
+¡La banda va desafinada, pero con harta fe, iñor!
+¡Ocho cargadores y ni uno se queja... por ahora!
+¡Los de la anda de Salamanca vienen pisándonos los talones, apúrense!
+¡Bajé de Cuz Cuz a pie pa' cargar, no me vengan a ganar los de Canela!
+¡En Combarbalá tallan la piedra, pero aquí cargamos la fe!
+¡Mi comadre de Chillepín me mandó tortilla de rescoldo pa'l camino!
+# norte chico: Andacollo, chinos, danzantes, crianceros
+¡Desde Andacollo venimos con la Chinita, y hasta Illapel no paramos!
+¡Que suenen los tambores de los chinos, que viene la Virgen del Rosario!
+¡Cuarenta grados en la cuesta y aquí seguimos, por la manda!
+¡Los danzantes de Andacollo nos abren el camino, chiquillos!
+¡Prometí cargarla tres años seguidos y este es el último, gracias a Dios!
+¡En Andacollo bailan los chinos, aquí cargamos nosotros!
+¡Paso de peregrino, que a la Virgen no se le llega corriendo!
+¡Que no pare el bombo, que es el corazón de la procesión!
+¡Los crianceros de Mincha nos mandaron saludos, con cabras y todo!
+¡Ni el sol del Norte Chico nos quita la promesa, compadre!
+[nitro]
+¡Ahora sí, chiquillos, a trote de promesa!
+¡Paso redoblado, que la Virgen tiene apuro!
+¡Apúrense, que se nos hace tarde pa' la misa de doce!
+¡Con la fuerza de la fe, a todo lo que da, iñor!
+¡Esto es un milagro de velocidad, compadre!
+¡Al galope, que los de Salamanca nos vienen pisando!
+¡A tranco de cueca, chiquillos, que nos vamos!
+¡Más ritmo, que la banda de Illapel va a todo pulmón!
+¡Corran como caballo de rodeo, que la medialuna es nuestra!
+¡Dele, que la Chinita quiere llegar primero a la iglesia!
+[out_of_nitros]
+¡Se nos acabó el resuello, chiquillos, puro paso de procesión no más!
+¡No me queda hombro, capataz, vamos despacito!
+¡Ya no hay más promesas pa' correr, a caminar se ha dicho!
+¡Alguien que me pase un mote con huesillo, por el amor de Dios!
+¡Se acabó la cueca, ahora puro paso de promesa!
+¡Me quedé sin aire como en la subida a Andacollo!
+¡Despacito, que la cuesta cansa hasta a los santos!
+[crash]
+¡Uy, la Virgen casi se nos cae, Dios me libre!
+¡Cuidado con el farol, que la corona es de pan de oro!
+¡Me botaron una vela, ojo que se quema el faldón!
+¡Perdone, señora, no la vi entre tanta gente!
+¡Así no se carga una imagen, compadre, más respeto!
+¡Chocamos con la anda de Salamanca, ahora sí que nos excomulgan!
+¡Casi botamos a la Chinita, por la chita!
+¡Me pisó un danzante de Andacollo, auxilio!
+¡Choqué con el bombo, ahora suena más desafinado!
+¡Cuidado con las lentejuelas, que el traje cuesta una cosecha entera!
+[overtake]
+¡Con permiso, que pasa la Virgen del Rosario!
+¡Adiós, los de Canela, nos vemos en la plaza!
+¡Los adelantamos con fe y con hombro, iñor!
+¡Háganse a un lado, que esta anda viene bendita!
+¡Ni la anda de Salamanca nos alcanza hoy, chiquillos!
+¡Permiso, hermano peregrino, la Virgen tiene apuro!
+¡Los pasamos como huaso en la medialuna!
+¡Ni los chinos de Andacollo nos siguen el tranco!
+[first_place]
+¡Primeros en la vuelta a la plaza de Illapel, que repiquen las campanas!
+¡La Virgen llega primero a la iglesia, como debe ser!
+¡Gracias, Chinita, cumplimos la manda en primer lugar!
+¡Primeros como en la fiesta de Andacollo, que tiren los voladores!
+¡La Chinita llegó primero, promesa cumplida!

@@ -1,0 +1,40 @@
+{
+ "centre": [
+  -20.2700478,
+  -70.1009162
+ ],
+ "target_m": 5000,
+ "length_m": 4835,
+ "edge_reuse": 0.001,
+ "streets": [
+  "Los Pomelos",
+  "Los Almendros",
+  "Los Álamos",
+  "Teniente Hernán Merino Correa",
+  "Los Álamos",
+  "Teniente Hernán Merino Correa",
+  "Avenida Los Cóndores",
+  "Los Álamos",
+  "Avenida Ramón Pérez Opazo",
+  "Los Pomelos",
+  "San Donato",
+  "Santa Isabel",
+  "El Mirador",
+  "Tiliviche",
+  "Los Álamos",
+  "Pasaje Oficina Salitrera La Noria",
+  "Pasaje Paposo",
+  "Cerro Santa Rosa",
+  "Salitrera Lagunas",
+  "Pasaje 5",
+  "Pasaje Los Tamarugos",
+  "El Mirador",
+  "San Donato",
+  "Teniente Hernán Merino Correa",
+  "Vía Expreso Norte",
+  "Avenida Los Cóndores",
+  "Cerro Tarapacá",
+  "Teniente Hernán Merino Correa"
+ ],
+ "sights": []
+}

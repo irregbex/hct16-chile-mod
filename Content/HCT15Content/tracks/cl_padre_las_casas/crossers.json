@@ -1,0 +1,21 @@
+{
+ "Comment": "A cow crosses the road with the Llaima behind",
+ "Items": [
+  {
+   "Asset": "vaca",
+   "P": 0.796,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 2.9
+  },
+  {
+   "Asset": "vaca",
+   "P": 0.126,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 2.668
+  }
+ ]
+}

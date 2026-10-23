@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -20.206,
+  -69.795
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.22,
+  "serp": 0.0,
+  "stretch": 1.5,
+  "heading": 10,
+  "seed": 71
+ },
+ "theme": "nitrate"
+}

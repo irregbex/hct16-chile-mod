@@ -1,0 +1,63 @@
+# HCT 1.6 - speech bubbles for one car: cl_taxi
+# This file wins over the campaign's taunts.txt, so this car keeps its own voice everywhere.
+# Sections: [random]
+¡Qué te pasa, conchetumare!
+¡Córrete, weón culiao!
+¡Erís más lento que la micro, aweonao!
+¡Ya po, weón, ¿vai a avanzar o no?!
+¡Pa' qué te dieron licencia, gil culiao!
+¡La pista no es tuya, conchetumare!
+¡Estái más perdío que el teniente Bello, weón!
+¡Andái puro weando, culiao!
+¡Me tenís chato, weón!
+¡Sácate de ahí, pastel!
+¡Manejái como el forro!
+¡Oe, pajarón, mira pa' delante!
+¡Aweonao, tenís el tarro en neutro!
+¡Qué onda, perkin, ¿te compraste la calle?!
+¡Te voy a sacar la cresta, weón!
+¡Puro color tirái, chanta culiao!
+¡Anda a acostarte, pollo!
+¡Ni el Transantiago es tan lento, weón!
+¡Me caís como las weas, conchetumare!
+
+[nitro]
+¡Agárrate, que voy a la chucha!
+¡A la cresta con el taxímetro!
+¡Pa' la pampa, weón!
+¡Voy más rápido que la cresta!
+¡Suelta la weá, que nos vamos!
+¡Chao con tu weá!
+
+[out_of_nitros]
+¡Chucha, se me acabó la weá!
+¡Puta la cagá, sin nitro!
+¡Me quedé seco, conchetumare!
+¡Mierda, ando a pata!
+
+[crash]
+¡Conchetumare, me rayaste el taxi!
+¡Me sacaste la cresta, culiao!
+¡Vo' me pagái el choque, weón!
+¡Puta la weá, mi parachoque!
+¡Weón culiao, ¿no veí o qué?!
+¡Te voy a sacar la chucha, pastel!
+¡Qué hací, saco 'e weas!
+¡Me cagaste la pega, conchetumare!
+
+[overtake]
+¡Chao, gil culiao!
+¡Te pasé por la chucha!
+¡Quedaste pa' la cagá, weón!
+¡Aprende, aweonao!
+¡Te dejé botao como colilla!
+¡Mírame la patente, gil!
+¡Por la cresta que erís lento!
+¡Hasta la vista, pajarón!
+
+[first_place]
+¡La raja, conchetumare!
+¡Soy el más vio de Santiago, weón!
+¡Chúpense esa, culiaos!
+¡Primero, y el resto que se vaya a la chucha!
+

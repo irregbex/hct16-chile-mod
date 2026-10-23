@@ -1,0 +1,29 @@
+{
+ "Comment": "The gulls of the Vergara Pier cross Avenida Perú",
+ "Items": [
+  {
+   "Asset": "bandada_gaviotas",
+   "P": 0.81,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.78,
+   "Hover": 5.0,
+   "Margin": 2.4,
+   "Bob": 0.5,
+   "BobHz": 1.2
+  },
+  {
+   "Asset": "bandada_gaviotas",
+   "P": 0.14,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.638,
+   "Hover": 5.0,
+   "Margin": 2.4,
+   "Bob": 0.5,
+   "BobHz": 1.2
+  }
+ ]
+}

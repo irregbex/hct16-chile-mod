@@ -1,0 +1,11 @@
+{
+  "Id": "monticulo_nieve",
+  "Name": "Snow bank",
+  "Category": "prop",
+  "Description": "A low drift of snow beside the road, 1.2 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

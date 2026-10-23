@@ -1,0 +1,11 @@
+{
+  "Id": "estadio_tribuna",
+  "Name": "Grandstand",
+  "Category": "landmark",
+  "Description": "Raked stand of a municipal pitch, roof over the seats, facing the road (+X), 30 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

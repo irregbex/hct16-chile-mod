@@ -1,0 +1,11 @@
+{
+  "Id": "roca_costera",
+  "Name": "Coastal rocks",
+  "Category": "prop",
+  "Description": "Dark shore rocks with a lighter top, 6 m (Playa Ancha, Cochoa)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": -0.9,
+  "Recenter": true,
+  "DoubleSided": false
+}

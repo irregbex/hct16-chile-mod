@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_talagante_city",
+ "ItemName": "city_cl_talagante",
+ "DisplayName": "Talagante, Metropolitana",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_talagante"
+ ]
+}

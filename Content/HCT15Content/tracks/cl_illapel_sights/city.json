@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_illapel_sights_city",
+ "ItemName": "city_cl_illapel_sights",
+ "DisplayName": "Illapel, Coquimbo",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_illapel_sights"
+ ]
+}

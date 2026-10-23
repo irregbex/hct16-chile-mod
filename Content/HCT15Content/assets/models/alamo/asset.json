@@ -1,0 +1,11 @@
+{
+  "Id": "alamo",
+  "Name": "Lombardy poplar",
+  "Category": "tree",
+  "Description": "The tall narrow poplar of the central valley, 17 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

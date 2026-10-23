@@ -1,0 +1,89 @@
+{
+ "centre": [
+  -33.01652111111111,
+  -71.55672444444446
+ ],
+ "via": [
+  [
+   -33.02397,
+   -71.56747,
+   "Avenida España"
+  ],
+  [
+   -33.02105,
+   -71.56695,
+   "Avenida La Marina"
+  ],
+  [
+   -33.01886,
+   -71.56153,
+   "Avenida Perú"
+  ],
+  [
+   -33.01448,
+   -71.55664,
+   "Avenida Perú"
+  ],
+  [
+   -33.0105,
+   -71.55235,
+   "Avenida San Martín"
+  ],
+  [
+   -33.00737,
+   -71.55065,
+   "Avenida San Martín"
+  ],
+  [
+   -33.00817,
+   -71.54851,
+   "Avenida Libertad"
+  ],
+  [
+   -33.01975,
+   -71.55087,
+   "Avenida Libertad"
+  ],
+  [
+   -33.02454,
+   -71.55555,
+   "Avenida Valparaíso"
+  ]
+ ],
+ "length_m": 6899,
+ "edge_reuse": 0.0,
+ "crossings": 0,
+ "streets": [
+  "Avenida La Marina",
+  "Viana",
+  "Álamos",
+  "Avenida España",
+  "Avenida Los Héroes",
+  "Avenida San Martín",
+  "Puente Casino",
+  "Avenida La Marina",
+  "Avenida Perú",
+  "Avenida San Martín",
+  "8 Norte",
+  "Avenida Perú",
+  "Avenida San Martín",
+  "Avenida Libertad",
+  "Avenida Benidorm",
+  "Avenida Almirante Jorge Montt",
+  "Avenida San Martín",
+  "Avenida Libertad",
+  "Avenida Valparaíso",
+  "Plaza José Francisco Vergara",
+  "Plaza Latorre",
+  "Avenida Libertad",
+  "1 Norte",
+  "Avenida Libertad",
+  "Avenida España",
+  "Álvarez",
+  "Von Schroeders",
+  "Viana",
+  "Villanelo",
+  "Avenida Valparaíso"
+ ],
+ "sights": []
+}

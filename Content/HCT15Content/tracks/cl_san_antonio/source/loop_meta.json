@@ -1,0 +1,40 @@
+{
+ "centre": [
+  -33.5808615,
+  -71.6132377
+ ],
+ "target_m": 5000,
+ "length_m": 5491,
+ "edge_reuse": 0.042,
+ "streets": [
+  "San Antonio de las Bodegas",
+  "Avenida Centenario",
+  "Avenida Lauro Barros",
+  "Antonio Palmieri",
+  "Enrique Rosales",
+  "Manuel Bulnes",
+  "Pasaje Júpiter",
+  "Pasaje Mercurio",
+  "San Antonio de las Bodegas",
+  "Antonio Núñez de Fonseca",
+  "Avenida Barros Luco",
+  "Pedro Montt",
+  "Avenida Arturo Prat Chacón",
+  "Camilo Henríquez",
+  "Avenida Barros Luco",
+  "Antonio Núñez de Fonseca",
+  "Las Quilas",
+  "Avenida Manuel Blanco Encalada",
+  "Gregorio Mira",
+  "Avenida Barros Luco",
+  "Doctor Néstor Fernández Thomas",
+  "Avenida Barros Luco",
+  "Antonio Palmieri",
+  "Avenida José Ángel Ortúzar",
+  "Avenida Caupolicán",
+  "Damiana Carrera",
+  "Las Dunas",
+  "Las Quilas"
+ ],
+ "sights": []
+}

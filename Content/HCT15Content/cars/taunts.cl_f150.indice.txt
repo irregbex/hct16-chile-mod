@@ -1,0 +1,62 @@
+# Indice de taunts.cl_f150.txt: archivo de audio ; tipo (seccion) ; linea en el txt ; frase (2026-10-15)
+# Tipos: random = en cualquier momento; nitro = al usar nitro; out_of_nitros = sin nitros; crash = al chocar; overtake = al adelantar; first_place = al pasar a primero
+random_01.wav ; random ; linea 8 ; ¡Córrete, weón, que llego atrasao a la charla de seguridad!
+random_02.wav ; random ; linea 9 ; ¡Voy al turno de las siete, conchetumare, no me atraséis!
+random_03.wav ; random ; linea 10 ; ¡Puta la weá, si marco tarde el jefe de turno me saca la cresta!
+random_04.wav ; random ; linea 11 ; ¡Siete por siete, culiao: siete días de mina y siete de carrete en Salamanca!
+random_05.wav ; random ; linea 12 ; ¡Tengo el casco, los lentes y los zapatos de seguridad, me falta que te corrái, gil!
+random_06.wav ; random ; linea 13 ; ¡Esta camioneta es de la empresa, aweonao, si la rayái pago yo!
+random_07.wav ; random ; linea 14 ; ¡Voy pa' la concentradora, weón, el molino SAG no se para solo!
+random_08.wav ; random ; linea 15 ; ¡Después de la cuesta de Cuncumén paso a todos estos sacos de weas!
+random_09.wav ; random ; linea 16 ; ¡Me pagan el bono de producción si llego vivo, así que sale, culiao!
+random_10.wav ; random ; linea 17 ; ¡Los CAEX de 300 toneladas van más rápido que vos, weón!
+random_11.wav ; random ; linea 18 ; ¡El relave lo manejan mejor que ustedes la ruta, aweonaos!
+random_12.wav ; random ; linea 19 ; ¡Cachái? Llevo 15 años en la mina y nunca había visto manejar tan mal!
+random_13.wav ; random ; linea 20 ; ¡Me quedan 6 días de turno y 100 kilómetros de giles por delante!
+random_14.wav ; random ; linea 21 ; ¡Si me multan en el camino me descuentan del sueldo, chucha!
+random_15.wav ; random ; linea 22 ; ¡La baliza no es de adorno, culiao, aquí mando yo!
+random_16.wav ; random ; linea 23 ; ¡En la mina hay cero accidentes, en esta ruta puros weones!
+random_17.wav ; random ; linea 24 ; ¡Córrete pa' la berma, gil, que el bus de acercamiento viene atrás!
+random_18.wav ; random ; linea 25 ; ¡Puta que anda lento el tránsito, parece la fila del casino de la mina!
+random_19.wav ; random ; linea 26 ; ¡Voy con el PDA firmado y el EPP puesto, cachái? Déjame pasar, weón!
+random_20.wav ; random ; linea 27 ; ¡La banderilla reflectante es pa' que me vean los camiones, no pa' que me choquéis, aweonao!
+random_21.wav ; random ; linea 28 ; ¡El supervisor dijo "conducción a la defensiva", pero contigo no se puede, culiao!
+random_22.wav ; random ; linea 29 ; ¡Colación a las once, chucha, y todavía no paso Salamanca!
+random_23.wav ; random ; linea 30 ; ¡Más lento que la correa transportadora andái, weón!
+random_24.wav ; random ; linea 31 ; ¡El sindicato debería negociar que saquen a estos giles de la ruta!
+random_25.wav ; random ; linea 32 ; ¡Mi vieja me hizo la once pa' llevar y vos me la vai a hacer botar, culiao!
+random_26.wav ; random ; linea 33 ; ¡Pa' la próxima me voy en el bus de la empresa y me duermo, conchetumare!
+random_27.wav ; random ; linea 34 ; ¡Al que choque en el camino lo mandan a la reinducción, weón, así que cuidado!
+random_28.wav ; random ; linea 35 ; ¡Esta ruta la hicimos pa' los camiones de la mina, no pa' tu cacharro, gil!
+random_29.wav ; random ; linea 36 ; ¡Vamos pa' Los Pelambres a sacar cobre, aweonao, no a pasear!
+random_30.wav ; random ; linea 37 ; ¡Si llego primero elijo el casillero, culiao, así que sale!
+nitro_01.wav ; nitro ; linea 40 ; ¡Ahora sí, conchetumare, como CAEX cargao bajando el rajo!
+nitro_02.wav ; nitro ; linea 41 ; ¡Cuatro por cuatro y pie a fondo, weón, la pega no espera!
+nitro_03.wav ; nitro ; linea 42 ; ¡Turbo diésel, culiao, pa' eso la empresa paga la bencina!
+nitro_04.wav ; nitro ; linea 43 ; ¡Esto es más potencia que el molino SAG, aweonao!
+nitro_05.wav ; nitro ; linea 44 ; ¡Me subo al cerro de un viaje, chucha, agárrense!
+nitro_06.wav ; nitro ; linea 45 ; ¡Así se va a la mina, weón, como los que saben!
+out_of_nitros_01.wav ; out_of_nitros ; linea 48 ; ¡Se acabó el bono, puta la weá, ahora al sueldo base no más!
+out_of_nitros_02.wav ; out_of_nitros ; linea 49 ; ¡Quedé sin fuerza como después de doble turno, chucha!
+out_of_nitros_03.wav ; out_of_nitros ; linea 50 ; ¡Me falta el diésel y me sobra garabato, culiao!
+out_of_nitros_04.wav ; out_of_nitros ; linea 51 ; ¡Pucha, me cortaron el gas como al relave viejo!
+crash_01.wav ; crash ; linea 54 ; ¡Puta la weá, abollé la camioneta de la empresa, me van a cagar!
+crash_02.wav ; crash ; linea 55 ; ¡Ahora tengo que llenar el reporte de incidente, conchetumare!
+crash_03.wav ; crash ; linea 56 ; ¡Cuidado, weón, que me rompiste la baliza nueva!
+crash_04.wav ; crash ; linea 57 ; ¡Me doblaste la banderilla, aweonao, y es del inventario!
+crash_05.wav ; crash ; linea 58 ; ¡Esto sí que es un casi accidente, culiao, y vos lo causaste!
+crash_06.wav ; crash ; linea 59 ; ¡Al taller de la mina otra vez, chucha, y el jefe de turno enojao!
+crash_07.wav ; crash ; linea 60 ; ¡Me pegaste en la tolva, gil, ahí va mi colación!
+crash_08.wav ; crash ; linea 61 ; ¡Con esta weá me mandan de nuevo a la charla de cinco minutos!
+overtake_01.wav ; overtake ; linea 64 ; ¡Chao, weón, te quedaste en la fila del casino!
+overtake_02.wav ; overtake ; linea 65 ; ¡Así se adelanta, culiao, con licencia clase B y casco puesto!
+overtake_03.wav ; overtake ; linea 66 ; ¡Pasé a otro gil, ya van veinte pa' la planilla de hoy!
+overtake_04.wav ; overtake ; linea 67 ; ¡Esto es un relevo de turno, aweonao, y vos te quedái botao!
+overtake_05.wav ; overtake ; linea 68 ; ¡Me voy pa' la concentradora y tú pa' la casa, chucha!
+overtake_06.wav ; overtake ; linea 69 ; ¡Te dejé como relave, weón, atrás y quieto!
+overtake_07.wav ; overtake ; linea 70 ; ¡Hasta el bus de acercamiento te pasa, culiao!
+overtake_08.wav ; overtake ; linea 71 ; ¡Adelantamiento seguro, cachái? Puro oficio minero, gil!
+first_place_01.wav ; first_place ; linea 74 ; ¡Primero en la portería, conchetumare, elijo casillero y todo!
+first_place_02.wav ; first_place ; linea 75 ; ¡Llegué primero a Los Pelambres, ahora a sacar cobre, weón!
+first_place_03.wav ; first_place ; linea 76 ; ¡Bono de producción pa' mí, chucha, y ustedes a la reinducción!
+first_place_04.wav ; first_place ; linea 77 ; ¡El mejor del turno, culiao, que lo anoten en la pizarra!

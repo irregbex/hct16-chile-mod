@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_playa_chica_quintay_city",
+ "ItemName": "city_cl_playa_chica_quintay",
+ "DisplayName": "Playa Chica de Quintay, Playas de la Quinta Región",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_playa_chica_quintay"
+ ]
+}

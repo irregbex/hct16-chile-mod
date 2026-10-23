@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_rutad81_illapel_salamanca_city",
+ "ItemName": "city_cl_rutad81_illapel_salamanca",
+ "DisplayName": "Ruta D-81: Illapel - Salamanca - Minera Los Pelambres, Coquimbo",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_rutad81_illapel_salamanca"
+ ]
+}

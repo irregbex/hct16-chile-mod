@@ -1,0 +1,75 @@
+# HCT 1.6 - speech bubbles for one car: cl_f150 (every colour of the mine pickup speaks with these)
+# This file wins over the campaign's taunts.txt, so this car keeps its own voice everywhere.
+# Sections: [random] [nitro] [out_of_nitros] [crash] [overtake] [first_place]
+# alguien que trabaja en minería ... camino al trabajo, cosas laborales y muchos garabatos chilenos"): turno 7x7, la
+# charla de seguridad, el jefe de turno, el molino SAG, los CAEX, el bono, el sindicato y harto garabato.
+¡Córrete, weón, que llego atrasao a la charla de seguridad!
+¡Voy al turno de las siete, conchetumare, no me atraséis!
+¡Puta la weá, si marco tarde el jefe de turno me saca la cresta!
+¡Siete por siete, culiao: siete días de mina y siete de carrete en Salamanca!
+¡Tengo el casco, los lentes y los zapatos de seguridad, me falta que te corrái, gil!
+¡Esta camioneta es de la empresa, aweonao, si la rayái pago yo!
+¡Voy pa' la concentradora, weón, el molino SAG no se para solo!
+¡Después de la cuesta de Cuncumén paso a todos estos sacos de weas!
+¡Me pagan el bono de producción si llego vivo, así que sale, culiao!
+¡Los CAEX de 300 toneladas van más rápido que vos, weón!
+¡El relave lo manejan mejor que ustedes la ruta, aweonaos!
+¡Cachái? Llevo 15 años en la mina y nunca había visto manejar tan mal!
+¡Me quedan 6 días de turno y 100 kilómetros de giles por delante!
+¡Si me multan en el camino me descuentan del sueldo, chucha!
+¡La baliza no es de adorno, culiao, aquí mando yo!
+¡En la mina hay cero accidentes, en esta ruta puros weones!
+¡Córrete pa' la berma, gil, que el bus de acercamiento viene atrás!
+¡Puta que anda lento el tránsito, parece la fila del casino de la mina!
+¡Voy con el PDA firmado y el EPP puesto, cachái? Déjame pasar, weón!
+¡La banderilla reflectante es pa' que me vean los camiones, no pa' que me choquéis, aweonao!
+¡El supervisor dijo "conducción a la defensiva", pero contigo no se puede, culiao!
+¡Colación a las once, chucha, y todavía no paso Salamanca!
+¡Más lento que la correa transportadora andái, weón!
+¡El sindicato debería negociar que saquen a estos giles de la ruta!
+¡Mi vieja me hizo la once pa' llevar y vos me la vai a hacer botar, culiao!
+¡Pa' la próxima me voy en el bus de la empresa y me duermo, conchetumare!
+¡Al que choque en el camino lo mandan a la reinducción, weón, así que cuidado!
+¡Esta ruta la hicimos pa' los camiones de la mina, no pa' tu cacharro, gil!
+¡Vamos pa' Los Pelambres a sacar cobre, aweonao, no a pasear!
+¡Si llego primero elijo el casillero, culiao, así que sale!
+
+[nitro]
+¡Ahora sí, conchetumare, como CAEX cargao bajando el rajo!
+¡Cuatro por cuatro y pie a fondo, weón, la pega no espera!
+¡Turbo diésel, culiao, pa' eso la empresa paga la bencina!
+¡Esto es más potencia que el molino SAG, aweonao!
+¡Me subo al cerro de un viaje, chucha, agárrense!
+¡Así se va a la mina, weón, como los que saben!
+
+[out_of_nitros]
+¡Se acabó el bono, puta la weá, ahora al sueldo base no más!
+¡Quedé sin fuerza como después de doble turno, chucha!
+¡Me falta el diésel y me sobra garabato, culiao!
+¡Pucha, me cortaron el gas como al relave viejo!
+
+[crash]
+¡Puta la weá, abollé la camioneta de la empresa, me van a cagar!
+¡Ahora tengo que llenar el reporte de incidente, conchetumare!
+¡Cuidado, weón, que me rompiste la baliza nueva!
+¡Me doblaste la banderilla, aweonao, y es del inventario!
+¡Esto sí que es un casi accidente, culiao, y vos lo causaste!
+¡Al taller de la mina otra vez, chucha, y el jefe de turno enojao!
+¡Me pegaste en la tolva, gil, ahí va mi colación!
+¡Con esta weá me mandan de nuevo a la charla de cinco minutos!
+
+[overtake]
+¡Chao, weón, te quedaste en la fila del casino!
+¡Así se adelanta, culiao, con licencia clase B y casco puesto!
+¡Pasé a otro gil, ya van veinte pa' la planilla de hoy!
+¡Esto es un relevo de turno, aweonao, y vos te quedái botao!
+¡Me voy pa' la concentradora y tú pa' la casa, chucha!
+¡Te dejé como relave, weón, atrás y quieto!
+¡Hasta el bus de acercamiento te pasa, culiao!
+¡Adelantamiento seguro, cachái? Puro oficio minero, gil!
+
+[first_place]
+¡Primero en la portería, conchetumare, elijo casillero y todo!
+¡Llegué primero a Los Pelambres, ahora a sacar cobre, weón!
+¡Bono de producción pa' mí, chucha, y ustedes a la reinducción!
+¡El mejor del turno, culiao, que lo anoten en la pizarra!

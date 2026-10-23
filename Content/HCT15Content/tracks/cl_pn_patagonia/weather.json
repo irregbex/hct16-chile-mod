@@ -1,0 +1,17 @@
+{
+ "Comment": "special_tracks.py: Patagonian wind and a passing shower",
+ "RainT": [
+  0.0,
+  0.45,
+  0.7,
+  1.0
+ ],
+ "RainV": [
+  0.0,
+  0.3,
+  0.1,
+  0.0
+ ],
+ "Sound": true,
+ "Grip": 0.9
+}

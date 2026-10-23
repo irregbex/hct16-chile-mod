@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_chillan_city",
+ "ItemName": "city_cl_chillan",
+ "DisplayName": "Chillán, Ñuble",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_chillan"
+ ]
+}

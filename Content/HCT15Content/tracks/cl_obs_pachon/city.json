@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_obs_pachon_city",
+ "ItemName": "city_cl_obs_pachon",
+ "DisplayName": "Observatorio Vera C. Rubin y Gemini Sur, Coquimbo",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_obs_pachon"
+ ]
+}

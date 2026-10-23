@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_obs_las_campanas_city",
+ "ItemName": "city_cl_obs_las_campanas",
+ "DisplayName": "Observatorio Las Campanas, Atacama",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_obs_las_campanas"
+ ]
+}

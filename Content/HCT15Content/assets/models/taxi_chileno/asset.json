@@ -1,0 +1,11 @@
+{
+  "Id": "taxi_chileno",
+  "Name": "Chilean taxi",
+  "Category": "prop",
+  "Description": "Black saloon with a yellow roof and its TAXI sign, 4.3 m, nose to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

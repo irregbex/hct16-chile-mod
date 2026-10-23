@@ -1,0 +1,18 @@
+{
+ "Mode": "progress",
+ "Seconds": 0,
+ "Recipe": {
+  "Preset": "day",
+  "NightAt": 1.0,
+  "Overcast": [
+   0.38,
+   0.67
+  ],
+  "Ash": [
+   0.35,
+   1.0
+  ]
+ },
+ "CloudTexture": "ash_clouds.png",
+ "Comment": "time of day = race progress (0 start .. 1 finish): preset 'day', end state at 1.00, overcast 0.38 -> 0.67, volcanic ash 0.35 -> 1.00 - a recipe, composed in the game by HCT15.EnvComposer (the donor's own daylight + the plugin's palette)"
+}

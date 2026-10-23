@@ -1,0 +1,79 @@
+# HCT 1.6 - speech bubbles for the Grand Prix 2026 campaign - French (used while the game runs in French)
+# Sections: [random] anything, [nitro] when boosting, [out_of_nitros], [crash] after a hit, [overtake], [first_place]
+# One line per bubble. '#' starts a comment. UTF-8. Each car gets its own fixed set from these.
+# taunts.<lang>.txt beside this file is used while the game runs in that language (es, pt, fr, de, it...).
+
+[random]
+Box, box !
+Bien reçu.
+Mamma mia !
+Pousse maintenant, pousse !
+DRS activé.
+Plan B, plan B !
+On vérifie.
+Les pneus sont morts, mon pote.
+Drapeaux bleus ! Drapeaux bleus !
+Attention aux limites de piste.
+À fond.
+Je perds de la puissance !
+Allez !
+Allez, allez !
+Dis-lui de bouger !
+J'ai besoin d'air propre.
+L'écart, c'est combien ?
+Économiser le carburant ? Sérieux ?
+Non, non, non, non !
+C'est quoi le plan ?
+Reste propre là-dehors.
+C'est comme ça qu'on pilote !
+Tout est sous contrôle.
+Il est sur quels pneus ?
+Secteur un en violet !
+Pousse à fond !
+Test radio.
+
+[nitro]
+DRS ouvert, pousse !
+Mode dépassement activé !
+Déploie, déploie !
+Pleine puissance !
+Mode quali, go !
+
+[out_of_nitros]
+Plus de déploiement.
+La batterie est vide.
+Économise l'énergie.
+Lève le pied et laisse rouler.
+On n'a plus rien.
+
+[crash]
+Il m'a percuté !
+Où est-ce qu'il va ?!
+Quel pilote dangereux !
+Incroyable !
+C'est une blague ?!
+J'ai des dégâts !
+L'aileron avant est parti !
+Il m'a poussé hors piste !
+Ce n'était pas ma faute !
+Vérifiez la voiture, s'il vous plaît.
+
+[overtake]
+Bye bye !
+Trop facile !
+L'undercut a marché !
+À plus tard !
+Vas-y, fonce !
+Belle manœuvre.
+Merci, au suivant !
+C'est comme ça qu'on fait.
+Fini le train DRS.
+
+[first_place]
+P1 ! P1 !
+On l'a fait, les gars !
+Oui ! Oui ! Oui !
+En tête de la course !
+Vas-y, fonce !
+Quelle course !
+

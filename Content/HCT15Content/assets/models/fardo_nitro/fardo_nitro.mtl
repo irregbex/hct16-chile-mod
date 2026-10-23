@@ -1,0 +1,19 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl hay
+Kd 0.8600 0.7400 0.3800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl straw
+Kd 0.8800 0.7700 0.4500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl trunk
+Kd 0.3600 0.2400 0.1300
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

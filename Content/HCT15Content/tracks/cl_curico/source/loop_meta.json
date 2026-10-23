@@ -1,0 +1,42 @@
+{
+ "centre": [
+  -34.985368,
+  -71.2393705
+ ],
+ "target_m": 5000,
+ "length_m": 5054,
+ "edge_reuse": 0.005,
+ "streets": [
+  "Avenida Alessandri",
+  "Avenida Manso de Velasco",
+  "Merced",
+  "Avenida Manso de Velasco",
+  "Carrera",
+  "Carmen",
+  "Avenida Camilo Henríquez",
+  "Avenida Alessandri",
+  "Avenida Camilo Henríquez",
+  "Yungay",
+  "Sargento Aldea",
+  "Merced",
+  "Avenida Bernardo O'Higgins",
+  "Avenida Camilo Henríquez",
+  "Avenida Bernardo O'Higgins",
+  "Estado",
+  "Maipú",
+  "Yungay",
+  "Avenida San Martín",
+  "Avenida Bernardo O'Higgins",
+  "Avenida San Martín",
+  "Carmen",
+  "Buen Pastor",
+  "Yungay",
+  "Carrera",
+  "Las Heras",
+  "San Francisco",
+  "Argomedo",
+  "Avenida Manso de Velasco",
+  "Avenida San Martín"
+ ],
+ "sights": []
+}

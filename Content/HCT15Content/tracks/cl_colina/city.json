@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_colina_city",
+ "ItemName": "city_cl_colina",
+ "DisplayName": "Colina, Metropolitana",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_colina"
+ ]
+}

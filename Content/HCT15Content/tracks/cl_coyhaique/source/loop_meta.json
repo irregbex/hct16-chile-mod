@@ -1,0 +1,33 @@
+{
+ "centre": [
+  -45.5711804,
+  -72.0684863
+ ],
+ "target_m": 4000,
+ "length_m": 4041,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Avenida General Baquedano",
+  "Diego Portales",
+  "Avenida General Baquedano",
+  "Manuel Rodríguez",
+  "Obispo Vielmo",
+  "Magallanes",
+  "José Miguel Carrera",
+  "Presidente Carlos Ibáñez",
+  "Lautaro",
+  "Arturo Prat",
+  "Avenida Presidente Errázuriz",
+  "Magallanes",
+  "Freire",
+  "Magnolias",
+  "Freire",
+  "Ignacio Serrano",
+  "Avenida Presidente Errázuriz",
+  "Lord Cochrane",
+  "Lautaro",
+  "Cristóbal Colón",
+  "Freire"
+ ],
+ "sights": []
+}

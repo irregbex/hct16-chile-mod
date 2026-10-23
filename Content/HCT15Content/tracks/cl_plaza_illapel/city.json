@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_plaza_illapel_city",
+ "ItemName": "city_cl_plaza_illapel",
+ "DisplayName": "Plaza de Illapel, Coquimbo",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_plaza_illapel"
+ ]
+}

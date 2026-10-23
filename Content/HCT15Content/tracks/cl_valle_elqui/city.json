@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_valle_elqui_city",
+ "ItemName": "city_cl_valle_elqui",
+ "DisplayName": "Valle del Elqui, Coquimbo",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_valle_elqui"
+ ]
+}

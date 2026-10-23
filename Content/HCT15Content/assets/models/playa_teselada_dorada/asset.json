@@ -1,0 +1,11 @@
+{
+  "Id": "playa_teselada_dorada",
+  "Name": "Tessellated dunes (dorada)",
+  "Category": "landmark",
+  "Description": "A 9 m slice of dorada beach dunes, flat-shaded facets from x = 0 inland to -14 m, seamless along z (Playas de la Quinta Región)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 1.2,
+  "Recenter": false,
+  "DoubleSided": false
+}

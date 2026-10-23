@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_iquique_city",
+ "ItemName": "city_cl_iquique",
+ "DisplayName": "Iquique, Tarapacá",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_iquique"
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: southern rain on the lake",
+ "RainT": [
+  0.0,
+  0.4,
+  1.0
+ ],
+ "RainV": [
+  0.1,
+  0.45,
+  0.2
+ ],
+ "Sound": true,
+ "Grip": 0.85
+}

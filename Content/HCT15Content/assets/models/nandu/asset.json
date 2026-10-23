@@ -1,0 +1,11 @@
+{
+  "Id": "nandu",
+  "Name": "Lesser rhea",
+  "Category": "prop",
+  "Description": "The choique of the Patagonian steppe, 1.1 m, towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

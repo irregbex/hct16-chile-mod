@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_stgo_la_pintana_city",
+ "ItemName": "city_cl_stgo_la_pintana",
+ "DisplayName": "La Pintana, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_stgo_la_pintana"
+ ]
+}

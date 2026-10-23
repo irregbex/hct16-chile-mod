@@ -1,0 +1,22 @@
+{
+ "start": [
+  -33.38925,
+  -70.60204
+ ],
+ "end": [
+  -33.43774,
+  -70.57359
+ ],
+ "length_m": 5072,
+ "return_m": 5072,
+ "finish_index": 194,
+ "streets": [
+  "Autopista Vespucio Oriente",
+  "Avenida Américo Vespucio Sur",
+  "Avenida Américo Vespucio Norte",
+  "Avenida Vitacura",
+  "Avenida Américo Vespucio Norte",
+  "Autopista Vespucio Oriente"
+ ],
+ "sights": []
+}

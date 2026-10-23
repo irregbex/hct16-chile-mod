@@ -1,0 +1,12 @@
+{
+ "Id": "parroquia_san_rafael",
+ "Name": "Parroquia San Rafael",
+ "Category": "landmark",
+ "Description": "front elevation from a photo (Tools/elevation_asset.py); photo: 20210103-001 Catedral Illapel frontis detalle.jpg, Ariel Mauricio Malla Gallardo, CC BY-SA 4.0 (Wikimedia Commons)",
+ "Scale": 1.0,
+ "Yaw": 0,
+ "GroundOffset": 0,
+ "Recenter": true,
+ "DoubleSided": false,
+ "Source": "01.jpg"
+}

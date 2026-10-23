@@ -1,0 +1,362 @@
+{
+  "car": "cl_taxi",
+  "source": "taunts.cl_taxi.txt",
+  "format": "wav pcm_s16le 48000Hz mono",
+  "sections": {
+    "random": [
+      {
+        "index": 1,
+        "source_line": 4,
+        "text": "¡Qué te pasa, conchetumare!",
+        "tts_script": "[angry] ¡Qué te pasa, conchetumare!",
+        "file": "audio/random/random_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 5,
+        "text": "¡Córrete, weón culiao!",
+        "tts_script": "[shouting] ¡CÓRRETE, weón culiao!",
+        "file": "audio/random/random_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 6,
+        "text": "¡Erís más lento que la micro, aweonao!",
+        "tts_script": "[mocking] ¡Erís más lento que la micro, aweonao!",
+        "file": "audio/random/random_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 7,
+        "text": "¡Ya po, weón, ¿vai a avanzar o no?!",
+        "tts_script": "[frustrated] [shouting] ¡Ya po, weón! ¿Vai a avanzar o no?",
+        "file": "audio/random/random_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 8,
+        "text": "¡Pa' qué te dieron licencia, gil culiao!",
+        "tts_script": "[angry] ¡Pa' qué te dieron licencia, gil culiao!",
+        "file": "audio/random/random_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 9,
+        "text": "¡La pista no es tuya, conchetumare!",
+        "tts_script": "[growls] ¡La pista no es tuya, conchetumare!",
+        "file": "audio/random/random_06.wav"
+      },
+      {
+        "index": 7,
+        "source_line": 10,
+        "text": "¡Estái más perdío que el teniente Bello, weón!",
+        "tts_script": "[laughs] [mocking] ¡Estái más perdío que el teniente Bello, weón!",
+        "file": "audio/random/random_07.wav"
+      },
+      {
+        "index": 8,
+        "source_line": 11,
+        "text": "¡Andái puro weando, culiao!",
+        "tts_script": "[annoyed] ¡Andái puro weando, culiao!",
+        "file": "audio/random/random_08.wav"
+      },
+      {
+        "index": 9,
+        "source_line": 12,
+        "text": "¡Me tenís chato, weón!",
+        "tts_script": "[sighs] [angry] ¡Me tenís chato, weón!",
+        "file": "audio/random/random_09.wav"
+      },
+      {
+        "index": 10,
+        "source_line": 13,
+        "text": "¡Sácate de ahí, pastel!",
+        "tts_script": "[shouting] ¡SÁCATE de ahí, pastel!",
+        "file": "audio/random/random_10.wav"
+      },
+      {
+        "index": 11,
+        "source_line": 14,
+        "text": "¡Manejái como el forro!",
+        "tts_script": "[sarcastic] ¡Manejái como el forro!",
+        "file": "audio/random/random_11.wav"
+      },
+      {
+        "index": 12,
+        "source_line": 15,
+        "text": "¡Oe, pajarón, mira pa' delante!",
+        "tts_script": "[shouting] ¡Oe, pajarón, mira pa' delante!",
+        "file": "audio/random/random_12.wav"
+      },
+      {
+        "index": 13,
+        "source_line": 16,
+        "text": "¡Aweonao, tenís el tarro en neutro!",
+        "tts_script": "[laughs] ¡Aweonao, tenís el tarro en neutro!",
+        "file": "audio/random/random_13.wav"
+      },
+      {
+        "index": 14,
+        "source_line": 17,
+        "text": "¡Qué onda, perkin, ¿te compraste la calle?!",
+        "tts_script": "[sarcastic] ¡Qué onda, perkin! ¿Te compraste la calle?",
+        "file": "audio/random/random_14.wav"
+      },
+      {
+        "index": 15,
+        "source_line": 18,
+        "text": "¡Te voy a sacar la cresta, weón!",
+        "tts_script": "[growls] ¡Te voy a sacar la cresta, weón!",
+        "file": "audio/random/random_15.wav"
+      },
+      {
+        "index": 16,
+        "source_line": 19,
+        "text": "¡Puro color tirái, chanta culiao!",
+        "tts_script": "[mocking] ¡Puro color tirái, chanta culiao!",
+        "file": "audio/random/random_16.wav"
+      },
+      {
+        "index": 17,
+        "source_line": 20,
+        "text": "¡Anda a acostarte, pollo!",
+        "tts_script": "[evil laugh] ¡Anda a acostarte, pollo!",
+        "file": "audio/random/random_17.wav"
+      },
+      {
+        "index": 18,
+        "source_line": 21,
+        "text": "¡Ni el Transantiago es tan lento, weón!",
+        "tts_script": "[mocking] ¡Ni el Transantiago es tan lento, weón!",
+        "file": "audio/random/random_18.wav"
+      },
+      {
+        "index": 19,
+        "source_line": 22,
+        "text": "¡Me caís como las weas, conchetumare!",
+        "tts_script": "[angry] ¡Me caís como las weas, conchetumare!",
+        "file": "audio/random/random_19.wav"
+      }
+    ],
+    "nitro": [
+      {
+        "index": 1,
+        "source_line": 25,
+        "text": "¡Agárrate, que voy a la chucha!",
+        "tts_script": "[excited] [shouting] ¡Agárrate, que voy a la CHUCHA!",
+        "file": "audio/nitro/nitro_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 26,
+        "text": "¡A la cresta con el taxímetro!",
+        "tts_script": "[evil laugh] ¡A la cresta con el taxímetro!",
+        "file": "audio/nitro/nitro_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 27,
+        "text": "¡Pa' la pampa, weón!",
+        "tts_script": "[shouting] ¡Pa' la pampa, weón!",
+        "file": "audio/nitro/nitro_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 28,
+        "text": "¡Voy más rápido que la cresta!",
+        "tts_script": "[excited] ¡Voy más rápido que la cresta!",
+        "file": "audio/nitro/nitro_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 29,
+        "text": "¡Suelta la weá, que nos vamos!",
+        "tts_script": "[shouting] ¡Suelta la weá, que nos vamos!",
+        "file": "audio/nitro/nitro_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 30,
+        "text": "¡Chao con tu weá!",
+        "tts_script": "[evil laugh] ¡Chao con tu weá!",
+        "file": "audio/nitro/nitro_06.wav"
+      }
+    ],
+    "out_of_nitros": [
+      {
+        "index": 1,
+        "source_line": 33,
+        "text": "¡Chucha, se me acabó la weá!",
+        "tts_script": "[frustrated] ¡Chucha, se me acabó la weá!",
+        "file": "audio/out_of_nitros/out_of_nitros_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 34,
+        "text": "¡Puta la cagá, sin nitro!",
+        "tts_script": "[sighs] [angry] ¡Puta la cagá, sin nitro!",
+        "file": "audio/out_of_nitros/out_of_nitros_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 35,
+        "text": "¡Me quedé seco, conchetumare!",
+        "tts_script": "[frustrated] [growls] ¡Me quedé seco, conchetumare!",
+        "file": "audio/out_of_nitros/out_of_nitros_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 36,
+        "text": "¡Mierda, ando a pata!",
+        "tts_script": "[sighs] ¡Mierda, ando a pata!",
+        "file": "audio/out_of_nitros/out_of_nitros_04.wav"
+      }
+    ],
+    "crash": [
+      {
+        "index": 1,
+        "source_line": 39,
+        "text": "¡Conchetumare, me rayaste el taxi!",
+        "tts_script": "[furious] [shouting] ¡CONCHETUMARE, me rayaste el taxi!",
+        "file": "audio/crash/crash_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 40,
+        "text": "¡Me sacaste la cresta, culiao!",
+        "tts_script": "[angry] ¡Me sacaste la cresta, culiao!",
+        "file": "audio/crash/crash_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 41,
+        "text": "¡Vo' me pagái el choque, weón!",
+        "tts_script": "[furious] ¡Vo' me pagái el choque, weón!",
+        "file": "audio/crash/crash_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 42,
+        "text": "¡Puta la weá, mi parachoque!",
+        "tts_script": "[shouting] ¡Puta la weá, mi parachoque!",
+        "file": "audio/crash/crash_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 43,
+        "text": "¡Weón culiao, ¿no veí o qué?!",
+        "tts_script": "[furious] [shouting] ¡Weón culiao! ¿No veí o qué?",
+        "file": "audio/crash/crash_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 44,
+        "text": "¡Te voy a sacar la chucha, pastel!",
+        "tts_script": "[growls] ¡Te voy a sacar la chucha, pastel!",
+        "file": "audio/crash/crash_06.wav"
+      },
+      {
+        "index": 7,
+        "source_line": 45,
+        "text": "¡Qué hací, saco 'e weas!",
+        "tts_script": "[angry] ¡Qué hací, saco 'e weas!",
+        "file": "audio/crash/crash_07.wav"
+      },
+      {
+        "index": 8,
+        "source_line": 46,
+        "text": "¡Me cagaste la pega, conchetumare!",
+        "tts_script": "[furious] ¡Me cagaste la pega, conchetumare!",
+        "file": "audio/crash/crash_08.wav"
+      }
+    ],
+    "overtake": [
+      {
+        "index": 1,
+        "source_line": 49,
+        "text": "¡Chao, gil culiao!",
+        "tts_script": "[laughs] [mocking] ¡Chao, gil culiao!",
+        "file": "audio/overtake/overtake_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 50,
+        "text": "¡Te pasé por la chucha!",
+        "tts_script": "[evil laugh] ¡Te pasé por la chucha!",
+        "file": "audio/overtake/overtake_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 51,
+        "text": "¡Quedaste pa' la cagá, weón!",
+        "tts_script": "[mocking] ¡Quedaste pa' la cagá, weón!",
+        "file": "audio/overtake/overtake_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 52,
+        "text": "¡Aprende, aweonao!",
+        "tts_script": "[laughs] ¡Aprende, aweonao!",
+        "file": "audio/overtake/overtake_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 53,
+        "text": "¡Te dejé botao como colilla!",
+        "tts_script": "[mocking] ¡Te dejé botao como colilla!",
+        "file": "audio/overtake/overtake_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 54,
+        "text": "¡Mírame la patente, gil!",
+        "tts_script": "[sarcastic] ¡Mírame la patente, gil!",
+        "file": "audio/overtake/overtake_06.wav"
+      },
+      {
+        "index": 7,
+        "source_line": 55,
+        "text": "¡Por la cresta que erís lento!",
+        "tts_script": "[laughs] ¡Por la cresta que erís lento!",
+        "file": "audio/overtake/overtake_07.wav"
+      },
+      {
+        "index": 8,
+        "source_line": 56,
+        "text": "¡Hasta la vista, pajarón!",
+        "tts_script": "[evil laugh] ¡Hasta la vista, pajarón!",
+        "file": "audio/overtake/overtake_08.wav"
+      }
+    ],
+    "first_place": [
+      {
+        "index": 1,
+        "source_line": 59,
+        "text": "¡La raja, conchetumare!",
+        "tts_script": "[triumphant] [shouting] ¡La RAJA, conchetumare!",
+        "file": "audio/first_place/first_place_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 60,
+        "text": "¡Soy el más vio de Santiago, weón!",
+        "tts_script": "[evil laugh] ¡Soy el más vio de Santiago, weón!",
+        "file": "audio/first_place/first_place_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 61,
+        "text": "¡Chúpense esa, culiaos!",
+        "tts_script": "[mocking] [laughs] ¡Chúpense esa, culiaos!",
+        "file": "audio/first_place/first_place_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 62,
+        "text": "¡Primero, y el resto que se vaya a la chucha!",
+        "tts_script": "[triumphant] ¡Primero, y el resto que se vaya a la chucha!",
+        "file": "audio/first_place/first_place_04.wav"
+      }
+    ]
+  }
+}

@@ -1,0 +1,995 @@
+{
+ "Comment": "campaign_map.py: the campaign mini map (HCT15.CampaignMap). Regions north to south.",
+ "Image": "chile_map.png",
+ "Width": 186,
+ "Height": 900,
+ "Horizontal": false,
+ "Regions": [
+  {
+   "Name": "Arica y Parinacota",
+   "Lat": -18.48
+  },
+  {
+   "Name": "Tarapacá",
+   "Lat": -20.206
+  },
+  {
+   "Name": "Antofagasta",
+   "Lat": -22.333
+  },
+  {
+   "Name": "Atacama",
+   "Lat": -26.89
+  },
+  {
+   "Name": "Coquimbo",
+   "Lat": -29.258
+  },
+  {
+   "Name": "Valparaíso",
+   "Lat": -27.085
+  },
+  {
+   "Name": "Santiago",
+   "Lat": -33.203
+  },
+  {
+   "Name": "O'Higgins",
+   "Lat": -34.085
+  },
+  {
+   "Name": "Maule",
+   "Lat": -34.985
+  },
+  {
+   "Name": "Ñuble",
+   "Lat": -36.606
+  },
+  {
+   "Name": "Biobío",
+   "Lat": -36.616
+  },
+  {
+   "Name": "Araucanía",
+   "Lat": -37.8
+  },
+  {
+   "Name": "Los Ríos",
+   "Lat": -39.814
+  },
+  {
+   "Name": "Los Lagos",
+   "Lat": -40.574
+  },
+  {
+   "Name": "Aysén",
+   "Lat": -45.572
+  },
+  {
+   "Name": "Magallanes",
+   "Lat": -50.986
+  }
+ ],
+ "Rounds": {
+  "cl_illapel_sights": {
+   "U": 0.5029,
+   "V": 0.3678,
+   "Lat": -31.632,
+   "Lon": -71.171,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_stgo_costanera_moneda": {
+   "U": 0.5573,
+   "V": 0.4143,
+   "Lat": -33.432,
+   "Lon": -70.627,
+   "Region": "Santiago",
+   "Climate": "Día · esmog"
+  },
+  "cl_vespucio_oriente": {
+   "U": 0.5613,
+   "V": 0.4136,
+   "Lat": -33.406,
+   "Lon": -70.587,
+   "Region": "Santiago",
+   "Climate": "Día"
+  },
+  "cl_stgo_cerro_navia": {
+   "U": 0.5452,
+   "V": 0.4141,
+   "Lat": -33.426,
+   "Lon": -70.748,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche · esmog"
+  },
+  "cl_stgo_conchali": {
+   "U": 0.5522,
+   "V": 0.413,
+   "Lat": -33.384,
+   "Lon": -70.678,
+   "Region": "Santiago",
+   "Climate": "Noche"
+  },
+  "cl_stgo_el_bosque": {
+   "U": 0.5524,
+   "V": 0.4176,
+   "Lat": -33.562,
+   "Lon": -70.676,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche · esmog"
+  },
+  "cl_stgo_estacion_central": {
+   "U": 0.5497,
+   "V": 0.4151,
+   "Lat": -33.463,
+   "Lon": -70.703,
+   "Region": "Santiago",
+   "Climate": "Atardecer → noche · fuegos artificiales"
+  },
+  "cl_stgo_la_florida": {
+   "U": 0.5599,
+   "V": 0.4165,
+   "Lat": -33.52,
+   "Lon": -70.601,
+   "Region": "Santiago",
+   "Climate": "Día · esmog"
+  },
+  "cl_stgo_la_pintana": {
+   "U": 0.5567,
+   "V": 0.4183,
+   "Lat": -33.588,
+   "Lon": -70.633,
+   "Region": "Santiago",
+   "Climate": "Día · esmog"
+  },
+  "cl_stgo_la_reina": {
+   "U": 0.5658,
+   "V": 0.4145,
+   "Lat": -33.441,
+   "Lon": -70.542,
+   "Region": "Santiago",
+   "Climate": "Atardecer → noche"
+  },
+  "cl_stgo_las_condes": {
+   "U": 0.5676,
+   "V": 0.4139,
+   "Lat": -33.417,
+   "Lon": -70.524,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche"
+  },
+  "cl_stgo_macul": {
+   "U": 0.56,
+   "V": 0.4158,
+   "Lat": -33.491,
+   "Lon": -70.6,
+   "Region": "Santiago",
+   "Climate": "Día · esmog"
+  },
+  "cl_stgo_maipu": {
+   "U": 0.5444,
+   "V": 0.4163,
+   "Lat": -33.51,
+   "Lon": -70.756,
+   "Region": "Santiago",
+   "Climate": "Noche"
+  },
+  "cl_stgo_nunoa": {
+   "U": 0.5598,
+   "V": 0.4148,
+   "Lat": -33.454,
+   "Lon": -70.602,
+   "Region": "Santiago",
+   "Climate": "Atardecer → noche"
+  },
+  "cl_stgo_penalolen": {
+   "U": 0.5658,
+   "V": 0.4154,
+   "Lat": -33.477,
+   "Lon": -70.542,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche"
+  },
+  "cl_stgo_providencia": {
+   "U": 0.5589,
+   "V": 0.4142,
+   "Lat": -33.429,
+   "Lon": -70.611,
+   "Region": "Santiago",
+   "Climate": "Atardecer → noche"
+  },
+  "cl_stgo_pudahuel": {
+   "U": 0.5448,
+   "V": 0.4144,
+   "Lat": -33.437,
+   "Lon": -70.752,
+   "Region": "Santiago",
+   "Climate": "Noche"
+  },
+  "cl_stgo_puente_alto": {
+   "U": 0.5642,
+   "V": 0.4184,
+   "Lat": -33.593,
+   "Lon": -70.558,
+   "Region": "Santiago",
+   "Climate": "Día · esmog"
+  },
+  "cl_stgo_quilicura": {
+   "U": 0.5458,
+   "V": 0.4123,
+   "Lat": -33.355,
+   "Lon": -70.742,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche · esmog"
+  },
+  "cl_stgo_recoleta": {
+   "U": 0.5565,
+   "V": 0.4136,
+   "Lat": -33.406,
+   "Lon": -70.635,
+   "Region": "Santiago",
+   "Climate": "Noche"
+  },
+  "cl_stgo_renca": {
+   "U": 0.5473,
+   "V": 0.4135,
+   "Lat": -33.404,
+   "Lon": -70.727,
+   "Region": "Santiago",
+   "Climate": "Día · esmog"
+  },
+  "cl_stgo_san_bernardo": {
+   "U": 0.5475,
+   "V": 0.4198,
+   "Lat": -33.645,
+   "Lon": -70.725,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche · esmog"
+  },
+  "cl_stgo_santiago": {
+   "U": 0.5542,
+   "V": 0.4148,
+   "Lat": -33.452,
+   "Lon": -70.658,
+   "Region": "Santiago",
+   "Climate": "Día · esmog"
+  },
+  "cl_alto_hospicio": {
+   "U": 0.6098,
+   "V": 0.0742,
+   "Lat": -20.27,
+   "Lon": -70.102,
+   "Region": "Tarapacá",
+   "Climate": "Día · camanchaca"
+  },
+  "cl_angol": {
+   "U": 0.3494,
+   "V": 0.5271,
+   "Lat": -37.8,
+   "Lon": -72.706,
+   "Region": "Araucanía",
+   "Climate": "Día · lluvia"
+  },
+  "cl_antofagasta": {
+   "U": 0.5805,
+   "V": 0.1615,
+   "Lat": -23.649,
+   "Lon": -70.395,
+   "Region": "Antofagasta",
+   "Climate": "Día · camanchaca"
+  },
+  "cl_arica": {
+   "U": 0.5878,
+   "V": 0.0279,
+   "Lat": -18.48,
+   "Lon": -70.322,
+   "Region": "Arica y Parinacota",
+   "Climate": "Día · camanchaca"
+  },
+  "cl_buin": {
+   "U": 0.5458,
+   "V": 0.422,
+   "Lat": -33.731,
+   "Lon": -70.742,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche"
+  },
+  "cl_calama": {
+   "U": 0.7274,
+   "V": 0.1308,
+   "Lat": -22.462,
+   "Lon": -68.926,
+   "Region": "Antofagasta",
+   "Climate": "Día · ceniza volcánica"
+  },
+  "cl_castro": {
+   "U": 0.2436,
+   "V": 0.6481,
+   "Lat": -42.481,
+   "Lon": -73.764,
+   "Region": "Los Lagos",
+   "Climate": "Día · lluvia"
+  },
+  "cl_chiguayante": {
+   "U": 0.3176,
+   "V": 0.5046,
+   "Lat": -36.929,
+   "Lon": -73.024,
+   "Region": "Biobío",
+   "Climate": "Día · lluvia"
+  },
+  "cl_chillan": {
+   "U": 0.4097,
+   "V": 0.4963,
+   "Lat": -36.606,
+   "Lon": -72.103,
+   "Region": "Ñuble",
+   "Climate": "Día · ceniza volcánica · lluvia"
+  },
+  "cl_colina": {
+   "U": 0.5525,
+   "V": 0.4084,
+   "Lat": -33.203,
+   "Lon": -70.675,
+   "Region": "Santiago",
+   "Climate": "Día"
+  },
+  "cl_concepcion": {
+   "U": 0.315,
+   "V": 0.502,
+   "Lat": -36.827,
+   "Lon": -73.05,
+   "Region": "Biobío",
+   "Climate": "Noche · lluvia"
+  },
+  "cl_copiapo": {
+   "U": 0.5868,
+   "V": 0.2575,
+   "Lat": -27.366,
+   "Lon": -70.332,
+   "Region": "Atacama",
+   "Climate": "Día"
+  },
+  "cl_coquimbo": {
+   "U": 0.486,
+   "V": 0.3243,
+   "Lat": -29.951,
+   "Lon": -71.34,
+   "Region": "Coquimbo",
+   "Climate": "Día · camanchaca"
+  },
+  "cl_coronel": {
+   "U": 0.3043,
+   "V": 0.5069,
+   "Lat": -37.017,
+   "Lon": -73.157,
+   "Region": "Biobío",
+   "Climate": "Día · lluvia"
+  },
+  "cl_coyhaique": {
+   "U": 0.4131,
+   "V": 0.7279,
+   "Lat": -45.572,
+   "Lon": -72.069,
+   "Region": "Aysén",
+   "Climate": "Tormenta → aurora austral · lluvia"
+  },
+  "cl_curico": {
+   "U": 0.4961,
+   "V": 0.4544,
+   "Lat": -34.985,
+   "Lon": -71.239,
+   "Region": "Maule",
+   "Climate": "Día · lluvia"
+  },
+  "cl_hualpen": {
+   "U": 0.3105,
+   "V": 0.5011,
+   "Lat": -36.794,
+   "Lon": -73.095,
+   "Region": "Biobío",
+   "Climate": "Día · lluvia"
+  },
+  "cl_iquique": {
+   "U": 0.6048,
+   "V": 0.0727,
+   "Lat": -20.214,
+   "Lon": -70.152,
+   "Region": "Tarapacá",
+   "Climate": "Día · camanchaca"
+  },
+  "cl_la_serena": {
+   "U": 0.4946,
+   "V": 0.3231,
+   "Lat": -29.902,
+   "Lon": -71.254,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_lampa": {
+   "U": 0.5327,
+   "V": 0.4105,
+   "Lat": -33.286,
+   "Lon": -70.873,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche"
+  },
+  "cl_linares": {
+   "U": 0.4601,
+   "V": 0.4766,
+   "Lat": -35.845,
+   "Lon": -71.599,
+   "Region": "Maule",
+   "Climate": "Día · lluvia"
+  },
+  "cl_los_andes": {
+   "U": 0.5601,
+   "V": 0.3988,
+   "Lat": -32.834,
+   "Lon": -70.599,
+   "Region": "Valparaíso",
+   "Climate": "Tarde → noche"
+  },
+  "cl_los_angeles": {
+   "U": 0.3848,
+   "V": 0.5186,
+   "Lat": -37.47,
+   "Lon": -72.352,
+   "Region": "Biobío",
+   "Climate": "Día · lluvia"
+  },
+  "cl_machali": {
+   "U": 0.555,
+   "V": 0.4337,
+   "Lat": -34.183,
+   "Lon": -70.65,
+   "Region": "O'Higgins",
+   "Climate": "Día"
+  },
+  "cl_melipilla": {
+   "U": 0.4986,
+   "V": 0.4208,
+   "Lat": -33.686,
+   "Lon": -71.214,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche"
+  },
+  "cl_osorno": {
+   "U": 0.3062,
+   "V": 0.5988,
+   "Lat": -40.574,
+   "Lon": -73.138,
+   "Region": "Los Lagos",
+   "Climate": "Día · lluvia"
+  },
+  "cl_ovalle": {
+   "U": 0.4996,
+   "V": 0.3412,
+   "Lat": -30.603,
+   "Lon": -71.204,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_padre_las_casas": {
+   "U": 0.3604,
+   "V": 0.5521,
+   "Lat": -38.768,
+   "Lon": -72.596,
+   "Region": "Araucanía",
+   "Climate": "Día · ceniza volcánica · lluvia"
+  },
+  "cl_penaflor": {
+   "U": 0.5321,
+   "V": 0.4188,
+   "Lat": -33.606,
+   "Lon": -70.879,
+   "Region": "Santiago",
+   "Climate": "Día"
+  },
+  "cl_puerto_montt": {
+   "U": 0.3261,
+   "V": 0.622,
+   "Lat": -41.47,
+   "Lon": -72.939,
+   "Region": "Los Lagos",
+   "Climate": "Día · ceniza volcánica · lluvia"
+  },
+  "cl_punta_arenas": {
+   "U": 0.5294,
+   "V": 0.9241,
+   "Lat": -53.163,
+   "Lon": -70.906,
+   "Region": "Magallanes",
+   "Climate": "Tormenta → aurora austral · nieve"
+  },
+  "cl_quillota": {
+   "U": 0.4953,
+   "V": 0.3999,
+   "Lat": -32.878,
+   "Lon": -71.247,
+   "Region": "Valparaíso",
+   "Climate": "Día"
+  },
+  "cl_quilpue": {
+   "U": 0.4759,
+   "V": 0.4044,
+   "Lat": -33.049,
+   "Lon": -71.441,
+   "Region": "Valparaíso",
+   "Climate": "Día"
+  },
+  "cl_rancagua": {
+   "U": 0.546,
+   "V": 0.4333,
+   "Lat": -34.17,
+   "Lon": -70.74,
+   "Region": "O'Higgins",
+   "Climate": "Día"
+  },
+  "cl_rengo": {
+   "U": 0.5338,
+   "V": 0.4395,
+   "Lat": -34.41,
+   "Lon": -70.862,
+   "Region": "O'Higgins",
+   "Climate": "Día · lluvia"
+  },
+  "cl_san_antonio": {
+   "U": 0.459,
+   "V": 0.4181,
+   "Lat": -33.579,
+   "Lon": -71.61,
+   "Region": "Valparaíso",
+   "Climate": "Día · camanchaca"
+  },
+  "cl_san_felipe": {
+   "U": 0.5474,
+   "V": 0.3967,
+   "Lat": -32.751,
+   "Lon": -70.726,
+   "Region": "Valparaíso",
+   "Climate": "Día"
+  },
+  "cl_san_fernando": {
+   "U": 0.5212,
+   "V": 0.444,
+   "Lat": -34.584,
+   "Lon": -70.988,
+   "Region": "O'Higgins",
+   "Climate": "Día · lluvia"
+  },
+  "cl_san_pedro_de_la_paz": {
+   "U": 0.3098,
+   "V": 0.5024,
+   "Lat": -36.842,
+   "Lon": -73.102,
+   "Region": "Biobío",
+   "Climate": "Día · lluvia"
+  },
+  "cl_talagante": {
+   "U": 0.5269,
+   "V": 0.4203,
+   "Lat": -33.666,
+   "Lon": -70.931,
+   "Region": "Santiago",
+   "Climate": "Tarde → noche"
+  },
+  "cl_talca": {
+   "U": 0.4533,
+   "V": 0.4658,
+   "Lat": -35.427,
+   "Lon": -71.667,
+   "Region": "Maule",
+   "Climate": "Día · lluvia"
+  },
+  "cl_talcahuano": {
+   "U": 0.3082,
+   "V": 0.4991,
+   "Lat": -36.713,
+   "Lon": -73.118,
+   "Region": "Biobío",
+   "Climate": "Día · lluvia"
+  },
+  "cl_temuco": {
+   "U": 0.3608,
+   "V": 0.5513,
+   "Lat": -38.735,
+   "Lon": -72.592,
+   "Region": "Araucanía",
+   "Climate": "Día · ceniza volcánica · lluvia"
+  },
+  "cl_tome": {
+   "U": 0.324,
+   "V": 0.4965,
+   "Lat": -36.616,
+   "Lon": -72.96,
+   "Region": "Biobío",
+   "Climate": "Día · lluvia"
+  },
+  "cl_valdivia": {
+   "U": 0.2954,
+   "V": 0.5792,
+   "Lat": -39.814,
+   "Lon": -73.246,
+   "Region": "Los Ríos",
+   "Climate": "Día · lluvia"
+  },
+  "cl_vallenar": {
+   "U": 0.544,
+   "V": 0.2887,
+   "Lat": -28.574,
+   "Lon": -70.76,
+   "Region": "Atacama",
+   "Climate": "Día"
+  },
+  "cl_valparaiso": {
+   "U": 0.4565,
+   "V": 0.4038,
+   "Lat": -33.028,
+   "Lon": -71.635,
+   "Region": "Valparaíso",
+   "Climate": "Noche → amanecer"
+  },
+  "cl_villa_alemana": {
+   "U": 0.4828,
+   "V": 0.4042,
+   "Lat": -33.044,
+   "Lon": -71.372,
+   "Region": "Valparaíso",
+   "Climate": "Día"
+  },
+  "cl_villarrica": {
+   "U": 0.3971,
+   "V": 0.5653,
+   "Lat": -39.278,
+   "Lon": -72.229,
+   "Region": "Araucanía",
+   "Climate": "Día · ceniza volcánica · lluvia"
+  },
+  "cl_vina_del_mar": {
+   "U": 0.4643,
+   "V": 0.4036,
+   "Lat": -33.018,
+   "Lon": -71.557,
+   "Region": "Valparaíso",
+   "Climate": "Atardecer → noche"
+  },
+  "cl_chiloe": {
+   "U": 0.225,
+   "V": 0.6512,
+   "Lat": -42.6,
+   "Lon": -73.95,
+   "Region": "Los Lagos",
+   "Climate": "Día · lluvia"
+  },
+  "cl_base_prat": {
+   "U": 0.9839,
+   "V": 0.9967,
+   "Lat": -62.477,
+   "Lon": -59.66,
+   "Region": "Magallanes",
+   "Climate": "Día · nieve"
+  },
+  "cl_base_frei": {
+   "U": 0.9839,
+   "V": 0.9967,
+   "Lat": -62.2,
+   "Lon": -58.96,
+   "Region": "Magallanes",
+   "Climate": "Día · nieve"
+  },
+  "cl_base_gonzalez_videla": {
+   "U": 0.9839,
+   "V": 0.9967,
+   "Lat": -64.824,
+   "Lon": -62.858,
+   "Region": "Magallanes",
+   "Climate": "Día · nieve"
+  },
+  "cl_base_ohiggins": {
+   "U": 0.9839,
+   "V": 0.9967,
+   "Lat": -63.321,
+   "Lon": -57.899,
+   "Region": "Magallanes",
+   "Climate": "Día · nieve"
+  },
+  "cl_base_yelcho": {
+   "U": 0.9839,
+   "V": 0.9967,
+   "Lat": -64.876,
+   "Lon": -63.584,
+   "Region": "Magallanes",
+   "Climate": "Día · nieve"
+  },
+  "cl_cajon_del_maipo": {
+   "U": 0.585,
+   "V": 0.4196,
+   "Lat": -33.639,
+   "Lon": -70.35,
+   "Region": "Santiago",
+   "Climate": "Día"
+  },
+  "cl_ski_el_colorado": {
+   "U": 0.5909,
+   "V": 0.4121,
+   "Lat": -33.349,
+   "Lon": -70.291,
+   "Region": "Santiago",
+   "Climate": "Día · nieve"
+  },
+  "cl_embalse_el_yeso": {
+   "U": 0.6111,
+   "V": 0.4206,
+   "Lat": -33.676,
+   "Lon": -70.089,
+   "Region": "Santiago",
+   "Climate": "Día · nieve"
+  },
+  "cl_frutillar": {
+   "U": 0.314,
+   "V": 0.6131,
+   "Lat": -41.126,
+   "Lon": -73.06,
+   "Region": "Los Lagos",
+   "Climate": "Día · lluvia"
+  },
+  "cl_tatio": {
+   "U": 0.8189,
+   "V": 0.1275,
+   "Lat": -22.333,
+   "Lon": -68.011,
+   "Region": "Antofagasta",
+   "Climate": "Día"
+  },
+  "cl_humberstone": {
+   "U": 0.6405,
+   "V": 0.0725,
+   "Lat": -20.206,
+   "Lon": -69.795,
+   "Region": "Tarapacá",
+   "Climate": "Día"
+  },
+  "cl_lago_ranco": {
+   "U": 0.372,
+   "V": 0.5922,
+   "Lat": -40.319,
+   "Lon": -72.48,
+   "Region": "Los Ríos",
+   "Climate": "Día · lluvia"
+  },
+  "cl_laguna_verde": {
+   "U": 0.773,
+   "V": 0.2452,
+   "Lat": -26.89,
+   "Lon": -68.47,
+   "Region": "Atacama",
+   "Climate": "Día"
+  },
+  "cl_dunas_copiapo": {
+   "U": 0.5639,
+   "V": 0.2545,
+   "Lat": -27.249,
+   "Lon": -70.561,
+   "Region": "Atacama",
+   "Climate": "Día"
+  },
+  "cl_oasis_pica": {
+   "U": 0.687,
+   "V": 0.0798,
+   "Lat": -20.49,
+   "Lon": -69.33,
+   "Region": "Tarapacá",
+   "Climate": "Día"
+  },
+  "cl_obs_alma": {
+   "U": 0.8446,
+   "V": 0.1453,
+   "Lat": -23.024,
+   "Lon": -67.754,
+   "Region": "Antofagasta",
+   "Climate": "Día"
+  },
+  "cl_obs_paranal": {
+   "U": 0.5797,
+   "V": 0.1868,
+   "Lat": -24.627,
+   "Lon": -70.403,
+   "Region": "Antofagasta",
+   "Climate": "Día"
+  },
+  "cl_obs_tololo": {
+   "U": 0.5394,
+   "V": 0.33,
+   "Lat": -30.17,
+   "Lon": -70.806,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_obs_la_silla": {
+   "U": 0.5461,
+   "V": 0.3064,
+   "Lat": -29.258,
+   "Lon": -70.739,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_obs_las_campanas": {
+   "U": 0.5508,
+   "V": 0.3001,
+   "Lat": -29.016,
+   "Lon": -70.692,
+   "Region": "Atacama",
+   "Climate": "Día"
+  },
+  "cl_obs_mamalluca": {
+   "U": 0.5517,
+   "V": 0.3252,
+   "Lat": -29.987,
+   "Lon": -70.683,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_obs_pachon": {
+   "U": 0.5463,
+   "V": 0.3318,
+   "Lat": -30.239,
+   "Lon": -70.737,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_ski_farellones": {
+   "U": 0.5885,
+   "V": 0.4123,
+   "Lat": -33.354,
+   "Lon": -70.315,
+   "Region": "Santiago",
+   "Climate": "Día · nieve"
+  },
+  "cl_conguillio": {
+   "U": 0.4549,
+   "V": 0.5491,
+   "Lat": -38.65,
+   "Lon": -71.651,
+   "Region": "Araucanía",
+   "Climate": "Día"
+  },
+  "cl_pn_patagonia": {
+   "U": 0.382,
+   "V": 0.7682,
+   "Lat": -47.13,
+   "Lon": -72.38,
+   "Region": "Aysén",
+   "Climate": "Día · lluvia"
+  },
+  "cl_pn_villarrica": {
+   "U": 0.45,
+   "V": 0.571,
+   "Lat": -39.499,
+   "Lon": -71.7,
+   "Region": "Araucanía",
+   "Climate": "Día"
+  },
+  "cl_pichilemu": {
+   "U": 0.4197,
+   "V": 0.4389,
+   "Lat": -34.387,
+   "Lon": -72.003,
+   "Region": "O'Higgins",
+   "Climate": "Día"
+  },
+  "cl_sewell": {
+   "U": 0.5816,
+   "V": 0.4311,
+   "Lat": -34.085,
+   "Lon": -70.384,
+   "Region": "O'Higgins",
+   "Climate": "Día · nieve"
+  },
+  "cl_puerto_natales": {
+   "U": 0.37,
+   "V": 0.8871,
+   "Lat": -51.73,
+   "Lon": -72.5,
+   "Region": "Magallanes",
+   "Climate": "Día · lluvia"
+  },
+  "cl_siete_tazas": {
+   "U": 0.52,
+   "V": 0.4669,
+   "Lat": -35.469,
+   "Lon": -71.0,
+   "Region": "Maule",
+   "Climate": "Día · lluvia"
+  },
+  "cl_rapanui_anakena": {
+   "U": 0.0161,
+   "V": 0.2503,
+   "Lat": -27.085,
+   "Lon": -109.322,
+   "Region": "Valparaíso",
+   "Climate": "Día"
+  },
+  "cl_rapanui_hanga_roa": {
+   "U": 0.0161,
+   "V": 0.2519,
+   "Lat": -27.15,
+   "Lon": -109.42,
+   "Region": "Valparaíso",
+   "Climate": "Día · lluvia"
+  },
+  "cl_rapanui_tongariki": {
+   "U": 0.0161,
+   "V": 0.2513,
+   "Lat": -27.124,
+   "Lon": -109.284,
+   "Region": "Valparaíso",
+   "Climate": "Día"
+  },
+  "cl_obs_armazones": {
+   "U": 0.6009,
+   "V": 0.1858,
+   "Lat": -24.59,
+   "Lon": -70.191,
+   "Region": "Antofagasta",
+   "Climate": "Día"
+  },
+  "cl_termas_chillan": {
+   "U": 0.4791,
+   "V": 0.5039,
+   "Lat": -36.903,
+   "Lon": -71.409,
+   "Region": "Ñuble",
+   "Climate": "Día · nieve"
+  },
+  "cl_torres_del_paine": {
+   "U": 0.3409,
+   "V": 0.8679,
+   "Lat": -50.986,
+   "Lon": -72.791,
+   "Region": "Magallanes",
+   "Climate": "Día · lluvia"
+  },
+  "cl_valle_elqui": {
+   "U": 0.549,
+   "V": 0.3264,
+   "Lat": -30.031,
+   "Lon": -70.71,
+   "Region": "Coquimbo",
+   "Climate": "Día"
+  },
+  "cl_volcan_calbuco": {
+   "U": 0.3559,
+   "V": 0.6177,
+   "Lat": -41.305,
+   "Lon": -72.641,
+   "Region": "Los Lagos",
+   "Climate": "Día · ceniza volcánica"
+  },
+  "cl_volcan_llaima": {
+   "U": 0.4439,
+   "V": 0.5495,
+   "Lat": -38.665,
+   "Lon": -71.761,
+   "Region": "Araucanía",
+   "Climate": "Día · ceniza volcánica"
+  },
+  "cl_volcan_osorno": {
+   "U": 0.3707,
+   "V": 0.6125,
+   "Lat": -41.105,
+   "Lon": -72.493,
+   "Region": "Los Lagos",
+   "Climate": "Día · nieve"
+  },
+  "cl_volcan_villarrica": {
+   "U": 0.4247,
+   "V": 0.5682,
+   "Lat": -39.387,
+   "Lon": -71.953,
+   "Region": "Araucanía",
+   "Climate": "Día · ceniza volcánica"
+  }
+ }
+}

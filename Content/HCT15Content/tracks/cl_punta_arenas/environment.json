@@ -1,0 +1,19 @@
+{
+ "Mode": "progress",
+ "Seconds": 0,
+ "Recipe": {
+  "Preset": "afternoon_to_night",
+  "NightAt": 0.82,
+  "Overcast": [
+   0.8,
+   0.18
+  ],
+  "Aurora": 0.97,
+  "AuroraFrom": 0.7544
+ },
+ "CloudTexture": "aurora_clouds.png",
+ "Comment": "time of day = race progress (0 start .. 1 finish): preset 'afternoon_to_night', end state at 0.82, overcast 0.80 -> 0.18, aurora australis 0.97 from 0.75 - a recipe, composed in the game by HCT15.EnvComposer (the donor's own daylight + the plugin's palette)",
+ "SunTexture": "aurora_sun.png",
+ "SunTextureFrom": 0.7544,
+ "SunTextureBefore": "day_sun.png"
+}

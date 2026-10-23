@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_vespucio_oriente_city",
+ "ItemName": "city_cl_vespucio_oriente",
+ "DisplayName": "Vespucio Oriente, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_vespucio_oriente"
+ ]
+}

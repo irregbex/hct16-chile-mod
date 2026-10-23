@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -41.126,
+  -73.06
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.22,
+  "serp": 0.0,
+  "stretch": 1.4,
+  "heading": 0,
+  "seed": 80
+ },
+ "theme": "frutillar"
+}

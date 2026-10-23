@@ -1,0 +1,13 @@
+{
+ "Comment": "A cart loaded with grapes crosses the road",
+ "Items": [
+  {
+   "Asset": "carreton_chatarrero",
+   "P": 0.818,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.6
+  }
+ ]
+}

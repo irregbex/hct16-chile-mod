@@ -1,0 +1,11 @@
+{
+  "Id": "kiosco",
+  "Name": "Kiosk",
+  "Category": "building",
+  "Description": "Newspaper kiosk, door and awning face the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "elt_grua_torre",
+  "Name": "Tower crane (yellow)",
+  "Category": "landmark",
+  "Description": "A yellow tower crane of the construction site: a 55 m lattice mast, the jib towards +X and the counter-jib, 64 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

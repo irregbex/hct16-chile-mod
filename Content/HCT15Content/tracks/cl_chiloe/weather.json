@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: Chiloé rain",
+ "RainT": [
+  0.0,
+  0.3,
+  1.0
+ ],
+ "RainV": [
+  0.3,
+  0.55,
+  0.4
+ ],
+ "Sound": true,
+ "Grip": 0.85
+}

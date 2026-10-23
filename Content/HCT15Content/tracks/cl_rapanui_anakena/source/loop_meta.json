@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -27.085,
+  -109.322
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.0,
+  "stretch": 1.35,
+  "heading": 170,
+  "seed": 53
+ },
+ "theme": "rapanui_beach"
+}

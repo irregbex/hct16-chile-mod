@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_puerto_natales_city",
+ "ItemName": "city_cl_puerto_natales",
+ "DisplayName": "Puerto Natales, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_puerto_natales"
+ ]
+}

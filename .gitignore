@@ -1,0 +1,27 @@
+# ---- game files are NEVER committed: Prepare-References.cmd copies them from your own installation
+Source/game-managed/
+Source/game-bcl/
+Source/refs/
+# BepInEx: Build-Installer.cmd downloads it
+Source/tools/BepInEx_x86/
+Source/tools/*.zip
+# build output and generated packages
+bin/
+obj/
+Installer/
+TestGame/
+__pycache__/
+*.pdb
+.vs/
+# your music (everyone brings their own: Content/HCT15Music/README.txt)
+Content/HCT15Music/**/*.wav
+Content/HCT15Music/**/*.ogg
+Content/HCT15Music/**/*.mp3
+# logs and files the game writes
+*.log
+Logs/
+Content/HCT15Content/cars/_donors.json
+Content/HCT15Content/cars/_bubbles.json
+Content/HCT15Content/_container_dump.txt
+# what -hct15-dumpgame writes from your own copy of the game (reference only, never shared)
+**/assets/ui/originals/

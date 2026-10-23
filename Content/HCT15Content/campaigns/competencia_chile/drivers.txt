@@ -1,0 +1,52 @@
+# HCT 1.6 - names of the rival drivers in the Chile campaign (results board, podium)
+# One name per line, '#' starts a comment, UTF-8. Each car keeps one name for the whole session.
+# Common Chilean given names and surnames; no real people intended.
+
+Benjamín Soto
+Matías Araya
+Vicente Rojas
+Martín Díaz
+Joaquín Muñoz
+Sebastián González
+Tomás Pérez
+Cristóbal Contreras
+Nicolás Fuentes
+Diego Riquelme
+Ignacio Cortés
+Maximiliano Vera
+Lucas Pizarro
+Agustín Lagos
+Gabriel Ortiz
+Rodrigo Navarro
+Pablo Medina
+Andrés Sandoval
+Esteban Aguilera
+Cristian Torres
+Bastián Olivares
+Alonso Godoy
+Renato Zúñiga
+Eduardo Cáceres
+Álvaro Leiva
+Patricio Ramírez
+Claudio Bustos
+Marcelo Alarcón
+Hernán Cárdenas
+Rafael Montecinos
+Catalina Rojas
+Antonia Vargas
+Francisca Morales
+Javiera Castillo
+Valentina Herrera
+Fernanda Núñez
+Constanza Reyes
+Isidora Tapia
+Camila Espinoza
+Martina Figueroa
+Sofía Sepúlveda
+Josefa Carrasco
+Florencia Bravo
+Trinidad Silva
+Maite Gutiérrez
+Emilia Salazar
+Amanda Vidal
+Paula Henríquez

@@ -1,0 +1,92 @@
+{
+ "Comment": "coast_dress.py: sand / sea / rock beside the road from OpenStreetMap beaches and coastline; Name = left / right of the strip",
+ "Sections": [
+  {
+   "From": 0.0,
+   "To": 0.1434,
+   "Texture": "ground_sand_sea.png",
+   "Name": "sand left / sea right"
+  },
+  {
+   "From": 0.1434,
+   "To": 0.1474,
+   "Texture": "ground_base_sea.png",
+   "Name": "base left / sea right"
+  },
+  {
+   "From": 0.1474,
+   "To": 0.2589,
+   "Texture": "ground_sand_sea.png",
+   "Name": "sand left / sea right"
+  },
+  {
+   "From": 0.2589,
+   "To": 0.2769,
+   "Texture": "ground_base_sea.png",
+   "Name": "base left / sea right"
+  },
+  {
+   "From": 0.2769,
+   "To": 0.2934,
+   "Texture": "ground_sand_sea.png",
+   "Name": "sand left / sea right"
+  },
+  {
+   "From": 0.2934,
+   "To": 0.3486,
+   "Texture": "ground_base_sea.png",
+   "Name": "base left / sea right"
+  },
+  {
+   "From": 0.3486,
+   "To": 0.3509,
+   "Texture": "ground_rock_sea.png",
+   "Name": "rock left / sea right"
+  },
+  {
+   "From": 0.3509,
+   "To": 0.3597,
+   "Texture": "ground_rock_sand.png",
+   "Name": "rock left / sand right"
+  },
+  {
+   "From": 0.3597,
+   "To": 0.3714,
+   "Texture": "ground_base_sand.png",
+   "Name": "base left / sand right"
+  },
+  {
+   "From": 0.3723,
+   "To": 0.3797,
+   "Texture": "ground_base_sea.png",
+   "Name": "base left / sea right"
+  }
+ ],
+ "Lanes": [
+  {
+   "From": 0.0,
+   "To": 0.1783,
+   "Lanes": 4,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.1783,
+   "To": 0.2133,
+   "Lanes": 6,
+   "Name": "Peaje"
+  },
+  {
+   "From": 0.2133,
+   "To": 0.375,
+   "Lanes": 4,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.375,
+   "To": 0.3966,
+   "Lanes": 6,
+   "Name": "OSM"
+  }
+ ],
+ "CenterLine": true
+}

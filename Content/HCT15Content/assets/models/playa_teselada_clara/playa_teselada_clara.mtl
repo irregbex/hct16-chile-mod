@@ -1,0 +1,19 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl ps_clara_1
+Kd 0.8800 0.7900 0.5700
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl ps_clara_0
+Kd 0.9300 0.8500 0.6400
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl ps_clara_2
+Kd 0.9600 0.9000 0.7200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

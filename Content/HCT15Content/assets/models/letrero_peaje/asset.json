@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_peaje",
+  "Name": "Toll warning sign",
+  "Category": "prop",
+  "Description": "Blue roadside board PEAJE before a toll plaza, 4 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

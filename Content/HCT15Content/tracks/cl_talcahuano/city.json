@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_talcahuano_city",
+ "ItemName": "city_cl_talcahuano",
+ "DisplayName": "Talcahuano, Biobío",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_talcahuano"
+ ]
+}

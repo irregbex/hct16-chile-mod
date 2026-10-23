@@ -1,0 +1,11 @@
+{
+  "Id": "publico_fiesta_2",
+  "Name": "Fiesta crowd 2",
+  "Category": "prop",
+  "Description": "Neighbours of Illapel watching the procession from the plaza's edge, two rows, 6 m: waving, clapping, filming, flags and balloons; they face +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

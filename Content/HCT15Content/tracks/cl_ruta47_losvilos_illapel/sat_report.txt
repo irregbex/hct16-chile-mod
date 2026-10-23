@@ -1,0 +1,71 @@
+sat_dress.py - cl_ruta47_losvilos_illapel: what Sentinel-2 cloudless shows beside the road, per km (left | right; near samples)
+classes: G green valley, s scrub, d dry hills, S sand, t town, w water
+
+km   0  dddsssdddddsdddddddddddd | 
+km   1  sddsdddddsddsssdssdddddd | ddsddsdddddddsdddddddsdd
+km   2  dddddddddddddddddddddd   | dddddddddddddddddddddddd
+km   3  ddddsdddddddddddddddddds | ddddddddsddsdddsdddsdddd
+km   4  sssdsddddddddddGdG       | dddsdddsddddddddddddsddd
+km   5  ddddddddddsddddddssddddd | ddddsddsdddssdddsddssdsd
+km   6  dddddddddddsddd          | ddddddsdddddddd
+km   7  ddddddddddddddddddddd    | dddsddddddddddddddddd
+km   8  dddddddddddddddddddddddd | ddddddddddddddddddddddsd
+km   9  dddddd                   | dddddd
+km  10  ddddddddd                | ddddddddd
+km  11  dddddddddddd             | dddddddddddd
+km  12  ddddddddddddddd          | ddddddddddddddd
+km  13  ddddddddddddddddddddddds | dddddddddddddddddddsdddd
+km  14  dddddddddddddddddddddsdd | dddddddddddddddddddddddd
+km  15  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km  16  sddddddddd               | sddsdddddddddd
+km  17  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km  18  ddddddddddddddddddGGddds | dddddddddddddddddddddddd
+km  19  ddddddddddsGGGdddd       | dddddddddddddddsddddssds
+km  20  dddddddddssddddd         | dddddddddddddddddddd
+km  21  ddddddddddddddd          | ssdsddddddddddd
+km  22  dddddddddddddddddddd     | dddddddddddddddddddddd
+km  23  dddddddddddsddG          | dddddddddddddddddsddd
+km  24  sdddddsddddddddsddddddd  | sddddddddddddddsdddddddd
+km  25  dGsGGddddddddddddddddddd | dddddddddddddddddddddddd
+km  26  ddddddddddddddddddddddGd | dddddddddddddddddddddddd
+km  27  dddddddddddddddddsdddddd | ddddddddsddddddddssssddG
+km  28  ddddddsssddddddddddddddd | sdddddssssdddddddddddddd
+km  29  dddddddddddddddddddddsdd | ddsdssdddsGdddddsddsddds
+km  30  ddddddddddddssdddssddddd | sssssdddddddsddddddddddd
+km  31  ddddsddsddddssddddddddds | sdddddsdddsdsddddsddddds
+km  32  dddddddddddddd           | dddddddddddddddddddddssd
+km  33  dddddddddsdddddddddddddd | dddddddddddddddddddddddd
+km  34  dddddddddddddssdGGsddddd | ddddddddddddddddsssdddds
+km  35  ssdddddddddddddddddsdddd | dsssdddddddsddsddsddsddd
+km  36  dddddddddddddddddddddddd | dddsdddddddddddddddddddd
+km  37  dddddddddddddddddddddddd | dddGdddddddddddddddddddd
+km  38  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km  39  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km  40  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km  41  ddddddddddddddddddddddds | ddddddddddddddddsddddddd
+km  42  dssGdddddddddddddddd     | dddddddddddddddddddddddd
+km  43  dddddddddddddddddddddddd | dddssddddsdddsGssGddsddd
+km  44  dddddsddddsddddddddddddd | ddddddddddddddddsssddddd
+km  45  dddsddddsddddddddddddddd | dddddddddssdssdddddddddd
+km  46  ddddddddddddddddsddddddd | ddddddddddsdddddssdddddd
+km  47  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km  48  ddddddddddsdsddddddddddd | ddddddddssdddddddddddddd
+km  49  ddddddddddddGddddddddddd | ddddddddddddddssddsddddd
+km  50  ddddddddddddddddddd      | dddddddddddddddddddddddd
+km  51  dddddddddddddddddddddddd | dddddddddddddddddddsdddd
+km  52  dddddsdsGssGGGGsdddddddd | GddsddGddddddddddddddddd
+km  53  ddddddddsddss            | dddsdddsdddddsddd
+km  54  ddddddddddddddddddddd    | sGGdddddddddsssddddds
+km  55  ddddddddsdd              | dsssssdssdssG
+km  56  dsGddddddsGGdsGsss       | dddsssddddddddddds
+km  57  sddddd                   | dddddd
+km  58  ddddddddddsdddsdddddssd  | dssddsdddddddsGsssd
+km  59  dddddssdddssdsdddddddGdd | ddsddsdGdddddddddddddddd
+km  60  sdddddddsssddddddddddGGG | ddddddsddsGdddddddssddsd
+km  61  ddddddddddsGdddddddddssG | ddddddddddddddddddddddds
+
+samples by class: {'dry': 5268, 'scrub': 486, 'sand': 3, 'green': 143}
+ground stretches: 31, strips: 22
+vegetation items: {'tree_round': 173, 'roca_costera': 116, 'cactus_candelabro': 284, 'bush': 77}
+
+Imagery: Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2020), CC BY-NC-SA 4.0.

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_volcan_calbuco_city",
+ "ItemName": "city_cl_volcan_calbuco",
+ "DisplayName": "Volcán Calbuco, Los Lagos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_volcan_calbuco"
+ ]
+}

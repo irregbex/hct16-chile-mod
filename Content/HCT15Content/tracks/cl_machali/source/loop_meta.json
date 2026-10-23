@@ -1,0 +1,30 @@
+{
+ "centre": [
+  -34.182453,
+  -70.6511584
+ ],
+ "target_m": 4000,
+ "length_m": 3254,
+ "edge_reuse": 0.071,
+ "streets": [
+  "Miranda",
+  "Arturo Prat",
+  "Simon Bolívar",
+  "San Juan",
+  "Los Guindos",
+  "Irarrázabvl",
+  "Castro",
+  "Plaza de Machalí",
+  "Avenida San Juan",
+  "Simon Bolívar",
+  "Los Guindos",
+  "Jardín de Machalí",
+  "Pisagua",
+  "Los Guindos",
+  "Miranda",
+  "Miraflores",
+  "San Juan",
+  "Jardín de Machalí"
+ ],
+ "sights": []
+}

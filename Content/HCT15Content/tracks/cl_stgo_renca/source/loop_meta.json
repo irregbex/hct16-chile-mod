@@ -1,0 +1,43 @@
+{
+ "centre": [
+  -33.4033989,
+  -70.7268453
+ ],
+ "target_m": 5000,
+ "length_m": 5101,
+ "edge_reuse": 0.032,
+ "streets": [
+  "Angol",
+  "General Freire",
+  "Manuel Rodríguez",
+  "Camino Cerro Colorado",
+  "Camino Lo Boza",
+  "Traiguén",
+  "General Freire",
+  "Villarrica",
+  "Tucapel",
+  "Angol",
+  "Pasaje Nuevo",
+  "Volcán Aconcagua",
+  "Avenida Condell",
+  "Condell",
+  "Camino Lo Boza",
+  "Camino Cerro Colorado",
+  "Valle Alegre",
+  "Avenida Condell",
+  "Avenida José Miguel Infante",
+  "Pasaje Nuevo",
+  "Calle 3",
+  "Calle 6",
+  "Manuel Rodríguez",
+  "Avenida Presidente Salvador Allende Gossens",
+  "Condell",
+  "Topocalma",
+  "Valle Alegre",
+  "Manuel Rodríguez",
+  "Arturo Prat",
+  "Calle 6",
+  "Calle 3"
+ ],
+ "sights": []
+}

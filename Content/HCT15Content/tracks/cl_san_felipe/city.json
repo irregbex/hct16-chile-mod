@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_san_felipe_city",
+ "ItemName": "city_cl_san_felipe",
+ "DisplayName": "San Felipe, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_san_felipe"
+ ]
+}

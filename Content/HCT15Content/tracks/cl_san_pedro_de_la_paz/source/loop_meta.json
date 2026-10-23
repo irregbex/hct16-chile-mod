@@ -1,0 +1,43 @@
+{
+ "centre": [
+  -36.8414183,
+  -73.1039909
+ ],
+ "target_m": 5000,
+ "length_m": 5233,
+ "edge_reuse": 0.034,
+ "streets": [
+  "Avenida Jorge Alessandri",
+  "Calle Nueva",
+  "Los Canelos",
+  "Pedro Lira",
+  "Nemesio Antúnez",
+  "Avenida Pedro Aguirre Cerda",
+  "Avenida Jorge Alessandri",
+  "Los Mañíos",
+  "Avenida San Pedro",
+  "Avenida Pedro Aguirre Cerda",
+  "Los Fresnos",
+  "Pasaje 1",
+  "Los Aromos",
+  "Los Acacios",
+  "Avenida San Pedro",
+  "Benedictinos",
+  "Luis de Toledo",
+  "Los Robles",
+  "Los Fresnos",
+  "Nemesio Antúnez",
+  "Pacheco Altamirano",
+  "Camilo Mori",
+  "Pedro Lira",
+  "Camino El Venado",
+  "Michimalonco",
+  "Los Canelos",
+  "Los Aromos",
+  "Pedro Esteban",
+  "Gaspar de Verdugo",
+  "Luís de Toledo",
+  "Luis de Toledo"
+ ],
+ "sights": []
+}

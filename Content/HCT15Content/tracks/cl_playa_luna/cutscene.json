@@ -1,0 +1,24 @@
+{
+ "Comment": "cutscene_luna_anim.py (2026-10-18): Playa Luna's intro - three animated action shots (12 fps) and the warning card; HCT15.Cutscene plays it from the moment the race is chosen (over the loading screen), Enter / A skips",
+ "Slides": [
+  {
+   "Frames": "cutscene/shot1/{0:000}.jpg",
+   "Count": 40,
+   "Fps": 12
+  },
+  {
+   "Frames": "cutscene/shot2/{0:000}.jpg",
+   "Count": 40,
+   "Fps": 12
+  },
+  {
+   "Frames": "cutscene/shot3/{0:000}.jpg",
+   "Count": 44,
+   "Fps": 12
+  },
+  {
+   "Image": "cutscene/2.png",
+   "Seconds": 2.5
+  }
+ ]
+}

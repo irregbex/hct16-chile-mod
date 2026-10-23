@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_padre_las_casas_city",
+ "ItemName": "city_cl_padre_las_casas",
+ "DisplayName": "Padre Las Casas, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_padre_las_casas"
+ ]
+}

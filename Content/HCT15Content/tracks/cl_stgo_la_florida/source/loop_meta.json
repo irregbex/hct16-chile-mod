@@ -1,0 +1,38 @@
+{
+ "centre": [
+  -33.5204181,
+  -70.6006178
+ ],
+ "target_m": 7000,
+ "length_m": 7503,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Lima",
+  "Ilos",
+  "Froilán Lagos Sepúlveda",
+  "Nueva Uno",
+  "Froilán Lagos Sepúlveda",
+  "Avenida Américo Vespucio",
+  "Froilán Roa",
+  "Avenida Colombia",
+  "Pasaje Almahue",
+  "Avenida Vicuña Mackenna Oriente",
+  "Froilán Lagos Sepúlveda",
+  "Urubamba",
+  "Lima",
+  "Avenida Punta Arenas",
+  "Mirador Azul",
+  "Pasaje Almahue",
+  "Aconcagua",
+  "Gerónimo de Alderete",
+  "Avenida Punta Arenas",
+  "Avenida Vicuña Mackenna Oriente",
+  "Gerónimo de Alderete",
+  "Aconcagua",
+  "Avenida Colombia",
+  "Avenida Walker Martínez",
+  "Avenida Américo Vespucio",
+  "Avenida Vicuña Mackenna Oriente"
+ ],
+ "sights": []
+}

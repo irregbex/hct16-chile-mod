@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_base_yelcho_city",
+ "ItemName": "city_cl_base_yelcho",
+ "DisplayName": "Base Yelcho, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_base_yelcho"
+ ]
+}

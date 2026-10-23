@@ -1,0 +1,9 @@
+{
+ "Comment": "asset_kit: the rider model and where his hips sit, in this body's file coordinates (HCT15.StreetCars AddRider, WaterRide tricks)",
+ "Model": "jetski_rider_vina",
+ "Seat": [
+  -0.62,
+  0.88,
+  0.0
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "Comment": "A Valparaíso stray dog comes down the hill and crosses the flat",
+ "Items": [
+  {
+   "Asset": "perro_quiltro",
+   "P": 0.573,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 6.0
+  },
+  {
+   "Asset": "perro_quiltro",
+   "P": 0.683,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.52
+  }
+ ]
+}

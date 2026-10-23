@@ -1,0 +1,11 @@
+{
+  "Id": "caseta_salvavidas",
+  "Name": "Lifeguard tower",
+  "Category": "prop",
+  "Description": "Red-and-white lifeguard hut on stilts with a ladder and flag, 5.5 m, facing +X (the sea is in front)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,30 @@
+sat_dress.py - cl_e30f_concon_quintero: what Sentinel-2 cloudless shows beside the road, per km (left | right; near samples)
+classes: G green valley, s scrub, d dry hills, S sand, t town, w water
+
+km   0  sdddddddddddddddd        | dsssssdsssssdssGssssddss
+km   1  ds                       | dsGdddsddsssdddddsddddds
+km   2                           | sddGGGGGGGGGGGGGGsGGGssd
+km   3                           | GGGsddsGGsddsGGssGdddGGG
+km   4                           | ssdsdssdssGsssddddddddds
+km   5                           | ddddddddddddsddssssdddds
+km   6                           | ddddssdddddsdddddddddddd
+km   7                           | ssdsGsGGssssdssddddssssG
+km   8                           | GGsddssdddddsdddddddddds
+km   9                           | dddddddssdddsdsdddsGsddd
+km  10                           | dddddsssddddsddddddddddd
+km  11                           | sssdddddddddddddddsddddd
+km  12                           | ssdsddGGsdddsddsddsddsss
+km  13  ddsddGssddd              | dddsGsdddGGsddddddssGsss
+km  14  GGdddGddddGGddddddddsddd | sddsdsdddddsssGGGssdGGGs
+km  15                           | ddddddddddddsdddddssdddd
+km  16  ddddddd                  | dddddddddddddddddddddddd
+km  17  ddddddsddddddddddddddssd | 
+km  18  sddddddddddd             | 
+km  19  ddddddsddsdddddddddddddd | 
+km  20  sssddd                   | 
+
+samples by class: {'scrub': 501, 'dry': 1242, 'green': 215, 'town': 1, 'sand': 1}
+ground stretches: 33, strips: 13
+vegetation items: {'bush': 127, 'tree_round': 349, 'cactus_candelabro': 140, 'roca_costera': 34}
+
+Imagery: Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2020), CC BY-NC-SA 4.0.

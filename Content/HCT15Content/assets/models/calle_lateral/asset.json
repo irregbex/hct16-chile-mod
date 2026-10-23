@@ -1,0 +1,11 @@
+{
+  "Id": "calle_lateral",
+  "Name": "Side street",
+  "Category": "landmark",
+  "Description": "A short side street opening off the lap: asphalt, kerbs, pavements, a lamp and two small houses at its end, 32 m. Origin at the road edge (Recenter off): the street runs away along -X.",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

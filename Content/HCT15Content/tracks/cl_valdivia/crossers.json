@@ -1,0 +1,21 @@
+{
+ "Comment": "Black-necked swans cross the seafront",
+ "Items": [
+  {
+   "Asset": "cisne_cuello_negro",
+   "P": 0.257,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 6.0
+  },
+  {
+   "Asset": "cisne_cuello_negro",
+   "P": 0.587,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.52
+  }
+ ]
+}

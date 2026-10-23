@@ -1,0 +1,40 @@
+{
+ "centre": [
+  -38.7358908,
+  -72.590538
+ ],
+ "target_m": 7000,
+ "length_m": 7007,
+ "edge_reuse": 0.045,
+ "streets": [
+  "Las Acacias",
+  "Los Cóndores",
+  "General Aldunate",
+  "Diego Portales",
+  "Avenida General Prieto Norte",
+  "Avenida Balmaceda",
+  "Almirante Patricio Lynch",
+  "Avenida San Martín",
+  "General Carrera",
+  "Claro Solar",
+  "Ramón Freire",
+  "Manuel Montt",
+  "Avenida General Prieto Norte",
+  "Diego Portales",
+  "General Cruz",
+  "Avenida Barros Arana",
+  "Avenida San Martín",
+  "Manuel Antonio Matta",
+  "Avenida Barros Arana",
+  "Antonio Varas",
+  "General Cruz",
+  "General Aldunate",
+  "Nahuelbuta",
+  "Manuel Bulnes",
+  "Avenida Caupolicán",
+  "Manuel Bulnes",
+  "Avenida Balmaceda",
+  "Manuel Antonio Matta"
+ ],
+ "sights": []
+}

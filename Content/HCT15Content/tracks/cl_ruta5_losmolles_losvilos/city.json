@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_ruta5_losmolles_losvilos_city",
+ "ItemName": "city_cl_ruta5_losmolles_losvilos",
+ "DisplayName": "Ruta 5 Norte: Los Molles - Los Vilos, Coquimbo",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_ruta5_losmolles_losvilos"
+ ]
+}

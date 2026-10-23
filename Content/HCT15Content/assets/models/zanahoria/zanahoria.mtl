@@ -1,0 +1,25 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl carrot_dark
+Kd 0.8000 0.3300 0.0500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl carrot
+Kd 0.9800 0.4600 0.0800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl carrot_top
+Kd 0.3000 0.6200 0.1800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl foliage_light
+Kd 0.4000 0.6500 0.2500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

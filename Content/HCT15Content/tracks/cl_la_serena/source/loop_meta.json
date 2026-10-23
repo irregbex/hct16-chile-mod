@@ -1,0 +1,38 @@
+{
+ "centre": [
+  -29.902705,
+  -71.2519575
+ ],
+ "target_m": 6000,
+ "length_m": 6010,
+ "edge_reuse": 0.004,
+ "streets": [
+  "Cruz del Molino",
+  "Pedro Pablo Muñoz",
+  "Diego de Almagro",
+  "Almagro",
+  "Diego de Almagro",
+  "Rengifo",
+  "Cruz del Molino",
+  "Libertad",
+  "Avenida Francisco de Aguirre",
+  "Avenida Libertad",
+  "Avenida Amunátegui",
+  "Avenida Estadio",
+  "Avenida Amunátegui",
+  "Avenida El Santo",
+  "Pedro Pablo Muñoz",
+  "Avenida Francisco de Aguirre",
+  "Libertad",
+  "Avenida Colo Colo",
+  "Avenida Francisco de Aguirre",
+  "Larraín Alcalde",
+  "Avenida Amunátegui",
+  "Avenida José Manuel Balmaceda",
+  "Avenida Amunátegui",
+  "Rengifo",
+  "Brasil",
+  "José Miguel Infante"
+ ],
+ "sights": []
+}

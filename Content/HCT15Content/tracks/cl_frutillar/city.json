@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_frutillar_city",
+ "ItemName": "city_cl_frutillar",
+ "DisplayName": "Frutillar, Los Lagos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_frutillar"
+ ]
+}

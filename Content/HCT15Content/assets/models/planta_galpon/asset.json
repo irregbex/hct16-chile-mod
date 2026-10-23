@@ -1,0 +1,11 @@
+{
+  "Id": "planta_galpon",
+  "Name": "Concentrator shed module",
+  "Category": "landmark",
+  "Description": "A 19 m module of the mill hall: grey metal walls, blue band, raised ridge; set in a row to make a 100 m shed",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

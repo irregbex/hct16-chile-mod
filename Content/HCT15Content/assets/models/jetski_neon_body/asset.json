@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_neon_body",
+  "Name": "Jet ski Neón (car body)",
+  "Category": "prop",
+  "Description": "The neon jet ski (No. 23) as a playable car, nose to +X; its rider is jetski_rider_neon (rider.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

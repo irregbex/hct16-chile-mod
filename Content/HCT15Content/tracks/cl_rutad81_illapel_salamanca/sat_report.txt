@@ -1,0 +1,105 @@
+sat_dress.py - cl_rutad81_illapel_salamanca: what Sentinel-2 cloudless shows beside the road, per km (left | right; near samples)
+classes: G green valley, s scrub, d dry hills, S sand, t town, w water
+
+km   0  sddsssddddsdddsssdddddds | ddddssssGGssGdddssGdddss
+km   1  ddddddddsddd             | ddddssdddddddddddddddddd
+km   2  dddddd                   | dddddd
+km   3  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km   4  dddddddddddddddddddddddd | dddddddddddddddd
+km   5  dddddddddddddddddddddd   | dd
+km   6  dddddddddddddddddddddddd | ddd
+km   7  dddddddddddddddddddddddd | ddddd
+km   8  dddddddddddddddddddddddd | dddddddddddddddddddddddd
+km   9  ddddddddddddddddddsddddd | dddddddddddddddddddddddd
+km  10  ddddddddddddddd          | dddddddddddddddddddddddd
+km  11  dddddddd                 | dddddddddddddddddddddddd
+km  12  dddddddddddddddddsddddd  | dddddddddddddddddddddddd
+km  13  ddddddddGddd             | dddddddddGGd
+km  14  dddddddd                 | dddddddsdddddddd
+km  15  GG                       | sddssddddd
+km  16  ds                       | sdsGGGdddssdGGGdsGGGGddG
+km  17  dd                       | sssdssGdddsGGsddGGssddss
+km  18  ddGssGd                  | GsssssGGssGGGGGGGGsdGGGs
+km  19  sGGs                     | ssGssGGGssddGdssGGds
+km  20  d                        | ddsdd
+km  21  dsGddsdddddddsddddd      | sGGddsddsddddddddssddssd
+km  22  sddssdddddddddd          | ddddddddddddddddsdsdddds
+km  23  dsG                      | dssddsdsssdddss
+km  24  dddddddddd               | dddddddddsdssdddGGdGsGGs
+km  25  ddddd                    | dsGddGGGGsGGGGsddsGGsdds
+km  26  dddddddd                 | sGGddssGsddssGddssGddsGG
+km  27  dd                       | ddsddGGGssdGGGss
+km  28  Gdsd                     | GssddGGdGdssssGssGdd
+km  29  sdddddd                  | GGsGGssssssssssdddddsdds
+km  30  sssssdddsssssssssdddssds | dddsdsddddddsddd
+km  31  sssdddsssssdddsddddddddd | GsssdddsGGsddssGsssssG
+km  32  sGdssd                   | ddsddssGsssssssGGssGGsss
+km  33  dsssddsssssdssdddsdsdssd | sssdddssdssddddssssdsdsd
+km  34  ssddddsddsddd            | dddsssdddGGGsGGddddddddd
+km  35  ddddddds                 | dddssddsGsdGddGdsGGsddds
+km  36  dddddddddd               | dddsdsssGsddsdddddsddGGG
+km  37  ddddddsGsG               | dsGdddsddsssddsssddsssdd
+km  38  GdssddGds                | ssdGGGGGddsdsGGdssddddds
+km  39  GGGddddd                 | sGGsssdddssdsdsssGGGGsGs
+km  40  dsGsdddd                 | dsGddsGGsssssGssdddsGGGs
+km  41  ddddGGGGddGs             | sssddsGsddsGGddsdsGGddsG
+km  42  dddGG                    | ddsddddsGdddddsddddddddd
+km  43  ddddddddsdddssddGddd     | GGdssdsdddddddddddddsssd
+km  44  ddddddddGGdd             | ddddddddddddddddsddddddd
+km  45  dGsGdsG                  | dddddssGGGdsGddddsdsddds
+km  46  ddGsdssd                 | dddddGGGddssdsGssGsssdds
+km  47  GdGGGssdddssssss         | GGGGGsddssssdssssGssssGs
+km  48  dsdd                     | ddddddsGGddsssddsGGdddds
+km  49  ddddssdddd               | dddssdddsddddddddddddddd
+km  50  dd                       | ddGdddsGGsssdGGssddddsdd
+km  51  sdddddddddd              | ssssssGssdsssddssGddsssd
+km  52  sGGGdddd                 | sGGssssGGsssGGsGssGsssGG
+km  53  dsssddsddddddddd         | sGGddsGGssdddssdsGssdsGd
+km  54  ddddd                    | sGGdssdssGsssdssddsssssd
+km  55  dddddddddd               | sddsdsddsdsddddssdddsGdd
+km  56  ddddddddd                | ssssdGGGdddssGsddssdsdss
+km  57  ddssdssdGssGssssdddddsss | GGGddGGGsdGGGGGGGGGGGGss
+km  58  ssddddssssssGGdGsdddd    | ssdGGGdddssdssdGsGGsssss
+km  59  dddddddsssddssd          | dssdGdsGdsGGGsddddssd
+km  60  dddsssdddddddssd         | ssssssdsssdddssdsdds
+km  61  ssGsssds                 | ssGsdddsGssssssssssddsss
+km  62  dssGdd                   | sssddsssssGGsssssGGGdddd
+km  63  ddddss                   | dssddsGGddddddsGGs
+km  64  sGGGdddddddd             | ddGssGGGGGdddssGsssGssdG
+km  65  ddddddd                  | GGGssGGddsssdddssddddddd
+km  66  dddddd                   | dddddddddddddddddddddddd
+km  67  dddddddddGdddd           | sddsdddsGGsdddsssdddddds
+km  68  ddddddddsGGGssssssGGG    | ssddddsddddddddddddddsdd
+km  69  dsGGdddddddddGGs         | sddGsssdddssssGdsdsGddss
+km  70  GdsGsGGsGGdddsssG        | sddssddddddddsGdddssddds
+km  71  sGdssddssdds             | sssssdddsssdsssssssssssd
+km  72  GGGddddsGssGGGGssGsGGssG | dddGdGd
+km  73  GGGssGGGGsddddsddddddddd | ddsssdddGGGdddsssddddssd
+km  74  dddddddddddddddddddddddd | ddddd
+km  75  dddddddddddddddddsssddss | ddddddddddddddddsdsdddss
+km  76  ddddsdddddddddddddddddd  | dddssdssdssddddddsdddddd
+km  77  dddddddddddddddddddddddd | ddddddddsssddssssdddsssd
+km  78  dddddddsdsdddddddddddddd | dsdssddddddddddd
+km  79  Gdsdddddddddddddddddddds | dddssdddssGddddddddddddd
+km  80  ddddsssddssddddddsddddsd | ddddddsddddsdddddsdddddd
+km  81  dddddddsddddddsddddddddd | ddddddddddsd
+km  82  dddddddd                 | dddddddddddddddddddddddd
+km  83  dddddddddddddddddddddddd | ddddddddd
+km  84  ssddddsddsddddssddddsddd | ddd
+km  85  sdddsddssssssdddsssddddd | ddddd
+km  86  dddsddsGdsddsGsssssdds   | ddddddddddddddsdsdddsddd
+km  87  sssddddddsdddddsG        | dddddddddddddddddddddddd
+km  88  dddddddddddddddddddddddd | dddsssdddsssddddd
+km  89  dssddddddddddddddddddsds | 
+km  90  ddddddddddddddssddddssdd | ddsddddddddddddddddddddd
+km  91  sdddddddddssdddddd       | dddddsddddsddddddddddddd
+km  92  dddddddddddddddddsdddssd | ssddddddddddddsddddsdddd
+km  93  dddddddddddddddddddddddd | dddddd
+km  94  dddddddddddddddddddddddd | 
+km  95  dddddddssssd             | 
+
+samples by class: {'scrub': 1814, 'dry': 5701, 'green': 992, 'town': 3}
+ground stretches: 35, strips: 18
+vegetation items: {'tree_round': 392, 'bush': 105, 'roca_costera': 43, 'cactus_candelabro': 110}
+
+Imagery: Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2020), CC BY-NC-SA 4.0.

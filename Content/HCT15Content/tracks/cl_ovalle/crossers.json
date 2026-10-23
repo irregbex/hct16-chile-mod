@@ -1,0 +1,21 @@
+{
+ "Comment": "A whole herd of Limarí goats crosses",
+ "Items": [
+  {
+   "Asset": "oveja",
+   "P": 0.292,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 5.5
+  },
+  {
+   "Asset": "oveja",
+   "P": 0.622,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.06
+  }
+ ]
+}

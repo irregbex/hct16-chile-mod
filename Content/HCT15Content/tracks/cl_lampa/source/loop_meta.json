@@ -1,0 +1,35 @@
+{
+ "centre": [
+  -33.2864213,
+  -70.8729771
+ ],
+ "target_m": 5000,
+ "length_m": 5106,
+ "edge_reuse": 0.01,
+ "streets": [
+  "Pedro Aguirre Cerda",
+  "Los Laureles",
+  "Balmaceda",
+  "Barros Luco",
+  "Pedro Aguirre Cerda",
+  "Baquedano",
+  "Balmaceda",
+  "Alcalde José Solano",
+  "Serrano",
+  "Arturo Prat",
+  "Baquedano",
+  "Juan de Dios Salas",
+  "Llaima",
+  "Calbuco",
+  "Llaima",
+  "Serrano",
+  "Alcalde José Solano",
+  "El Pellín",
+  "Juan de Dios Salas",
+  "Barros Luco",
+  "El Pellín",
+  "Los Laureles",
+  "Ignacio Carrera Pinto"
+ ],
+ "sights": []
+}

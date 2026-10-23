@@ -1,0 +1,11 @@
+{
+  "Id": "rampla_jetski",
+  "Name": "Jet ski ramp",
+  "Category": "landmark",
+  "Description": "An inflatable jump ramp across the whole course (Side 0, x across, +-4.4 units), 1.4 m high, striped, with a flag pole at each end; HCT15.JetskiRamps makes the jet skis fly over it (ramps.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "costanera_plana",
+  "Name": "Seafront strip",
+  "Category": "landmark",
+  "Description": "Viña's seafront laid flat behind the beach, seen from the sea: promenade paving at x = 0, the kerb, the avenue, the ground under the towers back to -24 m, 9 m along (cl_vina_jetski)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 1.2,
+  "Recenter": false,
+  "DoubleSided": true
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "micro_blanca_body",
+  "Name": "Micro blanco (body)",
+  "Category": "prop",
+  "Description": "The blanco micro without wheels: the playable car keeps the donor's own",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

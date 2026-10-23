@@ -1,0 +1,13 @@
+{
+ "Comment": "A huaso from Chicureo crosses with his horse",
+ "Items": [
+  {
+   "Asset": "caballo_huaso",
+   "P": 0.309,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.29
+  }
+ ]
+}

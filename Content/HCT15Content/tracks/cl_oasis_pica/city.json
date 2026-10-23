@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_oasis_pica_city",
+ "ItemName": "city_cl_oasis_pica",
+ "DisplayName": "Oasis de Pica, Tarapacá",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_oasis_pica"
+ ]
+}

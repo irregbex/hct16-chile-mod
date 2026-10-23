@@ -1,0 +1,11 @@
+{
+ "ItemId": "f1_2026_r11",
+ "ItemName": "city_f1_2026_r11",
+ "DisplayName": "Budapest, Hungary",
+ "CupId": "99_f1_2026",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "f1_2026_r11_hungaroring"
+ ]
+}

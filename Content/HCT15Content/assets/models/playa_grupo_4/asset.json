@@ -1,0 +1,11 @@
+{
+  "Id": "playa_grupo_4",
+  "Name": "Beach group 4",
+  "Category": "prop",
+  "Description": "Bathers on their towels under a striped umbrella (2-4 people, a cooler, a ball), random colours",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

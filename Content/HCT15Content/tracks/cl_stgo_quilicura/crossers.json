@@ -1,0 +1,16 @@
+{
+ "Comment": "A fire engine leaves the station, sirens blaring",
+ "Items": [
+  {
+   "Asset": "camion_bomberos",
+   "P": 0.71,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.23,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

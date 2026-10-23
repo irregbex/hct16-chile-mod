@@ -1,0 +1,13 @@
+{
+ "Comment": "A huaso crosses at a trot",
+ "Items": [
+  {
+   "Asset": "caballo_huaso",
+   "P": 0.466,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.29
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "guanaco",
+  "Name": "Guanaco",
+  "Category": "prop",
+  "Description": "The camelid of the desert and the steppe, 1.9 m at the head, towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

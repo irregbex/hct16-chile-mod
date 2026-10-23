@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_oro_cielo_body",
+  "Name": "Jet ski Oro y cielo (car body)",
+  "Category": "prop",
+  "Description": "The gold and sky jet ski (No. 5) as a playable car, nose to +X; its rider is jetski_rider_oro_cielo (rider.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,23 @@
+{
+ "Comment": "road_extras.py: a stage over 20 km has traffic (HCT15.Traffic): one car per 3 km of real road besides the 19 rivals, not racing, at 60-80 km/h; a car left behind is moved ahead of the players again; the micros one livery per road 2.0.16: two-way (Oncoming 0.5); 2.0.26: one-way again, Oncoming 0 (cars coming the other way spoiled the fun).",
+ "Cars": 12,
+ "Models": [
+  "cl_micro",
+  "cl_micro",
+  "cl_taxi",
+  "cl_micro",
+  "kombi",
+  "cl_micro",
+  "beetle",
+  "cl_taxi",
+  "uno",
+  "mini"
+ ],
+ "Speed": [
+  0.21,
+  0.28
+ ],
+ "From": 0.02,
+ "To": 0.12,
+ "Oncoming": 0
+}

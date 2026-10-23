@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_rapanui_hanga_roa_city",
+ "ItemName": "city_cl_rapanui_hanga_roa",
+ "DisplayName": "Rapa Nui: Hanga Roa, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_rapanui_hanga_roa"
+ ]
+}

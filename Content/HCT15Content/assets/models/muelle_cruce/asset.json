@@ -1,0 +1,11 @@
+{
+  "Id": "muelle_cruce",
+  "Name": "Pier over the course",
+  "Category": "landmark",
+  "Description": "A wooden pier on iron piles crossing over the jet ski course (Side 0): the deck 5 m up from -30 to +30 m across, no piles within 6 m of the centre, railings and lamps",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "muelle_vergara",
+  "Name": "Muelle Vergara",
+  "Category": "landmark",
+  "Description": "Viña del Mar's old iron pier off Playa Acapulco: a long deck on iron piles with lamps and the pavilion at its head, 60 m (compressed); runs out to -X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

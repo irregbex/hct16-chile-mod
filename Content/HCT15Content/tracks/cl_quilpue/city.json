@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_quilpue_city",
+ "ItemName": "city_cl_quilpue",
+ "DisplayName": "Quilpué, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_quilpue"
+ ]
+}

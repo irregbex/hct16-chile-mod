@@ -1,0 +1,11 @@
+{
+  "Id": "f150_whip",
+  "Name": "Mine pickup whip (pole)",
+  "Category": "prop",
+  "Description": "The 3 m whip of the mines' pickups: red and white reflective bands, an orange tip; its origin at the base (HCT15.StreetCars sways it, the flag is a FlagWave cloth)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

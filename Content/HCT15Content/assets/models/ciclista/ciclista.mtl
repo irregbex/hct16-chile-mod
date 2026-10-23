@@ -1,0 +1,31 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl trim_dark
+Kd 0.1600 0.1700 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl red
+Kd 0.8500 0.1500 0.1200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl wall_blue
+Kd 0.4500 0.6200 0.8500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl wall_beige
+Kd 0.8700 0.7900 0.6700
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl yellow
+Kd 0.9500 0.8000 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

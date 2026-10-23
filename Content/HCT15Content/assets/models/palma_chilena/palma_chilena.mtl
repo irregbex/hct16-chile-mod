@@ -1,0 +1,25 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl stone
+Kd 0.5500 0.5300 0.5000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl trunk
+Kd 0.3600 0.2400 0.1300
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl foliage
+Kd 0.2500 0.5500 0.2400
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl foliage_light
+Kd 0.4000 0.6500 0.2500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

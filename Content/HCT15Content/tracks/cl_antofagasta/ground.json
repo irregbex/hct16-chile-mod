@@ -1,0 +1,35 @@
+{
+ "Comment": "coast_dress.py: sand / sea / rock beside the road from OpenStreetMap beaches and coastline; Name = left / right of the strip",
+ "Sections": [
+  {
+   "From": 0.1474,
+   "To": 0.1563,
+   "Texture": "ground_base_rock.png",
+   "Name": "base left / rock right"
+  },
+  {
+   "From": 0.2064,
+   "To": 0.2673,
+   "Texture": "ground_base_sea.png",
+   "Name": "base left / sea right"
+  },
+  {
+   "From": 0.2673,
+   "To": 0.2771,
+   "Texture": "ground_base_sand.png",
+   "Name": "base left / sand right"
+  },
+  {
+   "From": 0.2771,
+   "To": 0.2899,
+   "Texture": "ground_base_sea.png",
+   "Name": "base left / sea right"
+  },
+  {
+   "From": 0.3337,
+   "To": 0.3902,
+   "Texture": "ground_base_sea.png",
+   "Name": "base left / sea right"
+  }
+ ]
+}

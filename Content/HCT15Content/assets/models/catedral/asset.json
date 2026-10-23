@@ -1,0 +1,11 @@
+{
+  "Id": "catedral",
+  "Name": "Cathedral",
+  "Category": "landmark",
+  "Description": "Two-towered cathedral of a Plaza de Armas, 25 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "boya_carrera",
+  "Name": "Race buoy",
+  "Category": "prop",
+  "Description": "An orange race buoy floating on the water, 1 m across, with a little pennant: lines the jet ski course (cl_vina_jetski)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

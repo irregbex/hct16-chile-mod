@@ -1,0 +1,29 @@
+{
+ "Comment": "A penguin leaves the colony and crosses the street",
+ "Items": [
+  {
+   "Asset": "pinguino",
+   "P": 0.782,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 9.0
+  },
+  {
+   "Asset": "pinguino",
+   "P": 0.112,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 8.28
+  },
+  {
+   "Asset": "nandu",
+   "P": 0.71,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 6.5
+  }
+ ]
+}

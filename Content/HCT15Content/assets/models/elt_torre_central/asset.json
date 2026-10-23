@@ -1,0 +1,11 @@
+{
+  "Id": "elt_torre_central",
+  "Name": "ELT central tower",
+  "Category": "landmark",
+  "Description": "The telescope's central tower (M3-M5): a 31 m octagonal white lattice tower on the M1 cell, with its access stair",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

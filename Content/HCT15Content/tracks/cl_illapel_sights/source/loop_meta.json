@@ -1,0 +1,31 @@
+{
+ "centre": [
+  -31.6326932,
+  -71.1683039
+ ],
+ "target_m": 3600,
+ "length_m": 3860,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Independencia",
+  "Avenida Ignacio Carrera Pinto",
+  "La Concepción",
+  "Avenida Ignacio Silva",
+  "Independencia",
+  "El Mirador",
+  "Avenida Vial Recabarren",
+  "Ecuador",
+  "Avenida Ignacio Carrera Pinto",
+  "Avenida La Paz",
+  "Libertad",
+  "Patria",
+  "El Carmen",
+  "La Riojana"
+ ],
+ "sights": [
+  "Plazoleta Pablo Neruda",
+  "Parroquia San Rafael",
+  "Casa de la Cultura de Illapel",
+  "Plaza Ignacio Carera Pinto"
+ ]
+}

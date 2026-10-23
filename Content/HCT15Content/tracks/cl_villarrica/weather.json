@@ -1,0 +1,28 @@
+{
+ "Comment": "clouding over, ash from the Villarrica volcano, the rain getting heavier",
+ "AshT": [
+  0.0,
+  0.45,
+  1.0
+ ],
+ "AshV": [
+  0.35,
+  0.675,
+  1.0
+ ],
+ "AshGrip": 0.8,
+ "RainT": [
+  0.0,
+  0.35,
+  0.75,
+  1.0
+ ],
+ "RainV": [
+  0.222,
+  0.317,
+  0.465,
+  0.528
+ ],
+ "Sound": true,
+ "Grip": 0.8
+}

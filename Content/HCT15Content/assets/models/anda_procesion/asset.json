@@ -1,0 +1,11 @@
+{
+  "Id": "anda_procesion",
+  "Name": "Anda (procession)",
+  "Category": "prop",
+  "Description": "A whole anda of the Virgen del Carmen with its eight bearers standing, for the roadside",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

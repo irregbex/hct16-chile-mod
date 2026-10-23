@@ -1,0 +1,11 @@
+{
+  "Id": "elt_paneles",
+  "Name": "Cladding panels",
+  "Category": "prop",
+  "Description": "Stacks of the dome's silver cladding panels on pallets beside a site container, 14 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,21 @@
+{
+ "Comment": "The Melipilla market cart crosses fully loaded",
+ "Items": [
+  {
+   "Asset": "carro_feria",
+   "P": 0.706,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.69
+  },
+  {
+   "Asset": "carro_feria",
+   "P": 0.036,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.395
+  }
+ ]
+}

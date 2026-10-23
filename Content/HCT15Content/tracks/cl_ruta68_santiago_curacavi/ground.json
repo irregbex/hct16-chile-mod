@@ -1,0 +1,182 @@
+{
+ "Comment": "sat_dress.py: the ground beside the road in the colour Sentinel-2 cloudless shows there (EOX, CC BY-NC-SA 4.0)",
+ "Sections": [
+  {
+   "From": 0.0,
+   "To": 0.0119,
+   "Texture": "ground_sat_b1a078_585b1f.png",
+   "Name": "satellite #b1a078 left / #585b1f right"
+  },
+  {
+   "From": 0.0119,
+   "To": 0.0239,
+   "Texture": "ground_sat_base_9e8552.png",
+   "Name": "satellite #- left / #9e8552 right"
+  },
+  {
+   "From": 0.0239,
+   "To": 0.0358,
+   "Texture": "ground_sat_base_897341.png",
+   "Name": "satellite #- left / #897341 right"
+  },
+  {
+   "From": 0.0358,
+   "To": 0.0478,
+   "Texture": "ground_sat_base_9e8552.png",
+   "Name": "satellite #- left / #9e8552 right"
+  },
+  {
+   "From": 0.0478,
+   "To": 0.0597,
+   "Texture": "ground_sat_base_ad986d.png",
+   "Name": "satellite #- left / #ad986d right"
+  },
+  {
+   "From": 0.0597,
+   "To": 0.1075,
+   "Texture": "ground_sat_base_9e8552.png",
+   "Name": "satellite #- left / #9e8552 right"
+  },
+  {
+   "From": 0.1075,
+   "To": 0.1194,
+   "Texture": "ground_sat_base_897341.png",
+   "Name": "satellite #- left / #897341 right"
+  },
+  {
+   "From": 0.1194,
+   "To": 0.1791,
+   "Texture": "ground_sat_base_9e8552.png",
+   "Name": "satellite #- left / #9e8552 right"
+  },
+  {
+   "From": 0.1791,
+   "To": 0.1911,
+   "Texture": "ground_sat_base_897341.png",
+   "Name": "satellite #- left / #897341 right"
+  },
+  {
+   "From": 0.203,
+   "To": 0.2149,
+   "Texture": "ground_sat_a58b54_585b1f.png",
+   "Name": "satellite #a58b54 left / #585b1f right"
+  },
+  {
+   "From": 0.2149,
+   "To": 0.2269,
+   "Texture": "ground_sat_847844_746733.png",
+   "Name": "satellite #847844 left / #746733 right"
+  },
+  {
+   "From": 0.2269,
+   "To": 0.2388,
+   "Texture": "ground_sat_a58b54_9e8552.png",
+   "Name": "satellite #a58b54 left / #9e8552 right"
+  },
+  {
+   "From": 0.2388,
+   "To": 0.2508,
+   "Texture": "ground_sat_706432_897341.png",
+   "Name": "satellite #706432 left / #897341 right"
+  },
+  {
+   "From": 0.2508,
+   "To": 0.2627,
+   "Texture": "ground_sat_base_585b1f.png",
+   "Name": "satellite #- left / #585b1f right"
+  },
+  {
+   "From": 0.2627,
+   "To": 0.2746,
+   "Texture": "ground_sat_base_746733.png",
+   "Name": "satellite #- left / #746733 right"
+  },
+  {
+   "From": 0.2746,
+   "To": 0.2866,
+   "Texture": "ground_sat_a58b54_9e8552.png",
+   "Name": "satellite #a58b54 left / #9e8552 right"
+  },
+  {
+   "From": 0.2866,
+   "To": 0.2985,
+   "Texture": "ground_sat_a58b54_ad986d.png",
+   "Name": "satellite #a58b54 left / #ad986d right"
+  },
+  {
+   "From": 0.2985,
+   "To": 0.3224,
+   "Texture": "ground_sat_847844_ad986d.png",
+   "Name": "satellite #847844 left / #ad986d right"
+  },
+  {
+   "From": 0.3224,
+   "To": 0.3343,
+   "Texture": "ground_sat_e0d1b6_ad986d.png",
+   "Name": "satellite #e0d1b6 left / #ad986d right"
+  },
+  {
+   "From": 0.3343,
+   "To": 0.3702,
+   "Texture": "ground_sat_base_9e8552.png",
+   "Name": "satellite #- left / #9e8552 right"
+  },
+  {
+   "From": 0.3702,
+   "To": 0.3821,
+   "Texture": "ground_sat_base_897341.png",
+   "Name": "satellite #- left / #897341 right"
+  },
+  {
+   "From": 0.3821,
+   "To": 0.3941,
+   "Texture": "ground_sat_base_9e8552.png",
+   "Name": "satellite #- left / #9e8552 right"
+  },
+  {
+   "From": 0.3941,
+   "To": 0.406,
+   "Texture": "ground_sat_b1a078_ad986d.png",
+   "Name": "satellite #b1a078 left / #ad986d right"
+  },
+  {
+   "From": 0.9911,
+   "To": 1.0,
+   "Texture": "ground_sat_847844_897341.png",
+   "Name": "satellite #847844 left / #897341 right"
+  }
+ ],
+ "Lanes": [
+  {
+   "From": 0.0,
+   "To": 0.025,
+   "Lanes": 4,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.025,
+   "To": 0.1307,
+   "Lanes": 6,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.1307,
+   "To": 0.1657,
+   "Lanes": 6,
+   "Name": "Peaje Troncal Lo Prado"
+  },
+  {
+   "From": 0.1657,
+   "To": 0.375,
+   "Lanes": 6,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.375,
+   "To": 0.4,
+   "Lanes": 4,
+   "Name": "OSM"
+  }
+ ],
+ "CenterLine": true
+}

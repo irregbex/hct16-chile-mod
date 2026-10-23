@@ -1,0 +1,11 @@
+{
+  "Id": "camion_bomberos",
+  "Name": "Fire engine",
+  "Category": "prop",
+  "Description": "Bomberos de Chile, 7.2 m, nose to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

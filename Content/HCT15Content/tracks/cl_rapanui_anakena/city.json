@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_rapanui_anakena_city",
+ "ItemName": "city_cl_rapanui_anakena",
+ "DisplayName": "Rapa Nui: Anakena, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_rapanui_anakena"
+ ]
+}

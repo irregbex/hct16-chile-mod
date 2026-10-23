@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -33.64,
+  -70.35
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.14,
+  "serp_n": 9,
+  "stretch": 1.6,
+  "heading": 100,
+  "seed": 64
+ },
+ "theme": "canyon"
+}

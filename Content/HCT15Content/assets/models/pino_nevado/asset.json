@@ -1,0 +1,11 @@
+{
+  "Id": "pino_nevado",
+  "Name": "Snowy pine",
+  "Category": "tree",
+  "Description": "A pine under snow, 9 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

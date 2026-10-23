@@ -1,0 +1,11 @@
+{
+  "Id": "micro_turquesa_body",
+  "Name": "Micro turquesa (body)",
+  "Category": "prop",
+  "Description": "The turquesa micro without wheels: the playable car keeps the donor's own",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

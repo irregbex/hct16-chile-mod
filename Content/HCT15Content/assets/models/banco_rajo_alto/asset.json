@@ -1,0 +1,11 @@
+{
+  "Id": "banco_rajo_alto",
+  "Name": "Open pit benches (6)",
+  "Category": "landmark",
+  "Description": "Six benches, 72 m tall, 19 m wide, with a haul road cut across: the pit's upper face, set behind banco_rajo",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

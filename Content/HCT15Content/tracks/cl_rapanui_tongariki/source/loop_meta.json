@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -27.124,
+  -109.284
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.32,
+  "serp": 0.12,
+  "serp_n": 8,
+  "stretch": 1.25,
+  "heading": 100,
+  "seed": 52
+ },
+ "theme": "rapanui_quarry"
+}

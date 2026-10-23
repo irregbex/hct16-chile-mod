@@ -1,0 +1,19 @@
+{
+ "start": [
+  -32.245,
+  -71.51
+ ],
+ "end": [
+  -31.9105,
+  -71.503
+ ],
+ "length_m": 35565,
+ "return_m": 35565,
+ "finish_index": 564,
+ "streets": [
+  "Camino a Los Vilos",
+  "Ruta 5 Norte",
+  "Avenida Los Pescadores"
+ ],
+ "sights": []
+}

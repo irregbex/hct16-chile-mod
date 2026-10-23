@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -38.65,
+  -71.65
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.18,
+  "serp_n": 11,
+  "stretch": 1.2,
+  "heading": 75,
+  "seed": 62
+ },
+ "theme": "araucaria"
+}

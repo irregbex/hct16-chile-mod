@@ -1,0 +1,32 @@
+{
+ "centre": [
+  -35.8452905,
+  -71.5977173
+ ],
+ "target_m": 5000,
+ "length_m": 5035,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Avenida Presidente Ibáñez",
+  "Lautaro",
+  "Yerbas Buenas",
+  "Ramón Olate",
+  "Avenida Presidente Ibáñez",
+  "Yungay",
+  "Kurt Möller",
+  "Ramón Olate",
+  "Chacabuco",
+  "Esperanza",
+  "San Martín",
+  "Colo Colo",
+  "Yungay",
+  "Avenida Brasil",
+  "Maipú",
+  "Yumbel",
+  "Colo Colo",
+  "Chacabuco",
+  "Yerbas Buenas",
+  "Avenida Brasil"
+ ],
+ "sights": []
+}

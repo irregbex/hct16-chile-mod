@@ -1,0 +1,39 @@
+{
+ "centre": [
+  -36.7144863,
+  -73.1141087
+ ],
+ "target_m": 6000,
+ "length_m": 6828,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Almirante Villarroel",
+  "Avenida Blanco Encalada",
+  "10 de Julio",
+  "28 de Octubre",
+  "7 de Enero",
+  "Avenida Blanco Encalada",
+  "Acceso Base Naval",
+  "Blanco Encalada",
+  "Retorno a Talcahuano",
+  "Almirante Villarroel",
+  "Beltrán Mathieu",
+  "Avenida Tumbes",
+  "Avenida del Pescador",
+  "San Eugenio",
+  "San Agustín",
+  "10 de Julio",
+  "Valdivia",
+  "Avenida Tumbes",
+  "Bellavista",
+  "Valparaíso",
+  "12 de Febrero",
+  "Avenida Colón",
+  "Riquelme",
+  "Valdivia",
+  "Avenida Blanco Encalada",
+  "Baquedano",
+  "Avenida Colón"
+ ],
+ "sights": []
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "tunel_boca",
+  "Name": "Tunnel mouth",
+  "Category": "landmark",
+  "Description": "Concrete portal over the road, 19 m opening, 13 m tall - the mouth of an urban tunnel (place it with Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

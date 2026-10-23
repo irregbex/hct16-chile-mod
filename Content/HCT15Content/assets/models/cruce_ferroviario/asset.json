@@ -1,0 +1,11 @@
+{
+  "Id": "cruce_ferroviario",
+  "Name": "Level crossing sign",
+  "Category": "prop",
+  "Description": "Cross of St Andrew and its lamps, facing the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

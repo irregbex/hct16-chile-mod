@@ -1,0 +1,11 @@
+{
+  "Id": "puesto_frutas",
+  "Name": "Fruit stall",
+  "Category": "prop",
+  "Description": "Market stall with a striped canopy, open towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

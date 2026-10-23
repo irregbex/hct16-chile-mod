@@ -1,0 +1,36 @@
+{
+ "centre": [
+  -36.6066616,
+  -72.1033194
+ ],
+ "target_m": 6000,
+ "length_m": 6289,
+ "edge_reuse": 0.001,
+ "streets": [
+  "Carrera",
+  "Avenida Ecuador",
+  "Isabel Riquelme",
+  "Gamero",
+  "Sargento Aldea",
+  "Bulnes",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Avenida Ecuador",
+  "Carrera",
+  "Avenida Libertador Bernardo O'Higgins",
+  "Avenida Libertad",
+  "Avenida Brasil",
+  "Bulnes",
+  "5 de Abril",
+  "Arturo Prat",
+  "El Roble",
+  "Isabel Riquelme",
+  "Purén",
+  "5 de Abril",
+  "Sargento Aldea",
+  "Gamero",
+  "Independencia",
+  "Constitución",
+  "Yerbas Buenas"
+ ],
+ "sights": []
+}

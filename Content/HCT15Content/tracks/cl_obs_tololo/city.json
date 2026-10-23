@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_obs_tololo_city",
+ "ItemName": "city_cl_obs_tololo",
+ "DisplayName": "Observatorio Cerro Tololo, Coquimbo",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_obs_tololo"
+ ]
+}

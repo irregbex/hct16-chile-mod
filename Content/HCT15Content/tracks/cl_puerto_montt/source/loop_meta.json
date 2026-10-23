@@ -1,0 +1,41 @@
+{
+ "centre": [
+  -41.471798,
+  -72.9395915
+ ],
+ "target_m": 6000,
+ "length_m": 5954,
+ "edge_reuse": 0.011,
+ "streets": [
+  "Doctor Martin",
+  "Padre Harter",
+  "Baquedano",
+  "Rengifo",
+  "Balmaceda",
+  "Santa María",
+  "Doctor Martin",
+  "Avenida Diego Portales",
+  "Valdivia",
+  "Juan José Mira",
+  "Freire",
+  "Urmeneta",
+  "Freire",
+  "Benavente",
+  "Baquedano",
+  "Avenida Juan Soler Manfredini",
+  "Avenida Diego Portales",
+  "Covadonga",
+  "Egaña",
+  "Copiapó",
+  "Avenida Juan Soler Manfredini",
+  "Quepe",
+  "Avenida Juan Soler Manfredini",
+  "Padre Harter",
+  "Ejército",
+  "Regimiento",
+  "Esmeralda",
+  "Egaña",
+  "Covadonga"
+ ],
+ "sights": []
+}

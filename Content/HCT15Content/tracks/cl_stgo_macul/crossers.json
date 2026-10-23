@@ -1,0 +1,13 @@
+{
+ "Comment": "A street-market cart crosses the street",
+ "Items": [
+  {
+   "Asset": "carro_feria",
+   "P": 0.201,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.69
+  }
+ ]
+}

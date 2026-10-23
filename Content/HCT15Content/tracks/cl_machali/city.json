@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_machali_city",
+ "ItemName": "city_cl_machali",
+ "DisplayName": "Machalí, O'Higgins",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_machali"
+ ]
+}

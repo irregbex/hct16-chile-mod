@@ -1,0 +1,11 @@
+{
+  "Id": "pasarela_peatonal",
+  "Name": "Footbridge",
+  "Category": "landmark",
+  "Description": "Pedestrian overpass across the road with stair towers, 7 m clear (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

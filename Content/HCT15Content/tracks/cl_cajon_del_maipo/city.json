@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_cajon_del_maipo_city",
+ "ItemName": "city_cl_cajon_del_maipo",
+ "DisplayName": "Cajón del Maipo, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_cajon_del_maipo"
+ ]
+}

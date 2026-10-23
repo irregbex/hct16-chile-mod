@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -34.387,
+  -72.003
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.0,
+  "stretch": 1.5,
+  "heading": 170,
+  "seed": 78
+ },
+ "theme": "surf"
+}

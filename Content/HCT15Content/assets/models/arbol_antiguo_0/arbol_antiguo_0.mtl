@@ -1,0 +1,31 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl wall_white
+Kd 0.9400 0.9300 0.9000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl bark_old
+Kd 0.3000 0.2200 0.1500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl canopy_old
+Kd 0.1600 0.3600 0.1700
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl canopy_mid
+Kd 0.2200 0.4600 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl canopy_sun
+Kd 0.3600 0.5800 0.2400
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

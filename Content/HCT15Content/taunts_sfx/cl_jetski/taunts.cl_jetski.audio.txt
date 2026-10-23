@@ -1,0 +1,82 @@
+# Indice de taunts.cl_jetski.txt: archivo de audio ; tipo (seccion) ; linea en el txt ; frase (2026-10-15)
+# Tipos: random = en cualquier momento; nitro = al usar nitro; out_of_nitros = sin nitros; crash = al chocar; overtake = al adelantar; first_place = al pasar a primero
+random_01.wav ; random ; linea 7 ; ¡Correte, po, weón, que esta ola es mía!
+random_02.wav ; random ; linea 8 ; ¡O sea, ni en Cachagua se ve gente remando tan mal!
+random_03.wav ; random ; linea 9 ; ¡Mi viejo me pasó la lancha y aun así te gano en jetski, bro!
+random_04.wav ; random ; linea 10 ; ¡Cero estrés, weón, te paso igual!
+random_05.wav ; random ; linea 11 ; ¡Andái más perdío que flaite en Zapallar!
+random_06.wav ; random ; linea 12 ; ¡Esa ola no era pa' ti, era pa' gente con apellido! ¿Cachái?
+random_07.wav ; random ; linea 13 ; ¡Te gano y después me voy al club de yates, obvio!
+random_08.wav ; random ; linea 14 ; ¡Terrible de mala tu línea, weón, aprende a leer el mar!
+random_09.wav ; random ; linea 15 ; ¡Ni con tabla nueva me alcanzái, loco!
+random_10.wav ; random ; linea 16 ; ¡Este jetski vale más que tu casa, po!
+random_11.wav ; random ; linea 17 ; ¡Sale de mi agua, gil, que vengo a full!
+random_12.wav ; random ; linea 18 ; ¡Bro, ¿y ese chaleco? ¿Lo compraste en la feria?
+random_13.wav ; random ; linea 19 ; ¡En Maitencillo te habrían echado del agua, weón!
+random_14.wav ; random ; linea 20 ; ¡Mi polola me está mirando desde la terraza, así que correte!
+random_15.wav ; random ; linea 21 ; ¡Qué onda tu jetski, weón, parece flotador de piscina!
+random_16.wav ; random ; linea 22 ; ¡Te dejo comiendo espuma hasta Cachagua!
+random_17.wav ; random ; linea 23 ; ¡Ya po, apúrate, que tengo asado en Zapallar a las nueve!
+random_18.wav ; random ; linea 24 ; ¡Dale, weón, que el sol se pone y yo tengo after!
+random_19.wav ; random ; linea 25 ; ¡Ni el Dani de Reñaca surfea tan mal como tú!
+random_20.wav ; random ; linea 26 ; ¡Tú en el agua y yo en el podio, así es la vida, bro!
+random_21.wav ; random ; linea 27 ; ¡Me compré este jetski con la mesada del mes! ¿Cachái?
+random_22.wav ; random ; linea 28 ; ¡Afloja, que se te cae el bronceado, weón!
+random_23.wav ; random ; linea 29 ; ¡Esa curva la tomé con una mano y el pisco en la otra!
+random_24.wav ; random ; linea 30 ; ¡Bro, te falta mundo, te falta playa!
+random_25.wav ; random ; linea 31 ; ¡Pa' qué compites si igual pierdes, po!
+random_26.wav ; random ; linea 32 ; ¡Sale, aweonao, que vengo con la ola de mi vida!
+random_27.wav ; random ; linea 33 ; ¡Te pasé tan cerca que te mojé el peinado, weón!
+random_28.wav ; random ; linea 34 ; ¡Con esa técnica ni en la tina de tu casa, loco!
+random_29.wav ; random ; linea 35 ; ¡Los pingüinos de la isla corren más rápido que tú!
+random_30.wav ; random ; linea 36 ; ¡Ven a Zapallar y te enseño a vivir, po!
+random_31.wav ; random ; linea 37 ; ¡Esto es un deporte de gente bien, no de turistas!
+random_32.wav ; random ; linea 38 ; ¡Igual te invito a la fiesta, pero llegas último, como en la carrera!
+random_33.wav ; random ; linea 39 ; ¡Weón, tu jetski suena a cortadora de pasto!
+random_34.wav ; random ; linea 40 ; ¡Me tiro la ola y la rampa sin despeinarme!
+random_35.wav ; random ; linea 41 ; ¿Cachái que mi viejo es dueño de medio muelle?
+random_36.wav ; random ; linea 42 ; ¡Oye, ¿te prestaron ese jetski? Se nota, bro!
+random_37.wav ; random ; linea 43 ; ¡Puro estilo, weón, puro estilo!
+random_38.wav ; random ; linea 44 ; ¡En el verano mando yo en esta playa! ¿Cachái?
+random_39.wav ; random ; linea 45 ; ¡Tírate al agua y nada, que así llegái antes!
+random_40.wav ; random ; linea 46 ; ¡Esa rampa es mía, correte, gil!
+random_41.wav ; random ; linea 47 ; ¡Bro, el nitro del aire es pa' los que saben volar!
+random_42.wav ; random ; linea 48 ; ¡Vuelve a Santiago, que acá el mar es pa' nosotros!
+random_43.wav ; random ; linea 49 ; ¡Tan lento que te van a cobrar estacionamiento en el agua!
+random_44.wav ; random ; linea 50 ; ¡Ni con el yate de mi tío me alcanzái, weón!
+random_45.wav ; random ; linea 51 ; ¡Mírame, mírame, que saludo a las cabras de la orilla!
+random_46.wav ; random ; linea 52 ; ¡Te gané y ni siquiera me saqué los lentes, po!
+random_47.wav ; random ; linea 53 ; ¡Remaste toda la vida pa' esto y te gana un cuico, weón!
+random_48.wav ; random ; linea 54 ; ¡Ya po, que el bronceado no se hace solo!
+random_49.wav ; random ; linea 55 ; ¡Pa' la otra trae flotadores, bro!
+random_50.wav ; random ; linea 56 ; ¡Chao, perdedor, nos vemos en el after de Cachagua!
+nitro_01.wav ; nitro ; linea 59 ; ¡A full, weón, como la lancha de mi viejo saliendo de Zapallar!
+nitro_02.wav ; nitro ; linea 60 ; ¡Esto es turbo de verdad, bro, agárrate del chaleco!
+nitro_03.wav ; nitro ; linea 61 ; ¡Nitro y ola juntos, po, así se vuela con estilo!
+nitro_04.wav ; nitro ; linea 62 ; ¡Mira cómo me voy, loco, ni el yate del tío me sigue!
+nitro_05.wav ; nitro ; linea 63 ; ¡Dale, weón, que a esta velocidad llego al after antes que el DJ!
+nitro_06.wav ; nitro ; linea 64 ; ¡Filete, po, esto es lo que se siente ser de Cachagua!
+out_of_nitros_01.wav ; out_of_nitros ; linea 67 ; ¡Se acabó el nitro, bro, igual que la mesada a fin de mes!
+out_of_nitros_02.wav ; out_of_nitros ; linea 68 ; ¡Ya po, sin turbo, pero con estilo sigo ganando, weón!
+out_of_nitros_03.wav ; out_of_nitros ; linea 69 ; ¡Qué lata, se me fue el nitro justo frente a las cabras!
+out_of_nitros_04.wav ; out_of_nitros ; linea 70 ; ¡Sin nitro, loco, pero con apellido se llega igual! ¿Cachái?
+crash_01.wav ; crash ; linea 73 ; ¡Weón, me rayaste el jetski nuevo, mi viejo me mata!
+crash_02.wav ; crash ; linea 74 ; ¡Cuidado, gil, que esto no es un flotador de piscina!
+crash_03.wav ; crash ; linea 75 ; ¡Bro, casi me botas al agua y tengo el peinado recién hecho!
+crash_04.wav ; crash ; linea 76 ; ¡Esa fue tu culpa, po, en Zapallar sabemos chocar con clase!
+crash_05.wav ; crash ; linea 77 ; ¡Me pegaste delante de mi polola, weón, qué vergüenza!
+crash_06.wav ; crash ; linea 78 ; ¡Oye, loco, estás surfeando o jugando a los chocones!
+crash_07.wav ; crash ; linea 79 ; ¡Puta la ola, me tiraste encima de las rocas, aweonao!
+crash_08.wav ; crash ; linea 80 ; ¡Con ese choque te mando la cuenta a tu casa, bro!
+overtake_01.wav ; overtake ; linea 83 ; ¡Chao, weón, te dejo con la espuma y el bronceado a medias!
+overtake_02.wav ; overtake ; linea 84 ; ¡Pasé con una mano, bro, la otra sostiene el pisco!
+overtake_03.wav ; overtake ; linea 85 ; ¡Así se adelanta en Cachagua, po, puro estilo!
+overtake_04.wav ; overtake ; linea 86 ; ¡Te dejé atrás como al flaite en la playa privada! ¿Cachái?
+overtake_05.wav ; overtake ; linea 87 ; ¡Adiós, loco, nos vemos en la premiación!
+overtake_06.wav ; overtake ; linea 88 ; ¡Mira la estela, weón, eso es lo único que vas a ver de mí!
+overtake_07.wav ; overtake ; linea 89 ; ¡Otro turista atrás, bro, y van como diez!
+overtake_08.wav ; overtake ; linea 90 ; ¡Correte, gil, que las cabras de la orilla me están mirando!
+first_place_01.wav ; first_place ; linea 93 ; ¡Primero, po, como corresponde a gente con apellido!
+first_place_02.wav ; first_place ; linea 94 ; ¡Gané sin sacarme los lentes, bro, puro estilo!
+first_place_03.wav ; first_place ; linea 95 ; ¡El podio es mío, weón, y el after también!
+first_place_04.wav ; first_place ; linea 96 ; ¡Ya po, a celebrar al club de yates, que yo invito! ¿Cachái?

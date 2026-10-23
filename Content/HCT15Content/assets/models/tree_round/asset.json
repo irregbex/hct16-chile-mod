@@ -1,0 +1,11 @@
+{
+  "Id": "tree_round",
+  "Name": "Round tree",
+  "Category": "tree",
+  "Description": "Low-poly ball crown, 7 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

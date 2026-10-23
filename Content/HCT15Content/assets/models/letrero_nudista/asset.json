@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_nudista",
+  "Name": "Nudist beach sign",
+  "Category": "landmark",
+  "Description": "PLAYA NUDISTA on a wooden board on two posts, facing the course (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

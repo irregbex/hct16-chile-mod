@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_castro_city",
+ "ItemName": "city_cl_castro",
+ "DisplayName": "Castro, Los Lagos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_castro"
+ ]
+}

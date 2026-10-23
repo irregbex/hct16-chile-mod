@@ -1,0 +1,11 @@
+{
+  "Id": "micro_roja",
+  "Name": "Micro rojo",
+  "Category": "prop",
+  "Description": "The Santiago micro in the rojo livery, 10.5 m, nose to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

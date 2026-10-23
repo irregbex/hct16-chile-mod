@@ -1,0 +1,11 @@
+{
+  "Id": "edificio_torre",
+  "Name": "Office tower",
+  "Category": "building",
+  "Description": "Glass and concrete tower of a Chilean city centre, 40 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

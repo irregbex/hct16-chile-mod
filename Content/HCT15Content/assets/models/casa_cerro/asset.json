@@ -1,0 +1,11 @@
+{
+  "Id": "casa_cerro",
+  "Name": "Hill house",
+  "Category": "building",
+  "Description": "Valparaiso: a corrugated-iron house on stilts, painted front to the road (+X), 8 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

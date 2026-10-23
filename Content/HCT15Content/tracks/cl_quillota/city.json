@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_quillota_city",
+ "ItemName": "city_cl_quillota",
+ "DisplayName": "Quillota, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_quillota"
+ ]
+}

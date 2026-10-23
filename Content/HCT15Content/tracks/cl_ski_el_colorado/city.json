@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_ski_el_colorado_city",
+ "ItemName": "city_cl_ski_el_colorado",
+ "DisplayName": "El Colorado, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_ski_el_colorado"
+ ]
+}

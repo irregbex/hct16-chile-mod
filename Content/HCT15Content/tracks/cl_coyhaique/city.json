@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_coyhaique_city",
+ "ItemName": "city_cl_coyhaique",
+ "DisplayName": "Coyhaique, Aysén",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_coyhaique"
+ ]
+}

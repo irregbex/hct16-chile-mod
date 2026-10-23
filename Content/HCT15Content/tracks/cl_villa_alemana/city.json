@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_villa_alemana_city",
+ "ItemName": "city_cl_villa_alemana",
+ "DisplayName": "Villa Alemana, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_villa_alemana"
+ ]
+}

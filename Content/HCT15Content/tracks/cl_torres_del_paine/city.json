@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_torres_del_paine_city",
+ "ItemName": "city_cl_torres_del_paine",
+ "DisplayName": "Torres del Paine, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_torres_del_paine"
+ ]
+}

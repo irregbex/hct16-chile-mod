@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_body",
+  "Name": "Jet ski Viña (car body)",
+  "Category": "prop",
+  "Description": "The viña jet ski (No. 1) as a playable car, nose to +X; its rider is jetski_rider_vina (rider.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

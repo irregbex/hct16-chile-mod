@@ -1,0 +1,32 @@
+{
+ "centre": [
+  -53.1625688,
+  -70.907822
+ ],
+ "target_m": 5000,
+ "length_m": 5073,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Avenida Cristóbal Colón",
+  "Gobernador Carlos Bories",
+  "Croacia",
+  "Pasaje Balmaceda",
+  "Avenida España",
+  "Avenida Cristóbal Colón",
+  "Almirante Manuel Señoret",
+  "Avenida Costanera del Estrecho",
+  "Paraguaya",
+  "José Nogueira",
+  "Avenida Independencia",
+  "Almirante Manuel Señoret",
+  "Avenida Costanera del Estrecho",
+  "Avenida Independencia",
+  "Avenida Costanera del Estrecho",
+  "Avenida Cristóbal Colón",
+  "Avenida Costanera del Estrecho",
+  "Croacia",
+  "Hernando de Magallanes",
+  "Avenida Cristóbal Colón"
+ ],
+ "sights": []
+}

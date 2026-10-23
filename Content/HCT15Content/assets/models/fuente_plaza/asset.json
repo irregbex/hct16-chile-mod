@@ -1,0 +1,11 @@
+{
+  "Id": "fuente_plaza",
+  "Name": "Plaza fountain",
+  "Category": "prop",
+  "Description": "Round stone basin, water, a column and an upper bowl, 3 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

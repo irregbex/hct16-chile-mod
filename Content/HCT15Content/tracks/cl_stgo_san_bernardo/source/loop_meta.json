@@ -1,0 +1,24 @@
+{
+ "centre": [
+  -33.6390259,
+  -70.7273363
+ ],
+ "target_m": 7000,
+ "length_m": 10569,
+ "edge_reuse": 0.018,
+ "streets": [
+  "Camino San José de Nos",
+  "Camino El Milagro",
+  "Camino La Capilla de Nos",
+  "Avenida Calera de Tango",
+  "Camino San José de Nos",
+  "El Barrancón",
+  "Avenida Calera de Tango",
+  "El Barrancón",
+  "Camino La Capilla de Nos",
+  "Avenida Presidente Jorge Alessandri Rodríguez",
+  "Camino Lo Infante",
+  "El Barrancón"
+ ],
+ "sights": []
+}

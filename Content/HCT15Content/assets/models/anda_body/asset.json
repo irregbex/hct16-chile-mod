@@ -1,0 +1,11 @@
+{
+  "Id": "anda_body",
+  "Name": "Anda de la Virgen del Carmen (car body)",
+  "Category": "prop",
+  "Description": "The our lady of mount carmel's anda as a playable car: eight bearers (legs as anda_leg, legs.json), the poles, the platform with flowers and candles, the image",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

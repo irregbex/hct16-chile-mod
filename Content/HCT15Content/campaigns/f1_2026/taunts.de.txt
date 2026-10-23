@@ -1,0 +1,79 @@
+# HCT 1.6 - speech bubbles for the Grand Prix 2026 campaign - German (used while the game runs in German)
+# Sections: [random] anything, [nitro] when boosting, [out_of_nitros], [crash] after a hit, [overtake], [first_place]
+# One line per bubble. '#' starts a comment. UTF-8. Each car gets its own fixed set from these.
+# taunts.<lang>.txt beside this file is used while the game runs in that language (es, pt, fr, de, it...).
+
+[random]
+Box, box!
+Verstanden.
+Mamma mia!
+Jetzt pushen, push!
+DRS aktiviert.
+Plan B, Plan B!
+Wir prüfen das.
+Die Reifen sind hin, Kumpel.
+Blaue Flaggen! Blaue Flaggen!
+Achte auf die Streckenlimits.
+Volle Attacke.
+Ich verliere Leistung!
+Los geht's!
+Komm schon, komm schon!
+Sag ihm, er soll Platz machen!
+Ich brauche freie Luft.
+Wie groß ist der Abstand?
+Sprit sparen? Ist das dein Ernst?
+Nein, nein, nein, nein!
+Was ist der Plan?
+Bleib sauber da draußen.
+So fährt man, Kumpel!
+Alles unter Kontrolle.
+Auf welchen Reifen ist er?
+Sektor eins lila!
+Push wie verrückt!
+Funkcheck.
+
+[nitro]
+DRS offen, push!
+Überholmodus an!
+Deploy, deploy!
+Volle Leistung jetzt!
+Quali-Modus, los!
+
+[out_of_nitros]
+Kein Deploy mehr.
+Die Batterie ist leer.
+Spar die Energie.
+Lift and coast.
+Wir haben nichts mehr.
+
+[crash]
+Er hat mich getroffen!
+Wo will er denn hin?!
+Was für ein gefährlicher Fahrer!
+Unglaublich!
+Soll das ein Witz sein?!
+Ich habe Schaden!
+Der Frontflügel ist weg!
+Er hat mich rausgedrängt!
+Das war nicht meine Schuld!
+Prüft bitte das Auto.
+
+[overtake]
+Bye bye!
+Zu einfach!
+Der Undercut hat funktioniert!
+Bis später!
+Rein da!
+Gutes Manöver, Kumpel.
+Danke, der Nächste!
+So macht man das.
+Der DRS-Zug ist vorbei.
+
+[first_place]
+P1! P1!
+Wir haben es geschafft, Jungs!
+Ja! Ja! Ja!
+Wir führen das Rennen!
+Rein da!
+Was für eine Fahrt!
+

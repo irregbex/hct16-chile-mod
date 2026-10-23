@@ -1,0 +1,33 @@
+{
+ "centre": [
+  -30.6030819,
+  -71.2029894
+ ],
+ "target_m": 5000,
+ "length_m": 6021,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Ena Craig de Luksic",
+  "Avenida La Paz",
+  "Ariztía Oriente",
+  "El Talhuén",
+  "Las Revueltas",
+  "Ena Craig de Luksic",
+  "Diagonal Bellavista",
+  "Grumete Luis Felipe Videla",
+  "Blanco Encalada",
+  "Avenida La Chimba",
+  "Independencia",
+  "Santiago",
+  "Socos",
+  "Miraflores",
+  "Diagonal Bellavista",
+  "Yungay",
+  "Avenida La Chimba",
+  "Ariztía Oriente",
+  "Avenida David Perry",
+  "Tangue",
+  "Miguel Aguirre"
+ ],
+ "sights": []
+}

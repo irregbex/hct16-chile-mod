@@ -1,0 +1,11 @@
+{
+  "Id": "lobo_marino",
+  "Name": "Sea lion",
+  "Category": "prop",
+  "Description": "The sea lion that owns the fish quay, 2.2 m, hauling towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

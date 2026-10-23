@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_termas_chillan_city",
+ "ItemName": "city_cl_termas_chillan",
+ "DisplayName": "Termas de Chillán, Ñuble",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_termas_chillan"
+ ]
+}

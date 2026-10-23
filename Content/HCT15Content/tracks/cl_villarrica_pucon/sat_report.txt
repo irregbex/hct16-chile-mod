@@ -1,0 +1,38 @@
+sat_dress.py - cl_villarrica_pucon: what Sentinel-2 cloudless shows beside the road, per km (left | right; near samples)
+classes: G green valley, s scrub, d dry hills, S sand, t town, w water
+
+km   0  GsGGGsssGssGsGGssGsGGsss | 
+km   1  stGGGtdddsssssGsssssGdss | sGGssGGGGGGGGG
+km   2  GGGGGGGGG                | GGGGGGGGGGGGGGGGGGGGGGGG
+km   3  GG                       | GGGGGGGGGGGGGGGGGGGGGGGG
+km   4                           | GGGGGGGGGGGGGGGGGGGGGGGG
+km   5  G                        | GGGGGGGGGGGGGGGGGGGGGGGG
+km   6  GGGGGGGGGGGGGGGG         | GGGGGGGGGGGsGGGsdGGGGGGG
+km   7                           | GGGGGGGGGGGGGGGGGGGGGGGG
+km   8  GGGGGGGGGGGGGGGGG        | GGGGGGGGGGGGGGGGGGGGGGGG
+km   9  G                        | GGGGGGGGGGGGGGGGGGGGGGGG
+km  10  GGGGGGGGG                | GGGGGGGGGGGGGGGGGGGGGGGG
+km  11                           | GGGGGGGGGGGGGGGGGGGGGGGG
+km  12  GGGGGGGGG                | GGGGGGGGGGGGGGGGGGGGGGGG
+km  13  GGGG                     | GGGGGGGGGGGGGGGGGGGGGGGG
+km  14  GGGGG                    | ssGGGGGGGGGGGGGGGGGGGGGG
+km  15  GGG                      | GGGGGGGGGGGGGtGGGGGGGGGG
+km  16  GG                       | GGGGGGGGGGGGGGGGGGGGGGGG
+km  17  G                        | GGGGGGGGGGGGGGGGGGGGGGGG
+km  18                           | GGGGGGGGGGGGGGGGGGGGGGGG
+km  19                           | GGGGGGGGGGGGGGGGGGGGGGGG
+km  20  GGGGGG                   | GGGGGGGGGGGGGGGGGGGGGGGG
+km  21  GGGGGG                   | GGGGGGGGGGGGGGGGGGGGGGGG
+km  22  GGGGG                    | GGGGGGGGGGGGGGGGGGGGGGGG
+km  23  GGGGGGGGGG               | GGGGGGGGGGGGGGGGGGGGGGGG
+km  24  GGG                      | GGGGGGGGGGGGGGGGGGGGGGGG
+km  25                           | GGGGGGGGGGGGGGGGGsGGGGGs
+km  26  GGGGG                    | GGGGGGGGGGGGGGGGGGGGGGGG
+km  27  GsGGGGGGGGGGGGGGGGGGGGGG | GGGGGGGGGGGGGGGGGGGGGGGG
+km  28                           | 
+
+samples by class: {'green': 2400, 'scrub': 164, 'sand': 8, 'dry': 12, 'town': 31, 'water': 75}
+ground stretches: 31, strips: 13
+vegetation items: {'tree_round': 635, 'bush': 13, 'cactus_candelabro': 2}
+
+Imagery: Sentinel-2 cloudless by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2020), CC BY-NC-SA 4.0.

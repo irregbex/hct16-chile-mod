@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_vina_del_mar_city",
+ "ItemName": "city_cl_vina_del_mar",
+ "DisplayName": "Viña del Mar, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_vina_del_mar"
+ ]
+}

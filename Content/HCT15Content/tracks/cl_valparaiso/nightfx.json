@@ -1,0 +1,16 @@
+{
+ "Comment": "Valparaíso before dawn: street lamps and windows lit until daybreak (they go off with the cars' lights)",
+ "Windows": true,
+ "WindowShare": 0.55,
+ "Lamps": [
+  {
+   "From": 0.0,
+   "To": 1.0,
+   "Every": 0.011,
+   "Side": 2,
+   "Dist": 1.0,
+   "H": 5.0,
+   "Colour": "#ffc070"
+  }
+ ]
+}

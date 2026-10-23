@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -20.49,
+  -69.33
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.0,
+  "stretch": 1.2,
+  "heading": 80,
+  "seed": 69
+ },
+ "theme": "oasis"
+}

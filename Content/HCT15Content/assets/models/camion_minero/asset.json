@@ -1,0 +1,11 @@
+{
+  "Id": "camion_minero",
+  "Name": "Haul truck",
+  "Category": "prop",
+  "Description": "Mining truck of the north, parked facing +X, 8 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "ahu_moai",
+  "Name": "Ahu with moai",
+  "Category": "landmark",
+  "Description": "A row of five moai on their platform, looking inland (+X), 11 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

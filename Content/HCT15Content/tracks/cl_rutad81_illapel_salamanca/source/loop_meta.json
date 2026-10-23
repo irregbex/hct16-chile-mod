@@ -1,0 +1,29 @@
+{
+ "start": [
+  -31.633,
+  -71.164
+ ],
+ "end": [
+  -31.7887,
+  -70.5518
+ ],
+ "length_m": 61136,
+ "return_m": 61136,
+ "finish_index": 2075,
+ "streets": [
+  "Pelambres",
+  "Avenida Algarrobo",
+  "Ruta D-835",
+  "Bernardo O'Higgins",
+  "Ruta D-835",
+  "Santa Rosa",
+  "Tomás Davis",
+  "Bypass",
+  "Providencia",
+  "José Miguel Infante",
+  "Ruta D-81",
+  "Rancagua",
+  "Álvarez Pérez"
+ ],
+ "sights": []
+}

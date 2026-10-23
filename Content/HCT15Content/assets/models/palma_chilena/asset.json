@@ -1,0 +1,11 @@
+{
+  "Id": "palma_chilena",
+  "Name": "Chilean palm",
+  "Category": "tree",
+  "Description": "Tall smooth trunk with a fan of fronds, 14 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

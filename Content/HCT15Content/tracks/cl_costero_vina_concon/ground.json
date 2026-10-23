@@ -1,0 +1,68 @@
+{
+ "Comment": "coast_dress.py: sand / sea / rock beside the road from OpenStreetMap beaches and coastline; Name = left / right of the strip",
+ "Sections": [
+  {
+   "From": 0.0009,
+   "To": 0.0616,
+   "Texture": "ground_sea_base.png",
+   "Name": "sea left / base right"
+  },
+  {
+   "From": 0.0659,
+   "To": 0.1399,
+   "Texture": "ground_sea_base.png",
+   "Name": "sea left / base right"
+  },
+  {
+   "From": 0.1399,
+   "To": 0.1557,
+   "Texture": "ground_sand_base.png",
+   "Name": "sand left / base right"
+  },
+  {
+   "From": 0.1557,
+   "To": 0.4417,
+   "Texture": "ground_sea_base.png",
+   "Name": "sea left / base right"
+  },
+  {
+   "From": 0.895,
+   "To": 0.9033,
+   "Texture": "ground_sand_base.png",
+   "Name": "sand left / base right"
+  }
+ ],
+ "Lanes": [
+  {
+   "From": 0.0,
+   "To": 0.15,
+   "Lanes": 6,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.15,
+   "To": 0.175,
+   "Lanes": 5,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.175,
+   "To": 0.2003,
+   "Lanes": 4,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.2003,
+   "To": 0.2353,
+   "Lanes": 6,
+   "Name": "Peaje"
+  },
+  {
+   "From": 0.2353,
+   "To": 0.4406,
+   "Lanes": 4,
+   "Name": "OSM"
+  }
+ ],
+ "CenterLine": true
+}

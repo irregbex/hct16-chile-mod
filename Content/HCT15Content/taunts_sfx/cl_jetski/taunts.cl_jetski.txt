@@ -1,0 +1,96 @@
+# HCT 1.6 - speech bubbles for one car: cl_jetski (and the other seven jet skis: their streetcars.json "Taunts")
+# This file wins over the campaign's taunts.txt, so this car keeps its own voice everywhere.
+# Sections: [random] [nitro] [out_of_nitros] [crash] [overtake] [first_place]
+# 80 frases del surfista cuico y player de la Quinta Región (2026-10-11 las 50 random; 2026-10-15 las otras 5 secciones):
+# Zapallar, Cachagua, la lancha del papá y harto "po, weón". Linea N de cada seccion = audio <seccion>_NN.wav.
+[random]
+¡Correte, po, weón, que esta ola es mía!
+¡O sea, ni en Cachagua se ve gente remando tan mal!
+¡Mi viejo me pasó la lancha y aun así te gano en jetski, bro!
+¡Cero estrés, weón, te paso igual!
+¡Andái más perdío que flaite en Zapallar!
+¡Esa ola no era pa' ti, era pa' gente con apellido! ¿Cachái?
+¡Te gano y después me voy al club de yates, obvio!
+¡Terrible de mala tu línea, weón, aprende a leer el mar!
+¡Ni con tabla nueva me alcanzái, loco!
+¡Este jetski vale más que tu casa, po!
+¡Sale de mi agua, gil, que vengo a full!
+¡Bro, ¿y ese chaleco? ¿Lo compraste en la feria?
+¡En Maitencillo te habrían echado del agua, weón!
+¡Mi polola me está mirando desde la terraza, así que correte!
+¡Qué onda tu jetski, weón, parece flotador de piscina!
+¡Te dejo comiendo espuma hasta Cachagua!
+¡Ya po, apúrate, que tengo asado en Zapallar a las nueve!
+¡Dale, weón, que el sol se pone y yo tengo after!
+¡Ni el Dani de Reñaca surfea tan mal como tú!
+¡Tú en el agua y yo en el podio, así es la vida, bro!
+¡Me compré este jetski con la mesada del mes! ¿Cachái?
+¡Afloja, que se te cae el bronceado, weón!
+¡Esa curva la tomé con una mano y el pisco en la otra!
+¡Bro, te falta mundo, te falta playa!
+¡Pa' qué compites si igual pierdes, po!
+¡Sale, aweonao, que vengo con la ola de mi vida!
+¡Te pasé tan cerca que te mojé el peinado, weón!
+¡Con esa técnica ni en la tina de tu casa, loco!
+¡Los pingüinos de la isla corren más rápido que tú!
+¡Ven a Zapallar y te enseño a vivir, po!
+¡Esto es un deporte de gente bien, no de turistas!
+¡Igual te invito a la fiesta, pero llegas último, como en la carrera!
+¡Weón, tu jetski suena a cortadora de pasto!
+¡Me tiro la ola y la rampa sin despeinarme!
+¿Cachái que mi viejo es dueño de medio muelle?
+¡Oye, ¿te prestaron ese jetski? Se nota, bro!
+¡Puro estilo, weón, puro estilo!
+¡En el verano mando yo en esta playa! ¿Cachái?
+¡Tírate al agua y nada, que así llegái antes!
+¡Esa rampa es mía, correte, gil!
+¡Bro, el nitro del aire es pa' los que saben volar!
+¡Vuelve a Santiago, que acá el mar es pa' nosotros!
+¡Tan lento que te van a cobrar estacionamiento en el agua!
+¡Ni con el yate de mi tío me alcanzái, weón!
+¡Mírame, mírame, que saludo a las cabras de la orilla!
+¡Te gané y ni siquiera me saqué los lentes, po!
+¡Remaste toda la vida pa' esto y te gana un cuico, weón!
+¡Ya po, que el bronceado no se hace solo!
+¡Pa' la otra trae flotadores, bro!
+¡Chao, perdedor, nos vemos en el after de Cachagua!
+
+[nitro]
+¡A full, weón, como la lancha de mi viejo saliendo de Zapallar!
+¡Esto es turbo de verdad, bro, agárrate del chaleco!
+¡Nitro y ola juntos, po, así se vuela con estilo!
+¡Mira cómo me voy, loco, ni el yate del tío me sigue!
+¡Dale, weón, que a esta velocidad llego al after antes que el DJ!
+¡Filete, po, esto es lo que se siente ser de Cachagua!
+
+[out_of_nitros]
+¡Se acabó el nitro, bro, igual que la mesada a fin de mes!
+¡Ya po, sin turbo, pero con estilo sigo ganando, weón!
+¡Qué lata, se me fue el nitro justo frente a las cabras!
+¡Sin nitro, loco, pero con apellido se llega igual! ¿Cachái?
+
+[crash]
+¡Weón, me rayaste el jetski nuevo, mi viejo me mata!
+¡Cuidado, gil, que esto no es un flotador de piscina!
+¡Bro, casi me botas al agua y tengo el peinado recién hecho!
+¡Esa fue tu culpa, po, en Zapallar sabemos chocar con clase!
+¡Me pegaste delante de mi polola, weón, qué vergüenza!
+¡Oye, loco, estás surfeando o jugando a los chocones!
+¡Puta la ola, me tiraste encima de las rocas, aweonao!
+¡Con ese choque te mando la cuenta a tu casa, bro!
+
+[overtake]
+¡Chao, weón, te dejo con la espuma y el bronceado a medias!
+¡Pasé con una mano, bro, la otra sostiene el pisco!
+¡Así se adelanta en Cachagua, po, puro estilo!
+¡Te dejé atrás como al flaite en la playa privada! ¿Cachái?
+¡Adiós, loco, nos vemos en la premiación!
+¡Mira la estela, weón, eso es lo único que vas a ver de mí!
+¡Otro turista atrás, bro, y van como diez!
+¡Correte, gil, que las cabras de la orilla me están mirando!
+
+[first_place]
+¡Primero, po, como corresponde a gente con apellido!
+¡Gané sin sacarme los lentes, bro, puro estilo!
+¡El podio es mío, weón, y el after también!
+¡Ya po, a celebrar al club de yates, que yo invito! ¿Cachái?

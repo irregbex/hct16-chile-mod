@@ -1,0 +1,11 @@
+{
+  "Id": "zanahoria",
+  "Name": "Carrot (coin)",
+  "Category": "prop",
+  "Description": "The carreta's coin pickup: a carrot standing tip down with its leafy top, 1.2 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

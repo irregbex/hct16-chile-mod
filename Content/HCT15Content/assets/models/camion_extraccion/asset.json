@@ -1,0 +1,11 @@
+{
+  "Id": "camion_extraccion",
+  "Name": "Mine haul truck (300 t)",
+  "Category": "landmark",
+  "Description": "A 300-tonne haul truck (Komatsu 930E style): yellow body, the dump box tilted up at the back, six 4 m tyres; 15 m long, nose to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

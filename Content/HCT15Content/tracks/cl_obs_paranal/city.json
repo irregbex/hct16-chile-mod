@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_obs_paranal_city",
+ "ItemName": "city_cl_obs_paranal",
+ "DisplayName": "Observatorio Cerro Paranal, Antofagasta",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_obs_paranal"
+ ]
+}

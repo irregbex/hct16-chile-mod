@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_ruta68_curacavi_casablanca_city",
+ "ItemName": "city_cl_ruta68_curacavi_casablanca",
+ "DisplayName": "Ruta 68: Curacaví - Casablanca, Valparaíso",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_ruta68_curacavi_casablanca"
+ ]
+}

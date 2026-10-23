@@ -1,0 +1,12 @@
+{
+  "Id": "confeti_lluvia",
+  "Name": "Confetti (falling)",
+  "Category": "prop",
+  "Description": "Confetti falling over a 9 x 7 m patch of the crowd - HCT15.Confetti animates it (Anim confetti)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "confetti"
+}

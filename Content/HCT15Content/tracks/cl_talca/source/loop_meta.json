@@ -1,0 +1,38 @@
+{
+ "centre": [
+  -35.4265343,
+  -71.6660322
+ ],
+ "target_m": 6000,
+ "length_m": 6184,
+ "edge_reuse": 0.001,
+ "streets": [
+  "Calle 2 Oriente",
+  "Avenida Alameda Bernardo O'Higgins",
+  "Calle 5 Oriente",
+  "Avenida Alameda Bernardo O'Higgins",
+  "Calle 6 Oriente",
+  "Calle 5 Norte",
+  "Calle 2 Norte",
+  "6 Poniente",
+  "Avenida Alameda Bernardo O'Higgins",
+  "Avenida Canal de la Luz",
+  "Calle 5 Norte",
+  "Calle 3 Sur",
+  "Carlos Schorr",
+  "Avenida Ignacio Carrera Pinto",
+  "Avenida Padre Guido Lebret",
+  "Avenida Circunvalación",
+  "Calle 2 Norte",
+  "El Arenal",
+  "Carlos Schorr",
+  "Calle 3 Sur",
+  "Calle 6 Sur",
+  "Calle 1 Oriente",
+  "El Arenal",
+  "Calle 6 Oriente",
+  "Calle 6 Sur",
+  "Calle 6 Oriente"
+ ],
+ "sights": []
+}

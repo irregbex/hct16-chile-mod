@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_turquesa_body",
+  "Name": "Jet ski Turquesa (car body)",
+  "Category": "prop",
+  "Description": "The turquoise jet ski (No. 7) as a playable car, nose to +X; its rider is jetski_rider_turquesa (rider.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

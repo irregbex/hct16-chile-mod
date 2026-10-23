@@ -1,0 +1,11 @@
+{
+  "Id": "casa_adobe",
+  "Name": "Adobe house",
+  "Category": "building",
+  "Description": "Northern Chile: ochre walls, flat roof, door on the road side (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

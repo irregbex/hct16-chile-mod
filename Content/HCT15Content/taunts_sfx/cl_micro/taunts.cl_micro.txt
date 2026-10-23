@@ -1,0 +1,95 @@
+# HCT 1.6 - speech bubbles for one car: cl_micro
+# This file wins over the campaign's taunts.txt, so this car keeps its own voice everywhere.
+# Sections: [random]
+# 20 garabatos de micrero (2026-09-24): lo que se oye desde el volante de una micro amarilla
+¡Súbase atrás, weón, que adelante no cabe ni un alma!
+¡Avance al fondo po, culiao, que no es su living!
+¡El boleto, gil, o se baja en la esquina!
+¡Corre la pasá, aweonao, que esto no es taxi!
+¡No me toque el timbre dos veces, chanta!
+¡Bájese por atrás, po weón, no por delante!
+¡Ese auto es puro ruido y nada de fierro, gil!
+¡Con cuarenta pasajeros arriba y aun así te paso, culiao!
+¡Sale de la pista, aweonao, que la micro no frena!
+¡Andái más lento que micro llena en subida!
+¡Yo manejo con una mano y con la otra doy el vuelto, weón!
+¡Quedaste pegao en el paradero, chanta!
+¡Ni pa' paradero de repuesto servís, culiao!
+¡Longi, que la calle es de la micro!
+¡Le toco la bocina y se me corre, gil!
+¡Sin boleto no hay viaje ni carrera, aweonao!
+¡Estái más quemao que motor de micro vieja!
+¡Puro humo tirái, weón, igual que mi tubo de escape!
+¡Ándate a la cresta con tu carrito de juguete!
+¡La micro manda en la pista, culiao, acostúmbrate!
+
+[nitro] when boosting, [out_of_nitros], [crash] after a hit, [overtake], [first_place]
+# One line per bubble. '#' starts a comment. UTF-8. Each car gets its own fixed set from these.
+# taunts.cl_micro.<lang>.txt beside this file is used while the game runs in that language.
+
+[random]
+¡Súbete atrás po, gil!
+¡Esta micro no para, culiao!
+¡Yo llevo cuarenta y tú ni uno!
+¡Andái más penca que paradero sin techo!
+¡Sale de la pista, aweonao!
+¡Con boleto o sin boleto, igual te paso!
+¡Ese auto es de juguete, weón!
+¡Yo manejo con la rodilla, chanta!
+¡Te falta calle, cabrito!
+¡Mírate el fierro, rasca entero!
+¡Pura lata y na' de motor!
+¡Quedaste en el paradero, gil!
+¡Ni pa' repuesto servís, culiao!
+¡Longi, mira pa'l frente!
+¡Esta cuma le gana a tu nave!
+¡Toco la bocina y te corrís, po!
+¡Ándate a la cresta con tu carrito!
+¡La micro manda en la calle, weón!
+¡Estái más quemao que motor de micro vieja!
+¡Puro humo tirái, aweonao!
+
+[nitro]
+¡Agárrense po!
+¡Esta micro vuela, weón!
+¡Con to', culiao!
+¡Ahí va la corrida!
+¡Sécate, gil!
+¡Fuaaa!
+
+[out_of_nitros]
+¡Puta, quedé en pana!
+¡Se acabó el diésel, weón!
+¡Chucha, sin nitro po!
+¡Ando pato!
+
+[crash]
+¡Conchetumare, la micro!
+¡Se me cayeron los pasajeros, culiao!
+¡Mira pa' dónde vai, aweonao!
+¡Me sacaste la chucha!
+¡Ahí va la lata, gil!
+¡Puta la weá!
+¡Andái sin licencia o qué!
+¡Esta micro pesa, weón, cuidao!
+¡Te la cobro en el paradero!
+
+[overtake]
+¡Corre la pasá, gil!
+¡Chao pescao!
+¡Come polvo, weón!
+¡Te dejé en el paradero!
+¡Pa' la casa, chanta!
+¡Sécate, aweonao!
+¡La micro pasa por fuera!
+¡Anda a llorar po!
+¡Ni ahí contigo, culiao!
+
+[first_place]
+¡Primera la micro po!
+¡La raja, weón!
+¡Chúpate esa, gil!
+¡Ganó la cuma!
+¡Nadie le gana a la micro!
+¡Vamos con to'!
+

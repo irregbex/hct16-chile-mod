@@ -1,0 +1,11 @@
+{
+  "Id": "duna",
+  "Name": "Sand dune",
+  "Category": "prop",
+  "Description": "A low dune with marram grass on its crest, 16 m long, 3.5 m high (Concon, Ritoque, Reñaca)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": -3.3,
+  "Recenter": true,
+  "DoubleSided": false
+}

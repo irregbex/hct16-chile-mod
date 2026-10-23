@@ -1,0 +1,32 @@
+{
+ "centre": [
+  -37.798787,
+  -72.7086097
+ ],
+ "target_m": 4000,
+ "length_m": 4767,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Colipi",
+  "Julio Sepúlveda",
+  "Prat",
+  "Colipi",
+  "Vergara",
+  "Caupolicán",
+  "Pedro Aguirre Cerda",
+  "Colipi",
+  "Colhué",
+  "Vergara",
+  "Costanera Rehue",
+  "Avenida Bernardo O'Higgins",
+  "Lautaro",
+  "Bunster",
+  "Colhué",
+  "Prat",
+  "Avenida Bernardo O'Higgins",
+  "Avenida Esmeralda",
+  "De Avendaño",
+  "Costanera Rehue"
+ ],
+ "sights": []
+}

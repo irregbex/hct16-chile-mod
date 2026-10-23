@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_puerto_montt_city",
+ "ItemName": "city_cl_puerto_montt",
+ "DisplayName": "Puerto Montt, Los Lagos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_puerto_montt"
+ ]
+}

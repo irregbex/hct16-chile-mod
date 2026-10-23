@@ -1,0 +1,38 @@
+{
+ "centre": [
+  -37.4707455,
+  -72.351686
+ ],
+ "target_m": 6000,
+ "length_m": 6188,
+ "edge_reuse": 0.001,
+ "streets": [
+  "Argentina",
+  "Uruguay",
+  "Costanera Quilque",
+  "Volcán Calbuco",
+  "Marcos Latapiatt",
+  "Darío Barrueto",
+  "Juan Antonio Coloma",
+  "Lientur",
+  "Avenida Ercilla",
+  "Avenida Tucapel",
+  "Villagrán",
+  "Argentina",
+  "Avenida 21 de Mayo",
+  "Avenida Los Ángeles",
+  "Lientur",
+  "Avenida Lord Cochrane",
+  "Lynch",
+  "Camilo Henríquez",
+  "Avenida Los Ángeles",
+  "Avenida 21 de Mayo",
+  "Avenida Gabriela Mistral",
+  "Lynch",
+  "Avenida Lord Cochrane",
+  "Juan Antonio Coloma",
+  "Avenida Balmaceda",
+  "Avenida Gabriela Mistral"
+ ],
+ "sights": []
+}

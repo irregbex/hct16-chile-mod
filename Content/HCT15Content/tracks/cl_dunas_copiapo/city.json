@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_dunas_copiapo_city",
+ "ItemName": "city_cl_dunas_copiapo",
+ "DisplayName": "Mar de Dunas de Copiapó, Atacama",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_dunas_copiapo"
+ ]
+}

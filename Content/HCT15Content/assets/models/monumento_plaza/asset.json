@@ -1,0 +1,11 @@
+{
+  "Id": "monumento_plaza",
+  "Name": "Monument",
+  "Category": "prop",
+  "Description": "Statue on a stone pedestal, looking at the road (+X), 6 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

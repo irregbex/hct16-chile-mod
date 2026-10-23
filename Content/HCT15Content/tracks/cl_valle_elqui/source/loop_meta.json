@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -30.03,
+  -70.71
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.12,
+  "serp_n": 8,
+  "stretch": 1.6,
+  "heading": 95,
+  "seed": 76
+ },
+ "theme": "elqui"
+}

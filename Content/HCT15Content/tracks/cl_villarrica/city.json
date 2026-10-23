@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_villarrica_city",
+ "ItemName": "city_cl_villarrica",
+ "DisplayName": "Villarrica, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_villarrica"
+ ]
+}

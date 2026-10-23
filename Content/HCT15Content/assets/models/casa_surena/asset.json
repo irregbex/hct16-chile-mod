@@ -1,0 +1,11 @@
+{
+  "Id": "casa_surena",
+  "Name": "Southern house",
+  "Category": "building",
+  "Description": "Rain country: steep shingled roof, wooden gable, porch to the road (+X), 8 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

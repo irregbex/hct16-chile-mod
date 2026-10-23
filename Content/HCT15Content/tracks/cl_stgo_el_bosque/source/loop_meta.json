@@ -1,0 +1,31 @@
+{
+ "centre": [
+  -33.5621599,
+  -70.6771688
+ ],
+ "target_m": 6000,
+ "length_m": 6079,
+ "edge_reuse": 0.019,
+ "streets": [
+  "Roberto Lorca Olguín",
+  "Gran Avenida José Miguel Carrera",
+  "Alejandro Guzmán",
+  "Avenida Padre Hurtado",
+  "Pasaje Las Catitas",
+  "Gran Avenida José Miguel Carrera",
+  "Roberto Lorca Olguín",
+  "Gran Avenida José Miguel Carrera",
+  "Santa Sara",
+  "Avenida Lo Martínez",
+  "Gran Avenida José Miguel Carrera",
+  "Aguas Marinas",
+  "Avenida Padre Hurtado",
+  "Claudio Arrau",
+  "Santa Sara",
+  "Pasaje Las Catitas",
+  "Avenida Padre Hurtado",
+  "Santa Elena",
+  "Los Litres"
+ ],
+ "sights": []
+}

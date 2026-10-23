@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_obs_alma_city",
+ "ItemName": "city_cl_obs_alma",
+ "DisplayName": "Observatorio ALMA, Antofagasta",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_obs_alma"
+ ]
+}

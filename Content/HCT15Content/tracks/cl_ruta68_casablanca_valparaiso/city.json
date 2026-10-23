@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_ruta68_casablanca_valparaiso_city",
+ "ItemName": "city_cl_ruta68_casablanca_valparaiso",
+ "DisplayName": "Ruta 68: Casablanca - Valparaíso, Valparaíso",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_ruta68_casablanca_valparaiso"
+ ]
+}

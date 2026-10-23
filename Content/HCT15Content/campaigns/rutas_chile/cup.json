@@ -1,0 +1,23 @@
+{
+ "ItemId": "97_rutas_chile",
+ "ItemName": "cup_rutas_chile",
+ "DisplayName": "Rutas de Chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "CityIds": [
+  "cl_ruta68_santiago_curacavi_city",
+  "cl_ruta68_curacavi_casablanca_city",
+  "cl_ruta68_casablanca_valparaiso_city",
+  "cl_costero_vina_concon_city",
+  "cl_e30f_concon_quintero_city",
+  "cl_e30f_quintero_zapallar_city",
+  "cl_e30f_zapallar_laligua_city",
+  "cl_ruta5_laligua_losmolles_city",
+  "cl_ruta5_losmolles_losvilos_city",
+  "cl_avdelmar_laserena_coquimbo_city",
+  "cl_villarrica_pucon_city",
+  "cl_austral_coyhaique_aysen_city",
+  "cl_ruta47_losvilos_illapel_city",
+  "cl_rutad81_illapel_salamanca_city"
+ ]
+}

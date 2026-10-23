@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_avdelmar_laserena_coquimbo_city",
+ "ItemName": "city_cl_avdelmar_laserena_coquimbo",
+ "DisplayName": "Avenida del Mar: La Serena - Coquimbo, Coquimbo",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_avdelmar_laserena_coquimbo"
+ ]
+}

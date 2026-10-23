@@ -1,0 +1,11 @@
+{
+ "ItemId": "f1_2026_r15",
+ "ItemName": "city_f1_2026_r15",
+ "DisplayName": "Baku, Azerbaijan",
+ "CupId": "99_f1_2026",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "f1_2026_r15_baku"
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_calama_city",
+ "ItemName": "city_cl_calama",
+ "DisplayName": "Calama, Antofagasta",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_calama"
+ ]
+}

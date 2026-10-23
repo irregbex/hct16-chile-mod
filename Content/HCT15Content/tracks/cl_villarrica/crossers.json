@@ -1,0 +1,33 @@
+{
+ "Comment": "The herd comes down to the lake while the volcano smokes",
+ "Items": [
+  {
+   "Asset": "vaca",
+   "P": 0.274,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.045
+  },
+  {
+   "Asset": "vaca",
+   "P": 0.604,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 2.801
+  },
+  {
+   "Asset": "condor",
+   "P": 0.68,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.42,
+   "Hover": 17.0,
+   "Margin": 2.4,
+   "Bob": 1.3,
+   "BobHz": 0.3
+  }
+ ]
+}

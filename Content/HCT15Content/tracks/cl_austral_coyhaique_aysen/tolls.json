@@ -1,0 +1,30 @@
+{
+ "Comment": "road_extras.py: toll plazas (OpenStreetMap barrier=toll_booth, else one every ~15 km); HCT15.Tolls",
+ "LimitKph": 60,
+ "FineKph": 28,
+ "CrashKph": 6,
+ "Warn": 0.012,
+ "Islands": [
+  -2.3,
+  2.3
+ ],
+ "IslandHalf": 0.32,
+ "CarHalf": 0.8,
+ "Tolls": [
+  {
+   "P": 0.1111,
+   "Name": "Peaje Norte",
+   "Price": "$1.400"
+  },
+  {
+   "P": 0.2132,
+   "Name": "Peaje Centro",
+   "Price": "$2.600"
+  },
+  {
+   "P": 0.3154,
+   "Name": "Peaje Sur",
+   "Price": "$2.100"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "planta_concentradora",
+  "Name": "Copper concentrator plant",
+  "Category": "landmark",
+  "Description": "The mill buildings, crusher tower, conveyor galleries, stockpile dome and thickeners of a concentrator; 260 x 150 m, the road side at +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,17 @@
+{
+ "Comment": "clear (the stage's own sky), ash from the Láscar volcano",
+ "AshT": [
+  0.0,
+  0.45,
+  1.0
+ ],
+ "AshV": [
+  0.1,
+  0.225,
+  0.35
+ ],
+ "AshGrip": 0.8,
+ "Rain": 0.0,
+ "Sound": false,
+ "Grip": 0.0
+}

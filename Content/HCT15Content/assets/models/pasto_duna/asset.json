@@ -1,0 +1,11 @@
+{
+  "Id": "pasto_duna",
+  "Name": "Dune grass",
+  "Category": "tree",
+  "Description": "A tuft of marram grass on the sand, 1.1 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": -0.25,
+  "Recenter": true,
+  "DoubleSided": false
+}

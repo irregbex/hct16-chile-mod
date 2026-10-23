@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_stgo_conchali_city",
+ "ItemName": "city_cl_stgo_conchali",
+ "DisplayName": "Conchalí, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_stgo_conchali"
+ ]
+}

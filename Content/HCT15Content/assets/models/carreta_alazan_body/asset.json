@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_alazan_body",
+  "Name": "Carreta del alazán (car body)",
+  "Category": "prop",
+  "Description": "The sorrel cart as a playable car: its own wheels, its legs as carreta_leg_alazan (legs.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

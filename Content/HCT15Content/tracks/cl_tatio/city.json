@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_tatio_city",
+ "ItemName": "city_cl_tatio",
+ "DisplayName": "Géiseres del Tatio, Antofagasta",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_tatio"
+ ]
+}

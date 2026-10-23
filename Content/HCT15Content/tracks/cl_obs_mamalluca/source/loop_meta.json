@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -29.987,
+  -70.684
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.16,
+  "serp_n": 10,
+  "stretch": 1.2,
+  "heading": 35,
+  "seed": 70
+ },
+ "theme": "observatory"
+}

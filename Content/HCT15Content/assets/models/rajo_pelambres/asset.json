@@ -1,0 +1,11 @@
+{
+  "Id": "rajo_pelambres",
+  "Name": "Open pit benches (Los Pelambres)",
+  "Category": "landmark",
+  "Description": "The terraced benches of a big copper pit on the hillside, 600 m across and 140 m tall, haul roads zigzagging up; set it far behind the plant",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,19 @@
+{
+ "start": [
+  -33.0075,
+  -71.5506
+ ],
+ "end": [
+  -32.925,
+  -71.525
+ ],
+ "length_m": 9372,
+ "return_m": 9372,
+ "finish_index": 736,
+ "streets": [
+  "Avenida Borgoño",
+  "Avenida Jorge Montt",
+  "Avenida Almirante Jorge Montt"
+ ],
+ "sights": []
+}

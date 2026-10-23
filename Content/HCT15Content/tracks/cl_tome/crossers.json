@@ -1,0 +1,17 @@
+{
+ "Comment": "The port's gulls cross the seafront",
+ "Items": [
+  {
+   "Asset": "bandada_gaviotas",
+   "P": 0.236,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.78,
+   "Hover": 5.0,
+   "Margin": 2.4,
+   "Bob": 0.6,
+   "BobHz": 1.1
+  }
+ ]
+}

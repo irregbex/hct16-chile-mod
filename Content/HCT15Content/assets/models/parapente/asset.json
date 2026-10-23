@@ -1,0 +1,11 @@
+{
+  "Id": "parapente",
+  "Name": "Paraglider",
+  "Category": "prop",
+  "Description": "Canopy, lines and pilot over the Iquique cliff, 9 m span; give it Hover",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+ "ItemId": "f1_2026_r18",
+ "ItemName": "city_f1_2026_r18",
+ "DisplayName": "Mexico City, Mexico",
+ "CupId": "99_f1_2026",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "f1_2026_r18_hermanos_rodriguez"
+ ]
+}

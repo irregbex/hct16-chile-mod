@@ -1,0 +1,23 @@
+{
+ "start": [
+  -33.4585,
+  -70.7445
+ ],
+ "end": [
+  -33.404,
+  -71.13
+ ],
+ "length_m": 36221,
+ "return_m": 36221,
+ "finish_index": 654,
+ "streets": [
+  "Las Rosas",
+  "Caletera Ruta 68",
+  "Ruta 68",
+  "Avenida General Óscar Bonilla",
+  "Avenida Teniente Cruz",
+  "Avenida Claudio Arrau",
+  "Mar de Drake"
+ ],
+ "sights": []
+}

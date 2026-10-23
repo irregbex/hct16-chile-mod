@@ -1,0 +1,11 @@
+{
+  "Id": "tren_carro",
+  "Name": "Railway carriage",
+  "Category": "prop",
+  "Description": "A carriage of the state railway over a level crossing, 14 m, towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_ski_farellones_city",
+ "ItemName": "city_cl_ski_farellones",
+ "DisplayName": "Parque Farellones, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_ski_farellones"
+ ]
+}

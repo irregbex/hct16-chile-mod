@@ -1,0 +1,13 @@
+{
+ "Comment": "A sea lion escapes from the cove and crosses the promenade",
+ "Items": [
+  {
+   "Asset": "lobo_marino",
+   "P": 0.37,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 4.16
+  }
+ ]
+}

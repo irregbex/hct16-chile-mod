@@ -1,0 +1,29 @@
+{
+ "Comment": "A sheep from the ranch crosses against the wind",
+ "Items": [
+  {
+   "Asset": "oveja",
+   "P": 0.365,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 5.75
+  },
+  {
+   "Asset": "oveja",
+   "P": 0.695,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.29
+  },
+  {
+   "Asset": "nandu",
+   "P": 0.66,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 6.0
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "Comment": "A cyclist from the Pocuro bike lane crosses on red",
+ "Items": [
+  {
+   "Asset": "ciclista",
+   "P": 0.785,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.0,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

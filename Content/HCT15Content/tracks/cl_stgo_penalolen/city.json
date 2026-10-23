@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_stgo_penalolen_city",
+ "ItemName": "city_cl_stgo_penalolen",
+ "DisplayName": "Peñalolén, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_stgo_penalolen"
+ ]
+}

@@ -1,0 +1,457 @@
+{
+ "centre": [
+  -31.632765,
+  -71.168327
+ ],
+ "streets": [
+  "Valdivieso",
+  "Constitución",
+  "O'Higgins",
+  "Independencia"
+ ],
+ "spans": [
+  {
+   "Name": "Valdivieso",
+   "P0": 0.9903,
+   "P1": 0.0585
+  },
+  {
+   "Name": "Constitución",
+   "P0": 0.2431,
+   "P1": 0.3111
+  },
+  {
+   "Name": "O'Higgins",
+   "P0": 0.4936,
+   "P1": 0.5617
+  },
+  {
+   "Name": "Independencia",
+   "P0": 0.7437,
+   "P1": 0.8102
+  }
+ ],
+ "pois": [
+  {
+   "Name": "4 Comisaría Illapel",
+   "Kind": "police",
+   "P": 0.34956,
+   "Side": 1,
+   "Off": 20.7
+  },
+  {
+   "Name": "Ilustre Municipalidad de Illapel",
+   "Kind": "townhall",
+   "P": 0.213,
+   "Side": 1,
+   "Off": 22.2
+  },
+  {
+   "Name": "Fuente de Soda Oasis",
+   "Kind": "restaurant",
+   "P": 0.40607,
+   "Side": 1,
+   "Off": 34.2
+  },
+  {
+   "Name": "Santo Remedio",
+   "Kind": "pharmacy",
+   "P": 0.96159,
+   "Side": 1,
+   "Off": 82.0
+  },
+  {
+   "Name": "Colegio Santa Teresa",
+   "Kind": "school",
+   "P": 0.83858,
+   "Side": 1,
+   "Off": 17.2
+  },
+  {
+   "Name": "Policía de Investigaciones",
+   "Kind": "government",
+   "P": 0.58098,
+   "Side": 1,
+   "Off": 79.9
+  },
+  {
+   "Name": "Brigada de Investigacion Criminal Illapel",
+   "Kind": "government",
+   "P": 0.55667,
+   "Side": 1,
+   "Off": 80.9
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.48925,
+   "Side": -1,
+   "Off": 23.0
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.53147,
+   "Side": -1,
+   "Off": 31.9
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.77339,
+   "Side": -1,
+   "Off": 44.1
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.2651,
+   "Side": -1,
+   "Off": 40.2
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.27449,
+   "Side": 1,
+   "Off": 4.5
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.5191,
+   "Side": -1,
+   "Off": 21.9
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.52794,
+   "Side": -1,
+   "Off": 39.9
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.29982,
+   "Side": -1,
+   "Off": 35.2
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.98283,
+   "Side": -1,
+   "Off": 28.3
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.75096,
+   "Side": -1,
+   "Off": 38.6
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.76235,
+   "Side": -1,
+   "Off": 10.6
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.53957,
+   "Side": -1,
+   "Off": 18.8
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.36317,
+   "Side": -1,
+   "Off": 22.6
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.26406,
+   "Side": -1,
+   "Off": 32.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.79947,
+   "Side": -1,
+   "Off": 9.8
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.04418,
+   "Side": -1,
+   "Off": 22.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.78994,
+   "Side": -1,
+   "Off": 40.2
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.71046,
+   "Side": -1,
+   "Off": 26.2
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.04215,
+   "Side": 1,
+   "Off": 8.3
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.7401,
+   "Side": -1,
+   "Off": 10.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.78438,
+   "Side": -1,
+   "Off": 20.8
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.14348,
+   "Side": -1,
+   "Off": 1.9
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.74179,
+   "Side": -1,
+   "Off": 18.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.68432,
+   "Side": -1,
+   "Off": 5.9
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.28362,
+   "Side": -1,
+   "Off": 33.5
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.80962,
+   "Side": -1,
+   "Off": 19.1
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.83536,
+   "Side": -1,
+   "Off": 19.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.82155,
+   "Side": -1,
+   "Off": 10.3
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.88008,
+   "Side": -1,
+   "Off": 15.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.18453,
+   "Side": 1,
+   "Off": 15.6
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.95509,
+   "Side": 1,
+   "Off": 11.6
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.27505,
+   "Side": -1,
+   "Off": 23.0
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.25435,
+   "Side": 1,
+   "Off": 5.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.30086,
+   "Side": -1,
+   "Off": 22.1
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.76308,
+   "Side": -1,
+   "Off": 18.4
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.50949,
+   "Side": -1,
+   "Off": 35.7
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.81046,
+   "Side": -1,
+   "Off": 33.7
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.9286,
+   "Side": 1,
+   "Off": 16.9
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.70351,
+   "Side": -1,
+   "Off": 9.0
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.10665,
+   "Side": -1,
+   "Off": 8.1
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.23657,
+   "Side": -1,
+   "Off": 30.2
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.57332,
+   "Side": -1,
+   "Off": 23.5
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.52021,
+   "Side": 1,
+   "Off": 33.0
+  },
+  {
+   "Name": "Juzgado de Policía Local Illapel",
+   "Kind": "courthouse",
+   "P": 0.28802,
+   "Side": 1,
+   "Off": 17.1
+  },
+  {
+   "Name": "Escuela Juan Carrasco Risco",
+   "Kind": "school",
+   "P": 0.65758,
+   "Side": 1,
+   "Off": 58.0
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.05661,
+   "Side": -1,
+   "Off": 36.7
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.13725,
+   "Side": -1,
+   "Off": 18.6
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.21083,
+   "Side": -1,
+   "Off": 19.0
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.1847,
+   "Side": -1,
+   "Off": 17.9
+  },
+  {
+   "Name": "",
+   "Kind": "bench",
+   "P": 0.05022,
+   "Side": -1,
+   "Off": 21.5
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.07895,
+   "Side": -1,
+   "Off": 9.1
+  },
+  {
+   "Name": "",
+   "Kind": "bench",
+   "P": 0.24647,
+   "Side": -1,
+   "Off": 33.8
+  },
+  {
+   "Name": "",
+   "Kind": "tree",
+   "P": 0.0521,
+   "Side": -1,
+   "Off": 8.8
+  }
+ ],
+ "corner_r": 34.0
+}

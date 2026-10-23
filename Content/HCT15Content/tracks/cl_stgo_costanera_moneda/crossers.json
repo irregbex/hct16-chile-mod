@@ -1,0 +1,16 @@
+{
+ "Comment": "An old micro bus crosses in front of La Moneda",
+ "Items": [
+  {
+   "Asset": "micro_amarilla",
+   "P": 0.62,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.03,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

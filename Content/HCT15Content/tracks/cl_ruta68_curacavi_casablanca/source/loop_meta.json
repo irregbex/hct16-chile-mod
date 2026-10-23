@@ -1,0 +1,23 @@
+{
+ "start": [
+  -33.404,
+  -71.13
+ ],
+ "end": [
+  -33.32,
+  -71.405
+ ],
+ "length_m": 27382,
+ "return_m": 27382,
+ "finish_index": 488,
+ "streets": [
+  "Chacabuco",
+  "Avenida Arturo Prat",
+  "Camino a Lo Ovalle",
+  "Ruta 68",
+  "Avenida Ambrosio O'Higgins",
+  "Caletera Ruta 68",
+  "Las Rosas"
+ ],
+ "sights": []
+}

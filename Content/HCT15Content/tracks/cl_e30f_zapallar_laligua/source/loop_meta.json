@@ -1,0 +1,29 @@
+{
+ "start": [
+  -32.5535,
+  -71.4625
+ ],
+ "end": [
+  -32.452,
+  -71.231
+ ],
+ "length_m": 24112,
+ "return_m": 24112,
+ "finish_index": 1357,
+ "streets": [
+  "Luis Cruz Martínez",
+  "Luis Laulie",
+  "Papudo",
+  "Avenida Diego Portales",
+  "Ruta E-35",
+  "Ruta 5 Norte",
+  "Ruta E-30-F",
+  "El Peumo",
+  "Avenida El Peumo",
+  "Domingo Fernández Concha",
+  "Avenida Circunvalación 19 de Junio",
+  "Ruta E-30-F",
+  "Avenida Januario Ovalle"
+ ],
+ "sights": []
+}

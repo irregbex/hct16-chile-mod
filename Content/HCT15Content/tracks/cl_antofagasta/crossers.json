@@ -1,0 +1,33 @@
+{
+ "Comment": "The cove's dogs cross Balmaceda",
+ "Items": [
+  {
+   "Asset": "perro_quiltro",
+   "P": 0.626,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 6.0
+  },
+  {
+   "Asset": "perro_quiltro",
+   "P": 0.736,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.52
+  },
+  {
+   "Asset": "bandada_gaviotas",
+   "P": 0.64,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.78,
+   "Hover": 5.5,
+   "Margin": 2.4,
+   "Bob": 0.6,
+   "BobHz": 1.1
+  }
+ ]
+}

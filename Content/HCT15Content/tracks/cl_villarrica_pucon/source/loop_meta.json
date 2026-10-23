@@ -1,0 +1,28 @@
+{
+ "start": [
+  -39.2795,
+  -72.2265
+ ],
+ "end": [
+  -39.2785,
+  -71.96
+ ],
+ "length_m": 23188,
+ "return_m": 23188,
+ "finish_index": 674,
+ "streets": [
+  "Camino Internacional",
+  "Variante Internacional",
+  "Camino Internacional Monseñor Francisco Valdés Subercaseaux",
+  "Puente Los Chilcos",
+  "Camino Internacional Monseñor Francisco Valdés Subercaseaux",
+  "Camino Villarrica - Pucón",
+  "Camino Internacional Monseñor Francisco Valdés Subercaseaux",
+  "Saturnino Epulef",
+  "Aviador Acevedo",
+  "Avenida Pedro de Valdivia",
+  "Camilo Henríquez",
+  "General Basilio Urrutia"
+ ],
+ "sights": []
+}

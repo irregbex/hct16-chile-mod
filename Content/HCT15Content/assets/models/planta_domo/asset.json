@@ -1,0 +1,11 @@
+{
+  "Id": "planta_domo",
+  "Name": "Ore stockpile dome",
+  "Category": "landmark",
+  "Description": "The 19 m dome over the coarse ore stockpile, the conveyor gallery climbing out of it",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

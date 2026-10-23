@@ -1,0 +1,11 @@
+{
+  "Id": "anda_shin",
+  "Name": "Bearer's shin",
+  "Category": "prop",
+  "Description": "One bearer's shin and black shoe, origin at the knee - hung under the thigh and bent by HCT15",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

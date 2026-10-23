@@ -1,0 +1,30 @@
+{
+ "centre": [
+  -36.9292478,
+  -73.0237115
+ ],
+ "target_m": 5000,
+ "length_m": 4100,
+ "edge_reuse": 0.024,
+ "streets": [
+  "Pedro Medina",
+  "O'Higgins Poniente",
+  "Avenida Las Condes",
+  "Manuel Rodríguez",
+  "Chiguay",
+  "Manuel Rodríguez",
+  "Pedro Medina",
+  "Calle 2",
+  "Avenida Las Condes",
+  "Pinares",
+  "Calle 2",
+  "Tomás Solís",
+  "Pinares",
+  "O'Higgins Poniente",
+  "Santa Elena",
+  "Manuel Rodríguez",
+  "Libertad",
+  "Tomás Solís"
+ ],
+ "sights": []
+}

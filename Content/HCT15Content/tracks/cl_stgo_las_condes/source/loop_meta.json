@@ -1,0 +1,35 @@
+{
+ "centre": [
+  -33.4248628,
+  -70.5177549
+ ],
+ "target_m": 7000,
+ "length_m": 15840,
+ "edge_reuse": 0.107,
+ "streets": [
+  "El Remanso",
+  "Avenida Alexander Fleming",
+  "Vital Apoquindo",
+  "Carlos Peña Otaegui",
+  "Avenida Francisco Bulnes Correa",
+  "El Remanso",
+  "Camino Gran Vista",
+  "El Remanso",
+  "Nueva Bilbao",
+  "Vital Apoquindo",
+  "Avenida Alexander Fleming",
+  "El Remanso",
+  "Avenida San Ramón",
+  "Avenida Francisco Bulnes Correa",
+  "Carlos Peña Otaegui",
+  "Avenida Francisco Bulnes Correa",
+  "Quebrada Honda",
+  "Colina Miravalle",
+  "Vital Apoquindo",
+  "Carlos Peña Otaegui",
+  "Río Guadiana",
+  "Avenida Padre Hurtado Sur",
+  "Nueva Bilbao"
+ ],
+ "sights": []
+}

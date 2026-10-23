@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_base_frei_city",
+ "ItemName": "city_cl_base_frei",
+ "DisplayName": "Base Frei y Villa Las Estrellas, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_base_frei"
+ ]
+}

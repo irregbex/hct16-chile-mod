@@ -1,0 +1,16 @@
+{
+ "Comment": "A fire engine crosses towards the Votive Temple",
+ "Items": [
+  {
+   "Asset": "camion_bomberos",
+   "P": 0.701,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.23,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

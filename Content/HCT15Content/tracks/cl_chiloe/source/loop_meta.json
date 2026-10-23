@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -42.6,
+  -73.95
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.28,
+  "serp": 0.1,
+  "serp_n": 7,
+  "stretch": 1.3,
+  "heading": 20,
+  "seed": 81
+ },
+ "theme": "chiloe"
+}

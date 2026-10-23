@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_verde_body",
+  "Name": "Jet ski Verde mar (car body)",
+  "Category": "prop",
+  "Description": "The sea green jet ski (No. 31) as a playable car, nose to +X; its rider is jetski_rider_verde (rider.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

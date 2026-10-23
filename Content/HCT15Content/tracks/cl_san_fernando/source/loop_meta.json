@@ -1,0 +1,31 @@
+{
+ "centre": [
+  -34.583791,
+  -70.989122
+ ],
+ "target_m": 4000,
+ "length_m": 4038,
+ "edge_reuse": 0.007,
+ "streets": [
+  "Valdivia",
+  "Avenida Manso de Velasco",
+  "Avenida Bernardo O'Higgins",
+  "El Roble",
+  "Valdivia",
+  "Avenida Manso de Velasco",
+  "Manuel Soffia",
+  "Valdivia",
+  "Negrete",
+  "El Roble",
+  "Carampangue",
+  "Avenida Manuel Rodríguez",
+  "Negrete",
+  "Avenida Manuel Rodríguez",
+  "Valdivia",
+  "Quechereguas",
+  "Carampangue",
+  "Avenida Bernardo O'Higgins",
+  "Avenida Manuel Rodríguez"
+ ],
+ "sights": []
+}

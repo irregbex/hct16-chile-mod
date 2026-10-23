@@ -1,0 +1,36 @@
+{
+ "centre": [
+  -33.4765918,
+  -70.5418308
+ ],
+ "target_m": 6000,
+ "length_m": 5930,
+ "edge_reuse": 0.002,
+ "streets": [
+  "Lago Gris",
+  "Quebrada de Camarones",
+  "Avenida Las Parcelas",
+  "Río Claro",
+  "Avenida Las Parcelas",
+  "Quebrada de Suca",
+  "Lago Gris",
+  "Violeta Cousiño Norte",
+  "Las Golondrinas",
+  "Avenida Grecia",
+  "Palena",
+  "Avenida Las Parcelas",
+  "Avenida Consistorial",
+  "Avenida Antupirén",
+  "Calle Antupirén",
+  "Los Chercanes",
+  "Antupirén",
+  "Avenida Antupirén",
+  "Avenida Consistorial",
+  "Mar Caribe",
+  "Avenida Consistorial",
+  "Río Claro",
+  "Avenida Las Perdices",
+  "Antupirén"
+ ],
+ "sights": []
+}

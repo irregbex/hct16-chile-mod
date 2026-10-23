@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_playa_el_canelillo_city",
+ "ItemName": "city_cl_playa_el_canelillo",
+ "DisplayName": "Playa El Canelillo, Playas de la Quinta Región",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_playa_el_canelillo"
+ ]
+}

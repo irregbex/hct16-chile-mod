@@ -1,0 +1,11 @@
+{
+  "Id": "cajas_segmentos",
+  "Name": "Mirror segment crates",
+  "Category": "prop",
+  "Description": "Crates of the primary mirror's hexagonal segments (1.45 m) on a pallet, two of them unpacked and shining, 6 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

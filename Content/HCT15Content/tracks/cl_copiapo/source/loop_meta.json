@@ -1,0 +1,39 @@
+{
+ "centre": [
+  -27.3664685,
+  -70.3322753
+ ],
+ "target_m": 6000,
+ "length_m": 6021,
+ "edge_reuse": 0.003,
+ "streets": [
+  "Pasaje Concejales",
+  "Chacabuco",
+  "Avenida Circunvalación",
+  "José Joaquín Vallejos",
+  "Diego Portales",
+  "Salas",
+  "Avenida Circunvalación",
+  "Maipú",
+  "Pasaje Concejales",
+  "Yumbel",
+  "Manuel Rodríguez",
+  "Panamericana Norte",
+  "Avenida Copayapu",
+  "Ramón Freire",
+  "Yumbel",
+  "Atacama",
+  "José Joaquín Vallejos",
+  "Ramón Freire",
+  "Colipí",
+  "Panamericana Norte",
+  "Avenida Copayapu",
+  "Chacabuco",
+  "Costanera Sur",
+  "Vicuña Mackena",
+  "Diego Portales",
+  "Camilo Henríquez",
+  "Atacama"
+ ],
+ "sights": []
+}

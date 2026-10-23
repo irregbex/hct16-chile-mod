@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_stgo_costanera_moneda_city",
+ "ItemName": "city_cl_stgo_costanera_moneda",
+ "DisplayName": "Costanera Center - La Moneda, Santiago",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_stgo_costanera_moneda"
+ ]
+}

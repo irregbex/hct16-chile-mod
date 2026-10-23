@@ -1,0 +1,11 @@
+{
+  "Id": "telesilla_torre",
+  "Name": "Chairlift tower",
+  "Category": "landmark",
+  "Description": "A steel chairlift tower with its crossbar and sheaves, a chair hanging, 11 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

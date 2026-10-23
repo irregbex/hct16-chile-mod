@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_volcan",
+  "Name": "Volcano warning sign",
+  "Category": "prop",
+  "Description": "A yellow diamond warning sign on a post, 3 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

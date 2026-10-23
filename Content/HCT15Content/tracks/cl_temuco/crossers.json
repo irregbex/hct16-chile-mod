@@ -1,0 +1,21 @@
+{
+ "Comment": "A Mapuche cart crosses on its way to the Pinto market",
+ "Items": [
+  {
+   "Asset": "carreton_chatarrero",
+   "P": 0.222,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.6
+  },
+  {
+   "Asset": "carreton_chatarrero",
+   "P": 0.552,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.472
+  }
+ ]
+}

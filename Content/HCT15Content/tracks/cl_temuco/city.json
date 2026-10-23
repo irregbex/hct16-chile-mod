@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_temuco_city",
+ "ItemName": "city_cl_temuco",
+ "DisplayName": "Temuco, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_temuco"
+ ]
+}

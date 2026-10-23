@@ -1,0 +1,43 @@
+{
+ "centre": [
+  -40.5736955,
+  -73.1358091
+ ],
+ "target_m": 6000,
+ "length_m": 6343,
+ "edge_reuse": 0.003,
+ "streets": [
+  "Pilauco",
+  "Manuel Bulnes",
+  "Los Carrera",
+  "Arturo Prat",
+  "Federico Errázuriz",
+  "Cristóbal Colón",
+  "Fuchslocher",
+  "Pilauco",
+  "Tomás de Figueroa",
+  "Eleuterio Ramírez",
+  "Valdivia",
+  "5 de Abril",
+  "Blanco Encalada",
+  "Guillermo Francke",
+  "Luis Cruz",
+  "Fuchslocher",
+  "García Hurtado de Mendoza",
+  "Inés de Suárez",
+  "Avenida Portales",
+  "Avenida Juan Mackenna",
+  "Tomás de Figueroa",
+  "Ramón Freire",
+  "Manuel Rodríguez",
+  "Manuel Bulnes",
+  "Inés de Suárez",
+  "García Hurtado de Mendoza",
+  "Cristóbal Colón",
+  "Avenida Juan Mackenna",
+  "Arturo Prat",
+  "García Hurtado de Mendoza",
+  "Ramón Freire"
+ ],
+ "sights": []
+}

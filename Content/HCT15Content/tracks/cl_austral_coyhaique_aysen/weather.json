@@ -1,0 +1,15 @@
+{
+ "RainT": [
+  0.0,
+  1.0
+ ],
+ "RainV": [
+  0.3,
+  0.6
+ ],
+ "Sound": true,
+ "Grip": 0.8,
+ "SnowGrip": 1.0,
+ "AshGrip": 0.8,
+ "Comment": "Patagonian rain on the way to Puerto Aysén"
+}

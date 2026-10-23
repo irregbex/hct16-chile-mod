@@ -1,0 +1,21 @@
+{
+ "Comment": "The market cart crosses loaded with avocados",
+ "Items": [
+  {
+   "Asset": "carro_feria",
+   "P": 0.272,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 4.059
+  },
+  {
+   "Asset": "carro_feria",
+   "P": 0.602,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.734
+  }
+ ]
+}

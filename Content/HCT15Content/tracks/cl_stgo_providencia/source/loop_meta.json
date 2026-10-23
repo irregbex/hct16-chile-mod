@@ -1,0 +1,39 @@
+{
+ "centre": [
+  -33.4289864,
+  -70.6092565
+ ],
+ "target_m": 5000,
+ "length_m": 4990,
+ "edge_reuse": 0.004,
+ "streets": [
+  "Avenida Ricardo Lyon",
+  "Lota",
+  "Avenida Los Leones",
+  "Gath y Chaves",
+  "Avenida Nueva Providencia",
+  "Avenida Ricardo Lyon",
+  "Darío Urzúa",
+  "Eliodoro Yáñez",
+  "Avenida Antonio Varas",
+  "Avenida Nueva Providencia",
+  "Toledo",
+  "Avenida Pedro de Valdivia",
+  "Eliodoro Yáñez",
+  "Matilde Salamanca",
+  "Darío Urzúa",
+  "Vicuña Cifuentes",
+  "Avenida Suecia",
+  "El Vergel",
+  "Avenida Ricardo Lyon",
+  "Las Violetas",
+  "Avenida Pedro de Valdivia",
+  "Toledo",
+  "Gath y Chaves",
+  "Avenida Los Leones",
+  "Eliodoro Yáñez",
+  "Avenida Los Leones",
+  "Vicuña Cifuentes"
+ ],
+ "sights": []
+}

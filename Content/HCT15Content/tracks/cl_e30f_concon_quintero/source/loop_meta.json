@@ -1,0 +1,23 @@
+{
+ "start": [
+  -32.925,
+  -71.525
+ ],
+ "end": [
+  -32.7935,
+  -71.512
+ ],
+ "length_m": 14216,
+ "return_m": 14216,
+ "finish_index": 559,
+ "streets": [
+  "Camino a Loncura Bajo",
+  "Acceso a Quintero",
+  "Ruta E-30-F",
+  "Rotonda Concón",
+  "Ruta E-30-F",
+  "Esperanza",
+  "Calle Once"
+ ],
+ "sights": []
+}

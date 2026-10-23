@@ -1,0 +1,35 @@
+{
+ "centre": [
+  -28.5750438,
+  -70.7616398
+ ],
+ "target_m": 4000,
+ "length_m": 4064,
+ "edge_reuse": 0.0,
+ "streets": [
+  "Carlos Dittborn",
+  "Faldeo Fresia",
+  "Colchagua",
+  "Marañón",
+  "Merced",
+  "Avenida Matta",
+  "Carlos Dittborn",
+  "Serrano",
+  "Coquimbo",
+  "Sargento Aldea",
+  "Coquimbo",
+  "Faez",
+  "Pasaje Víctor Domingo Silva",
+  "San Ambrosio",
+  "Sargento Aldea",
+  "Brasil",
+  "14 de Julio",
+  "Colchagua",
+  "Arturo Prat",
+  "Brasil",
+  "Santiago",
+  "Merced",
+  "Colchagua"
+ ],
+ "sights": []
+}

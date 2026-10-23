@@ -1,0 +1,39 @@
+{
+ "centre": [
+  -33.7319741,
+  -70.7419619
+ ],
+ "target_m": 5000,
+ "length_m": 5023,
+ "edge_reuse": 0.009,
+ "streets": [
+  "Errázuriz",
+  "Manuel Rodríguez",
+  "San Martín",
+  "Carlos Condell",
+  "Francisco Lefebre",
+  "14 de Febrero",
+  "Manuel Bulnes",
+  "Manuel Rodríguez",
+  "José Joaquín Pérez",
+  "Miguel Castro",
+  "Errázuriz",
+  "Balmaceda",
+  "Bernardo O'Higgins",
+  "Manuel Rodríguez",
+  "Luis Goycolea",
+  "14 de Febrero",
+  "Francisco Lefebre",
+  "Lord Cochrane",
+  "Kennedy",
+  "Maipú",
+  "Manuel Montt",
+  "Balmaceda",
+  "Guardiamarina Ernesto Riquelme",
+  "Almirante Latorre",
+  "Carlos Condell",
+  "Aníbal Pinto",
+  "Guardiamarina Ernesto Riquelme"
+ ],
+ "sights": []
+}

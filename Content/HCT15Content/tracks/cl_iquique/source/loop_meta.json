@@ -1,0 +1,36 @@
+{
+ "centre": [
+  -20.2140657,
+  -70.1524646
+ ],
+ "target_m": 6000,
+ "length_m": 6291,
+ "edge_reuse": 0.0,
+ "streets": [
+  "La Puntilla",
+  "Barros Arana",
+  "Sotomayor",
+  "Juan Martínez",
+  "Jorge Barrera",
+  "Avenida Arturo Prat Chacón",
+  "Sotomayor",
+  "Avenida Arturo Prat Chacón",
+  "Costanera",
+  "Grum Bolados",
+  "Avenida Arturo Prat Chacón",
+  "Jorge Barrera",
+  "Avenida Arturo Prat Chacón",
+  "Rotonda del Morro",
+  "Avenida Arturo Prat Chacón",
+  "Freddy Taberna",
+  "Costanera",
+  "Orella",
+  "Bartolomé Vivar",
+  "Manuel Bulnes",
+  "Juan Martínez",
+  "Manuel Bulnes",
+  "Barros Arana",
+  "Orella"
+ ],
+ "sights": []
+}

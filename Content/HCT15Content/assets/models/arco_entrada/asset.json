@@ -1,0 +1,11 @@
+{
+  "Id": "arco_entrada",
+  "Name": "Town arch",
+  "Category": "landmark",
+  "Description": "Welcome arch over the road at the edge of a town (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

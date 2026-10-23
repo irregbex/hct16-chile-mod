@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_chiguayante_city",
+ "ItemName": "city_cl_chiguayante",
+ "DisplayName": "Chiguayante, Biobío",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_chiguayante"
+ ]
+}

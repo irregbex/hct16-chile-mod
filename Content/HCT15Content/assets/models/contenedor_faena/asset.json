@@ -1,0 +1,11 @@
+{
+  "Id": "contenedor_faena",
+  "Name": "Site offices",
+  "Category": "building",
+  "Description": "Two-storey stack of white site-office containers with an outside stair and a blue band, 13 m, door to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

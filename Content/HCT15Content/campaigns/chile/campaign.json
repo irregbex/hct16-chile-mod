@@ -1,0 +1,3174 @@
+{
+ "Name": "Chile",
+ "NameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "NameTexts": [
+  "Chile",
+  "Chile",
+  "Chile",
+  "Chile",
+  "Chile",
+  "Chile"
+ ],
+ "ModeName": "City race",
+ "ModeNameLangs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "it"
+ ],
+ "ModeNameTexts": [
+  "City race",
+  "Carrera urbana",
+  "Corrida urbana",
+  "Course urbaine",
+  "Stadtrennen",
+  "Gara urbana"
+ ],
+ "Formula1": false,
+ "FreePlay": true,
+ "Pits": false,
+ "Blade": "blade.png",
+ "Logo": "logo.png",
+ "Rounds": [
+  {
+   "RaceId": "cl_illapel_sights",
+   "Title": "Illapel - city sights",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Illapel - city sights",
+    "Illapel - vistas de la ciudad",
+    "Illapel - pontos turísticos",
+    "Illapel - sites de la ville",
+    "Illapel - Sehenswürdigkeiten",
+    "Illapel - luoghi della città"
+   ],
+   "Subtitle": "Coquimbo · 30,355 inhabitants",
+   "Description": "Round 1 · Illapel (Coquimbo) · 3.9 km · 3 laps · sights",
+   "Card": "tracks/cl_illapel_sights/card.png",
+   "Laps": 3,
+   "Music": "Race/Agregados/Solo el primero será feliz.wav"
+  },
+  {
+   "RaceId": "cl_stgo_costanera_moneda",
+   "Title": "Costanera Center ↔ La Moneda",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Costanera Center ↔ La Moneda",
+    "Costanera Center ↔ La Moneda",
+    "Costanera Center ↔ La Moneda",
+    "Costanera Center ↔ La Moneda",
+    "Costanera Center ↔ La Moneda",
+    "Costanera Center ↔ La Moneda"
+   ],
+   "Subtitle": "Santiago · 404,495 inhabitants",
+   "Description": "Round 2 · Costanera Center - La Moneda (Santiago) · 12.3 km · 1 laps · route",
+   "Card": "tracks/cl_stgo_costanera_moneda/card.png",
+   "Laps": 1,
+   "Music": "Race/Agregados/Avisame el nitro.wav"
+  },
+  {
+   "RaceId": "cl_vespucio_oriente",
+   "Title": "Vespucio Oriente",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Vespucio Oriente",
+    "Vespucio Oriente",
+    "Vespucio Oriente",
+    "Vespucio Oriente",
+    "Vespucio Oriente",
+    "Vespucio Oriente"
+   ],
+   "Subtitle": "Santiago · 404,495 inhabitants",
+   "Description": "Round 3 · Vespucio Oriente (Santiago) · 10.1 km · 1 laps · p2p",
+   "Card": "tracks/cl_vespucio_oriente/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_stgo_cerro_navia",
+   "Title": "Santiago - Cerro Navia",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Cerro Navia",
+    "Santiago - Cerro Navia",
+    "Santiago - Cerro Navia",
+    "Santiago - Cerro Navia",
+    "Santiago - Cerro Navia",
+    "Santiago - Cerro Navia"
+   ],
+   "Subtitle": "Santiago · 139,604 inhabitants",
+   "Description": "Round 4 · Cerro Navia (Santiago) · 5.1 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_cerro_navia/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_conchali",
+   "Title": "Santiago - Conchalí",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Conchalí",
+    "Santiago - Conchalí",
+    "Santiago - Conchalí",
+    "Santiago - Conchalí",
+    "Santiago - Conchalí",
+    "Santiago - Conchalí"
+   ],
+   "Subtitle": "Santiago · 133,420 inhabitants",
+   "Description": "Round 5 · Conchalí (Santiago) · 4.9 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_conchali/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_el_bosque",
+   "Title": "Santiago - El Bosque",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - El Bosque",
+    "Santiago - El Bosque",
+    "Santiago - El Bosque",
+    "Santiago - El Bosque",
+    "Santiago - El Bosque",
+    "Santiago - El Bosque"
+   ],
+   "Subtitle": "Santiago · 162,505 inhabitants",
+   "Description": "Round 6 · El Bosque (Santiago) · 6.1 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_el_bosque/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_estacion_central",
+   "Title": "Santiago - Estación Central",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Estación Central",
+    "Santiago - Estación Central",
+    "Santiago - Estación Central",
+    "Santiago - Estación Central",
+    "Santiago - Estación Central",
+    "Santiago - Estación Central"
+   ],
+   "Subtitle": "Santiago · 148,730 inhabitants",
+   "Description": "Round 7 · Estación Central (Santiago) · 5.0 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_estacion_central/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_la_florida",
+   "Title": "Santiago - La Florida",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - La Florida",
+    "Santiago - La Florida",
+    "Santiago - La Florida",
+    "Santiago - La Florida",
+    "Santiago - La Florida",
+    "Santiago - La Florida"
+   ],
+   "Subtitle": "Santiago · 366,916 inhabitants",
+   "Description": "Round 8 · La Florida (Santiago) · 7.5 km · 2 laps · comuna",
+   "Card": "tracks/cl_stgo_la_florida/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_stgo_la_pintana",
+   "Title": "Santiago - La Pintana",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - La Pintana",
+    "Santiago - La Pintana",
+    "Santiago - La Pintana",
+    "Santiago - La Pintana",
+    "Santiago - La Pintana",
+    "Santiago - La Pintana"
+   ],
+   "Subtitle": "Santiago · 177,335 inhabitants",
+   "Description": "Round 9 · La Pintana (Santiago) · 6.4 km · 2 laps · comuna",
+   "Card": "tracks/cl_stgo_la_pintana/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_stgo_la_reina",
+   "Title": "Santiago - La Reina",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - La Reina",
+    "Santiago - La Reina",
+    "Santiago - La Reina",
+    "Santiago - La Reina",
+    "Santiago - La Reina",
+    "Santiago - La Reina"
+   ],
+   "Subtitle": "Santiago · 92,787 inhabitants",
+   "Description": "Round 10 · La Reina (Santiago) · 5.3 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_la_reina/card.png",
+   "Laps": 3,
+   "Music": "Race/Agregados/Reza por mi.wav"
+  },
+  {
+   "RaceId": "cl_stgo_las_condes",
+   "Title": "Santiago - Las Condes",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Las Condes",
+    "Santiago - Las Condes",
+    "Santiago - Las Condes",
+    "Santiago - Las Condes",
+    "Santiago - Las Condes",
+    "Santiago - Las Condes"
+   ],
+   "Subtitle": "Santiago · 294,838 inhabitants",
+   "Description": "Round 11 · Las Condes (Santiago) · 8.8 km · 1 laps · comuna",
+   "Card": "tracks/cl_stgo_las_condes/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_stgo_macul",
+   "Title": "Santiago - Macul",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Macul",
+    "Santiago - Macul",
+    "Santiago - Macul",
+    "Santiago - Macul",
+    "Santiago - Macul",
+    "Santiago - Macul"
+   ],
+   "Subtitle": "Santiago · 123,420 inhabitants",
+   "Description": "Round 12 · Macul (Santiago) · 5.2 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_macul/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_maipu",
+   "Title": "Santiago - Maipú",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Maipú",
+    "Santiago - Maipú",
+    "Santiago - Maipú",
+    "Santiago - Maipú",
+    "Santiago - Maipú",
+    "Santiago - Maipú"
+   ],
+   "Subtitle": "Santiago · 521,627 inhabitants",
+   "Description": "Round 13 · Maipú (Santiago) · 7.4 km · 2 laps · comuna",
+   "Card": "tracks/cl_stgo_maipu/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_stgo_nunoa",
+   "Title": "Santiago - Ñuñoa",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Ñuñoa",
+    "Santiago - Ñuñoa",
+    "Santiago - Ñuñoa",
+    "Santiago - Ñuñoa",
+    "Santiago - Ñuñoa",
+    "Santiago - Ñuñoa"
+   ],
+   "Subtitle": "Santiago · 255,823 inhabitants",
+   "Description": "Round 14 · Ñuñoa (Santiago) · 7.4 km · 2 laps · comuna",
+   "Card": "tracks/cl_stgo_nunoa/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_stgo_penalolen",
+   "Title": "Santiago - Peñalolén",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Peñalolén",
+    "Santiago - Peñalolén",
+    "Santiago - Peñalolén",
+    "Santiago - Peñalolén",
+    "Santiago - Peñalolén",
+    "Santiago - Peñalolén"
+   ],
+   "Subtitle": "Santiago · 241,599 inhabitants",
+   "Description": "Round 15 · Peñalolén (Santiago) · 5.9 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_penalolen/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_providencia",
+   "Title": "Santiago - Providencia",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Providencia",
+    "Santiago - Providencia",
+    "Santiago - Providencia",
+    "Santiago - Providencia",
+    "Santiago - Providencia",
+    "Santiago - Providencia"
+   ],
+   "Subtitle": "Santiago · 147,826 inhabitants",
+   "Description": "Round 16 · Providencia (Santiago) · 5.0 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_providencia/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_pudahuel",
+   "Title": "Santiago - Pudahuel",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Pudahuel",
+    "Santiago - Pudahuel",
+    "Santiago - Pudahuel",
+    "Santiago - Pudahuel",
+    "Santiago - Pudahuel",
+    "Santiago - Pudahuel"
+   ],
+   "Subtitle": "Santiago · 240,819 inhabitants",
+   "Description": "Round 17 · Pudahuel (Santiago) · 6.3 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_pudahuel/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_puente_alto",
+   "Title": "Santiago - Puente Alto",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Puente Alto",
+    "Santiago - Puente Alto",
+    "Santiago - Puente Alto",
+    "Santiago - Puente Alto",
+    "Santiago - Puente Alto",
+    "Santiago - Puente Alto"
+   ],
+   "Subtitle": "Santiago · 568,106 inhabitants",
+   "Description": "Round 18 · Puente Alto (Santiago) · 7.8 km · 2 laps · comuna",
+   "Card": "tracks/cl_stgo_puente_alto/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_stgo_quilicura",
+   "Title": "Santiago - Quilicura",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Quilicura",
+    "Santiago - Quilicura",
+    "Santiago - Quilicura",
+    "Santiago - Quilicura",
+    "Santiago - Quilicura",
+    "Santiago - Quilicura"
+   ],
+   "Subtitle": "Santiago · 222,048 inhabitants",
+   "Description": "Round 19 · Quilicura (Santiago) · 6.1 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_quilicura/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_recoleta",
+   "Title": "Santiago - Recoleta",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Recoleta",
+    "Santiago - Recoleta",
+    "Santiago - Recoleta",
+    "Santiago - Recoleta",
+    "Santiago - Recoleta",
+    "Santiago - Recoleta"
+   ],
+   "Subtitle": "Santiago · 157,851 inhabitants",
+   "Description": "Round 20 · Recoleta (Santiago) · 5.9 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_recoleta/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_renca",
+   "Title": "Santiago - Renca",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - Renca",
+    "Santiago - Renca",
+    "Santiago - Renca",
+    "Santiago - Renca",
+    "Santiago - Renca",
+    "Santiago - Renca"
+   ],
+   "Subtitle": "Santiago · 147,151 inhabitants",
+   "Description": "Round 21 · Renca (Santiago) · 5.1 km · 3 laps · comuna",
+   "Card": "tracks/cl_stgo_renca/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_stgo_san_bernardo",
+   "Title": "Santiago - San Bernardo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago - San Bernardo",
+    "Santiago - San Bernardo",
+    "Santiago - San Bernardo",
+    "Santiago - San Bernardo",
+    "Santiago - San Bernardo",
+    "Santiago - San Bernardo"
+   ],
+   "Subtitle": "Santiago · 301,313 inhabitants",
+   "Description": "Round 22 · San Bernardo (Santiago) · 8.8 km · 1 laps · comuna",
+   "Card": "tracks/cl_stgo_san_bernardo/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_stgo_santiago",
+   "Title": "Santiago Centro",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santiago Centro",
+    "Santiago Centro",
+    "Santiago Centro",
+    "Santiago Centro",
+    "Santiago Centro",
+    "Santiago Centro"
+   ],
+   "Subtitle": "Santiago · 404,495 inhabitants",
+   "Description": "Round 23 · Santiago (Santiago) · 7.2 km · 2 laps · comuna",
+   "Card": "tracks/cl_stgo_santiago/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_alto_hospicio",
+   "Title": "Alto Hospicio",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Alto Hospicio",
+    "Alto Hospicio",
+    "Alto Hospicio",
+    "Alto Hospicio",
+    "Alto Hospicio",
+    "Alto Hospicio"
+   ],
+   "Subtitle": "Tarapacá · 108,375 inhabitants",
+   "Description": "Round 24 · Alto Hospicio (Tarapacá) · 4.8 km · 3 laps · city",
+   "Card": "tracks/cl_alto_hospicio/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_angol",
+   "Title": "Angol",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Angol",
+    "Angol",
+    "Angol",
+    "Angol",
+    "Angol",
+    "Angol"
+   ],
+   "Subtitle": "Araucanía · 55,140 inhabitants",
+   "Description": "Round 25 · Angol (Araucanía) · 4.8 km · 3 laps · city",
+   "Card": "tracks/cl_angol/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_antofagasta",
+   "Title": "Antofagasta",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Antofagasta",
+    "Antofagasta",
+    "Antofagasta",
+    "Antofagasta",
+    "Antofagasta",
+    "Antofagasta"
+   ],
+   "Subtitle": "Antofagasta · 361,873 inhabitants",
+   "Description": "Round 26 · Antofagasta (Antofagasta) · 7.2 km · 2 laps · city",
+   "Card": "tracks/cl_antofagasta/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_arica",
+   "Title": "Arica",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Arica",
+    "Arica",
+    "Arica",
+    "Arica",
+    "Arica",
+    "Arica"
+   ],
+   "Subtitle": "Arica y Parinacota · 221,364 inhabitants",
+   "Description": "Round 27 · Arica (Arica y Parinacota) · 5.3 km · 3 laps · city",
+   "Card": "tracks/cl_arica/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_buin",
+   "Title": "Buin",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Buin",
+    "Buin",
+    "Buin",
+    "Buin",
+    "Buin",
+    "Buin"
+   ],
+   "Subtitle": "Metropolitana · 96,614 inhabitants",
+   "Description": "Round 28 · Buin (Metropolitana) · 5.0 km · 3 laps · city",
+   "Card": "tracks/cl_buin/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_calama",
+   "Title": "Calama",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Calama",
+    "Calama",
+    "Calama",
+    "Calama",
+    "Calama",
+    "Calama"
+   ],
+   "Subtitle": "Antofagasta · 165,371 inhabitants",
+   "Description": "Round 29 · Calama (Antofagasta) · 6.2 km · 3 laps · city",
+   "Card": "tracks/cl_calama/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_castro",
+   "Title": "Castro",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Castro",
+    "Castro",
+    "Castro",
+    "Castro",
+    "Castro",
+    "Castro"
+   ],
+   "Subtitle": "Los Lagos · 43,807 inhabitants",
+   "Description": "Round 30 · Castro (Los Lagos) · 4.0 km · 3 laps · city",
+   "Card": "tracks/cl_castro/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_chiguayante",
+   "Title": "Chiguayante",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Chiguayante",
+    "Chiguayante",
+    "Chiguayante",
+    "Chiguayante",
+    "Chiguayante",
+    "Chiguayante"
+   ],
+   "Subtitle": "Biobío · 85,938 inhabitants",
+   "Description": "Round 31 · Chiguayante (Biobío) · 4.1 km · 3 laps · city",
+   "Card": "tracks/cl_chiguayante/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_chillan",
+   "Title": "Chillán",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Chillán",
+    "Chillán",
+    "Chillán",
+    "Chillán",
+    "Chillán",
+    "Chillán"
+   ],
+   "Subtitle": "Ñuble · 184,739 inhabitants",
+   "Description": "Round 32 · Chillán (Ñuble) · 6.3 km · 3 laps · city",
+   "Card": "tracks/cl_chillan/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_colina",
+   "Title": "Colina",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Colina",
+    "Colina",
+    "Colina",
+    "Colina",
+    "Colina",
+    "Colina"
+   ],
+   "Subtitle": "Metropolitana · 152,740 inhabitants",
+   "Description": "Round 33 · Colina (Metropolitana) · 6.7 km · 2 laps · city",
+   "Card": "tracks/cl_colina/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_concepcion",
+   "Title": "Concepción",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Concepción",
+    "Concepción",
+    "Concepción",
+    "Concepción",
+    "Concepción",
+    "Concepción"
+   ],
+   "Subtitle": "Biobío · 220,746 inhabitants",
+   "Description": "Round 34 · Concepción (Biobío) · 6.3 km · 3 laps · city",
+   "Card": "tracks/cl_concepcion/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_copiapo",
+   "Title": "Copiapó",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Copiapó",
+    "Copiapó",
+    "Copiapó",
+    "Copiapó",
+    "Copiapó",
+    "Copiapó"
+   ],
+   "Subtitle": "Atacama · 174,309 inhabitants",
+   "Description": "Round 35 · Copiapó (Atacama) · 6.0 km · 3 laps · city",
+   "Card": "tracks/cl_copiapo/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_coquimbo",
+   "Title": "Coquimbo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Coquimbo",
+    "Coquimbo",
+    "Coquimbo",
+    "Coquimbo",
+    "Coquimbo",
+    "Coquimbo"
+   ],
+   "Subtitle": "Coquimbo · 256,735 inhabitants",
+   "Description": "Round 36 · Coquimbo (Coquimbo) · 7.3 km · 2 laps · city",
+   "Card": "tracks/cl_coquimbo/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_coronel",
+   "Title": "Coronel",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Coronel",
+    "Coronel",
+    "Coronel",
+    "Coronel",
+    "Coronel",
+    "Coronel"
+   ],
+   "Subtitle": "Biobío · 116,262 inhabitants",
+   "Description": "Round 37 · Coronel (Biobío) · 5.4 km · 3 laps · city",
+   "Card": "tracks/cl_coronel/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_coyhaique",
+   "Title": "Coyhaique",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Coyhaique",
+    "Coyhaique",
+    "Coyhaique",
+    "Coyhaique",
+    "Coyhaique",
+    "Coyhaique"
+   ],
+   "Subtitle": "Aysén · 57,818 inhabitants",
+   "Description": "Round 38 · Coyhaique (Aysén) · 4.0 km · 3 laps · city",
+   "Card": "tracks/cl_coyhaique/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_curico",
+   "Title": "Curicó",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Curicó",
+    "Curicó",
+    "Curicó",
+    "Curicó",
+    "Curicó",
+    "Curicó"
+   ],
+   "Subtitle": "Maule · 149,530 inhabitants",
+   "Description": "Round 39 · Curicó (Maule) · 5.0 km · 3 laps · city",
+   "Card": "tracks/cl_curico/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_hualpen",
+   "Title": "Hualpén",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Hualpén",
+    "Hualpén",
+    "Hualpén",
+    "Hualpén",
+    "Hualpén",
+    "Hualpén"
+   ],
+   "Subtitle": "Biobío · 91,773 inhabitants",
+   "Description": "Round 40 · Hualpén (Biobío) · 5.1 km · 3 laps · city",
+   "Card": "tracks/cl_hualpen/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_iquique",
+   "Title": "Iquique",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Iquique",
+    "Iquique",
+    "Iquique",
+    "Iquique",
+    "Iquique",
+    "Iquique"
+   ],
+   "Subtitle": "Tarapacá · 191,468 inhabitants",
+   "Description": "Round 41 · Iquique (Tarapacá) · 6.3 km · 3 laps · city",
+   "Card": "tracks/cl_iquique/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_la_serena",
+   "Title": "La Serena",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "La Serena",
+    "La Serena",
+    "La Serena",
+    "La Serena",
+    "La Serena",
+    "La Serena"
+   ],
+   "Subtitle": "Coquimbo · 249,656 inhabitants",
+   "Description": "Round 42 · La Serena (Coquimbo) · 6.0 km · 3 laps · city",
+   "Card": "tracks/cl_la_serena/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_lampa",
+   "Title": "Lampa",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Lampa",
+    "Lampa",
+    "Lampa",
+    "Lampa",
+    "Lampa",
+    "Lampa"
+   ],
+   "Subtitle": "Metropolitana · 107,662 inhabitants",
+   "Description": "Round 43 · Lampa (Metropolitana) · 5.1 km · 3 laps · city",
+   "Card": "tracks/cl_lampa/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_linares",
+   "Title": "Linares",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Linares",
+    "Linares",
+    "Linares",
+    "Linares",
+    "Linares",
+    "Linares"
+   ],
+   "Subtitle": "Maule · 93,602 inhabitants",
+   "Description": "Round 44 · Linares (Maule) · 5.0 km · 3 laps · city",
+   "Card": "tracks/cl_linares/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_los_andes",
+   "Title": "Los Andes",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Los Andes",
+    "Los Andes",
+    "Los Andes",
+    "Los Andes",
+    "Los Andes",
+    "Los Andes"
+   ],
+   "Subtitle": "Valparaíso · 66,708 inhabitants",
+   "Description": "Round 45 · Los Andes (Valparaíso) · 3.7 km · 3 laps · city",
+   "Card": "tracks/cl_los_andes/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_los_angeles",
+   "Title": "Los Ángeles",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Los Ángeles",
+    "Los Ángeles",
+    "Los Ángeles",
+    "Los Ángeles",
+    "Los Ángeles",
+    "Los Ángeles"
+   ],
+   "Subtitle": "Biobío · 212,875 inhabitants",
+   "Description": "Round 46 · Los Ángeles (Biobío) · 6.2 km · 3 laps · city",
+   "Card": "tracks/cl_los_angeles/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_machali",
+   "Title": "Machalí",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Machalí",
+    "Machalí",
+    "Machalí",
+    "Machalí",
+    "Machalí",
+    "Machalí"
+   ],
+   "Subtitle": "O'Higgins · 55,258 inhabitants",
+   "Description": "Round 47 · Machalí (O'Higgins) · 3.3 km · 3 laps · city",
+   "Card": "tracks/cl_machali/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_melipilla",
+   "Title": "Melipilla",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Melipilla",
+    "Melipilla",
+    "Melipilla",
+    "Melipilla",
+    "Melipilla",
+    "Melipilla"
+   ],
+   "Subtitle": "Metropolitana · 133,232 inhabitants",
+   "Description": "Round 48 · Melipilla (Metropolitana) · 4.9 km · 3 laps · city",
+   "Card": "tracks/cl_melipilla/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_osorno",
+   "Title": "Osorno",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Osorno",
+    "Osorno",
+    "Osorno",
+    "Osorno",
+    "Osorno",
+    "Osorno"
+   ],
+   "Subtitle": "Los Lagos · 170,129 inhabitants",
+   "Description": "Round 49 · Osorno (Los Lagos) · 6.3 km · 2 laps · city",
+   "Card": "tracks/cl_osorno/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_ovalle",
+   "Title": "Ovalle",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Ovalle",
+    "Ovalle",
+    "Ovalle",
+    "Ovalle",
+    "Ovalle",
+    "Ovalle"
+   ],
+   "Subtitle": "Coquimbo · 121,269 inhabitants",
+   "Description": "Round 50 · Ovalle (Coquimbo) · 6.0 km · 3 laps · city",
+   "Card": "tracks/cl_ovalle/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_padre_las_casas",
+   "Title": "Padre Las Casas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Padre Las Casas",
+    "Padre Las Casas",
+    "Padre Las Casas",
+    "Padre Las Casas",
+    "Padre Las Casas",
+    "Padre Las Casas"
+   ],
+   "Subtitle": "Araucanía · 79,019 inhabitants",
+   "Description": "Round 51 · Padre Las Casas (Araucanía) · 4.3 km · 3 laps · city",
+   "Card": "tracks/cl_padre_las_casas/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_penaflor",
+   "Title": "Peñaflor",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Peñaflor",
+    "Peñaflor",
+    "Peñaflor",
+    "Peñaflor",
+    "Peñaflor",
+    "Peñaflor"
+   ],
+   "Subtitle": "Metropolitana · 90,201 inhabitants",
+   "Description": "Round 52 · Peñaflor (Metropolitana) · 5.0 km · 3 laps · city",
+   "Card": "tracks/cl_penaflor/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_puerto_montt",
+   "Title": "Puerto Montt",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Puerto Montt",
+    "Puerto Montt",
+    "Puerto Montt",
+    "Puerto Montt",
+    "Puerto Montt",
+    "Puerto Montt"
+   ],
+   "Subtitle": "Los Lagos · 245,902 inhabitants",
+   "Description": "Round 53 · Puerto Montt (Los Lagos) · 5.9 km · 3 laps · city",
+   "Card": "tracks/cl_puerto_montt/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_punta_arenas",
+   "Title": "Punta Arenas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Punta Arenas",
+    "Punta Arenas",
+    "Punta Arenas",
+    "Punta Arenas",
+    "Punta Arenas",
+    "Punta Arenas"
+   ],
+   "Subtitle": "Magallanes · 123,403 inhabitants",
+   "Description": "Round 54 · Punta Arenas (Magallanes) · 5.1 km · 3 laps · city",
+   "Card": "tracks/cl_punta_arenas/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_quillota",
+   "Title": "Quillota",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Quillota",
+    "Quillota",
+    "Quillota",
+    "Quillota",
+    "Quillota",
+    "Quillota"
+   ],
+   "Subtitle": "Valparaíso · 90,517 inhabitants",
+   "Description": "Round 55 · Quillota (Valparaíso) · 4.7 km · 3 laps · city",
+   "Card": "tracks/cl_quillota/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_quilpue",
+   "Title": "Quilpué",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Quilpué",
+    "Quilpué",
+    "Quilpué",
+    "Quilpué",
+    "Quilpué",
+    "Quilpué"
+   ],
+   "Subtitle": "Valparaíso · 151,708 inhabitants",
+   "Description": "Round 56 · Quilpué (Valparaíso) · 5.7 km · 3 laps · city",
+   "Card": "tracks/cl_quilpue/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_rancagua",
+   "Title": "Rancagua",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Rancagua",
+    "Rancagua",
+    "Rancagua",
+    "Rancagua",
+    "Rancagua",
+    "Rancagua"
+   ],
+   "Subtitle": "O'Higgins · 241,774 inhabitants",
+   "Description": "Round 57 · Rancagua (O'Higgins) · 6.0 km · 3 laps · city",
+   "Card": "tracks/cl_rancagua/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_rengo",
+   "Title": "Rengo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Rengo",
+    "Rengo",
+    "Rengo",
+    "Rengo",
+    "Rengo",
+    "Rengo"
+   ],
+   "Subtitle": "O'Higgins · 61,438 inhabitants",
+   "Description": "Round 58 · Rengo (O'Higgins) · 4.1 km · 3 laps · city",
+   "Card": "tracks/cl_rengo/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_san_antonio",
+   "Title": "San Antonio",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "San Antonio",
+    "San Antonio",
+    "San Antonio",
+    "San Antonio",
+    "San Antonio",
+    "San Antonio"
+   ],
+   "Subtitle": "Valparaíso · 91,350 inhabitants",
+   "Description": "Round 59 · San Antonio (Valparaíso) · 5.5 km · 3 laps · city",
+   "Card": "tracks/cl_san_antonio/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_san_felipe",
+   "Title": "San Felipe",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "San Felipe",
+    "San Felipe",
+    "San Felipe",
+    "San Felipe",
+    "San Felipe",
+    "San Felipe"
+   ],
+   "Subtitle": "Valparaíso · 76,009 inhabitants",
+   "Description": "Round 60 · San Felipe (Valparaíso) · 4.1 km · 3 laps · city",
+   "Card": "tracks/cl_san_felipe/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_san_fernando",
+   "Title": "San Fernando",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "San Fernando",
+    "San Fernando",
+    "San Fernando",
+    "San Fernando",
+    "San Fernando",
+    "San Fernando"
+   ],
+   "Subtitle": "O'Higgins · 73,973 inhabitants",
+   "Description": "Round 61 · San Fernando (O'Higgins) · 4.0 km · 3 laps · city",
+   "Card": "tracks/cl_san_fernando/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_san_pedro_de_la_paz",
+   "Title": "San Pedro de la Paz",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "San Pedro de la Paz",
+    "San Pedro de la Paz",
+    "San Pedro de la Paz",
+    "San Pedro de la Paz",
+    "San Pedro de la Paz",
+    "San Pedro de la Paz"
+   ],
+   "Subtitle": "Biobío · 131,808 inhabitants",
+   "Description": "Round 62 · San Pedro de la Paz (Biobío) · 5.2 km · 3 laps · city",
+   "Card": "tracks/cl_san_pedro_de_la_paz/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_talagante",
+   "Title": "Talagante",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Talagante",
+    "Talagante",
+    "Talagante",
+    "Talagante",
+    "Talagante",
+    "Talagante"
+   ],
+   "Subtitle": "Metropolitana · 74,237 inhabitants",
+   "Description": "Round 63 · Talagante (Metropolitana) · 4.5 km · 3 laps · city",
+   "Card": "tracks/cl_talagante/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_talca",
+   "Title": "Talca",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Talca",
+    "Talca",
+    "Talca",
+    "Talca",
+    "Talca",
+    "Talca"
+   ],
+   "Subtitle": "Maule · 242,344 inhabitants",
+   "Description": "Round 64 · Talca (Maule) · 6.2 km · 3 laps · city",
+   "Card": "tracks/cl_talca/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_talcahuano",
+   "Title": "Talcahuano",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Talcahuano",
+    "Talcahuano",
+    "Talcahuano",
+    "Talcahuano",
+    "Talcahuano",
+    "Talcahuano"
+   ],
+   "Subtitle": "Biobío · 158,038 inhabitants",
+   "Description": "Round 65 · Talcahuano (Biobío) · 6.8 km · 2 laps · city",
+   "Card": "tracks/cl_talcahuano/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_temuco",
+   "Title": "Temuco",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Temuco",
+    "Temuco",
+    "Temuco",
+    "Temuco",
+    "Temuco",
+    "Temuco"
+   ],
+   "Subtitle": "Araucanía · 295,839 inhabitants",
+   "Description": "Round 66 · Temuco (Araucanía) · 7.0 km · 2 laps · city",
+   "Card": "tracks/cl_temuco/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_tome",
+   "Title": "Tomé",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Tomé",
+    "Tomé",
+    "Tomé",
+    "Tomé",
+    "Tomé",
+    "Tomé"
+   ],
+   "Subtitle": "Biobío · 54,946 inhabitants",
+   "Description": "Round 67 · Tomé (Biobío) · 5.4 km · 3 laps · city",
+   "Card": "tracks/cl_tome/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_valdivia",
+   "Title": "Valdivia",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Valdivia",
+    "Valdivia",
+    "Valdivia",
+    "Valdivia",
+    "Valdivia",
+    "Valdivia"
+   ],
+   "Subtitle": "Los Ríos · 171,725 inhabitants",
+   "Description": "Round 68 · Valdivia (Los Ríos) · 5.9 km · 3 laps · city",
+   "Card": "tracks/cl_valdivia/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_vallenar",
+   "Title": "Vallenar",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Vallenar",
+    "Vallenar",
+    "Vallenar",
+    "Vallenar",
+    "Vallenar",
+    "Vallenar"
+   ],
+   "Subtitle": "Atacama · 51,917 inhabitants",
+   "Description": "Round 69 · Vallenar (Atacama) · 4.1 km · 3 laps · city",
+   "Card": "tracks/cl_vallenar/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_valparaiso",
+   "Title": "Valparaíso",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Valparaíso",
+    "Valparaíso",
+    "Valparaíso",
+    "Valparaíso",
+    "Valparaíso",
+    "Valparaíso"
+   ],
+   "Subtitle": "Valparaíso · 296,655 inhabitants",
+   "Description": "Round 70 · Valparaíso (Valparaíso) · 8.8 km · 1 laps · city",
+   "Card": "tracks/cl_valparaiso/card.png",
+   "Laps": 1
+  },
+  {
+   "RaceId": "cl_villa_alemana",
+   "Title": "Villa Alemana",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Villa Alemana",
+    "Villa Alemana",
+    "Villa Alemana",
+    "Villa Alemana",
+    "Villa Alemana",
+    "Villa Alemana"
+   ],
+   "Subtitle": "Valparaíso · 126,548 inhabitants",
+   "Description": "Round 71 · Villa Alemana (Valparaíso) · 5.0 km · 3 laps · city",
+   "Card": "tracks/cl_villa_alemana/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_villarrica",
+   "Title": "Villarrica",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Villarrica",
+    "Villarrica",
+    "Villarrica",
+    "Villarrica",
+    "Villarrica",
+    "Villarrica"
+   ],
+   "Subtitle": "Araucanía · 57,466 inhabitants",
+   "Description": "Round 72 · Villarrica (Araucanía) · 3.9 km · 3 laps · city",
+   "Card": "tracks/cl_villarrica/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_vina_del_mar",
+   "Title": "Viña del Mar",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Viña del Mar",
+    "Viña del Mar",
+    "Viña del Mar",
+    "Viña del Mar",
+    "Viña del Mar",
+    "Viña del Mar"
+   ],
+   "Subtitle": "Valparaíso · 334,248 inhabitants",
+   "Description": "Round 73 · Viña del Mar (Valparaíso) · 6.9 km · 2 laps · city",
+   "Card": "tracks/cl_vina_del_mar/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_chiloe",
+   "Title": "Archipiélago de Chiloé",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Archipiélago de Chiloé",
+    "Archipiélago de Chiloé",
+    "Archipiélago de Chiloé",
+    "Archipiélago de Chiloé",
+    "Archipiélago de Chiloé",
+    "Archipiélago de Chiloé"
+   ],
+   "Subtitle": "Palafitos e iglesias de madera",
+   "Description": "Round 74 · Archipiélago de Chiloé (Los Lagos) · 5.8 km · 3 laps · special",
+   "Card": "tracks/cl_chiloe/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_base_prat",
+   "Title": "Base Antártica Arturo Prat",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Base Antártica Arturo Prat",
+    "Base Antártica Arturo Prat",
+    "Base Antártica Arturo Prat",
+    "Base Antártica Arturo Prat",
+    "Base Antártica Arturo Prat",
+    "Base Antártica Arturo Prat"
+   ],
+   "Subtitle": "Antártica Chilena · isla Greenwich",
+   "Description": "Round 75 · Base Antártica Arturo Prat (Magallanes) · 4.2 km · 3 laps · special",
+   "Card": "tracks/cl_base_prat/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_base_frei",
+   "Title": "Base Frei y Villa Las Estrellas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Base Frei y Villa Las Estrellas",
+    "Base Frei y Villa Las Estrellas",
+    "Base Frei y Villa Las Estrellas",
+    "Base Frei y Villa Las Estrellas",
+    "Base Frei y Villa Las Estrellas",
+    "Base Frei y Villa Las Estrellas"
+   ],
+   "Subtitle": "Isla Rey Jorge · el pueblo chileno de la Antártica",
+   "Description": "Round 76 · Base Frei y Villa Las Estrellas (Magallanes) · 4.4 km · 3 laps · special",
+   "Card": "tracks/cl_base_frei/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_base_gonzalez_videla",
+   "Title": "Base Gabriel González Videla",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Base Gabriel González Videla",
+    "Base Gabriel González Videla",
+    "Base Gabriel González Videla",
+    "Base Gabriel González Videla",
+    "Base Gabriel González Videla",
+    "Base Gabriel González Videla"
+   ],
+   "Subtitle": "Bahía Paraíso · Costa Danco",
+   "Description": "Round 77 · Base Gabriel González Videla (Magallanes) · 3.8 km · 3 laps · special",
+   "Card": "tracks/cl_base_gonzalez_videla/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_base_ohiggins",
+   "Title": "Base General Bernardo O'Higgins",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Base General Bernardo O'Higgins",
+    "Base General Bernardo O'Higgins",
+    "Base General Bernardo O'Higgins",
+    "Base General Bernardo O'Higgins",
+    "Base General Bernardo O'Higgins",
+    "Base General Bernardo O'Higgins"
+   ],
+   "Subtitle": "Península Antártica · Bahía Covadonga",
+   "Description": "Round 78 · Base General Bernardo O'Higgins (Magallanes) · 4.0 km · 3 laps · special",
+   "Card": "tracks/cl_base_ohiggins/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_base_yelcho",
+   "Title": "Base Yelcho",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Base Yelcho",
+    "Base Yelcho",
+    "Base Yelcho",
+    "Base Yelcho",
+    "Base Yelcho",
+    "Base Yelcho"
+   ],
+   "Subtitle": "Isla Doumer · Bahía Sur",
+   "Description": "Round 79 · Base Yelcho (Magallanes) · 3.8 km · 3 laps · special",
+   "Card": "tracks/cl_base_yelcho/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_cajon_del_maipo",
+   "Title": "Cajón del Maipo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Cajón del Maipo",
+    "Cajón del Maipo",
+    "Cajón del Maipo",
+    "Cajón del Maipo",
+    "Cajón del Maipo",
+    "Cajón del Maipo"
+   ],
+   "Subtitle": "El cañón del río Maipo",
+   "Description": "Round 80 · Cajón del Maipo (Santiago) · 6.4 km · 2 laps · special",
+   "Card": "tracks/cl_cajon_del_maipo/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_ski_el_colorado",
+   "Title": "El Colorado",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "El Colorado",
+    "El Colorado",
+    "El Colorado",
+    "El Colorado",
+    "El Colorado",
+    "El Colorado"
+   ],
+   "Subtitle": "Centro de ski · 2.430-3.460 m",
+   "Description": "Round 81 · El Colorado (Santiago) · 5.2 km · 3 laps · special",
+   "Card": "tracks/cl_ski_el_colorado/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_embalse_el_yeso",
+   "Title": "Embalse El Yeso",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Embalse El Yeso",
+    "Embalse El Yeso",
+    "Embalse El Yeso",
+    "Embalse El Yeso",
+    "Embalse El Yeso",
+    "Embalse El Yeso"
+   ],
+   "Subtitle": "Cajón del Maipo · 2.500 m",
+   "Description": "Round 82 · Embalse El Yeso (Santiago) · 5.8 km · 3 laps · special",
+   "Card": "tracks/cl_embalse_el_yeso/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_frutillar",
+   "Title": "Frutillar",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Frutillar",
+    "Frutillar",
+    "Frutillar",
+    "Frutillar",
+    "Frutillar",
+    "Frutillar"
+   ],
+   "Subtitle": "Lago Llanquihue · casas alemanas",
+   "Description": "Round 83 · Frutillar (Los Lagos) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_frutillar/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_tatio",
+   "Title": "Géiseres del Tatio",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Géiseres del Tatio",
+    "Géiseres del Tatio",
+    "Géiseres del Tatio",
+    "Géiseres del Tatio",
+    "Géiseres del Tatio",
+    "Géiseres del Tatio"
+   ],
+   "Subtitle": "Campo geotermal · 4.320 m",
+   "Description": "Round 84 · Géiseres del Tatio (Antofagasta) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_tatio/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_humberstone",
+   "Title": "Humberstone y Santa Laura",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Humberstone y Santa Laura",
+    "Humberstone y Santa Laura",
+    "Humberstone y Santa Laura",
+    "Humberstone y Santa Laura",
+    "Humberstone y Santa Laura",
+    "Humberstone y Santa Laura"
+   ],
+   "Subtitle": "Oficinas salitreras · patrimonio",
+   "Description": "Round 85 · Humberstone y Santa Laura (Tarapacá) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_humberstone/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_lago_ranco",
+   "Title": "Lago Ranco",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Lago Ranco",
+    "Lago Ranco",
+    "Lago Ranco",
+    "Lago Ranco",
+    "Lago Ranco",
+    "Lago Ranco"
+   ],
+   "Subtitle": "La orilla del lago Ranco",
+   "Description": "Round 86 · Lago Ranco (Los Ríos) · 6.2 km · 3 laps · special",
+   "Card": "tracks/cl_lago_ranco/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_laguna_verde",
+   "Title": "Laguna Verde",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Laguna Verde",
+    "Laguna Verde",
+    "Laguna Verde",
+    "Laguna Verde",
+    "Laguna Verde",
+    "Laguna Verde"
+   ],
+   "Subtitle": "Altiplano · 4.300 m",
+   "Description": "Round 87 · Laguna Verde (Atacama) · 6.0 km · 3 laps · special",
+   "Card": "tracks/cl_laguna_verde/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_dunas_copiapo",
+   "Title": "Mar de Dunas de Copiapó",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Mar de Dunas de Copiapó",
+    "Mar de Dunas de Copiapó",
+    "Mar de Dunas de Copiapó",
+    "Mar de Dunas de Copiapó",
+    "Mar de Dunas de Copiapó",
+    "Mar de Dunas de Copiapó"
+   ],
+   "Subtitle": "Dunas del desierto",
+   "Description": "Round 88 · Mar de Dunas de Copiapó (Atacama) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_dunas_copiapo/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_oasis_pica",
+   "Title": "Oasis de Pica",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Oasis de Pica",
+    "Oasis de Pica",
+    "Oasis de Pica",
+    "Oasis de Pica",
+    "Oasis de Pica",
+    "Oasis de Pica"
+   ],
+   "Subtitle": "Limones y mangos en el desierto",
+   "Description": "Round 89 · Oasis de Pica (Tarapacá) · 4.8 km · 3 laps · special",
+   "Card": "tracks/cl_oasis_pica/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_obs_alma",
+   "Title": "Observatorio ALMA",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Observatorio ALMA",
+    "Observatorio ALMA",
+    "Observatorio ALMA",
+    "Observatorio ALMA",
+    "Observatorio ALMA",
+    "Observatorio ALMA"
+   ],
+   "Subtitle": "Llano de Chajnantor · 5.050 m",
+   "Description": "Round 90 · Observatorio ALMA (Antofagasta) · 6.5 km · 2 laps · special",
+   "Card": "tracks/cl_obs_alma/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_obs_paranal",
+   "Title": "Observatorio Cerro Paranal",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Observatorio Cerro Paranal",
+    "Observatorio Cerro Paranal",
+    "Observatorio Cerro Paranal",
+    "Observatorio Cerro Paranal",
+    "Observatorio Cerro Paranal",
+    "Observatorio Cerro Paranal"
+   ],
+   "Subtitle": "Cerro Paranal · 2.635 m",
+   "Description": "Round 91 · Observatorio Cerro Paranal (Antofagasta) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_obs_paranal/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_obs_tololo",
+   "Title": "Observatorio Cerro Tololo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Observatorio Cerro Tololo",
+    "Observatorio Cerro Tololo",
+    "Observatorio Cerro Tololo",
+    "Observatorio Cerro Tololo",
+    "Observatorio Cerro Tololo",
+    "Observatorio Cerro Tololo"
+   ],
+   "Subtitle": "Cerro Tololo · 2.200 m",
+   "Description": "Round 92 · Observatorio Cerro Tololo (Coquimbo) · 5.8 km · 3 laps · special",
+   "Card": "tracks/cl_obs_tololo/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_obs_la_silla",
+   "Title": "Observatorio La Silla",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Observatorio La Silla",
+    "Observatorio La Silla",
+    "Observatorio La Silla",
+    "Observatorio La Silla",
+    "Observatorio La Silla",
+    "Observatorio La Silla"
+   ],
+   "Subtitle": "Cerro La Silla · 2.400 m",
+   "Description": "Round 93 · Observatorio La Silla (Coquimbo) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_obs_la_silla/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_obs_las_campanas",
+   "Title": "Observatorio Las Campanas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Observatorio Las Campanas",
+    "Observatorio Las Campanas",
+    "Observatorio Las Campanas",
+    "Observatorio Las Campanas",
+    "Observatorio Las Campanas",
+    "Observatorio Las Campanas"
+   ],
+   "Subtitle": "Cerro Las Campanas · 2.380 m",
+   "Description": "Round 94 · Observatorio Las Campanas (Atacama) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_obs_las_campanas/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_obs_mamalluca",
+   "Title": "Observatorio Mamalluca",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Observatorio Mamalluca",
+    "Observatorio Mamalluca",
+    "Observatorio Mamalluca",
+    "Observatorio Mamalluca",
+    "Observatorio Mamalluca",
+    "Observatorio Mamalluca"
+   ],
+   "Subtitle": "Valle del Elqui · cielo turístico",
+   "Description": "Round 95 · Observatorio Mamalluca (Coquimbo) · 5.2 km · 3 laps · special",
+   "Card": "tracks/cl_obs_mamalluca/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_obs_pachon",
+   "Title": "Observatorio Vera C. Rubin y Gemini Sur",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Observatorio Vera C. Rubin y Gemini Sur",
+    "Observatorio Vera C. Rubin y Gemini Sur",
+    "Observatorio Vera C. Rubin y Gemini Sur",
+    "Observatorio Vera C. Rubin y Gemini Sur",
+    "Observatorio Vera C. Rubin y Gemini Sur",
+    "Observatorio Vera C. Rubin y Gemini Sur"
+   ],
+   "Subtitle": "Cerro Pachón · 2.700 m",
+   "Description": "Round 96 · Observatorio Vera C. Rubin y Gemini Sur (Coquimbo) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_obs_pachon/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_ski_farellones",
+   "Title": "Parque Farellones",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Farellones",
+    "Parque Farellones",
+    "Parque Farellones",
+    "Parque Farellones",
+    "Parque Farellones",
+    "Parque Farellones"
+   ],
+   "Subtitle": "Farellones · 2.400 m",
+   "Description": "Round 97 · Parque Farellones (Santiago) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_ski_farellones/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_conguillio",
+   "Title": "Parque Nacional Conguillío",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Nacional Conguillío",
+    "Parque Nacional Conguillío",
+    "Parque Nacional Conguillío",
+    "Parque Nacional Conguillío",
+    "Parque Nacional Conguillío",
+    "Parque Nacional Conguillío"
+   ],
+   "Subtitle": "Araucarias y lava del Llaima",
+   "Description": "Round 98 · Parque Nacional Conguillío (Araucanía) · 6.0 km · 3 laps · special",
+   "Card": "tracks/cl_conguillio/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_pn_patagonia",
+   "Title": "Parque Nacional Patagonia",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Nacional Patagonia",
+    "Parque Nacional Patagonia",
+    "Parque Nacional Patagonia",
+    "Parque Nacional Patagonia",
+    "Parque Nacional Patagonia",
+    "Parque Nacional Patagonia"
+   ],
+   "Subtitle": "Valle Chacabuco · estepa",
+   "Description": "Round 99 · Parque Nacional Patagonia (Aysén) · 6.6 km · 2 laps · special",
+   "Card": "tracks/cl_pn_patagonia/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_pn_villarrica",
+   "Title": "Parque Nacional Villarrica",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Nacional Villarrica",
+    "Parque Nacional Villarrica",
+    "Parque Nacional Villarrica",
+    "Parque Nacional Villarrica",
+    "Parque Nacional Villarrica",
+    "Parque Nacional Villarrica"
+   ],
+   "Subtitle": "Bosque bajo el volcán",
+   "Description": "Round 100 · Parque Nacional Villarrica (Araucanía) · 6.0 km · 3 laps · special",
+   "Card": "tracks/cl_pn_villarrica/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_pichilemu",
+   "Title": "Pichilemu",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Pichilemu",
+    "Pichilemu",
+    "Pichilemu",
+    "Pichilemu",
+    "Pichilemu",
+    "Pichilemu"
+   ],
+   "Subtitle": "Capital del surf · Punta de Lobos",
+   "Description": "Round 101 · Pichilemu (O'Higgins) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_pichilemu/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_sewell",
+   "Title": "Pueblo de Sewell",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Pueblo de Sewell",
+    "Pueblo de Sewell",
+    "Pueblo de Sewell",
+    "Pueblo de Sewell",
+    "Pueblo de Sewell",
+    "Pueblo de Sewell"
+   ],
+   "Subtitle": "La ciudad de las escaleras · 2.100 m",
+   "Description": "Round 102 · Pueblo de Sewell (O'Higgins) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_sewell/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_puerto_natales",
+   "Title": "Puerto Natales",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Puerto Natales",
+    "Puerto Natales",
+    "Puerto Natales",
+    "Puerto Natales",
+    "Puerto Natales",
+    "Puerto Natales"
+   ],
+   "Subtitle": "Seno Última Esperanza",
+   "Description": "Round 103 · Puerto Natales (Magallanes) · 5.2 km · 3 laps · special",
+   "Card": "tracks/cl_puerto_natales/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_siete_tazas",
+   "Title": "Radal Siete Tazas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Radal Siete Tazas",
+    "Radal Siete Tazas",
+    "Radal Siete Tazas",
+    "Radal Siete Tazas",
+    "Radal Siete Tazas",
+    "Radal Siete Tazas"
+   ],
+   "Subtitle": "Cascadas y bosque nativo",
+   "Description": "Round 104 · Radal Siete Tazas (Maule) · 5.8 km · 3 laps · special",
+   "Card": "tracks/cl_siete_tazas/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_rapanui_anakena",
+   "Title": "Rapa Nui: Anakena",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Rapa Nui: Anakena",
+    "Rapa Nui: Anakena",
+    "Rapa Nui: Anakena",
+    "Rapa Nui: Anakena",
+    "Rapa Nui: Anakena",
+    "Rapa Nui: Anakena"
+   ],
+   "Subtitle": "Rapa Nui · la playa de Anakena",
+   "Description": "Round 105 · Rapa Nui: Anakena (Valparaíso) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_rapanui_anakena/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_rapanui_hanga_roa",
+   "Title": "Rapa Nui: Hanga Roa",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Rapa Nui: Hanga Roa",
+    "Rapa Nui: Hanga Roa",
+    "Rapa Nui: Hanga Roa",
+    "Rapa Nui: Hanga Roa",
+    "Rapa Nui: Hanga Roa",
+    "Rapa Nui: Hanga Roa"
+   ],
+   "Subtitle": "Rapa Nui · Hanga Roa",
+   "Description": "Round 106 · Rapa Nui: Hanga Roa (Valparaíso) · 4.8 km · 3 laps · special",
+   "Card": "tracks/cl_rapanui_hanga_roa/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_rapanui_tongariki",
+   "Title": "Rapa Nui: Rano Raraku y Tongariki",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Rapa Nui: Rano Raraku y Tongariki",
+    "Rapa Nui: Rano Raraku y Tongariki",
+    "Rapa Nui: Rano Raraku y Tongariki",
+    "Rapa Nui: Rano Raraku y Tongariki",
+    "Rapa Nui: Rano Raraku y Tongariki",
+    "Rapa Nui: Rano Raraku y Tongariki"
+   ],
+   "Subtitle": "Rapa Nui · la cantera de los moai",
+   "Description": "Round 107 · Rapa Nui: Rano Raraku y Tongariki (Valparaíso) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_rapanui_tongariki/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_obs_armazones",
+   "Title": "Telescopio Extremadamente Grande (ELT)",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Telescopio Extremadamente Grande (ELT)",
+    "Telescopio Extremadamente Grande (ELT)",
+    "Telescopio Extremadamente Grande (ELT)",
+    "Telescopio Extremadamente Grande (ELT)",
+    "Telescopio Extremadamente Grande (ELT)",
+    "Telescopio Extremadamente Grande (ELT)"
+   ],
+   "Subtitle": "Cerro Armazones · 3.046 m",
+   "Description": "Round 108 · Telescopio Extremadamente Grande (ELT) (Antofagasta) · 11.4 km · 2 laps · special: the climb, round the dome and inside it",
+   "Card": "tracks/cl_obs_armazones/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_termas_chillan",
+   "Title": "Termas de Chillán",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Termas de Chillán",
+    "Termas de Chillán",
+    "Termas de Chillán",
+    "Termas de Chillán",
+    "Termas de Chillán",
+    "Termas de Chillán"
+   ],
+   "Subtitle": "Nieve y aguas termales",
+   "Description": "Round 109 · Termas de Chillán (Ñuble) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_termas_chillan/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_torres_del_paine",
+   "Title": "Torres del Paine",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Torres del Paine",
+    "Torres del Paine",
+    "Torres del Paine",
+    "Torres del Paine",
+    "Torres del Paine",
+    "Torres del Paine"
+   ],
+   "Subtitle": "Laguna Amarga · frente a las torres",
+   "Description": "Round 110 · Torres del Paine (Magallanes) · 6.8 km · 2 laps · special",
+   "Card": "tracks/cl_torres_del_paine/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_valle_elqui",
+   "Title": "Valle del Elqui",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Valle del Elqui",
+    "Valle del Elqui",
+    "Valle del Elqui",
+    "Valle del Elqui",
+    "Valle del Elqui",
+    "Valle del Elqui"
+   ],
+   "Subtitle": "Viñas, pisco y cielo limpio",
+   "Description": "Round 111 · Valle del Elqui (Coquimbo) · 6.2 km · 3 laps · special",
+   "Card": "tracks/cl_valle_elqui/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_volcan_calbuco",
+   "Title": "Volcán Calbuco",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Volcán Calbuco",
+    "Volcán Calbuco",
+    "Volcán Calbuco",
+    "Volcán Calbuco",
+    "Volcán Calbuco",
+    "Volcán Calbuco"
+   ],
+   "Subtitle": "Volcán activo · 2.003 m",
+   "Description": "Round 112 · Volcán Calbuco (Los Lagos) · 6.4 km · 2 laps · special",
+   "Card": "tracks/cl_volcan_calbuco/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_volcan_llaima",
+   "Title": "Volcán Llaima",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Volcán Llaima",
+    "Volcán Llaima",
+    "Volcán Llaima",
+    "Volcán Llaima",
+    "Volcán Llaima",
+    "Volcán Llaima"
+   ],
+   "Subtitle": "Volcán activo · 3.125 m",
+   "Description": "Round 113 · Volcán Llaima (Araucanía) · 6.6 km · 2 laps · special",
+   "Card": "tracks/cl_volcan_llaima/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_volcan_osorno",
+   "Title": "Volcán Osorno",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Volcán Osorno",
+    "Volcán Osorno",
+    "Volcán Osorno",
+    "Volcán Osorno",
+    "Volcán Osorno",
+    "Volcán Osorno"
+   ],
+   "Subtitle": "El cono nevado sobre el Llanquihue",
+   "Description": "Round 114 · Volcán Osorno (Los Lagos) · 6.2 km · 3 laps · special",
+   "Card": "tracks/cl_volcan_osorno/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_volcan_villarrica",
+   "Title": "Volcán Villarrica",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Volcán Villarrica",
+    "Volcán Villarrica",
+    "Volcán Villarrica",
+    "Volcán Villarrica",
+    "Volcán Villarrica",
+    "Volcán Villarrica"
+   ],
+   "Subtitle": "Volcán activo · 2.847 m",
+   "Description": "Round 115 · Volcán Villarrica (Araucanía) · 6.8 km · 2 laps · special",
+   "Card": "tracks/cl_volcan_villarrica/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_playa_las_docas",
+   "Title": "Playa Las Docas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa Las Docas",
+    "Playa Las Docas",
+    "Playa Las Docas",
+    "Playa Las Docas",
+    "Playa Las Docas",
+    "Playa Las Docas"
+   ],
+   "Subtitle": "Laguna Verde · la más salvaje",
+   "Description": "Round 116 · Playa Las Docas (Playas de la Quinta Región) · 23.9 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_las_docas/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_luna",
+   "Title": "Playa Luna",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa Luna",
+    "Playa Luna",
+    "Playa Luna",
+    "Playa Luna",
+    "Playa Luna",
+    "Playa Luna"
+   ],
+   "Subtitle": "Horcón · Puchuncaví",
+   "Description": "Round 117 · Playa Luna (Playas de la Quinta Región) · 23.9 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_luna/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_los_enamorados",
+   "Title": "Playa Los Enamorados",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa Los Enamorados",
+    "Playa Los Enamorados",
+    "Playa Los Enamorados",
+    "Playa Los Enamorados",
+    "Playa Los Enamorados",
+    "Playa Los Enamorados"
+   ],
+   "Subtitle": "Horcón · la caleta escondida",
+   "Description": "Round 118 · Playa Los Enamorados (Playas de la Quinta Región) · 24.7 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_los_enamorados/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_las_cujas",
+   "Title": "Playa Las Cujas",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa Las Cujas",
+    "Playa Las Cujas",
+    "Playa Las Cujas",
+    "Playa Las Cujas",
+    "Playa Las Cujas",
+    "Playa Las Cujas"
+   ],
+   "Subtitle": "Cachagua · frente a la Isla de los Pingüinos",
+   "Description": "Round 119 · Playa Las Cujas (Playas de la Quinta Región) · 23.4 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_las_cujas/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_chica_quintay",
+   "Title": "Playa Chica de Quintay",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa Chica de Quintay",
+    "Playa Chica de Quintay",
+    "Playa Chica de Quintay",
+    "Playa Chica de Quintay",
+    "Playa Chica de Quintay",
+    "Playa Chica de Quintay"
+   ],
+   "Subtitle": "Quintay · lluvia de verano",
+   "Description": "Round 120 · Playa Chica de Quintay (Playas de la Quinta Región) · 24.8 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_chica_quintay/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_el_canelillo",
+   "Title": "Playa El Canelillo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa El Canelillo",
+    "Playa El Canelillo",
+    "Playa El Canelillo",
+    "Playa El Canelillo",
+    "Playa El Canelillo",
+    "Playa El Canelillo"
+   ],
+   "Subtitle": "Algarrobo · pinos y agua turquesa",
+   "Description": "Round 121 · Playa El Canelillo (Playas de la Quinta Región) · 23.2 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_el_canelillo/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_el_abanico",
+   "Title": "Playa El Abanico",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa El Abanico",
+    "Playa El Abanico",
+    "Playa El Abanico",
+    "Playa El Abanico",
+    "Playa El Abanico",
+    "Playa El Abanico"
+   ],
+   "Subtitle": "Maitencillo · surf bajo los acantilados",
+   "Description": "Round 122 · Playa El Abanico (Playas de la Quinta Región) · 22.1 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_el_abanico/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_amarilla",
+   "Title": "Playa Amarilla",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa Amarilla",
+    "Playa Amarilla",
+    "Playa Amarilla",
+    "Playa Amarilla",
+    "Playa Amarilla",
+    "Playa Amarilla"
+   ],
+   "Subtitle": "Concón · arena dorada",
+   "Description": "Round 123 · Playa Amarilla (Playas de la Quinta Región) · 23.2 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_amarilla/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_playa_caleta_abarca",
+   "Title": "Playa Caleta Abarca",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Playa Caleta Abarca",
+    "Playa Caleta Abarca",
+    "Playa Caleta Abarca",
+    "Playa Caleta Abarca",
+    "Playa Caleta Abarca",
+    "Playa Caleta Abarca"
+   ],
+   "Subtitle": "Viña del Mar · bajo el Reloj de Flores",
+   "Description": "Round 124 · Playa Caleta Abarca (Playas de la Quinta Región) · 23.3 km · 1 laps · p2p",
+   "Card": "tracks/cl_playa_caleta_abarca/card.png",
+   "Laps": 1,
+   "Cars": [
+    "cl_jetski",
+    "cl_jetski_turquesa",
+    "cl_jetski_neon",
+    "cl_jetski_atardecer",
+    "cl_jetski_negro",
+    "cl_jetski_rosa",
+    "cl_jetski_oro_cielo",
+    "cl_jetski_verde"
+   ]
+  },
+  {
+   "RaceId": "cl_lago_caburgua",
+   "Title": "Lago Caburgua",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Lago Caburgua",
+    "Lago Caburgua",
+    "Lago Caburgua",
+    "Lago Caburgua",
+    "Lago Caburgua",
+    "Lago Caburgua"
+   ],
+   "Subtitle": "Pucón · Cunco · circuito circular, 3 vueltas",
+   "Description": "Round 125 · Lago Caburgua (Araucanía) · 6.2 km · 3 laps · special",
+   "Card": "tracks/cl_lago_caburgua/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_plaza_illapel",
+   "Title": "Plaza de Illapel",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel",
+    "Plaza de Illapel"
+   ],
+   "Subtitle": "Procesión de andas · la vuelta a la plaza a paso de procesión",
+   "Description": "Round 126 · Plaza de Illapel (Coquimbo) · 0.6 km · 5 laps · special",
+   "Card": "tracks/cl_plaza_illapel/card.png",
+   "Laps": 5,
+   "Cars": [
+    "cl_anda",
+    "cl_anda_andacollo",
+    "cl_anda_purisima",
+    "cl_anda_dolores",
+    "cl_anda_rosario",
+    "cl_anda_san_rafael"
+   ],
+   "Music": "Race/Illapel/Illapel - Chinchinero.wav"
+  }
+ ],
+ "DefaultRace": "cl_alto_hospicio",
+ "RaceMusicOnly": [
+  "Agregados"
+ ],
+ "Order": 10
+}

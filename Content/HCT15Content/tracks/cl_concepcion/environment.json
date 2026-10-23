@@ -1,0 +1,13 @@
+{
+ "Mode": "progress",
+ "Seconds": 0,
+ "Recipe": {
+  "Preset": "night",
+  "NightAt": 0.7,
+  "Overcast": [
+   0.3,
+   0.52
+  ]
+ },
+ "Comment": "time of day = race progress (0 start .. 1 finish): preset 'night', end state at 0.70, overcast 0.30 -> 0.52 - a recipe, composed in the game by HCT15.EnvComposer (the donor's own daylight + the plugin's palette)"
+}

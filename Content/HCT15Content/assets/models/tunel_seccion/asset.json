@@ -1,0 +1,11 @@
+{
+  "Id": "tunel_seccion",
+  "Name": "Tunnel section",
+  "Category": "landmark",
+  "Description": "7 m of tunnel: walls, ceiling and a light strip; repeat it along the covered stretch (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

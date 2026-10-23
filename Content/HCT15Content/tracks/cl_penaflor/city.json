@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_penaflor_city",
+ "ItemName": "city_cl_penaflor",
+ "DisplayName": "Peñaflor, Metropolitana",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_penaflor"
+ ]
+}

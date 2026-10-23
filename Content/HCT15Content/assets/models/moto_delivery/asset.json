@@ -1,0 +1,11 @@
+{
+  "Id": "moto_delivery",
+  "Name": "Delivery motorbike",
+  "Category": "prop",
+  "Description": "The delivery rider and the box on the back, 2 m, towards +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

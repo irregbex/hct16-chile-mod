@@ -1,0 +1,11 @@
+{
+  "Id": "jetski_negro_body",
+  "Name": "Jet ski Negro y oro (car body)",
+  "Category": "prop",
+  "Description": "The black and gold jet ski (No. 9) as a playable car, nose to +X; its rider is jetski_rider_negro (rider.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

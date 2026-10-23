@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_volcan_llaima_city",
+ "ItemName": "city_cl_volcan_llaima",
+ "DisplayName": "Volcán Llaima, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_volcan_llaima"
+ ]
+}

@@ -1,0 +1,13 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl horse_black
+Kd 0.1000 0.0900 0.0900
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl black
+Kd 0.0800 0.0800 0.0900
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

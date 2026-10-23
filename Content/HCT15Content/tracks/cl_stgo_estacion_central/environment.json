@@ -1,0 +1,9 @@
+{
+ "Mode": "progress",
+ "Seconds": 0,
+ "Recipe": {
+  "Preset": "sunset_to_night",
+  "NightAt": 0.6
+ },
+ "Comment": "time of day = race progress (0 start .. 1 finish): preset 'sunset_to_night', end state at 0.60 - a recipe, composed in the game by HCT15.EnvComposer (the donor's own daylight + the plugin's palette)"
+}

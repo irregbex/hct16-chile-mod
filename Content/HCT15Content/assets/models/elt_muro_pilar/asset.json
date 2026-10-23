@@ -1,0 +1,11 @@
+{
+  "Id": "elt_muro_pilar",
+  "Name": "ELT pier wall (inside)",
+  "Category": "landmark",
+  "Description": "16 m of the enclosure's inner wall as driven round inside it: the concrete pier with dark doors and site lights, a walkway with yellow rails, the blue panels and the black ribs above, 24 m tall, facing +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

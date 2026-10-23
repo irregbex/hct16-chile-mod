@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_copiapo_city",
+ "ItemName": "city_cl_copiapo",
+ "DisplayName": "Copiapó, Atacama",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_copiapo"
+ ]
+}

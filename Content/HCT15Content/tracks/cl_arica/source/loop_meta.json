@@ -1,0 +1,36 @@
+{
+ "centre": [
+  -18.4785288,
+  -70.3211394
+ ],
+ "target_m": 6000,
+ "length_m": 5269,
+ "edge_reuse": 0.018,
+ "streets": [
+  "Avenida Chile",
+  "Chacabuco",
+  "Rotonda Velásquez",
+  "Chacabuco",
+  "General Lagos",
+  "Bernardo O'Higgins",
+  "Avenida Comandante San Martín",
+  "Pedro Montt",
+  "Máximo Lira",
+  "Avenida Chile",
+  "Avenida Comandante San Martín",
+  "Ejército",
+  "Manuel Blanco Encalada",
+  "San Marcos",
+  "Pedro Montt",
+  "Avenida Comandante San Martín",
+  "Bernardo O'Higgins",
+  "Manuel Blanco Encalada",
+  "18 de Septiembre",
+  "Arturo Gallo",
+  "21 de Mayo",
+  "Arturo Gallo",
+  "San Marcos",
+  "Héroes del Morro"
+ ],
+ "sights": []
+}

@@ -1,0 +1,86 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    HCT 1.6 as a BepInEx 5 plugin: HCT15.dll, loaded on top of an UNMODIFIED Horizon Chase Turbo.
+    It is compiled AGAINST the game's own assemblies (reference only - they are never copied into the
+    output or shipped) and against BepInEx / HarmonyX. See README.txt at the repository root.
+
+    The game is Unity 2018.4 on the legacy .NET 3.5 profile, so the BCL comes from the game's Managed
+    folder (game-bcl). game-managed holds a copy of the player's own game assemblies (build-time only, never distributed).
+  -->
+  <PropertyGroup>
+    <AssemblyName>HCT15</AssemblyName>
+    <RootNamespace>HCT15</RootNamespace>
+    <TargetFramework>net472</TargetFramework>
+    <GameManaged>$(MSBuildProjectDirectory)\game-managed</GameManaged>
+    <!-- game-bcl\ = ONLY the game's .NET 3.5 base libraries (mscorlib, System*): pointing the framework path at the whole
+         Managed folder also handed the compiler the UN-publicized Assembly-CSharp, and it could pick either copy -->
+    <PublicizedDir>$(MSBuildProjectDirectory)\refs</PublicizedDir>
+    <BepInExCore>$(MSBuildProjectDirectory)\tools\BepInEx_x86\BepInEx\core</BepInExCore>
+    <FrameworkPathOverride>$(MSBuildProjectDirectory)\game-bcl</FrameworkPathOverride>
+    <TargetFrameworkRootPath>$(MSBuildProjectDirectory)\game-bcl</TargetFrameworkRootPath>
+    <NoConfig>true</NoConfig>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <AutoUnifyAssemblyReferences>false</AutoUnifyAssemblyReferences>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineConstants>$(DefineConstants);HCT15_PLUGIN</DefineConstants>
+    <!-- 2.2.0: the developer's build (Install-Plugin.ps1 in a version folder: -p:HCT15Dev=true) keeps the test switches that a
+         published build must not have, such as running a game copy without Steam -->
+    <DefineConstants Condition="'$(HCT15Dev)' == 'true'">$(DefineConstants);HCT15_DEV</DefineConstants>
+    <!-- no default items at all: the SDK otherwise lists every file in this folder as a reference CANDIDATE,
+         searched before the HintPaths - and game-managed\ holds the UN-publicized Assembly-CSharp -->
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <OutputPath>bin\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="src\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- the game: Assembly-CSharp from refs\ (a PUBLICIZED copy made by Mod\tools\publicize - build-time only,
+         git-ignored, never shipped), everything else straight from the game's own folder -->
+    <Reference Include="Assembly-CSharp"><HintPath>$(PublicizedDir)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="aq-framework"><HintPath>$(PublicizedDir)\aq-framework.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="aq-ui-framework"><HintPath>$(PublicizedDir)\aq-ui-framework.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="System"><HintPath>$(GameManaged)\System.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="System.Core"><HintPath>$(GameManaged)\System.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="System.Xml"><HintPath>$(GameManaged)\System.Xml.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="mscorlib"><HintPath>$(GameManaged)\mscorlib.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(GameManaged)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManaged)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(GameManaged)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AnimationModule"><HintPath>$(GameManaged)\UnityEngine.AnimationModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AudioModule"><HintPath>$(GameManaged)\UnityEngine.AudioModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.PhysicsModule"><HintPath>$(GameManaged)\UnityEngine.PhysicsModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UIModule"><HintPath>$(GameManaged)\UnityEngine.UIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AssetBundleModule"><HintPath>$(GameManaged)\UnityEngine.AssetBundleModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(GameManaged)\UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule"><HintPath>$(GameManaged)\UnityEngine.ParticleSystemModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.VideoModule"><HintPath>$(GameManaged)\UnityEngine.VideoModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(GameManaged)\UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule"><HintPath>$(GameManaged)\UnityEngine.JSONSerializeModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule"><HintPath>$(GameManaged)\UnityEngine.UnityWebRequestModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule"><HintPath>$(GameManaged)\UnityEngine.UnityWebRequestAudioModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(GameManaged)\UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule"><HintPath>$(GameManaged)\UnityEngine.ScreenCaptureModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.Ayrton"><HintPath>$(GameManaged)\Unity.Ayrton.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="DOTween"><HintPath>$(GameManaged)\DOTween.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="DOTween46"><HintPath>$(GameManaged)\DOTween46.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="InControl"><HintPath>$(GameManaged)\InControl.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Steamworks"><HintPath>$(GameManaged)\Steamworks.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Malee.ReorderableList"><HintPath>$(GameManaged)\Malee.ReorderableList.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Newtonsoft.Json"><HintPath>$(GameManaged)\Newtonsoft.Json.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="LitJson"><HintPath>$(GameManaged)\LitJson.dll</HintPath><Private>false</Private></Reference>
+    <!-- the loader -->
+    <Reference Include="BepInEx"><HintPath>$(BepInExCore)\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCore)\0Harmony.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

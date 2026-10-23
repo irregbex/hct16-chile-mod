@@ -1,0 +1,11 @@
+{
+ "ItemId": "f1_2026_r12",
+ "ItemName": "city_f1_2026_r12",
+ "DisplayName": "Zandvoort, Netherlands",
+ "CupId": "99_f1_2026",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "f1_2026_r12_zandvoort"
+ ]
+}

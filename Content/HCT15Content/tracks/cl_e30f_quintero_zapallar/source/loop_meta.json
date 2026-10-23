@@ -1,0 +1,22 @@
+{
+ "start": [
+  -32.7935,
+  -71.512
+ ],
+ "end": [
+  -32.5535,
+  -71.4625
+ ],
+ "length_m": 27097,
+ "return_m": 27097,
+ "finish_index": 1300,
+ "streets": [
+  "Avenida Januario Ovalle",
+  "Ruta E-30-F",
+  "Avenida Presidente Ríos",
+  "Ruta E-30-F",
+  "Acceso a Quintero",
+  "Camino a Loncura Bajo"
+ ],
+ "sights": []
+}

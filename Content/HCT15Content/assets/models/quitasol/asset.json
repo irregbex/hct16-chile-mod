@@ -1,0 +1,11 @@
+{
+  "Id": "quitasol",
+  "Name": "Beach umbrella",
+  "Category": "prop",
+  "Description": "Striped beach umbrella over a towel, 2.6 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,22 @@
+{
+ "start": [
+  -32.452,
+  -71.231
+ ],
+ "end": [
+  -32.245,
+  -71.51
+ ],
+ "length_m": 35384,
+ "return_m": 35384,
+ "finish_index": 589,
+ "streets": [
+  "Avenida Los Pescadores",
+  "Ruta 5 Norte",
+  "Ruta E-35",
+  "Avenida Diego Portales",
+  "Luis Laulie",
+  "Luis Cruz Martínez"
+ ],
+ "sights": []
+}

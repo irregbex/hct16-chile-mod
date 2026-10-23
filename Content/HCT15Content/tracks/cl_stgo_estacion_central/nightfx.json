@@ -1,0 +1,18 @@
+{
+ "Comment": "Estación Central: fireworks over the city the whole race, with sound",
+ "Fireworks": {
+  "From": 0.0,
+  "To": 1.0,
+  "Every": 1.2,
+  "Volume": 0.85,
+  "Sound": true,
+  "Colours": [
+   "#ff3040",
+   "#3070ff",
+   "#ffffff",
+   "#ffd040",
+   "#40ff80",
+   "#ff50ff"
+  ]
+ }
+}

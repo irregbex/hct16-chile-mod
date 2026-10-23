@@ -1,0 +1,21 @@
+{
+ "Comment": "A huaso crosses on his way to the rodeo ring",
+ "Items": [
+  {
+   "Asset": "caballo_huaso",
+   "P": 0.751,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 3.29
+  },
+  {
+   "Asset": "caballo_huaso",
+   "P": 0.081,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 3.027
+  }
+ ]
+}

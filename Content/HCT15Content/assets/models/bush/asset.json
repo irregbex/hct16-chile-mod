@@ -1,0 +1,11 @@
+{
+  "Id": "bush",
+  "Name": "Bush",
+  "Category": "tree",
+  "Description": "Two low balls, 1.6 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

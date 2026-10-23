@@ -1,0 +1,11 @@
+{
+  "Id": "carrito_helados",
+  "Name": "Ice-cream cart",
+  "Category": "prop",
+  "Description": "A beach ice-cream cart with its umbrella and the vendor",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

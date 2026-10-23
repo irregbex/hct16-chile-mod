@@ -1,0 +1,11 @@
+{
+  "Id": "faro",
+  "Name": "Lighthouse",
+  "Category": "landmark",
+  "Description": "Red and white lighthouse of a Chilean port, 19 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

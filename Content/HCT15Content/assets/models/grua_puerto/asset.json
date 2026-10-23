@@ -1,0 +1,11 @@
+{
+  "Id": "grua_puerto",
+  "Name": "Container crane",
+  "Category": "landmark",
+  "Description": "Port gantry crane over the quay, boom towards the road (+X), 22 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

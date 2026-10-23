@@ -1,0 +1,43 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl mine_shed_dark
+Kd 0.4600 0.4900 0.5300
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl mine_yellow
+Kd 0.9500 0.7200 0.1000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl mine_shed
+Kd 0.7200 0.7400 0.7600
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl glass_dark
+Kd 0.2600 0.3400 0.4200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl black
+Kd 0.0800 0.0800 0.0900
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl metal
+Kd 0.6000 0.6200 0.6600
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl amber
+Kd 0.9600 0.6200 0.1200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

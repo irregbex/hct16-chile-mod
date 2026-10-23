@@ -1,0 +1,17 @@
+{
+ "Comment": "a storm that opens onto the southern lights, the shower passes",
+ "RainT": [
+  0.0,
+  0.35,
+  0.75,
+  1.0
+ ],
+ "RainV": [
+  0.893,
+  0.697,
+  0.196,
+  0.0
+ ],
+ "Sound": true,
+ "Grip": 0.8
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "elt_techo_interior",
+  "Name": "ELT dome ribs overhead",
+  "Category": "landmark",
+  "Description": "The dome's black steel ribs and blue panels arching over the road inside the enclosure, with hanging lamps; 8 m of it, repeat along the inside (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

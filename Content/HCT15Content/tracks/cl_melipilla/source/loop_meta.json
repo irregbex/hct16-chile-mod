@@ -1,0 +1,31 @@
+{
+ "centre": [
+  -33.6855134,
+  -71.2145796
+ ],
+ "target_m": 5000,
+ "length_m": 4894,
+ "edge_reuse": 0.002,
+ "streets": [
+  "Vicuña Mackenna",
+  "Alcalde",
+  "Arza",
+  "Pardo",
+  "Vicuña Mackenna",
+  "El Morro",
+  "Correa",
+  "Serrano",
+  "Libertad",
+  "Santa Bárbara",
+  "El Morro",
+  "Alcalde",
+  "Libertad",
+  "Fuenzalida",
+  "Barrales",
+  "Barros",
+  "Avenida Conde de Manso",
+  "Serrano",
+  "Alcalde"
+ ],
+ "sights": []
+}

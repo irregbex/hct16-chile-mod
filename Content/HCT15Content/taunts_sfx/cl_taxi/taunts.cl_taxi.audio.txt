@@ -1,0 +1,63 @@
+# cl_taxi - mapa frase -> audio. Mismo orden que taunts.cl_taxi.txt
+# linea_origen | archivo | texto
+
+[random]
+  4 | audio/random/random_01.wav         | ¡Qué te pasa, conchetumare!
+  5 | audio/random/random_02.wav         | ¡Córrete, weón culiao!
+  6 | audio/random/random_03.wav         | ¡Erís más lento que la micro, aweonao!
+  7 | audio/random/random_04.wav         | ¡Ya po, weón, ¿vai a avanzar o no?!
+  8 | audio/random/random_05.wav         | ¡Pa' qué te dieron licencia, gil culiao!
+  9 | audio/random/random_06.wav         | ¡La pista no es tuya, conchetumare!
+ 10 | audio/random/random_07.wav         | ¡Estái más perdío que el teniente Bello, weón!
+ 11 | audio/random/random_08.wav         | ¡Andái puro weando, culiao!
+ 12 | audio/random/random_09.wav         | ¡Me tenís chato, weón!
+ 13 | audio/random/random_10.wav         | ¡Sácate de ahí, pastel!
+ 14 | audio/random/random_11.wav         | ¡Manejái como el forro!
+ 15 | audio/random/random_12.wav         | ¡Oe, pajarón, mira pa' delante!
+ 16 | audio/random/random_13.wav         | ¡Aweonao, tenís el tarro en neutro!
+ 17 | audio/random/random_14.wav         | ¡Qué onda, perkin, ¿te compraste la calle?!
+ 18 | audio/random/random_15.wav         | ¡Te voy a sacar la cresta, weón!
+ 19 | audio/random/random_16.wav         | ¡Puro color tirái, chanta culiao!
+ 20 | audio/random/random_17.wav         | ¡Anda a acostarte, pollo!
+ 21 | audio/random/random_18.wav         | ¡Ni el Transantiago es tan lento, weón!
+ 22 | audio/random/random_19.wav         | ¡Me caís como las weas, conchetumare!
+
+[nitro]
+ 25 | audio/nitro/nitro_01.wav           | ¡Agárrate, que voy a la chucha!
+ 26 | audio/nitro/nitro_02.wav           | ¡A la cresta con el taxímetro!
+ 27 | audio/nitro/nitro_03.wav           | ¡Pa' la pampa, weón!
+ 28 | audio/nitro/nitro_04.wav           | ¡Voy más rápido que la cresta!
+ 29 | audio/nitro/nitro_05.wav           | ¡Suelta la weá, que nos vamos!
+ 30 | audio/nitro/nitro_06.wav           | ¡Chao con tu weá!
+
+[out_of_nitros]
+ 33 | audio/out_of_nitros/out_of_nitros_01.wav | ¡Chucha, se me acabó la weá!
+ 34 | audio/out_of_nitros/out_of_nitros_02.wav | ¡Puta la cagá, sin nitro!
+ 35 | audio/out_of_nitros/out_of_nitros_03.wav | ¡Me quedé seco, conchetumare!
+ 36 | audio/out_of_nitros/out_of_nitros_04.wav | ¡Mierda, ando a pata!
+
+[crash]
+ 39 | audio/crash/crash_01.wav           | ¡Conchetumare, me rayaste el taxi!
+ 40 | audio/crash/crash_02.wav           | ¡Me sacaste la cresta, culiao!
+ 41 | audio/crash/crash_03.wav           | ¡Vo' me pagái el choque, weón!
+ 42 | audio/crash/crash_04.wav           | ¡Puta la weá, mi parachoque!
+ 43 | audio/crash/crash_05.wav           | ¡Weón culiao, ¿no veí o qué?!
+ 44 | audio/crash/crash_06.wav           | ¡Te voy a sacar la chucha, pastel!
+ 45 | audio/crash/crash_07.wav           | ¡Qué hací, saco 'e weas!
+ 46 | audio/crash/crash_08.wav           | ¡Me cagaste la pega, conchetumare!
+
+[overtake]
+ 49 | audio/overtake/overtake_01.wav     | ¡Chao, gil culiao!
+ 50 | audio/overtake/overtake_02.wav     | ¡Te pasé por la chucha!
+ 51 | audio/overtake/overtake_03.wav     | ¡Quedaste pa' la cagá, weón!
+ 52 | audio/overtake/overtake_04.wav     | ¡Aprende, aweonao!
+ 53 | audio/overtake/overtake_05.wav     | ¡Te dejé botao como colilla!
+ 54 | audio/overtake/overtake_06.wav     | ¡Mírame la patente, gil!
+ 55 | audio/overtake/overtake_07.wav     | ¡Por la cresta que erís lento!
+ 56 | audio/overtake/overtake_08.wav     | ¡Hasta la vista, pajarón!
+
+[first_place]
+ 59 | audio/first_place/first_place_01.wav | ¡La raja, conchetumare!
+ 60 | audio/first_place/first_place_02.wav | ¡Soy el más vio de Santiago, weón!
+ 61 | audio/first_place/first_place_03.wav | ¡Chúpense esa, culiaos!
+ 62 | audio/first_place/first_place_04.wav | ¡Primero, y el resto que se vaya a la chucha!

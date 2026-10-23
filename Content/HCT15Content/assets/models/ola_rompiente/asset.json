@@ -1,0 +1,12 @@
+{
+  "Id": "ola_rompiente",
+  "Name": "Breaking wave",
+  "Category": "landmark",
+  "Description": "A wave rolling in from the open sea towards the course: HCT15.RollingWave draws and moves it (asset.json Anim rollwave); the file holds a small patch of sea",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "rollwave"
+}

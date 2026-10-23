@@ -1,0 +1,77 @@
+# HCT 1.6 - speech bubbles for the Grand Prix 2026 campaign (pit-radio English)
+# Sections: [random] anything, [nitro] when boosting, [out_of_nitros], [crash] after a hit, [overtake], [first_place]
+# One line per bubble. '#' starts a comment. UTF-8. Each car gets its own fixed set from these.
+
+[random]
+Box, box!
+Copy that.
+Mamma mia!
+Push now, push!
+DRS enabled.
+Plan B, plan B!
+We are checking.
+Tyres are gone, mate.
+Blue flags! Blue flags!
+Mind the track limits.
+Full send.
+I'm losing power!
+Let's go!
+Come on, come on!
+Tell him to move!
+I need clean air.
+How's the gap?
+Save fuel? Are you serious?
+No, no, no, no!
+What's the plan?
+Keep it clean out there.
+This is how you drive, mate!
+Everything is under control.
+What tyre is he on?
+Sector one purple!
+Push like hell!
+Radio check.
+
+[nitro]
+DRS open, push!
+Overtake mode on!
+Deploy, deploy!
+Full power now!
+Quali mode, go!
+
+[out_of_nitros]
+No more deploy.
+Battery is empty.
+Save the energy.
+Lift and coast.
+We have nothing left.
+
+[crash]
+He hit me!
+Where is he going?!
+What a dangerous driver!
+Unbelievable!
+Are you kidding me?!
+I have damage!
+Front wing is gone!
+He pushed me off!
+That was not my fault!
+Check the car, please.
+
+[overtake]
+Bye bye!
+Too easy!
+The undercut worked!
+See you later!
+Get in there!
+Good move, mate.
+Thank you, next!
+That's how it's done.
+DRS train is over.
+
+[first_place]
+P1! P1!
+We did it, guys!
+Yes! Yes! Yes!
+Leading the race!
+Get in there!
+What a drive!

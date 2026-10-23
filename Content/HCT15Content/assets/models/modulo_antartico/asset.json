@@ -1,0 +1,11 @@
+{
+  "Id": "modulo_antartico",
+  "Name": "Antarctic base module",
+  "Category": "landmark",
+  "Description": "The orange-red huts of an Antarctic station on stilts, 6 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

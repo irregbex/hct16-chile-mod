@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_linares_city",
+ "ItemName": "city_cl_linares",
+ "DisplayName": "Linares, Maule",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_linares"
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "Comment": "A flamingo from the salt flat stands in the middle of the avenue",
+ "Items": [
+  {
+   "Asset": "flamenco",
+   "P": 0.44,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 7.0
+  },
+  {
+   "Asset": "burro",
+   "P": 0.7,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 4.96
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_lago_caburgua_city",
+ "ItemName": "city_cl_lago_caburgua",
+ "DisplayName": "Lago Caburgua, Araucanía",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_lago_caburgua"
+ ]
+}

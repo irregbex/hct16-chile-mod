@@ -1,0 +1,11 @@
+{
+  "Id": "antena_alma",
+  "Name": "ALMA antenna",
+  "Category": "landmark",
+  "Description": "A 12 m radio dish on its yoke, tilted to the sky, 14 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

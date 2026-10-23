@@ -1,0 +1,509 @@
+{
+  "car": "cl_carreta",
+  "source": "taunts.cl_carreta.txt",
+  "format": "wav pcm_s16le 48000Hz mono",
+  "sections": {
+    "random": [
+      {
+        "index": 1,
+        "source_line": 5,
+        "text": "¡Arre, Colorao, que estos culiaos de la ciudad no saben manejar!",
+        "tts_script": "¡Arre, Colorao, que estos culiaos de la ciudad no saben manejar!",
+        "file": "audio/random/random_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 6,
+        "text": "¡Sale del camino, weón, que la carreta no frena!",
+        "tts_script": "¡Sale del camino, hueón, que la carreta no frena!",
+        "file": "audio/random/random_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 7,
+        "text": "¡Tanto motor y te paso con un caballo, aweonao!",
+        "tts_script": "¡Tanto motor y te paso con un caballo, ahueonao!",
+        "file": "audio/random/random_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 8,
+        "text": "¡Este caballo tiene más fierro que tu auto, gil!",
+        "tts_script": "¡Este caballo tiene más fierro que tu auto, gil!",
+        "file": "audio/random/random_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 9,
+        "text": "¡Ándate a la chucha con tu bencina, yo ando con pasto!",
+        "tts_script": "¡Ándate a la chucha con tu bencina, yo ando con pasto!",
+        "file": "audio/random/random_05.wav"
+      },
+      {
+        "index": 6,
+        "source_line": 10,
+        "text": "¡Correte, huevón, que el Colorao patea!",
+        "tts_script": "¡Correte, huevón, que el Colorao patea!",
+        "file": "audio/random/random_06.wav"
+      },
+      {
+        "index": 7,
+        "source_line": 11,
+        "text": "¡Más lento que buey cansao andái, culiao!",
+        "tts_script": "¡Más lento que buey cansao andái, culiao!",
+        "file": "audio/random/random_07.wav"
+      },
+      {
+        "index": 8,
+        "source_line": 12,
+        "text": "¡Pa' qué tanto auto si manejái como las weás!",
+        "tts_script": "¡Pa' qué tanto auto si manejái como las hueás!",
+        "file": "audio/random/random_08.wav"
+      },
+      {
+        "index": 9,
+        "source_line": 13,
+        "text": "¡En el campo te comen los zancudos, gil de ciudad!",
+        "tts_script": "¡En el campo te comen los zancudos, gil de ciudad!",
+        "file": "audio/random/random_09.wav"
+      },
+      {
+        "index": 10,
+        "source_line": 14,
+        "text": "¡Te voy a dejar comiendo polvo hasta Illapel, aweonao!",
+        "tts_script": "¡Te voy a dejar comiendo polvo hasta Illapel, ahueonao!",
+        "file": "audio/random/random_10.wav"
+      },
+      {
+        "index": 11,
+        "source_line": 15,
+        "text": "¡No sabís ni ensillar un caballo y te creí piloto, weón!",
+        "tts_script": "¡No sabís ni ensillar un caballo y te creí piloto, hueón!",
+        "file": "audio/random/random_11.wav"
+      },
+      {
+        "index": 12,
+        "source_line": 16,
+        "text": "¡Quítate, chanta, que voy cargado de pasto!",
+        "tts_script": "¡Quítate, chanta, que voy cargado de pasto!",
+        "file": "audio/random/random_12.wav"
+      },
+      {
+        "index": 13,
+        "source_line": 17,
+        "text": "¡Con chupalla y manta te gano igual, culiao!",
+        "tts_script": "¡Con chupalla y manta te gano igual, culiao!",
+        "file": "audio/random/random_13.wav"
+      },
+      {
+        "index": 14,
+        "source_line": 18,
+        "text": "¡Este camino es mío desde antes que nacierai, gil!",
+        "tts_script": "¡Este camino es mío desde antes que nacierai, gil!",
+        "file": "audio/random/random_14.wav"
+      },
+      {
+        "index": 15,
+        "source_line": 19,
+        "text": "¡Bocina tócale a tu abuela, huevón!",
+        "tts_script": "¡Bocina tócale a tu abuela, huevón!",
+        "file": "audio/random/random_15.wav"
+      },
+      {
+        "index": 16,
+        "source_line": 20,
+        "text": "¡Puro ruido y nada de caballo, aweonao!",
+        "tts_script": "¡Puro ruido y nada de caballo, ahueonao!",
+        "file": "audio/random/random_16.wav"
+      },
+      {
+        "index": 17,
+        "source_line": 21,
+        "text": "¡Te quedaste pegao como carreta en el barro, weón!",
+        "tts_script": "¡Te quedaste pegao como carreta en el barro, hueón!",
+        "file": "audio/random/random_17.wav"
+      },
+      {
+        "index": 18,
+        "source_line": 22,
+        "text": "¡Ni pa' tirar una carretilla servís, culiao!",
+        "tts_script": "¡Ni pa' tirar una carretilla servís, culiao!",
+        "file": "audio/random/random_18.wav"
+      },
+      {
+        "index": 19,
+        "source_line": 23,
+        "text": "¡Vuelve a Santiago, que acá no te quieren, gil!",
+        "tts_script": "¡Vuelve a Santiago, que acá no te quieren, gil!",
+        "file": "audio/random/random_19.wav"
+      },
+      {
+        "index": 20,
+        "source_line": 24,
+        "text": "¡Mi caballo come avena y tú comís polvo, aweonao!",
+        "tts_script": "¡Mi caballo come avena y tú comís polvo, ahueonao!",
+        "file": "audio/random/random_20.wav"
+      },
+      {
+        "index": 21,
+        "source_line": 25,
+        "text": "¡Échate pa' la orilla, que vienen los de a caballo, weón!",
+        "tts_script": "¡Échate pa' la orilla, que vienen los de a caballo, hueón!",
+        "file": "audio/random/random_21.wav"
+      },
+      {
+        "index": 22,
+        "source_line": 26,
+        "text": "¡Más perdío que huaso en el metro andái, culiao!",
+        "tts_script": "¡Más perdío que huaso en el metro andái, culiao!",
+        "file": "audio/random/random_22.wav"
+      },
+      {
+        "index": 23,
+        "source_line": 27,
+        "text": "¡Te paso por el lado y ni me ves, chanta!",
+        "tts_script": "¡Te paso por el lado y ni me ves, chanta!",
+        "file": "audio/random/random_23.wav"
+      },
+      {
+        "index": 24,
+        "source_line": 28,
+        "text": "¡Tu auto es puro juguete, huevón, esto es fierro y palo!",
+        "tts_script": "¡Tu auto es puro juguete, huevón, esto es fierro y palo!",
+        "file": "audio/random/random_24.wav"
+      },
+      {
+        "index": 25,
+        "source_line": 29,
+        "text": "¡Ni en la trilla he visto tanta weá junta!",
+        "tts_script": "¡Ni en la trilla he visto tanta hueá junta!",
+        "file": "audio/random/random_25.wav"
+      },
+      {
+        "index": 26,
+        "source_line": 30,
+        "text": "¡Arre, Colorao, atropella a ese aweonao!",
+        "tts_script": "¡Arre, Colorao, atropella a ese ahueonao!",
+        "file": "audio/random/random_26.wav"
+      },
+      {
+        "index": 27,
+        "source_line": 31,
+        "text": "¡Andái más pegao que chicle en la chupalla, gil!",
+        "tts_script": "¡Andái más pegao que chicle en la chupalla, gil!",
+        "file": "audio/random/random_27.wav"
+      },
+      {
+        "index": 28,
+        "source_line": 32,
+        "text": "¡Aprende a manejar, culiao, que el caballo maneja mejor!",
+        "tts_script": "¡Aprende a manejar, culiao, que el caballo maneja mejor!",
+        "file": "audio/random/random_28.wav"
+      },
+      {
+        "index": 29,
+        "source_line": 33,
+        "text": "¡Con este calor y tú con aire acondicionao, flojo culiao!",
+        "tts_script": "¡Con este calor y tú con aire acondicionao, flojo culiao!",
+        "file": "audio/random/random_29.wav"
+      },
+      {
+        "index": 30,
+        "source_line": 34,
+        "text": "¡Mi abuela maneja la carreta mejor que tú, weón!",
+        "tts_script": "¡Mi abuela maneja la carreta mejor que tú, hueón!",
+        "file": "audio/random/random_30.wav"
+      },
+      {
+        "index": 31,
+        "source_line": 35,
+        "text": "¡Te voy a tirar las piedras del camino, aweonao!",
+        "tts_script": "¡Te voy a tirar las piedras del camino, ahueonao!",
+        "file": "audio/random/random_31.wav"
+      },
+      {
+        "index": 32,
+        "source_line": 36,
+        "text": "¡Que te pille la noche en la cuesta, gil!",
+        "tts_script": "¡Que te pille la noche en la cuesta, gil!",
+        "file": "audio/random/random_32.wav"
+      },
+      {
+        "index": 33,
+        "source_line": 37,
+        "text": "¡Ni el perro del fundo te sigue, culiao!",
+        "tts_script": "¡Ni el perro del fundo te sigue, culiao!",
+        "file": "audio/random/random_33.wav"
+      },
+      {
+        "index": 34,
+        "source_line": 38,
+        "text": "¡Mira pa' adelante, huevón, que se te viene el caballo encima!",
+        "tts_script": "¡Mira pa' adelante, huevón, que se te viene el caballo encima!",
+        "file": "audio/random/random_34.wav"
+      },
+      {
+        "index": 35,
+        "source_line": 39,
+        "text": "¡Pura pinta y nada de huevos tenís, weón!",
+        "tts_script": "¡Pura pinta y nada de huevos tenís, hueón!",
+        "file": "audio/random/random_35.wav"
+      },
+      {
+        "index": 36,
+        "source_line": 40,
+        "text": "¡En Cuz Cuz te espero pa' sacarte la cresta, culiao!",
+        "tts_script": "¡En Cuz Cuz te espero pa' sacarte la cresta, culiao!",
+        "file": "audio/random/random_36.wav"
+      },
+      {
+        "index": 37,
+        "source_line": 41,
+        "text": "¡El que no tiene caballo anda a pata, aweonao!",
+        "tts_script": "¡El que no tiene caballo anda a pata, ahueonao!",
+        "file": "audio/random/random_37.wav"
+      },
+      {
+        "index": 38,
+        "source_line": 42,
+        "text": "¡Correte, que te escupe el Colorao, gil!",
+        "tts_script": "¡Correte, que te escupe el Colorao, gil!",
+        "file": "audio/random/random_38.wav"
+      },
+      {
+        "index": 39,
+        "source_line": 43,
+        "text": "¡Tanta luz pa' ir tan atrás, chanta culiao!",
+        "tts_script": "¡Tanta luz pa' ir tan atrás, chanta culiao!",
+        "file": "audio/random/random_39.wav"
+      },
+      {
+        "index": 40,
+        "source_line": 44,
+        "text": "¡Esto es carrera de huasos, no de flaites, weón!",
+        "tts_script": "¡Esto es carrera de huasos, no de flaites, hueón!",
+        "file": "audio/random/random_40.wav"
+      },
+      {
+        "index": 41,
+        "source_line": 45,
+        "text": "¡Te dejo más atrás que el último vagón, aweonao!",
+        "tts_script": "¡Te dejo más atrás que el último vagón, ahueonao!",
+        "file": "audio/random/random_41.wav"
+      },
+      {
+        "index": 42,
+        "source_line": 46,
+        "text": "¡Bájate y empuja, que ni con motor avanzái, gil!",
+        "tts_script": "¡Bájate y empuja, que ni con motor avanzái, gil!",
+        "file": "audio/random/random_42.wav"
+      },
+      {
+        "index": 43,
+        "source_line": 47,
+        "text": "¡Te paso con pasto y todo, culiao!",
+        "tts_script": "¡Te paso con pasto y todo, culiao!",
+        "file": "audio/random/random_43.wav"
+      },
+      {
+        "index": 44,
+        "source_line": 48,
+        "text": "¡Andái como vaca en la pista, weón!",
+        "tts_script": "¡Andái como vaca en la pista, hueón!",
+        "file": "audio/random/random_44.wav"
+      },
+      {
+        "index": 45,
+        "source_line": 49,
+        "text": "¡Ni pa' espantapájaros servís, aweonao!",
+        "tts_script": "¡Ni pa' espantapájaros servís, ahueonao!",
+        "file": "audio/random/random_45.wav"
+      },
+      {
+        "index": 46,
+        "source_line": 50,
+        "text": "¡Qué te creís, si yo nací arriba de una carreta, culiao!",
+        "tts_script": "¡Qué te creís, si yo nací arriba de una carreta, culiao!",
+        "file": "audio/random/random_46.wav"
+      },
+      {
+        "index": 47,
+        "source_line": 51,
+        "text": "¡A este paso llegái pa' la próxima vendimia, gil!",
+        "tts_script": "¡A este paso llegái pa' la próxima vendimia, gil!",
+        "file": "audio/random/random_47.wav"
+      },
+      {
+        "index": 48,
+        "source_line": 52,
+        "text": "¡Chao, weón, salúdame a los zorzales!",
+        "tts_script": "¡Chao, hueón, salúdame a los zorzales!",
+        "file": "audio/random/random_48.wav"
+      },
+      {
+        "index": 49,
+        "source_line": 53,
+        "text": "¡La carreta manda en el camino viejo, culiao, acostúmbrate!",
+        "tts_script": "¡La carreta manda en el camino viejo, culiao, acostúmbrate!",
+        "file": "audio/random/random_49.wav"
+      },
+      {
+        "index": 50,
+        "source_line": 54,
+        "text": "¡Arre, arre, que estos aweonaos se quedan dormidos!",
+        "tts_script": "¡Arre, arre, que estos ahueonaos se quedan dormidos!",
+        "file": "audio/random/random_50.wav"
+      }
+    ],
+    "nitro": [
+      {
+        "index": 1,
+        "source_line": 57,
+        "text": "¡Arre, Colorao, a todo galope, conchetumare!",
+        "tts_script": "¡Arre, Colorao, a todo galope, conchetumare!",
+        "file": "audio/nitro/nitro_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 58,
+        "text": "¡Tome avena, caballo, que ahora sí los dejamos botaos!",
+        "tts_script": "¡Tome avena, caballo, que ahora sí los dejamos botaos!",
+        "file": "audio/nitro/nitro_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 59,
+        "text": "¡Ahora sí que se viene la carreta, culiaos!",
+        "tts_script": "¡Ahora sí que se viene la carreta, culiaos!",
+        "file": "audio/nitro/nitro_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 60,
+        "text": "¡Al galope tendido, como en la trilla, weón!",
+        "tts_script": "¡Al galope tendido, como en la trilla, hueón!",
+        "file": "audio/nitro/nitro_04.wav"
+      }
+    ],
+    "out_of_nitros": [
+      {
+        "index": 1,
+        "source_line": 63,
+        "text": "¡Se acabó la avena, puta la weá!",
+        "tts_script": "¡Se acabó la avena, puta la hueá!",
+        "file": "audio/out_of_nitros/out_of_nitros_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 64,
+        "text": "¡El Colorao pide agua, chucha!",
+        "tts_script": "¡El Colorao pide agua, chucha!",
+        "file": "audio/out_of_nitros/out_of_nitros_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 65,
+        "text": "¡Al tranquito no más, que ya no queda nada, culiao!",
+        "tts_script": "¡Al tranquito no más, que ya no queda nada, culiao!",
+        "file": "audio/out_of_nitros/out_of_nitros_03.wav"
+      }
+    ],
+    "crash": [
+      {
+        "index": 1,
+        "source_line": 68,
+        "text": "¡Pucha la weá, se me salió una rueda de palo!",
+        "tts_script": "¡Pucha la hueá, se me salió una rueda de palo!",
+        "file": "audio/crash/crash_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 69,
+        "text": "¡Cuidado con el caballo, bruto culiao!",
+        "tts_script": "¡Cuidado con el caballo, bruto culiao!",
+        "file": "audio/crash/crash_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 70,
+        "text": "¡Casi vuelco la carreta, aweonao!",
+        "tts_script": "¡Casi vuelco la carreta, ahueonao!",
+        "file": "audio/crash/crash_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 71,
+        "text": "¡Me botaste el pasto, gil!",
+        "tts_script": "¡Me botaste el pasto, gil!",
+        "file": "audio/crash/crash_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 72,
+        "text": "¡Así no se trata a un animal, huevón!",
+        "tts_script": "¡Así no se trata a un animal, huevón!",
+        "file": "audio/crash/crash_05.wav"
+      }
+    ],
+    "overtake": [
+      {
+        "index": 1,
+        "source_line": 75,
+        "text": "¡Permiso, que va pasando la carreta, weón!",
+        "tts_script": "¡Permiso, que va pasando la carreta, hueón!",
+        "file": "audio/overtake/overtake_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 76,
+        "text": "¡Chao, culiao, nos vemos en Illapel!",
+        "tts_script": "¡Chao, culiao, nos vemos en Illapel!",
+        "file": "audio/overtake/overtake_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 77,
+        "text": "¡Ni la Panamericana me ataja, aweonao!",
+        "tts_script": "¡Ni la Panamericana me ataja, ahueonao!",
+        "file": "audio/overtake/overtake_03.wav"
+      },
+      {
+        "index": 4,
+        "source_line": 78,
+        "text": "¡Te pasé por el lado con caballo y todo, gil!",
+        "tts_script": "¡Te pasé por el lado con caballo y todo, gil!",
+        "file": "audio/overtake/overtake_04.wav"
+      },
+      {
+        "index": 5,
+        "source_line": 79,
+        "text": "¡Quédate atrás comiendo polvo, chanta!",
+        "tts_script": "¡Quédate atrás comiendo polvo, chanta!",
+        "file": "audio/overtake/overtake_05.wav"
+      }
+    ],
+    "first_place": [
+      {
+        "index": 1,
+        "source_line": 82,
+        "text": "¡Primero el Colorao, después los culiaos con motor!",
+        "tts_script": "¡Primero el Colorao, después los culiaos con motor!",
+        "file": "audio/first_place/first_place_01.wav"
+      },
+      {
+        "index": 2,
+        "source_line": 83,
+        "text": "¡Llegando a Illapel como en los viejos tiempos, weón!",
+        "tts_script": "¡Llegando a Illapel como en los viejos tiempos, hueón!",
+        "file": "audio/first_place/first_place_02.wav"
+      },
+      {
+        "index": 3,
+        "source_line": 84,
+        "text": "¡Puro campo y puro corazón, primerito, aweonaos!",
+        "tts_script": "¡Puro campo y puro corazón, primerito, ahueonaos!",
+        "file": "audio/first_place/first_place_03.wav"
+      }
+    ]
+  }
+}

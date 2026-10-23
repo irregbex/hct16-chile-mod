@@ -1,0 +1,84 @@
+# cl_carreta - mapa frase -> audio. Mismo orden que taunts.cl_carreta.txt
+# linea_origen | archivo | texto
+
+[random]
+  5 | audio/random/random_01.wav           | ¡Arre, Colorao, que estos culiaos de la ciudad no saben manejar!
+  6 | audio/random/random_02.wav           | ¡Sale del camino, weón, que la carreta no frena!
+  7 | audio/random/random_03.wav           | ¡Tanto motor y te paso con un caballo, aweonao!
+  8 | audio/random/random_04.wav           | ¡Este caballo tiene más fierro que tu auto, gil!
+  9 | audio/random/random_05.wav           | ¡Ándate a la chucha con tu bencina, yo ando con pasto!
+ 10 | audio/random/random_06.wav           | ¡Correte, huevón, que el Colorao patea!
+ 11 | audio/random/random_07.wav           | ¡Más lento que buey cansao andái, culiao!
+ 12 | audio/random/random_08.wav           | ¡Pa' qué tanto auto si manejái como las weás!
+ 13 | audio/random/random_09.wav           | ¡En el campo te comen los zancudos, gil de ciudad!
+ 14 | audio/random/random_10.wav           | ¡Te voy a dejar comiendo polvo hasta Illapel, aweonao!
+ 15 | audio/random/random_11.wav           | ¡No sabís ni ensillar un caballo y te creí piloto, weón!
+ 16 | audio/random/random_12.wav           | ¡Quítate, chanta, que voy cargado de pasto!
+ 17 | audio/random/random_13.wav           | ¡Con chupalla y manta te gano igual, culiao!
+ 18 | audio/random/random_14.wav           | ¡Este camino es mío desde antes que nacierai, gil!
+ 19 | audio/random/random_15.wav           | ¡Bocina tócale a tu abuela, huevón!
+ 20 | audio/random/random_16.wav           | ¡Puro ruido y nada de caballo, aweonao!
+ 21 | audio/random/random_17.wav           | ¡Te quedaste pegao como carreta en el barro, weón!
+ 22 | audio/random/random_18.wav           | ¡Ni pa' tirar una carretilla servís, culiao!
+ 23 | audio/random/random_19.wav           | ¡Vuelve a Santiago, que acá no te quieren, gil!
+ 24 | audio/random/random_20.wav           | ¡Mi caballo come avena y tú comís polvo, aweonao!
+ 25 | audio/random/random_21.wav           | ¡Échate pa' la orilla, que vienen los de a caballo, weón!
+ 26 | audio/random/random_22.wav           | ¡Más perdío que huaso en el metro andái, culiao!
+ 27 | audio/random/random_23.wav           | ¡Te paso por el lado y ni me ves, chanta!
+ 28 | audio/random/random_24.wav           | ¡Tu auto es puro juguete, huevón, esto es fierro y palo!
+ 29 | audio/random/random_25.wav           | ¡Ni en la trilla he visto tanta weá junta!
+ 30 | audio/random/random_26.wav           | ¡Arre, Colorao, atropella a ese aweonao!
+ 31 | audio/random/random_27.wav           | ¡Andái más pegao que chicle en la chupalla, gil!
+ 32 | audio/random/random_28.wav           | ¡Aprende a manejar, culiao, que el caballo maneja mejor!
+ 33 | audio/random/random_29.wav           | ¡Con este calor y tú con aire acondicionao, flojo culiao!
+ 34 | audio/random/random_30.wav           | ¡Mi abuela maneja la carreta mejor que tú, weón!
+ 35 | audio/random/random_31.wav           | ¡Te voy a tirar las piedras del camino, aweonao!
+ 36 | audio/random/random_32.wav           | ¡Que te pille la noche en la cuesta, gil!
+ 37 | audio/random/random_33.wav           | ¡Ni el perro del fundo te sigue, culiao!
+ 38 | audio/random/random_34.wav           | ¡Mira pa' adelante, huevón, que se te viene el caballo encima!
+ 39 | audio/random/random_35.wav           | ¡Pura pinta y nada de huevos tenís, weón!
+ 40 | audio/random/random_36.wav           | ¡En Cuz Cuz te espero pa' sacarte la cresta, culiao!
+ 41 | audio/random/random_37.wav           | ¡El que no tiene caballo anda a pata, aweonao!
+ 42 | audio/random/random_38.wav           | ¡Correte, que te escupe el Colorao, gil!
+ 43 | audio/random/random_39.wav           | ¡Tanta luz pa' ir tan atrás, chanta culiao!
+ 44 | audio/random/random_40.wav           | ¡Esto es carrera de huasos, no de flaites, weón!
+ 45 | audio/random/random_41.wav           | ¡Te dejo más atrás que el último vagón, aweonao!
+ 46 | audio/random/random_42.wav           | ¡Bájate y empuja, que ni con motor avanzái, gil!
+ 47 | audio/random/random_43.wav           | ¡Te paso con pasto y todo, culiao!
+ 48 | audio/random/random_44.wav           | ¡Andái como vaca en la pista, weón!
+ 49 | audio/random/random_45.wav           | ¡Ni pa' espantapájaros servís, aweonao!
+ 50 | audio/random/random_46.wav           | ¡Qué te creís, si yo nací arriba de una carreta, culiao!
+ 51 | audio/random/random_47.wav           | ¡A este paso llegái pa' la próxima vendimia, gil!
+ 52 | audio/random/random_48.wav           | ¡Chao, weón, salúdame a los zorzales!
+ 53 | audio/random/random_49.wav           | ¡La carreta manda en el camino viejo, culiao, acostúmbrate!
+ 54 | audio/random/random_50.wav           | ¡Arre, arre, que estos aweonaos se quedan dormidos!
+
+[nitro]
+ 57 | audio/nitro/nitro_01.wav             | ¡Arre, Colorao, a todo galope, conchetumare!
+ 58 | audio/nitro/nitro_02.wav             | ¡Tome avena, caballo, que ahora sí los dejamos botaos!
+ 59 | audio/nitro/nitro_03.wav             | ¡Ahora sí que se viene la carreta, culiaos!
+ 60 | audio/nitro/nitro_04.wav             | ¡Al galope tendido, como en la trilla, weón!
+
+[out_of_nitros]
+ 63 | audio/out_of_nitros/out_of_nitros_01.wav | ¡Se acabó la avena, puta la weá!
+ 64 | audio/out_of_nitros/out_of_nitros_02.wav | ¡El Colorao pide agua, chucha!
+ 65 | audio/out_of_nitros/out_of_nitros_03.wav | ¡Al tranquito no más, que ya no queda nada, culiao!
+
+[crash]
+ 68 | audio/crash/crash_01.wav             | ¡Pucha la weá, se me salió una rueda de palo!
+ 69 | audio/crash/crash_02.wav             | ¡Cuidado con el caballo, bruto culiao!
+ 70 | audio/crash/crash_03.wav             | ¡Casi vuelco la carreta, aweonao!
+ 71 | audio/crash/crash_04.wav             | ¡Me botaste el pasto, gil!
+ 72 | audio/crash/crash_05.wav             | ¡Así no se trata a un animal, huevón!
+
+[overtake]
+ 75 | audio/overtake/overtake_01.wav       | ¡Permiso, que va pasando la carreta, weón!
+ 76 | audio/overtake/overtake_02.wav       | ¡Chao, culiao, nos vemos en Illapel!
+ 77 | audio/overtake/overtake_03.wav       | ¡Ni la Panamericana me ataja, aweonao!
+ 78 | audio/overtake/overtake_04.wav       | ¡Te pasé por el lado con caballo y todo, gil!
+ 79 | audio/overtake/overtake_05.wav       | ¡Quédate atrás comiendo polvo, chanta!
+
+[first_place]
+ 82 | audio/first_place/first_place_01.wav | ¡Primero el Colorao, después los culiaos con motor!
+ 83 | audio/first_place/first_place_02.wav | ¡Llegando a Illapel como en los viejos tiempos, weón!
+ 84 | audio/first_place/first_place_03.wav | ¡Puro campo y puro corazón, primerito, aweonaos!

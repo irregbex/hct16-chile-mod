@@ -1,0 +1,241 @@
+{
+ "Comment": "sat_dress.py: the ground beside the road in the colour Sentinel-2 cloudless shows there (EOX, CC BY-NC-SA 4.0)",
+ "Sections": [
+  {
+   "From": 0.0,
+   "To": 0.0117,
+   "Texture": "ground_sat_b6a17a_aa9057.png",
+   "Name": "satellite #b6a17a left / #aa9057 right"
+  },
+  {
+   "From": 0.0117,
+   "To": 0.0235,
+   "Texture": "ground_sat_base_b6a67f.png",
+   "Name": "satellite #- left / #b6a67f right"
+  },
+  {
+   "From": 0.0235,
+   "To": 0.0352,
+   "Texture": "ground_sat_b6a17a_b6a67f.png",
+   "Name": "satellite #b6a17a left / #b6a67f right"
+  },
+  {
+   "From": 0.0352,
+   "To": 0.0469,
+   "Texture": "ground_sat_base_977a41.png",
+   "Name": "satellite #- left / #977a41 right"
+  },
+  {
+   "From": 0.0469,
+   "To": 0.0586,
+   "Texture": "ground_sat_base_7c6933.png",
+   "Name": "satellite #- left / #7c6933 right"
+  },
+  {
+   "From": 0.0586,
+   "To": 0.0704,
+   "Texture": "ground_sat_base_60541d.png",
+   "Name": "satellite #- left / #60541d right"
+  },
+  {
+   "From": 0.0704,
+   "To": 0.0938,
+   "Texture": "ground_sat_base_7c6933.png",
+   "Name": "satellite #- left / #7c6933 right"
+  },
+  {
+   "From": 0.0938,
+   "To": 0.1055,
+   "Texture": "ground_sat_base_aa9057.png",
+   "Name": "satellite #- left / #aa9057 right"
+  },
+  {
+   "From": 0.1055,
+   "To": 0.1173,
+   "Texture": "ground_sat_base_977a41.png",
+   "Name": "satellite #- left / #977a41 right"
+  },
+  {
+   "From": 0.1173,
+   "To": 0.129,
+   "Texture": "ground_sat_base_7c6933.png",
+   "Name": "satellite #- left / #7c6933 right"
+  },
+  {
+   "From": 0.129,
+   "To": 0.1759,
+   "Texture": "ground_sat_base_60541d.png",
+   "Name": "satellite #- left / #60541d right"
+  },
+  {
+   "From": 0.1759,
+   "To": 0.1993,
+   "Texture": "ground_sat_base_977a41.png",
+   "Name": "satellite #- left / #977a41 right"
+  },
+  {
+   "From": 0.1993,
+   "To": 0.2111,
+   "Texture": "ground_sat_base_60541d.png",
+   "Name": "satellite #- left / #60541d right"
+  },
+  {
+   "From": 0.2111,
+   "To": 0.2228,
+   "Texture": "ground_sat_base_7c6933.png",
+   "Name": "satellite #- left / #7c6933 right"
+  },
+  {
+   "From": 0.2228,
+   "To": 0.2345,
+   "Texture": "ground_sat_base_977a41.png",
+   "Name": "satellite #- left / #977a41 right"
+  },
+  {
+   "From": 0.2345,
+   "To": 0.2462,
+   "Texture": "ground_sat_base_60541d.png",
+   "Name": "satellite #- left / #60541d right"
+  },
+  {
+   "From": 0.2462,
+   "To": 0.258,
+   "Texture": "ground_sat_base_7c6933.png",
+   "Name": "satellite #- left / #7c6933 right"
+  },
+  {
+   "From": 0.258,
+   "To": 0.2814,
+   "Texture": "ground_sat_base_60541d.png",
+   "Name": "satellite #- left / #60541d right"
+  },
+  {
+   "From": 0.2814,
+   "To": 0.2931,
+   "Texture": "ground_sat_base_977a41.png",
+   "Name": "satellite #- left / #977a41 right"
+  },
+  {
+   "From": 0.2931,
+   "To": 0.3049,
+   "Texture": "ground_sat_base_aa9057.png",
+   "Name": "satellite #- left / #aa9057 right"
+  },
+  {
+   "From": 0.3049,
+   "To": 0.3166,
+   "Texture": "ground_sat_base_7c6933.png",
+   "Name": "satellite #- left / #7c6933 right"
+  },
+  {
+   "From": 0.3166,
+   "To": 0.3283,
+   "Texture": "ground_sat_base_60541d.png",
+   "Name": "satellite #- left / #60541d right"
+  },
+  {
+   "From": 0.3283,
+   "To": 0.34,
+   "Texture": "ground_sat_base_7c6933.png",
+   "Name": "satellite #- left / #7c6933 right"
+  },
+  {
+   "From": 0.34,
+   "To": 0.3518,
+   "Texture": "ground_sat_62501c_60541d.png",
+   "Name": "satellite #62501c left / #60541d right"
+  },
+  {
+   "From": 0.3518,
+   "To": 0.3635,
+   "Texture": "ground_sat_8e6a37_60541d.png",
+   "Name": "satellite #8e6a37 left / #60541d right"
+  },
+  {
+   "From": 0.3635,
+   "To": 0.3752,
+   "Texture": "ground_sat_78602c_60541d.png",
+   "Name": "satellite #78602c left / #60541d right"
+  },
+  {
+   "From": 0.3752,
+   "To": 0.3869,
+   "Texture": "ground_sat_78602c_7c6933.png",
+   "Name": "satellite #78602c left / #7c6933 right"
+  },
+  {
+   "From": 0.3869,
+   "To": 0.3987,
+   "Texture": "ground_sat_8e6a37_60541d.png",
+   "Name": "satellite #8e6a37 left / #60541d right"
+  },
+  {
+   "From": 0.3987,
+   "To": 0.4104,
+   "Texture": "ground_sat_8e6a37_7c6933.png",
+   "Name": "satellite #8e6a37 left / #7c6933 right"
+  },
+  {
+   "From": 0.4104,
+   "To": 0.4221,
+   "Texture": "ground_sat_8e6a37_60541d.png",
+   "Name": "satellite #8e6a37 left / #60541d right"
+  },
+  {
+   "From": 0.4221,
+   "To": 0.4338,
+   "Texture": "ground_sat_78602c_977a41.png",
+   "Name": "satellite #78602c left / #977a41 right"
+  },
+  {
+   "From": 0.4338,
+   "To": 0.4456,
+   "Texture": "ground_sat_base_977a41.png",
+   "Name": "satellite #- left / #977a41 right"
+  },
+  {
+   "From": 0.9849,
+   "To": 1.0,
+   "Texture": "ground_sat_base_60541d.png",
+   "Name": "satellite #- left / #60541d right"
+  }
+ ],
+ "Lanes": [
+  {
+   "From": 0.0,
+   "To": 0.025,
+   "Lanes": 6,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.025,
+   "To": 0.183,
+   "Lanes": 4,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.183,
+   "To": 0.218,
+   "Lanes": 6,
+   "Name": "Peaje"
+  },
+  {
+   "From": 0.218,
+   "To": 0.25,
+   "Lanes": 4,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.25,
+   "To": 0.275,
+   "Lanes": 5,
+   "Name": "OSM"
+  },
+  {
+   "From": 0.275,
+   "To": 0.406,
+   "Lanes": 4,
+   "Name": "OSM"
+  }
+ ]
+}

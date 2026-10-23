@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_la_serena_city",
+ "ItemName": "city_cl_la_serena",
+ "DisplayName": "La Serena, Coquimbo",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_la_serena"
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: spray and a light rain in the forest",
+ "RainT": [
+  0.0,
+  0.5,
+  1.0
+ ],
+ "RainV": [
+  0.0,
+  0.25,
+  0.0
+ ],
+ "Sound": true,
+ "Grip": 0.92
+}

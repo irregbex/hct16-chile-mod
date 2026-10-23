@@ -1,0 +1,15 @@
+{
+ "centre": [
+  -51.73,
+  -72.5
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.0,
+  "stretch": 1.35,
+  "heading": 150,
+  "seed": 82
+ },
+ "theme": "patagonia_town"
+}

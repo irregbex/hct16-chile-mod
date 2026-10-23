@@ -1,0 +1,19 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl ps_dorada_1
+Kd 0.8800 0.6700 0.3200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl ps_dorada_0
+Kd 0.9400 0.7600 0.4000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl ps_dorada_2
+Kd 0.9700 0.8300 0.5200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

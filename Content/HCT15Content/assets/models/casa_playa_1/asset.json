@@ -1,0 +1,11 @@
+{
+  "Id": "casa_playa_1",
+  "Name": "Beach house 1",
+  "Category": "building",
+  "Description": "A colourful two-storey beach house with balcony and tin roof, front +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

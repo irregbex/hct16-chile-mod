@@ -1,0 +1,13 @@
+{
+ "Comment": "A sea lion from the fishing pier crosses the road",
+ "Items": [
+  {
+   "Asset": "lobo_marino",
+   "P": 0.497,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 4.16
+  }
+ ]
+}

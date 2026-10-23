@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -22.333,
+  -68.011
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.28,
+  "serp": 0.12,
+  "serp_n": 8,
+  "stretch": 1.25,
+  "heading": 20,
+  "seed": 63
+ },
+ "theme": "geyser"
+}

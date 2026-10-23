@@ -1,0 +1,11 @@
+{
+  "Id": "ascensor_porteno",
+  "Name": "Funicular",
+  "Category": "landmark",
+  "Description": "Valparaiso hill lift: the incline, a wooden car and the upper station, 20 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

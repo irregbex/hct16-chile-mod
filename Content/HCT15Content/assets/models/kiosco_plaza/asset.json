@@ -1,0 +1,11 @@
+{
+  "Id": "kiosco_plaza",
+  "Name": "Plaza bandstand",
+  "Category": "landmark",
+  "Description": "Octagonal kiosco of a Chilean Plaza de Armas: stone platform, posts, railing, red cone roof, 6 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "arena_plana",
+  "Name": "Beach sand",
+  "Category": "landmark",
+  "Description": "A 9 m slice of beach, 8 m from the promenade edge (x = 0) to the surf (-X), laid flat over the sea ground: coast_dress.py's town beach (short slices: a prop goes when its anchor passes the camera)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 1.2,
+  "Recenter": false,
+  "DoubleSided": true
+}

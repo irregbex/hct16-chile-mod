@@ -1,0 +1,11 @@
+{
+  "Id": "arbol_antiguo_0",
+  "Name": "Old plaza tree 0",
+  "Category": "prop",
+  "Description": "A century-old plaza tree: thick leaning trunk with a whitewashed foot, big boughs, a broad layered crown, 15-18 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

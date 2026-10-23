@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_base_prat_city",
+ "ItemName": "city_cl_base_prat",
+ "DisplayName": "Base Antártica Arturo Prat, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_base_prat"
+ ]
+}

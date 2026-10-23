@@ -1,0 +1,11 @@
+{
+  "Id": "guirnalda_banderines",
+  "Name": "Pennants across the street",
+  "Category": "landmark",
+  "Description": "Strings of yellow-and-white and red-white-blue pennants hung across the street between two poles (Side 0: origin = the road centre, Recenter off; it spans x like the toll plaza, poles at +-9 m, the strings 9-10.4 m up, over a tall body's camera)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

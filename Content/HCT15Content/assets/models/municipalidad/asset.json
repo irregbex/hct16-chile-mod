@@ -1,0 +1,11 @@
+{
+  "Id": "municipalidad",
+  "Name": "Town hall",
+  "Category": "landmark",
+  "Description": "Civic building with a columned portico and a clock, facing the road (+X), 22 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

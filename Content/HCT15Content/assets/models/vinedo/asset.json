@@ -1,0 +1,11 @@
+{
+  "Id": "vinedo",
+  "Name": "Vineyard",
+  "Category": "prop",
+  "Description": "Six rows of vines on wires, central valley, 16 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

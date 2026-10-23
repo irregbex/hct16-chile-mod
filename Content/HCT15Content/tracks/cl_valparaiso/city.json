@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_valparaiso_city",
+ "ItemName": "city_cl_valparaiso",
+ "DisplayName": "Valparaíso, Valparaíso",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_valparaiso"
+ ]
+}

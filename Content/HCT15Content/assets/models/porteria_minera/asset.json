@@ -1,0 +1,11 @@
+{
+  "Id": "porteria_minera",
+  "Name": "Mine gate",
+  "Category": "landmark",
+  "Description": "The gatehouse of the mine: a booth, the barrier arm across the lane, fence to both sides; stands at the road's edge, the barrier reaching over the road to -X... set with Side 0 at the finish",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

@@ -1,0 +1,17 @@
+{
+ "Comment": "clouding over, the rain getting heavier",
+ "RainT": [
+  0.0,
+  0.35,
+  0.75,
+  1.0
+ ],
+ "RainV": [
+  0.276,
+  0.394,
+  0.578,
+  0.657
+ ],
+ "Sound": true,
+ "Grip": 0.8
+}

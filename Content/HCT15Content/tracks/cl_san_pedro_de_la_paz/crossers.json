@@ -1,0 +1,21 @@
+{
+ "Comment": "The lagoon's swans cross the avenue",
+ "Items": [
+  {
+   "Asset": "cisne_cuello_negro",
+   "P": 0.698,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 6.0
+  },
+  {
+   "Asset": "cisne_cuello_negro",
+   "P": 0.028,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 5.52
+  }
+ ]
+}

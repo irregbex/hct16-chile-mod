@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_e30f_zapallar_laligua_city",
+ "ItemName": "city_cl_e30f_zapallar_laligua",
+ "DisplayName": "Ruta E-30-F: Zapallar - Papudo - La Ligua, Valparaíso",
+ "CupId": "97_rutas_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_e30f_zapallar_laligua"
+ ]
+}

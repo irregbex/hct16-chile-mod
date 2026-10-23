@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_head_mula",
+  "Name": "Head (mula)",
+  "Category": "prop",
+  "Description": "Neck and head of the mula, origin at the neck's base - turned towards the bend by HCT15",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

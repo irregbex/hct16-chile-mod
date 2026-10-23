@@ -1,0 +1,11 @@
+{
+ "ItemId": "f1_2026_r02",
+ "ItemName": "city_f1_2026_r02",
+ "DisplayName": "Shanghai, China",
+ "CupId": "99_f1_2026",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "f1_2026_r02_shanghai"
+ ]
+}

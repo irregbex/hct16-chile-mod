@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_potro_body",
+  "Name": "Carreta del potro negro (car body)",
+  "Category": "prop",
+  "Description": "The black stallion cart as a playable car: its own wheels, its legs as carreta_leg_negro (legs.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

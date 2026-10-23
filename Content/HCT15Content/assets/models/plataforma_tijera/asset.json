@@ -1,0 +1,11 @@
+{
+  "Id": "plataforma_tijera",
+  "Name": "Scissor lift",
+  "Category": "prop",
+  "Description": "A yellow scissor lift raised 8 m with a worker in an orange vest on its deck",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

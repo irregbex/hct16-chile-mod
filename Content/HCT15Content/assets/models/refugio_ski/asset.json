@@ -1,0 +1,11 @@
+{
+  "Id": "refugio_ski",
+  "Name": "Ski lodge",
+  "Category": "landmark",
+  "Description": "An A-frame mountain lodge with snow on its steep roof, 9 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

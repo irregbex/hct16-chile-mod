@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_coquimbo_city",
+ "ItemName": "city_cl_coquimbo",
+ "DisplayName": "Coquimbo, Coquimbo",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_coquimbo"
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "elt_cupula",
+  "Name": "ELT enclosure",
+  "Category": "landmark",
+  "Description": "The Extremely Large Telescope's enclosure: the round annex with lit doors, the 88 m silver drum with its window bands and the dome (~78 m), the slit open and its two black door arches, facing +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,16 @@
+{
+ "Comment": "The Merval train passes and the barrier is too short",
+ "Items": [
+  {
+   "Asset": "tren_carro",
+   "P": 0.607,
+   "From": -1.0,
+   "To": 1.0,
+   "Yaw": 180.0,
+   "Scale": 1.0,
+   "StartZ": 150.0,
+   "EndZ": 52.0,
+   "Ease": 0.35
+  }
+ ]
+}

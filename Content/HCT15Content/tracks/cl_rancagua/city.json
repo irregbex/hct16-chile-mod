@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_rancagua_city",
+ "ItemName": "city_cl_rancagua",
+ "DisplayName": "Rancagua, O'Higgins",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_rancagua"
+ ]
+}

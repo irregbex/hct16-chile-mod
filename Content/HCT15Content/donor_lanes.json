@@ -1,0 +1,383 @@
+{
+ "Note": "The game's stages a custom race can be built on (their ids only). Their lane sections are learned in the game the first time a race runs on each (HCT15.DonorLanes.Learn, from the player's own copy) and written back here; until then the editor assumes 5 lanes. Road half-width = Lanes x 1.527 units.",
+ "Stages": [
+  {
+   "Id": "abu_dhabi_01"
+  },
+  {
+   "Id": "abu_dhabi_02"
+  },
+  {
+   "Id": "acropolis_01"
+  },
+  {
+   "Id": "acropolis_02"
+  },
+  {
+   "Id": "acropolis_03"
+  },
+  {
+   "Id": "amritsar_golden_temple_01"
+  },
+  {
+   "Id": "amritsar_golden_temple_02"
+  },
+  {
+   "Id": "anantara_qasr"
+  },
+  {
+   "Id": "atacama_01"
+  },
+  {
+   "Id": "atacama_02"
+  },
+  {
+   "Id": "atacama_03"
+  },
+  {
+   "Id": "bay_of_kotor"
+  },
+  {
+   "Id": "beijing_01"
+  },
+  {
+   "Id": "beijing_02"
+  },
+  {
+   "Id": "beijing_03"
+  },
+  {
+   "Id": "blyde_river_canyon_01"
+  },
+  {
+   "Id": "blyde_river_canyon_02"
+  },
+  {
+   "Id": "brasilia_01"
+  },
+  {
+   "Id": "brasilia_02"
+  },
+  {
+   "Id": "brasilia_03"
+  },
+  {
+   "Id": "brighton_beach_01"
+  },
+  {
+   "Id": "brighton_beach_02"
+  },
+  {
+   "Id": "brighton_beach_03"
+  },
+  {
+   "Id": "cape_town_01"
+  },
+  {
+   "Id": "cape_town_02"
+  },
+  {
+   "Id": "cape_town_03"
+  },
+  {
+   "Id": "chengdu_01"
+  },
+  {
+   "Id": "chengdu_02"
+  },
+  {
+   "Id": "chengdu_03"
+  },
+  {
+   "Id": "death_valley"
+  },
+  {
+   "Id": "diamantina"
+  },
+  {
+   "Id": "die_uniegebou_01"
+  },
+  {
+   "Id": "die_uniegebou_02"
+  },
+  {
+   "Id": "die_uniegebou_03"
+  },
+  {
+   "Id": "dubai_01"
+  },
+  {
+   "Id": "dubai_02"
+  },
+  {
+   "Id": "dubai_03"
+  },
+  {
+   "Id": "easter_island"
+  },
+  {
+   "Id": "eyjafjallajokull_01"
+  },
+  {
+   "Id": "eyjafjallajokull_02"
+  },
+  {
+   "Id": "french_polynesia"
+  },
+  {
+   "Id": "great_wall_01"
+  },
+  {
+   "Id": "great_wall_02"
+  },
+  {
+   "Id": "gullfoss_waterfall"
+  },
+  {
+   "Id": "hong_kong"
+  },
+  {
+   "Id": "honolulu_01"
+  },
+  {
+   "Id": "honolulu_02"
+  },
+  {
+   "Id": "honolulu_03"
+  },
+  {
+   "Id": "iya_valley_01"
+  },
+  {
+   "Id": "iya_valley_02"
+  },
+  {
+   "Id": "kauai_napali_coast"
+  },
+  {
+   "Id": "kilauea_01"
+  },
+  {
+   "Id": "kilauea_02"
+  },
+  {
+   "Id": "kilauea_03"
+  },
+  {
+   "Id": "kyoto_01"
+  },
+  {
+   "Id": "kyoto_02"
+  },
+  {
+   "Id": "kyoto_03"
+  },
+  {
+   "Id": "los_angeles_01"
+  },
+  {
+   "Id": "los_angeles_02"
+  },
+  {
+   "Id": "los_angeles_03"
+  },
+  {
+   "Id": "madagascar"
+  },
+  {
+   "Id": "meteora_01"
+  },
+  {
+   "Id": "meteora_02"
+  },
+  {
+   "Id": "meteora_03"
+  },
+  {
+   "Id": "molokoni_01"
+  },
+  {
+   "Id": "molokoni_02"
+  },
+  {
+   "Id": "niteroi_01"
+  },
+  {
+   "Id": "niteroi_02"
+  },
+  {
+   "Id": "niteroi_03"
+  },
+  {
+   "Id": "palm_island_01"
+  },
+  {
+   "Id": "palm_island_02"
+  },
+  {
+   "Id": "porto_alegre_01"
+  },
+  {
+   "Id": "porto_alegre_02"
+  },
+  {
+   "Id": "reykjavik_01"
+  },
+  {
+   "Id": "reykjavik_02"
+  },
+  {
+   "Id": "reykjavik_03"
+  },
+  {
+   "Id": "salvador_01"
+  },
+  {
+   "Id": "salvador_02"
+  },
+  {
+   "Id": "salvador_03"
+  },
+  {
+   "Id": "san_francisco_01"
+  },
+  {
+   "Id": "san_francisco_02"
+  },
+  {
+   "Id": "san_francisco_03"
+  },
+  {
+   "Id": "santiago_01"
+  },
+  {
+   "Id": "santiago_02"
+  },
+  {
+   "Id": "santiago_03"
+  },
+  {
+   "Id": "santorini_01"
+  },
+  {
+   "Id": "santorini_02"
+  },
+  {
+   "Id": "santorini_03"
+  },
+  {
+   "Id": "sapporo"
+  },
+  {
+   "Id": "season1_detroit"
+  },
+  {
+   "Id": "season1_estoril"
+  },
+  {
+   "Id": "season1_gilles_villeneuve"
+  },
+  {
+   "Id": "season1_hermanos_rodriguez"
+  },
+  {
+   "Id": "season1_hockenheimring"
+  },
+  {
+   "Id": "season1_hungaroring"
+  },
+  {
+   "Id": "season1_interlagos"
+  },
+  {
+   "Id": "season1_jacarepagua"
+  },
+  {
+   "Id": "season1_jerez"
+  },
+  {
+   "Id": "season1_kyalami"
+  },
+  {
+   "Id": "season1_monaco"
+  },
+  {
+   "Id": "season1_monza"
+  },
+  {
+   "Id": "season1_silverstone"
+  },
+  {
+   "Id": "season1_spa_francochamp"
+  },
+  {
+   "Id": "season1_suzuka"
+  },
+  {
+   "Id": "sequoia_national_park_01"
+  },
+  {
+   "Id": "sequoia_national_park_02"
+  },
+  {
+   "Id": "sydney_01"
+  },
+  {
+   "Id": "sydney_02"
+  },
+  {
+   "Id": "sydney_03"
+  },
+  {
+   "Id": "taj_mahal_01"
+  },
+  {
+   "Id": "taj_mahal_02"
+  },
+  {
+   "Id": "taj_mahal_03"
+  },
+  {
+   "Id": "tokyo_01"
+  },
+  {
+   "Id": "tokyo_02"
+  },
+  {
+   "Id": "tokyo_03"
+  },
+  {
+   "Id": "uluru_01"
+  },
+  {
+   "Id": "uluru_02"
+  },
+  {
+   "Id": "valley_of_flowers"
+  },
+  {
+   "Id": "varanasi_01"
+  },
+  {
+   "Id": "varanasi_02"
+  },
+  {
+   "Id": "varanasi_03"
+  },
+  {
+   "Id": "videy_01"
+  },
+  {
+   "Id": "videy_02"
+  },
+  {
+   "Id": "vilarrica_01"
+  },
+  {
+   "Id": "vilarrica_02"
+  },
+  {
+   "Id": "vilarrica_03"
+  }
+ ]
+}

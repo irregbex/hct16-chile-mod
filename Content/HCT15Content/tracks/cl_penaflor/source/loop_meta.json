@@ -1,0 +1,37 @@
+{
+ "centre": [
+  -33.6058638,
+  -70.8785306
+ ],
+ "target_m": 5000,
+ "length_m": 4985,
+ "edge_reuse": 0.006,
+ "streets": [
+  "Avenida Larraín",
+  "Avenida Francisco Bilbao",
+  "Avenida Larraín",
+  "Nueva",
+  "Malloquito",
+  "14 de Julio",
+  "Avenida Larraín",
+  "Santa Rosa",
+  "Avenida 21 de Mayo",
+  "Progreso",
+  "Malloquito",
+  "Volcán Descabezado",
+  "Avenida Vicuña Mackenna",
+  "Santa Rosa",
+  "Los Pimientos",
+  "Los Guindos",
+  "Avenida Vicuña Mackenna",
+  "Volcán Tacora",
+  "Cerro Colorado",
+  "Los Paltos",
+  "Las Rosas",
+  "Malloquito",
+  "Forestal",
+  "Avenida 21 de Mayo",
+  "Pasaje Canal Castillo"
+ ],
+ "sights": []
+}

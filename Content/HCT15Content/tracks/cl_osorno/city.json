@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_osorno_city",
+ "ItemName": "city_cl_osorno",
+ "DisplayName": "Osorno, Los Lagos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_osorno"
+ ]
+}

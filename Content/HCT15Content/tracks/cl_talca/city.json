@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_talca_city",
+ "ItemName": "city_cl_talca",
+ "DisplayName": "Talca, Maule",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_talca"
+ ]
+}

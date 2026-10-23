@@ -1,0 +1,17 @@
+{
+ "Comment": "A paraglider comes down from the cliff and passes over the street",
+ "Items": [
+  {
+   "Asset": "parapente",
+   "P": 0.396,
+   "From": 1.0,
+   "To": -1.0,
+   "Yaw": 0.0,
+   "Scale": 1.3,
+   "Hover": 11.0,
+   "Margin": 2.4,
+   "Bob": 1.1,
+   "BobHz": 0.45
+  }
+ ]
+}

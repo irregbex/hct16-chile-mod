@@ -1,0 +1,11 @@
+{
+  "Id": "carreta_percheron_body",
+  "Name": "Carreta del percherón (car body)",
+  "Category": "prop",
+  "Description": "The draft horse cart as a playable car: its own wheels, its legs as carreta_leg_percheron (legs.json)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}
