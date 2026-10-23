@@ -84,7 +84,7 @@ Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated w
 
 5. DEVELOPMENT
 --------------
-  docsanner.png           the project's banner (rendered from the mod's own models)
+  docs\banner.png           the project's banner (rendered from the mod's own models)
   Source\src\               the plugin (C#, BepInEx 5 + HarmonyX, the game's .NET 3.5 through game-bcl)
   Source\package\           the players' installer (INSTALL.cmd / UNINSTALL.cmd / install.ps1)
   Content\HCT15Content\     all the content: campaigns\ (a campaign.json per campaign), tracks\ (one folder per track:
