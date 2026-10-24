@@ -14,6 +14,9 @@ HCT 1.6 - changelog
   - The Wikimedia Commons photos of the city tracks (402 pictures and their credits) are no longer included. Their
     slots stay named in each scenery.json, to be filled with free photos (CREDITS.txt).
   - The "Bienvenidos a Illapel" roadside sign (a third-party photo with logos) is no longer included.
+  - Every track's road and ground strips redrawn from scratch: only where the road ends and its lanes run, and
+    the track's own colours, are kept; asphalt, kerbs, lane lines and the grain of dirt, grass, sand and water are the
+    mod's own drawing.
 
 2.2.3
   - Car selection: the procession andas' top-speed bar is now filled on a walking scale and reads "50 KM/H"
