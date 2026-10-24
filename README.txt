@@ -7,10 +7,10 @@ This repository contains NO file of the game. You need your own copy of Horizon 
 Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated with or endorsed by Aquiris.
 
 *** FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT ***
-  This mod is FULLY VIBECODED: all of its code, and its tracks, models, textures and sounds, were made by an AI
-  (Claude, by Anthropic) from one player's directions in plain language and from open map data (see CREDITS.txt).
-  Nobody wrote or reviewed the code by hand. It works and has been played a lot, but expect rough edges: bugs, odd physics, scenery out of place,
-  translations and balance that need work.
+  This mod is FULLY VIBECODED: everything in it - the code, the tracks, models, textures, sounds, texts and voices -
+  was made with AI from one player's directions in plain language and from open map data (see CREDITS.txt); the code
+  and the content with Claude, by Anthropic. Nobody wrote or reviewed the code by hand. It works and has been played
+  a lot, but expect rough edges: bugs, odd physics, scenery out of place, translations and balance that need work.
   We need your help in refining it. Play it and report what is wrong (GitHub Issues), suggest improvements, or send
   fixes and new tracks as pull requests. Every report counts.
 
