@@ -14,6 +14,8 @@ Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated w
   We need your help in refining it. Play it and report what is wrong (GitHub Issues), suggest improvements, or send
   fixes and new tracks as pull requests. Every report counts.
 
+Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
+
 
 
 1. WHAT IT ADDS
