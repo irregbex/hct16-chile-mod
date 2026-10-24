@@ -1,6 +1,13 @@
 HCT 1.6 - credits and licences
 ==============================
 
+Who made it - FULLY VIBECODED
+  HCT 1.6 is FULLY VIBECODED: all of its code, and its tracks, models, textures and sounds, were made by an AI
+  (Claude, by Anthropic) from one player's directions in plain language, using the open data credited below.
+  Nobody wrote or reviewed the code by hand.
+  WE NEED YOUR HELP IN REFINING IT: bug reports, fixes, better tracks and free photos are all welcome - open an Issue
+  or a pull request on the GitHub repository.
+
 Code
   The mod's code (Source\ and the .cmd / .ps1 scripts at the root of the repository) is free software under the MIT
   licence: see LICENSE.txt. The MIT licence does not cover the content under Content\: it carries the licences of the

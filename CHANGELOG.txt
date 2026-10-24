@@ -1,6 +1,9 @@
 HCT 1.6 - changelog
 ===================
 
+Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
+We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
+
 2.2.4
   - New track "Santiago inundado: La Reina -> La Florida": a jet ski race down the real avenues of Santiago
     (Principe de Gales, Avenida Ossa, Americo Vespucio; OpenStreetMap), the city flooded by a storm - brown, muddy

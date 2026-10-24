@@ -1,6 +1,11 @@
 HCT 1.6 v2.2.4 - A MOD FOR HORIZON CHASE TURBO (STEAM)
 =====================================================
 
+FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT
+  This mod is fully vibecoded: all of its code and content were made by an AI (Claude, by Anthropic) from one
+  player's directions in plain language. Nobody wrote or reviewed the code by hand, so expect rough edges.
+  Please report bugs and ideas, or send fixes, at https://github.com/irregbex/hct16-chile-mod/issues
+
 INSTALL
   1. Close the game.
   2. Double-click INSTALL.cmd.
