@@ -2,7 +2,9 @@ HCT 1.6 - credits and licences
 ==============================
 
 Code
-  The mod's code (Source\ and the scripts) is free software under the MIT licence: see LICENSE.txt.
+  The mod's code (Source\ and the .cmd / .ps1 scripts at the root of the repository) is free software under the MIT
+  licence: see LICENSE.txt. The MIT licence does not cover the content under Content\: it carries the licences of the
+  data it was made from, below (OpenStreetMap-derived files ODbL 1.0, Sentinel-2-derived files CC BY-NC-SA 4.0).
 
 Map and terrain data
   OpenStreetMap: streets, buildings, trees, squares and places of every Chilean track.
