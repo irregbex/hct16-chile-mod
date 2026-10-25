@@ -61,6 +61,7 @@ Grand Prix 2026
 Tools the mod uses (downloaded, not included in the repository)
   BepInEx 5.4.23.5 - LGPL-2.1 - https://github.com/BepInEx/BepInEx
   HarmonyX (included in BepInEx) - MIT - https://github.com/BepInEx/HarmonyX
+  three.js r128 (the track editor's 3D view, TrackEditor\lib\three.min.js) - MIT - https://github.com/mrdoob/three.js
 
 Models
   Every model in assets\models\ was generated with the mod's own tools (asset_kit), in a low-poly style of its own.

@@ -4,6 +4,13 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+Track editor (2026-10-25, alongside 2.2.4 - the game plugin is unchanged)
+  - The browser track editor is now in the repository (TrackEditor\) and in the release as HCT16-Track-Editor.zip:
+    tracks, scenery, 3D assets (.obj import), time of day, weather and campaigns. It finds the installed game in Steam.
+  - The ground beside the road takes the colours of each track's own strip textures (sea and sand on the beaches,
+    a coast's sections, snow...) instead of plain grass; the right-hand ground of Drive mode is no longer dark.
+  - Library thumbnails for the 77 assets that had none.
+
 2.2.4
   - New track "Santiago inundado: La Reina -> La Florida": a jet ski race down the real avenues of Santiago
     (Principe de Gales, Avenida Ossa, Americo Vespucio; OpenStreetMap), the city flooded by a storm - brown, muddy

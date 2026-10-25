@@ -93,7 +93,19 @@ Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
   Details in Content\HCT15Music\README.txt.
 
 
-5. DEVELOPMENT
+5. TRACK EDITOR - MAKE AND CHANGE TRACKS AND ASSETS
+---------------------------------------------------
+  TrackEditor\ is the browser editor the mod's tracks were made with: the lap and its width, start line and pit lane,
+  buildings, trees, 3D assets (import your own .obj), time of day and weather, campaigns. It writes the same files the
+  game reads, so what you save is what you race.
+  1. Install the mod (step 2) and Python 3 (https://www.python.org/downloads/, tick "Add python.exe to PATH").
+  2. Double-click TrackEditor\Track-Editor.cmd. It finds the game in Steam and opens the editor in your browser.
+  To prepare a pull request, edit this repository's content instead:
+    TrackEditor\Track-Editor.cmd --content "..\Content\HCT15Content"
+  Everything else is in TrackEditor\README.txt.
+
+
+6. DEVELOPMENT
 --------------
   docs\banner.png           the project's banner (rendered from the mod's own models)
   Source\src\               the plugin (C#, BepInEx 5 + HarmonyX, the game's .NET 3.5 through game-bcl)
@@ -110,7 +122,7 @@ Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
   this repository; the content they produced is.
 
 
-6. LEGAL AND CREDITS
+7. LEGAL AND CREDITS
 --------------------
   A free, non-commercial fan mod. Horizon Chase and Horizon Chase Turbo are trademarks of Aquiris Game Studio.
   Credits for data, photos, tools and voices: CREDITS.txt.
