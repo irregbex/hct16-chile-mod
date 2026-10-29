@@ -3167,7 +3167,7 @@
   },
   {
    "RaceId": "cl_stgo_inundado",
-   "Title": "Santiago inundado: La Reina → La Florida",
+   "Title": "Santiago inundado: La Reina → Estadio Nacional",
    "TitleLangs": [
     "en",
     "es",
@@ -3177,12 +3177,12 @@
     "it"
    ],
    "TitleTexts": [
-    "Santiago inundado: La Reina → La Florida",
-    "Santiago inundado: La Reina → La Florida",
-    "Santiago inundado: La Reina → La Florida",
-    "Santiago inundado: La Reina → La Florida",
-    "Santiago inundado: La Reina → La Florida",
-    "Santiago inundado: La Reina → La Florida"
+    "Santiago inundado: La Reina → Estadio Nacional",
+    "Santiago inundado: La Reina → Estadio Nacional",
+    "Santiago inundado: La Reina → Estadio Nacional",
+    "Santiago inundado: La Reina → Estadio Nacional",
+    "Santiago inundado: La Reina → Estadio Nacional",
+    "Santiago inundado: La Reina → Estadio Nacional"
    ],
    "Subtitle": "Diluvio · barro, truenos y relámpagos",
    "Card": "tracks/cl_stgo_inundado/card.png",
@@ -3197,7 +3197,7 @@
     "cl_jetski_oro_cielo",
     "cl_jetski_verde"
    ],
-   "Description": "Round 127 · Santiago inundado: La Reina - La Florida (Metropolitana) · 12.7 km · 1 lap · flood, jet skis"
+   "Description": "Round 127 · Santiago inundado: La Reina - Estadio Nacional (Metropolitana) · 9.8 km · 1 lap · flood, jet skis"
   }
  ],
  "DefaultRace": "cl_alto_hospicio",

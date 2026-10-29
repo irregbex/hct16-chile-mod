@@ -1,0 +1,11 @@
+{
+  "Id": "graderia_poli",
+  "Name": "Polideportivo bleachers",
+  "Category": "prop",
+  "Description": "18 m of the polideportivo's bleachers, five concrete steps rising from the flood (the lowest just dry), painted in bands; front +X (the children stand on them: ninos_graderia_*)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

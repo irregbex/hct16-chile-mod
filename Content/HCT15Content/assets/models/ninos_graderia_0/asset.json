@@ -1,0 +1,12 @@
+{
+  "Id": "ninos_graderia_0",
+  "Name": "Children on the bleachers 0",
+  "Category": "prop",
+  "Description": "120 children celebrating on the five steps of graderia_poli (18 m): cheering, jumping, basketballs, pompoms, flags, balloons, confetti; front +X (Anim crowd: they jump)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "crowd"
+}

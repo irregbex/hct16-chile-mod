@@ -9,94 +9,70 @@
    "Name": "flood"
   },
   {
-   "From": 0.0143,
-   "To": 0.0447,
-   "Lanes": 3,
-   "Name": "angosto"
-  },
-  {
-   "From": 0.0524,
-   "To": 0.0728,
-   "Lanes": 7,
-   "Name": "ancho"
-  },
-  {
-   "From": 0.084,
-   "To": 0.1022,
+   "From": 0.0158,
+   "To": 0.0591,
    "Lanes": 4,
    "Name": "angosto"
   },
   {
-   "From": 0.1109,
-   "To": 0.137,
+   "From": 0.0676,
+   "To": 0.0999,
    "Lanes": 6,
    "Name": "ancho"
   },
   {
-   "From": 0.1467,
-   "To": 0.1654,
-   "Lanes": 3,
-   "Name": "angosto"
-  },
-  {
-   "From": 0.1753,
-   "To": 0.2003,
-   "Lanes": 5,
-   "Name": "normal"
-  },
-  {
-   "From": 0.2118,
-   "To": 0.2284,
+   "From": 0.1123,
+   "To": 0.1422,
    "Lanes": 7,
    "Name": "ancho"
   },
   {
-   "From": 0.2406,
-   "To": 0.2598,
+   "From": 0.1519,
+   "To": 0.1905,
+   "Lanes": 5,
+   "Name": "normal"
+  },
+  {
+   "From": 0.2012,
+   "To": 0.2317,
    "Lanes": 3,
    "Name": "angosto"
   },
   {
-   "From": 0.271,
-   "To": 0.2961,
+   "From": 0.2425,
+   "To": 0.28,
+   "Lanes": 4,
+   "Name": "angosto"
+  },
+  {
+   "From": 0.2926,
+   "To": 0.3208,
    "Lanes": 6,
    "Name": "ancho"
   },
   {
-   "From": 0.3075,
-   "To": 0.3268,
-   "Lanes": 4,
-   "Name": "angosto"
-  },
-  {
-   "From": 0.3345,
-   "To": 0.3521,
+   "From": 0.3342,
+   "To": 0.3652,
    "Lanes": 7,
    "Name": "ancho"
   },
   {
-   "From": 0.3631,
-   "To": 0.3887,
+   "From": 0.3776,
+   "To": 0.4152,
    "Lanes": 5,
    "Name": "normal"
   },
   {
-   "From": 0.3955,
-   "To": 0.415,
-   "Lanes": 3,
-   "Name": "angosto"
-  },
-  {
-   "From": 0.421,
-   "To": 0.4407,
-   "Lanes": 7,
-   "Name": "ancho"
-  },
-  {
-   "From": 0.45,
-   "To": 0.4621,
+   "From": 0.4277,
+   "To": 0.4589,
    "Lanes": 4,
    "Name": "angosto"
+  },
+  {
+   "From": 0.4673,
+   "To": 0.4836,
+   "Lanes": 6,
+   "Name": "ancho"
   }
  ],
  "TransitionTexture": "road_strip.png"

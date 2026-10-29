@@ -4,6 +4,19 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.2.5 (2026-10-28)
+  - Santiago inundado now ends at the Estadio Nacional: from La Reina by Principe de Gales, Ossa and Vespucio to the
+    Grecia roundabout, west on Avenida Grecia and south on Pedro de Valdivia (9.8 km, was 12.7 km to La Florida).
+    Renamed "Santiago inundado: La Reina -> Estadio Nacional" in every campaign and on the maps.
+  - The finish is inside the flooded covered courts of the Estadio Nacional's polideportivo: an arched roof with
+    pennants, basketball hoops, bleachers on both sides packed with children jumping and cheering under falling
+    confetti, and more children in rubber rings by the doors.
+  - Rounder and less abrupt: the street corners are wide arcs, five long S-bends replace the nine tight zigzags, and
+    the water changes width by at most two lanes at a time.
+  - Street signs for Avenida Grecia and Avenida Pedro de Valdivia.
+  - The track's real buildings and trees along Grecia and Pedro de Valdivia are still to come (OpenStreetMap was
+    unreachable); the street walls there are generated houses for now.
+
 Track editor (2026-10-25, alongside 2.2.4 - the game plugin is unchanged)
   - The browser track editor is now in the repository (TrackEditor\) and in the release as HCT16-Track-Editor.zip:
     tracks, scenery, 3D assets (.obj import), time of day, weather and campaigns. It finds the installed game in Steam.

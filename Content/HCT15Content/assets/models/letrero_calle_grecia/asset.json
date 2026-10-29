@@ -1,0 +1,11 @@
+{
+  "Id": "letrero_calle_grecia",
+  "Name": "Sign: Av. Grecia",
+  "Category": "landmark",
+  "Description": "A street-name sign \"AV. GRECIA\" on a pole standing in the flood, facing the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

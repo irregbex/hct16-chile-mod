@@ -4,12 +4,12 @@
   -70.5433
  ],
  "end": [
-  -33.5204,
-  -70.6006
+  -33.4675,
+  -70.6067
  ],
- "length_m": 12712,
- "return_m": 13824,
- "finish_index": 487,
+ "length_m": 9769,
+ "return_m": 8730,
+ "finish_index": 372,
  "streets": [
   "Avenida Príncipe de Gales",
   "Avenida Ossa",
@@ -18,9 +18,12 @@
   "Avenida Egaña",
   "Avenida Américo Vespucio",
   "Rotonda Grecia",
-  "Avenida Américo Vespucio",
-  "Rotonda Quilín",
-  "Avenida Américo Vespucio"
+  "Avenida Grecia",
+  "Avenida Alcalde Jorge Monckeberg",
+  "Avenida Grecia",
+  "Avenida Pedro de Valdivia",
+  "Avenida Grecia",
+  "Avenida Pedro de Valdivia"
  ],
  "street_marks": [
   [
@@ -42,6 +45,36 @@
    -33.4554015,
    -70.5713895,
    "Avenida Américo Vespucio"
+  ],
+  [
+   -33.4688128,
+   -70.576893,
+   "Avenida Grecia"
+  ],
+  [
+   -33.4657646,
+   -70.5856001,
+   "Avenida Alcalde Jorge Monckeberg"
+  ],
+  [
+   -33.4659348,
+   -70.5856334,
+   "Avenida Grecia"
+  ],
+  [
+   -33.4623774,
+   -70.6061676,
+   "Avenida Pedro de Valdivia"
+  ],
+  [
+   -33.4621812,
+   -70.6061357,
+   "Avenida Grecia"
+  ],
+  [
+   -33.462174,
+   -70.6062386,
+   "Avenida Pedro de Valdivia"
   ]
  ],
  "sights": []

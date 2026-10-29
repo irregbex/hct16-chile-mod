@@ -1,0 +1,11 @@
+{
+  "Id": "poli_fachada",
+  "Name": "Polideportivo front",
+  "Category": "landmark",
+  "Description": "The front of the flooded polideportivo over the water: its arch, blue pillars and the POLIDEPORTIVO ESTADIO NACIONAL board hanging from it, both faces (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

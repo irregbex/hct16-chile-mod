@@ -1,0 +1,11 @@
+{
+  "Id": "aro_basquet",
+  "Name": "Basketball hoop in the flood",
+  "Category": "prop",
+  "Description": "A basketball hoop on its post, standing in the flood at the court's edge: the backboard and the ring over the water, facing the road (+X)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

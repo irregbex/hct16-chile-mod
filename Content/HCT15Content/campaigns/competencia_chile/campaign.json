@@ -1128,7 +1128,7 @@
   },
   {
    "RaceId": "cl_stgo_inundado",
-   "Title": "Bonus race · Storm Cup - Santiago inundado: La Reina → La Florida",
+   "Title": "Bonus race · Storm Cup - Santiago inundado: La Reina → Estadio Nacional",
    "TitleLangs": [
     "en",
     "es",
@@ -1138,12 +1138,12 @@
     "it"
    ],
    "TitleTexts": [
-    "Bonus race · Storm Cup - Santiago inundado: La Reina → La Florida",
-    "Fecha extra · Copa Tormenta - Santiago inundado: La Reina → La Florida",
-    "Etapa extra · Taça Tempestade - Santiago inundado: La Reina → La Florida",
-    "Manche bonus · Coupe Tempête - Santiago inundado: La Reina → La Florida",
-    "Bonuslauf · Sturm-Pokal - Santiago inundado: La Reina → La Florida",
-    "Gara bonus · Coppa Tempesta - Santiago inundado: La Reina → La Florida"
+    "Bonus race · Storm Cup - Santiago inundado: La Reina → Estadio Nacional",
+    "Fecha extra · Copa Tormenta - Santiago inundado: La Reina → Estadio Nacional",
+    "Etapa extra · Taça Tempestade - Santiago inundado: La Reina → Estadio Nacional",
+    "Manche bonus · Coupe Tempête - Santiago inundado: La Reina → Estadio Nacional",
+    "Bonuslauf · Sturm-Pokal - Santiago inundado: La Reina → Estadio Nacional",
+    "Gara bonus · Coppa Tempesta - Santiago inundado: La Reina → Estadio Nacional"
    ],
    "Subtitle": "Diluvio · barro, truenos y relámpagos",
    "Card": "tracks/cl_stgo_inundado/card.png",

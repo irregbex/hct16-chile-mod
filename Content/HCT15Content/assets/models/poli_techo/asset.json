@@ -1,0 +1,11 @@
+{
+  "Id": "poli_techo",
+  "Name": "Polideportivo roof (6 m)",
+  "Category": "landmark",
+  "Description": "6 m of the flooded polideportivo's arched steel roof on two columns standing in the water, a truss, two lamps and a string of pennants; repeat it along the covered stretch (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

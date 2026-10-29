@@ -2,28 +2,23 @@
  "Comment": "stgo_inundado.py: jet ski ramps - P the lip, Len the flight (lap fraction), Height units; a nitro hangs at the top (HCT15.JetskiRamps)",
  "Ramps": [
   {
-   "P": 0.03232,
-   "Len": 0.00787,
+   "P": 0.03201,
+   "Len": 0.00867,
    "Height": 1.3
   },
   {
-   "P": 0.21439,
-   "Len": 0.00787,
+   "P": 0.04399,
+   "Len": 0.00867,
    "Height": 1.3
   },
   {
-   "P": 0.25973,
-   "Len": 0.00787,
+   "P": 0.36881,
+   "Len": 0.00867,
    "Height": 1.3
   },
   {
-   "P": 0.39259,
-   "Len": 0.00787,
-   "Height": 1.3
-  },
-  {
-   "P": 0.45066,
-   "Len": 0.00787,
+   "P": 0.462,
+   "Len": 0.00867,
    "Height": 1.3
   }
  ]

@@ -1,0 +1,12 @@
+{
+  "Id": "ninos_flotador_2",
+  "Name": "Children in rubber rings 2",
+  "Category": "prop",
+  "Description": "Four children in rubber rings in the flood, arms up, laughing; front +X (Anim crowd: they bob)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "crowd"
+}
