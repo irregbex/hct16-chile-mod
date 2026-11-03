@@ -9,6 +9,7 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
   - Jet skis: the chunks thrown up behind them are white sea foam (they were the cars' dirt particles, made brown by
     the beach's sunset light).
   - Speech bubbles on the screen's edge hold still (a dead band on the on-screen correction).
+  - "Más bencina" (Race\Agregados): a new mix of the song.
 
 2.3.3 (2026-11-03)
   - Beach podium: the crowd in swimsuits and bikinis, the promo models in bikinis of their platform colours, the staff in
