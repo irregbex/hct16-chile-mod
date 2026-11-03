@@ -100,6 +100,15 @@ namespace HCT15
             return true;
         }
 
+        /// <summary>2.3.4: how car i (0-2) sounds - its CarDef.EngineSound ("gallop" the carretas, "march" the andas), null = an engine.</summary>
+        public string CarSoundKind(int i)
+        {
+            if (i < 0 || i >= _cars.Count) return null;
+            Car c = _cars[i];
+            try { return c.R != null && c.R.Car != null && c.R.Car.View != null ? StreetCars.EngineSoundOf(c.R.Car.View.CarModelId) : null; }
+            catch (Exception) { return null; }
+        }
+
         private void Sound(string name) { if (Sfx != null) try { Sfx(name); } catch (Exception) { } }
 
         private class Car

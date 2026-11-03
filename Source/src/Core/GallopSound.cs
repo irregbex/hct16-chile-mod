@@ -22,6 +22,9 @@ namespace HCT15
     /// 2.0.28: EngineSound "march" (the andas of the Plaza de Illapel, cl_anda and its colours): the same silent engine, but
     /// the eight bearers' steps in step - a soft heel-and-sole "shuff" of several shoes at once, left and right, 0.9-1.9
     /// steps a second by speed - and the procession's hand bell now and then (MarchSteps / Bell).
+    /// 2.3.4 (reported: "on the podiums, when a carreta arrives it has to sound like a galloping horse, not like a car's
+    /// engine"): InitPodium - the same hooves (or march) driven by the podium's arrival instead of a PlayerCar: a speed
+    /// share and a distance gain asked every frame, unscaled time, sources that play while the listener is paused.
     /// </summary>
     public class GallopSound : MonoBehaviour
     {
@@ -40,6 +43,10 @@ namespace HCT15
         private bool _march;
         private float _bellIn = 2f;
         private readonly System.Random _rng = new System.Random();
+        private Func<float> _podiumShare;     // 2.3.4: the podium's arrival (0..1 of the gait range), null in a race
+        /// <summary>The podium's level for this car (distance to the camera), 0..1; 1 in a race.</summary>
+        public float Gain = 1f;
+        private float Dt { get { return _podiumShare != null ? Time.unscaledDeltaTime : Time.deltaTime; } }
 
         private static readonly Gait March = new Gait { At = new[] { 0f, 0.5f }, Accent = new[] { 1f, 0.9f }, Lo = 0.45f, Hi = 0.95f };   // strides a second, as TrotBob walks the legs (Cadence 0.95)
 
@@ -56,24 +63,34 @@ namespace HCT15
             _cart.playOnAwake = false; _cart.spatialBlend = 0f; _cart.outputAudioMixerGroup = group; _cart.volume = 0f;
         }
 
+        /// <summary>2.3.4: the podium's own hooves (march = the andas' bearers) for an arriving car; share = its speed share now.</summary>
+        internal void InitPodium(Func<float> share, bool march)
+        {
+            _podiumShare = share; _march = march;
+            if (march) MakeMarch(); else Make();
+            Func<AudioSource> make = () => { var a = gameObject.AddComponent<AudioSource>(); a.playOnAwake = false; a.ignoreListenerPause = true; a.spatialBlend = 0f; return a; };
+            _beats = make(); _beats2 = make(); _cart = make(); _cart.volume = 0f;
+            if (!march) { _cart.clip = _rumble; _cart.loop = true; _cart.Play(); }
+        }
+
         private void UpdateMarch(float s)
         {
             if (s < 0.03f) { _phase = 0f; _next = 0; return; }
             float freq = Mathf.Lerp(March.Lo, March.Hi, s);
-            _phase += freq * Time.deltaTime;
+            _phase += freq * Dt;
             while (true)
             {
                 if (_next >= March.At.Length) { if (_phase < 1f) break; _phase -= 1f; _next = 0; }
                 if (_phase < March.At[_next]) break;
-                float v = March.Accent[_next] * (0.5f + 0.5f * s) * (0.9f + 0.2f * (float)_rng.NextDouble());
+                float v = March.Accent[_next] * (0.5f + 0.5f * s) * (0.9f + 0.2f * (float)_rng.NextDouble()) * Gain;
                 _beats.pitch = _beats2.pitch = 0.95f + 0.1f * (float)_rng.NextDouble();
                 AudioClip st = _steps[_rng.Next(_steps.Length)];
                 _beats.PlayOneShot(st, v);
                 _beats2.PlayOneShot(st, v);
                 _next++;
             }
-            _bellIn -= Time.deltaTime;
-            if (_bellIn <= 0f) { _cart.pitch = 0.97f + 0.06f * (float)_rng.NextDouble(); _cart.PlayOneShot(_bell, 0.55f); _bellIn = 3.5f + 4f * (float)_rng.NextDouble(); }
+            _bellIn -= Dt;
+            if (_bellIn <= 0f) { _cart.pitch = 0.97f + 0.06f * (float)_rng.NextDouble(); _cart.PlayOneShot(_bell, 0.55f * Gain); _bellIn = 3.5f + 4f * (float)_rng.NextDouble(); }
         }
 
         private static void MakeMarch()
@@ -169,23 +186,29 @@ namespace HCT15
 
         private void Update()
         {
-            if (_car == null || _beats == null) return;
-            bool over = false;
-            try { over = RRApplication.Instance.Game.HasResultShown; } catch (Exception) { }
-            float s = over ? 0f : Share(_car.CurrentSpeedKPH, _car.MaxSpeedKPH);
+            if (_beats == null) return;
+            float s;
+            if (_podiumShare != null) { try { s = Mathf.Clamp01(_podiumShare()); } catch (Exception) { s = 0f; } }
+            else
+            {
+                if (_car == null) return;
+                bool over = false;
+                try { over = RRApplication.Instance.Game.HasResultShown; } catch (Exception) { }
+                s = over ? 0f : Share(_car.CurrentSpeedKPH, _car.MaxSpeedKPH);
+            }
             if (_march) { UpdateMarch(s); return; }
-            _cart.volume = Mathf.Lerp(_cart.volume, s < 0.03f ? 0f : 0.14f + 0.26f * s, Time.deltaTime * 6f);
+            _cart.volume = Mathf.Lerp(_cart.volume, s < 0.03f ? 0f : (0.14f + 0.26f * s) * Gain, Dt * 6f);
             _cart.pitch = 0.75f + 0.7f * s;
             if (s < 0.03f) { _phase = 0f; _next = 0; return; }
             float freq;
             Gait g = GaitFor(s, out freq);
             if (_next > g.At.Length) _next = g.At.Length;    // a shorter gait now: wait for the next stride
-            _phase += freq * Time.deltaTime;
+            _phase += freq * Dt;
             while (true)
             {
                 if (_next >= g.At.Length) { if (_phase < 1f) break; _phase -= 1f; _next = 0; }
                 if (_phase < g.At[_next]) break;
-                float v = g.Accent[_next] * (0.45f + 0.55f * s) * (0.9f + 0.2f * (float)_rng.NextDouble());
+                float v = g.Accent[_next] * (0.45f + 0.55f * s) * (0.9f + 0.2f * (float)_rng.NextDouble()) * Gain;
                 _beats.pitch = _beats2.pitch = 0.94f + 0.12f * (float)_rng.NextDouble();
                 AudioClip hoof = _hooves[_rng.Next(_hooves.Length)];
                 _beats.PlayOneShot(hoof, v);

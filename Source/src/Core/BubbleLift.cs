@@ -154,7 +154,8 @@ namespace HCT15
         // positions"): the correction glides (rate below) instead of being recomputed from scratch every frame, and the
         // HUD band has a margin either way, so a bubble on its edge does not switch between the two widths
         private Vector2 _fit; private bool _fitSnap = true, _inHud;
-        private const float FitRate = 10f, HudHyst = 0.03f;
+        private const float FitRate = 10f, HudHyst = 0.03f, FitDead = 0.008f;
+        private Vector2 _lastWant, _lastStep; private int _swings, _swingLogs;
 
         private void FitOnScreen(Camera cam)
         {
@@ -198,6 +199,14 @@ namespace HCT15
             else dx = (lo + hi) * 0.5f - (x0 + x1) * 0.5f;
             if (y1 > 1f - Margin) dy = 1f - Margin - y1;
             Vector2 want = new Vector2(dx, dy);
+            // 2.3.4 (reported: "the bubble failed once more, with the carreta" - its box sat on the left margin, x 0.02): a
+            // correction within a dead band of the one in hand is not followed, so a bubble on an edge cannot tremble; and
+            // if the wanted correction still swings back and forth frame after frame, the log says so with the numbers
+            if (!_fitSnap && (want - _fit).sqrMagnitude < FitDead * FitDead) want = _fit;
+            Vector2 step = want - _lastWant;
+            if (!_fitSnap && step.sqrMagnitude > 0.01f * 0.01f && Vector2.Dot(step, _lastStep) < 0f) { if (++_swings == 6 && _swingLogs++ < 3) Debug.Log("[HCT15] speech bubble '" + Bubble.name + "' of '" + CarId + "': the fit swings (wanted " + want.ToString("0.000") + " after " + _lastWant.ToString("0.000") + ", box x " + x0.ToString("0.000") + "-" + x1.ToString("0.000") + ", top " + y1.ToString("0.000") + ", HUD rows " + _inHud + ")"); }
+            else if (step.sqrMagnitude > 0.01f * 0.01f) _swings = 0;
+            _lastStep = step; _lastWant = want;
             _fit = _fitSnap ? want : Vector2.Lerp(_fit, want, 1f - Mathf.Exp(-FitRate * Time.unscaledDeltaTime));
             _fitSnap = false;
             dx = _fit.x; dy = _fit.y;

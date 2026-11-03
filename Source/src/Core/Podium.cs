@@ -42,6 +42,8 @@ namespace HCT15
         private PodiumScene _scene;
         private AudioSource _src, _crowd, _fx;
         private readonly AudioSource[] _engines = new AudioSource[3];
+        private readonly GallopSound[] _hooves = new GallopSound[3];   // 2.3.4: a carreta gallops in, an anda is marched in
+        private readonly float[] _share = new float[3];
         private readonly Dictionary<string, AudioClip> _clips = new Dictionary<string, AudioClip>();
         private PodioJson _json;
         private readonly List<PodiumRacer> _top = new List<PodiumRacer>();
@@ -259,6 +261,16 @@ namespace HCT15
             if (_clips.TryGetValue("publico_loop", out loop)) { _crowd = make(); _crowd.clip = loop; _crowd.loop = true; _crowd.volume = 0f; _crowd.Play(); }
             if (_clips.TryGetValue("motor_loop", out loop))
                 for (int i = 0; i < _engines.Length; i++) { _engines[i] = make(); _engines[i].clip = loop; _engines[i].loop = true; _engines[i].volume = 0f; }
+            for (int i = 0; i < _hooves.Length; i++)
+            {
+                string kind = _scene.CarSoundKind(i);
+                if (kind != "gallop" && kind != "march") continue;
+                if (_engines[i] != null) { Destroy(_engines[i]); _engines[i] = null; }
+                int k = i;
+                _hooves[i] = host.AddComponent<GallopSound>();
+                _hooves[i].InitPodium(() => _share[k], kind == "march");
+                Debug.Log("[HCT15] podium sounds: car " + (i + 1) + " arrives on " + (kind == "march" ? "its bearers' feet" : "hooves") + ", no engine");
+            }
             _scene.Sfx = name => { AudioClip c; if (_fx != null && _clips.TryGetValue(name, out c)) _fx.PlayOneShot(c, name == "obturador" ? .8f : 1f); };
             Debug.Log("[HCT15] podium sounds: musica + " + _clips.Count + " labelled sound(s) from " + dir);
         }
@@ -267,6 +279,15 @@ namespace HCT15
         private void Mix()
         {
             if (_crowd != null) _crowd.volume = Mathf.MoveTowards(_crowd.volume, Mathf.Clamp01((.05f + _scene.Excite * .4f) / .45f), Time.unscaledDeltaTime * 1.5f);
+            for (int i = 0; i < _hooves.Length; i++)
+            {
+                if (_hooves[i] == null) continue;
+                float v, d, closing;
+                // the arrival's speed (m/s) as a share of a horse's: a gallop at 12 m/s and over, a trot when it slows to park
+                bool on = _scene.CarSound(i, out v, out d, out closing) && v > .2f;
+                _share[i] = on ? Mathf.Clamp01(v / 12f) : 0f;
+                _hooves[i].Gain = on ? Mathf.Clamp01(Mathf.Clamp(14f / (d + 10f), 0f, .35f) / .3f) : 0f;
+            }
             for (int i = 0; i < _engines.Length; i++)
             {
                 AudioSource e = _engines[i]; if (e == null) continue;
@@ -318,6 +339,7 @@ namespace HCT15
             foreach (AudioClip c in _clips.Values) if (c != null) Destroy(c);
             _clips.Clear(); _crowd = _fx = null;
             for (int i = 0; i < _engines.Length; i++) _engines[i] = null;
+            for (int i = 0; i < _hooves.Length; i++) { if (_hooves[i] != null) Destroy(_hooves[i]); _hooves[i] = null; }
             if (_src != null) { try { _src.Stop(); } catch (Exception) { } }
             if (_scene != null) { try { _scene.Destroy(); } catch (Exception) { } }
             _scene = null; _src = null;

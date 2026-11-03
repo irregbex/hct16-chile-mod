@@ -4,6 +4,12 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.4 (2026-11-03)
+  - Podium: a carreta gallops in on hooves (an anda is marched in by its bearers) instead of an engine's sound.
+  - Jet skis: the chunks thrown up behind them are white sea foam (they were the cars' dirt particles, made brown by
+    the beach's sunset light).
+  - Speech bubbles on the screen's edge hold still (a dead band on the on-screen correction).
+
 2.3.3 (2026-11-03)
   - Beach podium: the crowd in swimsuits and bikinis, the promo models in bikinis of their platform colours, the staff in
     shorts, tees and sunglasses; the riders in a wetsuit and a life vest of their colour (their jet ski's own rider
