@@ -26,7 +26,7 @@ namespace HCT15
     {
         [Serializable] public class Section { public float From; public float To; public string Texture = ""; public string Name = ""; }
         [Serializable] public class LaneSpan { public float From; public float To; public int Lanes; public string Name = ""; }
-        [Serializable] public class GroundJson { public List<Section> Sections = new List<Section>(); public List<LaneSpan> Lanes = new List<LaneSpan>(); public string Comment = ""; public bool CenterLine; public string TransitionTexture = ""; }   // CenterLine: 2.0.16, a two-way road's markings
+        [Serializable] public class GroundJson { public List<Section> Sections = new List<Section>(); public List<LaneSpan> Lanes = new List<LaneSpan>(); public string Comment = ""; public bool CenterLine; public string TransitionTexture = ""; }   // CenterLine: 2.0.16, a two-way road's markings; TransitionTexture: 2.2.4, see ApplyLanes
 
         private const float MinLength = 0.006f, MinGap = 0.01f;
 

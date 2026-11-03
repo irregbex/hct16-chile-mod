@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: a shower over the river",
+ "RainT": [
+  0.0,
+  0.5,
+  1.0
+ ],
+ "RainV": [
+  0.0,
+  0.25,
+  0.05
+ ],
+ "Sound": true,
+ "Grip": 0.92
+}

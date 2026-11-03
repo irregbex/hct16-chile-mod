@@ -231,6 +231,31 @@ namespace HCT15.Patches
         }
     }
 
+    /// <summary>2.2.7 (in the Grand Prix 2026 the players' cars went far too fast compared with the others): a rival's top speed is its factor x (ReferenceSpeedFactor x the race data's ReferencePlayerSpeed +
+    /// ActualSpeedFactor x player 1's top speed) - half of it a fixed reference made for the retail cars (~200 km/h), so
+    /// next to a 300+ km/h single-seater (more with the save's upgrades) the grid fell far behind. In the Grand Prix the
+    /// reference is the player's own top speed: the rivals keep their factors, on the players' scale.</summary>
+    [HarmonyPatch(typeof(RubberBandingManager), nameof(RubberBandingManager.GetEnemyMaxSpeedKPH))]
+    internal static class GrandPrixRivalSpeedPatch
+    {
+        private static bool _told;
+
+        private static void Postfix(float enemySpeedFactor, ref float __result)
+        {
+            try
+            {
+                if (!F1Campaign.IsActive) return;
+                var data = RRApplication.Instance.RaceDataManager.Data;
+                float player = RRApplication.Instance.Game.PlayerCar.MaxSpeedKPH;
+                float was = __result;
+                __result = enemySpeedFactor * (data.RubberBanding.ReferenceSpeedFactor + data.RubberBanding.ActualSpeedFactor) * player;
+                if (!_told) { _told = true; Debug.Log("[HCT15] Grand Prix 2026: rival top speed on the player's scale (" + player.ToString("0") + " km/h): factor " + enemySpeedFactor.ToString("0.00") + ", " + was.ToString("0") + " -> " + __result.ToString("0") + " km/h"); }
+            }
+            catch (Exception) { }
+        }
+
+    }
+
     /// <summary>The HUD's speedometer times the player car's ShownSpeed (the andas: their walking pace in km/h).</summary>
     [HarmonyPatch(typeof(PlayerHudViewModel), "GetSpeed")]
     internal static class HudShownSpeedPatch

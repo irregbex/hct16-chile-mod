@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -20.24,
+  -70.14
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.1,
+  "serp_n": 7,
+  "stretch": 1.5,
+  "heading": 175,
+  "seed": 126
+ },
+ "theme": "iquique"
+}

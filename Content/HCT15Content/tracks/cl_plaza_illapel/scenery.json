@@ -6989,5 +6989,6 @@
    "Yaw": 0.0
   }
  ],
+ "FixedProps": true,
  "MaxBuildings": 531
 }

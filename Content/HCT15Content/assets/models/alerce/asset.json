@@ -1,0 +1,11 @@
+{
+  "Id": "alerce",
+  "Name": "Alerce",
+  "Category": "tree",
+  "Description": "Fitzroya: a tall straight trunk with a narrow dark crown, 18 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

@@ -1,0 +1,11 @@
+{
+  "Id": "geoglifo_ladera",
+  "Name": "Geoglyph hillside",
+  "Category": "landmark",
+  "Description": "A tan hillside with dark stone figures (llamas, a human, rhombi) like Pintados or the Gigante de Atacama, 30 m, faces +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

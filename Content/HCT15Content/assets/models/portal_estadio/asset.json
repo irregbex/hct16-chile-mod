@@ -1,0 +1,11 @@
+{
+  "Id": "portal_estadio",
+  "Name": "Estadio Nacional gate",
+  "Category": "landmark",
+  "Description": "The gate into the flooded Estadio Nacional over the course: two concrete pylons standing in the water and the ESTADIO NACIONAL board between them, both faces; it spans the course (Side 0)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

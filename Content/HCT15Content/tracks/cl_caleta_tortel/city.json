@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_caleta_tortel_city",
+ "ItemName": "city_cl_caleta_tortel",
+ "DisplayName": "Caleta Tortel, Aysén",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_caleta_tortel"
+ ]
+}

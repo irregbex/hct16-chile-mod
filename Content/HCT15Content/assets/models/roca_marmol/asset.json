@@ -1,0 +1,11 @@
+{
+  "Id": "roca_marmol",
+  "Name": "Marble rock",
+  "Category": "landmark",
+  "Description": "The Capillas de Mármol: a rock islet of white marble with blue-grey swirls and arched caves at the waterline, 14 m, faces +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

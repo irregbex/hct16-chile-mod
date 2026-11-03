@@ -1,0 +1,13 @@
+# HCT 1.5 asset kit - flat colours from STYLE.txt
+newmtl hill_tan
+Kd 0.7200 0.5800 0.4200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl geoglyph
+Kd 0.2800 0.2200 0.1800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

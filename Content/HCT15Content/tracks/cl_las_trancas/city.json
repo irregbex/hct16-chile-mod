@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_las_trancas_city",
+ "ItemName": "city_cl_las_trancas",
+ "DisplayName": "Valle Las Trancas y Bosque Encantado, Ñuble",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_las_trancas"
+ ]
+}

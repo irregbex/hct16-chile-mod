@@ -69,7 +69,7 @@ namespace HCT15
 
         /// <summary>How often the speech bubbles come, as a multiple of the game's own chances (random line 4% every
         /// 10 s, overtake 8%, crash 10%, nitro 30%). 1 = as the game ships; 3 = three times as often. Applied when a race starts.</summary>
-        public float SpeechChance = 3.0f;   // 2.0.11: x5 (many more taunts); 2.1.5: x3 (x5 came too often); 1 = the game's own chances
+        public float SpeechChance = 3.0f;   // 2.0.11: x5 (many more taunts); 2.1.5: x3 (they came too often); 1 = the game's own chances
 
         /// <summary>The in-game track editor (F7 and the main menu's TRACK EDITOR entry). Off since 2.0.11
         /// (2026-10-07: the main-menu entry was removed completely - it never worked well and the external editor is

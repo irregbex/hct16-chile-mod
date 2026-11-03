@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -36.13,
+  -72.79
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.5,
+  "heading": 170,
+  "seed": 131
+ },
+ "theme": "cobquecura"
+}

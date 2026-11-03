@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -18.86,
+  -69.05
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.28,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.5,
+  "heading": 30,
+  "seed": 124
+ },
+ "theme": "surire"
+}

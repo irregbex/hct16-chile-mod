@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -45.53,
+  -72.18
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.28,
+  "serp": 0.18,
+  "serp_n": 11,
+  "stretch": 1.5,
+  "heading": 100,
+  "seed": 150
+ },
+ "theme": "rio_bosque"
+}

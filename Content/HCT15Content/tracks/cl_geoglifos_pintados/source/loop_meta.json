@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -20.62,
+  -69.66
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.5,
+  "heading": 10,
+  "seed": 127
+ },
+ "theme": "geoglifos"
+}

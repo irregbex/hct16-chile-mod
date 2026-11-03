@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_cerro_castillo_city",
+ "ItemName": "city_cl_cerro_castillo",
+ "DisplayName": "Carretera Austral: Cerro Castillo, Aysén",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_cerro_castillo"
+ ]
+}

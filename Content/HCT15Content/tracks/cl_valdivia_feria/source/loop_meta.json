@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -39.815,
+  -73.247
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.4,
+  "heading": 160,
+  "seed": 137
+ },
+ "theme": "valdivia"
+}

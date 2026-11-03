@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_alerce_costero_city",
+ "ItemName": "city_cl_alerce_costero",
+ "DisplayName": "Alerce Costero y Parque Oncol, Los Ríos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_alerce_costero"
+ ]
+}

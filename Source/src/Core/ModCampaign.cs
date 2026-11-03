@@ -537,6 +537,7 @@ namespace HCT15
         public static void OnRaceInitialized()
         {
             Taunts.ApplyChance();   // every race, every mode: hct15.settings.json "SpeechChance"
+            Taunts.SyncToMode();    // 2.2.9: the lines of the campaign this race belongs to (none in the World Tour / Adventures)
             try
             {
                 if (StaticData.SelectedGameMode != EGameMode.ExtraCampaign || !IsAnyActive) return;

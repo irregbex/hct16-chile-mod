@@ -25,7 +25,7 @@ namespace HCT15
             public float[] Overcast;        // [start, end] 0..1
             public float[] Ash;             // [start, end] 0..1
             public float[] Snow;            // [start, end] 0..1
-            public float[] Storm;           // [start, end] 0..1 - 2.2.4: a thunderstorm's dark slate sky and dim light
+            public float[] Storm;           // [start, end] 0..1 - 2.2.4: a thunderstorm's dark slate sky and dim light (Santiago inundado)
             public float Aurora;            // strength 0..1
             public float AuroraFrom = 1f;   // progress from which the southern lights show
         }

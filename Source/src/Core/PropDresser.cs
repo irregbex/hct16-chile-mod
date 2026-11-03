@@ -37,7 +37,11 @@ namespace HCT15
         [Serializable] public class SceneryItem { public float P; public int Side; public float Dist; public float W; public float D; public float H; public float S = 1f; public string Kind = ""; public string Name = ""; public string Photo = ""; public string Asset = ""; public float Yaw; public string Colour = ""; public string Roof = ""; public string Sprite = ""; }   // Colour/Roof: "#rrggbb" wall and roof of a block (Tools\town_colours.py), else Palette(kind); Sprite: a PNG under assets\sprites drawn as a flat pixel sprite H x S tall (SpriteProps.cs)
         private static string _sceneryDir;
         // MaxBuildings / MaxTrees: an optional per-track cap (0 = the hct15.settings.json one, scaled by lap length)
-        [Serializable] public class SceneryJson { public List<SceneryItem> Buildings = new List<SceneryItem>(); public List<SceneryItem> Trees = new List<SceneryItem>(); public List<SceneryItem> Landmarks = new List<SceneryItem>(); public int MaxBuildings; public int MaxTrees; }
+        [Serializable] public class SceneryJson { public List<SceneryItem> Buildings = new List<SceneryItem>(); public List<SceneryItem> Trees = new List<SceneryItem>(); public List<SceneryItem> Landmarks = new List<SceneryItem>(); public int MaxBuildings; public int MaxTrees; public bool FixedProps; }
+
+        /// <summary>2.2.8: the scenery prefabs of the race being dressed whose scenery.json says "FixedProps": true
+        /// (FixedPropsPatch shows them at full size and turned with the road).</summary>
+        public static readonly HashSet<GameObject> FixedPrefabs = new HashSet<GameObject>();
 
         public static void Dress(RaceData data, CustomRaceDef def, RaceDataManager owner)
         {
@@ -192,6 +196,7 @@ namespace HCT15
 
             // ---- 4. OpenStreetMap scenery
             int buildings = 0, trees = 0;
+            FixedPrefabs.Clear();
             try
             {
                 string dir = string.IsNullOrEmpty(def.SourceFile) ? null : Path.GetDirectoryName(def.SourceFile);
@@ -200,7 +205,13 @@ namespace HCT15
                 {
                     _sceneryDir = dir;
                     var sc = Json.FromJson<SceneryJson>(File.ReadAllText(file));
+                    int before = result.Count;
                     PlaceScenery(result, sc, treePrefabs, donorPrefabs, def, pitSide, rng, out buildings, out trees);
+                    if (sc.FixedProps)
+                    {
+                        for (int i = before; i < result.Count; i++) if (result[i].Prefab != null) FixedPrefabs.Add(result[i].Prefab);
+                        Debug.Log("[HCT15] scenery: FixedProps - " + FixedPrefabs.Count + " prefab(s) at full size, turned with the road");
+                    }
                 }
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] scenery failed: " + ex); }

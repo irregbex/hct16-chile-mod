@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_pinguino_rey_city",
+ "ItemName": "city_cl_pinguino_rey",
+ "DisplayName": "Parque Pingüino Rey, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_pinguino_rey"
+ ]
+}

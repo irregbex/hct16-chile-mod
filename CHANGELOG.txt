@@ -4,6 +4,54 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.0 (2026-11-03)
+  - Podium ceremony: after every race of the mod's campaigns a one-minute live 3D show comes before the results. The
+    3rd, 2nd and 1st arrive from the road behind the stage in their own cars (copies of the race's models, the mod's
+    trucks, buses and horse carts too - the horses trot), with real braking, a turn, the ramp and suspension; promo
+    models receive them, presenters announce the real names and times, photographers' flashes light the scene; CO2,
+    metallic confetti and fireworks for the champion, who lifts the cup; champagne; six rows of fans on each side jump,
+    each at their own rhythm, a third of them waving Chilean flags; kisses with rising hearts, tears, signs; a broadcast
+    camera cuts between shots; then the results table. The sky, the horizon and the scenery come from the track and its
+    climate. Behind the LED wall on the Santiago tracks: Costanera Center, La Moneda lit up with its flag, Torre Entel and
+    rows of towers. Enter / Space / gamepad A skip it. Not after a race lost on fuel.
+  - Everything of it is editable with free tools: HCT15Content\podium\podio.json (captions, times, what stands behind
+    the screen per track, any OBJ model of the library - edit them in Blender) and the sounds one file each in
+    HCT15Content\podium\sonidos (music, crowd, engine, cheer, camera shutter, fireworks, CO2, cork; see its README.txt).
+  - Playa Luna's intro is now a live 3D scene instead of the flat animation: a jet ski along the shore, another jumping a
+    wave over the bathers in slow motion, an umbrella flying off, the pack roaring past and the title.
+  - Santiago - Estación Central no longer has fireworks during the race (they belong to the podium); the installer
+    removes the old file.
+
+2.2.9 (2026-11-02)
+  - 37 new rounds in the Chile campaign (164 in all): the tourist places of Arica y Parinacota (Morro de Arica, Lauca and
+    Lago Chungará, Valle de Azapa, Surire...), Tarapacá (Iquique, Pintados, Gigante de Atacama, Isluga, Puchuldiza),
+    Ñuble, Los Ríos (Valdivia, Corral and Niebla, Huilo Huilo, Panguipulli...), Aysén (Capillas de Mármol, Queulat,
+    Cerro Castillo, Laguna San Rafael, Caleta Tortel...) and Magallanes (Cueva del Milodón, Fuerte Bulnes, Grey and
+    Pehoé, Isla Magdalena, Puerto Williams...), on the map of Chile. They are a first draft: floating objects or a
+    climate that does not fit may need a designer's hand - help welcome.
+  - The Chilean speech bubbles no longer show in the original game's Campaign and Adventures; the mod's own cars speak
+    only in the mod's campaigns.
+
+2.2.8
+  - The finish no longer stalls a moment when the winner's stickers appear (they are loaded while the race loads).
+  - Plaza de Illapel: the buildings, houses and church stay fixed at the sides of the street at their full size (a
+    track's scenery.json can ask for it with "FixedProps": true).
+  - The map of Chile shows the lap's outline on the region card too.
+
+2.2.7
+  - The stage card of the map of Chile shows the track's outline.
+  - Winner's stickers per podium place (HCT15Content\stickers\oro, plata, bronce - the mod ships none, add your own).
+  - The andas fit on the car selection with two players; Grand Prix 2026: the car descriptions sit under the name and
+    the rivals keep up with the players' cars.
+  - The log lists the controllers the player screen sees (to diagnose a missing one).
+
+2.2.6
+  - Winner's stickers: animated pictures beside the place on the player's screen at the finish (add your own .png sheets
+    to HCT15Content\stickers - the format is described in Source\src\Core\WinStickers.cs; the mod ships none).
+  - Santiago inundado now laps the Estadio Nacional twice - a concert stage on the pitch, the crowd in the water - and
+    twice round the polideportivo before the finish; lightning, thunder and mud.
+  - On the map of Chile the stage list wraps round (up from the first is the last).
+
 2.2.5 (2026-10-28)
   - Santiago inundado now ends at the Estadio Nacional: from La Reina by Principe de Gales, Ossa and Vespucio to the
     Grecia roundabout, west on Avenida Grecia and south on Pedro de Valdivia (9.8 km, was 12.7 km to La Florida).

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_quinchamali_city",
+ "ItemName": "city_cl_quinchamali",
+ "DisplayName": "Quinchamalí, Ñuble",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_quinchamali"
+ ]
+}

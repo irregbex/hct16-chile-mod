@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -18.479,
+  -70.3195
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.4,
+  "heading": 170,
+  "seed": 120
+ },
+ "theme": "arica_morro"
+}

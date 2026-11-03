@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -36.91,
+  -71.49
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.2,
+  "serp_n": 12,
+  "stretch": 1.3,
+  "heading": 95,
+  "seed": 136
+ },
+ "theme": "bosque_nevado"
+}

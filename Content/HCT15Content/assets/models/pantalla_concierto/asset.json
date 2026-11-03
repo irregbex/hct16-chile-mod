@@ -1,0 +1,11 @@
+{
+  "Id": "pantalla_concierto",
+  "Name": "Concert screen tower",
+  "Category": "landmark",
+  "Description": "A 12 m LED screen on scaffolding beside the stage, standing in the flood: the show's colours, speakers stacked under it, a spot on top; front +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

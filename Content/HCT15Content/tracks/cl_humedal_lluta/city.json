@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_humedal_lluta_city",
+ "ItemName": "city_cl_humedal_lluta",
+ "DisplayName": "Humedal del Río Lluta, Arica y Parinacota",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_humedal_lluta"
+ ]
+}

@@ -34,7 +34,7 @@ namespace HCT15
         private static AudioClip _bell;
 
         private PlayerCar _car;
-        private AudioSource _beats, _beats2, _cart;   // two beat sources in step: twice the amplitude (wanted twice as loud)
+        private AudioSource _beats, _beats2, _cart;   // two beat sources in step: twice the amplitude (twice as loud)
         private float _phase;
         private int _next;
         private bool _march;

@@ -1,0 +1,11 @@
+{
+  "Id": "cueva_roca",
+  "Name": "Cave mouth",
+  "Category": "landmark",
+  "Description": "A big rock arch with a dark mouth (Cueva del Milodón, Cuevas de Anzota), 20 m, faces +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

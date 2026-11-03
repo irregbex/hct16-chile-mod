@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -36.62,
+  -72.45
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.28,
+  "serp": 0.12,
+  "serp_n": 8,
+  "stretch": 1.4,
+  "heading": 80,
+  "seed": 132
+ },
+ "theme": "itata"
+}

@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: Aysén rain under the hanging glacier",
+ "RainT": [
+  0.0,
+  0.4,
+  1.0
+ ],
+ "RainV": [
+  0.3,
+  0.6,
+  0.4
+ ],
+ "Sound": true,
+ "Grip": 0.85
+}

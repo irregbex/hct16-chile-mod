@@ -80,7 +80,7 @@ namespace HCT15
             public string NitroModel = "";    // 2.0.11: asset-library model this car's driver sees instead of the nitro bottles (the carreta: fardo_nitro, glowing green)
             public bool NitroOwnColours;      // 2.1.5: the NitroModel keeps its own colours (the andas' bottle: white label, black X) instead of being drawn green; the halos stay
             public string FuelModel = "";     // 2.0.11: the same for the fuel cans (the carreta: fardo_nitro in its own colours)
-            public string CoinModel = "";     // 2.0.15: the same for the coins (the carreta: zanahoria - 2026-10-08: for the carretas the coins are carrots)
+            public string CoinModel = "";     // 2.0.15: the same for the coins (the carreta: zanahoria - carrots for the carts' coins)
             public string EngineSound = "";   // 2.0.11: "gallop" - synthesised hooves instead of the engine (GallopSound.cs)
             public bool HideWheels;
             public float Bob;                 // 2.0.11: the body bobs this many units at the trot, faster with speed (the carreta; 0 = still)           // 2.0.11: the body brings its own wheels (the carreta's two wooden ones): the donor's tyres are not drawn

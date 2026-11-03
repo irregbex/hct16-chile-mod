@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_laguna_avendano_city",
+ "ItemName": "city_cl_laguna_avendano",
+ "DisplayName": "Laguna Avendaño, Ñuble",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_laguna_avendano"
+ ]
+}

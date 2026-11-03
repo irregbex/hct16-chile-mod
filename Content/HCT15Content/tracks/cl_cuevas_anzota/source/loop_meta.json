@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -18.547,
+  -70.333
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.14,
+  "serp_n": 8,
+  "stretch": 1.4,
+  "heading": 160,
+  "seed": 123
+ },
+ "theme": "anzota"
+}

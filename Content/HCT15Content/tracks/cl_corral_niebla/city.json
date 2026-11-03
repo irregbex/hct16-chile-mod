@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_corral_niebla_city",
+ "ItemName": "city_cl_corral_niebla",
+ "DisplayName": "Fuertes de Corral y Niebla, Los Ríos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_corral_niebla"
+ ]
+}

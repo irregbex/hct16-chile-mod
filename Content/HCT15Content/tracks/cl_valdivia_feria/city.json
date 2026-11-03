@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_valdivia_feria_city",
+ "ItemName": "city_cl_valdivia_feria",
+ "DisplayName": "Valdivia: Feria Fluvial, Los Ríos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_valdivia_feria"
+ ]
+}

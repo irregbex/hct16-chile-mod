@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_gigante_atacama_city",
+ "ItemName": "city_cl_gigante_atacama",
+ "DisplayName": "Gigante de Atacama, Tarapacá",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_gigante_atacama"
+ ]
+}

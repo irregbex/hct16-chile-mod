@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: the Strait, grey and windy",
+ "RainT": [
+  0.0,
+  0.5,
+  1.0
+ ],
+ "RainV": [
+  0.05,
+  0.2,
+  0.05
+ ],
+ "Sound": true,
+ "Grip": 0.92
+}

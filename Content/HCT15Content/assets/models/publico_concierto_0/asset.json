@@ -1,0 +1,12 @@
+{
+  "Id": "publico_concierto_0",
+  "Name": "Concert crowd in the flood 0",
+  "Category": "prop",
+  "Description": "~130 fans up to their knees in the flooded pitch (18 x 6 m): arms up, horns, phones, beach balls; front +X (turn 180 to face the stage) (Anim crowd)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "crowd"
+}

@@ -1,0 +1,19 @@
+# HCT 1.5 asset kit - flat colours from STYLE.txt
+newmtl marble_white
+Kd 0.9000 0.9200 0.9400
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl marble_blue
+Kd 0.4200 0.6200 0.7800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl glacier_deep
+Kd 0.3000 0.5800 0.8000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

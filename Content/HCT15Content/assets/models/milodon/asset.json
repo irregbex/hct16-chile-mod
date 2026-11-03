@@ -1,0 +1,11 @@
+{
+  "Id": "milodon",
+  "Name": "Mylodon statue",
+  "Category": "landmark",
+  "Description": "The life-size giant ground sloth at the mouth of the Cueva del Milodón, standing up, 4 m, faces +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

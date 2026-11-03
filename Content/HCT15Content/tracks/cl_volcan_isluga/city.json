@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_volcan_isluga_city",
+ "ItemName": "city_cl_volcan_isluga",
+ "DisplayName": "Parque Nacional Volcán Isluga, Tarapacá",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_volcan_isluga"
+ ]
+}

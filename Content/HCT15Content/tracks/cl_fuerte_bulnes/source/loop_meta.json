@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -53.63,
+  -70.93
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.24,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.4,
+  "heading": 160,
+  "seed": 152
+ },
+ "theme": "bulnes"
+}

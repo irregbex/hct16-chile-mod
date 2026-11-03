@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_iquique_costa_city",
+ "ItemName": "city_cl_iquique_costa",
+ "DisplayName": "Iquique: Cavancha, Cerro Dragón y Baquedano, Tarapacá",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_iquique_costa"
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_lauca_chungara_city",
+ "ItemName": "city_cl_lauca_chungara",
+ "DisplayName": "Parque Nacional Lauca y Lago Chungará, Arica y Parinacota",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_lauca_chungara"
+ ]
+}

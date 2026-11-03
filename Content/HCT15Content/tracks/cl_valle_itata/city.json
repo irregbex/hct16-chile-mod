@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_valle_itata_city",
+ "ItemName": "city_cl_valle_itata",
+ "DisplayName": "Valle del Itata, Ñuble",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_valle_itata"
+ ]
+}

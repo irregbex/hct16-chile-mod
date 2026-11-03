@@ -1,0 +1,11 @@
+{
+  "Id": "corbeta_esmeralda",
+  "Name": "Corbeta Esmeralda",
+  "Category": "landmark",
+  "Description": "The wooden corvette of 1879, museum ship of Iquique: black hull, three masts, 40 m along Z",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

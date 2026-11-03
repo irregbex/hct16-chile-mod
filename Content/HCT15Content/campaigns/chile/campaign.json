@@ -3197,7 +3197,895 @@
     "cl_jetski_oro_cielo",
     "cl_jetski_verde"
    ],
-   "Description": "Round 127 · Santiago inundado: La Reina - Estadio Nacional (Metropolitana) · 9.8 km · 1 lap · flood, jet skis"
+   "Description": "Round 127 · Santiago inundado: La Reina - Estadio Nacional (Metropolitana) · 10.4 km · 1 lap · flood, jet skis"
+  },
+  {
+   "RaceId": "cl_arica_morro",
+   "Title": "Arica: Morro, Catedral y Ex Aduana",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Arica: Morro, Catedral y Ex Aduana",
+    "Arica: Morro, Catedral y Ex Aduana",
+    "Arica: Morro, Catedral y Ex Aduana",
+    "Arica: Morro, Catedral y Ex Aduana",
+    "Arica: Morro, Catedral y Ex Aduana",
+    "Arica: Morro, Catedral y Ex Aduana"
+   ],
+   "Subtitle": "Catedral de Eiffel y la Ex Aduana al pie del Morro",
+   "Description": "Round 128 · Arica: Morro, Catedral y Ex Aduana (Arica y Parinacota) · 4.4 km · 3 laps · special",
+   "Card": "tracks/cl_arica_morro/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_lauca_chungara",
+   "Title": "Parque Nacional Lauca y Lago Chungará",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Nacional Lauca y Lago Chungará",
+    "Parque Nacional Lauca y Lago Chungará",
+    "Parque Nacional Lauca y Lago Chungará",
+    "Parque Nacional Lauca y Lago Chungará",
+    "Parque Nacional Lauca y Lago Chungará",
+    "Parque Nacional Lauca y Lago Chungará"
+   ],
+   "Subtitle": "Altiplano · 4.520 m bajo el Parinacota",
+   "Description": "Round 129 · Parque Nacional Lauca y Lago Chungará (Arica y Parinacota) · 6.4 km · 2 laps · special",
+   "Card": "tracks/cl_lauca_chungara/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_valle_azapa",
+   "Title": "Valle de Azapa",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Valle de Azapa",
+    "Valle de Azapa",
+    "Valle de Azapa",
+    "Valle de Azapa",
+    "Valle de Azapa",
+    "Valle de Azapa"
+   ],
+   "Subtitle": "Olivos, geoglifos y museos arqueológicos",
+   "Description": "Round 130 · Valle de Azapa (Arica y Parinacota) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_valle_azapa/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_cuevas_anzota",
+   "Title": "Cuevas de Anzota",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Cuevas de Anzota",
+    "Cuevas de Anzota",
+    "Cuevas de Anzota",
+    "Cuevas de Anzota",
+    "Cuevas de Anzota",
+    "Cuevas de Anzota"
+   ],
+   "Subtitle": "Acantilados y cuevas sobre el Pacífico",
+   "Description": "Round 131 · Cuevas de Anzota (Arica y Parinacota) · 4.6 km · 3 laps · special",
+   "Card": "tracks/cl_cuevas_anzota/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_salar_surire",
+   "Title": "Salar de Surire y Termas de Polloquere",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Salar de Surire y Termas de Polloquere",
+    "Salar de Surire y Termas de Polloquere",
+    "Salar de Surire y Termas de Polloquere",
+    "Salar de Surire y Termas de Polloquere",
+    "Salar de Surire y Termas de Polloquere",
+    "Salar de Surire y Termas de Polloquere"
+   ],
+   "Subtitle": "Reserva Las Vicuñas · flamencos y aguas termales",
+   "Description": "Round 132 · Salar de Surire y Termas de Polloquere (Arica y Parinacota) · 6.6 km · 2 laps · special",
+   "Card": "tracks/cl_salar_surire/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_humedal_lluta",
+   "Title": "Humedal del Río Lluta",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Humedal del Río Lluta",
+    "Humedal del Río Lluta",
+    "Humedal del Río Lluta",
+    "Humedal del Río Lluta",
+    "Humedal del Río Lluta",
+    "Humedal del Río Lluta"
+   ],
+   "Subtitle": "Aves migratorias en la desembocadura",
+   "Description": "Round 133 · Humedal del Río Lluta (Arica y Parinacota) · 4.6 km · 3 laps · special",
+   "Card": "tracks/cl_humedal_lluta/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_iquique_costa",
+   "Title": "Iquique: Cavancha, Cerro Dragón y Baquedano",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Iquique: Cavancha, Cerro Dragón y Baquedano",
+    "Iquique: Cavancha, Cerro Dragón y Baquedano",
+    "Iquique: Cavancha, Cerro Dragón y Baquedano",
+    "Iquique: Cavancha, Cerro Dragón y Baquedano",
+    "Iquique: Cavancha, Cerro Dragón y Baquedano",
+    "Iquique: Cavancha, Cerro Dragón y Baquedano"
+   ],
+   "Subtitle": "Playa, la gran duna y el museo Corbeta Esmeralda",
+   "Description": "Round 134 · Iquique: Cavancha, Cerro Dragón y Baquedano (Tarapacá) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_iquique_costa/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_geoglifos_pintados",
+   "Title": "Geoglifos de Pintados",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Geoglifos de Pintados",
+    "Geoglifos de Pintados",
+    "Geoglifos de Pintados",
+    "Geoglifos de Pintados",
+    "Geoglifos de Pintados",
+    "Geoglifos de Pintados"
+   ],
+   "Subtitle": "Cientos de figuras en los cerros de la pampa",
+   "Description": "Round 135 · Geoglifos de Pintados (Tarapacá) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_geoglifos_pintados/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_gigante_atacama",
+   "Title": "Gigante de Atacama",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Gigante de Atacama",
+    "Gigante de Atacama",
+    "Gigante de Atacama",
+    "Gigante de Atacama",
+    "Gigante de Atacama",
+    "Gigante de Atacama"
+   ],
+   "Subtitle": "El geoglifo humano más grande del mundo · Cerro Unita",
+   "Description": "Round 136 · Gigante de Atacama (Tarapacá) · 5.2 km · 3 laps · special",
+   "Card": "tracks/cl_gigante_atacama/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_volcan_isluga",
+   "Title": "Parque Nacional Volcán Isluga",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Nacional Volcán Isluga",
+    "Parque Nacional Volcán Isluga",
+    "Parque Nacional Volcán Isluga",
+    "Parque Nacional Volcán Isluga",
+    "Parque Nacional Volcán Isluga",
+    "Parque Nacional Volcán Isluga"
+   ],
+   "Subtitle": "Altiplano · iglesia de Isluga",
+   "Description": "Round 137 · Parque Nacional Volcán Isluga (Tarapacá) · 6.2 km · 3 laps · special",
+   "Card": "tracks/cl_volcan_isluga/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_puchuldiza",
+   "Title": "Geysers de Puchuldiza",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Geysers de Puchuldiza",
+    "Geysers de Puchuldiza",
+    "Geysers de Puchuldiza",
+    "Geysers de Puchuldiza",
+    "Geysers de Puchuldiza",
+    "Geysers de Puchuldiza"
+   ],
+   "Subtitle": "Géiseres que se congelan al amanecer · 4.200 m",
+   "Description": "Round 138 · Geysers de Puchuldiza (Tarapacá) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_puchuldiza/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_cobquecura",
+   "Title": "Cobquecura",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Cobquecura",
+    "Cobquecura",
+    "Cobquecura",
+    "Cobquecura",
+    "Cobquecura",
+    "Cobquecura"
+   ],
+   "Subtitle": "La Lobería y la Iglesia de Piedra",
+   "Description": "Round 139 · Cobquecura (Ñuble) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_cobquecura/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_valle_itata",
+   "Title": "Valle del Itata",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Valle del Itata",
+    "Valle del Itata",
+    "Valle del Itata",
+    "Valle del Itata",
+    "Valle del Itata",
+    "Valle del Itata"
+   ],
+   "Subtitle": "Viñedos históricos · cepas país y moscatel",
+   "Description": "Round 140 · Valle del Itata (Ñuble) · 6.0 km · 3 laps · special",
+   "Card": "tracks/cl_valle_itata/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_san_fabian",
+   "Title": "San Fabián de Alico",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "San Fabián de Alico",
+    "San Fabián de Alico",
+    "San Fabián de Alico",
+    "San Fabián de Alico",
+    "San Fabián de Alico",
+    "San Fabián de Alico"
+   ],
+   "Subtitle": "El río Ñuble entre cerros de bosque",
+   "Description": "Round 141 · San Fabián de Alico (Ñuble) · 5.8 km · 3 laps · special",
+   "Card": "tracks/cl_san_fabian/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_quinchamali",
+   "Title": "Quinchamalí",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Quinchamalí",
+    "Quinchamalí",
+    "Quinchamalí",
+    "Quinchamalí",
+    "Quinchamalí",
+    "Quinchamalí"
+   ],
+   "Subtitle": "Artesanía en greda negra",
+   "Description": "Round 142 · Quinchamalí (Ñuble) · 4.8 km · 3 laps · special",
+   "Card": "tracks/cl_quinchamali/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_laguna_avendano",
+   "Title": "Laguna Avendaño",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Laguna Avendaño",
+    "Laguna Avendaño",
+    "Laguna Avendaño",
+    "Laguna Avendaño",
+    "Laguna Avendaño",
+    "Laguna Avendaño"
+   ],
+   "Subtitle": "Quillón · la laguna de veraneo",
+   "Description": "Round 143 · Laguna Avendaño (Ñuble) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_laguna_avendano/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_las_trancas",
+   "Title": "Valle Las Trancas y Bosque Encantado",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Valle Las Trancas y Bosque Encantado",
+    "Valle Las Trancas y Bosque Encantado",
+    "Valle Las Trancas y Bosque Encantado",
+    "Valle Las Trancas y Bosque Encantado",
+    "Valle Las Trancas y Bosque Encantado",
+    "Valle Las Trancas y Bosque Encantado"
+   ],
+   "Subtitle": "Pinto · bosque nevado bajo los Nevados de Chillán",
+   "Description": "Round 144 · Valle Las Trancas y Bosque Encantado (Ñuble) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_las_trancas/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_valdivia_feria",
+   "Title": "Valdivia: Feria Fluvial",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Valdivia: Feria Fluvial",
+    "Valdivia: Feria Fluvial",
+    "Valdivia: Feria Fluvial",
+    "Valdivia: Feria Fluvial",
+    "Valdivia: Feria Fluvial",
+    "Valdivia: Feria Fluvial"
+   ],
+   "Subtitle": "Lobos marinos junto a los puestos del río Calle-Calle",
+   "Description": "Round 145 · Valdivia: Feria Fluvial (Los Ríos) · 4.8 km · 3 laps · special",
+   "Card": "tracks/cl_valdivia_feria/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_corral_niebla",
+   "Title": "Fuertes de Corral y Niebla",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Fuertes de Corral y Niebla",
+    "Fuertes de Corral y Niebla",
+    "Fuertes de Corral y Niebla",
+    "Fuertes de Corral y Niebla",
+    "Fuertes de Corral y Niebla",
+    "Fuertes de Corral y Niebla"
+   ],
+   "Subtitle": "El sistema de fortificaciones de Valdivia",
+   "Description": "Round 146 · Fuertes de Corral y Niebla (Los Ríos) · 5.4 km · 3 laps · special",
+   "Card": "tracks/cl_corral_niebla/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_huilo_huilo",
+   "Title": "Reserva Biológica Huilo Huilo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Reserva Biológica Huilo Huilo",
+    "Reserva Biológica Huilo Huilo",
+    "Reserva Biológica Huilo Huilo",
+    "Reserva Biológica Huilo Huilo",
+    "Reserva Biológica Huilo Huilo",
+    "Reserva Biológica Huilo Huilo"
+   ],
+   "Subtitle": "Selva valdiviana y saltos de agua",
+   "Description": "Round 147 · Reserva Biológica Huilo Huilo (Los Ríos) · 5.8 km · 3 laps · special",
+   "Card": "tracks/cl_huilo_huilo/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_panguipulli",
+   "Title": "Lago Panguipulli y los Siete Lagos",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Lago Panguipulli y los Siete Lagos",
+    "Lago Panguipulli y los Siete Lagos",
+    "Lago Panguipulli y los Siete Lagos",
+    "Lago Panguipulli y los Siete Lagos",
+    "Lago Panguipulli y los Siete Lagos",
+    "Lago Panguipulli y los Siete Lagos"
+   ],
+   "Subtitle": "La ruta de los siete lagos",
+   "Description": "Round 148 · Lago Panguipulli y los Siete Lagos (Los Ríos) · 6.2 km · 3 laps · special",
+   "Card": "tracks/cl_panguipulli/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_santuario_anwandter",
+   "Title": "Santuario Carlos Anwandter",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Santuario Carlos Anwandter",
+    "Santuario Carlos Anwandter",
+    "Santuario Carlos Anwandter",
+    "Santuario Carlos Anwandter",
+    "Santuario Carlos Anwandter",
+    "Santuario Carlos Anwandter"
+   ],
+   "Subtitle": "Río Cruces y Punucapa · cisnes de cuello negro",
+   "Description": "Round 149 · Santuario Carlos Anwandter (Los Ríos) · 5.2 km · 3 laps · special",
+   "Card": "tracks/cl_santuario_anwandter/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_alerce_costero",
+   "Title": "Alerce Costero y Parque Oncol",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Alerce Costero y Parque Oncol",
+    "Alerce Costero y Parque Oncol",
+    "Alerce Costero y Parque Oncol",
+    "Alerce Costero y Parque Oncol",
+    "Alerce Costero y Parque Oncol",
+    "Alerce Costero y Parque Oncol"
+   ],
+   "Subtitle": "Alerces milenarios de la cordillera de la costa",
+   "Description": "Round 150 · Alerce Costero y Parque Oncol (Los Ríos) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_alerce_costero/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_futangue",
+   "Title": "Parque Futangue",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Futangue",
+    "Parque Futangue",
+    "Parque Futangue",
+    "Parque Futangue",
+    "Parque Futangue",
+    "Parque Futangue"
+   ],
+   "Subtitle": "Bosque, lagunas y lava bajo el Puyehue",
+   "Description": "Round 151 · Parque Futangue (Los Ríos) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_futangue/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_capillas_marmol",
+   "Title": "Capillas de Mármol y Lago General Carrera",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Capillas de Mármol y Lago General Carrera",
+    "Capillas de Mármol y Lago General Carrera",
+    "Capillas de Mármol y Lago General Carrera",
+    "Capillas de Mármol y Lago General Carrera",
+    "Capillas de Mármol y Lago General Carrera",
+    "Capillas de Mármol y Lago General Carrera"
+   ],
+   "Subtitle": "Cuevas de mármol en el lago más grande de Chile",
+   "Description": "Round 152 · Capillas de Mármol y Lago General Carrera (Aysén) · 5.8 km · 3 laps · special",
+   "Card": "tracks/cl_capillas_marmol/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_queulat",
+   "Title": "Parque Nacional Queulat",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Nacional Queulat",
+    "Parque Nacional Queulat",
+    "Parque Nacional Queulat",
+    "Parque Nacional Queulat",
+    "Parque Nacional Queulat",
+    "Parque Nacional Queulat"
+   ],
+   "Subtitle": "El Ventisquero Colgante",
+   "Description": "Round 153 · Parque Nacional Queulat (Aysén) · 6.0 km · 3 laps · special",
+   "Card": "tracks/cl_queulat/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_cerro_castillo",
+   "Title": "Carretera Austral: Cerro Castillo",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Carretera Austral: Cerro Castillo",
+    "Carretera Austral: Cerro Castillo",
+    "Carretera Austral: Cerro Castillo",
+    "Carretera Austral: Cerro Castillo",
+    "Carretera Austral: Cerro Castillo",
+    "Carretera Austral: Cerro Castillo"
+   ],
+   "Subtitle": "La ruta 7 bajo las torres del Castillo",
+   "Description": "Round 154 · Carretera Austral: Cerro Castillo (Aysén) · 6.6 km · 2 laps · special",
+   "Card": "tracks/cl_cerro_castillo/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_laguna_san_rafael",
+   "Title": "Parque Nacional Laguna San Rafael",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Nacional Laguna San Rafael",
+    "Parque Nacional Laguna San Rafael",
+    "Parque Nacional Laguna San Rafael",
+    "Parque Nacional Laguna San Rafael",
+    "Parque Nacional Laguna San Rafael",
+    "Parque Nacional Laguna San Rafael"
+   ],
+   "Subtitle": "Témpanos frente al glaciar",
+   "Description": "Round 155 · Parque Nacional Laguna San Rafael (Aysén) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_laguna_san_rafael/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_caleta_tortel",
+   "Title": "Caleta Tortel",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Caleta Tortel",
+    "Caleta Tortel",
+    "Caleta Tortel",
+    "Caleta Tortel",
+    "Caleta Tortel",
+    "Caleta Tortel"
+   ],
+   "Subtitle": "El pueblo de pasarelas de ciprés",
+   "Description": "Round 156 · Caleta Tortel (Aysén) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_caleta_tortel/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_glaciar_exploradores",
+   "Title": "Glaciar Exploradores",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Glaciar Exploradores",
+    "Glaciar Exploradores",
+    "Glaciar Exploradores",
+    "Glaciar Exploradores",
+    "Glaciar Exploradores",
+    "Glaciar Exploradores"
+   ],
+   "Subtitle": "Hielo azul bajo el San Valentín",
+   "Description": "Round 157 · Glaciar Exploradores (Aysén) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_glaciar_exploradores/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_rio_simpson",
+   "Title": "Reserva Nacional Río Simpson",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Reserva Nacional Río Simpson",
+    "Reserva Nacional Río Simpson",
+    "Reserva Nacional Río Simpson",
+    "Reserva Nacional Río Simpson",
+    "Reserva Nacional Río Simpson",
+    "Reserva Nacional Río Simpson"
+   ],
+   "Subtitle": "El río entre Coyhaique y Puerto Aysén",
+   "Description": "Round 158 · Reserva Nacional Río Simpson (Aysén) · 5.6 km · 3 laps · special",
+   "Card": "tracks/cl_rio_simpson/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_cueva_milodon",
+   "Title": "Cueva del Milodón",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Cueva del Milodón",
+    "Cueva del Milodón",
+    "Cueva del Milodón",
+    "Cueva del Milodón",
+    "Cueva del Milodón",
+    "Cueva del Milodón"
+   ],
+   "Subtitle": "La caverna del perezoso gigante",
+   "Description": "Round 159 · Cueva del Milodón (Magallanes) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_cueva_milodon/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_fuerte_bulnes",
+   "Title": "Fuerte Bulnes",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Fuerte Bulnes",
+    "Fuerte Bulnes",
+    "Fuerte Bulnes",
+    "Fuerte Bulnes",
+    "Fuerte Bulnes",
+    "Fuerte Bulnes"
+   ],
+   "Subtitle": "El fuerte de 1843 sobre el Estrecho de Magallanes",
+   "Description": "Round 160 · Fuerte Bulnes (Magallanes) · 5.2 km · 3 laps · special",
+   "Card": "tracks/cl_fuerte_bulnes/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_grey_pehoe",
+   "Title": "Glaciar Grey y Lago Pehoé",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Glaciar Grey y Lago Pehoé",
+    "Glaciar Grey y Lago Pehoé",
+    "Glaciar Grey y Lago Pehoé",
+    "Glaciar Grey y Lago Pehoé",
+    "Glaciar Grey y Lago Pehoé",
+    "Glaciar Grey y Lago Pehoé"
+   ],
+   "Subtitle": "Torres del Paine · hielo y agua turquesa",
+   "Description": "Round 161 · Glaciar Grey y Lago Pehoé (Magallanes) · 6.4 km · 2 laps · special",
+   "Card": "tracks/cl_grey_pehoe/card.png",
+   "Laps": 2
+  },
+  {
+   "RaceId": "cl_isla_magdalena",
+   "Title": "Isla Magdalena",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Isla Magdalena",
+    "Isla Magdalena",
+    "Isla Magdalena",
+    "Isla Magdalena",
+    "Isla Magdalena",
+    "Isla Magdalena"
+   ],
+   "Subtitle": "Pingüinera y faro en el Estrecho",
+   "Description": "Round 162 · Isla Magdalena (Magallanes) · 4.4 km · 3 laps · special",
+   "Card": "tracks/cl_isla_magdalena/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_pinguino_rey",
+   "Title": "Parque Pingüino Rey",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Parque Pingüino Rey",
+    "Parque Pingüino Rey",
+    "Parque Pingüino Rey",
+    "Parque Pingüino Rey",
+    "Parque Pingüino Rey",
+    "Parque Pingüino Rey"
+   ],
+   "Subtitle": "Tierra del Fuego · Bahía Inútil",
+   "Description": "Round 163 · Parque Pingüino Rey (Magallanes) · 5.0 km · 3 laps · special",
+   "Card": "tracks/cl_pinguino_rey/card.png",
+   "Laps": 3
+  },
+  {
+   "RaceId": "cl_puerto_williams",
+   "Title": "Puerto Williams",
+   "TitleLangs": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "de",
+    "it"
+   ],
+   "TitleTexts": [
+    "Puerto Williams",
+    "Puerto Williams",
+    "Puerto Williams",
+    "Puerto Williams",
+    "Puerto Williams",
+    "Puerto Williams"
+   ],
+   "Subtitle": "La ciudad más austral del mundo · Canal Beagle",
+   "Description": "Round 164 · Puerto Williams (Magallanes) · 5.2 km · 3 laps · special",
+   "Card": "tracks/cl_puerto_williams/card.png",
+   "Laps": 3
   }
  ],
  "DefaultRace": "cl_alto_hospicio",

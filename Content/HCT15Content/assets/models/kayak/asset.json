@@ -1,0 +1,11 @@
+{
+  "Id": "kayak",
+  "Name": "Kayak",
+  "Category": "prop",
+  "Description": "A red sea kayak with its paddler, 4.5 m along Z",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

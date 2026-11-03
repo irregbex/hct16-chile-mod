@@ -1,6 +1,6 @@
 HCT 1.6 - Chile campaign
 ========================
-126 laps through real Chilean cities (the 50 biggest cities, the 19 most populous comunas of
+164 laps through real Chilean cities (the 50 biggest cities, the 19 most populous comunas of
 Santiago, the Americo Vespucio ring road and Illapel's city-sights lap), routed on the real streets
 (OpenStreetMap), with the real terrain (SRTM) as hills and the real buildings as crude blocks.
 Order: Illapel's sights lap, Costanera Center -> La Moneda, the Santiago comunas A-Z, the other cities A-Z.

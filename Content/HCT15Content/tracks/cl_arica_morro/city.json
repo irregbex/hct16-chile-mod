@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_arica_morro_city",
+ "ItemName": "city_cl_arica_morro",
+ "DisplayName": "Arica: Morro, Catedral y Ex Aduana, Arica y Parinacota",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_arica_morro"
+ ]
+}

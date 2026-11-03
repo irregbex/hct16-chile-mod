@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_fuerte_bulnes_city",
+ "ItemName": "city_cl_fuerte_bulnes",
+ "DisplayName": "Fuerte Bulnes, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_fuerte_bulnes"
+ ]
+}

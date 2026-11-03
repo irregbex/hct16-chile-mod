@@ -490,6 +490,27 @@ namespace HCT15
             return best <= 0 ? s : s.Substring(0, best) + "\n" + s.Substring(best + 1);
         }
 
+        private static string _syncedFor;
+
+        /// <summary>
+        /// 2.2.9 (the taunts of the Chilean custom cars showed up in the original game's Campaign and Adventures).
+        /// Refresh ran only when a mod campaign started, so after the Chile campaign every car
+        /// of the World Tour or an Adventure kept the Chilean lines. Each race start (ModCampaigns.OnRaceInitialized) now
+        /// re-reads the lines when the running campaign is not the one they were read for.
+        /// </summary>
+        public static void SyncToMode()
+        {
+            var active = ModCampaigns.Active;
+            if (_syncedFor != (active != null ? active.Folder : "")) Refresh();
+        }
+
+        /// <summary>2.2.9: the mod's own cars (taxi, micro, carreta, F-150, jet ski, anda) speak only inside a mod campaign;
+        /// driven in the World Tour or an Adventure they stay quiet (no Chilean bubble, no voice).</summary>
+        public static bool Silenced(string carId)
+        {
+            return ModCampaigns.Active == null && (StreetCars.IsStreetCarId(carId) || StreetCars.TauntsOf(carId) != null);
+        }
+
         /// <summary>
         /// Mod cars always get their campaign's lines; every car while a campaign with a taunts.txt runs (or setting "all").
         /// Runs at start-up, when a campaign starts and whenever the game language changes (the files are re-read then).
@@ -500,9 +521,12 @@ namespace HCT15
             {
                 _files.Clear();
                 _override.Clear();
+                _clipOf.Clear();
+                _cycle.Clear();
                 string mode = (Settings.Data.ChileanTaunts ?? "chile").ToLowerInvariant();
                 For("");   // the default file exists for editing even when no campaign is running
                 var active = ModCampaigns.Active;
+                _syncedFor = active != null ? active.Folder : "";
                 string folder = active != null && For(active.Folder) != null ? active.Folder : "";
                 _all = mode != "off" && (mode == "all" || (active != null && !active.Formula1 && For(active.Folder) != null));
                 _allFrom = folder;

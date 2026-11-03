@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_cuevas_anzota_city",
+ "ItemName": "city_cl_cuevas_anzota",
+ "DisplayName": "Cuevas de Anzota, Arica y Parinacota",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_cuevas_anzota"
+ ]
+}

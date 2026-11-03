@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -18.415,
+  -70.32
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.22,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.4,
+  "heading": 100,
+  "seed": 125
+ },
+ "theme": "lluta"
+}

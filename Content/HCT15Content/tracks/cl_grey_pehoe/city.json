@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_grey_pehoe_city",
+ "ItemName": "city_cl_grey_pehoe",
+ "DisplayName": "Glaciar Grey y Lago Pehoé, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_grey_pehoe"
+ ]
+}

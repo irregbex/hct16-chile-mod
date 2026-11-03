@@ -1,0 +1,153 @@
+{
+  "_comment": "The live podium ceremony (Podium.cs + PodiumScene.cs, 2.3.0). Edit with any text editor. Events: captions and graphics by second ({N1} {N2} {N3} the real names, {N1U} in capitals, {GAP2} {GAP3} the gap to the winner, {TRACK} the track, {GREET} a greeting by the time of day). Lower 1-3 shows that place's lower third, -1 hides it; Champ = CAMPEON; Table = the results table; CapOff hides the caption. The cars park at 16.5 / 25 / 33.5 s (fixed: sonidos\\musica.wav is timed to them). The sounds: the sonidos\\ folder, one file per sound (see its README.txt). Skyline: what stands behind the LED wall; Tracks = a prefix of track ids ('default' = all the others); Kind costanera | moneda | entel | towers (Count) | track (the track's own models, Count), or Asset = any OBJ model of assets\\models (edit them in Blender). X, Z in metres (negative Z = behind the screen, which stands at Z -40), Yaw in radians. AllRaces true = the original game's races too.",
+  "AllRaces": false,
+  "Length": 61,
+  "Events": [
+    {
+      "T": 0.4,
+      "Who": "CONI",
+      "Text": "{GREET}, Chile! Bienvenidos a la gran final en {TRACK}."
+    },
+    {
+      "T": 3.8,
+      "Who": "PANCHO",
+      "Text": "¡Qué ambiente! Vienen llegando los tres mejores de la carrera."
+    },
+    {
+      "T": 13.5,
+      "Who": "CONI",
+      "Text": "¡Ahí viene el tercer lugar!"
+    },
+    {
+      "T": 16.5,
+      "Who": "PANCHO",
+      "Text": "¡Tercer lugar para {N3}!",
+      "Lower": 3
+    },
+    {
+      "T": 21.5,
+      "Lower": -1
+    },
+    {
+      "T": 22.0,
+      "Who": "PANCHO",
+      "Text": "Y ahora... ¡el segundo lugar!"
+    },
+    {
+      "T": 25.0,
+      "Who": "CONI",
+      "Text": "¡{N2} se queda con la plata, a solo {GAP2} segundos!",
+      "Lower": 2
+    },
+    {
+      "T": 29.0,
+      "Who": "CONI",
+      "Text": "Señoras y señores... ¡aquí viene el campeón!"
+    },
+    {
+      "T": 30.0,
+      "Lower": -1
+    },
+    {
+      "T": 33.5,
+      "Who": "PANCHO",
+      "Text": "¡¡{N1U} ES EL CAMPEÓN!!",
+      "Lower": 1,
+      "Champ": true
+    },
+    {
+      "T": 36.5,
+      "Who": "CONI",
+      "Text": "¡Los pilotos se bajan de sus vehículos!"
+    },
+    {
+      "T": 38.0,
+      "Lower": -1
+    },
+    {
+      "T": 39.5,
+      "Who": "PANCHO",
+      "Text": "¡{N1} levanta la copa!"
+    },
+    {
+      "T": 42.6,
+      "Who": "CONI",
+      "Text": "¡Champaña para todos!"
+    },
+    {
+      "T": 48.5,
+      "Who": "PANCHO",
+      "Text": "¡Miren el público! ¡Están todos locos!"
+    },
+    {
+      "T": 50.7,
+      "Who": "CONI",
+      "Text": "Hay lágrimas en las graderías... ¡qué emoción!"
+    },
+    {
+      "T": 52.9,
+      "Who": "PANCHO",
+      "Text": "¡Chi chi chi, le le le! ¡Viva Chile!"
+    },
+    {
+      "T": 55.1,
+      "Who": "CONI",
+      "Text": "¡Felicitaciones a los tres! ¡Qué carrera!"
+    },
+    {
+      "T": 57.0,
+      "Who": "PANCHO",
+      "Text": "Gracias por acompañarnos. ¡Nos vemos en la próxima carrera!",
+      "Table": true
+    },
+    {
+      "T": 59.0,
+      "CapOff": true
+    }
+  ],
+  "Skyline": [
+    {
+      "Tracks": "cl_stgo_",
+      "Kind": "costanera",
+      "X": -40,
+      "Z": -150,
+      "Scale": 1
+    },
+    {
+      "Tracks": "cl_stgo_",
+      "Kind": "moneda",
+      "X": 50,
+      "Z": -70,
+      "Yaw": -0.45,
+      "Scale": 1
+    },
+    {
+      "Tracks": "cl_stgo_",
+      "Kind": "entel",
+      "X": 24,
+      "Z": -190,
+      "Scale": 1
+    },
+    {
+      "Tracks": "cl_stgo_",
+      "Kind": "towers",
+      "X": -110,
+      "Z": -130,
+      "Count": 6,
+      "Scale": 1
+    },
+    {
+      "Tracks": "cl_stgo_",
+      "Kind": "towers",
+      "X": 110,
+      "Z": -170,
+      "Count": 5,
+      "Scale": 1
+    },
+    {
+      "Tracks": "default",
+      "Kind": "track",
+      "Count": 6
+    }
+  ]
+}

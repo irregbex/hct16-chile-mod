@@ -1,0 +1,12 @@
+{
+  "Id": "hinchada_estadio_3",
+  "Name": "Stadium stand 3",
+  "Category": "prop",
+  "Description": "18 m of the Estadio Nacional's lower stand rising from the flood, packed with ~200 fans: arms up, horns, phones lit, flags and banners; front +X (Anim crowd: they jump)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "crowd"
+}

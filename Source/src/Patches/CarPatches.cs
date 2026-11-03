@@ -358,6 +358,14 @@ namespace HCT15.Patches
         {
             try
             {
+                // 2.2.9: a mod car driven outside the mod campaigns (World Tour, Adventures) says nothing
+                PlayerCar pc = __instance._playerCar;
+                string carId = pc != null && pc.View != null && pc.View.Controller != null && pc.View.Controller.CarModel != null ? pc.View.Controller.CarModel.ItemId : null;
+                if (Taunts.Silenced(carId))
+                {
+                    if (_logs++ < 6) Debug.Log("[HCT15] speech " + speechType + " held back: '" + carId + "' speaks only in the mod campaigns");
+                    return false;
+                }
                 _views.RemoveAll(v => v == null);
                 if (!_views.Contains(__instance)) _views.Add(__instance);
                 string who = Voices.Speaking ? "a voice" : null;

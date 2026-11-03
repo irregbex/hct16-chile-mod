@@ -53,7 +53,7 @@ namespace HCT15
             go.AddComponent<F1ScreenExtras>();
             go.AddComponent<CampaignMap>();   // 2.0.10: campaigns\<folder>\map\map.json on the campaign screen
             go.AddComponent<ChileWorldMap>(); // 2.0.10: campaigns\<folder>\map\worldmap.json, the low-poly map over it
-            go.AddComponent<Tolls>(); go.AddComponent<Voices>(); go.AddComponent<JetskiTricks>(); go.AddComponent<Cutscene>();         // 2.0.11: tracks\<id>\tolls.json - toll plazas that slow, fine or stop the cars
+            go.AddComponent<Tolls>(); go.AddComponent<Voices>(); go.AddComponent<JetskiTricks>(); go.AddComponent<Cutscene>(); go.AddComponent<Podium>();       // 2.0.11: tracks\<id>\tolls.json - toll plazas that slow, fine or stop the cars
             go.AddComponent<DebugConsole>();
             go.AddComponent<FreezeWatch>();   // 2.0.15: a stall writes Logs\hct15-freeze_<time>.txt (the game's own log is overwritten on restart)
             go.AddComponent<LoadingProgress>();
@@ -221,6 +221,10 @@ namespace HCT15
                                     var names = new System.Collections.Generic.List<string>();
                                     foreach (GameObject go in v._carGameObjectList) names.Add(go == null ? "null" : go.name + (go.transform.parent != null && go.transform.parent.parent != null && !go.transform.parent.parent.gameObject.activeSelf ? "(slot off)" : ""));
                                     Debug.Log("[HCT15] auto-worldtour: car screen offers " + names.Count + " car(s), CarIndex " + v.CarIndex + ": " + string.Join(", ", names.ToArray()));
+                                    // 2.2.9: "-hct15-picksteps n" moves the turntable n cars (negative: left) first - a mod car in the World Tour
+                                    var inc = typeof(Aquiris.HorizonChase.NewUI.ViewModel.CarSelectionViewModel).GetMethod("IncrementCarSelection", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                                    for (int k = 0; inc != null && k < Mathf.Abs(F1Campaign.PickSteps); k++) inc.Invoke(v, new object[] { F1Campaign.PickSteps > 0 ? 1 : -1 });
+                                    if (F1Campaign.PickSteps != 0) Debug.Log("[HCT15] auto-worldtour: moved " + F1Campaign.PickSteps + " car(s), CarIndex " + v.CarIndex);
                                     DebugShot.Capture("hct15-cars.png");
                                     break;   // submit on the next pass, after the frame
                                 }
@@ -285,7 +289,7 @@ namespace HCT15
             if (Settings.Data.ShowBanner)
             {
                 GUI.Label(new Rect(10, 10, 760, 24),
-                    "<color=#FFDD00><b>HCT 1.6 v2.2.5 MOD ACTIVE</b></color>   " + (Settings.Data.TrackEditor ? "F7 track editor | " : "") + "F8 console | F9 stage select | F11 next track | F12 custom music");
+                    "<color=#FFDD00><b>HCT 1.6 v2.3.0 MOD ACTIVE</b></color>   " + (Settings.Data.TrackEditor ? "F7 track editor | " : "") + "F8 console | F9 stage select | F11 next track | F12 custom music");
             }
 
             if (!_visible) return;

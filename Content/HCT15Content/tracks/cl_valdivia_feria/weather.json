@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: Valdivian rain on the river",
+ "RainT": [
+  0.0,
+  0.4,
+  1.0
+ ],
+ "RainV": [
+  0.25,
+  0.5,
+  0.3
+ ],
+ "Sound": true,
+ "Grip": 0.85
+}

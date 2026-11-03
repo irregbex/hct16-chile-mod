@@ -1,6 +1,6 @@
 HCT 1.6 - a Chilean fan mod for Horizon Chase Turbo
 ====================================================
-Version 2.2.5. A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game
+Version 2.3.0. A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game
 WITHOUT changing it: it is loaded by BepInEx and removed with one click.
 
 This repository contains NO file of the game. You need your own copy of Horizon Chase Turbo, bought on Steam.
@@ -21,11 +21,13 @@ Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
 1. WHAT IT ADDS
 ---------------
   New campaigns (in the game's Campaigns menu; campaign and track names are Chilean Spanish place names):
-    Chile                    127 races through Chilean cities, the comunas of Santiago, observatories (among them a
+    Chile                    164 races through Chilean cities, the comunas of Santiago, observatories (among them a
                              long lap round and INSIDE the Extremely Large Telescope under construction), ski
                              centres, volcanoes, Easter Island, Antarctic bases, the beaches of the Valparaíso region
                              (on jet skis), the procession of andas round the Plaza de Illapel and a jet ski race
                              through a Santiago flooded by a thunderstorm. A map of Chile to pick the region and the place.
+                             The tourist places of Arica y Parinacota, Tarapacá, Ñuble, Los Ríos, Aysén and
+                             Magallanes too (Lauca, Iquique, Huilo Huilo, Capillas de Mármol, Torres del Paine...).
     Rutas de Chile           point-to-point stages along real roads (Ruta 68, Ruta 47 Los Vilos - Illapel on a horse
                              cart, the coast of the Valparaíso region, Villarrica - Pucón, Coyhaique - Aysén...), with
                              traffic, toll plazas and roads that narrow and widen.
@@ -35,6 +37,11 @@ Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
                              Needs Horizon Chase Turbo's "Senna Forever" DLC (without it the campaign does not show).
   Vehicles of its own: a Chilean taxi, the yellow "micro" bus (8 routes), horse carts (11), jet skis (8) and
   procession andas carried by eight bearers (6 images, each with its own stats).
+  A podium ceremony after every race of these campaigns: a one-minute live 3D show in which the top three arrive
+  on the stage in their own cars - promo models, presenters, photographers' flashes, a crowd that jumps and waves
+  Chilean flags, CO2, confetti, fireworks, the cup and champagne - with the track's own sky and scenery behind (in
+  Santiago: Costanera Center, La Moneda lit up, Torre Entel). Its texts, timing and buildings are in
+  HCT15Content\podium\podio.json and its sounds one file each in podium\sonidos (see its README.txt).
   Also: Chilean speech bubbles with voices for several vehicles, horns of their own (neighs, a whistle), weather and
   time of day per track, nights with lights and fireworks, music per race (bring your own songs, see 4).
 

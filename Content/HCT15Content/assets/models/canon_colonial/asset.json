@@ -1,0 +1,11 @@
+{
+  "Id": "canon_colonial",
+  "Name": "Colonial cannon",
+  "Category": "prop",
+  "Description": "Bronze-black cannon on a wooden carriage, barrel along +X, 3 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

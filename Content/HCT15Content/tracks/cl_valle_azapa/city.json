@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_valle_azapa_city",
+ "ItemName": "city_cl_valle_azapa",
+ "DisplayName": "Valle de Azapa, Arica y Parinacota",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_valle_azapa"
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -46.07,
+  -72.16
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.2,
+  "serp_n": 12,
+  "stretch": 1.4,
+  "heading": 160,
+  "seed": 146
+ },
+ "theme": "austral"
+}

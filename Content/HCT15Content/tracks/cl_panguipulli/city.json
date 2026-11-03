@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_panguipulli_city",
+ "ItemName": "city_cl_panguipulli",
+ "DisplayName": "Lago Panguipulli y los Siete Lagos, Los Ríos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_panguipulli"
+ ]
+}

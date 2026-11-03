@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_isla_magdalena_city",
+ "ItemName": "city_cl_isla_magdalena",
+ "DisplayName": "Isla Magdalena, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_isla_magdalena"
+ ]
+}

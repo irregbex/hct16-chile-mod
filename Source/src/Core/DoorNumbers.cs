@@ -32,7 +32,7 @@ namespace HCT15
         private static readonly Dictionary<string, Mesh> _copies = new Dictionary<string, Mesh>();     // "<base id>|<n>" -> numbered copy
         private static string _race;
         private static int _next = 2;
-        public const string Build = "2026-10-18b";   // bumped on every change of this file: the log says which one a player runs
+        public const string Build = "2026-10-18b";   // bumped on every change of this file: the log says which one a user runs
         private const string Consonants = "BCDFGHJKLPRSTVWXYZ";
         private static readonly Dictionary<char, string> Font = new Dictionary<char, string>
         {

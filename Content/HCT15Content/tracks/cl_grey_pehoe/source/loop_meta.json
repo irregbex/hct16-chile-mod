@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -51.1,
+  -73.08
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.14,
+  "serp_n": 9,
+  "stretch": 1.4,
+  "heading": 160,
+  "seed": 153
+ },
+ "theme": "grey_pehoe"
+}

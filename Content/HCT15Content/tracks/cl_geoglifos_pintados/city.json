@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_geoglifos_pintados_city",
+ "ItemName": "city_cl_geoglifos_pintados",
+ "DisplayName": "Geoglifos de Pintados, Tarapacá",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_geoglifos_pintados"
+ ]
+}

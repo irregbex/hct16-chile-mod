@@ -1,0 +1,11 @@
+{
+  "Id": "escenario_concierto",
+  "Name": "Concert stage",
+  "Category": "landmark",
+  "Description": "The concert on the flooded pitch: an 18 m stage on scaffolding over the water, the band playing (singer, two guitars, bass, drums on a riser), the black backdrop with the band's name, the roof truss full of lights, beams and pyro; front +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false
+}

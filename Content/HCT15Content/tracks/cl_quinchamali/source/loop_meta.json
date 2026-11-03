@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -36.66,
+  -72.16
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.22,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.3,
+  "heading": 20,
+  "seed": 134
+ },
+ "theme": "quinchamali"
+}

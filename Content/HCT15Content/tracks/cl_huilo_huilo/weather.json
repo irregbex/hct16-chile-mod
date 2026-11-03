@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: rain in the Valdivian rainforest",
+ "RainT": [
+  0.0,
+  0.3,
+  1.0
+ ],
+ "RainV": [
+  0.2,
+  0.45,
+  0.3
+ ],
+ "Sound": true,
+ "Grip": 0.87
+}

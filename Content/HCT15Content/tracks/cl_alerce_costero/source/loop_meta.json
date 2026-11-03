@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -40.19,
+  -73.43
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.3,
+  "serp": 0.18,
+  "serp_n": 11,
+  "stretch": 1.3,
+  "heading": 30,
+  "seed": 142
+ },
+ "theme": "alerces"
+}

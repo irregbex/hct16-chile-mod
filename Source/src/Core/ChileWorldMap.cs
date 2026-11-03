@@ -238,7 +238,7 @@ namespace HCT15
                 }
                 else _repeatAt = -1f;
             }
-            if (along != 0) _sel = Mathf.Clamp(_sel + along, 0, _byY.Count - 1);
+            if (along != 0 && _byY.Count > 0) _sel = ((_sel + along) % _byY.Count + _byY.Count) % _byY.Count;   // 2.2.6: the list wraps
             if (across != 0) _sel = Beside(_sel, across);
             if (dr != 0) _sel = NextRegion(_sel, dr);
             TestDrive();
@@ -279,6 +279,7 @@ namespace HCT15
                 if (back) { Leave(); return; }
                 if (dx != 0 || dr != 0) SetRegion(_region + (dx != 0 ? dx : dr));
                 if (dy > 0 || enter) EnterRegion();
+                else if (dy < 0) { EnterRegion(); SelectPlace(-1); }       // 2.2.6: up from the regions = the list's last place
             }
             else
             {
@@ -289,11 +290,21 @@ namespace HCT15
                 {
                     List<Pin> places = PlacesOf(_doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)]);
                     int k = places.IndexOf(_sel >= 0 && _sel < _byY.Count ? _byY[_sel] : null);
-                    if (dy < 0 && k <= 0) { _level = 0; return; }                 // up from the first place: back to the regions
-                    k = Mathf.Clamp(k + dy, 0, places.Count - 1);
-                    if (k >= 0 && k < places.Count) _sel = _byY.IndexOf(places[k]);
+                    // 2.2.6 (pressing up on the first stage brings up the end of the list): the list
+                    // wraps - up from the first place is the last, down from the last the first (until 2.2.5 up from
+                    // the first went back to the regions; Esc / B still does)
+                    if (places.Count > 0) SelectPlace(((k < 0 ? 0 : k + dy) % places.Count + places.Count) % places.Count);
                 }
             }
+        }
+
+        /// <summary>The k-th place of the current region's list (negative: from the end, -1 = the last).</summary>
+        private void SelectPlace(int k)
+        {
+            List<Pin> places = PlacesOf(_doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)]);
+            if (places.Count == 0) return;
+            if (k < 0) k += places.Count;
+            _sel = _byY.IndexOf(places[Mathf.Clamp(k, 0, places.Count - 1)]);
         }
 
         /// <summary>A region's places, north to south (the list and the map agree).</summary>
@@ -397,9 +408,9 @@ namespace HCT15
                     if (Regions && _level == 1)
                     {
                         List<Pin> pl = PlacesOf(_doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)]);
-                        int pk = Mathf.Clamp(pl.IndexOf(_byY[_sel]) + (m == 'v' ? 1 : -1), 0, pl.Count - 1);
-                        if (pk >= 0 && pk < pl.Count) _sel = _byY.IndexOf(pl[pk]);
+                        if (pl.Count > 0) SelectPlace(((pl.IndexOf(_byY[_sel]) + (m == 'v' ? 1 : -1)) % pl.Count + pl.Count) % pl.Count);   // wraps, as the keys
                     }
+                    else if (Regions && m == '^') { EnterRegion(); SelectPlace(-1); }
                     break;
                 case 'x': Close(false); break;
                 case 'o': Open(); break;
@@ -719,10 +730,18 @@ namespace HCT15
                 // the region level: its name, how many stages, the keys; the stages listed top right
                 string reg = _doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)];
                 int count = _byY.FindAll(p => p.Region == reg).Count;
-                GUI.Label(new Rect(cardX, cardY, cardW, sh * 0.035f), campaign.ToUpperInvariant() + "  ·  " + (es ? "región " : "region ") + (_region + 1) + " / " + _doc.Regions.Count, _small);
-                GUI.Label(new Rect(cardX, cardY + sh * 0.03f, cardW, sh * 0.07f), reg, _title);
-                GUI.Label(new Rect(cardX, cardY + sh * 0.1f, cardW, sh * 0.04f), count + (es ? (count == 1 ? " pista" : " pistas") : (count == 1 ? " stage" : " stages")), _text);
-                GUI.Label(new Rect(cardX, cardY + sh * 0.145f, cardW, sh * 0.08f), es ? "↓ / Enter   ver sus pistas" : "↓ / Enter   its stages", _text);
+                // 2.2.8 (the minimaps did not show until a key was pressed): the outline of the stage marked in the list shows at
+                // the region level too
+                float textW = cardW;
+                if (sel.Region == reg)
+                {
+                    float pv = cardH - 12f; textW = cardW - pv - 12f;
+                    TrackPreview(sel.Id, new Rect(cardX + cardW - pv + 8f, cardY - 8f, pv, pv - 4f));
+                }
+                GUI.Label(new Rect(cardX, cardY, textW, sh * 0.035f), campaign.ToUpperInvariant() + "  ·  " + (es ? "región " : "region ") + (_region + 1) + " / " + _doc.Regions.Count, _small);
+                GUI.Label(new Rect(cardX, cardY + sh * 0.03f, textW, sh * 0.07f), reg, _title.CalcSize(new GUIContent(reg)).x <= textW ? _title : _titleFit);
+                GUI.Label(new Rect(cardX, cardY + sh * 0.1f, textW, sh * 0.04f), count + (es ? (count == 1 ? " pista" : " pistas") : (count == 1 ? " stage" : " stages")) + (sel.Region == reg ? "  ·  " + sel.Title : ""), _text);
+                GUI.Label(new Rect(cardX, cardY + sh * 0.145f, textW, sh * 0.08f), es ? "↓ / Enter   ver sus pistas" : "↓ / Enter   its stages", _text);
                 string hint = es
                     ? "← →  ·  LB / RB   región al norte / al sur\n↓ / Enter / A   sus lugares\nEsc / B   volver a Campañas"
                     : "← →  ·  LB / RB   region north / south\n↓ / Enter / A   its places\nEsc / B   back to Campaigns";
@@ -736,12 +755,16 @@ namespace HCT15
             else
             {
                 // over the map: the round's card bottom left, the keys bottom right, the stages top right
-                GUI.Label(new Rect(cardX, cardY, cardW, sh * 0.035f), head, _small);
-                bool fits = _title.CalcSize(new GUIContent(sel.Title)).x <= cardW;
-                GUI.Label(new Rect(cardX, cardY + sh * 0.03f, cardW, sh * 0.07f), sel.Title, fits ? _title : _titleFit);
-                GUI.Label(new Rect(cardX, cardY + sh * 0.1f, cardW, sh * 0.04f), sel.Region + "  ·  " + sel.Climate, _text);
-                GUI.Label(new Rect(cardX, cardY + sh * 0.145f, cardW, sh * 0.04f), kmLaps, _text);
-                GUI.Label(new Rect(cardX, cardY + sh * 0.19f, cardW, sh * 0.04f), neighbours, _text);
+                // 2.2.7 (a minimap preview on the stage selection of the Chilean tracks): the lap's
+                // outline at the card's right end, the texts to its left
+                float pv = cardH - 12f, textW = cardW - pv - 12f;
+                TrackPreview(sel.Id, new Rect(cardX + cardW - pv + 8f, cardY - 8f, pv, pv - 4f));
+                GUI.Label(new Rect(cardX, cardY, textW, sh * 0.035f), head, _small);
+                bool fits = _title.CalcSize(new GUIContent(sel.Title)).x <= textW;
+                GUI.Label(new Rect(cardX, cardY + sh * 0.03f, textW, sh * 0.07f), sel.Title, fits ? _title : _titleFit);
+                GUI.Label(new Rect(cardX, cardY + sh * 0.1f, textW, sh * 0.04f), sel.Region + "  ·  " + sel.Climate, _text);
+                GUI.Label(new Rect(cardX, cardY + sh * 0.145f, textW, sh * 0.04f), kmLaps, _text);
+                GUI.Label(new Rect(cardX, cardY + sh * 0.19f, textW, sh * 0.04f), neighbours, _text);
                 string hint = Regions
                     ? (es ? "↑ ↓   lugar (lista de la derecha)\n← →  ·  LB / RB   otra región\nEnter / A   ¡a correr!      Esc / B   volver a las regiones"
                           : "↑ ↓   place (the list on the right)\n← →  ·  LB / RB   another region\nEnter / A   race!      Esc / B   back to the regions")
@@ -763,6 +786,60 @@ namespace HCT15
                 GUI.color = Color.white; GUI.Label(new Rect(nr.x + 20, nr.y + 10, ns.x + 4, ns.y), _notice, _text);
             }
             GUI.color = Color.white;
+        }
+
+        private readonly Dictionary<string, List<Vector2>> _outlines = new Dictionary<string, List<Vector2>>();
+        private readonly Dictionary<string, bool> _outlineOpen = new Dictionary<string, bool>();
+        private readonly List<Vector2> _pv = new List<Vector2>();
+
+        /// <summary>2.2.7: a race's outline seen from above (its waypoints' x/z, the raced part of a point-to-point route),
+        /// cached per race; null without waypoints.</summary>
+        private List<Vector2> Outline(string id, out bool open)
+        {
+            open = false;
+            List<Vector2> pts;
+            if (_outlines.TryGetValue(id, out pts)) { _outlineOpen.TryGetValue(id, out open); return pts; }
+            pts = null;
+            try
+            {
+                CustomRaceDef def;
+                if (ContentRegistry.RacesById.TryGetValue(id, out def) && def != null && def.Waypoints != null && def.Waypoints.Count > 2)
+                {
+                    open = def.PointToPoint;
+                    int last = open ? Mathf.Clamp(Mathf.RoundToInt(def.EndPercentage * def.Waypoints.Count), 2, def.Waypoints.Count) : def.Waypoints.Count;
+                    int step = Mathf.Max(1, last / 160);
+                    pts = new List<Vector2>();
+                    for (int i = 0; i < last; i += step) pts.Add(new Vector2(def.Waypoints[i][0], def.Waypoints[i][2]));
+                    if (open) pts.Add(new Vector2(def.Waypoints[last - 1][0], def.Waypoints[last - 1][2]));
+                }
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] world map: outline of '" + id + "': " + ex.Message); }
+            _outlines[id] = pts; _outlineOpen[id] = open;
+            return pts;
+        }
+
+        /// <summary>2.2.7: the race's outline fitted into this box (north up, x right), white over a dark halo, the start
+        /// a red dot (and a point-to-point route's finish a yellow one).</summary>
+        private void TrackPreview(string id, Rect box)
+        {
+            bool open;
+            List<Vector2> pts = Outline(id, out open);
+            if (pts == null || pts.Count < 3) return;
+            float x0 = float.MaxValue, y0 = float.MaxValue, x1 = float.MinValue, y1 = float.MinValue;
+            foreach (Vector2 p in pts) { x0 = Mathf.Min(x0, p.x); x1 = Mathf.Max(x1, p.x); y0 = Mathf.Min(y0, p.y); y1 = Mathf.Max(y1, p.y); }
+            float pad = box.height * 0.1f;
+            float k = Mathf.Min((box.width - 2f * pad) / Mathf.Max(0.01f, x1 - x0), (box.height - 2f * pad) / Mathf.Max(0.01f, y1 - y0));
+            float cx = (x0 + x1) * 0.5f, cy = (y0 + y1) * 0.5f;
+            _pv.Clear();
+            foreach (Vector2 p in pts) _pv.Add(new Vector2(box.center.x + (p.x - cx) * k, box.center.y - (p.y - cy) * k));
+            GUI.color = new Color(0.04f, 0.07f, 0.14f, 0.75f);
+            GUI.DrawTexture(box, _px);
+            GUI.color = Color.white;
+            float w = Mathf.Max(2f, box.height * 0.035f);
+            MapDraw.Smooth(_pv, w * 2.4f, new Color(0f, 0f, 0f, 0.6f), !open);
+            MapDraw.Smooth(_pv, w, new Color(1f, 1f, 1f, 0.95f), !open);
+            MapDraw.Dot(_pv[0], w * 3.2f, new Color(0.9f, 0.15f, 0.1f, 1f));
+            if (open) MapDraw.Dot(_pv[_pv.Count - 1], w * 3.2f, new Color(1f, 0.85f, 0.2f, 1f));
         }
 
         private static int RoundOf(string id)

@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_queulat_city",
+ "ItemName": "city_cl_queulat",
+ "DisplayName": "Parque Nacional Queulat, Aysén",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_queulat"
+ ]
+}

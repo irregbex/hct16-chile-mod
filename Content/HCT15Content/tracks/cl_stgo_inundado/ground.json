@@ -1,5 +1,5 @@
 {
- "Comment": "stgo_inundado.py: the flood 3 to 7 lanes wide; width changes fade through the flood's own strip (TransitionTexture, plugin 2.2.4 - the donor's transitions are asphalt)",
+ "Comment": "stgo_inundado.py: the flood 3 to 7 lanes wide on the avenues, 5 in the stadium and the polideportivo; width changes fade through the flood's own strip (TransitionTexture, plugin 2.2.4 - the donor's transitions are asphalt)",
  "Sections": [],
  "Lanes": [
   {
@@ -9,68 +9,44 @@
    "Name": "flood"
   },
   {
-   "From": 0.0158,
-   "To": 0.0591,
+   "From": 0.0148,
+   "To": 0.0554,
    "Lanes": 4,
    "Name": "angosto"
   },
   {
-   "From": 0.0676,
-   "To": 0.0999,
+   "From": 0.0633,
+   "To": 0.0936,
    "Lanes": 6,
    "Name": "ancho"
   },
   {
-   "From": 0.1123,
-   "To": 0.1422,
+   "From": 0.1052,
+   "To": 0.1332,
    "Lanes": 7,
    "Name": "ancho"
   },
   {
-   "From": 0.1519,
-   "To": 0.1905,
+   "From": 0.1423,
+   "To": 0.1784,
    "Lanes": 5,
    "Name": "normal"
   },
   {
-   "From": 0.2012,
-   "To": 0.2317,
+   "From": 0.1885,
+   "To": 0.217,
    "Lanes": 3,
    "Name": "angosto"
   },
   {
-   "From": 0.2425,
-   "To": 0.28,
+   "From": 0.2272,
+   "To": 0.2623,
    "Lanes": 4,
    "Name": "angosto"
   },
   {
-   "From": 0.2926,
-   "To": 0.3208,
-   "Lanes": 6,
-   "Name": "ancho"
-  },
-  {
-   "From": 0.3342,
-   "To": 0.3652,
-   "Lanes": 7,
-   "Name": "ancho"
-  },
-  {
-   "From": 0.3776,
-   "To": 0.4152,
-   "Lanes": 5,
-   "Name": "normal"
-  },
-  {
-   "From": 0.4277,
-   "To": 0.4589,
-   "Lanes": 4,
-   "Name": "angosto"
-  },
-  {
-   "From": 0.4673,
-   "To": 0.4836,
+   "From": 0.2742,
+   "To": 0.3005,
    "Lanes": 6,
    "Name": "ancho"
   }

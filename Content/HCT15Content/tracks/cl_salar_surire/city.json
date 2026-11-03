@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_salar_surire_city",
+ "ItemName": "city_cl_salar_surire",
+ "DisplayName": "Salar de Surire y Termas de Polloquere, Arica y Parinacota",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_salar_surire"
+ ]
+}

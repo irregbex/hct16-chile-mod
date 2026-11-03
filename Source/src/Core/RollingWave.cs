@@ -15,7 +15,7 @@ namespace HCT15
     /// </summary>
     public class RollingWave : MonoBehaviour
     {
-        public float Period = 6.5f, Travel = 30f, Height = 7.0f, Length = 46f;   // 2.0.25 (they could hardly be seen, made bigger): was 5.5 / 18 / 3 / 26
+        public float Period = 6.5f, Travel = 30f, Height = 7.0f, Length = 46f;   // 2.0.25 (bigger, they could hardly be seen): was 5.5 / 18 / 3 / 26
         private const int Nz = 12;
         private Mesh _mesh;
         private Renderer _r;

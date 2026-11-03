@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_cueva_milodon_city",
+ "ItemName": "city_cl_cueva_milodon",
+ "DisplayName": "Cueva del Milodón, Magallanes",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_cueva_milodon"
+ ]
+}

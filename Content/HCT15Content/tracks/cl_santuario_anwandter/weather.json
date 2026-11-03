@@ -1,0 +1,15 @@
+{
+ "Comment": "special_tracks.py: grey sky over the wetland",
+ "RainT": [
+  0.0,
+  0.5,
+  1.0
+ ],
+ "RainV": [
+  0.0,
+  0.2,
+  0.1
+ ],
+ "Sound": true,
+ "Grip": 0.92
+}

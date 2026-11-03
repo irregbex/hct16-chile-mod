@@ -706,7 +706,7 @@ namespace HCT15
                 if (!CombinedBounds(car, out cb)) return;
                 float carLen = Mathf.Max(cb.size.x, cb.size.z);
                 float grow = 1f;
-                try { grow = StaticData.NumPlayers > 1 ? 1f : Mathf.Clamp(selectScale, 0.5f, 1.6f); } catch (Exception) { }
+                try { grow = StaticData.NumPlayers > 1 ? 1f : Mathf.Clamp(selectScale, 0.25f, 1.6f); } catch (Exception) { }   // 2.2.7: down to 0.25 (the andas)
                 // the length to fit: a retail car of this view, or - a view of our cars only (a carreta campaign) -
                 // a retail car's usual length. The turntable spins the model about the slot and the split-screen camera
                 // is 6 units away: a 5.7-unit carreta put its horse's head 2.9 units from the lens, a brown shape over
@@ -715,9 +715,12 @@ namespace HCT15
                 float refLen = MaxSelectionLength;
                 Bounds rb;
                 if (reference != null && CombinedBounds(reference, out rb)) refLen = Mathf.Max(rb.size.x, rb.size.z);
+                // 2.2.7 (with two players the andas were too tall to show whole on the selection screen):
+                // the views are built at start-up, before anyone knows how many will play, so a tall car (the andas: the
+                // Virgin above the bearers) says so with a small SelectScale - the scale may go down to 0.2 for it
                 if (carLen > 0.01f && refLen > 0.01f && (reference != null || carLen > refLen || grow > 1.01f))
                 {
-                    float k = Mathf.Clamp(refLen * grow / carLen, 0.4f, 1.6f);
+                    float k = Mathf.Clamp(refLen * grow / carLen, 0.2f, 1.6f);
                     car.transform.localScale = car.transform.localScale * k;
                     CombinedBounds(car, out cb);
                 }
@@ -730,7 +733,7 @@ namespace HCT15
                 Vector3 slot = car.transform.parent != null ? car.transform.parent.position : car.transform.position;
                 Vector3 shift = new Vector3(slot.x - cb.center.x, 0f, slot.z - cb.center.z);
                 car.transform.position += shift;
-                Debug.Log("[HCT15] selection slot: '" + car.name + "' length " + carLen.ToString("0.00") + " -> fit to " + (refLen * grow).ToString("0.00") + (grow > 1.01f ? " (x" + grow.ToString("0.00") + " of a retail car)" : "") + (reference != null ? " (reference '" + reference.name + "')" : " (no reference)") + ", scale now " + car.transform.localScale.x.ToString("0.00") + ", shifted " + shift.ToString("0.00"));
+                Debug.Log("[HCT15] selection slot: '" + car.name + "' length " + carLen.ToString("0.00") + " -> fit to " + (refLen * grow).ToString("0.00") + (grow > 1.01f ? " (x" + grow.ToString("0.00") + " of a retail car)" : "") + (reference != null ? " (reference '" + reference.name + "')" : " (no reference)") + ", scale now " + car.transform.localScale.x.ToString("0.00") + ", height " + cb.size.y.ToString("0.00") + ", shifted " + shift.ToString("0.00"));
             }
             catch (Exception ex)
             {
@@ -1402,6 +1405,28 @@ namespace HCT15
         /// driver info grew up and down through the name. Anchor the text to the top of its slot, let
         /// it overflow downwards, use a slightly smaller font and tighter line spacing.
         /// </summary>
+        /// <summary>2.2.7: how far (in the text's parent units) the top of 't' must come down to sit just under the
+        /// letters of 'title' (by the title's alignment and its preferred height), false when it cannot be measured.</summary>
+        private static bool DropUnder(Text t, Text title, out float drop)
+        {
+            drop = 0f;
+            try
+            {
+                var nc = new Vector3[4]; var tc = new Vector3[4];
+                title.rectTransform.GetWorldCorners(nc);
+                t.rectTransform.GetWorldCorners(tc);
+                float ps = t.rectTransform.parent != null ? t.rectTransform.parent.lossyScale.y : t.rectTransform.lossyScale.y;
+                float h = title.preferredHeight * title.rectTransform.lossyScale.y;
+                if (ps <= 1e-6f || h <= 1e-6f) return false;
+                string a = title.alignment.ToString();
+                float top = nc[1].y, bottom = nc[0].y;
+                float letters = a.StartsWith("Upper") ? top - h : a.StartsWith("Lower") ? bottom : (top + bottom) * 0.5f - h * 0.5f;
+                drop = (tc[1].y - (letters - h * 0.1f)) / ps;
+                return true;
+            }
+            catch (Exception) { return false; }
+        }
+
         private static bool LayoutDriverInfo(Text t)
         {
             if (t.name.StartsWith("HCT15")) return false;
@@ -1423,12 +1448,26 @@ namespace HCT15
             {
                 // find the car name (sibling Text ending in the season year, bigger font) and start below it
                 Text title = null;
-                if (t.transform.parent != null)
-                    foreach (Text o in t.transform.parent.GetComponentsInChildren<Text>(true))
-                        if (o != t && o.text != null && o.text.Trim().EndsWith("2026") && o.fontSize >= t.fontSize) { title = o; break; }
+                // (2.2.7: up to the grandparent, the nearest one - in split screen the other player's name is a cousin)
+                int up = 0;
+                for (Transform p = t.transform.parent; p != null && title == null && up < 2; p = p.parent, up++)
+                {
+                    float best = float.MaxValue;
+                    foreach (Text o in p.GetComponentsInChildren<Text>(true))
+                        if (o != t && o.text != null && o.text.Trim().EndsWith("2026") && o.fontSize >= t.fontSize)
+                        {
+                            float d = Vector3.Distance(o.transform.position, t.transform.position);
+                            if (d < best) { best = d; title = o; }
+                        }
+                }
                 // one name height was not enough (the first info line still ran through the name): two and a half
                 float drop = title != null ? title.fontSize * 2.5f : t.fontSize * 2.6f;
                 RectTransform r = t.rectTransform;
+                // 2.2.7 (with two players the descriptions sat too low, under the upgrades): the fixed drop was
+                // measured on the full screen - the text's top now goes just under the name's letters, measured
+                float measured;
+                if (title != null && DropUnder(t, title, out measured)) drop = Mathf.Clamp(measured, 0f, title.fontSize * 2.5f);
+                Debug.Log("[HCT15] car-selection info text: down " + drop.ToString("0.0") + (title != null ? " under '" + title.text.Trim() + "' (font " + title.fontSize + ")" : " (no name found)"));
                 r.anchoredPosition = new Vector2(r.anchoredPosition.x, r.anchoredPosition.y - drop);
                 t.name = "HCT15sized_shifted";
                 changed = true;

@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -39.64,
+  -72.33
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.12,
+  "serp_n": 8,
+  "stretch": 1.5,
+  "heading": 120,
+  "seed": 140
+ },
+ "theme": "lake"
+}

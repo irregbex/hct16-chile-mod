@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_capillas_marmol_city",
+ "ItemName": "city_cl_capillas_marmol",
+ "DisplayName": "Capillas de Mármol y Lago General Carrera, Aysén",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_capillas_marmol"
+ ]
+}

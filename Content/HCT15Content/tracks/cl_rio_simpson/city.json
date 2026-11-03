@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_rio_simpson_city",
+ "ItemName": "city_cl_rio_simpson",
+ "DisplayName": "Reserva Nacional Río Simpson, Aysén",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_rio_simpson"
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -39.7,
+  -73.19
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.22,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.5,
+  "heading": 10,
+  "seed": 141
+ },
+ "theme": "humedal_sur"
+}

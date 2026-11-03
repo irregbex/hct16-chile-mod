@@ -1,0 +1,11 @@
+{
+  "Id": "fuerte_colonial",
+  "Name": "Colonial fort",
+  "Category": "landmark",
+  "Description": "Spanish stone battery of Corral / Niebla / Bulnes: a low wall with embrasures and three cannons facing +X, 24 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

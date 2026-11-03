@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_santuario_anwandter_city",
+ "ItemName": "city_cl_santuario_anwandter",
+ "DisplayName": "Santuario Carlos Anwandter, Los Ríos",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_santuario_anwandter"
+ ]
+}

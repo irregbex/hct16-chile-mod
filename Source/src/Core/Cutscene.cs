@@ -17,10 +17,12 @@ namespace HCT15
     /// is still playing when the race appears, the game is paused (Time.timeScale 0: grid and countdown wait) until it
     /// ends. Enter, Space, Esc, gamepad A / B / Start skip to the next slide. Once per race load; "-hct15-nocutscene"
     /// skips it (tests). Attached next to Tolls (StageSelectMenu).
+    /// 2.3.0: a slide { "Live": "luna", "Title": "PLAYA LUNA", "Subtitle": "..." } is a 3D scene played live (LunaIntro3D on
+    /// Stage3D) instead of frames; its title slams onto the screen at the end. "-hct15-cutjump &lt;s&gt;" starts it there (tests).
     /// </summary>
     public class Cutscene : MonoBehaviour
     {
-        [Serializable] public class Slide { public string Image = ""; public float Seconds = 3.5f; public string Frames = ""; public int Count; public float Fps = 12f; }
+        [Serializable] public class Slide { public string Image = ""; public float Seconds = 3.5f; public string Frames = ""; public int Count; public float Fps = 12f; public string Live = ""; public string Title = ""; public string Subtitle = ""; }
         [Serializable] public class CutsceneJson { public List<Slide> Slides = new List<Slide>(); }
 
         private static readonly bool Off = HasArg("-hct15-nocutscene");
@@ -31,7 +33,23 @@ namespace HCT15
         private float _start, _savedScale = 1f;
         private bool _paused;
         private Texture2D _tex, _px;
-        private GUIStyle _hint;
+        private GUIStyle _hint, _title;
+        private LunaIntro3D _live;
+        private static readonly float CutJump = ArgFloat("-hct15-cutjump");
+
+        private static float ArgFloat(string a)
+        {
+            try
+            {
+                string[] args = Environment.GetCommandLineArgs();
+                for (int i = 0; i < args.Length - 1; i++)
+                    if (string.Equals(args[i], a, StringComparison.OrdinalIgnoreCase)) return float.Parse(args[i + 1], System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch (Exception) { }
+            return 0f;
+        }
+
+        private static bool IsLive(Slide s) { return s != null && !string.IsNullOrEmpty(s.Live); }
 
         private static bool HasArg(string a)
         {
@@ -66,7 +84,7 @@ namespace HCT15
                 CutsceneJson c = Json.FromJson<CutsceneJson>(File.ReadAllText(file));
                 if (c == null || c.Slides == null || c.Slides.Count == 0) return;
                 _slides.Clear();
-                foreach (Slide s in c.Slides) if (s != null && (s.Count > 0 && !string.IsNullOrEmpty(s.Frames) || !string.IsNullOrEmpty(s.Image))) _slides.Add(s);
+                foreach (Slide s in c.Slides) if (s != null && (s.Count > 0 && !string.IsNullOrEmpty(s.Frames) || !string.IsNullOrEmpty(s.Image) || IsLive(s))) _slides.Add(s);
                 if (_slides.Count == 0) return;
                 if (_tex == null) { _tex = new Texture2D(2, 2, TextureFormat.RGB24, false) { filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp }; }
                 _cur = 0; _frame = -1; _start = Time.unscaledTime; _paused = false;
@@ -88,13 +106,27 @@ namespace HCT15
         private void Load(int f)
         {
             Slide s = _slides[_cur];
+            if (IsLive(s))
+            {
+                if (_live == null && f == 0)
+                {
+                    try
+                    {
+                        _live = new LunaIntro3D(Mathf.Min(Screen.width, 1920), Mathf.Min(Screen.height, 1080));
+                        if (CutJump > 0f) while (_live.Clock < CutJump) _live.Frame(1f / 30f);
+                    }
+                    catch (Exception ex) { Debug.LogWarning("[HCT15] cutscene: live scene: " + ex); DropLive(); }
+                }
+                _frame = f;
+                return;
+            }
             string rel = s.Count > 0 && !string.IsNullOrEmpty(s.Frames) ? string.Format(s.Frames, f) : s.Image;
             string path = Path.Combine(_dir, rel ?? "");
             if (File.Exists(path)) _tex.LoadImage(File.ReadAllBytes(path));
             _frame = f;
         }
 
-        private float Length(Slide s) { return s.Count > 0 && !string.IsNullOrEmpty(s.Frames) ? s.Count / Mathf.Max(1f, s.Fps) : Mathf.Clamp(s.Seconds, 0.8f, 15f); }
+        private float Length(Slide s) { if (IsLive(s)) return _live != null ? LunaIntro3D.Length + 1.6f : 0f; return s.Count > 0 && !string.IsNullOrEmpty(s.Frames) ? s.Count / Mathf.Max(1f, s.Fps) : Mathf.Clamp(s.Seconds, 0.8f, 15f); }
 
         private static bool SkipPressed()
         {
@@ -111,8 +143,10 @@ namespace HCT15
             if (_paused) Time.timeScale = 0f;                        // keep the race waiting (the game may reset it)
             Slide s = _slides[_cur];
             float t = Time.unscaledTime - _start;
+            if (IsLive(s) && _live != null) { _live.Frame(Mathf.Min(Time.unscaledDeltaTime, .05f)); t = _live.Clock; }
             if (t > 0.4f && SkipPressed() || t > Length(s))
             {
+                if (IsLive(s)) DropLive();
                 _cur++; _start = Time.unscaledTime;
                 if (_cur >= _slides.Count) { End(); return; }
                 Load(0);
@@ -125,8 +159,15 @@ namespace HCT15
             }
         }
 
+        private void DropLive()
+        {
+            if (_live != null) { try { _live.Destroy(); } catch (Exception) { } }
+            _live = null;
+        }
+
         private void End()
         {
+            DropLive();
             _cur = -1;
             if (_paused) Time.timeScale = _savedScale;
             _paused = false;
@@ -137,12 +178,13 @@ namespace HCT15
 
         private void OnGUI()
         {
-            if (_cur < 0 || _cur >= _slides.Count || _tex == null) return;
+            if (_cur < 0 || _cur >= _slides.Count || _tex == null && !IsLive(_slides[_cur])) return;
             if (_px == null) { _px = new Texture2D(1, 1); _px.SetPixel(0, 0, Color.black); _px.Apply(); }
             if (_hint == null) _hint = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(Screen.height * 0.022f), fontStyle = FontStyle.Bold, alignment = TextAnchor.LowerRight };
             GUI.depth = -9000;
             GUI.color = Color.black; GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), _px);
             Slide sl = _slides[_cur];
+            if (IsLive(sl)) { LiveGui(sl); return; }
             float t = Time.unscaledTime - _start, len = Length(sl);
             bool still = !(sl.Count > 0 && !string.IsNullOrEmpty(sl.Frames));
             float fade = still ? Mathf.Clamp01(Mathf.Min(t / 0.3f, (len - t) / 0.3f)) : 1f;
@@ -153,6 +195,38 @@ namespace HCT15
             GUI.color = new Color(1f, 1f, 1f, 0.8f);
             _hint.normal.textColor = Color.white;
             GUI.Label(new Rect(0, 0, Screen.width - Screen.width * 0.02f, Screen.height - Screen.height * 0.02f), (Loc.Lang == "es" ? "Enter / A: saltar   " : "Enter / A: skip   ") + (_cur + 1) + "/" + _slides.Count, _hint);
+            GUI.color = Color.white;
+        }
+            /// <summary>The live scene full screen, letterboxed, and the title slamming in over the last seconds.</summary>
+        private void LiveGui(Slide sl)
+        {
+            float W = Screen.width, H = Screen.height, u = H / 100f;
+            if (_live == null) return;
+            GUI.color = Color.black; GUI.DrawTexture(new Rect(0, 0, W, H), _px);
+            _live.St.Draw(new Rect(0, 0, W, H));
+            GUI.color = Color.black; GUI.DrawTexture(new Rect(0, 0, W, H * .06f), _px); GUI.DrawTexture(new Rect(0, H - H * .06f, W, H * .06f), _px);
+            float k = _live.Clock - 9.6f;
+            if (k > 0f && !string.IsNullOrEmpty(sl.Title))
+            {
+                if (_title == null) _title = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.BoldAndItalic, clipping = TextClipping.Overflow };
+                float sc = k < .25f ? Mathf.Lerp(3f, .92f, k / .25f) : k < .45f ? Mathf.Lerp(.92f, 1f, (k - .25f) / .2f) : 1f + (k - .45f) * .02f;
+                float a = Mathf.Clamp01(k / .12f);
+                Matrix4x4 keep = GUI.matrix;
+                GUIUtility.ScaleAroundPivot(new Vector2(sc, sc), new Vector2(W / 2f, H * .42f));
+                _title.fontSize = Mathf.RoundToInt(u * 15f);
+                GUI.color = new Color(.25f, .05f, .1f, a); GUI.Label(new Rect(u * .8f, H * .30f + u * 1.2f, W, u * 24f), sl.Title, _title);
+                GUI.color = new Color(1f, .82f, .35f, a); GUI.Label(new Rect(0, H * .30f, W, u * 24f), sl.Title, _title);
+                GUI.matrix = keep;
+                if (!string.IsNullOrEmpty(sl.Subtitle) && k > .5f)
+                {
+                    _title.fontSize = Mathf.RoundToInt(u * 3.6f);
+                    GUI.color = new Color(0, 0, 0, .7f); GUI.Label(new Rect(u * .3f, H * .58f + u * .4f, W, u * 6f), sl.Subtitle, _title);
+                    GUI.color = new Color(1, 1, 1, Mathf.Clamp01((k - .5f) / .3f)); GUI.Label(new Rect(0, H * .58f, W, u * 6f), sl.Subtitle, _title);
+                }
+            }
+            GUI.color = new Color(1f, 1f, 1f, 0.8f);
+            _hint.normal.textColor = Color.white;
+            GUI.Label(new Rect(0, 0, W - W * 0.02f, H - H * 0.02f), (Loc.Lang == "es" ? "Enter / A: saltar   " : "Enter / A: skip   ") + (_cur + 1) + "/" + _slides.Count, _hint);
             GUI.color = Color.white;
         }
     }

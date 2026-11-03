@@ -1,0 +1,12 @@
+{
+  "Id": "alumnos_basquet_0",
+  "Name": "Basketball pupils 0",
+  "Category": "prop",
+  "Description": "~40 basketball pupils in reflective orange shirts celebrating in a flooded court (18 x 5 m): jumping, arms up, balls in the air, their coach; front +X (Anim crowd)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": false,
+  "DoubleSided": false,
+  "Anim": "crowd"
+}

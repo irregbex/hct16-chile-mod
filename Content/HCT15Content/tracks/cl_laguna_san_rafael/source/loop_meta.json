@@ -1,0 +1,16 @@
+{
+ "centre": [
+  -46.64,
+  -73.85
+ ],
+ "streets": [],
+ "shape": {
+  "harm": 0.26,
+  "serp": 0.0,
+  "serp_n": 0,
+  "stretch": 1.4,
+  "heading": 90,
+  "seed": 147
+ },
+ "theme": "glaciar"
+}
