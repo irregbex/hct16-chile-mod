@@ -173,6 +173,7 @@ namespace HCT15
         {
             bool racing = false;
             try { racing = StaticData.IsInRace && !LoadingManager.IsLoadingScene && Aquiris.HorizonChase.NewUI.UIStateManager.IsStateActive("GAMEPLAY") && Time.timeScale > 0f; } catch (Exception) { }
+            if (Podium.Showing) racing = false;   // 2.3.5: no horns behind the podium (paused one-shots pile up)
             if (!racing) { _nextOwn.Clear(); _nextRival = -1f; return; }
             try
             {

@@ -33,6 +33,11 @@ namespace HCT15
 
         private static readonly bool Off = HasArg("-hct15-nopodium");
         public static readonly bool Test = HasArg("-hct15-podiotest");
+        /// <summary>2.3.5: the ceremony is on screen. The race goes on behind it (the autopilot drives on) with the listener
+        /// paused, and every sound it started then waited as a paused voice: a carreta's hooves, the horns and the taunts
+        /// piled past Unity's 512 virtual voices ("Ran out of virtual channels") and the podium music was the one dropped,
+        /// about when the first cup came up (as reported). The race's own sounds and taunts hold their peace while this is true.</summary>
+        public static bool Showing;
         private static readonly float Jump = ArgFloat("-hct15-podiojump");
         private static Podium _me;
         private static bool _letThrough;
@@ -119,7 +124,7 @@ namespace HCT15
             try { _pausedAudio = !AudioListener.pause; AudioListener.pause = true; } catch (Exception) { }
             _cams.Clear();
             foreach (Camera c in Camera.allCameras) if (c != null && c != _scene.St.Cam && c.targetTexture == null) { _cams.Add(new KeyValuePair<Camera, int>(c, c.cullingMask)); c.cullingMask = 0; }
-            _playing = true; _begin = Time.unscaledTime; _t = 0f; _next = 0; _frames = 0;
+            _playing = true; Showing = true; _begin = Time.unscaledTime; _t = 0f; _next = 0; _frames = 0;
             _lower = 0; _lowerAt = _champAt = _tableAt = _capAt = -99f; _capWho = _capTxt = "";
             if (Jump > 0f) { while (_scene.Clock < Jump) { _scene.Frame(1f / 30f); Fire(); } }
             if (_src.clip != null) { _src.time = Mathf.Min(_scene.Clock, _src.clip.length - .1f); _src.Play(); }
@@ -335,7 +340,7 @@ namespace HCT15
 
         private void Cleanup()
         {
-            _playing = false;
+            _playing = false; Showing = false;
             foreach (AudioClip c in _clips.Values) if (c != null) Destroy(c);
             _clips.Clear(); _crowd = _fx = null;
             for (int i = 0; i < _engines.Length; i++) _engines[i] = null;

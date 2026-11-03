@@ -4,6 +4,13 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.5 (2026-11-03)
+  - Podium: a vehicle's own visible driver gets off and takes the prize - the carreta's huaso leaves his seat in his
+    poncho and hat (the model marks him as OBJ group "driver"; any model can). The game's own cars have their drivers
+    painted into the body and keep the racing driver figure.
+  - Podium music no longer cuts out: the race behind the ceremony (hooves, horns, taunts) stays quiet while it shows.
+  - The carreta's right speech bubble no longer jumps up and down.
+
 2.3.4 (2026-11-03)
   - Podium: a carreta gallops in on hooves (an anda is marched in by its bearers) instead of an engine's sound.
   - Jet skis: the chunks thrown up behind them are white sea foam (they were the cars' dirt particles, made brown by

@@ -56,6 +56,9 @@ namespace HCT15
             public bool Loaded, Failed; public string Error = "";
             // skeleton (<id>.rig.json beside the .obj) and what RiggedFigure needs to skin the imported mesh
             public RigDef Rig;
+            /// <summary>2.3.5: the faces of OBJ group "driver*" (the carretas' huaso): their colours in order of first use,
+            /// and the mesh marks them with uv2.x = 1 (Driver.Strip makes a copy without them).</summary>
+            public List<Color> DriverColours = new List<Color>(); public List<string> DriverMaterials = new List<string>();
             public int[] CornerFileVertex;            // for every mesh vertex: the 'v' line (0-based) it came from
             public Vector3 FileShift; public float FileScale = 1f; public float FileYaw;
             /// <summary>A point in the .obj's own coordinates -> the imported mesh's coordinates (recentre, scale, yaw, mirror X).</summary>
@@ -163,6 +166,7 @@ namespace HCT15
             var mtls = new Dictionary<string, Mtl>(StringComparer.OrdinalIgnoreCase);
             var faces = new List<KeyValuePair<Mtl, int[][]>>();   // material, [vertex index, uv index] per corner
             var cur = new Mtl { Name = "default" };
+            var faceDriver = new List<bool>(); bool inDriver = false;   // 2.3.5: OBJ group "driver*"
             foreach (string raw in File.ReadAllLines(def.ObjPath))
             {
                 string line = raw.Trim();
@@ -195,9 +199,13 @@ namespace HCT15
                                 if (p.Length > 1 && p[1].Length > 0) { ti = int.Parse(p[1], ci); ti = ti < 0 ? uvs.Count + ti : ti - 1; }
                                 corners.Add(new[] { vi, ti });
                             }
-                            if (corners.Count >= 3) faces.Add(new KeyValuePair<Mtl, int[][]>(cur, corners.ToArray()));
+                            if (corners.Count >= 3) { faces.Add(new KeyValuePair<Mtl, int[][]>(cur, corners.ToArray())); faceDriver.Add(inDriver); }
                             break;
                         }
+                    case "g":
+                    case "o":
+                        inDriver = t.Length > 1 && t[1].StartsWith("driver", StringComparison.OrdinalIgnoreCase);
+                        break;
                 }
             }
             if (pos.Count == 0 || faces.Count == 0) throw new Exception("no geometry in " + Path.GetFileName(def.ObjPath));
@@ -221,10 +229,15 @@ namespace HCT15
             var slotTex = new List<string> { null };
             var V = new List<Vector3>(); var C = new List<Color>(); var N = new List<Vector3>(); var UV = new List<Vector2>();
             var cornerOf = new List<int>();
+            var UV2 = new List<Vector2>(); bool anyDriver = false;
+            def.DriverColours.Clear(); def.DriverMaterials.Clear();
             int tris = 0;
-            foreach (var kv in faces)
+            for (int fi = 0; fi < faces.Count; fi++)
             {
+                var kv = faces[fi];
                 Mtl m = kv.Key; int[][] c = kv.Value;
+                bool drv = faceDriver[fi];
+                if (drv) { anyDriver = true; if (!def.DriverMaterials.Contains(m.Name)) { def.DriverMaterials.Add(m.Name); Color dc = m.Kd; dc.a = 1f; def.DriverColours.Add(dc); } }
                 int slot = 0;
                 if (!string.IsNullOrEmpty(m.Map))
                 {
@@ -244,6 +257,7 @@ namespace HCT15
                     cornerOf.Add(a[0]); cornerOf.Add(bb[0]); cornerOf.Add(cc[0]);
                     for (int k = 0; k < 3; k++) { C.Add(col); N.Add(nrm); }
                     UV.Add(Uv(uvs, a[1])); UV.Add(Uv(uvs, bb[1])); UV.Add(Uv(uvs, cc[1]));
+                    Vector2 mark = new Vector2(drv ? 1f : 0f, 0f); UV2.Add(mark); UV2.Add(mark); UV2.Add(mark);
                     slotTris[slot].Add(i0); slotTris[slot].Add(i0 + 1); slotTris[slot].Add(i0 + 2);
                     if (def.Meta.DoubleSided) { slotTris[slot].Add(i0); slotTris[slot].Add(i0 + 2); slotTris[slot].Add(i0 + 1); }
                     tris++;
@@ -252,6 +266,7 @@ namespace HCT15
             var mesh = new Mesh { name = "HCT15_asset_" + def.Id };
             mesh.indexFormat = V.Count > 65000 ? UnityEngine.Rendering.IndexFormat.UInt32 : UnityEngine.Rendering.IndexFormat.UInt16;
             mesh.SetVertices(V); mesh.SetColors(C); mesh.SetNormals(N); mesh.SetUVs(0, UV);
+            if (anyDriver) mesh.SetUVs(1, UV2);
             var usedSlots = new List<int>(); for (int s = 0; s < slotTris.Count; s++) if (slotTris[s].Count > 0) usedSlots.Add(s);
             if (usedSlots.Count == 0) throw new Exception("no valid faces");
             mesh.subMeshCount = usedSlots.Count;

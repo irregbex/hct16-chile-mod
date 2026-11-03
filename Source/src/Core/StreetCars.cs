@@ -247,6 +247,8 @@ namespace HCT15
 
         /// <summary>CarDef.EngineSound ("gallop"), or null for the donor's engine.</summary>
         public static string EngineSoundOf(string carId) { return OwnOrBase(carId, d => d.EngineSound); }
+        /// <summary>2.3.5: the asset library model of the car's body (null = a game car's own body).</summary>
+        public static string ModelOf(string carId) { return OwnOrBase(carId, d => d.Model); }
 
         /// <summary>A string field of a car - a colour asks its car; a streetcars.json written before the field existed,
         /// the built-in entry.</summary>
@@ -507,6 +509,7 @@ namespace HCT15
         {
             _tried = true;
             if (main == null || main.CarModels == null) return;
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-hct15-driverdump") >= 0) DriverDump(main);
             var cars = new List<CarModel>();
             foreach (CarDef d in LoadDefs())
             {
@@ -976,6 +979,23 @@ namespace HCT15
         /// fitted or moved; the body is only repainted when PaintLow/PaintHigh say so. Every level of detail
         /// gets its own repainted copy of its own mesh, the renderers keep the donor's materials.
         /// </summary>
+        /// <summary>Test flag -hct15-driverdump: every game car's drawn parts (path, mesh, vertices), to find the visible drivers.</summary>
+        private static void DriverDump(CarModelDataList main)
+        {
+            foreach (CarModel c in main.CarModels)
+            {
+                if (c == null || c.ModelPrefab == null) continue;
+                var sb = new System.Text.StringBuilder();
+                foreach (Renderer r in c.ModelPrefab.GetComponentsInChildren<Renderer>(true))
+                {
+                    string path = r.name; for (Transform t = r.transform.parent; t != null && t != c.ModelPrefab.transform; t = t.parent) path = t.name + "/" + path;
+                    MeshFilter mf = r.GetComponent<MeshFilter>();
+                    sb.Append(" | ").Append(path).Append(mf != null && mf.sharedMesh != null ? " [" + mf.sharedMesh.name + " " + mf.sharedMesh.vertexCount + "]" : "");
+                }
+                Debug.Log("[HCT15] driverdump " + c.ItemId + " (" + c.Name + "):" + sb);
+            }
+        }
+
         private static GameObject DonorBodyPrefab(CarModel donor, CarDef d, out float bubbleRise, out Vector3 camera)
         {
             bubbleRise = d.BubbleUp;

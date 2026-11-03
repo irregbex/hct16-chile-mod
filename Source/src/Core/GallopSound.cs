@@ -192,9 +192,10 @@ namespace HCT15
             else
             {
                 if (_car == null) return;
-                bool over = false;
-                try { over = RRApplication.Instance.Game.HasResultShown; } catch (Exception) { }
+                bool over = Podium.Showing || AudioListener.pause;   // 2.3.5: a paused hoof beat waits as a voice: none behind the podium
+                try { over |= RRApplication.Instance.Game.HasResultShown; } catch (Exception) { }
                 s = over ? 0f : Share(_car.CurrentSpeedKPH, _car.MaxSpeedKPH);
+                if (over && _cart.volume > 0f) _cart.volume = 0f;
             }
             if (_march) { UpdateMarch(s); return; }
             _cart.volume = Mathf.Lerp(_cart.volume, s < 0.03f ? 0f : (0.14f + 0.26f * s) * Gain, Dt * 6f);

@@ -360,6 +360,7 @@ namespace HCT15.Patches
 
         private static bool Prefix(CarUIViewModel __instance, SpeechController.SpeechType speechType)
         {
+            if (Podium.Showing) return false;   // 2.3.5: no taunts (bubble, voice) behind the podium
             try
             {
                 // 2.2.9: a mod car driven outside the mod campaigns (World Tour, Adventures) says nothing

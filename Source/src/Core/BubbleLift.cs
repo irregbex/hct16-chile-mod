@@ -39,7 +39,8 @@ namespace HCT15
         public float CornerU = 0.27f, CornerV = 0.67f;   // where in the viewport (0..1) the bubble's tail hangs; the bubble itself sits up and to the LEFT of it (first try 0.17 / 0.78 cut it at the edge and covered the lap time)
         public float TopAtMin, TopAtMax;   // Edge: the roof height at the body's back (min z) and front (max z) - the box top may be a roof fitting
 
-        private const float EdgeGap = 0.04f;   // between the roof edge and the tail of the bubble: a finger, not a hand (the edge is close to the camera, every unit is a screen)
+        private const float EdgeGap = 0.04f;
+        private float _dropHeld = -1f;          // 2.3.5: the tail's reach, measured once per bubble shown (see LateUpdate)   // between the roof edge and the tail of the bubble: a finger, not a hand (the edge is close to the camera, every unit is a screen)
 
         private float _rise;
         private bool _snap = true;
@@ -76,7 +77,7 @@ namespace HCT15
             if (Bubble != null && Bubble.gameObject.activeInHierarchy != _wasShown)
             {
                 _wasShown = !_wasShown;
-                if (_wasShown) _fitSnap = true;   // a new bubble takes its place at once; then it only glides
+                if (_wasShown) { _fitSnap = true; _dropHeld = -1f; }   // a new bubble takes its place at once; then it only glides
                 // "-hct15-shotbubble" (tests): a frame a moment after a bubble of this car comes up, Logs\hct15-bubble.png
                 if (_wasShown && !_bubbleShot && System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-hct15-shotbubble") >= 0) { _bubbleShot = true; StartCoroutine(ShotSoon()); }
                 if (_wasShown && _shownLogs++ < 4)
@@ -117,13 +118,23 @@ namespace HCT15
                 float nearZ = nearIsBack ? Body.min.z + 0.15f : Body.max.z - 0.15f;
                 float roof = nearIsBack ? TopAtMin : TopAtMax;
                 if (roof < Body.min.y + 0.1f) roof = Body.max.y;
-                float drop = VisibleDrop();
+                // 2.3.5 (reported: "the carreta's bubbles still flicker up and down"; -hct15-bubblelog caught it): the right bubble's
+                // measured reach alternated 0.45 / 0.00 frame after frame - each measure moved it, and the next measure of the moved
+                // bubble said the other - so it jumped a seventh of the view. The reach is taken once per bubble shown and held; a
+                // reach under 0.05 is no reach (nothing measurable): the prepared guess stands
+                if (_dropHeld < 0f) { float m = VisibleDrop(); _dropHeld = m < 0.05f ? Drop : m; }
+                float drop = _dropHeld;
                 Vector3 edgeLocal = new Vector3(anchorLocal.x, roof + drop + EdgeGap + Extra, nearZ);
                 Vector3 wantedEdge = parent.InverseTransformPoint(Car.TransformPoint(edgeLocal));
                 if (_snap) { _snap = false; StreetCars.ReportBubble(CarId, Bubble != null ? Bubble.name : name, camLocal, anchorLocal, Body, drop, edgeLocal.y - anchorLocal.y, 0f); }
                 transform.localScale = Vector3.one * Scale;
                 transform.localPosition = wantedEdge - rest * Scale;
+                Vector2 placed = cam.WorldToViewportPoint(Bubble != null ? Bubble.position : transform.position);
                 FitOnScreen(cam);
+                if (FrameLog && Bubble != null && Bubble.gameObject.activeInHierarchy && _frameLogs++ < 400)
+                    Debug.Log("[HCT15] bubble frame " + Time.frameCount + " edge '" + Bubble.name + "' of '" + CarId + "': cam " + camLocal.ToString("0.000") + " nearBack " + nearIsBack + " roof " + roof.ToString("0.000")
+                              + " drop " + drop.ToString("0.0000") + " edge " + edgeLocal.ToString("0.000") + " placed " + placed.ToString("0.0000") + " shown " + ((Vector2)cam.WorldToViewportPoint(Bubble.position)).ToString("0.0000")
+                              + " fit " + _fit.ToString("0.0000") + " bubbleLocal " + rest.ToString("0.000") + " scale " + Bubble.localScale.x.ToString("0.000"));
                 return;
             }
             float want = Mathf.Min(MaxRise, StreetCars.ClearingRise(Body, camLocal, anchorLocal, Drop)) + Extra;
@@ -140,8 +151,17 @@ namespace HCT15
             float k = (dist - d) / dist * Scale;    // nearer by exactly d: this keeps the bubble the same size on screen; Scale = the campaign's BubbleScale
             transform.localScale = new Vector3(k, k, k);
             transform.localPosition = wanted - rest * k;
+            Vector2 before = cam.WorldToViewportPoint(Bubble != null ? Bubble.position : transform.position);
             FitOnScreen(cam);
+            if (FrameLog && Bubble != null && Bubble.gameObject.activeInHierarchy && _frameLogs++ < 400)
+                Debug.Log("[HCT15] bubble frame " + Time.frameCount + " '" + Bubble.name + "' of '" + CarId + "': cam " + camLocal.ToString("0.000") + " rise " + _rise.ToString("0.000") + " want " + want.ToString("0.000")
+                          + " k " + k.ToString("0.000") + " placed " + before.ToString("0.0000") + " shown " + ((Vector2)cam.WorldToViewportPoint(Bubble.position)).ToString("0.0000") + " fit " + _fit.ToString("0.0000")
+                          + " parent " + ((Vector2)cam.WorldToViewportPoint(parent.position)).ToString("0.0000") + " bubbleLocal " + rest.ToString("0.000") + " scale " + Bubble.localScale.x.ToString("0.000"));
         }
+
+        private static bool? _frameLog;
+        private static bool FrameLog { get { if (_frameLog == null) _frameLog = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-hct15-bubblelog") >= 0; return _frameLog.Value; } }
+        private int _frameLogs;
 
         // 2.1.4 (the speech bubbles did not fit on the screen): the andas' bodies are tall and their camera
         // close, so a two-line bubble over the player's anda ran off the right edge and over the speed and fuel. After placing

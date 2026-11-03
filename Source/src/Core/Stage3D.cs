@@ -583,6 +583,10 @@ namespace HCT15
             /// Bottom's); Shorts = shorts of Bottom's colour under the Top (a tee), bare legs; Shades = sunglasses; Vest = a
             /// life vest of this colour over the suit (-1 = none; the jet ski riders).</summary>
             public bool Swim, Female, Shorts, Shades; public int Vest = -1;
+            /// <summary>2.3.5 (the carreta's huaso gets off on the podium): Poncho = a poncho of this colour over the torso with
+            /// two stripes of PonchoStripe; Hat = a wide-brimmed hat of this colour (the chupalla, or the black felt hat)
+            /// with a band of HatBand; -1 = none.</summary>
+            public int Poncho = -1, PonchoStripe = 0xffffff, Hat = -1, HatBand = 0x111111;
         }
 
         public static readonly int[] Skins = { 0xf1c7a5, 0xe3ae86, 0xc68a62, 0x9c6644, 0x7a4a2e, 0xf6d6bf };
@@ -658,6 +662,12 @@ namespace HCT15
                 st.Part(st.CylMesh(.235f, .205f, .44f, 10), vm, Spine, new Vector3(0, .28f, 0), new Vector3(1f, 1f, .74f));
                 foreach (float y in new[] { .2f, .36f }) st.Part(st.CylMesh(.238f, .236f, .035f, 10), wb, Spine, new Vector3(0, y, 0), new Vector3(1f, 1f, .75f));
             }
+            if (o.Poncho >= 0)
+            {
+                Material pm = st.Lit(Stage3D.Hex(o.Poncho), .05f, .3f), sm = st.Lit(Stage3D.Hex(o.PonchoStripe), .05f, .3f);
+                st.Part(st.CylMesh(.2f, .36f, .5f, 10), pm, Spine, new Vector3(0, .25f, 0), new Vector3(1f, 1f, .8f));
+                foreach (float y in new[] { .14f, .3f }) st.Part(st.CylMesh(.368f - .32f * y - .006f, .368f - .32f * y + .006f, .04f, 10), sm, Spine, new Vector3(0, y, 0), new Vector3(1.02f, 1f, .82f));
+            }
             if (o.Promo) st.Part(st.CylMesh(.212f, .18f, .25f, 10), tp, Spine, new Vector3(0, .41f, .004f), new Vector3(.9f, 1f, .7f));
             st.Part(st.CylMesh(.05f, .055f, .1f, 6), sk, Spine, new Vector3(0, .57f, 0));
             Head = st.Node("head", Spine, new Vector3(0, .69f, 0)).transform;
@@ -682,6 +692,13 @@ namespace HCT15
                 if (o.Style != "bald") st.Part(st.SphMesh(.123f, 9, 6, Mathf.PI * .56f), hr, HairT, new Vector3(0, .016f, -.006f));
                 if (o.Style == "long" && !o.Lite) st.Part(shoe, hr, HairT, new Vector3(0, -.14f, -.075f), new Vector3(.22f, .36f, .07f));
                 if (o.Style == "bun" && !o.Lite) st.Part(st.SphMesh(.06f, 7, 5), hr, HairT, new Vector3(0, .07f, -.11f));
+            }
+            if (o.Hat >= 0)
+            {
+                Material hm = st.Lit(Stage3D.Hex(o.Hat), .05f, .35f), band = st.Lit(Stage3D.Hex(o.HatBand), .1f, .5f);
+                st.Part(st.CylMesh(.3f, .3f, .022f, 14), hm, Head, new Vector3(0, .09f, 0));          // the brim
+                st.Part(st.CylMesh(.115f, .13f, .12f, 10), hm, Head, new Vector3(0, .155f, 0));       // the crown
+                st.Part(st.CylMesh(.131f, .134f, .03f, 10), band, Head, new Vector3(0, .115f, 0));     // the band
             }
             if (o.Helmet >= 0)
             {

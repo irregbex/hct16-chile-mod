@@ -114,6 +114,7 @@ namespace HCT15
         private class Car
         {
             public int K; public float S, Start, ParkT, L, Wd, Ht, Spin; public Transform Root, Body; public Plan Plan; public Material Tail; public PodiumRacer R; public Trot Trot; public float LastDist; public bool RiderOff;
+            public List<MeshFilter> DriverMf = new List<MeshFilter>(); public Vector3 Seat; public bool SeatKnown;   // 2.3.5: its own driver
         }
 
         // ------------------------------------------------------------------ build
@@ -796,6 +797,7 @@ namespace HCT15
                     m.transform.localScale = new Vector3(-s, s, s);   // mirrored (Unity-made), see Stage3D
                     m.transform.localPosition = new Vector3(b.center.x * s, -b.min.y * s, -b.center.z * s);
                     c.L = sz.z; c.Wd = sz.x; c.Ht = sz.y;
+                    FindDriver(c, m);
                 }
                 else
                 {
@@ -813,8 +815,9 @@ namespace HCT15
                 c.ParkT = Park[k]; c.Start = c.ParkT - c.Plan.Dur;
                 c.Root.gameObject.SetActive(false);
                 _cars.Add(c);
-                var d = new Human(St, null, DriverOpt(c.R != null && c.R.Human ? 0x1450d8 : Stage3D.Pick(new[] { 0xd01622, 0x14141c, 0x7a1fd0, 0x0e7a3a })));
-                St.BoxPart(G(0xffffff, 1.3f), d.Root, V(0, 1.35f, .09f), V(.42f, .06f, .14f));
+                Human.Opt own = c.DriverMf.Count > 0 ? OwnDriverOpt(c) : null;
+                var d = new Human(St, null, own ?? DriverOpt(c.R != null && c.R.Human ? 0x1450d8 : Stage3D.Pick(new[] { 0xd01622, 0x14141c, 0x7a1fd0, 0x0e7a3a })));
+                if (own == null) St.BoxPart(G(0xffffff, 1.3f), d.Root, V(0, 1.35f, .09f), V(.42f, .06f, .14f));
                 d.G.gameObject.SetActive(false);
                 _drivers.Add(d);
             }
@@ -827,6 +830,99 @@ namespace HCT15
             // 2.3.3: on the beach the riders wear a wetsuit (black, with booties) and a life vest of their colour, helmet on
             if (_beach) return new Human.Opt { Top = 0x15171b, Bottom = 0x15171b, Shoes = 0x15171b, Sleeves = true, Vest = col, Style = "big80", Knees = true, Helmet = col, Height = Stage3D.Rnd(1.72f, 1.86f) };
             return new Human.Opt { Top = col, Bottom = col, Shoes = 0x111111, Style = "big80", Knees = true, Helmet = col, Height = Stage3D.Rnd(1.7f, 1.84f) };
+        }
+
+        // ---- 2.3.5 (reported: "the carreta is one of the few vehicles with a visible driver; on the podium THAT driver has to get
+        // off and receive the cup - now he stays in the car and another figure in a uniform turns up"). A model marks its driver
+        // as OBJ group "driver" (AssetLibrary: uv2.x = 1 on those vertices, kept through the race body's fitting). On the
+        // podium the copy's marked triangles go when the figure gets off, the figure starts at his seat and wears his
+        // colours: the first driver material is the poncho, the second its stripes, "skin" the skin, a "straw" hat (the
+        // chupalla) or a black one. The game's own cars have their drivers painted into the body: they keep the 2.3.2 driver.
+
+        private static readonly Dictionary<Mesh, Mesh> _stripped = new Dictionary<Mesh, Mesh>();
+
+        private static bool Marked(Mesh mesh, out Vector2[] uv2)
+        {
+            uv2 = null;
+            if (mesh == null || !mesh.isReadable) return false;   // the game's own meshes ship unreadable: ours only
+            uv2 = mesh.uv2;
+            if (uv2 == null || uv2.Length != mesh.vertexCount) return false;
+            foreach (Vector2 u in uv2) if (u.x > .5f) return true;
+            return false;
+        }
+
+        private void FindDriver(Car c, GameObject model)
+        {
+            foreach (MeshFilter mf in model.GetComponentsInChildren<MeshFilter>(true))
+            {
+                Vector2[] uv2;
+                if (!Marked(mf.sharedMesh, out uv2)) continue;
+                c.DriverMf.Add(mf);
+            }
+            if (c.DriverMf.Count > 0) Debug.Log("[HCT15] podium: car " + c.K + " has its own driver (" + c.DriverMf.Count + " mesh(es)): he gets off and takes the prize");
+        }
+
+        /// <summary>Where the driver sits, in the stage's space, from the marked vertices of the drawn copy (the car is parked).</summary>
+        private Vector3 SeatOf(Car c, Transform stage)
+        {
+            MeshFilter mf = c.DriverMf.Find(f => f != null && f.gameObject.activeInHierarchy) ?? c.DriverMf[0];
+            Vector2[] uv2; Mesh mesh = mf.sharedMesh;
+            if (!Marked(mesh, out uv2)) return c.Root.localPosition;
+            Vector3[] v = mesh.vertices; Vector3 sum = Vector3.zero; float low = float.MaxValue; int n = 0;
+            for (int i = 0; i < v.Length; i++)
+            {
+                if (uv2[i].x <= .5f) continue;
+                Vector3 w = stage.InverseTransformPoint(mf.transform.TransformPoint(v[i]));
+                sum += w; low = Mathf.Min(low, w.y); n++;
+            }
+            Vector3 at = sum / Mathf.Max(1, n);
+            return new Vector3(at.x, low, at.z);   // his feet's height: the lowest marked point (the boots on the footboard)
+        }
+
+        /// <summary>The copy's meshes without the driver's triangles (made once per mesh).</summary>
+        private void StripDriver(Car c)
+        {
+            foreach (MeshFilter mf in c.DriverMf)
+            {
+                if (mf == null) continue;
+                Mesh src = mf.sharedMesh, m;
+                if (_stripped.TryGetValue(src, out m) && m != null) { mf.sharedMesh = m; continue; }
+                Vector2[] uv2;
+                if (!Marked(src, out uv2)) continue;
+                m = St.Keep(UnityEngine.Object.Instantiate(src)); m.name = src.name + " (no driver)";
+                for (int s = 0; s < m.subMeshCount; s++)
+                {
+                    int[] t = m.GetTriangles(s); var keep = new List<int>(t.Length);
+                    for (int i = 0; i + 2 < t.Length; i += 3)
+                        if (uv2[t[i]].x <= .5f || uv2[t[i + 1]].x <= .5f || uv2[t[i + 2]].x <= .5f) { keep.Add(t[i]); keep.Add(t[i + 1]); keep.Add(t[i + 2]); }
+                    m.SetTriangles(keep, s);
+                }
+                _stripped[src] = m; mf.sharedMesh = m;
+            }
+        }
+
+        private static int ToHex(Color c) { return (Mathf.Clamp(Mathf.RoundToInt(c.r * 255f), 0, 255) << 16) | (Mathf.Clamp(Mathf.RoundToInt(c.g * 255f), 0, 255) << 8) | Mathf.Clamp(Mathf.RoundToInt(c.b * 255f), 0, 255); }
+
+        /// <summary>The driver figure in the vehicle's own driver's colours (null: its model has none).</summary>
+        private Human.Opt OwnDriverOpt(Car c)
+        {
+            try
+            {
+                string id = c.R != null && c.R.Car != null && c.R.Car.View != null ? c.R.Car.View.CarModelId : null;
+                AssetLibrary.AssetDef a = AssetLibrary.Get(StreetCars.ModelOf(id));
+                if (a == null || a.DriverMaterials.Count == 0) return null;
+                var col = new Dictionary<string, int>();
+                for (int i = 0; i < a.DriverMaterials.Count; i++) col[a.DriverMaterials[i]] = ToHex(a.DriverColours[i]);
+                int poncho = ToHex(a.DriverColours[0]);
+                int stripe = a.DriverColours.Count > 1 ? ToHex(a.DriverColours[1]) : 0xffffff;
+                int skin, hat;
+                if (!col.TryGetValue("skin", out skin)) skin = -1;
+                bool straw = col.TryGetValue("straw", out hat);
+                if (!straw) hat = 0x15151a;
+                Debug.Log("[HCT15] podium: car " + c.K + "'s own driver ('" + id + "'): poncho #" + poncho.ToString("x6") + ", hat " + (straw ? "chupalla" : "black"));
+                return new Human.Opt { Top = poncho, Bottom = 0x1c1c22, Shoes = 0x2b1a10, Skin = skin, Poncho = poncho, PonchoStripe = stripe, Hat = hat, HatBand = 0x111111, Style = "short", Knees = true, Height = Stage3D.Rnd(1.7f, 1.8f) };
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] podium own driver: " + ex.Message); return null; }
         }
 
         private readonly Dictionary<Human, Transform> _helmetOff = new Dictionary<Human, Transform>();
@@ -1501,12 +1597,24 @@ namespace HCT15
                 if (k < 0) continue;
                 Vector3 from = V(px + c.Wd / 2 + .5f, ph, PARK_Z + .8f), to = V(px + 2.4f, ph, c.K == 1 ? 4.0f : 4.3f);
                 // 2.3.3: a jet ski's own rider (HCT15_rider, part of the copied model) gets off with the driver - not both
-                if (!c.RiderOff) { c.RiderOff = true; foreach (Transform t in c.Root.GetComponentsInChildren<Transform>(true)) if (t.name.StartsWith("HCT15_rider")) t.gameObject.SetActive(false); }
+                if (!c.RiderOff)
+                {
+                    c.RiderOff = true;
+                    foreach (Transform t in c.Root.GetComponentsInChildren<Transform>(true)) if (t.name.StartsWith("HCT15_rider")) t.gameObject.SetActive(false);
+                    // 2.3.5: a vehicle's own driver (the carreta's huaso) leaves his seat: the figure is him
+                    if (c.DriverMf.Count > 0) { c.Seat = SeatOf(c, d.G.parent); c.SeatKnown = true; StripDriver(c); }
+                }
                 // 2.3.2: out of the car in the helmet, takes it off by the car (0-0.8 s), then walks over (0.8-2.6 s)
                 Helmet(d, c, k);
                 float u = Stage3D.Smooth(.8f, 2.6f, k);
                 d.Pos = Vector3.Lerp(from, to, u);
-                if (k < .8f) { d.FaceTo(px + 2.4f, PARK_Z + 6f); d.Pose = "helmet"; }
+                if (c.SeatKnown && k < .8f)
+                {
+                    // 2.3.5: down from the seat to the ground beside the vehicle, a little hop
+                    float j = Stage3D.Smooth(0f, .7f, k);
+                    d.Pos = Vector3.Lerp(c.Seat, from, j) + V(0, Mathf.Sin(j * Mathf.PI) * .35f, 0);
+                }
+                if (k < .8f) { d.FaceTo(px + 2.4f, PARK_Z + 6f); d.Pose = d.HelmetT != null ? "helmet" : "wave"; }
                 else if (u < 1) { d.FaceTo(to.x, to.z); d.Pose = "walk"; }
                 else
                 {
