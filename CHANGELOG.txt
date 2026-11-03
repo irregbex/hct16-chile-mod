@@ -7,7 +7,10 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
 2.3.5 (2026-11-03)
   - Podium: a vehicle's own visible driver gets off and takes the prize - the carreta's huaso leaves his seat in his
     poncho and hat (the model marks him as OBJ group "driver"; any model can). The game's own cars have their drivers
-    painted into the body and keep the racing driver figure.
+    painted into the body: for François (both motorbikes) and Breeze (the co-driver stays) the podium reads the car from
+    your installed game, takes the driver's pieces out and he or she gets off in the colours of that variant; The Fuzz
+    sends a police officer in uniform and cap. Which cars and where their driver sits:
+    Content\HCT15Content\podium\drivers.json (text).
   - Podium music no longer cuts out: the race behind the ceremony (hooves, horns, taunts) stays quiet while it shows.
   - The carreta's right speech bubble no longer jumps up and down.
 

@@ -587,6 +587,8 @@ namespace HCT15
             /// two stripes of PonchoStripe; Hat = a wide-brimmed hat of this colour (the chupalla, or the black felt hat)
             /// with a band of HatBand; -1 = none.</summary>
             public int Poncho = -1, PonchoStripe = 0xffffff, Hat = -1, HatBand = 0x111111;
+            /// <summary>2.3.5 (The Fuzz): Cap = a peaked police cap of this colour (-1 none); Badge = a gold badge on the chest.</summary>
+            public int Cap = -1; public bool Badge;
         }
 
         public static readonly int[] Skins = { 0xf1c7a5, 0xe3ae86, 0xc68a62, 0x9c6644, 0x7a4a2e, 0xf6d6bf };
@@ -693,6 +695,15 @@ namespace HCT15
                 if (o.Style == "long" && !o.Lite) st.Part(shoe, hr, HairT, new Vector3(0, -.14f, -.075f), new Vector3(.22f, .36f, .07f));
                 if (o.Style == "bun" && !o.Lite) st.Part(st.SphMesh(.06f, 7, 5), hr, HairT, new Vector3(0, .07f, -.11f));
             }
+            if (o.Cap >= 0)
+            {
+                Material cm = st.Lit(Stage3D.Hex(o.Cap), .2f, .6f), peak = st.Lit(Stage3D.Hex(0x0b0b0d), .5f, .9f), gold = st.Lit(Stage3D.Hex(0xd4a017), .9f, .8f);
+                st.Part(st.CylMesh(.135f, .12f, .07f, 12), cm, Head, new Vector3(0, .1f, -.005f), new Vector3(1f, 1f, 1.05f));   // the crown
+                st.Part(st.CylMesh(.122f, .122f, .025f, 12), peak, Head, new Vector3(0, .07f, 0));                              // the band
+                st.Part(shoe, peak, Head, new Vector3(0, .062f, .12f), new Vector3(.17f, .012f, .08f));                         // the peak
+                st.Part(shoe, gold, Head, new Vector3(0, .1f, .132f), new Vector3(.04f, .035f, .01f));                          // the cap badge
+            }
+            if (o.Badge && !o.Lite) st.Part(st.CylMesh(.022f, .022f, .008f, 6), st.Lit(Stage3D.Hex(0xd4a017), .9f, .8f), Spine, new Vector3(-.08f, .42f, .12f), Vector3.one).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
             if (o.Hat >= 0)
             {
                 Material hm = st.Lit(Stage3D.Hex(o.Hat), .05f, .35f), band = st.Lit(Stage3D.Hex(o.HatBand), .1f, .5f);

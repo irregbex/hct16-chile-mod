@@ -115,6 +115,7 @@ namespace HCT15
         {
             public int K; public float S, Start, ParkT, L, Wd, Ht, Spin; public Transform Root, Body; public Plan Plan; public Material Tail; public PodiumRacer R; public Trot Trot; public float LastDist; public bool RiderOff;
             public List<MeshFilter> DriverMf = new List<MeshFilter>(); public Vector3 Seat; public bool SeatKnown;   // 2.3.5: its own driver
+            public List<KeyValuePair<MeshFilter, PodiumDrivers.Found>> GameDriver = new List<KeyValuePair<MeshFilter, PodiumDrivers.Found>>(); public Human.Opt GameOpt;   // 2.3.5: a game car's
         }
 
         // ------------------------------------------------------------------ build
@@ -815,7 +816,7 @@ namespace HCT15
                 c.ParkT = Park[k]; c.Start = c.ParkT - c.Plan.Dur;
                 c.Root.gameObject.SetActive(false);
                 _cars.Add(c);
-                Human.Opt own = c.DriverMf.Count > 0 ? OwnDriverOpt(c) : null;
+                Human.Opt own = c.DriverMf.Count > 0 ? OwnDriverOpt(c) : c.GameOpt;
                 var d = new Human(St, null, own ?? DriverOpt(c.R != null && c.R.Human ? 0x1450d8 : Stage3D.Pick(new[] { 0xd01622, 0x14141c, 0x7a1fd0, 0x0e7a3a })));
                 if (own == null) St.BoxPart(G(0xffffff, 1.3f), d.Root, V(0, 1.35f, .09f), V(.42f, .06f, .14f));
                 d.G.gameObject.SetActive(false);
@@ -859,7 +860,39 @@ namespace HCT15
                 if (!Marked(mf.sharedMesh, out uv2)) continue;
                 c.DriverMf.Add(mf);
             }
-            if (c.DriverMf.Count > 0) Debug.Log("[HCT15] podium: car " + c.K + " has its own driver (" + c.DriverMf.Count + " mesh(es)): he gets off and takes the prize");
+            if (c.DriverMf.Count > 0) { Debug.Log("[HCT15] podium: car " + c.K + " has its own driver (" + c.DriverMf.Count + " mesh(es)): he gets off and takes the prize"); return; }
+            // a game car: its driver is modelled into the body - drivers.json says how to find him (PodiumDrivers)
+            try
+            {
+                string id = c.R != null && c.R.Car != null && c.R.Car.View != null ? c.R.Car.View.CarModelId : null;
+                PodiumDrivers.CarEntry e = PodiumDrivers.Entry(id);
+                if (e == null) return;
+                PodiumDrivers.Found best = null;
+                if (e.HasDriver)
+                    foreach (MeshFilter mf in model.GetComponentsInChildren<MeshFilter>(true))
+                    {
+                        string n = mf.name.ToLowerInvariant();
+                        if (mf.sharedMesh == null || (n != "high" && n != "med" && n != "medium" && n != "low")) continue;
+                        PodiumDrivers.Found f = PodiumDrivers.Find(mf.sharedMesh, e.Driver);
+                        if (f == null) continue;
+                        c.GameDriver.Add(new KeyValuePair<MeshFilter, PodiumDrivers.Found>(mf, f));
+                        if (best == null || (n == "high" && f.Tris > 0)) best = f;
+                    }
+                c.GameOpt = PodiumDrivers.Outfit(e, best);
+                Debug.Log("[HCT15] podium: car " + c.K + " ('" + id + "', " + e.Name + "): " + (c.GameDriver.Count > 0 ? "its driver gets off (" + c.GameDriver.Count + " mesh(es))" : "no driver in the body") + ", dressed " + (c.GameOpt == null ? "as a racing driver" : e.Outfit));
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] podium game driver: " + ex.Message); }
+        }
+
+        /// <summary>A game car's driver seat in the stage's space, from the removed triangles (centre; feet at the lowest point).</summary>
+        private Vector3 GameSeatOf(Car c, Transform stage)
+        {
+            var kv = c.GameDriver.Find(x => x.Key != null && x.Key.gameObject.activeInHierarchy);
+            if (kv.Key == null) kv = c.GameDriver[0];
+            Vector3 sum = Vector3.zero; float low = float.MaxValue; int n = 0;
+            foreach (Vector3 p in kv.Value.Points) { Vector3 w = stage.InverseTransformPoint(kv.Key.transform.TransformPoint(p)); sum += w; low = Mathf.Min(low, w.y); n++; }
+            Vector3 at = sum / Mathf.Max(1, n);
+            return new Vector3(at.x, low, at.z);
         }
 
         /// <summary>Where the driver sits, in the stage's space, from the marked vertices of the drawn copy (the car is parked).</summary>
@@ -1603,6 +1636,8 @@ namespace HCT15
                     foreach (Transform t in c.Root.GetComponentsInChildren<Transform>(true)) if (t.name.StartsWith("HCT15_rider")) t.gameObject.SetActive(false);
                     // 2.3.5: a vehicle's own driver (the carreta's huaso) leaves his seat: the figure is him
                     if (c.DriverMf.Count > 0) { c.Seat = SeatOf(c, d.G.parent); c.SeatKnown = true; StripDriver(c); }
+                    // a game car's own driver (François, Breeze): the body without him
+                    if (c.GameDriver.Count > 0) { c.Seat = GameSeatOf(c, d.G.parent); c.SeatKnown = true; foreach (var kv in c.GameDriver) if (kv.Key != null) kv.Key.sharedMesh = kv.Value.Without; }
                 }
                 // 2.3.2: out of the car in the helmet, takes it off by the car (0-0.8 s), then walks over (0.8-2.6 s)
                 Helmet(d, c, k);

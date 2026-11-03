@@ -1,0 +1,25 @@
+{
+  "_info": "HCT 1.6 podium: the game cars whose own driver gets off and takes the prize. The game models the driver into the car's body; on the podium the body is read from your installed game and split into its connected pieces, and every piece of MinTris-MaxTris triangles whose box centre lies in the driver's seat column (X and Z ranges, above MinY; metres, the car's own mesh space, +Z forward) goes when the figure gets off. Outfit 'auto' dresses the figure in the removed driver's colours; 'police' in a police uniform and cap. HasDriver false: nothing is removed (a closed car), only the outfit. Our own vehicles mark their driver in their OBJ instead ('g driver').",
+  "Cars": [
+    {
+      "Car": "special",
+      "Name": "François",
+      "Outfit": "auto",
+      "HasDriver": true,
+      "Driver": { "X": [-0.2, 0.2], "Z": [-0.75, -0.3], "MinY": 0.9, "MinTris": 20, "MaxTris": 2500 }
+    },
+    {
+      "Car": "summer",
+      "Name": "Breeze",
+      "Outfit": "auto",
+      "HasDriver": true,
+      "Driver": { "X": [-0.6, -0.08], "Z": [-0.15, 0.3], "MinY": 0.58, "MinTris": 20, "MaxTris": 2500 }
+    },
+    {
+      "Car": "police",
+      "Name": "The Fuzz",
+      "Outfit": "police",
+      "HasDriver": false
+    }
+  ]
+}

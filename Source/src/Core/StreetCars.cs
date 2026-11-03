@@ -990,9 +990,12 @@ namespace HCT15
                 {
                     string path = r.name; for (Transform t = r.transform.parent; t != null && t != c.ModelPrefab.transform; t = t.parent) path = t.name + "/" + path;
                     MeshFilter mf = r.GetComponent<MeshFilter>();
-                    sb.Append(" | ").Append(path).Append(mf != null && mf.sharedMesh != null ? " [" + mf.sharedMesh.name + " " + mf.sharedMesh.vertexCount + "]" : "");
+                    sb.Append(" | ").Append(path).Append(mf != null && mf.sharedMesh != null ? " [" + mf.sharedMesh.name + " " + mf.sharedMesh.vertexCount + (mf.sharedMesh.isReadable ? " readable" : "") + " sub " + mf.sharedMesh.subMeshCount + "]" : "");
+                    foreach (Material m in r.sharedMaterials) if (m != null) sb.Append(" {").Append(m.name).Append(m.mainTexture != null ? " tex " + m.mainTexture.name : "").Append("}");
                 }
-                Debug.Log("[HCT15] driverdump " + c.ItemId + " (" + c.Name + "):" + sb);
+                string shown = "";
+                try { shown = LocalizationManager.GetCarName(c.ItemId); } catch (Exception) { }
+                Debug.Log("[HCT15] driverdump " + c.ItemId + " (" + shown + "):" + sb);
             }
         }
 
