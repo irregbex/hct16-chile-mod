@@ -19,6 +19,7 @@ Content/HCT15Music/**/*.ogg
 Content/HCT15Music/**/*.mp3
 # ...except the mod's own songs (2.3.1)
 !Content/HCT15Music/Race/Agregados/*.ogg
+!Content/HCT15Music/Race/Illapel/*.ogg
 # logs and files the game writes
 *.log
 Logs/

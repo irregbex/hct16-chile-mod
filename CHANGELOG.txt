@@ -10,7 +10,8 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
     HCT15Content\hct15.settings.json ("RoadTraffic").
   - A track's traffic.json can name the colours its traffic wears ("Colours": colour ids of cars\streetcars.json, each
     traffic car one of them at random) - so traffic of the same model as the rivals never looks like one of them.
-  - The mod's own 11 songs now come with it (HCT15Music\Race\Agregados, OGG): the Chile campaigns play them.
+  - The mod's own 13 songs now come with it (HCT15Music\Race\Agregados and Race\Illapel, OGG): the Chile campaigns
+    play them.
   - New podium music: a 61-second cut of one of those songs, its big hit when the champion arrives.
 
 2.3.0 (2026-11-03)

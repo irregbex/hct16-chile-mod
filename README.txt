@@ -95,7 +95,8 @@ Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
 
 4. YOUR MUSIC
 -------------
-  The repository carries the mod's own 11 songs (Content\HCT15Music\Race\Agregados, played by the Chile campaigns).
+  The repository carries the mod's own 13 songs (Content\HCT15Music\Race\Agregados and Race\Illapel, played by the
+Chile campaigns).
 Add yours (.ogg or .wav) in Content\HCT15Music\Race\ (races) and
   Content\HCT15Music\Menu\ (menus) BEFORE step 3, or later straight into <game folder>\HCT15Music\.
   Details in Content\HCT15Music\README.txt.

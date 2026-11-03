@@ -49,7 +49,7 @@ Images, skies and sounds of our own
   synthesised by the mod or its tools.
 
 Music
-  The 11 songs in Content\HCT15Music\Race\Agregados (OGG) were made for this mod by one of its contributors and are
+  The 13 songs in Content\HCT15Music\Race\Agregados and Race\Illapel (OGG) were made for this mod by one of its contributors and are
   shared with it; the podium music (podium\sonidos\musica.wav) is a cut of one of them.
 
 Voices

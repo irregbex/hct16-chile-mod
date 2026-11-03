@@ -1,6 +1,6 @@
 HCT 1.6 custom music
 ====================
-Race\Agregados\ holds the mod's own 11 songs (OGG; the Chile campaigns play them). Add your own tracks anywhere here.
+Race\Agregados\ and Race\Illapel\ hold the mod's own 13 songs (OGG; the Chile campaigns play them). Add your own tracks anywhere here.
 
 Menu\   tracks for the title screen and menus
 Race\   tracks for the races
