@@ -106,6 +106,32 @@ namespace HCT15.Patches
         }
     }
 
+    /// <summary>2.3.1: "Road traffic" yes / no in Options &gt; General (Settings.RoadTraffic; read when a race loads).</summary>
+    [HarmonyPatch(typeof(GeneralOptionsViewModel), "RefreshItems")]
+    internal static class RoadTrafficOptionPatch
+    {
+        private static void Postfix(GeneralOptionsViewModel __instance)
+        {
+            try
+            {
+                var items = new List<OptionsItemModelBinding>(__instance.Items.Value ?? new List<OptionsItemModelBinding>());
+                items.Add(new OptionsItemModelBinding(
+                    Loc.Get("opt_traffic"), EOptionsItemType.LeftRight,
+                    new List<string> { Loc.Get("opt_traffic_on"), Loc.Get("opt_loudness_off") }, Settings.Data.RoadTraffic ? 0 : 1,
+                    delegate (int index)
+                    {
+                        if (Settings.Data.RoadTraffic == (index == 0)) return;
+                        Settings.Data.RoadTraffic = index == 0;
+                        Settings.Save();
+                        Debug.Log("[HCT15] road traffic: " + (Settings.Data.RoadTraffic ? "on" : "off"));
+                    },
+                    shouldLocalizeName: false, shouldLocalizeOptions: false));
+                __instance.Items.Value = items;
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] road traffic option: " + ex.Message); }
+        }
+    }
+
     // ------------------------------------------------------------------ rival names on the results board and podium
 
     internal static class RacerNames

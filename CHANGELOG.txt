@@ -4,6 +4,13 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.1 (2026-11-03)
+  - Options > General has a new row, "Road traffic" (yes / no): no switches off the traffic of the road stages of
+    Rutas de Chile, so only the rivals are on the road. It applies from the next race; saved in
+    HCT15Content\hct15.settings.json ("RoadTraffic").
+  - A track's traffic.json can name the colours its traffic wears ("Colours": colour ids of cars\streetcars.json, each
+    traffic car one of them at random) - so traffic of the same model as the rivals never looks like one of them.
+
 2.3.0 (2026-11-03)
   - Podium ceremony: after every race of the mod's campaigns a one-minute live 3D show comes before the results. The
     3rd, 2nd and 1st arrive from the road behind the stage in their own cars (copies of the race's models, the mod's

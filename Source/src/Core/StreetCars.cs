@@ -1327,8 +1327,10 @@ namespace HCT15
                 {
                     // 2.0.26: a round whose Cars list names some of this car's colours (the D-81's red F-150s) keeps the
                     // rivals and the traffic to those; else any colour
-                    List<int> allowed = AllowedVariants(BaseId(model.name), list);
-                    int fixedColour = Traffic.FixedColour(model, allowed.Count);   // a traffic micro: the line's one livery on this road
+                    // 2.3.1: a road's traffic.json "Colours" win for its traffic
+                    List<string> trafficColours = Traffic.ColoursFor(model);
+                    List<int> allowed = trafficColours != null ? NamedVariants(BaseId(model.name), list, trafficColours, false) : AllowedVariants(BaseId(model.name), list);
+                    int fixedColour = trafficColours != null ? -1 : Traffic.FixedColour(model, allowed.Count);   // a traffic micro: the line's one livery on this road
                     index = allowed[fixedColour >= 0 ? fixedColour : UnityEngine.Random.Range(0, allowed.Count)];
                 }
                 index = ((index % list.Count) + list.Count) % list.Count;
@@ -1413,21 +1415,27 @@ namespace HCT15
         /// </summary>
         private static List<int> AllowedVariants(string baseId, List<Variant> list)
         {
+            return NamedVariants(baseId, list, RoundCars(), true);
+        }
+
+        /// <summary>The colour indices 'ids' names (a colour's id, or the car's own for colour 0); none named = all.
+        /// baseAloneIsAll: the base car alone on the list also means every colour (a round's Cars list).</summary>
+        private static List<int> NamedVariants(string baseId, List<Variant> list, List<string> ids, bool baseAloneIsAll)
+        {
             var all = new List<int>();
             for (int i = 0; i < list.Count; i++) all.Add(i);
             try
             {
-                List<string> round = RoundCars();
-                if (round == null) return all;
+                if (ids == null) return all;
                 var named = new List<int>();
                 for (int i = 0; i < list.Count; i++)
                 {
                     string id = list[i].Id ?? "";
-                    foreach (string r in round)
+                    foreach (string r in ids)
                         if (string.Equals(r, id, StringComparison.OrdinalIgnoreCase) || (i == 0 && string.Equals(r, baseId, StringComparison.OrdinalIgnoreCase))) { named.Add(i); break; }
                 }
                 // the base car alone on the list = every colour (the carretas: "cl_carreta" lists all eleven)
-                if (named.Count == 0 || (named.Count == 1 && named[0] == 0)) return all;
+                if (named.Count == 0 || (baseAloneIsAll && named.Count == 1 && named[0] == 0)) return all;
                 return named;
             }
             catch (Exception) { return all; }

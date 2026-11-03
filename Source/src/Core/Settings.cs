@@ -90,6 +90,10 @@ namespace HCT15
         public bool Spectators = true;
         public int Grandstands = 14;
 
+        /// <summary>2.3.1: the traffic of the road stages (a track's traffic.json: the buses, trucks and cars of Rutas de
+        /// Chile). False = only the rivals on the road. Options &gt; General "Road traffic".</summary>
+        public bool RoadTraffic = true;
+
         /// <summary>The ghost car of your own previous run never appears and cannot be switched on: the
         /// track-selection prompt is hidden and every "enable ghost" is turned back off (HCT15\GhostDefault.cs).</summary>
         public bool GhostDisabled = true;

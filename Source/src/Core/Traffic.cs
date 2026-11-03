@@ -41,6 +41,10 @@ namespace HCT15
             /// come the other way on the left): this share of the traffic comes TOWARDS the players, in the left
             /// lanes; the rest keeps to the right lanes. 0 = one-way, every lane for the traffic (as before).</summary>
             public float Oncoming = 0f;
+            /// <summary>2.3.1 - the colours (colour ids of streetcars.json) the traffic wears, each car one of them at random;
+            /// empty = the round's colours (or the road's one livery). For a road whose traffic is the same model as the
+            /// rivals: other colours, so the traffic is never mistaken for a rival.</summary>
+            public List<string> Colours = new List<string>();
             public string Comment = "";
         }
 
@@ -141,6 +145,20 @@ namespace HCT15
         }
         private static readonly HashSet<string> _colourLogged = new HashSet<string>();
 
+        /// <summary>2.3.1: traffic.json "Colours" of this road when 'model' is a traffic car, else null.</summary>
+        public static List<string> ColoursFor(Transform model)
+        {
+            try
+            {
+                if (_colours.Count == 0 || _share.Count == 0 || model == null) return null;
+                var view = model.GetComponentInParent<EnemyCarTrackView>();
+                EnemyCar car = view != null ? view.Controller as EnemyCar : null;
+                return car != null && _share.ContainsKey(car) ? _colours : null;
+            }
+            catch (Exception) { return null; }
+        }
+        private static readonly List<string> _colours = new List<string>();
+
         public static bool IsTrafficCar(BaseCar car) { return car != null && _share.ContainsKey(car); }
 
         /// <summary>What EnemyCarManager.Initialize reads instead of StaticData.NumEnemies.</summary>
@@ -165,10 +183,13 @@ namespace HCT15
         internal static void Prepare()
         {
             _infos.Clear(); _share.Clear(); _infoShare.Clear(); _slow.Clear(); _colourLogged.Clear(); _added = 0; TrafficMinimapPatch.Skipped = 0;
-            _infoOncoming.Clear(); _oncoming.Clear(); _lat.Clear(); _turned.Clear(); _twoWay = false;
+            _infoOncoming.Clear(); _oncoming.Clear(); _lat.Clear(); _turned.Clear(); _twoWay = false; _colours.Clear();
             string id;
             TrafficJson t = Load(out id);
             if (t == null || t.Cars <= 0) return;
+            // 2.3.1: Options > General "Road traffic" off = only the rivals on the road
+            if (!Settings.Data.RoadTraffic) { Debug.Log("[HCT15] traffic on '" + id + "': off (Options > General)"); return; }
+            if (t.Colours != null) foreach (string c in t.Colours) if (!string.IsNullOrEmpty(c)) _colours.Add(c);
             try
             {
                 var app = RRApplication.Instance;
