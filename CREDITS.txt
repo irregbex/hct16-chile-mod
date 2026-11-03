@@ -48,6 +48,10 @@ Images, skies and sounds of our own
   The sound effects (neighs, the micro's horn, gallop, the bearers' steps, the bell, the whistle, fireworks) are
   synthesised by the mod or its tools.
 
+Music
+  The 11 songs in Content\HCT15Music\Race\Agregados (OGG) were made for this mod by one of its contributors and are
+  shared with it; the podium music (podium\sonidos\musica.wav) is a cut of one of them.
+
 Voices
   The voices of the speech bubbles (taunts_sfx\) were generated for this mod with speech synthesis: ElevenLabs and, for
   the anda, XTTS-v2 (Coqui, non-commercial licence) from the voice of one of the mod's contributors, with consent.

@@ -17,6 +17,8 @@ __pycache__/
 Content/HCT15Music/**/*.wav
 Content/HCT15Music/**/*.ogg
 Content/HCT15Music/**/*.mp3
+# ...except the mod's own songs (2.3.1)
+!Content/HCT15Music/Race/Agregados/*.ogg
 # logs and files the game writes
 *.log
 Logs/

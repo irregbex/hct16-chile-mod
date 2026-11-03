@@ -43,7 +43,7 @@ Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
   Santiago: Costanera Center, La Moneda lit up, Torre Entel). Its texts, timing and buildings are in
   HCT15Content\podium\podio.json and its sounds one file each in podium\sonidos (see its README.txt).
   Also: Chilean speech bubbles with voices for several vehicles, horns of their own (neighs, a whistle), weather and
-  time of day per track, nights with lights and fireworks, music per race (bring your own songs, see 4).
+  time of day per track, nights with lights and fireworks, music per race (the mod's own songs, and yours too, see 4).
 
   The tracks were built from open data: OpenStreetMap streets and buildings, SRTM terrain and Sentinel-2 imagery
   (see CREDITS.txt).
@@ -95,7 +95,8 @@ Trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
 
 4. YOUR MUSIC
 -------------
-  The repository carries no songs. Put yours (.ogg or .wav) in Content\HCT15Music\Race\ (races) and
+  The repository carries the mod's own 11 songs (Content\HCT15Music\Race\Agregados, played by the Chile campaigns).
+Add yours (.ogg or .wav) in Content\HCT15Music\Race\ (races) and
   Content\HCT15Music\Menu\ (menus) BEFORE step 3, or later straight into <game folder>\HCT15Music\.
   Details in Content\HCT15Music\README.txt.
 

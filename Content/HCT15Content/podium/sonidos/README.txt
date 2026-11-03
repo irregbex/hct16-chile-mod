@@ -1,8 +1,9 @@
-PODIUM SOUNDS (HCT 1.6, 2.3.0)
+PODIUM SOUNDS (HCT 1.6, 2.3.1)
 ==============================
 Every sound of the podium ceremony is one file in this folder. To change one, replace the file with another of THE
 SAME NAME (WAV: PCM 16 or 24-bit, or 32-bit float; mono or stereo; any sample rate). No code to touch. A missing file
-is simply silent. All of them are original, synthesised for the mod: replace or publish them freely.
+is simply silent. musica.wav is a 61-second cut of one of the mod's own songs (HCT15Music\Race\Agregados); the
+others are original, synthesised for the mod. Replace any of them freely.
 
 FILE                    WHEN IT PLAYS                                                         CURRENT LENGTH
 musica.wav              the music of the whole ceremony, from second 0. It is timed: intro    61 s
