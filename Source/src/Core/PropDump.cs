@@ -12,6 +12,7 @@ namespace HCT15
     public class PropDump : MonoBehaviour
     {
         private float _next = 8f;
+        private bool _collectDone;
         public static bool On { get { return Array.IndexOf(Environment.GetCommandLineArgs(), "-hct15-propdump") >= 0; } }
 
         public static void Ensure()
@@ -46,6 +47,33 @@ namespace HCT15
                     n++;
                 }
                 Debug.Log("[HCT15] propdump: car at " + (car.Evaluator != null ? car.Evaluator.CurrentPercent.ToString("0.000") : "?") + ", " + n + " crowd/confetti prop(s)" + sb);
+                // 2.3.2: the pickups (fuel, nitro, coins: every RaceCollectible) nearest the camera, each renderer with its
+                // material, shader and colour - to find a pink marker over them
+                if (!_collectDone)
+                {
+                    var cs = Resources.FindObjectsOfTypeAll<RaceCollectible>();
+                    if (cs.Length > 0)
+                    {
+                        _collectDone = true;
+                        var sc = new StringBuilder();
+                        var seen = new System.Collections.Generic.HashSet<string>();
+                        foreach (RaceCollectible c in cs)
+                        {
+                            string root = c.transform.root.name + "/" + c.name;
+                            if (!seen.Add(c.name)) continue;
+                            sc.Append("\n   ").Append(root);
+                            foreach (Renderer r in c.GetComponentsInChildren<Renderer>(true))
+                            {
+                                Material mt = r.sharedMaterial;
+                                sc.Append("\n      ").Append(r.GetType().Name).Append(" '").Append(r.name).Append("' on ").Append(r.enabled && r.gameObject.activeInHierarchy).Append(" layer ").Append(r.gameObject.layer)
+                                  .Append(" mat '").Append(mt != null ? mt.name : "null").Append("' shader '").Append(mt != null && mt.shader != null ? mt.shader.name : "null").Append("'")
+                                  .Append(mt != null && mt.HasProperty("_Color") ? " colour " + mt.color : "")
+                                  .Append(" bounds ").Append(r.bounds.size.ToString("0.0"));
+                            }
+                        }
+                        Debug.Log("[HCT15] collectdump: " + cs.Length + " pickup(s), kinds:" + sc);
+                    }
+                }
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] propdump: " + ex.Message); }
         }

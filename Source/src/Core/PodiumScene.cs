@@ -50,6 +50,12 @@ namespace HCT15
         private readonly Tod _tod;
         public readonly string Mode;
         private readonly bool _fireworksAll, _night;
+        // 2.3.2 (reported: "how will the podiums of the beach campaign be? make a podium scene for the beach too: the jet
+        // skis with their riders arrive at a beach at sunset and get their prizes"): jet skis on the podium = the road
+        // behind the stage is the sea (_water); away from Santiago's flood it is a beach at sunset, the stage on the sand
+        private readonly bool _water, _beach;
+        private Mesh _sea; private Vector3[] _seaBase, _seaV; private Color[] _seaC; private Transform _foam;
+        private const float SHORE_Z = -8.5f;
         private readonly List<PodiumRacer> _top;
         private readonly string _trackName;
         private readonly List<SkyItem> _sky;
@@ -106,7 +112,9 @@ namespace HCT15
         public PodiumScene(string trackId, string trackName, string climate, List<PodiumRacer> top, List<SkyItem> sky, int width, int height)
         {
             _top = top; _trackName = trackName ?? ""; _sky = sky ?? new List<SkyItem>();
-            Mode = TimeFromClimate(climate ?? "");
+            _water = top != null && top.Exists(IsWaterCraft);
+            _beach = _water && !(trackId ?? "").StartsWith("cl_stgo");
+            Mode = _beach ? "atardecer" : TimeFromClimate(climate ?? "");
             _tod = TodOf(Mode); _night = _tod.Night;
             _fireworksAll = (climate ?? "").ToLowerInvariant().Contains("fuegos");
             St = new Stage3D("HCT15_Podium3D", width, height);
@@ -119,6 +127,12 @@ namespace HCT15
             Skyline(trackId);
             Events();
             Shots();
+        }
+
+        private static bool IsWaterCraft(PodiumRacer r)
+        {
+            try { return r != null && r.Car != null && r.Car.View != null && r.Car.View.CarTransform != null && r.Car.View.CarTransform.GetComponentInChildren<WaterRide>(true) != null; }
+            catch (Exception) { return false; }
         }
 
         public static string TimeFromClimate(string c)
@@ -207,12 +221,72 @@ namespace HCT15
             }
             var terrain = new Stage3D.MeshBuilder(); terrain.Cyl(V(0, -.1f, 0), 1300, 1300, .1f, 48);
             St.Part(St.Keep(terrain.Build("terrain")), St.Lit(ground * Stage3D.Hex(t.Tint), 0, .05f), null, Vector3.zero);
+            if (_water) { Sea(); return; }
             St.BoxPart(L(0x15151b, .1f, .55f), null, V(0, 0, -6), V(150, .02f, 96));
             St.BoxPart(L(0x2a2a33, 0, .4f), null, V(0, .02f, ROAD_Z), V(240, .02f, 9));
             var lines = new Stage3D.MeshBuilder();
             for (float x = -118; x < 120; x += 6) lines.Box(V(x, .035f, ROAD_Z), V(2.6f, .01f, .16f));
             foreach (float z in new[] { ROAD_Z - 4.2f, ROAD_Z + 4.2f }) lines.Box(V(0, .035f, z), V(240, .01f, .14f));
             St.Part(St.Keep(lines.Build("roadlines")), G(0xffffff, .9f), null, Vector3.zero);
+        }
+
+        /// <summary>2.3.2: the sea where the road was - its own colours (unlit, set every frame: no reflection of the game's
+        /// environment), a wet strip, foam on the shore; the beach (or the flooded street) in front up to the stands.</summary>
+        private void Sea()
+        {
+            float front = 42f;
+            if (_beach)
+            {
+                St.BoxPart(L(0xe2bd82, 0, .1f), null, V(0, 0, (SHORE_Z + front) / 2), V(150, .02f, front - SHORE_Z));     // dry sand
+                St.BoxPart(L(0xb8945e, 0, .35f), null, V(0, .005f, SHORE_Z + 1.4f), V(150, .02f, 2.8f));                    // wet sand
+            }
+            else St.BoxPart(L(0x3b3328, 0, .6f), null, V(0, 0, (SHORE_Z + front) / 2), V(150, .02f, front - SHORE_Z));      // the flood's mud
+            int nx = 60, nz = 26; float x0 = -120, x1 = 120, z0 = SHORE_Z, z1 = -160;
+            var v = new List<Vector3>(); var t = new List<int>(); var c = new List<Color>();
+            for (int j = 0; j <= nz; j++) for (int i = 0; i <= nx; i++)
+                { float zz = Mathf.Lerp(z0, z1, Mathf.Pow((float)j / nz, 1.6f)); v.Add(V(Mathf.Lerp(x0, x1, (float)i / nx), 0, zz)); c.Add(Color.white); }
+            for (int j = 0; j < nz; j++)
+                for (int i = 0; i < nx; i++)
+                {
+                    int a = j * (nx + 1) + i, b = a + 1, d = a + nx + 1, e = d + 1;
+                    t.Add(a); t.Add(b); t.Add(d); t.Add(b); t.Add(e); t.Add(d);
+                }
+            _sea = St.Keep(new Mesh { name = "sea" }); _sea.MarkDynamic(); _sea.SetVertices(v); _sea.SetColors(c); _sea.SetTriangles(t, 0);
+            _seaBase = v.ToArray(); _seaV = v.ToArray(); _seaC = c.ToArray();
+            St.Part(_sea, St.Glow(Color.white), null, V(0, -.04f, 0));
+            St.BoxPart(St.Glow(_beach ? Stage3D.Hex(0x154a6e) : Stage3D.Hex(0x4a3a26)), null, V(0, -.12f, -730), V(4000, .1f, 1140));
+            var fb = new Stage3D.MeshBuilder();
+            for (int i = 0; i < 120; i++)
+            {
+                float x = -120 + i * 2, w0 = Mathf.Sin(i * 1.3f) * .35f, w1 = Mathf.Sin((i + 1) * 1.3f) * .35f;
+                fb.Col = new Color(1, 1, 1, .85f);
+                fb.Quad(V(x, .05f, .45f + w0), V(x + 2.05f, .05f, .45f + w1), V(x + 2.05f, .05f, -.5f + w1), V(x, .05f, -.5f + w0));
+            }
+            _foam = St.Part(St.Keep(fb.Build("foam")), St.Glow(_beach ? Color.white : new Color(.75f, .65f, .5f), 2, false, 3000), null, V(0, 0, SHORE_Z)).transform;
+        }
+
+        private void SeaFrame()
+        {
+            if (_sea == null) return;
+            Color shore = _beach ? Stage3D.Hex(0x35aab4) : Stage3D.Hex(0x6b5638), mid = _beach ? Stage3D.Hex(0x1c7896) : Stage3D.Hex(0x54432c),
+                  deep = _beach ? Stage3D.Hex(0x154a6e) : Stage3D.Hex(0x4a3a26), warm = Stage3D.Hex(0xffb36e);
+            for (int i = 0; i < _seaV.Length; i++)
+            {
+                Vector3 p = _seaBase[i];
+                float h = Mathf.Sin(p.x * .16f + Clock * 1.5f) * .14f + Mathf.Sin(p.z * .3f - Clock * 2f) * .11f;
+                p.y = h; _seaV[i] = p;
+                float far = Mathf.Clamp01((SHORE_Z - p.z) / 150f);
+                Color col = far < .15f ? Color.Lerp(shore, mid, far / .15f) : Color.Lerp(mid, deep, (far - .15f) / .85f);
+                if (_beach)
+                {
+                    // the low sun's road of light on the water, towards the disc (left, behind the stage)
+                    float off = p.x - .64f * (p.z - 15f), wid = 5f + Mathf.Abs(p.z) * .18f;
+                    col = Color.Lerp(col, warm, Mathf.Exp(-off * off / (2 * wid * wid)) * (.35f + Mathf.Clamp01(h * 4f) * .5f));
+                }
+                _seaC[i] = Color.Lerp(col, Color.white, Mathf.Clamp01((h - .12f) * 3f) * (1f - far) * .6f);
+            }
+            _sea.vertices = _seaV; _sea.colors = _seaC;
+            _foam.localPosition = V(0, 0, SHORE_Z + Mathf.Sin(Clock * 1.1f) * .7f);
         }
 
         private void Aurora()
@@ -616,7 +690,37 @@ namespace HCT15
             }
         }
 
-        private static Human.Opt DriverOpt(int col) { return new Human.Opt { Top = col, Bottom = col, Shoes = 0x111111, Style = Stage3D.Pick(new[] { "short", "long", "bald", "bun" }), Height = Stage3D.Rnd(1.7f, 1.84f) }; }
+        // 2.3.2 (reported: "the drivers must come out in racing helmets and walk with knees, and when they take the helmets
+        // off they must have long, full hair like in the eighties"): suit and helmet of one colour, knees, big 80s hair
+        private static Human.Opt DriverOpt(int col) { return new Human.Opt { Top = col, Bottom = col, Shoes = 0x111111, Style = "big80", Knees = true, Helmet = col, Height = Stage3D.Rnd(1.7f, 1.84f) }; }
+
+        private readonly Dictionary<Human, Transform> _helmetOff = new Dictionary<Human, Transform>();
+
+        /// <summary>The helmet comes up off the head with both hands (k 0-0.8 s after the driver appears by the car), the
+        /// hair shows, and the helmet is set down on the car's roof.</summary>
+        private void Helmet(Human d, Car c, float k)
+        {
+            if (d.HelmetT == null) return;
+            if (k < .25f) { d.HelmetT.localPosition = V(0, .015f, -.005f); return; }
+            if (k < .75f)
+            {
+                float u = Stage3D.Smooth(.25f, .75f, k);
+                d.HelmetT.localPosition = V(0, .015f + .32f * u, -.005f + .05f * u);
+                if (u > .35f && !d.HairT.gameObject.activeSelf) d.HairT.gameObject.SetActive(true);
+                return;
+            }
+            Transform h;
+            if (!_helmetOff.TryGetValue(d, out h))
+            {
+                d.HairT.gameObject.SetActive(true);
+                h = d.HelmetT; _helmetOff[d] = h;
+                h.SetParent(d.G.parent, true);   // off the driver, into the stage (the car copies are mirrored: not under them)
+            }
+            // set down on the car's roof, where it stays
+            float f = Stage3D.Smooth(.75f, 1.4f, k);
+            h.localPosition = Vector3.Lerp(h.localPosition, c.Root.localPosition + V(0, c.Ht + .12f, 0), f * .25f);
+            h.localRotation = Quaternion.Slerp(h.localRotation, Stage3D.E(0, .6f, 0), f * .2f);
+        }
 
         /// <summary>A copy of a race car's model: its transforms and renderers only (no game scripts), in its own local frame.</summary>
         private GameObject CopyCar(BaseCar car)
@@ -1104,7 +1208,15 @@ namespace HCT15
             foreach (Shot x in _shots) if (x.T1 > W || x.Id == "plat1") x.T1 = W;
             Human kiss = _kissers[1], cry = _criers[0];
             Add(W, W + 3, "heroe", 36, u => new[] { V(Lf(1.8f, 1.2f, u), 2.4f, Lf(12, 11, u)), V(0, h1 + 1.2f, .4f) }, .02f);
-            Add(W + 3, W + 6, "grua2", 42, u => { float a = Lf(-.7f, -.15f, u); return new[] { V(Mathf.Sin(a) * 30, Lf(12, 8, u), Mathf.Cos(a) * 30), V(0, 3, 0) }; });
+            // 2.3.2: close on the champion getting out of the car - the helmet off, the hair, the walk (was a 30 m crane)
+            Car win = _cars.Find(x => x.K == 1);
+            if (win != null)
+            {
+                Vector3 by = V(PlatX[1] + win.Wd / 2 + .5f, h1, PARK_Z + .8f);
+                Add(W + 3, W + 6, "casco", 22, u => new[] { by + V(Lf(-.3f, .7f, u), Lf(1.7f, 1.9f, u), Lf(8.6f, 9.8f, u)),   // past the trophy stand (x 2.9, z 5.2)
+                     Vector3.Lerp(by + V(0, 1.45f, 0), V(2.4f, h1 + 1.3f, 4f), Stage3D.Smooth(.25f, 1f, u)) }, .01f);
+            }
+            else Add(W + 3, W + 6, "grua2", 42, u => { float a = Lf(-.7f, -.15f, u); return new[] { V(Mathf.Sin(a) * 30, Lf(12, 8, u), Mathf.Cos(a) * 30), V(0, 3, 0) }; });
             Add(W + 6, W + 9, "copa", 32, u => new[] { V(Lf(-1.2f, -.6f, u), h1 + 1.9f, Lf(10.5f, 9.4f, u)), V(2.4f, h1 + 2.1f, 4.2f) }, .015f);
             Add(W + 9, W + 15, "champana", 40, u => new[] { V(Lf(-2, 2, u), Lf(2.7f, 3.3f, u), Lf(18, 15.5f, u)), V(0, h1 + 1.4f, 3) });
             Add(W + 15, W + 17.2f, "besos", 30, u => { Vector3 hp = Human.At(kiss.Head), f = V(Mathf.Sin(kiss.Yaw), 0, Mathf.Cos(kiss.Yaw)); return new[] { hp + f * Lf(3, 2.6f, u) + V(0, .15f, -1.6f), hp + V(0, .3f, .6f) }; }, .01f);
@@ -1136,6 +1248,7 @@ namespace HCT15
             _excite = Mathf.Max(Clock > W ? .9f : .3f, _excite - dt * .08f);
             float h1 = PlatH[1];
             Vector3 target = V(0, h1 + 1, 0);
+            SeaFrame();
             foreach (Car c in _cars)
             {
                 float lt = Clock - c.Start;
@@ -1149,7 +1262,17 @@ namespace HCT15
                 if (c.Tail != null) c.Tail.color = Stage3D.Hex(0xff1a1a) * (c.Plan.Brake[f] ? 2.2f : .8f);
                 if (c.Trot != null) c.Trot.Step(dt, c.Plan.V[f] * 3.6f);
                 if (Clock < c.ParkT + 1 && Clock > c.Start) target = c.Root.localPosition + V(0, 1, 0);
-                if (c.Plan.V[f] > 8 && Stage3D.Rnd(0, 1) < .5f) _smoke.Spawn(V(c.Root.localPosition.x, .3f, c.Root.localPosition.z), V(Stage3D.Rnd(-.5f, .5f), .4f, Stage3D.Rnd(-.5f, .5f)), new Color(.67f, .67f, .67f), .8f, 1.2f, 0, 0, .12f, 2.5f);
+                if (_water && c.Root.localPosition.z < SHORE_Z + .5f)
+                {
+                    // on the water: spray off the hull and a white wake instead of tyre smoke
+                    float sp = c.Plan.V[f];
+                    if (sp > 2f)
+                        for (int n = 0; n < 3; n++)
+                            _smoke.Spawn(V(c.Root.localPosition.x + Stage3D.Rnd(-.6f, .6f), .2f, c.Root.localPosition.z + Stage3D.Rnd(-.6f, .6f)),
+                                         V(Stage3D.Rnd(-1.5f, 1.5f), Stage3D.Rnd(1f, 2.5f) * Mathf.Min(1f, sp / 15f), Stage3D.Rnd(-1.5f, 1.5f)),
+                                         _beach ? new Color(1f, .95f, .9f) : new Color(.8f, .7f, .55f), .3f, .7f, 0, 0, .1f, 1.6f);
+                }
+                else if (c.Plan.V[f] > 8 && Stage3D.Rnd(0, 1) < .5f) _smoke.Spawn(V(c.Root.localPosition.x, .3f, c.Root.localPosition.z), V(Stage3D.Rnd(-.5f, .5f), .4f, Stage3D.Rnd(-.5f, .5f)), new Color(.67f, .67f, .67f), .8f, 1.2f, 0, 0, .12f, 2.5f);
             }
             if (Clock > W + 3) target = V(2.4f, h1 + 1.8f, 4);
             Drivers(dt, h1);
@@ -1241,9 +1364,12 @@ namespace HCT15
                 Human d = _drivers[i]; Car c = _cars[i]; float px = PlatX[c.K], ph = PlatH[c.K], k = Clock - (W + 3);
                 if (k < 0) continue;
                 Vector3 from = V(px + c.Wd / 2 + .5f, ph, PARK_Z + .8f), to = V(px + 2.4f, ph, c.K == 1 ? 4.0f : 4.3f);
-                float u = Stage3D.Smooth(0, 2.2f, k);
+                // 2.3.2: out of the car in the helmet, takes it off by the car (0-0.8 s), then walks over (0.8-2.6 s)
+                Helmet(d, c, k);
+                float u = Stage3D.Smooth(.8f, 2.6f, k);
                 d.Pos = Vector3.Lerp(from, to, u);
-                if (u < 1) { d.FaceTo(to.x, to.z); d.Pose = "walk"; }
+                if (k < .8f) { d.FaceTo(px + 2.4f, PARK_Z + 6f); d.Pose = "helmet"; }
+                else if (u < 1) { d.FaceTo(to.x, to.z); d.Pose = "walk"; }
                 else
                 {
                     d.Yaw = c.K == 1 ? -.15f : c.K == 2 ? .35f : -.35f;

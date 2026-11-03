@@ -158,7 +158,11 @@ namespace HCT15.Patches
                     CarModel m;
                     if (!vm._carModelDict.TryGetValue(go, out m) || m == null) continue;
                     if (!F1Campaign.IsGridCar(m) && !StreetCars.IsStreetCar(m)) { if (reference == null) reference = go; }
-                    else F1Campaign.FitInSelectionSlot(go, reference, StreetCars.IsStreetCar(m) ? StreetCars.SelectScaleOf(m) : 1f);
+                    else
+                    {
+                        float two = 0f, one = StreetCars.IsStreetCar(m) ? StreetCars.SelectScaleOf(m, out two) : 1f;
+                        F1Campaign.FitInSelectionSlot(go, reference, one, two);
+                    }
                 }
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] car slots: " + ex.Message); }

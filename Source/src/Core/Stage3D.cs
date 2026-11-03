@@ -576,6 +576,9 @@ namespace HCT15
             public bool Dress, Sleeves = true, Shiny, Promo, Nude;
             public bool Lite;   // far away (back rows of the stands): no eyes, mouth, hands, shoes or long hair - half the parts
             public float Height = 1.74f;
+            /// <summary>2.3.2 (the podium drivers): legs in two parts with a knee that bends (walk, run, ride, jump), and a
+            /// racing helmet of this colour (-1 = none) over the hair until TakeOffHelmet; Style "big80" = long, full 80s hair.</summary>
+            public bool Knees; public int Helmet = -1;
         }
 
         public static readonly int[] Skins = { 0xf1c7a5, 0xe3ae86, 0xc68a62, 0x9c6644, 0x7a4a2e, 0xf6d6bf };
@@ -583,6 +586,7 @@ namespace HCT15
         public static readonly int[] Bright = { 0xff3d8b, 0x22b3ff, 0xffd23f, 0x2ed47a, 0xff7a1a, 0xb46bff, 0xffffff, 0xe0262b, 0x1f4fd8, 0x14d4c4 };
 
         public readonly Transform G, Root, Hips, Spine, Head, LegR, LegL, ShR, ShL, ElR, ElL, HandR, HandL;
+        public readonly Transform KneeR, KneeL, HelmetT, HairT;   // 2.3.2: null unless Opt.Knees / Opt.Helmet
         public readonly Transform[] Eyes;
         public readonly Transform Mouth;
         public readonly Opt O;
@@ -607,6 +611,20 @@ namespace HCT15
             bool bareLegs = o.Dress || o.Promo || o.Nude;
             LegR = st.Node("legR", Hips, new Vector3(-(o.Promo ? .082f : .09f), 0, 0)).transform;
             LegL = st.Node("legL", Hips, new Vector3(o.Promo ? .082f : .09f, 0, 0)).transform;
+            if (o.Knees)
+            {
+                Mesh thigh = st.CylMesh(.08f, .062f, .45f, 7), shin = st.CylMesh(.06f, .05f, .44f, 7), knee = st.SphMesh(.064f, 6, 5);
+                foreach (Transform lg in new[] { LegR, LegL })
+                {
+                    st.Part(thigh, bareLegs ? sk : bt, lg, new Vector3(0, -.225f, 0));
+                    Transform kn = st.Node("knee", lg, new Vector3(0, -.45f, 0)).transform;
+                    st.Part(knee, bareLegs ? sk : bt, kn, Vector3.zero);
+                    st.Part(shin, bareLegs ? sk : bt, kn, new Vector3(0, -.22f, 0));
+                    st.Part(shoe, o.Nude ? sk : sh, kn, new Vector3(0, -.42f, .05f), new Vector3(.1f, .07f, .25f));
+                    if (lg == LegR) KneeR = kn; else KneeL = kn;
+                }
+            }
+            else
             foreach (Transform lg in new[] { LegR, LegL })
             {
                 st.Part(leg, bareLegs ? sk : bt, lg, new Vector3(0, -.44f, 0));
@@ -626,9 +644,33 @@ namespace HCT15
             Mesh eye = st.SphMesh(.015f, 5, 4);
             Eyes = o.Lite ? new Transform[0] : new[] { st.Part(eye, dk, Head, new Vector3(-.04f, .025f, .102f)).transform, st.Part(eye, dk, Head, new Vector3(.04f, .025f, .102f)).transform };
             Mouth = o.Lite ? null : st.Part(shoe, lip, Head, new Vector3(0, -.056f, .108f), new Vector3(.05f, .014f, .012f)).transform;
-            if (o.Style != "bald") st.Part(st.SphMesh(.123f, 9, 6, Mathf.PI * .56f), hr, Head, new Vector3(0, .016f, -.006f));
-            if (o.Style == "long" && !o.Lite) st.Part(shoe, hr, Head, new Vector3(0, -.14f, -.075f), new Vector3(.22f, .36f, .07f));
-            if (o.Style == "bun" && !o.Lite) st.Part(st.SphMesh(.06f, 7, 5), hr, Head, new Vector3(0, .07f, -.11f));
+            HairT = st.Node("hair", Head, Vector3.zero).transform;
+            if (o.Style == "big80")
+            {
+                // 2.3.2: long and full, 80s: a big crown, a mane down the back past the shoulders, volume at the sides
+                st.Part(st.SphMesh(.142f, 9, 7, Mathf.PI * .62f), hr, HairT, new Vector3(0, .03f, -.012f), new Vector3(1.12f, 1.08f, 1.12f));
+                st.Part(st.SphMesh(.1f, 7, 5), hr, HairT, new Vector3(0, .08f, -.06f), new Vector3(1.3f, .9f, 1.1f));
+                st.Part(shoe, hr, HairT, new Vector3(0, -.17f, -.085f), new Vector3(.32f, .44f, .12f));
+                st.Part(st.SphMesh(.11f, 7, 5), hr, HairT, new Vector3(0, -.36f, -.09f), new Vector3(1.55f, .7f, .7f));
+                st.Part(shoe, hr, HairT, new Vector3(-.13f, -.1f, -.01f), new Vector3(.07f, .3f, .17f));
+                st.Part(shoe, hr, HairT, new Vector3(.13f, -.1f, -.01f), new Vector3(.07f, .3f, .17f));
+            }
+            else
+            {
+                if (o.Style != "bald") st.Part(st.SphMesh(.123f, 9, 6, Mathf.PI * .56f), hr, HairT, new Vector3(0, .016f, -.006f));
+                if (o.Style == "long" && !o.Lite) st.Part(shoe, hr, HairT, new Vector3(0, -.14f, -.075f), new Vector3(.22f, .36f, .07f));
+                if (o.Style == "bun" && !o.Lite) st.Part(st.SphMesh(.06f, 7, 5), hr, HairT, new Vector3(0, .07f, -.11f));
+            }
+            if (o.Helmet >= 0)
+            {
+                HelmetT = st.Node("helmet", Head, new Vector3(0, .015f, -.005f)).transform;
+                Material hm = st.Lit(Stage3D.Hex(o.Helmet), .3f, .85f), vis = st.Lit(Stage3D.Hex(0x101418), .6f, .95f), wh = st.Lit(Color.white, .2f, .8f);
+                st.Part(st.SphMesh(.158f, 10, 8), hm, HelmetT, Vector3.zero, new Vector3(1f, 1.04f, 1.1f));
+                st.Part(shoe, vis, HelmetT, new Vector3(0, .005f, .125f), new Vector3(.22f, .075f, .07f));    // the visor
+                st.Part(shoe, wh, HelmetT, new Vector3(0, .1f, 0), new Vector3(.05f, .1f, .33f));              // a stripe over the top
+                st.Part(st.CylMesh(.12f, .135f, .06f, 10), hm, HelmetT, new Vector3(0, -.15f, 0));            // the chin ring
+                HairT.gameObject.SetActive(false);
+            }
             Mesh upper = st.CylMesh(.047f, .04f, .3f, 6), fore = st.CylMesh(.04f, .032f, .27f, 6), hand = st.SphMesh(.045f, 6, 5);
             ShR = st.Node("shR", Spine, new Vector3(-.2f, .48f, 0)).transform; ShL = st.Node("shL", Spine, new Vector3(.2f, .48f, 0)).transform;
             foreach (Transform s in new[] { ShR, ShL })
@@ -648,7 +690,7 @@ namespace HCT15
             Ph = Stage3D.Rnd(0f, 20f);
         }
 
-        private struct P { public float rx, rz, re, lx, lz, le, hx, hy, sx, sz, jy, m, gR, gL; }
+        private struct P { public float rx, rz, re, lx, lz, le, hx, hy, sx, sz, jy, m, gR, gL, kR, kL; }
 
         private static P P0() { return new P { rz = -.08f, re = -.12f, lz = .08f, le = -.12f, m = .15f }; }
 
@@ -681,10 +723,23 @@ namespace HCT15
                 case "presentL": p.lz = 1.25f; p.lx = -.5f; p.le = -.12f; p.m = .6f; break;
                 case "lift": p.rx = p.lx = -2.95f; p.re = p.le = -.35f; p.rz = .2f; p.lz = -.2f; p.hx = -.3f; p.m = 1; p.jy = Mathf.Max(0, s(t * 5)) * .06f; break;
                 case "spray": p.rx = -1.65f + .18f * s(t * 4 + ph); p.re = -.2f; p.rz = .1f + .25f * s(t * 1.3f + ph); p.lx = -1.2f; p.le = -.5f; p.lz = -.25f; p.m = 1; break;
-                case "walk": { float w = s(t * 7.5f + ph); p.gR = w * .45f; p.gL = -w * .45f; p.rx = -w * .4f; p.lx = w * .4f; p.jy = Mathf.Abs(w) * .03f; break; }
-                case "run": { float w = s(t * 12f + ph); p.gR = w * .8f; p.gL = -w * .8f; p.rx = -w * .9f; p.lx = w * .9f; p.re = p.le = -1.2f; p.jy = Mathf.Abs(w) * .1f; p.sx = .15f; p.m = .8f; break; }
+                case "walk":
+                    {
+                        // the knee folds while its leg swings forward (2.3.2, a person with Knees)
+                        float a = t * 7.5f + ph, w = s(a), c = Mathf.Cos(a);
+                        p.gR = w * .45f; p.gL = -w * .45f; p.rx = -w * .4f; p.lx = w * .4f; p.jy = Mathf.Abs(w) * .03f;
+                        p.kR = .08f + Mathf.Max(0, -c) * .8f; p.kL = .08f + Mathf.Max(0, c) * .8f; break;
+                    }
+                case "run":
+                    {
+                        float a = t * 12f + ph, w = s(a), c = Mathf.Cos(a);
+                        p.gR = w * .8f; p.gL = -w * .8f; p.rx = -w * .9f; p.lx = w * .9f; p.re = p.le = -1.2f; p.jy = Mathf.Abs(w) * .1f; p.sx = .15f; p.m = .8f;
+                        p.kR = .2f + Mathf.Max(0, -c) * 1.3f; p.kL = .2f + Mathf.Max(0, c) * 1.3f; break;
+                    }
+                case "helmet":   // both hands at the head, lifting a helmet off
+                    p.rx = p.lx = -2.5f; p.re = p.le = -1.55f; p.rz = .35f; p.lz = -.35f; p.hx = .12f; p.m = .2f; break;
                 case "fist": { float b = s(t * 9 + ph); p.rx = -2.4f + .35f * b; p.re = -1.1f; p.lx = -2.4f - .35f * b; p.le = -1.1f; p.rz = .2f; p.lz = -.2f; p.m = 1; p.jy = Mathf.Max(0, b) * .05f; break; }
-                case "ride": p.rx = p.lx = -1.25f; p.re = p.le = -.35f; p.rz = .12f; p.lz = -.12f; p.gR = p.gL = -1.35f; p.sx = .25f + .04f * s(t * 11 + ph); p.hx = -.15f; p.m = .8f; break;
+                case "ride": p.rx = p.lx = -1.25f; p.re = p.le = -.35f; p.rz = .12f; p.lz = -.12f; p.gR = p.gL = -1.35f; p.kR = p.kL = 1.45f; p.sx = .25f + .04f * s(t * 11 + ph); p.hx = -.15f; p.m = .8f; break;
                 case "surprise": p.rz = -2.2f; p.lz = 2.2f; p.re = p.le = -.9f; p.hx = -.2f; p.m = 1.4f; p.sx = -.1f; break;
                 case "party":
                     {
@@ -713,6 +768,12 @@ namespace HCT15
             Spine.localRotation = Stage3D.E(v(a.sx, b.sx), 0, v(a.sz, b.sz));
             Root.localPosition = new Vector3(0, v(a.jy, b.jy), 0);
             LegR.localRotation = Stage3D.E(v(a.gR, b.gR), 0, 0); LegL.localRotation = Stage3D.E(v(a.gL, b.gL), 0, 0);
+            if (KneeR != null)
+            {
+                // a crouch (the legs swung forward together) bends the knees back by twice as much
+                float cr = Mathf.Max(0f, -Mathf.Min(v(a.gR, b.gR), v(a.gL, b.gL))) * (v(a.gR, b.gR) * v(a.gL, b.gL) > 0f ? 2f : 0f);
+                KneeR.localRotation = Stage3D.E(Mathf.Max(v(a.kR, b.kR), cr), 0, 0); KneeL.localRotation = Stage3D.E(Mathf.Max(v(a.kL, b.kL), cr), 0, 0);
+            }
             if (Mouth != null) Mouth.localScale = new Vector3(.05f, .014f * (1 + v(a.m, b.m) * 3), .012f);
         }
 

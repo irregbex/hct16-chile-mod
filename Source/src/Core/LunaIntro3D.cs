@@ -20,7 +20,8 @@ namespace HCT15
         public float Clock;
         private readonly List<Human> _bathers = new List<Human>(), _waders = new List<Human>();
         private readonly List<Ski> _skis = new List<Ski>();
-        private Mesh _sea; private Vector3[] _seaBase, _seaV; private Transform _foam;
+        private Mesh _sea; private Vector3[] _seaBase, _seaV; private Color[] _seaC; private Transform _foam;
+        private readonly List<Transform> _waves = new List<Transform>(); private readonly List<Material> _waveMats = new List<Material>();
         private Quads _spray, _mist;
         private Transform _umbrella, _iceCream; private Vector3 _iceV, _umbV; private bool _iceLoose;
         private Human _iceHolder;
@@ -32,10 +33,12 @@ namespace HCT15
         public LunaIntro3D(int width, int height)
         {
             St = new Stage3D("HCT15_Luna3D", width, height);
-            St.Key.color = new Color(1f, .78f, .55f); St.Key.intensity = 1.05f;
-            St.Key.transform.rotation = Quaternion.LookRotation(-V(220, 70, -900).normalized);
-            St.Ambient = new Color(.42f, .36f, .42f);
-            St.Fog = true; St.FogColor = new Color(1f, .7f, .55f); St.FogNear = 120; St.FogFar = 1300;
+            // 2.3.2 (reported: "it looks as if it were winter; it should be a sunny beach, vivid warm colours, a light-blue
+            // sea with waves on the beach"): a summer afternoon - the sun high in front, warm white light
+            St.Key.color = new Color(1f, .95f, .84f); St.Key.intensity = 1.15f;
+            St.Key.transform.rotation = Quaternion.LookRotation(-V(220, 330, -900).normalized);
+            St.Ambient = new Color(.62f, .62f, .66f);
+            St.Fog = true; St.FogColor = new Color(.8f, .9f, .98f); St.FogNear = 220; St.FogFar = 1700;
             Sky(); Sea(); Beach(); People(); Skis();
             _spray = new Quads(St, 2500, St.Particle(Stage3D.RadialDot(32, .3f), false), "spray");
             _mist = new Quads(St, 600, St.Particle(Stage3D.Smoke(64), false), "mist");
@@ -44,18 +47,18 @@ namespace HCT15
         private void Sky()
         {
             var sb = new Stage3D.MeshBuilder(); sb.Sphere(Vector3.zero, 1800f, 32, 16);
-            Color top = Stage3D.Hex(0x37306f), mid = Stage3D.Hex(0xff8f6a), bot = Stage3D.Hex(0xffd59c);
+            Color top = Stage3D.Hex(0x1f7fe0), mid = Stage3D.Hex(0x74c2f4), bot = Stage3D.Hex(0xe4f4ff);
             for (int i = 0; i < sb.V.Count; i++)
             {
                 float h = sb.V[i].y / 1800f;
                 sb.C[i] = h > .04f ? Color.Lerp(mid, top, Stage3D.Smooth(.04f, .5f, h)) : Color.Lerp(bot, mid, Stage3D.Smooth(-.02f, .04f, h));
             }
             St.Part(St.Keep(sb.Build("sky")), St.Glow(Color.white, 0, false, 1000), null, Vector3.zero);
-            var d = St.Node("sun", null, V(220, 70, -900)); d.transform.rotation = Quaternion.LookRotation(V(220, 70, -900).normalized);
+            var d = St.Node("sun", null, V(220, 330, -900)); d.transform.rotation = Quaternion.LookRotation(V(220, 330, -900).normalized);
             var db = new Stage3D.MeshBuilder(); db.QuadUV(V(-110, -110, 0), V(110, -110, 0), V(110, 110, 0), V(-110, 110, 0), Vector2.zero, Vector2.one);
             d.AddComponent<MeshFilter>().sharedMesh = St.Keep(db.Build("sun"));
             Material m = St.Particle(Stage3D.RadialDot(128, .3f), true); m.renderQueue = 1002;
-            if (m.HasProperty("_TintColor")) m.SetColor("_TintColor", new Color(1f, .8f, .5f) * .8f);
+            if (m.HasProperty("_TintColor")) m.SetColor("_TintColor", new Color(1f, .97f, .85f) * .9f);
             d.AddComponent<MeshRenderer>().sharedMaterial = m;
             // hills across the bay
             var hb = new Stage3D.MeshBuilder(); var rng = new System.Random(3);
@@ -63,7 +66,7 @@ namespace HCT15
             for (int i = -30; i < 30; i++)
             {
                 float x0 = i * 60, x1 = (i + 1) * 60, y1 = 25 + (float)rng.NextDouble() * 70;
-                hb.Col = Color.Lerp(Stage3D.Hex(0x7d5f86), Stage3D.Hex(0xb07a86), (float)rng.NextDouble() * .5f);
+                hb.Col = Color.Lerp(Stage3D.Hex(0x6f9a58), Stage3D.Hex(0xb39a66), (float)rng.NextDouble() * .6f);   // green and dry-grass coast hills
                 hb.Quad(V(x0, -2, -1000), V(x1, -2, -1000), V(x1, y1, -1000), V(x0, prev, -1000));
                 prev = y1;
             }
@@ -82,9 +85,24 @@ namespace HCT15
                     t.Add(a); t.Add(b); t.Add(d); t.Add(b); t.Add(e); t.Add(d);   // counter-clockwise from above (three.js winding, see Stage3D)
                 }
             _sea = St.Keep(new Mesh { name = "sea" }); _sea.MarkDynamic(); _sea.SetVertices(v); _sea.SetColors(c); _sea.SetTriangles(t, 0); _sea.RecalculateNormals();
-            _seaBase = v.ToArray(); _seaV = v.ToArray();
-            St.Part(_sea, St.Lit(Stage3D.Hex(0x2a78b0), .25f, .92f), null, V(0, -.05f, 0));
-            St.BoxPart(St.Lit(Stage3D.Hex(0x3a7aa8), .2f, .85f), null, V(0, -.2f, -700), V(4000, .1f, 1220));
+            _seaBase = v.ToArray(); _seaV = v.ToArray(); _seaC = c.ToArray();
+            // its own colours (unlit, vertex colours set each frame): turquoise by the shore, deep blue offshore, crests lighter
+            St.Part(_sea, St.Glow(Color.white), null, V(0, -.05f, 0));
+            St.BoxPart(St.Glow(Stage3D.Hex(0x1a78c2)), null, V(0, -.2f, -700), V(4000, .1f, 1220));
+            // waves breaking on the shore: white foam lines rolling in and fading
+            for (int k = 0; k < 3; k++)
+            {
+                var wb = new Stage3D.MeshBuilder();
+                for (int i = 0; i < 90; i++)
+                {
+                    float x = -90 + i * 2, w0 = Mathf.Sin(i * .9f + k) * .25f, w1 = Mathf.Sin((i + 1) * .9f + k) * .25f;
+                    wb.Col = new Color(1, 1, 1, .9f);
+                    wb.Quad(V(x, .08f, .35f + w0), V(x + 2.05f, .08f, .35f + w1), V(x + 2.05f, .08f, -.35f + w1), V(x, .08f, -.35f + w0));
+                }
+                Material wm = St.Glow(Color.white, 2, false, 3001 + k);   // its own material (Glow caches by key): each fades on its own
+                _waves.Add(St.Part(St.Keep(wb.Build("wave")), wm, null, V(0, 0, -6)).transform);
+                _waveMats.Add(wm);
+            }
             var fb = new Stage3D.MeshBuilder();
             for (int i = 0; i < 90; i++) { float x = -90 + i * 2; fb.Col = new Color(1, 1, 1, .7f); fb.Quad(V(x, .06f, .4f), V(x + 2.05f, .06f, .4f), V(x + 2.05f, .06f, -.5f + Mathf.Sin(i * 1.7f) * .3f), V(x, .06f, -.5f + Mathf.Sin(i * 1.7f) * .3f)); }
             var f = St.Part(St.Keep(fb.Build("foam")), St.Glow(Color.white, 2, false, 3000), null, Vector3.zero);
@@ -93,8 +111,8 @@ namespace HCT15
 
         private void Beach()
         {
-            St.BoxPart(St.Lit(Stage3D.Hex(0xe9cf9b), 0, .1f), null, V(0, -.05f, 40), V(400, .1f, 80));
-            St.BoxPart(St.Lit(Stage3D.Hex(0xc8a777), 0, .5f), null, V(0, -.04f, 1.6f), V(400, .1f, 3.2f));
+            St.BoxPart(St.Lit(Stage3D.Hex(0xe8c27c), 0, .1f), null, V(0, -.05f, 40), V(400, .1f, 80));       // dry golden sand
+            St.BoxPart(St.Lit(Stage3D.Hex(0xc9a066), 0, .3f), null, V(0, -.04f, 1.6f), V(400, .1f, 3.2f));   // the wet strip
             int[] cols = { 0xff3d6e, 0xffd23f, 0x22b3ff, 0x2ed47a, 0xff7a1a, 0xffffff };
             var rng = new System.Random(11);
             for (int i = 0; i < 9; i++)
@@ -187,8 +205,25 @@ namespace HCT15
             float dt = dtReal * slow;
             Clock += dt;
             St.ExcludeForeignLights();
-            for (int i = 0; i < _seaV.Length; i++) { Vector3 p = _seaBase[i]; p.y = Mathf.Sin(p.x * .18f + Clock * 1.6f) * .12f + Mathf.Sin(p.z * .35f - Clock * 2.1f) * .1f; _seaV[i] = p; }
-            _sea.vertices = _seaV; _sea.RecalculateNormals();
+            Color shore = Stage3D.Hex(0x4fe3df), mid = Stage3D.Hex(0x21b4e0), deep = Stage3D.Hex(0x1673bd);
+            for (int i = 0; i < _seaV.Length; i++)
+            {
+                Vector3 p = _seaBase[i];
+                float h = Mathf.Sin(p.x * .18f + Clock * 1.6f) * .12f + Mathf.Sin(p.z * .35f - Clock * 2.1f) * .1f;
+                p.y = h; _seaV[i] = p;
+                float far = Mathf.Clamp01(-p.z / 90f);
+                Color col = far < .25f ? Color.Lerp(shore, mid, far / .25f) : Color.Lerp(mid, deep, (far - .25f) / .75f);
+                _seaC[i] = Color.Lerp(col, Color.white, Mathf.Clamp01((h - .08f) * 2.2f) * (1f - far) * .8f);   // the crests catch the sun
+            }
+            _sea.vertices = _seaV; _sea.colors = _seaC;
+            for (int k = 0; k < _waves.Count; k++)
+            {
+                float ph = Mathf.Repeat(Clock * .22f + k / 3f, 1f);
+                _waves[k].localPosition = V(0, 0, Mathf.Lerp(-10f, .2f, ph * ph * (3 - 2 * ph)));
+                _waves[k].localScale = V(1, 1, Mathf.Lerp(.6f, 1.6f, ph));
+                Color wc = Color.white; wc.a = ph < .75f ? ph / .75f * .85f : (1f - ph) / .25f * .85f;
+                _waveMats[k].color = wc;
+            }
             _foam.localPosition = V(0, 0, Mathf.Sin(Clock * 1.3f) * .6f);
             Vector3 focus = V(0, 1, -4);
             foreach (Ski s in _skis)

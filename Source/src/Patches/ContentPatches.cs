@@ -138,6 +138,30 @@ namespace HCT15.Patches
         private static void Prefix(ref float p_ratio) { p_ratio = PointToPointRace.RouteRatio(p_ratio); }
     }
 
+    /// <summary>2.3.2 (reported: "the fuel cans, nitros and coins have a dark neon-pink marker over them, it looks like a
+    /// debugging marker"): every pickup prefab carries a 'tutorial_arrow' quad with no material - Unity draws it
+    /// magenta - that no game code ever switches; it goes off when the pickup is made.</summary>
+    [HarmonyPatch(typeof(RaceCollectible), "Awake")]
+    internal static class PickupArrowPatch
+    {
+        private static int _logged;
+
+        private static void Postfix(RaceCollectible __instance)
+        {
+            try
+            {
+                foreach (Renderer r in __instance.GetComponentsInChildren<Renderer>(true))
+                {
+                    if (r == null || r.name != "tutorial_arrow") continue;
+                    r.enabled = false;
+                    r.gameObject.SetActive(false);
+                    if (_logged++ == 0) Debug.Log("[HCT15] pickups: the material-less 'tutorial_arrow' (drawn pink) switched off");
+                }
+            }
+            catch (Exception) { }
+        }
+    }
+
     // ------------------------------------------------------------------ the mod campaigns
 
     [HarmonyPatch(typeof(ExtraCampaign), nameof(ExtraCampaign.Initialize))]

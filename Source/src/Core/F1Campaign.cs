@@ -697,7 +697,7 @@ namespace HCT15
         /// <summary>selectScale (2.0.13, CarDef.SelectScale): the car shown this many times a retail car's length - the micro,
         /// half again the bus it was, looks it on the turntable too (the carousel should show its size). Split
         /// screen keeps every car at a retail car's length: each player has half a screen.</summary>
-        public static void FitInSelectionSlot(GameObject car, GameObject reference, float selectScale)
+        public static void FitInSelectionSlot(GameObject car, GameObject reference, float selectScale, float selectScale2P = 0f)
         {
             try
             {
@@ -706,7 +706,7 @@ namespace HCT15
                 if (!CombinedBounds(car, out cb)) return;
                 float carLen = Mathf.Max(cb.size.x, cb.size.z);
                 float grow = 1f;
-                try { grow = StaticData.NumPlayers > 1 ? 1f : Mathf.Clamp(selectScale, 0.25f, 1.6f); } catch (Exception) { }   // 2.2.7: down to 0.25 (the andas)
+                try { grow = StaticData.NumPlayers > 1 && selectScale2P <= 0f ? 1f : Mathf.Clamp(selectScale, 0.25f, 1.6f); } catch (Exception) { }   // 2.2.7: down to 0.25 (the andas)
                 // the length to fit: a retail car of this view, or - a view of our cars only (a carreta campaign) -
                 // a retail car's usual length. The turntable spins the model about the slot and the split-screen camera
                 // is 6 units away: a 5.7-unit carreta put its horse's head 2.9 units from the lens, a brown shape over
@@ -733,6 +733,14 @@ namespace HCT15
                 Vector3 slot = car.transform.parent != null ? car.transform.parent.position : car.transform.position;
                 Vector3 shift = new Vector3(slot.x - cb.center.x, 0f, slot.z - cb.center.z);
                 car.transform.position += shift;
+                // 2.3.2 (reported: "with 1 player the andas look very small now - I asked for them smaller only for 2 players or
+                // more"): the views are built once, so a car with its own split-screen size switches as the player count does
+                if (selectScale2P > 0f && Mathf.Abs(selectScale2P - selectScale) > 0.01f)
+                {
+                    var sw = car.GetComponent<SelectScaleByPlayers>() ?? car.AddComponent<SelectScaleByPlayers>();
+                    sw.Alone = car.transform.localScale;
+                    sw.Ratio = Mathf.Clamp(selectScale2P, 0.2f, 1.6f) / Mathf.Clamp(selectScale, 0.25f, 1.6f);
+                }
                 Debug.Log("[HCT15] selection slot: '" + car.name + "' length " + carLen.ToString("0.00") + " -> fit to " + (refLen * grow).ToString("0.00") + (grow > 1.01f ? " (x" + grow.ToString("0.00") + " of a retail car)" : "") + (reference != null ? " (reference '" + reference.name + "')" : " (no reference)") + ", scale now " + car.transform.localScale.x.ToString("0.00") + ", height " + cb.size.y.ToString("0.00") + ", shifted " + shift.ToString("0.00"));
             }
             catch (Exception ex)

@@ -106,7 +106,9 @@ namespace HCT15.Patches
         }
     }
 
-    /// <summary>2.3.1: "Road traffic" yes / no in Options &gt; General (Settings.RoadTraffic; read when a race loads).</summary>
+    /// <summary>2.3.1: "Road traffic" yes / no in Options &gt; General (Settings.RoadTraffic; read when a race loads).
+    /// 2.3.2 (reported: "with it on it is impossible to win, so for now switch that option off and leave it grey because
+    /// it does not work"): Traffic.Available is false - the row shows "no" in grey and cannot be changed.</summary>
     [HarmonyPatch(typeof(GeneralOptionsViewModel), "RefreshItems")]
     internal static class RoadTrafficOptionPatch
     {
@@ -115,6 +117,18 @@ namespace HCT15.Patches
             try
             {
                 var items = new List<OptionsItemModelBinding>(__instance.Items.Value ?? new List<OptionsItemModelBinding>());
+                if (!Traffic.Available)
+                {
+                    // the menu's texts take no colour tags (they showed as letters): the whole row is faded instead
+                    var row = new OptionsItemModelBinding(
+                        Loc.Get("opt_traffic"), EOptionsItemType.LeftRight,
+                        new List<string> { Loc.Get("opt_loudness_off") }, 0,
+                        delegate (int index) { },
+                        shouldLocalizeName: false, shouldLocalizeOptions: false);
+                    items.Add(row);
+                    GreyOptionRows.Add(row);
+                }
+                else
                 items.Add(new OptionsItemModelBinding(
                     Loc.Get("opt_traffic"), EOptionsItemType.LeftRight,
                     new List<string> { Loc.Get("opt_traffic_on"), Loc.Get("opt_loudness_off") }, Settings.Data.RoadTraffic ? 0 : 1,
@@ -129,6 +143,61 @@ namespace HCT15.Patches
                 __instance.Items.Value = items;
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] road traffic option: " + ex.Message); }
+        }
+    }
+
+    /// <summary>2.3.2: options rows shown but switched off - faded to grey (a CanvasGroup on the row the menu builds for
+    /// that item), looked for a few times a second while an options screen is open.</summary>
+    internal sealed class GreyOptionRows : MonoBehaviour
+    {
+        private static readonly List<OptionsItemModelBinding> _rows = new List<OptionsItemModelBinding>();
+        private static GreyOptionRows _me;
+        private static readonly FieldInfo ItemData = AccessTools.Field(typeof(BaseOptionsItemBinding), "_itemData");
+        private float _next;
+        private static bool _logged, _warned;
+        private readonly List<CanvasGroup> _groups = new List<CanvasGroup>();
+
+        // after the row's Animator, which sets its own alpha every frame
+        private void LateUpdate()
+        {
+            for (int i = _groups.Count - 1; i >= 0; i--) { if (_groups[i] == null) _groups.RemoveAt(i); else _groups[i].alpha = .35f; }
+        }
+
+        public static void Add(OptionsItemModelBinding row)
+        {
+            if (_rows.Count > 8) _rows.RemoveAt(0);   // the menu rebuilds its rows on every visit
+            _rows.Add(row);
+            if (_me == null) { var go = new GameObject("HCT15_GreyOptionRows"); DontDestroyOnLoad(go); _me = go.AddComponent<GreyOptionRows>(); }
+        }
+
+        private void Update()
+        {
+            if (Time.unscaledTime < _next) return;
+            _next = Time.unscaledTime + .2f;
+            try
+            {
+                if (!UIStateManager.IsStateActive("OPTIONS_GENERAL")) return;
+                foreach (BaseOptionsItemBinding b in FindObjectsOfType<BaseOptionsItemBinding>())
+                {
+                    var item = ItemData != null ? ItemData.GetValue(b) as OptionsItemModelBinding : null;
+                    bool mine = item != null && _rows.Contains(item);
+                    // the row's own label, as a fallback (the binding may hold a copy of the item)
+                    if (!mine)
+                        foreach (Component c in b.GetComponentsInChildren<Component>(true))
+                        {
+                            if (c == null) continue;
+                            PropertyInfo tp = c is UnityEngine.UI.Text ? null : c.GetType().GetProperty("text", typeof(string));
+                            string s = c is UnityEngine.UI.Text ? ((UnityEngine.UI.Text)c).text : tp != null && c.GetType().Name.Contains("TextMeshPro") ? tp.GetValue(c, null) as string : null;
+                            if (s == null) continue;
+                            foreach (OptionsItemModelBinding r in _rows) if (string.Equals(s.Trim(), r.Name, StringComparison.OrdinalIgnoreCase)) { mine = true; break; }
+                            if (mine) break;
+                        }
+                    if (!mine) continue;
+                    CanvasGroup cg = b.GetComponent<CanvasGroup>() ?? b.gameObject.AddComponent<CanvasGroup>();
+                    if (!_groups.Contains(cg)) { _groups.Add(cg); if (!_logged) { _logged = true; Debug.Log("[HCT15] options: row '" + b.name + "' greyed (switched off)"); } }
+                }
+            }
+            catch (Exception ex) { if (!_warned) { _warned = true; Debug.LogWarning("[HCT15] grey option rows: " + ex.Message); } }
         }
     }
 

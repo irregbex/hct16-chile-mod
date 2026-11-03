@@ -4,6 +4,20 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.2 (2026-11-03)
+  - Beach podium: when jet skis finish in the top three, they arrive over the sea at sunset and the stage stands on the
+    sand (waves, the low sun's road of light on the water, spray); on the flooded Santiago, muddy water.
+  - The podium's drivers get out in racing helmets, take them off by the car (set on its roof) - long, full 80s hair -
+    and walk over with knees that bend; a close camera shot shows it.
+  - Playa Luna's intro is a sunny summer afternoon (blue sky, turquoise sea with waves breaking on the shore, golden
+    sand); its sea no longer turns dark blue for a few frames while the race loads.
+  - The pink marker over fuel cans, nitros and coins is gone (a material-less part of the game's pickups).
+  - Car selection: no more floating light glints in front of / behind the jet skis, carts and andas; the andas are full
+    size with one player and smaller only in split screen (streetcars.json "SelectScale2P").
+  - Road traffic is switched off for now (it could make the stage impossible to win); its option in Options > General is
+    shown greyed out.
+  - The old flat frames of the Playa Luna intro are no longer shipped (the installer removes them).
+
 2.3.1 (2026-11-03)
   - Options > General has a new row, "Road traffic" (yes / no): no switches off the traffic of the road stages of
     Rutas de Chile, so only the rivals are on the road. It applies from the next race; saved in

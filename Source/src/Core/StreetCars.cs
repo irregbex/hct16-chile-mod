@@ -88,7 +88,8 @@ namespace HCT15
             public float Lean;                // 2.0.24: degrees the body leans into a bend at full lock, and it rides the swell (WaterRide; the jet skis 16, 0 = a car)
             public bool OnlyListed;           // 2.0.24: selectable only in a round whose "Cars" names it (the jet skis: the beaches of the Quinta Región)
             public float Spray;               // 2.0.24: the rooster tail, side spray and wake of a jet ski (WaterRide; 1 = a jet ski's, 0 = none)
-            public float SelectScale = 1f;    // 2.0.13: how big the car shows on the car-selection turntable against a retail car (the micro 1.2: half again the bus it was, yet inside the screen's stats); 1 in split screen
+            public float SelectScale2P = 0f;  // 2.3.2: the same with two or more players (split screen); 0 = as SelectScale. The andas: 0.55 alone, 0.3 split
+        public float SelectScale = 1f;    // 2.0.13: how big the car shows on the car-selection turntable against a retail car (the micro 1.2: half again the bus it was, yet inside the screen's stats); 1 in split screen
             // 2.0.28 (the andas walk, no more than 5 km/h; each anda is a colour variant with its own stats):
             public float TopSpeedKph;         // the game's own top speed (km/h before its x0.55 masking), unclamped; 0 = donor x Performance
             public float ZeroToMax;           // seconds from standstill to top speed; 0 = donor / Performance^2
@@ -261,8 +262,12 @@ namespace HCT15
         }
 
         /// <summary>CarDef.SelectScale of a car on the selection turntable (a colour asks its car), 1 when unknown.</summary>
-        public static float SelectScaleOf(CarModel car)
+        public static float SelectScaleOf(CarModel car) { float two; return SelectScaleOf(car, out two); }
+
+        /// <summary>2.3.2: also CarDef.SelectScale2P (0 = none).</summary>
+        public static float SelectScaleOf(CarModel car, out float twoPlayers)
         {
+            twoPlayers = 0f;
             try
             {
                 if (car == null) return 1f;
@@ -275,6 +280,7 @@ namespace HCT15
                     if (!_def.TryGetValue(id, out d) || d == null) return 1f;
                 }
                 if (Mathf.Abs(d.SelectScale - 1f) < 0.01f && !string.IsNullOrEmpty(d.VariantOf)) { CarDef b; if (_def.TryGetValue(d.VariantOf, out b) && b != null) d = b; }
+                twoPlayers = d.SelectScale2P > 0.1f ? d.SelectScale2P : 0f;
                 return d.SelectScale > 0.1f ? d.SelectScale : 1f;
             }
             catch (Exception) { return 1f; }
@@ -2049,6 +2055,8 @@ namespace HCT15
         /// </summary>
         private static readonly string[] LightParts = { "brake_lights", "lights", "night_lights", "head_lights", "tail_lights" };
 
+        private static readonly HashSet<string> _partsLogged = new HashSet<string>();
+
         private static void HideDonorLights(GameObject inst, CarDef d)
         {
             int n = 0;
@@ -2064,8 +2072,23 @@ namespace HCT15
                 if (nm.Contains("nitro")) continue;
                 if (nm.Contains("brake") || nm.Contains("taillight") || nm.Contains("tail_light") || nm.Contains("exhaust") || nm.Contains("backfire"))
                 { r.enabled = false; n++; }
+                // 2.3.2 (reported: "lights flying in front of or behind the jet skis"):
+                // the turntable's glints sit on the donor's headlamps, in the air in front of or behind our body
+                else if (nm.StartsWith("select_car_bright"))
+                {
+                    MeshFilter mf = r.GetComponent<MeshFilter>();
+                    if (mf != null) mf.sharedMesh = null;
+                    r.enabled = false; n++;
+                }
             }
             Debug.Log("[HCT15] street car '" + d.Id + "': the donor's lights hidden (" + n + " part(s)) - no car under it");
+            if (_partsLogged.Add(d.Id))
+            {
+                var sb = new System.Text.StringBuilder();
+                foreach (Renderer r in inst.GetComponentsInChildren<Renderer>(true))
+                    if (r.enabled) sb.Append(" ").Append(r.transform.parent != null ? r.transform.parent.name + "/" : "").Append(r.name).Append("[").Append(r.GetType().Name.Replace("Renderer", "")).Append("]");
+                Debug.Log("[HCT15] street car '" + d.Id + "': renderers left on:" + sb);
+            }
         }
 
         /// <summary>Where the donor keeps its wheels - logged once so a body can be modelled around them.</summary>

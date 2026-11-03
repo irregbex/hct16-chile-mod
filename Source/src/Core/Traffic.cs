@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -159,6 +159,10 @@ namespace HCT15
         }
         private static readonly List<string> _colours = new List<string>();
 
+        /// <summary>2.3.2: false = no road traffic at all and Options &gt; General shows the switch grey (reported 2026-11-03:
+        /// with the traffic on it was impossible to win; to be looked into). true brings both back.</summary>
+        public const bool Available = false;
+
         public static bool IsTrafficCar(BaseCar car) { return car != null && _share.ContainsKey(car); }
 
         /// <summary>What EnemyCarManager.Initialize reads instead of StaticData.NumEnemies.</summary>
@@ -188,6 +192,7 @@ namespace HCT15
             TrafficJson t = Load(out id);
             if (t == null || t.Cars <= 0) return;
             // 2.3.1: Options > General "Road traffic" off = only the rivals on the road
+            if (!Available) { Debug.Log("[HCT15] traffic on '" + id + "': off (switched off in this version, see Traffic.Available)"); return; }
             if (!Settings.Data.RoadTraffic) { Debug.Log("[HCT15] traffic on '" + id + "': off (Options > General)"); return; }
             if (t.Colours != null) foreach (string c in t.Colours) if (!string.IsNullOrEmpty(c)) _colours.Add(c);
             try
