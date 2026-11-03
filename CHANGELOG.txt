@@ -4,6 +4,14 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.3 (2026-11-03)
+  - Beach podium: the crowd in swimsuits and bikinis, the promo models in bikinis of their platform colours, the staff in
+    shorts, tees and sunglasses; the riders in a wetsuit and a life vest of their colour (their jet ski's own rider
+    gets off with them). Umbrellas, towels and surfboards on the sand, palms, a lifeguard tower, beach balls bouncing over
+    the crowd. The sea behind the stage is all sea now (the ground no longer shows through it).
+  - Toll plazas are switched off for now (the booths stay as scenery); their option in Options > General is greyed out.
+  - A long speech bubble no longer flickers between two places.
+
 2.3.2 (2026-11-03)
   - Beach podium: when jet skis finish in the top three, they arrive over the sea at sunset and the stage stands on the
     sand (waves, the low sun's road of light on the water, spray); on the flooded Santiago, muddy water.

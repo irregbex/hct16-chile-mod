@@ -104,7 +104,7 @@ namespace HCT15
 
         private class Car
         {
-            public int K; public float S, Start, ParkT, L, Wd, Ht, Spin; public Transform Root, Body; public Plan Plan; public Material Tail; public PodiumRacer R; public Trot Trot; public float LastDist;
+            public int K; public float S, Start, ParkT, L, Wd, Ht, Spin; public Transform Root, Body; public Plan Plan; public Material Tail; public PodiumRacer R; public Trot Trot; public float LastDist; public bool RiderOff;
         }
 
         // ------------------------------------------------------------------ build
@@ -219,7 +219,9 @@ namespace HCT15
                 try { Backdrop(dir, ref ground); }
                 catch (Exception ex) { Debug.LogWarning("[HCT15] podium: horizon: " + ex.Message); }
             }
-            var terrain = new Stage3D.MeshBuilder(); terrain.Cyl(V(0, -.1f, 0), 1300, 1300, .1f, 48);
+            // 2.3.3 (a screenshot of the jet ski podium: "the blue water polygons pass under the land polygons, it
+            // should all be sea"): with the sea, the ground disc goes 2 m down - at 0 it covered the far sea and cut the waves
+            var terrain = new Stage3D.MeshBuilder(); terrain.Cyl(V(0, _water ? -2f : -.1f, 0), 1300, 1300, .1f, 48);
             St.Part(St.Keep(terrain.Build("terrain")), St.Lit(ground * Stage3D.Hex(t.Tint), 0, .05f), null, Vector3.zero);
             if (_water) { Sea(); return; }
             St.BoxPart(L(0x15151b, .1f, .55f), null, V(0, 0, -6), V(150, .02f, 96));
@@ -491,8 +493,8 @@ namespace HCT15
 
         private void People()
         {
-            _presenters.Add(new Human(St, null, new Human.Opt { Top = 0x14203c, Bottom = 0x14203c, Shoes = 0x0a0a0a, Style = "short", Hair = 0x1b1410, Height = 1.8f }));
-            _presenters.Add(new Human(St, null, new Human.Opt { Top = 0xd4a017, Dress = true, Shiny = true, Sleeves = false, Style = "long", Hair = 0x3a2516, Height = 1.7f, Shoes = 0xd4a017 }));
+            _presenters.Add(new Human(St, null, Beach(new Human.Opt { Top = 0x14203c, Bottom = 0x14203c, Shoes = 0x0a0a0a, Style = "short", Hair = 0x1b1410, Height = 1.8f }, false, "casual", false)));
+            _presenters.Add(new Human(St, null, Beach(new Human.Opt { Top = 0xd4a017, Dress = true, Shiny = true, Sleeves = false, Style = "long", Hair = 0x3a2516, Height = 1.7f, Shoes = 0xd4a017 }, true, "dress", false)));
             _presenters[0].Pos = V(-17.9f, 0, 8.2f); _presenters[1].Pos = V(-16.1f, 0, 8.2f);
             foreach (Human p in _presenters)
             {
@@ -503,7 +505,7 @@ namespace HCT15
             for (int k = 1; k <= 3; k++)
                 for (int s = -1; s <= 1; s += 2)
                 {
-                    var m = new Human(St, null, new Human.Opt { Top = s < 0 ? PlatCol[k] : 0xffffff, Promo = true, Shiny = true, Sleeves = false, Style = Stage3D.Pick(new[] { "long", "bun", "long" }), Height = Stage3D.Rnd(1.72f, 1.8f), Shoes = s < 0 ? 0xf4f4f4 : PlatCol[k] });
+                    var m = new Human(St, null, Beach(new Human.Opt { Top = s < 0 ? PlatCol[k] : 0xffffff, Promo = true, Shiny = true, Sleeves = false, Style = Stage3D.Pick(new[] { "long", "bun", "long" }), Height = Stage3D.Rnd(1.72f, 1.8f), Shoes = s < 0 ? 0xf4f4f4 : PlatCol[k] }, true, "swim", true));
                     m.Pos = V(PlatX[k] + s * 4.3f, 0, 7.7f); m.FaceTo(PlatX[k] * .3f, 30);
                     _promoPlat[m] = k; m.Wing = s;
                     if (s < 0) { _holders.Add(m); Sign(m, .7f, k + "°", Stage3D.Hex(PlatCol[k]), new Color(.07f, .04f, 0)); }
@@ -511,7 +513,7 @@ namespace HCT15
                 }
             foreach (var xz in new[] { V2(-6.5f, 10.8f), V2(6.8f, 11.2f) })
             {
-                var h = new Human(St, null, new Human.Opt { Top = 0x1a1a1a, Bottom = 0x22252c, Style = Stage3D.Pick(new[] { "short", "bald" }), Height = 1.78f });
+                var h = new Human(St, null, Beach(new Human.Opt { Top = 0x1a1a1a, Bottom = 0x22252c, Style = Stage3D.Pick(new[] { "short", "bald" }), Height = 1.78f }, false, "casual", false));
                 h.Pos = V(xz.x, 0, xz.y); h.Pose = "tvcam";
                 var c = St.Node("tvcam", h.Root, V(-.2f, 1.6f, .12f)).transform;
                 St.BoxPart(L(0x22252a, .5f, .5f), c, Vector3.zero, V(.2f, .26f, .58f));
@@ -527,7 +529,8 @@ namespace HCT15
             St.BoxPart(L(0x333333), _jibArm, V(0, 0, 2.6f), V(.6f, .6f, .6f));
             for (int i = 0; i < 8; i++)
             {
-                var h = new Human(St, null, new Human.Opt { Top = Stage3D.Pick(new[] { 0x1a1a1a, 0x2a3442, 0x4a3b2a, 0x22303a }), Bottom = 0x1d1d24, Style = Stage3D.Pick(new[] { "short", "bald", "bun" }), Height = Stage3D.Rnd(1.68f, 1.85f) });
+                string ps = Stage3D.Pick(new[] { "short", "bald", "bun" });
+                var h = new Human(St, null, Beach(new Human.Opt { Top = Stage3D.Pick(new[] { 0x1a1a1a, 0x2a3442, 0x4a3b2a, 0x22303a }), Bottom = 0x1d1d24, Style = ps, Height = Stage3D.Rnd(1.68f, 1.85f) }, ps == "bun", "casual", false));
                 h.Pos = V(-10 + i * 2.85f + Stage3D.Rnd(-.3f, .3f), 0, 13.6f + Stage3D.Rnd(0, 1.2f)); h.Pose = "photo";
                 var c = St.Node("cam", h.Root, V(0, 1.62f, .17f)).transform;
                 St.BoxPart(L(0x0e0e0e), c, Vector3.zero, V(.15f, .1f, .09f));
@@ -541,11 +544,11 @@ namespace HCT15
                     for (int i = 0; i < 13; i++)
                     {
                         bool fem = Stage3D.Rnd(0, 1) < .5f;
-                        var h = new Human(St, null, new Human.Opt
+                        var h = new Human(St, null, Beach(new Human.Opt
                         {
                             Top = Stage3D.Pick(Human.Bright), Dress = fem && Stage3D.Rnd(0, 1) < .35f, Sleeves = Stage3D.Rnd(0, 1) < .5f, Style = fem ? Stage3D.Pick(new[] { "long", "bun", "long" }) : Stage3D.Pick(new[] { "short", "short", "bald" }),
                             Bottom = Stage3D.Pick(new[] { 0x23232e, 0x2a3b5c, 0x3b2a20, 0xdedede }), Height = fem ? Stage3D.Rnd(1.6f, 1.75f) : Stage3D.Rnd(1.68f, 1.88f), Lite = r >= 2
-                        });
+                        }, fem, "swim", false));
                         h.Pos = V(s * (21.5f + r * 2.4f + Stage3D.Rnd(-.25f, .25f)), .45f + r * .9f, -9f + i * 1.85f + Stage3D.Rnd(-.3f, .3f)); h.FaceTo(0, 4);
                         h.Wing = s; h.Row = r; h.Mood = Stage3D.Pick(new[] { "cheer", "jump", "clap", "pump", "wave" });
                         h.Jf = Stage3D.Rnd(5.5f, 9f); h.Ja = Stage3D.Rnd(.24f, .58f); h.Arm = Stage3D.Rng.Next(4); h.Ef = Stage3D.Rnd(.25f, .7f); h.Eager = Stage3D.Rnd(0, 1) < .9f;
@@ -561,6 +564,124 @@ namespace HCT15
             // Chilean flags that fly, held up by a third of the crowd (the static crowd models behind the stands are gone)
             foreach (Human h in _crowd)
                 if (string.IsNullOrEmpty(h.Role) && Stage3D.Rnd(0, 1) < .33f) { h.Arm = Stage3D.Rnd(0, 1) < .5f ? 1 : 2; HandFlag(h); }
+            if (_beach) BeachDress();
+        }
+
+        // ------------------------------------------------------------------ 2.3.3: the beach podium's people and props
+
+        // reported (2026-11-03): "on the jet ski podiums every spectator and everyone waiting for the riders in swimsuits or
+        // bikinis, young and attractive - it is a beach in summer; the riders in jet ski gear". Swimwear for the crowd and the
+        // models (bikinis of the platform colours), shorts, tees and sunglasses for the staff, a summer dress for the
+        // presenter; wetsuit and life vest for the riders (Cars)
+        private static readonly int[] SwimCol = { 0xff3d6e, 0x22b3ff, 0xffd23f, 0x2ed47a, 0xff7a1a, 0xb46bff, 0x14d4c4, 0xffffff, 0xe0262b, 0x111111 };
+        private static readonly int[] TeeCol = { 0xffffff, 0xff7a1a, 0x22b3ff, 0xffd23f, 0x2ed47a, 0xff5a8a };
+        private static readonly int[] ShortsCol = { 0xc8b48a, 0x2a3b5c, 0x5a7a4a, 0xe8e0d0, 0x3a6ea8 };
+        private static readonly int[] Tan = { 0xe3ae86, 0xd59a6e, 0xc68a62, 0x9c6644, 0xf1c7a5, 0x7a4a2e };
+
+        private Human.Opt Beach(Human.Opt o, bool female, string look, bool keepColours)
+        {
+            if (!_beach) return o;
+            o.Female = female; o.Promo = false; o.Shiny = false; o.Sleeves = false;
+            if (look == "swim")
+            {
+                o.Swim = true; o.Dress = false; o.Skin = Stage3D.Pick(Tan); o.Shades = Stage3D.Rnd(0, 1) < .3f;
+                if (!keepColours) { o.Top = Stage3D.Pick(SwimCol); o.Bottom = Stage3D.Pick(SwimCol); }
+                else o.Bottom = o.Top;
+                o.Height = female ? Stage3D.Rnd(1.64f, 1.78f) : Stage3D.Rnd(1.76f, 1.9f);   // young: tall, slim, toned
+            }
+            else if (look == "dress") { o.Dress = true; o.Top = 0xff5a8a; o.Shoes = 0xf2d6b0; o.Shades = true; }
+            else { o.Dress = false; o.Shorts = true; o.Top = Stage3D.Pick(TeeCol); o.Bottom = Stage3D.Pick(ShortsCol); o.Shoes = 0xf2f2f2; o.Shades = Stage3D.Rnd(0, 1) < .6f; }
+            return o;
+        }
+
+        private readonly List<Transform> _balls = new List<Transform>(); private readonly List<Vector4> _ballPath = new List<Vector4>();
+
+        private void BeachDress()
+        {
+            var rng = new System.Random(7);
+            Func<float, float, float> R = (a, b) => a + (float)rng.NextDouble() * (b - a);
+            int[] can = { 0xff3d6e, 0xffd23f, 0x22b3ff, 0x2ed47a, 0xff7a1a };
+            // umbrellas and towels on the sand, in front and to the sides (clear of the camera's lanes near x 0)
+            for (int i = 0; i < 16; i++)
+            {
+                float x = R(-34, 34); if (Mathf.Abs(x) < 7) x = Mathf.Sign(x + .01f) * R(7, 12);
+                float z = R(18, 32);
+                var u = St.Node("umbrella", null, V(x, 0, z)).transform; u.localRotation = Stage3D.E(R(-.12f, .12f), R(0, 6.28f), R(-.12f, .12f));
+                St.Part(St.CylMesh(.04f, .04f, 2.6f, 6), L(0xf2f2f2, 0, .5f), u, V(0, 1.3f, 0));
+                var cb = new Stage3D.MeshBuilder(); int c = can[i % can.Length];
+                for (int k = 0; k < 12; k++)
+                {
+                    float a0 = k * Mathf.PI / 6, a1 = (k + 1) * Mathf.PI / 6;
+                    cb.Col = Stage3D.Hex(k % 2 == 0 ? c : 0xffffff);
+                    cb.Tri(V(0, 2.95f, 0), V(1.5f * Mathf.Sin(a0), 2.4f, 1.5f * Mathf.Cos(a0)), V(1.5f * Mathf.Sin(a1), 2.4f, 1.5f * Mathf.Cos(a1)));
+                }
+                St.Part(St.Keep(cb.Build("canopy")), St.Glow(Color.white * .95f), u, Vector3.zero);
+                St.BoxPart(L(can[(i + 2) % can.Length], 0, .1f), null, V(x + R(-1.5f, 1.5f), .03f, z + R(1, 2)), V(.9f, .02f, 1.8f), Stage3D.E(0, R(0, 3.14f), 0));
+            }
+            // surfboards standing in the sand
+            for (int i = 0; i < 6; i++)
+            {
+                float x = (i % 2 == 0 ? -1 : 1) * R(10, 30), z = R(16, 22);
+                St.Part(St.SphMesh(1f, 10, 8), L(can[i % can.Length], .1f, .7f), null, V(x, .9f, z), V(.26f, 1.05f, .05f), Stage3D.E(R(-.15f, .15f), R(0, 3.14f), R(-.1f, .1f)));
+            }
+            // palms along the beach, beyond the stands
+            for (int i = 0; i < 10; i++)
+            {
+                float x = (i % 2 == 0 ? -1 : 1) * R(40, 50), z = R(-12, 34);
+                Palm(V(x, 0, z), R(7, 10.5f), R(0, 6.28f), rng);
+            }
+            Lifeguard(V(-37, 0, 24));
+            // beach balls bouncing over the crowd: (x, z, height, phase)
+            for (int i = 0; i < 4; i++)
+            {
+                var b = St.Node("ball", null, Vector3.zero).transform;
+                var mb = new Stage3D.MeshBuilder(); mb.Sphere(Vector3.zero, .45f, 12, 8);
+                St.Part(St.Keep(mb.Build("ball")), L(can[i % can.Length], 0, .6f), b, Vector3.zero);   // one bright colour each (vertex colours came out dark)
+                _balls.Add(b); _ballPath.Add(new Vector4((i % 2 == 0 ? -1 : 1) * R(23, 31), R(-6, 12), R(4, 7), R(0, 6.28f)));
+            }
+        }
+
+        private void Palm(Vector3 at, float h, float yaw, System.Random rng)
+        {
+            var root = St.Node("palm", null, at).transform; root.localRotation = Stage3D.E(0, yaw, 0);
+            Material trunk = L(0x8a6a45, 0, .2f), leaf = L(0x2e8b3a, 0, .3f);
+            Vector3 p = Vector3.zero; float lean = .12f + (float)rng.NextDouble() * .18f;
+            for (int i = 0; i < 7; i++)
+            {
+                float t = i / 7f, seg = h / 7f;
+                Vector3 q = V(Mathf.Sin(t * 1.4f) * lean * h * .4f, (i + 1) * seg, 0);
+                Vector3 mid = (p + q) / 2, d = q - p;
+                St.Part(St.CylMesh(.2f - t * .06f, .22f - t * .06f, d.magnitude * 1.02f, 7), trunk, root, mid, null, Quaternion.FromToRotation(Vector3.up, d.normalized));
+                p = q;
+            }
+            for (int k = 0; k < 8; k++)
+            {
+                var f = St.Node("frond", root, p).transform; f.localRotation = Stage3D.E(0, k * Mathf.PI / 4, 0) * Stage3D.E(.95f + (float)rng.NextDouble() * .35f, 0, 0);
+                St.BoxPart(leaf, f, V(0, 0, 1.6f), V(.55f, .05f, 3.2f));
+            }
+        }
+
+        private void Lifeguard(Vector3 at)
+        {
+            var t = St.Node("lifeguard", null, at).transform; t.localRotation = Stage3D.E(0, .5f, 0);
+            Material wh = L(0xf2f2f2, 0, .4f), red = L(0xd52b1e, 0, .4f);
+            foreach (var l in new[] { V(-1, 0, -1), V(1, 0, -1), V(-1, 0, 1), V(1, 0, 1) }) St.BoxPart(wh, t, l + V(0, 1.6f, 0), V(.16f, 3.2f, .16f));
+            St.BoxPart(wh, t, V(0, 3.25f, 0), V(2.6f, .15f, 2.6f));
+            St.BoxPart(red, t, V(0, 4.1f, -.2f), V(2.2f, 1.6f, 1.8f));
+            St.BoxPart(wh, t, V(0, 5.0f, -.2f), V(2.8f, .18f, 2.4f));
+            St.BoxPart(wh, t, V(0, 1.6f, 1.6f), V(.9f, .1f, 2.8f), Stage3D.E(-.9f, 0, 0));   // the ladder
+            St.Text(t, V(0, 4.35f, .72f), "SALVAVIDAS", .3f, Color.white);
+        }
+
+        private void BeachBalls()
+        {
+            for (int i = 0; i < _balls.Count; i++)
+            {
+                Vector4 b = _ballPath[i];
+                float t = Clock * .9f + b.w, bounce = Mathf.Abs(Mathf.Sin(t));
+                _balls[i].localPosition = V(b.x + Mathf.Sin(t * .37f) * 3f, b.z * .0f + 2.5f + bounce * b.z, b.y + Mathf.Cos(t * .29f) * 3f);
+                _balls[i].localRotation = Stage3D.E(t * 1.3f, t * .7f, 0);
+            }
         }
 
         private class Flag { public Mesh M; public Vector3[] B, Vv; public float Ph; }
@@ -692,7 +813,12 @@ namespace HCT15
 
         // 2.3.2 (reported: "the drivers must come out in racing helmets and walk with knees, and when they take the helmets
         // off they must have long, full hair like in the eighties"): suit and helmet of one colour, knees, big 80s hair
-        private static Human.Opt DriverOpt(int col) { return new Human.Opt { Top = col, Bottom = col, Shoes = 0x111111, Style = "big80", Knees = true, Helmet = col, Height = Stage3D.Rnd(1.7f, 1.84f) }; }
+        private Human.Opt DriverOpt(int col)
+        {
+            // 2.3.3: on the beach the riders wear a wetsuit (black, with booties) and a life vest of their colour, helmet on
+            if (_beach) return new Human.Opt { Top = 0x15171b, Bottom = 0x15171b, Shoes = 0x15171b, Sleeves = true, Vest = col, Style = "big80", Knees = true, Helmet = col, Height = Stage3D.Rnd(1.72f, 1.86f) };
+            return new Human.Opt { Top = col, Bottom = col, Shoes = 0x111111, Style = "big80", Knees = true, Helmet = col, Height = Stage3D.Rnd(1.7f, 1.84f) };
+        }
 
         private readonly Dictionary<Human, Transform> _helmetOff = new Dictionary<Human, Transform>();
 
@@ -1249,6 +1375,7 @@ namespace HCT15
             float h1 = PlatH[1];
             Vector3 target = V(0, h1 + 1, 0);
             SeaFrame();
+            if (_balls.Count > 0) BeachBalls();
             foreach (Car c in _cars)
             {
                 float lt = Clock - c.Start;
@@ -1364,6 +1491,8 @@ namespace HCT15
                 Human d = _drivers[i]; Car c = _cars[i]; float px = PlatX[c.K], ph = PlatH[c.K], k = Clock - (W + 3);
                 if (k < 0) continue;
                 Vector3 from = V(px + c.Wd / 2 + .5f, ph, PARK_Z + .8f), to = V(px + 2.4f, ph, c.K == 1 ? 4.0f : 4.3f);
+                // 2.3.3: a jet ski's own rider (HCT15_rider, part of the copied model) gets off with the driver - not both
+                if (!c.RiderOff) { c.RiderOff = true; foreach (Transform t in c.Root.GetComponentsInChildren<Transform>(true)) if (t.name.StartsWith("HCT15_rider")) t.gameObject.SetActive(false); }
                 // 2.3.2: out of the car in the helmet, takes it off by the car (0-0.8 s), then walks over (0.8-2.6 s)
                 Helmet(d, c, k);
                 float u = Stage3D.Smooth(.8f, 2.6f, k);

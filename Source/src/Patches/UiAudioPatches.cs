@@ -128,6 +128,17 @@ namespace HCT15.Patches
                     items.Add(row);
                     GreyOptionRows.Add(row);
                 }
+                if (!Tolls.Available)
+                {
+                    // 2.3.3: the toll plazas of Rutas de Chile, switched off the same way
+                    var tolls = new OptionsItemModelBinding(
+                        Loc.Get("opt_tolls"), EOptionsItemType.LeftRight,
+                        new List<string> { Loc.Get("opt_loudness_off") }, 0,
+                        delegate (int index) { },
+                        shouldLocalizeName: false, shouldLocalizeOptions: false);
+                    items.Add(tolls);
+                    GreyOptionRows.Add(tolls);
+                }
                 else
                 items.Add(new OptionsItemModelBinding(
                     Loc.Get("opt_traffic"), EOptionsItemType.LeftRight,

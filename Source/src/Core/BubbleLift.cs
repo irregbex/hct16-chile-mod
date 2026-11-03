@@ -76,6 +76,7 @@ namespace HCT15
             if (Bubble != null && Bubble.gameObject.activeInHierarchy != _wasShown)
             {
                 _wasShown = !_wasShown;
+                if (_wasShown) _fitSnap = true;   // a new bubble takes its place at once; then it only glides
                 // "-hct15-shotbubble" (tests): a frame a moment after a bubble of this car comes up, Logs\hct15-bubble.png
                 if (_wasShown && !_bubbleShot && System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-hct15-shotbubble") >= 0) { _bubbleShot = true; StartCoroutine(ShotSoon()); }
                 if (_wasShown && _shownLogs++ < 4)
@@ -149,6 +150,11 @@ namespace HCT15
         private const float Margin = 0.02f, HudBand = 0.70f, HudLeft = 0.18f, HudRight = 0.74f, Pad = 0.22f;
         private readonly Vector3[] _box = new Vector3[8];
         private int _fitLogs;
+        // 2.3.3 (reported: "when the taunt bubble is too big for the screen it flickers in place, every frame in two
+        // positions"): the correction glides (rate below) instead of being recomputed from scratch every frame, and the
+        // HUD band has a margin either way, so a bubble on its edge does not switch between the two widths
+        private Vector2 _fit; private bool _fitSnap = true, _inHud;
+        private const float FitRate = 10f, HudHyst = 0.03f;
 
         private void FitOnScreen(Camera cam)
         {
@@ -165,8 +171,14 @@ namespace HCT15
             foreach (Renderer r in Bubble.GetComponentsInChildren<Renderer>())
             {
                 if (r == null || !r.enabled) continue;
-                Bounds b = r.bounds;
-                for (int i = 0; i < 8; i++) Add(b.center + Vector3.Scale(b.extents, new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1)));
+                // the renderer's own box through its CURRENT matrix: Renderer.bounds may still hold last frame's place
+                // (where this method had moved it), and measured against this frame's it flipped the bubble between two spots
+                Bounds b; Matrix4x4 m = r.transform.localToWorldMatrix;
+                MeshFilter mf = r.GetComponent<MeshFilter>(); SpriteRenderer sr = r as SpriteRenderer;
+                if (mf != null && mf.sharedMesh != null) b = mf.sharedMesh.bounds;
+                else if (sr != null && sr.sprite != null) b = sr.sprite.bounds;
+                else { b = r.bounds; m = Matrix4x4.identity; }
+                for (int i = 0; i < 8; i++) Add(m.MultiplyPoint3x4(b.center + Vector3.Scale(b.extents, new Vector3((i & 1) == 0 ? -1 : 1, (i & 2) == 0 ? -1 : 1, (i & 4) == 0 ? -1 : 1))));
             }
             foreach (Text t in Bubble.GetComponentsInChildren<Text>())
             {
@@ -180,10 +192,15 @@ namespace HCT15
             x0 -= w * Pad * 0.5f; x1 += w * Pad * 0.5f; y0 -= h * Pad; y1 += h * Pad;
             float dx = 0f, dy = 0f;
             float lo = Margin, hi = 1f - Margin;
-            if (y1 > HudBand) { lo = HudLeft; hi = HudRight; }   // up in the HUD's rows: keep off the lap time (left) and the speed and fuel (right)
+            _inHud = y1 > HudBand + (_inHud ? -HudHyst : HudHyst);
+            if (_inHud) { lo = HudLeft; hi = HudRight; }   // up in the HUD's rows: keep off the lap time (left) and the speed and fuel (right)
             if (x1 - x0 < hi - lo) { if (x0 < lo) dx = lo - x0; else if (x1 > hi) dx = hi - x1; }
             else dx = (lo + hi) * 0.5f - (x0 + x1) * 0.5f;
             if (y1 > 1f - Margin) dy = 1f - Margin - y1;
+            Vector2 want = new Vector2(dx, dy);
+            _fit = _fitSnap ? want : Vector2.Lerp(_fit, want, 1f - Mathf.Exp(-FitRate * Time.unscaledDeltaTime));
+            _fitSnap = false;
+            dx = _fit.x; dy = _fit.y;
             if (Mathf.Abs(dx) < 1e-4f && Mathf.Abs(dy) < 1e-4f) return;
             // a viewport step at the bubble's depth, in the world
             float depth = Mathf.Max(0.5f, Vector3.Dot(Bubble.position - cam.transform.position, cam.transform.forward));

@@ -41,6 +41,12 @@ namespace HCT15
         private Texture2D _px;
         public static int Paid, Fined, Crashed;    // the player's, this race (tests read them from the log)
 
+        /// <summary>2.3.3 (reported: "tolls in Rutas de Chile - keep the option disabled and grey, and switch them
+        /// off on all those roads because they do not work well"): false = no toll slows, fines or stops anybody (the
+        /// booths stay as scenery) and Options &gt; General shows the row greyed. true brings them back.</summary>
+        public const bool Available = false;
+        private static bool _offLogged;
+
         private void Update()
         {
             bool race = false;
@@ -52,6 +58,7 @@ namespace HCT15
             StreetCars.CapRivalsTick();   // 2.0.28: the andas' rivals walk too
             PosLog.Tick();                // 2.1.2: -hct15-poslog
             NitroSkin.TestShot();
+            if (!Available) { if (!_offLogged) { _offLogged = true; Debug.Log("[HCT15] tolls: off in this version (Tolls.Available)"); } return; }
             if (id != _for) { _for = id; _t = Load(id); _last.Clear(); Paid = Fined = Crashed = 0; }
             if (_t == null || _t.Tolls == null || _t.Tolls.Count == 0) return;
             try

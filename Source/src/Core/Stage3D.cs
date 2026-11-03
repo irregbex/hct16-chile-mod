@@ -579,6 +579,10 @@ namespace HCT15
             /// <summary>2.3.2 (the podium drivers): legs in two parts with a knee that bends (walk, run, ride, jump), and a
             /// racing helmet of this colour (-1 = none) over the hair until TakeOffHelmet; Style "big80" = long, full 80s hair.</summary>
             public bool Knees; public int Helmet = -1;
+            /// <summary>2.3.3 (the beach podium): Swim = swimwear, barefoot (Female: a bikini of Top's colour, else trunks of
+            /// Bottom's); Shorts = shorts of Bottom's colour under the Top (a tee), bare legs; Shades = sunglasses; Vest = a
+            /// life vest of this colour over the suit (-1 = none; the jet ski riders).</summary>
+            public bool Swim, Female, Shorts, Shades; public int Vest = -1;
         }
 
         public static readonly int[] Skins = { 0xf1c7a5, 0xe3ae86, 0xc68a62, 0x9c6644, 0x7a4a2e, 0xf6d6bf };
@@ -608,7 +612,9 @@ namespace HCT15
             Root = st.Node("root", G, Vector3.zero).transform; Root.localScale = Vector3.one * (o.Height / 1.74f);
             Hips = st.Node("hips", Root, new Vector3(0, .92f, 0)).transform;
             Mesh leg = st.CylMesh(.075f, .052f, .88f, 6), shoe = st.BoxMesh;
-            bool bareLegs = o.Dress || o.Promo || o.Nude;
+            bool bareLegs = o.Dress || o.Promo || o.Nude || o.Swim || o.Shorts;
+            bool trunks = (o.Swim && !o.Female) || o.Shorts;   // shorts down the thighs
+            Mesh thighCover = st.CylMesh(.088f, .078f, .26f, 7);
             LegR = st.Node("legR", Hips, new Vector3(-(o.Promo ? .082f : .09f), 0, 0)).transform;
             LegL = st.Node("legL", Hips, new Vector3(o.Promo ? .082f : .09f, 0, 0)).transform;
             if (o.Knees)
@@ -620,7 +626,8 @@ namespace HCT15
                     Transform kn = st.Node("knee", lg, new Vector3(0, -.45f, 0)).transform;
                     st.Part(knee, bareLegs ? sk : bt, kn, Vector3.zero);
                     st.Part(shin, bareLegs ? sk : bt, kn, new Vector3(0, -.22f, 0));
-                    st.Part(shoe, o.Nude ? sk : sh, kn, new Vector3(0, -.42f, .05f), new Vector3(.1f, .07f, .25f));
+                    st.Part(shoe, o.Nude || o.Swim ? sk : sh, kn, new Vector3(0, -.42f, .05f), new Vector3(.1f, .07f, .25f));
+                    if (trunks) st.Part(thighCover, bt, lg, new Vector3(0, -.13f, 0));
                     if (lg == LegR) KneeR = kn; else KneeL = kn;
                 }
             }
@@ -628,15 +635,29 @@ namespace HCT15
             foreach (Transform lg in new[] { LegR, LegL })
             {
                 st.Part(leg, bareLegs ? sk : bt, lg, new Vector3(0, -.44f, 0));
-                if (!o.Lite) st.Part(shoe, o.Nude ? sk : sh, lg, new Vector3(0, -.87f, .05f), new Vector3(.1f, .07f, .25f));
+                if (!o.Lite) st.Part(shoe, o.Nude || o.Swim ? sk : sh, lg, new Vector3(0, -.87f, .05f), new Vector3(.1f, .07f, .25f));
+                if (trunks) st.Part(thighCover, bt, lg, new Vector3(0, -.13f, 0));
                 if (o.Promo) st.Part(st.CylMesh(.064f, .05f, .5f, 7), sh, lg, new Vector3(0, -.64f, 0));
             }
             if (o.Promo) st.Part(st.CylMesh(.168f, .182f, .25f, 10), tp, Hips, new Vector3(0, -.04f, 0), new Vector3(1, 1, .8f));
             else if (o.Dress) st.Part(st.CylMesh(.15f, .31f, .62f, 9), tp, Hips, new Vector3(0, -.22f, 0));
+            else if (o.Swim && o.Female)
+            {
+                st.Part(st.CylMesh(.165f, .15f, .2f, 8), sk, Hips, new Vector3(0, .02f, 0));
+                st.Part(st.CylMesh(.158f, .148f, .1f, 9), tp, Hips, new Vector3(0, -.04f, 0), new Vector3(1f, 1f, .88f));   // bikini bottom
+            }
             else st.Part(st.CylMesh(.165f, .15f, .2f, 8), o.Nude ? sk : bt, Hips, new Vector3(0, .02f, 0));
             Spine = st.Node("spine", Hips, new Vector3(0, .04f, 0)).transform;
-            bool bareChest = o.Promo || o.Nude;
-            st.Part(st.CylMesh(.2f, .15f, .52f, 8), bareChest ? sk : tp, Spine, new Vector3(0, .27f, 0), new Vector3(o.Promo ? .86f : 1f, 1f, .62f));
+            bool bareChest = o.Promo || o.Nude || o.Swim;
+            bool slim = o.Promo || (o.Swim && o.Female);
+            st.Part(st.CylMesh(.2f, .15f, .52f, 8), bareChest ? sk : tp, Spine, new Vector3(0, .27f, 0), new Vector3(slim ? .86f : o.Swim ? 1.06f : 1f, 1f, .62f));
+            if (o.Swim && o.Female) st.Part(st.CylMesh(.205f, .182f, .12f, 10), tp, Spine, new Vector3(0, .4f, .004f), new Vector3(.88f, 1f, .7f));   // bikini top
+            if (o.Vest >= 0)
+            {
+                Material vm = st.Lit(Stage3D.Hex(o.Vest), .1f, .5f), wb = st.Lit(Color.white, .1f, .6f);
+                st.Part(st.CylMesh(.235f, .205f, .44f, 10), vm, Spine, new Vector3(0, .28f, 0), new Vector3(1f, 1f, .74f));
+                foreach (float y in new[] { .2f, .36f }) st.Part(st.CylMesh(.238f, .236f, .035f, 10), wb, Spine, new Vector3(0, y, 0), new Vector3(1f, 1f, .75f));
+            }
             if (o.Promo) st.Part(st.CylMesh(.212f, .18f, .25f, 10), tp, Spine, new Vector3(0, .41f, .004f), new Vector3(.9f, 1f, .7f));
             st.Part(st.CylMesh(.05f, .055f, .1f, 6), sk, Spine, new Vector3(0, .57f, 0));
             Head = st.Node("head", Spine, new Vector3(0, .69f, 0)).transform;
@@ -645,6 +666,7 @@ namespace HCT15
             Eyes = o.Lite ? new Transform[0] : new[] { st.Part(eye, dk, Head, new Vector3(-.04f, .025f, .102f)).transform, st.Part(eye, dk, Head, new Vector3(.04f, .025f, .102f)).transform };
             Mouth = o.Lite ? null : st.Part(shoe, lip, Head, new Vector3(0, -.056f, .108f), new Vector3(.05f, .014f, .012f)).transform;
             HairT = st.Node("hair", Head, Vector3.zero).transform;
+            if (o.Shades && !o.Lite) st.Part(shoe, st.Lit(Stage3D.Hex(0x0c0c10), .6f, .95f), Head, new Vector3(0, .028f, .1f), new Vector3(.21f, .045f, .03f));
             if (o.Style == "big80")
             {
                 // 2.3.2: long and full, 80s: a big crown, a mane down the back past the shoulders, volume at the sides
@@ -675,9 +697,9 @@ namespace HCT15
             ShR = st.Node("shR", Spine, new Vector3(-.2f, .48f, 0)).transform; ShL = st.Node("shL", Spine, new Vector3(.2f, .48f, 0)).transform;
             foreach (Transform s in new[] { ShR, ShL })
             {
-                st.Part(upper, o.Promo || o.Nude ? sk : tp, s, new Vector3(0, -.15f, 0));
+                st.Part(upper, o.Promo || o.Nude || o.Swim ? sk : tp, s, new Vector3(0, -.15f, 0));
                 Transform el = st.Node("el", s, new Vector3(0, -.3f, 0)).transform;
-                st.Part(fore, o.Sleeves && !o.Nude ? tp : sk, el, new Vector3(0, -.135f, 0));
+                st.Part(fore, o.Sleeves && !o.Nude && !o.Swim ? tp : sk, el, new Vector3(0, -.135f, 0));
                 Transform hd = o.Lite ? st.Node("hand", el, new Vector3(0, -.29f, 0)).transform : st.Part(hand, sk, el, new Vector3(0, -.29f, 0)).transform;
                 if (s == ShR) { ElR = el; HandR = hd; } else { ElL = el; HandL = hd; }
             }
