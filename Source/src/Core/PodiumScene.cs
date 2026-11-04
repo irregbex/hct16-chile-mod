@@ -946,6 +946,22 @@ namespace HCT15
                 if (a == null || a.DriverMaterials.Count == 0) return null;
                 var col = new Dictionary<string, int>();
                 for (int i = 0; i < a.DriverMaterials.Count; i++) col[a.DriverMaterials[i]] = ToHex(a.DriverColours[i]);
+                // 2.3.5 (reported: "the first place's anda should no longer carry its one figure, and THAT one should receive the
+                // cup - a driver came out of nowhere as if he drove the bearers"): an anda's driver is its image - the Virgin
+                // (robe, mantle, veil, crown) or the Archangel (tunic, cloak, brown hair) comes down and takes the prize
+                bool saint = col.ContainsKey("veil_white") || a.DriverMaterials.Exists(n => n.StartsWith("robe_"));
+                if (saint)
+                {
+                    int robe = ToHex(a.DriverColours[0]);
+                    int mantle = a.DriverColours.Count > 1 ? ToHex(a.DriverColours[1]) : robe;
+                    int sk, hairCol;
+                    if (!col.TryGetValue("skin_1", out sk)) sk = -1;
+                    bool archangel = col.TryGetValue("hair_brown", out hairCol);
+                    if (!archangel && !col.TryGetValue("veil_white", out hairCol)) hairCol = 0xf2f2f2;
+                    Debug.Log("[HCT15] podium: car " + c.K + "'s image comes down ('" + id + "'): " + (archangel ? "the Archangel" : "the Virgin") + ", robe #" + robe.ToString("x6") + ", mantle #" + mantle.ToString("x6"));
+                    return new Human.Opt { Dress = true, Top = robe, Bottom = robe, Shoes = 0x6b4a2a, Skin = sk, Hair = hairCol, Poncho = mantle, PonchoStripe = 0xd4a017,
+                                           Style = archangel ? "short" : "long", Crown = !archangel, Knees = true, Height = Stage3D.Rnd(1.66f, 1.74f) };
+                }
                 int poncho = ToHex(a.DriverColours[0]);
                 int stripe = a.DriverColours.Count > 1 ? ToHex(a.DriverColours[1]) : 0xffffff;
                 int skin, hat;
@@ -1781,6 +1797,15 @@ namespace HCT15
                     for (int k = 0; k < 4; k++) { float h4 = 1 / 240f; pv += (100 * (tp - pit) - 2 * .38f * 10 * pv) * h4; pit += pv * h4; rv += (100 * (tr - rol) - 2 * .38f * 10 * rv) * h4; rol += rv * h4; }
                     p.X[f] = (fr.x + rr.x) / 2; p.Z[f] = (fr.y + rr.y) / 2; p.Y[f] = (yF + yR) / 2; p.Yaw[f] = yaw; p.Slope[f] = -Mathf.Atan2(yF - yR, 2 * wb);
                     p.Bp[f] = pit; p.Br[f] = rol; p.Vv[f] = vel; p.Brake[f] = aLong < -.8f || (vel < .5f && t < p.Dur + .6f);
+                    // 2.3.5 (reported: "several andas arrive and stay tilted"): a long vehicle's rear axle (0.38 of its length
+                    // back) was still on the turn or the ramp when it stopped - it parked askew, one end sunk in the platform.
+                    // Over its last 0.8 s it settles straight, level and wholly on top
+                    float settle = Mathf.Clamp01((t - (p.Dur - .8f)) / .8f); settle = settle * settle * (3 - 2 * settle);
+                    if (settle > 0)
+                    {
+                        p.X[f] = Mathf.Lerp(p.X[f], px, settle); p.Z[f] = Mathf.Lerp(p.Z[f], PARK_Z, settle); p.Y[f] = Mathf.Lerp(p.Y[f], h, settle);
+                        p.Yaw[f] = Mathf.Lerp(Mathf.Atan2(Mathf.Sin(p.Yaw[f]), Mathf.Cos(p.Yaw[f])), 0f, settle); p.Slope[f] = Mathf.Lerp(p.Slope[f], 0f, settle);
+                    }
                 }
                 return p;
             }

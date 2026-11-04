@@ -1,0 +1,11 @@
+{
+  "Id": "vaso_agua",
+  "Name": "Glass of water (fuel)",
+  "Category": "prop",
+  "Description": "The andas' fuel pickup: a big glass full of water, 1 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

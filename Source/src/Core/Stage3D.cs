@@ -589,6 +589,8 @@ namespace HCT15
             public int Poncho = -1, PonchoStripe = 0xffffff, Hat = -1, HatBand = 0x111111;
             /// <summary>2.3.5 (The Fuzz): Cap = a peaked police cap of this colour (-1 none); Badge = a gold badge on the chest.</summary>
             public int Cap = -1; public bool Badge;
+            /// <summary>2.3.5: Obese = a big belly and broad hips (the micro and taxi drivers); Crown = a gold crown (the Virgin).</summary>
+            public bool Obese, Crown;
         }
 
         public static readonly int[] Skins = { 0xf1c7a5, 0xe3ae86, 0xc68a62, 0x9c6644, 0x7a4a2e, 0xf6d6bf };
@@ -652,11 +654,12 @@ namespace HCT15
                 st.Part(st.CylMesh(.165f, .15f, .2f, 8), sk, Hips, new Vector3(0, .02f, 0));
                 st.Part(st.CylMesh(.158f, .148f, .1f, 9), tp, Hips, new Vector3(0, -.04f, 0), new Vector3(1f, 1f, .88f));   // bikini bottom
             }
-            else st.Part(st.CylMesh(.165f, .15f, .2f, 8), o.Nude ? sk : bt, Hips, new Vector3(0, .02f, 0));
+            else st.Part(st.CylMesh(.165f, .15f, .2f, 8), o.Nude ? sk : bt, Hips, new Vector3(0, .02f, 0), o.Obese ? new Vector3(1.4f, 1f, 1.35f) : Vector3.one);
             Spine = st.Node("spine", Hips, new Vector3(0, .04f, 0)).transform;
             bool bareChest = o.Promo || o.Nude || o.Swim;
             bool slim = o.Promo || (o.Swim && o.Female);
-            st.Part(st.CylMesh(.2f, .15f, .52f, 8), bareChest ? sk : tp, Spine, new Vector3(0, .27f, 0), new Vector3(slim ? .86f : o.Swim ? 1.06f : 1f, 1f, .62f));
+            st.Part(st.CylMesh(.2f, .15f, .52f, 8), bareChest ? sk : tp, Spine, new Vector3(0, .27f, 0), new Vector3(slim ? .86f : o.Obese ? 1.3f : o.Swim ? 1.06f : 1f, 1f, o.Obese ? .9f : .62f));
+            if (o.Obese) st.Part(st.SphMesh(.24f, 10, 7), bareChest ? sk : tp, Spine, new Vector3(0, .13f, .07f), new Vector3(1.15f, 1f, 1f));   // the belly
             if (o.Swim && o.Female) st.Part(st.CylMesh(.205f, .182f, .12f, 10), tp, Spine, new Vector3(0, .4f, .004f), new Vector3(.88f, 1f, .7f));   // bikini top
             if (o.Vest >= 0)
             {
@@ -694,6 +697,12 @@ namespace HCT15
                 if (o.Style != "bald") st.Part(st.SphMesh(.123f, 9, 6, Mathf.PI * .56f), hr, HairT, new Vector3(0, .016f, -.006f));
                 if (o.Style == "long" && !o.Lite) st.Part(shoe, hr, HairT, new Vector3(0, -.14f, -.075f), new Vector3(.22f, .36f, .07f));
                 if (o.Style == "bun" && !o.Lite) st.Part(st.SphMesh(.06f, 7, 5), hr, HairT, new Vector3(0, .07f, -.11f));
+            }
+            if (o.Crown && !o.Lite)
+            {
+                Material gold = st.Lit(Stage3D.Hex(0xe0b020), .9f, .8f);
+                st.Part(st.CylMesh(.13f, .11f, .08f, 10), gold, Head, new Vector3(0, .16f, -.01f));
+                for (int k = 0; k < 6; k++) { float a = k * Mathf.PI / 3f; st.Part(st.CylMesh(0f, .02f, .06f, 4), gold, Head, new Vector3(.12f * Mathf.Cos(a), .23f, -.01f + .12f * Mathf.Sin(a))); }
             }
             if (o.Cap >= 0)
             {

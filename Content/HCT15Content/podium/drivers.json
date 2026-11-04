@@ -16,6 +16,27 @@
       "Driver": { "X": [-0.6, -0.08], "Z": [-0.15, 0.3], "MinY": 0.58, "MinTris": 20, "MaxTris": 2500 }
     },
     {
+      "Car": "cl_micro",
+      "Name": "Micro (all its colours)",
+      "Outfit": "custom",
+      "HasDriver": false,
+      "Body": "obese",
+      "Hair": "bald",
+      "Top": "#9cc3e6",
+      "Bottom": "#2b2f3a"
+    },
+    {
+      "Car": "cl_taxi",
+      "Name": "Taxi (and the Nissan V16)",
+      "Outfit": "custom",
+      "HasDriver": false,
+      "Body": "obese",
+      "Hair": "short",
+      "HairColour": "#121212",
+      "Top": "#f2f2ee",
+      "Bottom": "#2a2a2e"
+    },
+    {
       "Car": "police",
       "Name": "The Fuzz",
       "Outfit": "police",

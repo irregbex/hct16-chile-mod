@@ -19,12 +19,15 @@ namespace HCT15
     /// On the podium those triangles go when the figure gets off, the figure hops down from where they were and dresses in
     /// their colours (Outfit "auto": the head band's colour is the hair, the chest band's most common non-skin colour the
     /// top, the band below it the trousers, skin from the skin-like colours); Outfit "police": a police uniform and cap,
-    /// whatever the car shows. A car with neither keeps the 2.3.2 racing driver.
+    /// whatever the car shows; Outfit "custom": Top, Bottom, Hair colours (#rrggbb), Hair "bald" or "short", Body "obese" (the
+    /// micros' and the taxis' drivers, 2.3.5: "the micro driver fat and bald, the taxi driver fat with short black hair").
+    /// A car's colours find its entry through their base car (VariantOf). A car with none keeps the 2.3.2 racing driver.
     /// </summary>
     public static class PodiumDrivers
     {
         [Serializable] public class DriverRule { public float[] X = { -1f, 1f }, Z = { -1f, 1f }; public float MinY = 0.5f; public int MinTris = 20, MaxTris = 2500; }
-        [Serializable] public class CarEntry { public string Car = ""; public string Name = ""; public string Outfit = "auto"; public bool HasDriver = true; public DriverRule Driver = new DriverRule(); }
+        [Serializable] public class CarEntry { public string Car = ""; public string Name = ""; public string Outfit = "auto"; public bool HasDriver = true; public DriverRule Driver = new DriverRule();
+                                                 public string Body = "", Hair = "", HairColour = "", Top = "", Bottom = ""; }
         [Serializable] public class DriversJson { public List<CarEntry> Cars = new List<CarEntry>(); }
 
         private static Dictionary<string, CarEntry> _cars;
@@ -47,7 +50,10 @@ namespace HCT15
                 catch (Exception ex) { Debug.LogWarning("[HCT15] podium drivers.json: " + ex.Message); }
             }
             CarEntry c;
-            return carId != null && _cars.TryGetValue(carId, out c) ? c : null;
+            if (carId == null) return null;
+            if (_cars.TryGetValue(carId, out c)) return c;
+            string b = StreetCars.VariantBase(carId);
+            return b != null && _cars.TryGetValue(b, out c) ? c : null;
         }
 
         public sealed class Found { public Mesh Without; public List<Vector3> Points = new List<Vector3>(); public List<Color> Colours = new List<Color>(); public int Tris; }
@@ -114,6 +120,14 @@ namespace HCT15
             return f;
         }
 
+        private static int HexOf(string s, int fallback)
+        {
+            if (string.IsNullOrEmpty(s)) return fallback;
+            s = s.TrimStart('#');
+            int v;
+            return int.TryParse(s, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture, out v) ? v : fallback;
+        }
+
         private static bool SkinLike(Color c) { return c.r > c.g && c.g > c.b && c.r - c.b > 0.15f && c.r > 0.45f; }
 
         private static int Hex(Color c) { return (Mathf.Clamp(Mathf.RoundToInt(c.r * 255f), 0, 255) << 16) | (Mathf.Clamp(Mathf.RoundToInt(c.g * 255f), 0, 255) << 8) | Mathf.Clamp(Mathf.RoundToInt(c.b * 255f), 0, 255); }
@@ -144,6 +158,9 @@ namespace HCT15
         public static Human.Opt Outfit(CarEntry e, Found f)
         {
             if (e == null) return null;
+            if (e.Outfit == "custom")
+                return new Human.Opt { Top = HexOf(e.Top, 0x8fb3d9), Bottom = HexOf(e.Bottom, 0x2a2d36), Shoes = 0x161616, Hair = HexOf(e.HairColour, 0x141414),
+                                       Style = string.IsNullOrEmpty(e.Hair) ? "short" : e.Hair, Obese = e.Body == "obese", Sleeves = true, Knees = true, Height = Stage3D.Rnd(1.68f, 1.8f) };
             if (e.Outfit == "police")
                 return new Human.Opt { Top = 0x1d2b4f, Bottom = 0x1a2340, Shoes = 0x0c0c0e, Sleeves = true, Cap = 0x1a2340, Badge = true, Style = "short", Knees = true, Height = Stage3D.Rnd(1.72f, 1.86f) };
             if (f == null || f.Colours.Count == 0) return null;

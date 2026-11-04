@@ -3152,9 +3152,9 @@
     "Plaza de Illapel"
    ],
    "Subtitle": "Procesión de andas · la vuelta a la plaza a paso de procesión",
-   "Description": "Round 126 · Plaza de Illapel (Coquimbo) · 0.6 km · 5 laps · special",
+   "Description": "Round 126 · Plaza de Illapel (Coquimbo) · 0.6 km · 3 laps · special",
    "Card": "tracks/cl_plaza_illapel/card.png",
-   "Laps": 5,
+   "Laps": 3,
    "Cars": [
     "cl_anda",
     "cl_anda_andacollo",

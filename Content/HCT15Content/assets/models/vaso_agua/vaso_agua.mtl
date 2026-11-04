@@ -1,0 +1,19 @@
+# HCT 1.6 asset kit - flat colours from STYLE.txt
+newmtl glass_rim
+Kd 0.9200 0.9700 1.0000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl water_glass
+Kd 0.6200 0.8400 0.9500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl water_surface
+Kd 0.3000 0.6200 0.8800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
