@@ -31,7 +31,7 @@ First trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
                              Magallanes too (Lauca, Iquique, Huilo Huilo, Capillas de Mármol, Torres del Paine...).
     Rutas de Chile           point-to-point stages along real roads (Ruta 68, Ruta 47 Los Vilos - Illapel on a horse
                              cart, the coast of the Valparaíso region, Villarrica - Pucón, Coyhaique - Aysén...), with
-                             traffic, toll plazas and roads that narrow and widen.
+                             roads that narrow and widen (their traffic and toll plazas are switched off for now).
     Aventura Chile           challenges with the mod's own vehicles.
     Competencia Chile 2026   40 races in 8 cups, from easy to hard, and a bonus race.
     Grand Prix 2026          a fictional 2026 season with the game's formula cars (fictional teams and drivers).
