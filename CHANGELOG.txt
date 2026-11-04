@@ -11,8 +11,8 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
     your installed game, takes the driver's pieces out and he or she gets off in the colours of that variant; The Fuzz
     sends a police officer in uniform and cap. Which cars and where their driver sits:
     Content\HCT15Content\podium\drivers.json (text).
-  - Podium: the micro's driver is a stout bald man, the taxi driver a stout man with short black hair; an anda's image (the
-    Virgin, the Archangel) comes down from it and takes the cup; long vehicles (the andas) park straight and level.
+  - Podium: the micro's driver is a stout bald man, the taxi driver a stout man with short black hair; one of an anda's bearers
+    leaves it and takes the cup (the image stays on the anda); the andas park straight and level, out of their race lean.
   - Plaza de Illapel: 3 laps (was 5); the andas pick up big glasses of water instead of fuel cans.
   - Podium music no longer cuts out: the race behind the ceremony (hooves, horns, taunts) stays quiet while it shows.
   - The carreta's right speech bubble no longer jumps up and down.

@@ -932,6 +932,23 @@ namespace HCT15
                 }
                 _stripped[src] = m; mf.sharedMesh = m;
             }
+            // his legs go with him: the hung legs (HCT15_leg_*, the andas' bearers) whose hip lies under the removed part
+            foreach (MeshFilter mf in c.DriverMf)
+            {
+                if (mf == null) continue;
+                Vector2[] uv2; Mesh src = null;
+                foreach (var kv in _stripped) if (kv.Value == mf.sharedMesh) src = kv.Key;
+                if (src == null || !Marked(src, out uv2)) continue;
+                Vector3[] v = src.vertices; bool any = false; Bounds b = new Bounds();
+                for (int i = 0; i < v.Length; i++) if (uv2[i].x > .5f) { if (!any) { b = new Bounds(v[i], Vector3.zero); any = true; } else b.Encapsulate(v[i]); }
+                if (!any) continue;
+                foreach (Transform leg in mf.transform)
+                {
+                    if (!leg.name.StartsWith("HCT15_leg_", StringComparison.Ordinal)) continue;
+                    Vector3 h = leg.localPosition;
+                    if (h.x >= b.min.x - .05f && h.x <= b.max.x + .05f && h.z >= b.min.z - .05f && h.z <= b.max.z + .05f) leg.gameObject.SetActive(false);
+                }
+            }
         }
 
         private static int ToHex(Color c) { return (Mathf.Clamp(Mathf.RoundToInt(c.r * 255f), 0, 255) << 16) | (Mathf.Clamp(Mathf.RoundToInt(c.g * 255f), 0, 255) << 8) | Mathf.Clamp(Mathf.RoundToInt(c.b * 255f), 0, 255); }
@@ -942,25 +959,30 @@ namespace HCT15
             try
             {
                 string id = c.R != null && c.R.Car != null && c.R.Car.View != null ? c.R.Car.View.CarModelId : null;
+                // a colour (VariantOf) races under its base car's id: its body mesh is named after the colour (HCT15_car_<id>)
+                foreach (MeshFilter mf in c.DriverMf)
+                {
+                    string n = mf != null && mf.sharedMesh != null ? mf.sharedMesh.name : "";
+                    if (!n.StartsWith("HCT15_car_", StringComparison.Ordinal)) continue;
+                    n = n.Substring(10); int cut = n.IndexOfAny(new[] { ' ', '(' }); if (cut > 0) n = n.Substring(0, cut);
+                    if (!string.IsNullOrEmpty(StreetCars.ModelOf(n))) { id = n; break; }
+                }
                 AssetLibrary.AssetDef a = AssetLibrary.Get(StreetCars.ModelOf(id));
                 if (a == null || a.DriverMaterials.Count == 0) return null;
                 var col = new Dictionary<string, int>();
                 for (int i = 0; i < a.DriverMaterials.Count; i++) col[a.DriverMaterials[i]] = ToHex(a.DriverColours[i]);
-                // 2.3.5 (reported: "the first place's anda should no longer carry its one figure, and THAT one should receive the
-                // cup - a driver came out of nowhere as if he drove the bearers"): an anda's driver is its image - the Virgin
-                // (robe, mantle, veil, crown) or the Archangel (tunic, cloak, brown hair) comes down and takes the prize
-                bool saint = col.ContainsKey("veil_white") || a.DriverMaterials.Exists(n => n.StartsWith("robe_"));
-                if (saint)
+                // 2.3.5 (reported: "the first place's anda should no longer carry its figure and THAT one should receive the cup - a
+                // driver came out of nowhere"; then: "the Virgin coming down for the prize is a sacrilege - one of the men should
+                // leave the anda and receive it"): an anda's driver is its first front bearer (his credential's "badge" gives him
+                // away) - he leaves the poles in his shirt and trousers and takes the prize; the image stays on the anda
+                if (col.ContainsKey("badge"))
                 {
-                    int robe = ToHex(a.DriverColours[0]);
-                    int mantle = a.DriverColours.Count > 1 ? ToHex(a.DriverColours[1]) : robe;
-                    int sk, hairCol;
-                    if (!col.TryGetValue("skin_1", out sk)) sk = -1;
-                    bool archangel = col.TryGetValue("hair_brown", out hairCol);
-                    if (!archangel && !col.TryGetValue("veil_white", out hairCol)) hairCol = 0xf2f2f2;
-                    Debug.Log("[HCT15] podium: car " + c.K + "'s image comes down ('" + id + "'): " + (archangel ? "the Archangel" : "the Virgin") + ", robe #" + robe.ToString("x6") + ", mantle #" + mantle.ToString("x6"));
-                    return new Human.Opt { Dress = true, Top = robe, Bottom = robe, Shoes = 0x6b4a2a, Skin = sk, Hair = hairCol, Poncho = mantle, PonchoStripe = 0xd4a017,
-                                           Style = archangel ? "short" : "long", Crown = !archangel, Knees = true, Height = Stage3D.Rnd(1.66f, 1.74f) };
+                    bool black = !col.ContainsKey("trousers_dark");
+                    int shirt = black ? col["black"] : col["white"], trousers = black ? col["black"] : col["trousers_dark"];
+                    int sk = -1, hairCol = 0x1a1410;
+                    foreach (var kv in col) { if (kv.Key.StartsWith("skin")) sk = kv.Value; if (kv.Key.StartsWith("hair") || kv.Key == "rock") hairCol = kv.Value; }
+                    Debug.Log("[HCT15] podium: car " + c.K + "'s bearer leaves the anda ('" + id + "'): shirt #" + shirt.ToString("x6"));
+                    return new Human.Opt { Top = shirt, Bottom = trousers, Shoes = 0x0e0e0e, Skin = sk, Hair = hairCol, Badge = true, Style = "short", Knees = true, Height = Stage3D.Rnd(1.7f, 1.8f) };
                 }
                 int poncho = ToHex(a.DriverColours[0]);
                 int stripe = a.DriverColours.Count > 1 ? ToHex(a.DriverColours[1]) : 0xffffff;
@@ -1091,8 +1113,28 @@ namespace HCT15
                     foreach (Transform t in copy.GetComponentsInChildren<Transform>(true))
                     {
                         if (t.name.StartsWith("HCT15_leg_", StringComparison.Ordinal)) legs.Add(t);
-                        if (t.name == "high" || t.name == "first_person") parts.Add(t);
+                        if (t.name == "high" || t.name == "med" || t.name == "medium" || t.name == "low" || t.name == "first_person") parts.Add(t);
                     }
+                    // 2.3.5 (reported: "only one anda was put right, the other two stayed tilted"): in the race an anda rolls up to
+                    // 25 degrees into a bend and rocks and hops with each stride (TrotBob), and the copy took the pose of the moment
+                    // the race ended - the rivals were caught mid-bend. The copy's bodies go back to the race body's rest pose
+                    try
+                    {
+                        const System.Reflection.BindingFlags F = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
+                        var rp = typeof(TrotBob).GetField("_parts", F).GetValue(tb) as Transform[];
+                        var ry = typeof(TrotBob).GetField("_baseY", F).GetValue(tb) as float[];
+                        var rr = typeof(TrotBob).GetField("_baseRot", F).GetValue(tb) as Quaternion[];
+                        if (rp != null)
+                            foreach (Transform t in parts)
+                                for (int i = 0; i < rp.Length; i++)
+                                {
+                                    if (rp[i] == null || rp[i].name != t.name) continue;
+                                    if (rr != null && i < rr.Length) t.localRotation = rr[i];
+                                    if (ry != null && i < ry.Length) t.localPosition = new Vector3(t.localPosition.x, ry[i], t.localPosition.z);
+                                    break;
+                                }
+                    }
+                    catch (Exception ex) { Debug.LogWarning("[HCT15] podium trot rest pose: " + ex.Message); }
                     if (legs.Count == 0) return null;
                     legs.Sort((a, b) => string.CompareOrdinal(a.name, b.name));
                     var tr = new Trot { _legs = legs.ToArray(), _parts = parts.ToArray(), _legPhase = tb.LegPhase ?? new float[0], _amp = tb.Amplitude, _swing = tb.Swing, _knee = tb.KneeBend, _cadence = tb.Cadence, _top = tb.TopKph };
