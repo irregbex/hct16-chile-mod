@@ -1,141 +1,99 @@
-HCT 1.6 - a Chilean fan mod for Horizon Chase Turbo
-====================================================
-Version 2.3.5. A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game
-WITHOUT changing it: it is loaded by BepInEx and removed with one click.
+![HCT 1.6 - a Chilean fan mod for Horizon Chase Turbo](https://raw.githubusercontent.com/irregbex/hct16-chile-mod/main/docs/banner.png)
 
-This repository contains NO file of the game. You need your own copy of Horizon Chase Turbo, bought on Steam.
-Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated with or endorsed by Aquiris.
+# HCT 1.6 2.3.5 - a Chilean fan mod for Horizon Chase Turbo
 
-*** FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT ***
-  This mod is FULLY VIBECODED: everything in it - the code, the tracks, models, textures, sounds, texts and voices -
-  was made with AI from one player's directions in plain language and from open map data (see CREDITS.txt); the code
-  and the content with Claude, by Anthropic. Nobody wrote or reviewed the code by hand. It works and has been played
-  a lot, but expect rough edges: bugs, odd physics, scenery out of place, translations and balance that need work.
-  We need your help in refining it. Play it and report what is wrong (GitHub Issues), suggest improvements, or send
-  fixes and new tracks as pull requests. Every report counts.
+> **FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT.** All of this mod's code and content - music included - were made by an AI (Claude, by Anthropic) from one player's directions in plain language. Nobody wrote or reviewed the code by hand, so expect rough edges. Play it, report bugs in [Issues](https://github.com/irregbex/hct16-chile-mod/issues), suggest improvements or send pull requests.
 
-Trailer (1:47, up to 4 players): https://youtu.be/x8EvNXgQcAc
-First trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
+A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game without changing any of its files, and contains no file of the game: you need your own copy, bought on Steam.
 
+## Trailer
 
+[![Watch the trailer on YouTube](https://img.youtube.com/vi/x8EvNXgQcAc/maxresdefault.jpg)](https://youtu.be/x8EvNXgQcAc)
 
-1. WHAT IT ADDS
----------------
-  New campaigns (in the game's Campaigns menu; campaign and track names are Chilean Spanish place names):
-    Chile                    164 races through Chilean cities, the comunas of Santiago, observatories (among them a
-                             long lap round and INSIDE the Extremely Large Telescope under construction), ski
-                             centres, volcanoes, Easter Island, Antarctic bases, the beaches of the Valparaíso region
-                             (on jet skis), the procession of andas round the Plaza de Illapel and a jet ski race
-                             through a Santiago flooded by a thunderstorm. A map of Chile to pick the region and the place.
-                             The tourist places of Arica y Parinacota, Tarapacá, Ñuble, Los Ríos, Aysén and
-                             Magallanes too (Lauca, Iquique, Huilo Huilo, Capillas de Mármol, Torres del Paine...).
-    Rutas de Chile           point-to-point stages along real roads (Ruta 68, Ruta 47 Los Vilos - Illapel on a horse
-                             cart, the coast of the Valparaíso region, Villarrica - Pucón, Coyhaique - Aysén...), with
-                             traffic, toll plazas and roads that narrow and widen.
-    Aventura Chile           challenges with the mod's own vehicles.
-    Competencia Chile 2026   40 races in 8 cups, from easy to hard, and a bonus race.
-    Grand Prix 2026          a fictional 2026 season with the game's formula cars (fictional teams and drivers).
-                             Needs Horizon Chase Turbo's "Senna Forever" DLC (without it the campaign does not show).
-  Vehicles of its own: a Chilean taxi, the yellow "micro" bus (8 routes), horse carts (11), jet skis (8) and
-  procession andas carried by eight bearers (6 images, each with its own stats).
-  A podium ceremony after every race of these campaigns: a one-minute live 3D show in which the top three arrive
-  on the stage in their own cars - promo models, presenters, photographers' flashes, a crowd that jumps and waves
-  Chilean flags, CO2, confetti, fireworks, the cup and champagne - with the track's own sky and scenery behind (in
-  Santiago: Costanera Center, La Moneda lit up, Torre Entel). Its texts, timing and buildings are in
-  HCT15Content\podium\podio.json and its sounds one file each in podium\sonidos (see its README.txt).
-  Also: Chilean speech bubbles with voices for several vehicles, horns of their own (neighs, a whistle), weather and
-  time of day per track, nights with lights and fireworks, music per race (the mod's own songs, and yours too, see 4).
+## Install
 
-  The tracks were built from open data: OpenStreetMap streets and buildings, SRTM terrain and Sentinel-2 imagery
-  (see CREDITS.txt).
+1. Download **HCT16-2.3.5-Installer.zip** below and unzip it anywhere.
+2. Close the game and double-click **INSTALL.cmd** (it finds the game in your Steam libraries).
+3. Start Horizon Chase Turbo from Steam. The title screen shows "HCT 1.6 v2.3.5 MOD ACTIVE".
 
+To remove it: **UNINSTALL.cmd**. Installing over 2.2.x or 2.3.x is fine.
+Track editor: **HCT16-Track-Editor.zip** below (unchanged since 2.2.4).
 
-2. INSTALL (Windows)
---------------------
-  You need Horizon Chase Turbo on Steam, installed and started at least once.
+## What is in it
 
-  The easy way - the ready-made installer:
-  1. On this repository's page, open Releases (right-hand column) and download HCT16-<version>-Installer.zip.
-  2. Unzip it anywhere, close the game and double-click INSTALL.cmd.
-  3. Start Horizon Chase Turbo from Steam as usual. The title screen shows "HCT 1.6 ... MOD ACTIVE".
-  To remove it: UNINSTALL.cmd from the same folder.
+- **Five campaigns:**
+  - **Chile:** 164 races through Chilean cities, tourist places from Arica to Puerto Williams, observatories, volcanoes, Easter Island, Antarctic bases, beaches on jet skis, the procession round the Plaza de Illapel and a flooded Santiago.
+  - **Rutas de Chile:** point-to-point stages on real roads (their traffic and toll plazas are switched off for now).
+  - **Aventura Chile** and **Competencia Chile 2026**.
+  - **Grand Prix 2026:** a fictional season with the game's formula cars (needs the Senna Forever DLC).
+- **The mod's own vehicles:** Chilean taxi, micro bus, horse carts, jet skis and procession andas.
+- Chilean voices, weather and time of day per track, night lights.
+- Split-screen for up to 4 players, each in a different vehicle.
 
-  Building it yourself from the source - also needs the .NET 10 SDK or newer
-  (https://dotnet.microsoft.com/download - the "SDK", not just the "Runtime"):
-  1. Download this repository (Code > Download ZIP, or git clone) and unzip it.
-  2. Double-click Prepare-References.cmd
-       It finds your game in Steam and copies into Source\game-managed the DLLs the mod is compiled against.
-       If it cannot find it:  Prepare-References.cmd -GameDir "C:\...\steamapps\common\Horizon Chase"
-       (those files stay on your computer only: .gitignore keeps them out of the repository).
-  3. Double-click Build-Installer.cmd
-       It builds HCT15.dll, downloads BepInEx 5.4.23.5 (the first time) and puts together the Installer\ folder.
-  4. Close the game and double-click Installer\INSTALL.cmd
-       It copies BepInEx, the plugin and the content into the game folder. No game file is changed.
-  5. Start Horizon Chase Turbo from Steam as usual. The title screen shows "HCT 1.6 ... MOD ACTIVE".
+## New in 2.3.2 - 2.3.5
 
-  Uninstall: Installer\UNINSTALL.cmd (the game is left as it was). Your game saves are not touched: the mod keeps
-  its own apart.
+**The podium**
+- A beach podium: jet skis arrive over the sea at sunset and get their prizes on a stage on the sand - the crowd in swimsuits and bikinis, the riders in wetsuits and life vests, umbrellas, palms, a lifeguard tower, beach balls.
+- Each vehicle's own driver gets off and takes the prize:
+  - the carreta's huaso;
+  - one of an anda's bearers (the image stays on the anda);
+  - François off his two motorbikes;
+  - Breeze's driver (the co-driver stays), each in the outfit of that variant;
+  - a police officer from The Fuzz;
+  - stout drivers for the micro and the taxi.
+- The other drivers wear racing helmets, take them off (80s hair) and walk with bending knees.
+- A carreta gallops in on hooves and an anda is marched in by its bearers, instead of an engine's sound.
+- The andas park straight and level.
+- The podium music no longer cuts out.
 
+**Tracks and races**
+- Plaza de Illapel is now 3 laps, and the andas pick up glasses of water instead of fuel.
+- Playa Luna's intro is a sunny summer afternoon with waves on the shore.
+- Jet skis throw up white sea foam behind them, not brown chunks.
+- Road traffic and toll plazas are switched off for now (they could make a stage impossible to win); their options are greyed out.
+- A new mix of the song "Más bencina".
 
-3. HOW TO PLAY
---------------
-  Main menu > Campaigns: the mod's campaigns appear next to the game's.
-  Map of Chile: it opens when you enter the Chile campaign. Arrows or stick to move, LB / RB change region,
-  Enter / A picks the place and races, Esc / B goes back, M / Y opens and closes the map.
-  Car selection: left / right changes car, up / down changes colour or variant (each anda variant has its own speed,
-  acceleration, handling and fuel).
-  During a race:
-    Right Shift / controller Select    horn (a neigh on the carts, a whistle on the andas)
-    F11                               next song (F12: your music / the game's)
-    F9                                track list per campaign (to race any of them)
-    F8                                the mod's console
-    Jet ski in the air: E / Enter / RB barrel roll, Q / numpad 0 / LB spin (they score points)
-  Settings: HCT15Content\hct15.settings.json in the game folder (player names, how often the bubbles show, voice
-  volume, scenery density...). Edit it with Notepad while the game is closed.
+**Fixes**
+- A pink marker over the pickups.
+- Light glints floating round the jet skis on the car selection.
+- The andas too small with one player.
+- Long speech bubbles that flickered, also on the screen's edge.
 
+## New in 2.3.1
 
-4. YOUR MUSIC
--------------
-  The repository carries the mod's own 13 songs (Content\HCT15Music\Race\Agregados and Race\Illapel, played by the
-Chile campaigns).
-Add yours (.ogg or .wav) in Content\HCT15Music\Race\ (races) and
-  Content\HCT15Music\Menu\ (menus) BEFORE step 3, or later straight into <game folder>\HCT15Music\.
-  Details in Content\HCT15Music\README.txt.
+- **traffic.json "Colours":** the colours a road's traffic wears, so traffic of the same model as the rivals never looks like one of them.
+- **The mod's own 13 songs** come with it (HCT15Music\Race\Agregados and Race\Illapel), played by the Chile campaigns.
+- **New podium music:** a 61-second cut of one of those songs, its big hit when the champion arrives.
 
+## New in 2.3.0
 
-5. TRACK EDITOR - MAKE AND CHANGE TRACKS AND ASSETS
----------------------------------------------------
-  TrackEditor\ is the browser editor the mod's tracks were made with: the lap and its width, start line and pit lane,
-  buildings, trees, 3D assets (import your own .obj), time of day and weather, campaigns. It writes the same files the
-  game reads, so what you save is what you race.
-  1. Install the mod (step 2) and Python 3 (https://www.python.org/downloads/, tick "Add python.exe to PATH").
-  2. Double-click TrackEditor\Track-Editor.cmd. It finds the game in Steam and opens the editor in your browser.
-  To prepare a pull request, edit this repository's content instead:
-    TrackEditor\Track-Editor.cmd --content "..\Content\HCT15Content"
-  Everything else is in TrackEditor\README.txt.
+- **A podium ceremony after every race of the mod's campaigns:** one minute of live 3D before the results.
+  - The top three arrive on the stage in their own vehicles; promo models receive them.
+  - The presenters call out the real names and times.
+  - Photographers' flashes, CO2, metallic confetti and fireworks for the champion, the cup and champagne.
+  - Stands full of fans jumping and waving Chilean flags.
+  - The track's own sky and scenery behind it; on the Santiago tracks, Costanera Center, La Moneda lit up and Torre Entel.
+  - Enter / Space / gamepad A skip it.
+- **Editable with free tools:**
+  - its texts, times and buildings are in `HCT15Content\podium\podio.json`;
+  - its sounds are one file each in `HCT15Content\podium\sonidos`;
+  - which game cars send their own driver is in `HCT15Content\podium\drivers.json`;
+  - the models are OBJ (Blender).
+- **Playa Luna's intro is a live 3D scene:** a jet ski along the shore, a jump over the bathers in slow motion, the pack and the title.
 
+## Also since 2.2.5
 
-6. DEVELOPMENT
---------------
-  docs\banner.png           the project's banner (rendered from the mod's own models)
-  Source\src\               the plugin (C#, BepInEx 5 + HarmonyX, the game's .NET 3.5 through game-bcl)
-  Source\package\           the players' installer (INSTALL.cmd / UNINSTALL.cmd / install.ps1)
-  Content\HCT15Content\     all the content: campaigns\ (a campaign.json per campaign), tracks\ (one folder per track:
-                            race.json, scenery.json, weather, sky, ground), cars\ (streetcars.json = the mod's own
-                            vehicles, taunts.<car>.txt = speech bubbles), assets\models\ (the mod's OBJ models),
-                            taunts_sfx\ (voices)
-  Build and install into a copy of the game for tests:
-    powershell -File Source\Install-Plugin.ps1 -GameDir "<a copy of the game>" -SyncContent
-  The mod neither carries nor redistributes code or assets of the game: it compiles against your own DLLs (step 2)
-  and refers to game objects by name at run time only.
-  The track READMEs mention Tools\*.py: the Python tools that generated the content from open data are not part of
-  this repository; the content they produced is.
+- 37 new Chile rounds on the map: the tourist places of Arica y Parinacota, Tarapacá, Ñuble, Los Ríos, Aysén and Magallanes (a first draft - help to polish them is welcome).
+- Winner's stickers per podium place (bring your own: `HCT15Content\stickers\oro`, `plata`, `bronce`).
+- Santiago inundado laps the Estadio Nacional (a concert on the pitch) and the polideportivo; lightning and mud.
+- The map of Chile shows each track's outline; the stage list wraps round.
+- **Fixes:**
+  - the Chilean speech bubbles stay in the mod's campaigns;
+  - Plaza de Illapel's buildings stay fixed and full size;
+  - no stall at the finish;
+  - Grand Prix 2026 works with two players.
 
+---
 
-7. LEGAL AND CREDITS
---------------------
-  A free, non-commercial fan mod. Horizon Chase and Horizon Chase Turbo are trademarks of Aquiris Game Studio.
-  Credits for data, photos, tools and voices: CREDITS.txt.
-  The mod's code is under the MIT licence (LICENSE.txt). The content carries the licences of its data (CREDITS.txt):
-  OpenStreetMap = ODbL 1.0, Sentinel-2 = CC BY-NC-SA 4.0 (which is why the mod is NON-COMMERCIAL). No third-party
-  photos are included (CREDITS.txt, "Photographs").
+Built with BepInEx 5 (LGPL-2.1) and HarmonyX (MIT). Code under MIT; content under the licences of its open data (OpenStreetMap ODbL, Sentinel-2 CC BY-NC-SA - non-commercial). See CREDITS.txt.
+Horizon Chase Turbo is a trademark of Aquiris Game Studio; this mod is not affiliated with or endorsed by Aquiris.
