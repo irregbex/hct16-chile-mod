@@ -15,7 +15,6 @@ Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated w
   fixes and new tracks as pull requests. Every report counts.
 
 Trailer (1:47, up to 4 players): https://youtu.be/x8EvNXgQcAc
-First trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
 
 
 

@@ -12,7 +12,7 @@ This repository contains **no file of the game**. You need your own copy of Hori
 
 [![Watch the trailer on YouTube](https://img.youtube.com/vi/x8EvNXgQcAc/maxresdefault.jpg)](https://youtu.be/x8EvNXgQcAc)
 
-First trailer (1 minute): https://www.youtube.com/watch?v=W7YCYieQnSA
+Version 2.3.5, 1:47, split-screen for up to 4 players: https://youtu.be/x8EvNXgQcAc
 
 ## Download and install
 
