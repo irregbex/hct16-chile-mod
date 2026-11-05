@@ -39,6 +39,25 @@ namespace HCT15
         /// about when the first cup came up (as reported). The race's own sounds and taunts hold their peace while this is true.</summary>
         public static bool Showing;
         private static readonly float Jump = ArgFloat("-hct15-podiojump");
+        /// <summary>2.3.6, test flag "-hct15-podioshots 37.5,39,40.2": frames at those seconds of the podium's own clock
+        /// (Logs\hct15-podio-<seconds>.png) - the race's end moves the launch-time shots by seconds.</summary>
+        private static readonly List<float> Shots = ArgList("-hct15-podioshots");
+        private int _shot;
+
+        private static List<float> ArgList(string a)
+        {
+            var l = new List<float>();
+            try
+            {
+                string[] args = Environment.GetCommandLineArgs();
+                for (int i = 0; i < args.Length - 1; i++)
+                    if (string.Equals(args[i], a, StringComparison.OrdinalIgnoreCase))
+                        foreach (string x in args[i + 1].Split(',')) l.Add(float.Parse(x, System.Globalization.CultureInfo.InvariantCulture));
+            }
+            catch (Exception) { }
+            l.Sort();
+            return l;
+        }
         private static Podium _me;
         private static bool _letThrough;
         private static Dictionary<string, string> _climates;
@@ -193,6 +212,7 @@ namespace HCT15
             {
                 _scene.Frame(Mathf.Min(Time.unscaledDeltaTime, .05f)); _frames++;
                 _t = _scene.Clock;
+                if (_shot < Shots.Count && _t >= Shots[_shot]) { DebugShot.Capture("hct15-podio-" + Shots[_shot].ToString("0.0", System.Globalization.CultureInfo.InvariantCulture) + ".png"); _shot++; }
                 Fire();
                 Mix();
                 if (_t > (_json.Length > 10 ? _json.Length : 61f)) { End(); return; }

@@ -1129,6 +1129,10 @@ namespace HCT15
             CarDef d;
             if (!_def.TryGetValue(car.ItemId ?? "", out d) || d == null) return true;
             if (OnlyListedCar(d) && !ListedNow(d)) return false;
+            // 2.3.6 (reported: "straight to Rutas de Chile, Plaza de Illapel: no anda on the car selection, and the game hangs"):
+            // the andas were bound to the "chile" campaign, the Rutas de Chile round lists them, and the screen came up with no
+            // car at all (CarSelectionViewModel.SetPlayerCar: index out of range). A round that names a car can always race it
+            if (OnlyListedCar(d)) return true;
             if (string.IsNullOrEmpty(d.Campaigns)) return true;
             return InCampaigns(d);
         }

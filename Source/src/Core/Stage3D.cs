@@ -780,6 +780,8 @@ namespace HCT15
                 case "mic": p.rx = -1.15f; p.re = -2.05f; p.rz = .36f; p.lx = -.55f - .25f * s(t * 2.8f + ph); p.lz = .45f + .2f * s(t * 2.3f + ph); p.le = -.7f; p.m = .3f + .6f * Mathf.Abs(s(t * 9 + ph)); break;
                 case "presentR": p.rz = -1.25f; p.rx = -.5f; p.re = -.12f; p.m = .6f; break;
                 case "presentL": p.lz = 1.25f; p.lx = -.5f; p.le = -.12f; p.m = .6f; break;
+                case "carry": p.rx = p.lx = -1.1f; p.re = p.le = -1.05f; p.rz = .28f; p.lz = -.28f; p.m = .4f; break;   // 2.3.6: holding the cup at the chest
+                case "offer": p.rx = p.lx = -1.45f; p.re = p.le = -.3f; p.rz = .2f; p.lz = -.2f; p.m = .6f; break;     // 2.3.6: holding it out / reaching for it
                 case "lift": p.rx = p.lx = -2.95f; p.re = p.le = -.35f; p.rz = .2f; p.lz = -.2f; p.hx = -.3f; p.m = 1; p.jy = Mathf.Max(0, s(t * 5)) * .06f; break;
                 case "spray": p.rx = -1.65f + .18f * s(t * 4 + ph); p.re = -.2f; p.rz = .1f + .25f * s(t * 1.3f + ph); p.lx = -1.2f; p.le = -.5f; p.lz = -.25f; p.m = 1; break;
                 case "walk":

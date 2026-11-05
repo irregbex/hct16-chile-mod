@@ -53,7 +53,7 @@ namespace HCT15
         // 2.3.2 (reported: "how will the podiums of the beach campaign be? make a podium scene for the beach too: the jet
         // skis with their riders arrive at a beach at sunset and get their prizes"): jet skis on the podium = the road
         // behind the stage is the sea (_water); away from Santiago's flood it is a beach at sunset, the stage on the sand
-        private readonly bool _water, _beach;
+        private readonly bool _water, _beach, _nudist;
         private Mesh _sea; private Vector3[] _seaBase, _seaV; private Color[] _seaC; private Transform _foam;
         private const float SHORE_Z = -8.5f;
         private readonly List<PodiumRacer> _top;
@@ -68,6 +68,7 @@ namespace HCT15
         private readonly List<Light> _flashLights = new List<Light>(); private readonly List<float> _flashUntil = new List<float>();
         private readonly List<Material> _blinkers = new List<Material>();
         private Transform _turntable, _trophy, _jibArm, _ledRays;
+        private Human _giver;   // 2.3.6: who hands the cup over
         private Mesh _ledBg; private TextMesh _ledTop, _ledBig, _ledSub;
         private string _ledMode = "intro"; private PodiumRacer _ledR;
         private readonly List<Human> _presenters = new List<Human>(), _promo = new List<Human>(), _camOps = new List<Human>(), _photogs = new List<Human>(), _crowd = new List<Human>(), _drivers = new List<Human>();
@@ -125,6 +126,9 @@ namespace HCT15
             _top = top; _trackName = trackName ?? ""; _sky = sky ?? new List<SkyItem>();
             _water = top != null && top.Exists(IsWaterCraft);
             _beach = _water && !(trackId ?? "").StartsWith("cl_stgo");
+            // 2.3.6 (reported: "on Playa Luna's podium ALL the spectators must be naked but for black bars over their private
+            // parts - that is important"): the nudist beach - the crowd and the promo models as its bathers (Human Opt Nude)
+            _nudist = _beach && trackId == "cl_playa_luna";
             Mode = _beach ? "atardecer" : TimeFromClimate(climate ?? "");
             _tod = TodOf(Mode); _night = _tod.Night;
             _fireworksAll = (climate ?? "").ToLowerInvariant().Contains("fuegos");
@@ -404,6 +408,11 @@ namespace HCT15
             }
             St.Part(St.CylMesh(.32f, .38f, 1f, 10), L(0x2a2a33, .6f, .8f), null, V(2.9f, PlatH[1] + .5f, 5.2f));
             _trophy = Trophy();
+            // 2.3.6 (reported: "on the podium the trophy has to be handed over by someone else, and the winner receives it and
+            // takes it - for every podium"): a presenter of the cup waits by its stand, picks it up, walks it over, holds it out,
+            // the winner takes it, and she steps back to clap
+            _giver = new Human(St, null, Beach(new Human.Opt { Top = 0xf4f4f4, Dress = true, Shiny = true, Sleeves = false, Style = "bun", Hair = 0x2a1a10, Height = 1.72f, Shoes = 0xd4a017 }, true, "swim", true));
+            _giver.Pos = V(3.55f, PlatH[1], 5.35f); _giver.FaceTo(2.4f, 4f);
             // truss: one mesh of bars
             var tb = new Stage3D.MeshBuilder();
             Action<float, float, float> tower = (x, z, h) =>
@@ -593,7 +602,12 @@ namespace HCT15
         {
             if (!_beach) return o;
             o.Female = female; o.Promo = false; o.Shiny = false; o.Sleeves = false;
-            if (look == "swim")
+            if (look == "swim" && _nudist)
+            {
+                o.Nude = true; o.Swim = false; o.Dress = false; o.Shorts = false; o.Shades = false; o.Skin = Stage3D.Pick(Tan);
+                o.Height = female ? Stage3D.Rnd(1.64f, 1.78f) : Stage3D.Rnd(1.76f, 1.9f);
+            }
+            else if (look == "swim")
             {
                 o.Swim = true; o.Dress = false; o.Skin = Stage3D.Pick(Tan); o.Shades = Stage3D.Rnd(0, 1) < .3f;
                 if (!keepColours) { o.Top = Stage3D.Pick(SwimCol); o.Bottom = Stage3D.Pick(SwimCol); }
@@ -861,6 +875,13 @@ namespace HCT15
                 c.DriverMf.Add(mf);
             }
             if (c.DriverMf.Count > 0) { Debug.Log("[HCT15] podium: car " + c.K + " has its own driver (" + c.DriverMf.Count + " mesh(es)): he gets off and takes the prize"); return; }
+            // 2.3.6: a jet ski's own rider (HCT15_rider, the mod's model) - the figure wears his wetsuit, vest and helmet
+            foreach (MeshFilter mf in model.GetComponentsInChildren<MeshFilter>(true))
+                if (mf.name == "HCT15_rider" && mf.sharedMesh != null)
+                {
+                    c.GameOpt = PodiumDrivers.RiderOutfit(mf.sharedMesh);
+                    if (c.GameOpt != null) { Debug.Log("[HCT15] podium: car " + c.K + "'s rider gets off in his colours: vest #" + c.GameOpt.Vest.ToString("x6") + ", helmet #" + c.GameOpt.Helmet.ToString("x6")); return; }
+                }
             // a game car: its driver is modelled into the body - drivers.json says how to find him (PodiumDrivers)
             try
             {
@@ -1648,6 +1669,7 @@ namespace HCT15
             foreach (Human h in _photogs) h.Apply(Clock, dt);
             foreach (Human h in _crowd) h.Apply(Clock, dt);
             foreach (Human h in _drivers) if (h.G.gameObject.activeSelf) h.Apply(Clock, dt);
+            if (_giver != null) { Giver(); _giver.Apply(Clock, dt); }
             // effects
             if (_co2Until > 0 && Clock < _co2Until)
                 foreach (float x in new[] { -16f, -14.2f, 14.2f, 16f })
@@ -1712,10 +1734,11 @@ namespace HCT15
                 else
                 {
                     d.Yaw = c.K == 1 ? -.15f : c.K == 2 ? .35f : -.35f;
-                    d.Pose = Clock < W + 6 ? "wave" : Clock < W + 9 ? (c.K == 1 ? "lift" : "clap") : Clock < W + 16 ? "spray" : (c.K == 1 ? "lift" : "cheer");
+                    d.Pose = c.K == 1 && Clock >= W + 5.6f && Clock < W + Handed ? "offer" : Clock < W + 6 ? "wave" : Clock < W + 9 ? (c.K == 1 ? "lift" : "clap") : Clock < W + 16 ? "spray" : (c.K == 1 ? "lift" : "cheer");
                     if (c.K == 1 && Clock >= W + 16) d.Pose = Mathf.FloorToInt(Clock / 3) % 2 == 1 ? "lift" : "wave";
                 }
-                if (c.K == 1 && Clock >= W + 5.6f && (Clock < W + 9 || Clock >= W + 16))
+                if (c.K == 1 && Clock >= W + 5.6f && Clock < W + Handed && _giver != null) d.FaceTo(_giver.Pos.x, _giver.Pos.z);   // reaching for the cup
+                if (c.K == 1 && Clock >= W + Handed && (Clock < W + 9 || Clock >= W + 16))
                 {
                     _trophy.localPosition = d.Pos + V(0, (d.Pose == "lift" ? 2.15f : 1.25f) * d.O.Height / 1.74f + d.Root.localPosition.y, .25f);
                     _trophy.localRotation = Stage3D.E(0, Clock * .8f, 0);
@@ -1736,6 +1759,36 @@ namespace HCT15
                         _sparks.Spawn(tip, V(dir.x * Stage3D.Rnd(7, 10) + Stage3D.Rnd(-.8f, .8f), dir.y * Stage3D.Rnd(7, 10) + Stage3D.Rnd(-.5f, 1.2f), dir.z * Stage3D.Rnd(7, 10) + Stage3D.Rnd(-.8f, .8f)), new Color(1f, .94f, .75f) * .9f, Stage3D.Rnd(.07f, .14f), Stage3D.Rnd(.8f, 1.3f), 9.8f, .4f, .9f);
                 }
             }
+        }
+
+        private const float Handed = 6.3f;   // 2.3.6: W + this, the winner takes the cup
+
+        /// <summary>The cup's presenter: by the stand until W+4.4, picks the cup up, carries it to the winner (W+4.9-5.7), holds it
+        /// out until the winner takes it (W+6.3), then steps back beside the stand and claps.</summary>
+        private void Giver()
+        {
+            float h1 = PlatH[1];
+            Vector3 home = V(3.55f, h1, 5.35f), there = V(2.55f, h1, 4.8f), back = V(3.7f, h1, 5.7f);
+            Vector3 hands = (Human.At(_giver.HandR) + Human.At(_giver.HandL)) * .5f - V(0, .3f, 0);
+            float t = Clock - W;
+            if (t < 4.4f) { _giver.Pos = home; _giver.FaceTo(2.4f, 4f); _giver.Pose = t > 3.6f ? "presentL" : "idle"; return; }
+            if (t < 4.9f)
+            {
+                _giver.Pose = "carry"; _giver.FaceTo(2.9f, 5.2f);
+                _trophy.localPosition = Vector3.Lerp(V(2.9f, h1 + 1f, 5.2f), hands, Stage3D.Smooth(4.4f, 4.9f, t));
+                return;
+            }
+            if (t < 5.7f)
+            {
+                _giver.Pos = Vector3.Lerp(home, there, Stage3D.Smooth(4.9f, 5.7f, t)); _giver.FaceTo(2.4f, 4f); _giver.Pose = "carry";
+                _trophy.localPosition = hands; _trophy.localRotation = Stage3D.E(0, 0, 0);
+                return;
+            }
+            if (t < Handed) { _giver.Pos = there; _giver.FaceTo(2.4f, 4f); _giver.Pose = "offer"; _trophy.localPosition = hands; return; }
+            float u = Stage3D.Smooth(Handed, Handed + 1f, t);
+            _giver.Pos = Vector3.Lerp(there, back, u);
+            if (u < 1f) { _giver.FaceTo(back.x, back.z); _giver.Pose = "walk"; }
+            else { _giver.FaceTo(2.4f, 4f); _giver.Pose = t < 21f ? "clap" : "cheer"; }
         }
 
         private void Flash(Human h)

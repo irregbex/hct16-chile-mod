@@ -4,6 +4,16 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.6 (2026-11-05)
+  - Fixed: Rutas de Chile > Plaza de Illapel opened a car selection with no anda and the game hung; a round that names
+    its cars can always race them.
+  - Podium: someone else hands the cup over - a presenter picks it up from its stand, walks it to the winner and holds it
+    out; the winner takes it and lifts it.
+  - Podium: a jet ski's winner is its own rider, in his wetsuit, life vest and helmet colours.
+  - Playa Luna's podium: the whole crowd as the beach's bathers (black bars).
+  - The end-of-race stickers are twice as big, each growing towards its own side.
+  - The F-150's chase camera sits a little further back (a fifth of the micro's pull-back).
+
 2.3.5 (2026-11-03)
   - Podium: a vehicle's own visible driver gets off and takes the prize - the carreta's huaso leaves his seat in his
     poncho and hat (the model marks him as OBJ group "driver"; any model can). The game's own cars have their drivers

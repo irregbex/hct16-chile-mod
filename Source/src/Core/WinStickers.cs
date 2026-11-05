@@ -234,7 +234,14 @@ namespace HCT15
             float dx = Mathf.Clamp(0.5f * r.height / Mathf.Max(1f, r.width), 0.12f, 0.35f);
             _rt.anchorMin = _rt.anchorMax = new Vector2(_slot == 0 ? 0.5f - dx : 0.5f + dx, 0.56f);
             float aspect = _s.J.FrameH > 0 ? _s.J.FrameW / (float)_s.J.FrameH : 1f;
-            _rt.sizeDelta = new Vector2(side * Mathf.Min(1f, aspect), side / Mathf.Max(1f, aspect));
+            // 2.3.6 (reported: "the stickers twice as big, growing towards their own side"): the inner edge stays where it was,
+            // the sticker doubles outwards (the left one to the left, the right one to the right), stopping at the screen's edge
+            float w0 = side * Mathf.Min(1f, aspect), h0 = side / Mathf.Max(1f, aspect);
+            float room = r.width * (0.5f - dx - 0.01f) + w0 * 0.5f;   // from the inner edge to the screen's edge (both sides alike)
+            float grow = Mathf.Clamp(Mathf.Min(2f, room / Mathf.Max(1f, w0), (r.height * 0.96f) / Mathf.Max(1f, h0)), 1f, 2f);
+            _rt.pivot = new Vector2(_slot == 0 ? 1f : 0f, 0.5f);
+            _rt.anchoredPosition = new Vector2(_slot == 0 ? w0 * 0.5f : -w0 * 0.5f, 0f);
+            _rt.sizeDelta = new Vector2(w0 * grow, h0 * grow);
             // pop in: 0 -> 1.15 -> 1 in a third of a second, then a slow rock
             float pop = t <= 0f ? 0f : t < 0.22f ? Mathf.Lerp(0f, 1.15f, t / 0.22f) : t < 0.34f ? Mathf.Lerp(1.15f, 1f, (t - 0.22f) / 0.12f) : 1f;
             _rt.localScale = new Vector3(pop, pop, 1f);

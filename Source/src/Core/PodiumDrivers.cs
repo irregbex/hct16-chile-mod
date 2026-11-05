@@ -133,7 +133,7 @@ namespace HCT15
         private static int Hex(Color c) { return (Mathf.Clamp(Mathf.RoundToInt(c.r * 255f), 0, 255) << 16) | (Mathf.Clamp(Mathf.RoundToInt(c.g * 255f), 0, 255) << 8) | Mathf.Clamp(Mathf.RoundToInt(c.b * 255f), 0, 255); }
 
         /// <summary>The most common colour (quantised) of the points in [y0, y1] of the driver's height; skin = -1 any, 0 not skin, 1 only skin.</summary>
-        private static Color Common(Found f, float y0, float y1, int skin, Color fallback)
+        private static Color Common(Found f, float y0, float y1, int skin, Color fallback, Color? not = null)
         {
             float lo = float.MaxValue, hi = float.MinValue;
             foreach (Vector3 p in f.Points) { lo = Mathf.Min(lo, p.y); hi = Mathf.Max(hi, p.y); }
@@ -145,6 +145,7 @@ namespace HCT15
                 Color c = f.Colours[i];
                 if (skin == 0 && SkinLike(c)) continue;
                 if (skin == 1 && !SkinLike(c)) continue;
+                if (not.HasValue && Mathf.Abs(c.r - not.Value.r) + Mathf.Abs(c.g - not.Value.g) + Mathf.Abs(c.b - not.Value.b) < .12f) continue;
                 int k = ((int)(c.r * 8) << 8) | ((int)(c.g * 8) << 4) | (int)(c.b * 8);
                 int n; count.TryGetValue(k, out n); count[k] = n + 1;
                 Color s; sum.TryGetValue(k, out s); sum[k] = s + c;
@@ -152,6 +153,49 @@ namespace HCT15
             int best = -1, bn = 0;
             foreach (var kv in count) if (kv.Value > bn) { bn = kv.Value; best = kv.Key; }
             return best < 0 ? fallback : sum[best] / bn;
+        }
+
+        /// <summary>2.3.6 (reported: "on the jet skis the one who takes the cup must be the jet ski's own rider, in its colours
+        /// and helmet - now another figure in other colours turns up"): the rider's mesh read by height - the top band its
+        /// helmet, the chest band its life vest, the bottom band its wetsuit (legs).</summary>
+        public static Human.Opt RiderOutfit(Mesh rider)
+        {
+            if (rider == null || !rider.isReadable) return null;
+            var f = new Found(); f.Points.AddRange(rider.vertices); f.Colours.AddRange(rider.colors);
+            if (f.Colours.Count != f.Points.Count || f.Points.Count == 0) return null;
+            Color suit = Common(f, 0f, .3f, 0, new Color(.08f, .09f, .1f));
+            Color helmet = Common(f, .9f, 1f, 0, Color.red), vest = Largest(rider, .3f, .8f, suit, Color.red);   // the vest: the biggest surface there that is not the wetsuit
+            return new Human.Opt { Top = Hex(suit), Bottom = Hex(suit), Shoes = Hex(suit), Sleeves = true, Vest = Hex(vest), Helmet = Hex(helmet), Style = "big80", Knees = true, Height = Stage3D.Rnd(1.72f, 1.86f) };
+        }
+
+        /// <summary>The colour covering the most surface (triangle area) in [y0, y1] of the mesh's height, other than 'not'.</summary>
+        private static Color Largest(Mesh m, float y0, float y1, Color not, Color fallback)
+        {
+            Vector3[] v = m.vertices; Color[] c = m.colors;
+            float lo = float.MaxValue, hi = float.MinValue; foreach (Vector3 p in v) { lo = Mathf.Min(lo, p.y); hi = Mathf.Max(hi, p.y); }
+            var area = new Dictionary<int, float>(); var col = new Dictionary<int, Color>(); float notArea = 0f;
+            for (int s = 0; s < m.subMeshCount; s++)
+            {
+                int[] t = m.GetTriangles(s);
+                for (int i = 0; i + 2 < t.Length; i += 3)
+                {
+                    Vector3 a = v[t[i]], b = v[t[i + 1]], d = v[t[i + 2]];
+                    float h = ((a.y + b.y + d.y) / 3f - lo) / Mathf.Max(1e-3f, hi - lo);
+                    if (h < y0 || h > y1) continue;
+                    Color k = c[t[i]];
+                    float ar = Vector3.Cross(b - a, d - a).magnitude * .5f;
+                    if (Mathf.Abs(k.r - not.r) + Mathf.Abs(k.g - not.g) + Mathf.Abs(k.b - not.b) < .12f) { notArea += ar; continue; }   // (orange or gold vests look like skin: no skin filter - the neck is tiny)
+                    int key = ((int)(k.r * 8) << 8) | ((int)(k.g * 8) << 4) | (int)(k.b * 8);
+                    float w; area.TryGetValue(key, out w); area[key] = w + ar; col[key] = k;
+                }
+            }
+            int best = -1; float bw = 0f;
+            foreach (var kv in area) if (kv.Value > bw) { bw = kv.Value; best = kv.Key; }
+            var sb = new System.Text.StringBuilder();
+            foreach (var kv in area) sb.Append(" #").Append(Hex(col[kv.Key]).ToString("x6")).Append("=").Append(kv.Value.ToString("0.00"));
+            Debug.Log("[HCT15] rider colours of '" + m.name + "': bounds " + m.bounds.min.ToString("0.00") + " - " + m.bounds.max.ToString("0.00") + ", areas in [" + y0 + ", " + y1 + "] of the height:" + sb);
+            if (best >= 0 && bw < notArea * .6f) return not;   // the vest is of the wetsuit itself (only its bands are another colour)
+            return best < 0 ? fallback : col[best];
         }
 
         /// <summary>The figure for a game car: its driver's colours ("auto"), or a police officer ("police"); null = the racing driver.</summary>
