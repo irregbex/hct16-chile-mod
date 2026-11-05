@@ -4,6 +4,11 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.9 (2026-11-05)
+  - Fixed: on Plaza de Illapel with the andas nobody could win - every rival walked at the player's own pace, so after a
+    few laps everybody arrived together. Each anda now has its own top speed (48-55 km/h, the lighter ones quicker,
+    the heavier ones steadier with a bigger tank), and each rival walks at its own anda's speed.
+
 2.3.8 (2026-11-05)
   - Rutas de Chile > Los Vilos - Illapel: its three toll plazas are taken out (kept aside in scenery_peajes_quitados.json
     and tolls_quitados.json, to put back later).

@@ -425,15 +425,44 @@ namespace HCT15
                     string id = VariantBase(BaseId(e.View.CarModelId ?? ""));
                     if (!_def.TryGetValue(id, out d) || d == null || d.TopSpeedKph <= 0f) continue;
                     // 2.1.1 (the player's anda went too fast - all should walk at a speed balanced between them): a rival
-                    // walks at the PLAYER's own top speed (2.1.2: 95-102 % of it, steady - see _walkers) - no slower grid for the player to leave behind
-                    float own = 0f;
-                    try { var pc = game.PlayerCar; if (pc != null && pc.CarModel != null && VariantBase(BaseId(pc.CarModel.ItemId)) == id) own = pc.CarModel.MaxSpeedInKPH; } catch (Exception) { }
-                    float cur = e.CarEngine.MaxSpeedInKPH, target = (own > 0.1f ? own : d.TopSpeedKph) * UnityEngine.Random.Range(0.95f, 1.02f);
+                    // walked at the PLAYER's own top speed (2.1.2: 95-102 % of it, steady - see _walkers).
+                    // 2.3.9 (reported: "each anda has different stats in car selection, but in the race they all behave the
+                    // same - after a few laps everybody walks at one speed and all arrive together; Plaza de Illapel cannot be
+                    // won"): copying the player's pace made the choice of anda meaningless and every race a tie. A rival now
+                    // walks at the top speed of the anda it carries (its colour's own entry), 93-100 % of it, steady: a
+                    // quicker anda leaves the slower ones behind, the player's included.
+                    CarDef cd = RivalColourDef(e, id);
+                    float own = cd != null && cd.TopSpeedKph > 0f ? cd.TopSpeedKph : d.TopSpeedKph;
+                    float cur = e.CarEngine.MaxSpeedInKPH, target = own * UnityEngine.Random.Range(0.93f, 1.0f);
                     if (cur > 0.1f) { e.CarEngine.ApplyMaxSpeedFactor(target / cur); _walkers.Add(e); n++; }
+                    Debug.Log("[HCT15] street cars: rival " + (cd != null ? cd.Id : id) + " walks at " + target.ToString("0.0") + " km/h (its own " + own.ToString("0.0") + ")");
                 }
                 if (n > 0) Debug.Log("[HCT15] street cars: " + n + " rival(s) held to their car's own top speed (" + all.Count + " cars)");
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] rival caps: " + ex.Message); }
+        }
+
+        /// <summary>2.3.9: the entry of the colour a rival's body wears (its anda), found on the model under its view, else null.</summary>
+        private static CarDef RivalColourDef(EnemyCar e, string baseId)
+        {
+            try
+            {
+                List<Variant> list; CarDef d;
+                if (!_variants.TryGetValue(baseId, out list) || list == null || list.Count < 2) return null;
+                // the view is an EnemyCarTrackMultiView (no Component): the model hangs under its master view
+                Transform m = null;
+                var multi = e.View as EnemyCarTrackMultiView;
+                if (multi != null && multi.MasterView != null) m = multi.MasterView.transform;
+                else { var c = e.View as Component; if (c != null) m = c.transform; }
+                if (m == null) return null;
+                foreach (Transform t in m.GetComponentsInChildren<Transform>(true))
+                {
+                    if (!string.Equals(BaseId(t.name), baseId, StringComparison.OrdinalIgnoreCase) || t.Find("root/sub_root/high") == null) continue;
+                    return _def.TryGetValue(list[CurrentVariant(t, list)].Id, out d) ? d : null;
+                }
+            }
+            catch (Exception) { }
+            return null;
         }
 
         /// <summary>2.0.28: the entry of the colour this model wears, when that colour is an entry of its own (VariantOf), else null.</summary>
