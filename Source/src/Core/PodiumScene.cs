@@ -110,6 +110,31 @@ namespace HCT15
             catch (Exception) { return null; }
         }
 
+        /// <summary>2.3.7: car i's own engine, as the race plays it - the game's RPM layers for its MotorType and its pitch range
+        /// (read from the player's installed game at run time; nothing shipped).</summary>
+        public bool CarMotor(int i, out List<AudioClip> clips, out float minPitch, out float maxPitch)
+        {
+            clips = null; minPitch = 1f; maxPitch = 1.35f;
+            if (i < 0 || i >= _cars.Count) return false;
+            try
+            {
+                Car c = _cars[i];
+                CarModel m = c.R != null && c.R.Car != null ? c.R.Car.CarModel : null;
+                // the rivals carry no CarModel (only the player's car is given one): look theirs up by the model id
+                if (m == null && c.R != null && c.R.Car != null && c.R.Car.View != null && !string.IsNullOrEmpty(c.R.Car.View.CarModelId))
+                    m = GameItemContainer.Instance().GetGameItem<CarModel>(c.R.Car.View.CarModelId);
+                if (m == null) return false;
+                var list = RRApplication.Instance.Resources.MotorSoundsData;
+                var data = list != null ? list.GetMotorSoundsForMotorType(m.MotorType) : null;
+                if (data == null || data.MotorSounds == null || data.MotorSounds.Count == 0) return false;
+                clips = new List<AudioClip>();
+                foreach (AudioClip a in data.MotorSounds) if (a != null) clips.Add(a);
+                minPitch = m.MinMotorPitch; maxPitch = m.MaxMotorPitch;
+                return clips.Count > 0;
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] podium: engine sound of car " + (i + 1) + ": " + ex.Message); return false; }
+        }
+
         private void Sound(string name) { if (Sfx != null) try { Sfx(name); } catch (Exception) { } }
 
         private class Car
@@ -709,41 +734,74 @@ namespace HCT15
             }
         }
 
-        private class Flag { public Mesh M; public Vector3[] B, Vv; public float Ph; }
+        private class Flag { public Mesh M; public Vector3[] B, Vv; public float Ph, W, Sp; }
         private readonly List<Flag> _flags = new List<Flag>();
+
+        /// <summary>2.3.7 (reported: "the flags must wave, and they all miss the star Chile's flag has"): the Chilean flag as a
+        /// fine grid - the blue canton (a square, half the height), the white five-pointed star in its middle (its points on
+        /// a circle half the canton wide), white over red - so the cloth can ripple. The
+        /// pole runs along y at x = 0; yTop is the hoist's top edge, dir +1 = the cloth runs to +y from it (a hand flag held
+        /// up, its forearm local -y up), -1 = to -y (a flag on a pole).</summary>
+        private Flag ChileFlag(float yTop, int dir, float fw, float fh, float z, float speed)
+        {
+            var b = new Stage3D.MeshBuilder();
+            int nx = 18, ny = 6;
+            Color blue = new Color(0f, .22f, .65f), red = new Color(.84f, .17f, .12f);
+            Func<float, float> Y = t => yTop + dir * fh * t;
+            for (int j = 0; j < ny; j++)
+                for (int i = 0; i < nx; i++)
+                {
+                    float x0 = fw * i / nx, x1 = fw * (i + 1) / nx, y0 = Y((float)j / ny), y1 = Y((float)(j + 1) / ny);
+                    b.Col = j < ny / 2 ? (i < nx / 3 ? blue : Color.white) : red;
+                    b.Quad(V(x0, y0, z), V(x1, y0, z), V(x1, y1, z), V(x0, y1, z));
+                }
+            // the star, on both faces (the cloth is drawn two-sided); one point straight up the flag
+            float cx = fw / 6f, cy = Y(.25f), r = fh / 8f, eps = Mathf.Max(.004f, fh * .012f);
+            b.Col = Color.white;
+            for (int side = -1; side <= 1; side += 2)
+            {
+                float zz = z + side * eps;
+                for (int k = 0; k < 10; k++)
+                {
+                    float a0 = k * Mathf.PI / 5f, a1 = (k + 1) * Mathf.PI / 5f;
+                    float r0 = k % 2 == 0 ? r : r * .382f, r1 = k % 2 == 0 ? r * .382f : r;
+                    // angle 0 = up the flag (-dir in y)
+                    Vector3 p0 = V(cx + Mathf.Sin(a0) * r0, cy - dir * Mathf.Cos(a0) * r0, zz), p1 = V(cx + Mathf.Sin(a1) * r1, cy - dir * Mathf.Cos(a1) * r1, zz);
+                    b.Tri(V(cx, cy, zz), p0, p1);
+                }
+            }
+            Mesh m = St.Keep(b.Build("flag")); m.MarkDynamic();
+            var f = new Flag { M = m, B = m.vertices, Vv = m.vertices, Ph = Stage3D.Rnd(0, 6.28f), W = fw, Sp = speed };
+            _flags.Add(f);
+            return f;
+        }
 
         /// <summary>A Chilean flag on a stick in the right hand (along the forearm); its cloth waves every frame.</summary>
         private void HandFlag(Human h)
         {
-            float len = Stage3D.Rnd(.75f, 1.05f), fw = len * .85f, fh = fw * .62f, top = -.29f - len;
+            float len = Stage3D.Rnd(.75f, 1.05f), fw = len * .85f, fh = fw * 2f / 3f, top = -.29f - len;
             St.Part(St.CylMesh(.012f, .012f, len, 5), L(0xdedede, .3f, .5f), h.ElR, V(0, -.29f - len / 2, 0));
-            var b = new Stage3D.MeshBuilder();
-            int nx = 8, ny = 4;
-            Color blue = new Color(0f, .22f, .65f), white = Color.white, red = new Color(.84f, .17f, .12f);
-            for (int j = 0; j < ny; j++)
-                for (int i = 0; i < nx; i++)
-                {
-                    float x0 = fw * i / nx, x1 = fw * (i + 1) / nx, y0 = top + fh * j / ny, y1 = top + fh * (j + 1) / ny;
-                    b.Col = j < ny / 2 ? (i < nx / 3 + 1 && i * 3 < nx ? blue : white) : red;
-                    b.Quad(V(x0, y0, 0), V(x1, y0, 0), V(x1, y1, 0), V(x0, y1, 0));
-                }
-            Mesh m = St.Keep(b.Build("flag")); m.MarkDynamic();
-            St.Part(m, St.Glow(_night ? new Color(.82f, .82f, .86f) : Color.white), h.ElR, Vector3.zero);
-            _flags.Add(new Flag { M = m, B = m.vertices, Vv = m.vertices, Ph = Stage3D.Rnd(0, 6.28f) });
+            Flag f = ChileFlag(top, 1, fw, fh, 0f, 1f);
+            St.Part(f.M, St.Glow(_night ? new Color(.82f, .82f, .86f) : Color.white), h.ElR, Vector3.zero);
         }
 
+        /// <summary>The cloth ripples away from the pole: two travelling waves across it, a slight lift and drop along the
+        /// edge, nothing at the hoist (it is tied there), in proportion to the flag's width.</summary>
         private void WaveFlags()
         {
             foreach (Flag f in _flags)
             {
+                float t = Clock * f.Sp;
                 for (int i = 0; i < f.B.Length; i++)
                 {
-                    Vector3 p = f.B[i]; float k = Mathf.Clamp01(p.x * 1.3f);
-                    p.z = Mathf.Sin(p.x * 8f - Clock * 9f + f.Ph) * .09f * k + Mathf.Sin(p.x * 3f - Clock * 4f + f.Ph) * .05f * k;
-                    p.y += Mathf.Sin(p.x * 6f - Clock * 7f + f.Ph) * .025f * k;
+                    Vector3 p = f.B[i]; float u = p.x / f.W, k = Mathf.Clamp01(u * 1.4f);
+                    p.z += f.W * k * (Mathf.Sin(u * 7.5f - t * 9f + f.Ph) * .12f + Mathf.Sin(u * 2.8f - t * 4.3f + f.Ph) * .07f);
+                    p.y += f.W * k * Mathf.Sin(u * 5.5f - t * 7f + f.Ph) * .035f;
+                    p.x -= f.W * k * (1f - Mathf.Cos(u * 7.5f - t * 9f + f.Ph)) * .025f;
                     f.Vv[i] = p;
                 }
                 f.M.vertices = f.Vv;
+                f.M.RecalculateBounds();
             }
         }
 
@@ -1218,6 +1276,9 @@ namespace HCT15
             if (n == "sky" || n == "background" || n == "track_backdrop") return true;
             if ((n == "med" || n == "medium" || n == "low") && t.parent != null && t.parent.Find("high") != null) return true;   // one level of detail
             if (n.StartsWith("brake")) return true;
+            // 2.3.7 (reported, a screenshot): the jet ski's white wake streaks (WaterRide's HCT15_spray) only sell speed - parked
+            // on the podium it has none
+            if (n.Contains("spray") || n.Contains("wake")) return true;
             return n.Contains("shadow") || n.Contains("nitro") || n.Contains("smoke") || n.Contains("fx") || n.Contains("trail") || n.Contains("flare");
         }
 
@@ -1426,13 +1487,9 @@ namespace HCT15
             b.Col = Color.Lerp(win, Color.black, .4f); b.Box(V(0, 3f, 8.42f), V(3f, 4.4f, .08f));   // the gate
             b.Col = new Color(.8f, .8f, .82f); b.Box(V(0, 15.5f, 7.6f), V(.12f, 7f, .12f));   // flagpole
             St.Part(St.Keep(b.Build("moneda")), St.Glow(Color.white), g, Vector3.zero);
-            var flag = new Stage3D.MeshBuilder();
-            float fx = .1f, fy = 16.4f, fw = 4.2f, fh = 2.8f;
-            flag.Col = new Color(1f, 1f, 1f); flag.Quad(V(fx, fy + fh / 2, 7.6f), V(fx + fw, fy + fh / 2, 7.6f), V(fx + fw, fy + fh, 7.6f), V(fx, fy + fh, 7.6f));
-            flag.Col = new Color(0f, .22f, .65f); flag.Quad(V(fx, fy + fh / 2, 7.59f), V(fx + fw / 3, fy + fh / 2, 7.59f), V(fx + fw / 3, fy + fh, 7.59f), V(fx, fy + fh, 7.59f));
-            flag.Col = new Color(.84f, .17f, .12f); flag.Quad(V(fx, fy, 7.6f), V(fx + fw, fy, 7.6f), V(fx + fw, fy + fh / 2, 7.6f), V(fx, fy + fh / 2, 7.6f));
-            flag.Col = Color.white; flag.Tri(V(fx + fw / 6, fy + fh * .82f, 7.58f), V(fx + fw / 6 - .25f, fy + fh * .64f, 7.58f), V(fx + fw / 6 + .25f, fy + fh * .64f, 7.58f));
-            St.Part(St.Keep(flag.Build("flag")), St.Glow(Color.white), g, Vector3.zero);
+            // 2.3.7: the flag on La Moneda waves too, with its star (it was a still cloth with a triangle)
+            Flag mf = ChileFlag(19.2f, -1, 4.2f, 2.8f, 7.6f, .7f);
+            St.Part(mf.M, St.Glow(Color.white), g, V(.1f, 0, 0));
             if (_night)
                 for (int i = -3; i <= 3; i++) Uplight(at + Stage3D.E(0, yaw, 0) * V(i * 10 * s, 0, 9 * s), 9 * s, 13 * s, new Color(1f, .7f, .35f));
         }

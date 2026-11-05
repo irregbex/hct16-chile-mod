@@ -11,7 +11,7 @@ namespace HCT15
     /// player's stunts off the jet ski ramps (JetskiRamps). In the air, the TONEL (barrel) button (keyboard E or Enter, gamepad RB)
     /// starts a barrel roll and the TROMPO (spinning top) button (keyboard Q or keypad 0, gamepad LB) a flat 360; pressing again during a
     /// turn queues the next one. WaterRide turns the body and reports here: a clean landing scores (tonel 500, trompo 400,
-    /// times the number of turns in that jump) and gives a little speed; landing half-way through a turn is a fall - no
+    /// times the number of turns in that jump) and gives half a nitro (2.3.7); landing half-way through a turn is a fall - no
     /// points and most of the speed gone. The score of the race shows on the right of the screen with the best of the
     /// session per track; a message in the middle names each stunt. Only on a track with ramps.
     /// "-hct15-tricks" makes the autopilot press the buttons (a tonel at take-off, a trompo after it) for tests.
@@ -70,7 +70,23 @@ namespace HCT15
             Score += pts; Stunts += n;
             int best;
             if (_for != null && (!Best.TryGetValue(_for, out best) || Score > best)) Best[_for] = Score;
-            try { if (car != null) car.ApplySpeedBoost(12f * n); } catch (Exception) { }
+            // 2.3.7 (reported: "a clean stunt in a jump should give a speed boost, half as long as a nitro"): the game's own
+            // forced nitro (the one its nitro coins give), for half of this car's nitro time, without spending a charge; a
+            // nitro already burning is never cut short. Was +12 km/h a turn.
+            try
+            {
+                var pc = car as PlayerCar;
+                if (pc != null)
+                {
+                    float half = pc.PropertyManager.GetNitroDuration() * 0.5f;
+                    var timer = HarmonyLib.Traverse.Create(pc).Field("m_nitroTimer");
+                    float left = pc.IsNitroOn && timer.FieldExists() ? timer.GetValue<float>() : 0f;
+                    if (left < half) pc.DoForcedNitro(half);
+                    Debug.Log("[HCT15] tricks: half a nitro, " + half.ToString("0.00") + " s" + (left >= half ? " (a longer nitro was already on)" : ""));
+                }
+                else if (car != null) car.ApplySpeedBoost(12f * n);
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] tricks: boost: " + ex.Message); }
             string what = Es ? Names(rolls, flats, "TONEL", "TROMPO") : Names(rolls, flats, "BARREL ROLL", "FLAT SPIN");
             Say((Es ? "¡" : "") + what + "!" + (n > 1 ? "  x" + n : "") + "   +" + pts, n > 1 ? new Color(1f, 0.85f, 0.2f) : new Color(0.5f, 1f, 0.6f), 2.2f);
             _pop = Time.unscaledTime;

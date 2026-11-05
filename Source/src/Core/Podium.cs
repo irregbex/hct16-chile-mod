@@ -66,6 +66,10 @@ namespace HCT15
         private PodiumScene _scene;
         private AudioSource _src, _crowd, _fx;
         private readonly AudioSource[] _engines = new AudioSource[3];
+        // 2.3.7 (reported: "every car already has its own sounds, do not use motor_loop"): the car's own engine - the game's
+        // RPM layers of its MotorType, cross-faded as the game's AudioFadeComponent does; motor_loop only when none is found
+        private readonly AudioSource[][] _layers = new AudioSource[3][];
+        private readonly Vector2[] _pitch = new Vector2[3];
         private readonly GallopSound[] _hooves = new GallopSound[3];   // 2.3.4: a carreta gallops in, an anda is marched in
         private readonly float[] _share = new float[3];
         private readonly Dictionary<string, AudioClip> _clips = new Dictionary<string, AudioClip>();
@@ -284,13 +288,28 @@ namespace HCT15
             _fx = make();
             AudioClip loop;
             if (_clips.TryGetValue("publico_loop", out loop)) { _crowd = make(); _crowd.clip = loop; _crowd.loop = true; _crowd.volume = 0f; _crowd.Play(); }
-            if (_clips.TryGetValue("motor_loop", out loop))
-                for (int i = 0; i < _engines.Length; i++) { _engines[i] = make(); _engines[i].clip = loop; _engines[i].loop = true; _engines[i].volume = 0f; }
+            for (int i = 0; i < _engines.Length; i++)
+            {
+                string kind = _scene.CarSoundKind(i);
+                if (kind == "gallop" || kind == "march") continue;
+                List<AudioClip> own; float lo, hi;
+                if (_scene.CarMotor(i, out own, out lo, out hi))
+                {
+                    var l = new AudioSource[own.Count];
+                    for (int j = 0; j < l.Length; j++)
+                    {
+                        l[j] = make(); l[j].clip = own[j]; l[j].loop = true; l[j].volume = 0f;
+                        l[j].time = UnityEngine.Random.value * Mathf.Max(0f, own[j].length - .05f);
+                    }
+                    _layers[i] = l; _pitch[i] = new Vector2(lo, hi);
+                    Debug.Log("[HCT15] podium sounds: car " + (i + 1) + " arrives on its own engine (" + l.Length + " layer(s), pitch " + lo.ToString("0.00") + "-" + hi.ToString("0.00") + ")");
+                }
+                else if (_clips.TryGetValue("motor_loop", out loop)) { _engines[i] = make(); _engines[i].clip = loop; _engines[i].loop = true; _engines[i].volume = 0f; }
+            }
             for (int i = 0; i < _hooves.Length; i++)
             {
                 string kind = _scene.CarSoundKind(i);
                 if (kind != "gallop" && kind != "march") continue;
-                if (_engines[i] != null) { Destroy(_engines[i]); _engines[i] = null; }
                 int k = i;
                 _hooves[i] = host.AddComponent<GallopSound>();
                 _hooves[i].InitPodium(() => _share[k], kind == "march");
@@ -324,6 +343,25 @@ namespace HCT15
                     e.volume = Mathf.Clamp(14f / (d + 10f), 0f, .35f) / .3f;
                 }
                 else if (e.isPlaying) { e.volume = Mathf.MoveTowards(e.volume, 0f, Time.unscaledDeltaTime * 3f); if (e.volume <= 0f) e.Stop(); }
+            }
+            for (int i = 0; i < _layers.Length; i++)
+            {
+                AudioSource[] l = _layers[i]; if (l == null) continue;
+                float v, d, closing;
+                bool on = _scene.CarSound(i, out v, out d, out closing) && v > .2f;
+                // the arrival's speed as engine revs: idle at a stop, high revs from ~30 m/s; each layer peaks at its own share
+                float rpm = on ? Mathf.Clamp01(.08f + v / 30f) : 0f, gain = on ? Mathf.Clamp(14f / (d + 10f), 0f, .35f) / .3f : 0f;
+                float doppler = 343f / Mathf.Max(200f, 343f - closing), decay = l.Length > 1 ? 1f / (l.Length - 1) : 1f;
+                for (int j = 0; j < l.Length; j++)
+                {
+                    AudioSource s = l[j]; if (s == null) continue;
+                    float target = l.Length > 1 ? decay * j : rpm, gap = Mathf.Abs(target - rpm);
+                    float want = gap > decay ? 0f : (1f - gap / decay) * gain;
+                    s.volume = on ? want : Mathf.MoveTowards(s.volume, 0f, Time.unscaledDeltaTime * 3f);
+                    s.pitch = Mathf.Clamp(Mathf.Lerp(_pitch[i].x, _pitch[i].y, rpm) * doppler, .3f, 3f);
+                    if (s.volume > .01f) { if (!s.isPlaying) s.Play(); }
+                    else if (s.isPlaying) s.Pause();
+                }
             }
         }
 
@@ -363,7 +401,7 @@ namespace HCT15
             _playing = false; Showing = false;
             foreach (AudioClip c in _clips.Values) if (c != null) Destroy(c);
             _clips.Clear(); _crowd = _fx = null;
-            for (int i = 0; i < _engines.Length; i++) _engines[i] = null;
+            for (int i = 0; i < _engines.Length; i++) { _engines[i] = null; _layers[i] = null; }
             for (int i = 0; i < _hooves.Length; i++) { if (_hooves[i] != null) Destroy(_hooves[i]); _hooves[i] = null; }
             if (_src != null) { try { _src.Stop(); } catch (Exception) { } }
             if (_scene != null) { try { _scene.Destroy(); } catch (Exception) { } }

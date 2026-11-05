@@ -4,6 +4,14 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.7 (2026-11-05)
+  - Jet ski stunts: a clean landing gives half a nitro (the game's own boost, half the car's nitro time, no charge spent).
+  - Podium: every car arrives with its own engine sound (the game's engine of that car), no longer one shared loop.
+  - Podium: the Chilean flags wave and have their white star (the crowd's flags and La Moneda's).
+  - Podium: a parked jet ski no longer trails its white wake streaks.
+  - Win stickers at 1.5x their old size (2x was too much), still growing towards their own side.
+  - F-150: the chase camera a little further back.
+
 2.3.6 (2026-11-05)
   - Fixed: Rutas de Chile > Plaza de Illapel opened a car selection with no anda and the game hung; a round that names
     its cars can always race them.
