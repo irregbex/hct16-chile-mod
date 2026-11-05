@@ -238,8 +238,8 @@ namespace HCT15
             // the sticker doubles outwards (the left one to the left, the right one to the right), stopping at the screen's edge
             float w0 = side * Mathf.Min(1f, aspect), h0 = side / Mathf.Max(1f, aspect);
             float room = r.width * (0.5f - dx - 0.01f) + w0 * 0.5f;   // from the inner edge to the screen's edge (both sides alike)
-            // 2.3.7 (reported: "200% was too much, leave them at 150%")
-            const float Big = 1.5f;
+            // 2.3.7: 150%; 2.3.8 (reported: "still too big, back to 1.0 as at the start"): the original size
+            const float Big = 1.0f;
             float grow = Mathf.Clamp(Mathf.Min(Big, room / Mathf.Max(1f, w0), (r.height * 0.96f) / Mathf.Max(1f, h0)), 1f, Big);
             _rt.pivot = new Vector2(_slot == 0 ? 1f : 0f, 0.5f);
             _rt.anchoredPosition = new Vector2(_slot == 0 ? w0 * 0.5f : -w0 * 0.5f, 0f);

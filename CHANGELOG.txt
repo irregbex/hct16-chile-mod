@@ -4,6 +4,12 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.3.8 (2026-11-05)
+  - Rutas de Chile > Los Vilos - Illapel: its three toll plazas are taken out (kept aside in scenery_peajes_quitados.json
+    and tolls_quitados.json, to put back later).
+  - Win stickers back to their original size (1.5x was still too big).
+  - F-150: the chase camera further back again.
+
 2.3.7 (2026-11-05)
   - Jet ski stunts: a clean landing gives half a nitro (the game's own boost, half the car's nitro time, no charge spent).
   - Podium: every car arrives with its own engine sound (the game's engine of that car), no longer one shared loop.
