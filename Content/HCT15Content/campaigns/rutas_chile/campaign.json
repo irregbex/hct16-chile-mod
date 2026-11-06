@@ -37,6 +37,7 @@
  "Formula1": false,
  "FreePlay": true,
  "Pits": false,
+ "CoinModel": "moneda_500",
  "Blade": "blade.png",
  "Logo": "logo.png",
  "DefaultRace": "cl_ruta68_santiago_curacavi",
