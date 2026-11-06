@@ -11,6 +11,7 @@ namespace HCT15
         public float FuelBoost = 1f;     // 2.0.24: race.json "FuelBoost" - this many times the fuel cans (the three-minute beach races in jet skis)
         public float DonorDecor = -1f;   // 2.0.15: race.json "DonorDecor" - the donor's decor kept on THIS track (-1 = the campaign's; 0 = none: the Antarctic base on Sapporo)
         public int Grandstands = -1;     // 2.0.15: race.json "Grandstands" - this track's own count (-1 = the campaign's)
+        public int Racers;               // 2.4.0: race.json "Racers" - cars on the grid, players included (0 = the game's 20; Plaza de Illapel: 10)
         public string ItemId;
         public string ItemName;
         /// <summary>Text shown for ItemName; registered with TextLocalization by the registry.</summary>
@@ -266,6 +267,7 @@ namespace HCT15
         public List<TrackShape.Bend> Bends;   // 2.0.15: a stretch of zigzags and its own hill gain (the Cuesta Cavilolen on Ruta 47)
         public float DonorDecor = -1f; public int Grandstands = -1;   // 2.0.15: per-track overrides of the campaign's (CustomRaceDef)
         public float FuelBoost = 1f, FuelEconomy = 1f;
+        public int Racers;   // 2.4.0
         // 2.0.11: TrackShape - a road made curvier / hillier on load (1 = as built)
         public string RoadStripTexture, DayTexture, NightTexture, AlphaTexture, Music;
         public float PitStart = 0.90f, PitEnd = 0.985f;
@@ -287,7 +289,7 @@ namespace HCT15
                 CurveForceFactor = CurveForceFactor, RoadStripTexture = RoadStripTexture,
                 DayTexture = DayTexture, NightTexture = NightTexture, AlphaTexture = AlphaTexture, Music = Music,
                 PitStart = PitStart, PitEnd = PitEnd, PitSide = PitSide, PointToPoint = PointToPoint, EndPercentage = EndPercentage,
-                DonorDecor = DonorDecor, Grandstands = Grandstands, FuelBoost = FuelBoost, FuelEconomy = FuelEconomy,
+                DonorDecor = DonorDecor, Grandstands = Grandstands, FuelBoost = FuelBoost, FuelEconomy = FuelEconomy, Racers = Racers,
                 Names = ContentRegistry.Zip(DisplayNameLangs, DisplayNameTexts)
             };
             for (int i = 0; i + 2 < WaypointsFlat.Length; i += 3)

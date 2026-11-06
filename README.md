@@ -2,7 +2,7 @@
 
 # HCT 1.6 - a Chilean fan mod for Horizon Chase Turbo
 
-**Version 2.3.9.** A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game **without changing it**: it is loaded by BepInEx and removed with one click.
+**Version 2.4.0.** A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game **without changing it**: it is loaded by BepInEx and removed with one click.
 
 > **FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT.** Everything in this mod - the code, the tracks, models, textures, sounds, texts, voices and music - was made with AI (Claude, by Anthropic) from one player's directions in plain language and from open map data. Nobody wrote or reviewed the code by hand. It works and has been played a lot, but expect rough edges. Play it and [report what is wrong](https://github.com/irregbex/hct16-chile-mod/issues), suggest improvements, or send fixes and new tracks as pull requests.
 

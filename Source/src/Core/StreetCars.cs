@@ -1385,15 +1385,24 @@ namespace HCT15
                 if (list == null || list.Count == 0) return true;
                 // a rival gets a colour of its own: the track's authored index is 0 for every rival (retail rivals
                 // are coloured per track), which made an all-micro grid all yellow (2026-09-24)
-                if (playerIndex < 0 && list.Count > 1 && index == 0 && model.GetComponentInParent<EnemyCarTrackView>() != null)
+                if (playerIndex < 0 && list.Count > 1 && (index == 0 || _inRivalColour) && model.GetComponentInParent<EnemyCarTrackView>() != null)
                 {
+                    if (_inRivalColour && _rivalPick >= 0) index = _rivalPick;   // 2.4.0: the same colour on every screen's view of this rival
+                    else
+                    {
                     // 2.0.26: a round whose Cars list names some of this car's colours (the D-81's red F-150s) keeps the
                     // rivals and the traffic to those; else any colour
                     // 2.3.1: a road's traffic.json "Colours" win for its traffic
                     List<string> trafficColours = Traffic.ColoursFor(model);
                     List<int> allowed = trafficColours != null ? NamedVariants(BaseId(model.name), list, trafficColours, false) : AllowedVariants(BaseId(model.name), list);
                     int fixedColour = trafficColours != null ? -1 : Traffic.FixedColour(model, allowed.Count);   // a traffic micro: the line's one livery on this road
-                    index = allowed[fixedColour >= 0 ? fixedColour : UnityEngine.Random.Range(0, allowed.Count)];
+                    // 2.4.0 (reported: "every CPU anda must always be a different one; if the human players pick the same one it
+                    // does not matter"): a rival draws from a shuffled deck of the allowed colours, the players' own left out
+                    // until the deck runs dry - no two rivals alike while there are colours enough; traffic keeps its way
+                    bool trafficCar = trafficColours != null || fixedColour >= 0;
+                    index = fixedColour >= 0 ? allowed[fixedColour] : trafficCar ? allowed[UnityEngine.Random.Range(0, allowed.Count)] : DrawRival(BaseId(model.name), allowed);
+                    if (_inRivalColour) _rivalPick = index;
+                    }
                 }
                 index = ((index % list.Count) + list.Count) % list.Count;
                 Variant v = list[index];
@@ -1424,6 +1433,39 @@ namespace HCT15
                 return true;
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] street car colour: " + ex.Message); return true; }
+        }
+
+        // 2.4.0: the rivals' colour decks (one per car, dealt afresh each race) and the colour of the rival being coloured now
+        private static readonly Dictionary<string, List<int>> _rivalDeck = new Dictionary<string, List<int>>(StringComparer.OrdinalIgnoreCase);
+        private static readonly HashSet<string> _rivalDeckRefilled = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private static bool _inRivalColour; private static int _rivalPick = -1;
+        internal static void ResetRivalDecks() { _rivalDeck.Clear(); _rivalDeckRefilled.Clear(); }
+        internal static void BeginRivalColour() { _inRivalColour = true; _rivalPick = -1; }
+        internal static void EndRivalColour() { _inRivalColour = false; _rivalPick = -1; }
+
+        private static int DrawRival(string baseId, List<int> allowed)
+        {
+            List<int> deck;
+            if (!_rivalDeck.TryGetValue(baseId, out deck) || deck.Count == 0)
+            {
+                var mine = new HashSet<int>();
+                try
+                {
+                    var gm = StaticData.GameModeData;
+                    for (int i = 0; gm != null && gm.PlayerCars != null && gm.PlayerCarColorIndex != null && i < gm.PlayerCars.Count && i < gm.PlayerCarColorIndex.Count; i++)
+                        if (string.Equals(BaseId(gm.PlayerCars[i] ?? ""), baseId, StringComparison.OrdinalIgnoreCase)) mine.Add(gm.PlayerCarColorIndex[i]);
+                }
+                catch (Exception) { }
+                bool again = _rivalDeckRefilled.Contains(baseId);
+                deck = again ? new List<int>(allowed) : allowed.FindAll(i => !mine.Contains(i));
+                if (deck.Count == 0) deck = new List<int>(allowed);
+                for (int i = deck.Count - 1; i > 0; i--) { int j = UnityEngine.Random.Range(0, i + 1); int x = deck[i]; deck[i] = deck[j]; deck[j] = x; }
+                _rivalDeck[baseId] = deck; _rivalDeckRefilled.Add(baseId);
+                Debug.Log("[HCT15] street car '" + baseId + "': rival colours dealt from " + deck.Count + " (players' own " + (again ? "back in" : "left out: " + mine.Count) + ")");
+            }
+            int pick = deck[deck.Count - 1];
+            deck.RemoveAt(deck.Count - 1);
+            return pick;
         }
 
         /// <summary>The legs of colour v on this model: the old ones out, the new ones at their hips, TrotBob told.</summary>

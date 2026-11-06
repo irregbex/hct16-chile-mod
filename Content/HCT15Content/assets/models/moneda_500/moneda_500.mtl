@@ -1,0 +1,11 @@
+# HCT15 - moneda_500
+newmtl cara_500
+Kd 1 1 1
+map_Kd cara_500.png
+newmtl cara_chile
+Kd 1 1 1
+map_Kd cara_chile.png
+newmtl canto_a
+Kd 0.900 0.840 0.520
+newmtl canto_b
+Kd 0.700 0.620 0.300

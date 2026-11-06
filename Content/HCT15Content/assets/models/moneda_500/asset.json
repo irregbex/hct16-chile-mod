@@ -1,0 +1,11 @@
+{
+  "Id": "moneda_500",
+  "Name": "500-peso coin (coin)",
+  "Category": "prop",
+  "Description": "The Chile campaign's coin pickup: a Chilean 500-peso coin standing on its rim, saturated gold, both faces drawn (Tools/moneda_500.py)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": false
+}

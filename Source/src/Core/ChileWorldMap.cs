@@ -49,7 +49,8 @@ namespace HCT15
     {
         public class Pin { public string Id = ""; public string Title = ""; public float X; public float Y; public float TX; public float TY; public float CX; public float CY; public float Lat; public string Region = ""; public string Climate = ""; public float Km; public int Laps = 1; public List<List<float>> Route; }
         public class Doc { public string Image = ""; public int Width; public int Height; public bool Horizontal; public List<string> Regions = new List<string>(); public List<Pin> Pins = new List<Pin>(); public List<List<float>> Land; public List<Pin> Future; public List<string> FixedRegions;   // Future (2.0.15): tracks to come, drawn half-transparent
-            public bool RegionPicker; public Dictionary<string, List<List<List<float>>>> RegionShapes; }   // 2.0.16: regions first, then their stages; each region's outline rings in map px
+            public bool RegionPicker; public Dictionary<string, List<List<List<float>>>> RegionShapes;
+            public Dictionary<string, string> RegionNumbers; }   // 2.4.0: the region's official number ("IV", "RM"), shown before its name   // 2.0.16: regions first, then their stages; each region's outline rings in map px
 
         public static bool IsOpen { get; private set; }
         /// <summary>2.0.16: the campaign folder whose world map was shown and closed on this visit of the campaign screen (CampaignMap waits for it).</summary>
@@ -307,8 +308,27 @@ namespace HCT15
             _sel = _byY.IndexOf(places[Mathf.Clamp(k, 0, places.Count - 1)]);
         }
 
-        /// <summary>A region's places, north to south (the list and the map agree).</summary>
-        private List<Pin> PlacesOf(string region) { return _byY.FindAll(p => p.Region == region); }
+        /// <summary>A region's places in round order (2.4.0, reported: "the stages should come in numerical order"; until
+        /// 2.3.9 north to south, which jumbled the round numbers of the list).</summary>
+        private List<Pin> PlacesOf(string region)
+        {
+            List<Pin> l = _byY.FindAll(p => p.Region == region);
+            var at = new Dictionary<Pin, int>(); for (int i = 0; i < l.Count; i++) at[l[i]] = i;
+            l.Sort((a, b) => { int c = RoundOf(a.Id).CompareTo(RoundOf(b.Id)); return c != 0 ? c : at[a].CompareTo(at[b]); });
+            return l;
+        }
+
+        /// <summary>2.4.0 (reported: "Region NUMBER - region name (number of stages)"): "Región IV - Coquimbo (10)".</summary>
+        private string RegionLabel(int r, bool es, bool twoLines)
+        {
+            string reg = _doc.Regions[Mathf.Clamp(r, 0, _doc.Regions.Count - 1)];
+            string num = null;
+            if (_doc.RegionNumbers != null) _doc.RegionNumbers.TryGetValue(reg, out num);
+            int n = 0; foreach (Pin p in _byY) if (p.Region == reg) n++;
+            string head = string.IsNullOrEmpty(num) ? "" : (es ? "Región " : "Region ") + num;
+            if (head.Length == 0) return reg + " (" + n + ")";
+            return head + (twoLines ? "\n" : " - ") + reg + " (" + n + ")";
+        }
 
         /// <summary>Is this round open (a campaign without FreePlay opens a round with a top-3 finish in the one before)?</summary>
         private static bool Unlocked(string id)
@@ -343,15 +363,15 @@ namespace HCT15
         private void SetRegion(int r)
         {
             _region = Mathf.Clamp(r, 0, _doc.Regions.Count - 1);
-            int k = _byY.FindIndex(p => p.Region == _doc.Regions[_region]);
-            if (k >= 0) _sel = k;
+            List<Pin> pl = PlacesOf(_doc.Regions[_region]);   // 2.4.0: the list's first (lowest round)
+            if (pl.Count > 0) _sel = _byY.IndexOf(pl[0]);
         }
 
         /// <summary>Down / Enter on a region: its stages, starting at the selected one when it is in that region, else its northernmost.</summary>
         private void EnterRegion()
         {
             string reg = _doc.Regions[_region];
-            if (_sel < 0 || _sel >= _byY.Count || _byY[_sel].Region != reg) { int k = _byY.FindIndex(p => p.Region == reg); if (k >= 0) _sel = k; }
+            if (_sel < 0 || _sel >= _byY.Count || _byY[_sel].Region != reg) { List<Pin> pl = PlacesOf(reg); if (pl.Count > 0) _sel = _byY.IndexOf(pl[0]); }
             _level = 1;
         }
 
@@ -449,7 +469,7 @@ namespace HCT15
             _titleFit = new GUIStyle(_title) { fontSize = Mathf.RoundToInt(fs * 0.031f), wordWrap = false, clipping = TextClipping.Clip };   // a long title on one line
             _list = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(fs * 0.021f), alignment = TextAnchor.MiddleLeft, clipping = TextClipping.Clip, wordWrap = false };
             _list.normal.textColor = Color.white;
-            _regionTab = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(fs * 0.021f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, clipping = TextClipping.Clip, wordWrap = false };
+            _regionTab = new GUIStyle(GUI.skin.label) { fontSize = Mathf.RoundToInt(fs * 0.019f), fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, clipping = TextClipping.Clip, wordWrap = false };
         }
 
         /// <summary>The land's extent (map x, sea side to Andes side) within LandSpan px north and south of y - the Land rows of worldmap.json; 0,0 without them.</summary>
@@ -484,7 +504,7 @@ namespace HCT15
             GUI.color = new Color(0f, 0f, 0f, 0.55f); GUI.DrawTexture(new Rect(x - 14, y - 10, w + 28, h + 14), _px);
             GUI.color = new Color(0.84f, 0.17f, 0.12f, 1f); GUI.DrawTexture(new Rect(x - 14, y - 10, w + 28, 6), _px);
             GUI.color = Color.white;
-            GUI.Label(new Rect(x, y, w, lineH), (es ? "PISTAS" : "STAGES") + "  " + _order.Count + (Regions ? "  ·  " + _doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)] : "") + (first > 0 ? "   ▲" : "") + (first + show < _order.Count ? "   ▼" : ""), _small);
+            GUI.Label(new Rect(x, y, w, lineH), (Regions ? RegionLabel(_region, es, false) : (es ? "PISTAS" : "STAGES") + "  " + _order.Count) + (first > 0 ? "   ▲" : "") + (first + show < _order.Count ? "   ▼" : ""), _small);
             for (int i = first; i < first + show; i++)
             {
                 Pin p = _order[i]; bool isSel = p == sel; float ly = y + lineH * (i - first + 1.2f);
@@ -545,7 +565,7 @@ namespace HCT15
         /// <summary>The region tabs across the top: a window round the chosen one, it lit (level 0) or underlined (level 1).</summary>
         private void RegionBar(float sw, float sh, bool es)
         {
-            int n = _doc.Regions.Count, show = Mathf.Min(n, 7);
+            int n = _doc.Regions.Count, show = Mathf.Min(n, 5);   // 2.4.0: 5 wider tabs, two lines each (number / name and count)
             int first = Mathf.Clamp(_region - show / 2, 0, Mathf.Max(0, n - show));
             float barH = sh * 0.065f, y = sh * 0.025f, x0 = sw * 0.03f, wAll = sw * 0.62f, tw = wAll / show;
             GUI.color = new Color(0f, 0f, 0f, 0.6f); GUI.DrawTexture(new Rect(x0 - 10, y - 8, wAll + 20, barH + 16), _px);
@@ -559,7 +579,12 @@ namespace HCT15
                 }
                 _regionTab.normal.textColor = isCur && _level == 0 ? new Color(0.08f, 0.06f, 0.02f) : (isCur ? Color.white : new Color(0.86f, 0.9f, 0.97f, 0.85f));
                 GUI.color = Color.white;
-                GUI.Label(new Rect(tx + 4, y, tw - 8, barH), _doc.Regions[i], _regionTab);
+                string lab = RegionLabel(i, es, true);
+                int fs0 = _regionTab.fontSize;
+                // a long name ("Playas de la Quinta Región (9)") shrinks to its tab instead of being cut
+                for (int k = 0; k < 6 && _regionTab.CalcSize(new GUIContent(lab)).x > tw - 10 && _regionTab.fontSize > 8; k++) _regionTab.fontSize = Mathf.Max(8, Mathf.RoundToInt(_regionTab.fontSize * 0.88f));
+                GUI.Label(new Rect(tx + 4, y, tw - 8, barH), lab, _regionTab);
+                _regionTab.fontSize = fs0;
             }
             GUI.color = new Color(1f, 1f, 1f, 0.8f);
             if (first > 0) GUI.Label(new Rect(x0 - 8, y, 20, barH), "◀", _small);

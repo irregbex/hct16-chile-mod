@@ -166,7 +166,71 @@ namespace HCT15
         public static bool IsTrafficCar(BaseCar car) { return car != null && _share.ContainsKey(car); }
 
         /// <summary>What EnemyCarManager.Initialize reads instead of StaticData.NumEnemies.</summary>
-        public static int NumEnemiesPlusTraffic() { return StaticData.NumEnemies + _added; }
+        public static int NumEnemiesPlusTraffic() { return GridEnemies() + _added; }
+
+        /// <summary>
+        /// 2.4.0 - race.json "Racers": the cars on this track's grid, players included (reported, Plaza de Illapel: "there
+        /// must be only 10 andas in the race at a time, CPU and human players together"). The game races NumRacers (20)
+        /// minus the players; with Racers set the rivals are Racers minus the players (at least one, at most the game's).
+        /// The game reads the rival count in four places only: EnemyCarManager.Initialize (transpiled to
+        /// NumEnemiesPlusTraffic), CreateSplineCars (one spline car per rival info minus the players, plus one - the info
+        /// list is cut in FitInfos so it makes exactly as many), the start position (EnemyCarCount, RacersOnGrid) and a
+        /// tournament's points, which no mod campaign uses.
+        /// </summary>
+        public static int GridEnemies()
+        {
+            int n = StaticData.NumEnemies, racers = RacersHere();
+            return racers > 0 ? Mathf.Clamp(racers - StaticData.NumPlayers, 1, n) : n;
+        }
+
+        private static int RacersHere()
+        {
+            try
+            {
+                CustomRaceDef def;
+                string id = StaticData.Race != null ? StaticData.Race.ItemId : null;
+                return id != null && ContentRegistry.RacesById.TryGetValue(id, out def) && def != null ? def.Racers : 0;
+            }
+            catch (Exception) { return 0; }
+        }
+
+        /// <summary>InitSplineCars prefix: a track with "Racers" gets as many rival infos as CreateSplineCars needs for its
+        /// grid (it makes infos - players + 1 spline cars), so the spline cars, the rivals and the start position agree.</summary>
+        internal static void FitInfos()
+        {
+            StreetCars.ResetRivalDecks();
+            int racers = RacersHere();
+            if (racers <= 0) return;
+            try
+            {
+                var app = RRApplication.Instance;
+                if (app.Configuration.NoEnemyCars || StaticData.IsLoadingCredits) return;
+                List<SplineEnemyInfo> infos = app.RaceDataManager.Data.EnemyInfos;
+                int keep = GridEnemies() + StaticData.NumPlayers - 1;
+                if (infos != null && infos.Count > keep) infos.RemoveRange(keep, infos.Count - keep);
+                Debug.Log("[HCT15] grid: " + racers + " racers on '" + StaticData.Race.ItemId + "' (race.json Racers) - " + GridEnemies() + " rival(s) and " + StaticData.NumPlayers + " player(s)");
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] grid: " + ex.Message); }
+        }
+
+        /// <summary>InitSplineCars postfix: never more spline cars than rivals (+ traffic) on a track with "Racers".</summary>
+        internal static void FitSplineCars(EnemyCarManager mgr)
+        {
+            if (RacersHere() <= 0 || mgr == null || mgr.IsUsingPreexistingCars) return;
+            try
+            {
+                var list = Traverse.Create(mgr).Field("m_enemyCars").GetValue<List<EnemyCarSplineController>>();
+                int want = NumEnemiesPlusTraffic(), cut = 0;
+                while (list != null && list.Count > want)
+                {
+                    EnemyCarSplineController c = list[list.Count - 1];
+                    list.RemoveAt(list.Count - 1); cut++;
+                    if (c != null) UnityEngine.Object.Destroy(c.gameObject);
+                }
+                if (cut > 0) Debug.Log("[HCT15] grid: " + cut + " spare spline car(s) removed");
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] grid spline cars: " + ex.Message); }
+        }
 
         private static TrafficJson Load(out string raceId)
         {
@@ -201,7 +265,7 @@ namespace HCT15
                 if (app.Configuration.NoEnemyCars || StaticData.IsLoadingCredits) return;
                 List<SplineEnemyInfo> infos = app.RaceDataManager.Data.EnemyInfos;
                 if (infos == null || infos.Count == 0) { Debug.LogWarning("[HCT15] traffic: the race has no rival list"); return; }
-                if (infos.Count > StaticData.NumEnemies) infos.RemoveRange(StaticData.NumEnemies, infos.Count - StaticData.NumEnemies);
+                if (infos.Count > GridEnemies()) infos.RemoveRange(GridEnemies(), infos.Count - GridEnemies());
                 var models = new List<string>();
                 if (t.Models != null)
                     foreach (string m in t.Models)
@@ -380,7 +444,7 @@ namespace HCT15
                 if (mgr == null) return false;
                 var list = Traverse.Create(mgr).Field("m_enemyCars").GetValue<List<EnemyCarSplineController>>();
                 if (list == null) return false;
-                for (int i = StaticData.NumEnemies; i < list.Count; i++)
+                for (int i = GridEnemies(); i < list.Count; i++)
                     if (list[i] != null && (ICurveEvaluator)list[i].GetComponent<CurvePosition>() == ev) return true;
             }
             catch (Exception) { }
@@ -600,8 +664,8 @@ namespace HCT15
     [HarmonyPatch(typeof(EnemyCarManager), nameof(EnemyCarManager.InitSplineCars))]
     internal static class TrafficPreparePatch
     {
-        private static void Prefix() { Traffic.Prepare(); }
-        private static void Postfix(EnemyCarManager __instance) { Traffic.TopUp(__instance); }
+        private static void Prefix() { Traffic.FitInfos(); Traffic.Prepare(); }
+        private static void Postfix(EnemyCarManager __instance) { Traffic.TopUp(__instance); Traffic.FitSplineCars(__instance); }
     }
 
     [HarmonyPatch(typeof(EnemyCarManager), "SortEnemyList")]

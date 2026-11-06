@@ -172550,5 +172550,26 @@
   "Rapa Nui",
   "Playas de la Quinta Región"
  ],
- "Future": []
+ "Future": [],
+ "RegionNumbers": {
+  "Arica y Parinacota": "XV",
+  "Tarapacá": "I",
+  "Antofagasta": "II",
+  "Rapa Nui": "V",
+  "Atacama": "III",
+  "Coquimbo": "IV",
+  "Playas de la Quinta Región": "V",
+  "Valparaíso": "V",
+  "Santiago": "XIII",
+  "O'Higgins": "VI",
+  "Maule": "VII",
+  "Ñuble": "XVI",
+  "Biobío": "VIII",
+  "Araucanía": "IX",
+  "Los Ríos": "XIV",
+  "Los Lagos": "X",
+  "Aysén": "XI",
+  "Magallanes": "XII",
+  "Antártica": "XII"
+ }
 }

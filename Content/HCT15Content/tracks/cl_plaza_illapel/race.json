@@ -5,6 +5,7 @@
  "CityId": "cl_plaza_illapel_city",
  "CupId": "98_chile",
  "DonorScene": "atacama_02",
+ "Racers": 10,
  "NumberOfLaps": 3,
  "FinishLinePercentage": 0.0,
  "TokenPrize": 3,

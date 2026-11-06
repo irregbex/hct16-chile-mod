@@ -36,6 +36,7 @@
  "Formula1": false,
  "FreePlay": true,
  "Pits": false,
+ "CoinModel": "moneda_500",
  "Blade": "blade.png",
  "Logo": "logo.png",
  "Rounds": [
@@ -3161,7 +3162,11 @@
     "cl_anda_purisima",
     "cl_anda_dolores",
     "cl_anda_rosario",
-    "cl_anda_san_rafael"
+    "cl_anda_san_rafael",
+    "cl_anda_candelaria",
+    "cl_anda_tirana",
+    "cl_anda_santa_rosa",
+    "cl_anda_san_pedro"
    ],
    "Music": "Race/Illapel/Illapel - Chinchinero.wav"
   },

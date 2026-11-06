@@ -4,6 +4,19 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.4.0 (2026-11-05)
+  - Plaza de Illapel: 10 racers on the grid (players included), set by the track's race.json "Racers". Four new andas -
+    Our Lady of Candlemas, Our Lady of La Tirana, St Rose of Lima and St Peter - make ten, each with its own top speed,
+    start, grip and tank (47-56 km/h); every CPU anda is a different one (they are dealt from a shuffled deck, the
+    players' own left out), and every screen sees the same anda for the same rival.
+  - Chile campaign: the coins on the road are Chilean 500-peso coins (asset moneda_500, both faces drawn for the mod,
+    saturated gold) that spin and shine; campaign.json "CoinModel" picks the coin of a campaign, a car's own CoinModel
+    (the carretas' carrots) still wins.
+  - Chile map: the region tabs and the stage list say "Region IV - Coquimbo (10)" (worldmap.json "RegionNumbers"), and
+    a region's stages are listed in round order.
+  - Playa Las Docas and Playa Amarilla: the beach widens into bays and narrows to rocky points, with rock walls, rocks
+    in the shallows and reefs just past the buoys (scenery.json; the dressed beach kept as scenery_playas_base.json).
+
 2.3.9 (2026-11-05)
   - Fixed: on Plaza de Illapel with the andas nobody could win - every rival walked at the player's own pace, so after a
     few laps everybody arrived together. Each anda now has its own top speed (48-55 km/h, the lighter ones quicker,

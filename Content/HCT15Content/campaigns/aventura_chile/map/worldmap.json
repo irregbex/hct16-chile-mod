@@ -60261,5 +60261,23 @@
   ]
  },
  "RegionPicker": true,
- "FixedRegions": []
+ "FixedRegions": [],
+ "RegionNumbers": {
+  "Arica y Parinacota": "XV",
+  "Tarapacá": "I",
+  "Antofagasta": "II",
+  "Atacama": "III",
+  "Coquimbo": "IV",
+  "Valparaíso": "V",
+  "Santiago": "XIII",
+  "O'Higgins": "VI",
+  "Maule": "VII",
+  "Ñuble": "XVI",
+  "Biobío": "VIII",
+  "Araucanía": "IX",
+  "Los Ríos": "XIV",
+  "Los Lagos": "X",
+  "Aysén": "XI",
+  "Magallanes": "XII"
+ }
 }

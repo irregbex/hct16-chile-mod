@@ -23,6 +23,14 @@ namespace HCT15.Patches
         }
     }
 
+    /// <summary>2.4.0: a rival's colour is set once per screen (EnemyCarTrackMultiView.SetColor): one deck draw for all.</summary>
+    [HarmonyPatch(typeof(EnemyCarTrackMultiView), nameof(EnemyCarTrackMultiView.SetColor))]
+    internal static class RivalColourOncePatch
+    {
+        private static void Prefix() { StreetCars.BeginRivalColour(); }
+        private static Exception Finalizer(Exception __exception) { StreetCars.EndRivalColour(); return __exception; }
+    }
+
     [HarmonyPatch(typeof(CarColorDataList), nameof(CarColorDataList.RefreshColorIndex))]
     internal static class ColourRefreshPatch
     {

@@ -37,6 +37,8 @@ namespace HCT15
                 PlayerCar pc = track != null ? track.PlayerCar : null;
                 string carId = pc != null && pc.CarModel != null ? pc.CarModel.ItemId : null;
                 string model = nitro ? StreetCars.NitroModelOf(carId) : coin ? StreetCars.CoinModelOf(carId) : StreetCars.FuelModelOf(carId);
+                bool campaignCoin = false;
+                if (coin && string.IsNullOrEmpty(model)) { model = ModCampaigns.CoinModel; campaignCoin = !string.IsNullOrEmpty(model); }   // 2.4.0: the campaign's coin (the 500 pesos)
                 string had;
                 if (_done.TryGetValue(c, out had) && had == (model ?? "")) return;
                 _done[c] = model ?? "";
@@ -79,15 +81,97 @@ namespace HCT15
                     }
                     if (holder.GetComponent<GreenPulse>() == null) holder.AddComponent<GreenPulse>();
                 }
+                if (campaignCoin) CoinShine(def, mesh, holder.transform, mbnd, goMesh.layer);
                 Vector3 size = mbnd.size;
                 float s = (coin ? CoinSize : Size) / Mathf.Max(0.05f, Mathf.Max(size.x, Mathf.Max(size.y, size.z)));
                 holder.transform.localScale = Vector3.one * s;
                 holder.transform.localPosition = any ? new Vector3(b.center.x, b.min.y, b.center.z) : Vector3.zero;
                 holder.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
-                string what = nitro ? "nitro" : coin ? "coin" : "fuel";
+                string what = nitro ? "nitro" : coin ? (campaignCoin ? "campaign coin" : "coin") : "fuel";
                 if (_logged.Add(what)) Debug.Log("[HCT15] pickup skin: " + what + " as '" + model + "'" + (nitro ? " (green glow)" : "") + " for '" + carId + "' on player " + (track != null ? track.PlayerId : -1) + "'s road");
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] pickup skin: " + ex.Message); }
+        }
+
+        /// <summary>
+        /// 2.4.0: the campaign's coin (moneda_500) turns on its upright axis and shines: its textures smoothed (the library
+        /// draws them pixel-sharp), a soft gold halo disc behind it, breathing (reported: "give it yellow saturation and
+        /// shine"). The halo spins with the coin; the mesh's own centre is its axis (the asset is recentred).
+        /// </summary>
+        private static void CoinShine(AssetLibrary.AssetDef def, GameObject mesh, Transform holder, Bounds mb, int layer)
+        {
+            if (def.Materials != null)
+                foreach (Material m in def.Materials) if (m != null && m.mainTexture != null) m.mainTexture.filterMode = FilterMode.Bilinear;
+            var spin = new GameObject("HCT15_coin_spin") { layer = layer };
+            spin.transform.SetParent(holder, false);
+            spin.transform.localPosition = new Vector3(mb.center.x, 0f, mb.center.z);
+            mesh.transform.SetParent(spin.transform, false);
+            mesh.transform.localPosition = new Vector3(-mb.center.x, 0f, -mb.center.z);
+            spin.AddComponent<CoinSpin>();
+            float r = Mathf.Max(mb.size.y, mb.size.z) * 0.5f;
+            var halo = new GameObject("HCT15_coin_halo") { layer = layer };
+            halo.transform.SetParent(spin.transform, false);
+            halo.transform.localPosition = new Vector3(0f, mb.center.y, 0f);
+            halo.AddComponent<MeshFilter>().sharedMesh = HaloDisc();
+            var hr = halo.AddComponent<MeshRenderer>();
+            hr.sharedMaterial = GoldHalo(); hr.shadowCastingMode = ShadowCastingMode.Off; hr.receiveShadows = false;
+            halo.transform.localScale = Vector3.one * r * 1.55f;
+        }
+
+        // a unit disc in the Y-Z plane (the coin's), white at the centre fading to black at the rim: additive = a soft glow
+        private static Mesh _haloDisc;
+        private static Mesh HaloDisc()
+        {
+            if (_haloDisc != null) return _haloDisc;
+            const int n = 28;
+            var v = new List<Vector3> { Vector3.zero }; var c = new List<Color> { new Color(1f, 1f, 1f, 1f) }; var tri = new List<int>();
+            for (int k = 0; k < n; k++)
+            {
+                float a = 2f * Mathf.PI * k / n;
+                v.Add(new Vector3(0f, 0.62f * Mathf.Sin(a), 0.62f * Mathf.Cos(a))); c.Add(new Color(0.55f, 0.55f, 0.55f, 1f));
+                v.Add(new Vector3(0f, Mathf.Sin(a), Mathf.Cos(a))); c.Add(Color.black);
+            }
+            for (int k = 0; k < n; k++)
+            {
+                int i0 = 1 + 2 * k, o0 = i0 + 1, i1 = 1 + 2 * ((k + 1) % n), o1 = i1 + 1;
+                tri.AddRange(new[] { 0, i0, i1, i0, o0, o1, i0, o1, i1 });
+            }
+            _haloDisc = new Mesh { name = "HCT15_coin_halo" };
+            _haloDisc.SetVertices(v); _haloDisc.SetColors(c); _haloDisc.SetTriangles(tri, 0); _haloDisc.RecalculateBounds();
+            return _haloDisc;
+        }
+
+        private static readonly Color Gold = new Color(1f, 0.78f, 0.18f);
+        private static Material _goldHalo;
+        private static Material GoldHalo()
+        {
+            if (_goldHalo != null) return _goldHalo;
+            if (_haloShader == null) _haloShader = Shader.Find("Hidden/Internal-Colored");
+            _goldHalo = new Material(_haloShader) { name = "HCT15_coin_halo", hideFlags = HideFlags.DontSave };
+            _goldHalo.SetInt("_SrcBlend", (int)BlendMode.One);
+            _goldHalo.SetInt("_DstBlend", (int)BlendMode.One);
+            _goldHalo.SetInt("_Cull", (int)CullMode.Off);
+            _goldHalo.SetInt("_ZWrite", 0);
+            _goldHalo.SetInt("_ZTest", (int)CompareFunction.LessEqual);
+            _goldHalo.renderQueue = 3100;
+            _goldHalo.color = Gold * 0.6f;
+            return _goldHalo;
+        }
+
+        /// <summary>The coin turns (a full turn in 1.6 s) and its halo breathes (the material: once a frame for all).</summary>
+        private class CoinSpin : MonoBehaviour
+        {
+            private static int _frame = -1;
+            private float _phase;
+            private void Awake() { _phase = UnityEngine.Random.Range(0f, 360f); }
+            private void Update()
+            {
+                transform.localRotation = Quaternion.Euler(0f, _phase + Time.time * 225f, 0f);
+                if (_frame == Time.frameCount || _goldHalo == null) return;
+                _frame = Time.frameCount;
+                Color c = Gold * (0.45f + 0.25f * Mathf.Sin(Time.time * 5f)); c.a = 1f;
+                _goldHalo.color = c;
+            }
         }
 
         // the model's mesh with its vertex colours pushed to an intense green (one copy per model)

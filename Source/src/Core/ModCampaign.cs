@@ -525,6 +525,8 @@ namespace HCT15
 
         /// <summary>The music player's "now playing" card, unless the running campaign says "NowPlaying": false (the retro campaign).</summary>
         public static bool NowPlayingAllowed { get { ModCampaign c = Active; return c == null || c.Def == null || c.Def.NowPlaying; } }
+        /// <summary>2.4.0: campaign.json "CoinModel" of the running campaign, or null.</summary>
+        public static string CoinModel { get { ModCampaign c = Active; return c != null && c.Def != null && !string.IsNullOrEmpty(c.Def.CoinModel) ? c.Def.CoinModel : null; } }
 
         /// <summary>Mechanics at the pit stop, unless the running campaign says "PitCrew": false (the retro campaign).</summary>
         public static bool PitCrewAllowed { get { ModCampaign c = Active; return c == null || c.PitCrewEnabled; } }

@@ -73,6 +73,10 @@ namespace HCT15
         public int Order;                 // place among the campaign blades (lower first; 0 = unset: f1_2026 leads, the rest follow in folder order at 50)
         public string MenuMusic = "";     // the menu track that starts the moment the campaign screen opens (a file under HCT15Music, e.g. "Menu/TopGear/01_title_theme.ogg")
         public bool NowPlaying = true;    // false: no "now playing" card when a track starts inside this campaign (the retro campaign)
+        /// <summary>2.4.0: the asset-library model every coin on the road is drawn as inside this campaign (the Chile campaign:
+        /// "moneda_500", the 500-peso coin - reported: "replace the blue coins in the Chile campaign"); a car's own CoinModel
+        /// (the carretas' carrots) still wins. Empty = the game's blue coin.</summary>
+        public string CoinModel = "";
         public float LoadingLogoScale = 1f; // the loading screen's logo this much bigger, about its centre (the retro campaign: 2)
         public string[] NameLangs = new string[0], NameTexts = new string[0], ModeNameLangs = new string[0], ModeNameTexts = new string[0];
         public List<string> CarIds = new List<string>();
