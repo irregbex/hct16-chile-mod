@@ -40,6 +40,12 @@ namespace HCT15
     }
 
     [Serializable]
+    public class RetroRival { public string Name = ""; public int Base; public float Edge; }   // 2.4.2 Edge > 0: always his top cruise, and at least Edge x the COMPUTER's (the favourite: RITCHIE)
+    /// <summary>2.4.1: a country of a campaign's track list (campaign.json "Countries", in round order): its name, flag picture
+    /// (relative to the campaign folder) and how many consecutive rounds it holds - the Top Gear screen groups them so.</summary>
+    [Serializable] public class CountryDef { public string Name = ""; public string Flag = ""; public int Rounds = 4; }
+
+    [Serializable]
     public class F1CampaignDef
     {
         public bool Formula1;
@@ -52,6 +58,21 @@ namespace HCT15
         public float DonorDecor = 1f;     // how much of the donor stage's own decor is kept along the lap (1 = the settings' density, 0 = none: the retro campaign keeps only its pixel sprites)
         public int Grandstands = -1;      // grandstands on the start straight and the bends (-1 = the settings' count, 0 = none)
         public float BubbleScale = 1f;    // the speech bubbles this much bigger in this campaign (the retro campaign: 2, its 224-line world made them unreadable)
+        // 2.4.1 "RetroRules" (the Top Gear campaign, RetroRules.cs): the 16-bit game's rules - no pickups on the road (coins,
+        // nitros, fuel cans), no fuel lost in crashes, fuel burnt at the track's FuelTankSeconds, the SNES pit stop (PitLane),
+        // and the rivals at a fixed cruise speed with no rubber band: RetroRivals in grid order from the BACK (Base = the
+        // ROM's base speed in rival units; cruise = Base + 2 x random(0..255) + race.json RetroDifficulty), RetroComputer = the
+        // white COMPUTER car's cruise in player units; player units -> the game's km/h: x RetroTopKph / RetroTopUnits.
+        public bool RetroRules;
+        public List<RetroRival> RetroRivals = new List<RetroRival>();
+        public bool CountryGate; public List<string> Passwords = new List<string>();   // 2.4.2: countries open one by one (top 3 of the table), a password per country (TopGearQualify)
+        public List<CountryDef> Countries = new List<CountryDef>();   // 2.4.1: the track list grouped by country (Top Gear)
+        public int RetroComputer;
+        public string RetroComputerName = ""; public float RetroComputerEdge;   // 2.4.2: the white car's board name (RITCHIE) and its speed x this
+        public float RetroTopKph = 395f;
+        public int RetroTopUnits = 10000;
+        public List<string> RetroCars = new List<string>();   // car ids (prefix match) ...
+        public List<float> RetroFuel = new List<float>();     // ... and their ROM fuel consumption (100 = the reference)
         /// <summary>
         /// Music albums (the sub-folder names under HCT15Music\Menu and HCT15Music\Race) that belong to
         /// THIS campaign: they play only while the player is inside it, and are kept out of the general
@@ -63,11 +84,11 @@ namespace HCT15
         /// <summary>2.0.11: albums whose songs are dealt out round by round to this campaign's races that name no music
         /// of their own (every other round, in round order, so each song of the album gets a race; the rounds between
         /// keep the automatic pick from everything allowed). Absent: "Agregados" for a campaign that claims no albums
-        /// (2026-10-07: new songs added to Agregados should be heard in the added campaigns); an empty list
-        /// switches it off.</summary>
+        /// (the user, 2026-10-07: "several new songs were added to Agregados - make them appear in the added
+        /// campaigns"); an empty list switches it off.</summary>
         public List<string> MusicPrefer = null;
-        /// <summary>2.0.15: when set, this campaign's RACES play only these albums (2026-10-08: on the Chile tracks only
-        /// the Agregados songs) - the automatic pick, F11 and the hand-over at a song's end; a round's own "Music" still wins.
+        /// <summary>2.0.15: when set, this campaign's RACES play only these albums (the user, 2026-10-08: "on the Chile tracks only
+        /// the Agregados songs") - the automatic pick, F11 and the hand-over at a song's end; a round's own "Music" still wins.
         /// Menus are not touched. Empty or absent: every allowed album, as before.</summary>
         public List<string> RaceMusicOnly = null;
         public int Order;                 // place among the campaign blades (lower first; 0 = unset: f1_2026 leads, the rest follow in folder order at 50)
@@ -699,7 +720,7 @@ namespace HCT15
         public static void FitInSelectionSlot(GameObject car, GameObject reference) { FitInSelectionSlot(car, reference, 1f); }
 
         /// <summary>selectScale (2.0.13, CarDef.SelectScale): the car shown this many times a retail car's length - the micro,
-        /// half again the bus it was, looks it on the turntable too (the carousel should show its size). Split
+        /// half again the bus it was, looks it on the turntable too (the user: "the carousel should fit its size"). Split
         /// screen keeps every car at a retail car's length: each player has half a screen.</summary>
         public static void FitInSelectionSlot(GameObject car, GameObject reference, float selectScale, float selectScale2P = 0f)
         {
@@ -714,12 +735,12 @@ namespace HCT15
                 // the length to fit: a retail car of this view, or - a view of our cars only (a carreta campaign) -
                 // a retail car's usual length. The turntable spins the model about the slot and the split-screen camera
                 // is 6 units away: a 5.7-unit carreta put its horse's head 2.9 units from the lens, a brown shape over
-                // the whole half screen with the hay hidden behind it (2026-10-06: the screen looked broken and
-                // sometimes the hay did not show).
+                // the whole half screen with the hay hidden behind it (2026-10-06, the user: "the game breaks and
+                // sometimes the hay does not show").
                 float refLen = MaxSelectionLength;
                 Bounds rb;
                 if (reference != null && CombinedBounds(reference, out rb)) refLen = Mathf.Max(rb.size.x, rb.size.z);
-                // 2.2.7 (with two players the andas were too tall to show whole on the selection screen):
+                // 2.2.7 (the user, two players: "the andas on the selection screen are too tall and do not show whole"):
                 // the views are built at start-up, before anyone knows how many will play, so a tall car (the andas: the
                 // Virgin above the bearers) says so with a small SelectScale - the scale may go down to 0.2 for it
                 if (carLen > 0.01f && refLen > 0.01f && (reference != null || carLen > refLen || grow > 1.01f))
@@ -729,7 +750,7 @@ namespace HCT15
                     CombinedBounds(car, out cb);
                 }
                 // 2.0.28: the turntable spins the car about its OWN origin - a body set off it (the andas' and the carreta's
-                // Shift) went round in a circle off the plate (the andas were not centred). The body goes onto
+                // Shift) went round in a circle off the plate (the user: "the andas are not centred"). The body goes onto
                 // the origin first, then the origin onto the slot.
                 Transform root = car.transform.Find("root");
                 Vector3 off = new Vector3(cb.center.x - car.transform.position.x, 0f, cb.center.z - car.transform.position.z);
@@ -737,7 +758,7 @@ namespace HCT15
                 Vector3 slot = car.transform.parent != null ? car.transform.parent.position : car.transform.position;
                 Vector3 shift = new Vector3(slot.x - cb.center.x, 0f, slot.z - cb.center.z);
                 car.transform.position += shift;
-                // 2.3.2 (reported: "with 1 player the andas look very small now - I asked for them smaller only for 2 players or
+                // 2.3.2 (the user: "with 1 player the andas look very small now - I asked for them smaller only for 2 players or
                 // more"): the views are built once, so a car with its own split-screen size switches as the player count does
                 if (selectScale2P > 0f && Mathf.Abs(selectScale2P - selectScale) > 0.01f)
                 {
@@ -773,7 +794,7 @@ namespace HCT15
 
         // ------------------------------------------------------------------ assets folder
 
-        /// <summary>HCT15Content\campaigns\f1_2026\assets - editable graphics, with originals dumped beside them.</summary>
+        /// <summary>HCT15Content\campaigns\f1_2026\assets - user-editable graphics, with originals dumped beside them.</summary>
         public static string AssetsDir
         {
             get
@@ -1304,7 +1325,7 @@ namespace HCT15
                 int texts = 0, swapped = 0, overridden = 0, dumped = 0;
 
                 // The skinned objects live on the persistent UI canvas, so an override outlives the campaign that
-                // asked for it - the retro campaign's logo stayed on the loading screen of the retail game (2026-09-24).
+                // asked for it - the retro campaign's logo stayed on the loading screen of the retail game (user, 2026-09-24).
                 // Every override is remembered with the original it replaced, and put back the moment the campaign
                 // that owns it is no longer the active one (here, and in OnState for any screen).
                 PruneOriginals();
@@ -1371,10 +1392,12 @@ namespace HCT15
                             ri.texture = user; overridden++;
                         }
                         ScaleLoadingLogo(ri.transform, active);
+                        if (key == "english") LogoAnim.On(ri, ui, null, false, 4f, 0.5f, true, 0.221f);   /* 2.4.2: 22.1 % of the screen width (the user's measure) */   // the user: four times as fast, 50 %, kept under the rest   // 2.4.1: the loading screen's logo animated (Top Gear's SNES title)
                         continue;
                     }
                     if (ours)
                     {
+                        LogoAnim.Off(ri);
                         ri.texture = orig; _origTextures.Remove(ri); restored++;
                         ScaleLoadingLogo(ri.transform, null);
                     }
@@ -1475,7 +1498,7 @@ namespace HCT15
                 // one name height was not enough (the first info line still ran through the name): two and a half
                 float drop = title != null ? title.fontSize * 2.5f : t.fontSize * 2.6f;
                 RectTransform r = t.rectTransform;
-                // 2.2.7 (with two players the descriptions sat too low, under the upgrades): the fixed drop was
+                // 2.2.7 (the user, two players: "the descriptions show too low, under the upgrades"): the fixed drop was
                 // measured on the full screen - the text's top now goes just under the name's letters, measured
                 float measured;
                 if (title != null && DropUnder(t, title, out measured)) drop = Mathf.Clamp(measured, 0f, title.fontSize * 2.5f);
@@ -1578,9 +1601,9 @@ namespace HCT15
                 logo.localScale = Vector3.one * scale;
                 Debug.Log("[HCT15] loading logo x" + scale.ToString("0.0") + " (" + PathOf(image) + ")");
             }
-            // Grown around its centre, a logo that sat near the top of the screen leaves it (the retro campaign one lost
+            // Grown around its centre, a logo that sat near the top of the screen leaves it (the the retro campaign one lost
             // its "TOP", 2026-09-24). A keeper slides it down just far enough to stay on screen, and no further, so
-            // it stays as centred as it can be (wanted: twice as big, just as centred). Every frame,
+            // it stays as centred as it can be (user: "dos veces más grande, igual de centrado"). Every frame,
             // because a one-shot slide was undone by the screen's own layout.
             if (rt == null) return;
             LoadingLogoFit fit = rt.GetComponent<LoadingLogoFit>();

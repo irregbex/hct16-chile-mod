@@ -103,7 +103,7 @@ namespace HCT15
         }
 
         /// <summary>
-        /// 2.0.11: the road narrows and widens (tracks become thinner and wider along the lap). ground.json's
+        /// 2.0.11: the road narrows and widens (the user: "the tracks should become thinner and wider"). ground.json's
         /// Lanes list gives stretches their lane count; the road spans lanes x 1.527 units and the car's lateral room
         /// follows it (CarLateralController). A change becomes the lane count of the entry already within MinSnap of its
         /// edge (TrackView ignores an entry that comes while it is still fading the previous one), else a new entry.
@@ -232,8 +232,8 @@ namespace HCT15
 
         // ------------------------------------------------------------------ 2.0.16: the centre line of a two-way road
         /// <summary>
-        /// 2026-10-07: the roads of that campaign are two-way, and in the middle of the road there are markings
-        /// that tell whether one may overtake or not. ground.json "CenterLine": true. The no-overtaking stretches are
+        /// The user (2026-10-07): "the roads of that campaign are two-way ... in the middle of the road there are markings
+        /// that tell whether one may overtake or not". ground.json "CenterLine": true. The no-overtaking stretches are
         /// where the FINAL road (after TrackShape: the curve gain, the wiggles, the Cuesta's bends) turns more than
         /// NoPassTurn degrees within +-Probe units, grown by Lead units on both sides (the line goes solid before the bend
         /// and stays solid after it); dashed gaps shorter than MinDashed become solid, solid ones shorter than MinSolid

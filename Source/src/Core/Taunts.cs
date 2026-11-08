@@ -326,7 +326,7 @@ namespace HCT15
         }
 
         /// <summary>
-        /// 2.0.11 (2026-10-07: many more taunts, and every one of them heard): the game has 15
+        /// 2.0.11 (the user, 2026-10-07: "I would like to hear many more taunts, and hear all of them"): the game has 15
         /// speech slots per car (random 1-5, nitro 1-2, out_of_nitros, crash 1-3, overtake 1-3, first_place), each tied
         /// to one line, so 15 of a car's lines ever showed. Now, as a bubble is about to show (CarUIViewModel.ShowMessage
         /// prefix), its key is given the NEXT line of its section: every line of the section in a shuffled order, each
@@ -352,8 +352,8 @@ namespace HCT15
                 }
                 int idx = left[left.Count - 1];
                 left.RemoveAt(left.Count - 1);
-                // 2.0.16 - on the stage that ends in Illapel, the carreta uses the taunts that mention Illapel
-                // more: on a stage whose id says illapel, half the time a line of this section that names the place (not the
+                // 2.0.16 - the user: "on the stage that ends in Illapel, the carreta should use the taunts that mention Illapel
+                // more": on a stage whose id says illapel, half the time a line of this section that names the place (not the
                 // one just shown) - the shuffled cycle goes on underneath, so every other line still gets its turn
                 try
                 {
@@ -365,8 +365,8 @@ namespace HCT15
                             if (i != r.Index && NamesThePlace(pool[i])) local.Add(i);
                         if (local.Count > 0) { left.Add(idx); idx = local[_cycleRng.Next(local.Count)]; left.Remove(idx); if (_localLogged++ < 6) Debug.Log("[HCT15] taunts: on '" + race + "' the line naming the place: " + key + " -> \"" + pool[idx] + "\""); }
                     }
-                    // 2.1.5 - the lines that mention Illapel appear ONLY in the Rutas de Chile campaign: they are
-                    // about the road to Illapel, out of that campaign they have no context; anywhere else such a line is skipped
+                    // 2.1.5 - the user: "the lines that mention Illapel should ONLY appear in the Rutas de Chile campaign; it is
+                    // about the road to Illapel, out of that campaign it has no context": anywhere else such a line is skipped
                     // (it stays in the cycle, so it comes back when the campaign is Rutas de Chile); a race in Illapel itself
                     // keeps them too - the Plaza de Illapel is in the Chile campaign and its andas talk about their town
                     if (NamesThePlace(pool[idx]) && !PlaceFits())
@@ -445,7 +445,7 @@ namespace HCT15
 
         /// <summary>
         /// A long line on two lines. The bubble is drawn for the retail lines (about 22 characters); the micro's
-        /// "That car's a toy, mate!" (in Spanish) ran off the screen (2026-09-24). Broken at the space nearest the
+        /// "¡Ese auto es de juguete, weón!" ran off the screen (user, 2026-09-24). Broken at the space nearest the
         /// middle once the line passes WrapAt characters; an author's own line break is kept as it is.
         /// </summary>
         public const int WrapAt = 24;
@@ -493,8 +493,8 @@ namespace HCT15
         private static string _syncedFor;
 
         /// <summary>
-        /// 2.2.9 (the taunts of the Chilean custom cars showed up in the original game's Campaign and Adventures).
-        /// Refresh ran only when a mod campaign started, so after the Chile campaign every car
+        /// 2.2.9 (the user: "the taunts of the Chilean custom cars show up in the original game's Campaign and Adventures;
+        /// that should not happen"). Refresh ran only when a mod campaign started, so after the Chile campaign every car
         /// of the World Tour or an Adventure kept the Chilean lines. Each race start (ModCampaigns.OnRaceInitialized) now
         /// re-reads the lines when the running campaign is not the one they were read for.
         /// </summary>

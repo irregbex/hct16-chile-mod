@@ -5,8 +5,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.11: a road made more fun on load (2026-10-06: roads more curvy and more
-    /// fun). race.json CurveGain / HillGain (1 = as built). Real highways are mostly gentle and geo_to_race keeps them so;
+    /// 2.0.11: a road made more fun on load (the user, 2026-10-06: "I also want the roads to be more curvy and be more
+    /// fun"). race.json CurveGain / HillGain (1 = as built). Real highways are mostly gentle and geo_to_race keeps them so;
     /// every dressing tool places things by the share of the lap (P, side, distance from the road), never by world
     /// position, so the shape can change here, at load, and everything stays beside the stretch it belongs to.
     ///   curves: the road is split into its broad line (a moving average over Window units, a closed loop) and the
@@ -30,9 +30,9 @@ namespace HCT15
         /// <summary>
         /// 2.0.15 - race.json "Bends": a stretch (From..To, shares of the lap) where the road zigzags - Count half-waves of
         /// Amp units sideways, faded in and out - and its height bump grows by HillGain about the line joining its two
-        /// ends, the slope there held to MaxGrade instead of the usual 0.13. Added 2026-10-08 for Ruta 47's Cuesta
-        /// Cavilolen: half of those bends is a very, very steep two-lane climb and the second half a long descent,
-        /// and the stage should have them - the real road turns 450-750 degrees a km there, the quarter-scale stage kept
+        /// ends, the slope there held to MaxGrade instead of the usual 0.13. The user (2026-10-08), on Ruta 47's Cuesta
+        /// Cavilolen: "half of those bends is a very, very steep climb with two lanes and the second half a long descent;
+        /// that should be in this stage" - the real road turns 450-750 degrees a km there, the quarter-scale stage kept
         /// 30-90: its hairpins are too tight for the engine at that scale, so they come back as S-bends.
         /// </summary>
         [Serializable] public class Bend { public float From, To; public int Count = 6; public float Amp = 8f; public float HillGain = 1f; public float MaxGrade = 0.13f; public string Name = ""; }

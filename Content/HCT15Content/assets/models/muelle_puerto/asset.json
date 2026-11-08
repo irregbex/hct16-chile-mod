@@ -1,0 +1,11 @@
+{
+  "Id": "muelle_puerto",
+  "Name": "Quay",
+  "Category": "building",
+  "Description": "A stretch of concrete quay with bollards and a yellow edge line, 18 along, 10 deep",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

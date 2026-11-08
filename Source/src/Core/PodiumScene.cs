@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,7 +9,8 @@ namespace HCT15
     public class PodiumRacer { public int Pos; public string Name = ""; public float Time; public bool Human; public BaseCar Car; }
 
     /// <summary>
-    /// 2.3.0: the podium ceremony live, in 3D (port of an out-of-game three.js prototype). One minute: the 3rd, 2nd and 1st arrive from the road behind the stage with braking, a turn,
+    /// 2.3.0: the podium ceremony live, in 3D (port of Prototipo-Podio\podio_v2.html, which stays the reference and the
+    /// out-of-game preview). One minute: the 3rd, 2nd and 1st arrive from the road behind the stage with braking, a turn,
     /// the ramp and suspension (planArrival), are received by the promo models, photographers' flashes, CO2, metallic
     /// confetti, fireworks, the champion lifts the cup, champagne, the crowd celebrates (each person jumping on its own),
     /// kisses with rising hearts, tears, signs, and a broadcast camera cutting between shots. The cars are copies of the
@@ -50,7 +51,7 @@ namespace HCT15
         private readonly Tod _tod;
         public readonly string Mode;
         private readonly bool _fireworksAll, _night;
-        // 2.3.2 (reported: "how will the podiums of the beach campaign be? make a podium scene for the beach too: the jet
+        // 2.3.2 (the user: "how will the podiums of the beach campaign be? make a podium scene for the beach too: the jet
         // skis with their riders arrive at a beach at sunset and get their prizes"): jet skis on the podium = the road
         // behind the stage is the sea (_water); away from Santiago's flood it is a beach at sunset, the stage on the sand
         private readonly bool _water, _beach, _nudist;
@@ -151,7 +152,7 @@ namespace HCT15
             _top = top; _trackName = trackName ?? ""; _sky = sky ?? new List<SkyItem>();
             _water = top != null && top.Exists(IsWaterCraft);
             _beach = _water && !(trackId ?? "").StartsWith("cl_stgo");
-            // 2.3.6 (reported: "on Playa Luna's podium ALL the spectators must be naked but for black bars over their private
+            // 2.3.6 (the user: "on Playa Luna's podium ALL the spectators must be naked but for black bars over their private
             // parts - that is important"): the nudist beach - the crowd and the promo models as its bathers (Human Opt Nude)
             _nudist = _beach && trackId == "cl_playa_luna";
             Mode = _beach ? "atardecer" : TimeFromClimate(climate ?? "");
@@ -259,7 +260,7 @@ namespace HCT15
                 try { Backdrop(dir, ref ground); }
                 catch (Exception ex) { Debug.LogWarning("[HCT15] podium: horizon: " + ex.Message); }
             }
-            // 2.3.3 (a screenshot of the jet ski podium: "the blue water polygons pass under the land polygons, it
+            // 2.3.3 (the user's screenshot of the jet ski podium: "the blue water polygons pass under the land polygons, it
             // should all be sea"): with the sea, the ground disc goes 2 m down - at 0 it covered the far sea and cut the waves
             var terrain = new Stage3D.MeshBuilder(); terrain.Cyl(V(0, _water ? -2f : -.1f, 0), 1300, 1300, .1f, 48);
             St.Part(St.Keep(terrain.Build("terrain")), St.Lit(ground * Stage3D.Hex(t.Tint), 0, .05f), null, Vector3.zero);
@@ -433,7 +434,7 @@ namespace HCT15
             }
             St.Part(St.CylMesh(.32f, .38f, 1f, 10), L(0x2a2a33, .6f, .8f), null, V(2.9f, PlatH[1] + .5f, 5.2f));
             _trophy = Trophy();
-            // 2.3.6 (reported: "on the podium the trophy has to be handed over by someone else, and the winner receives it and
+            // 2.3.6 (the user: "on the podium the trophy has to be handed over by someone else, and the winner receives it and
             // takes it - for every podium"): a presenter of the cup waits by its stand, picks it up, walks it over, holds it out,
             // the winner takes it, and she steps back to clap
             _giver = new Human(St, null, Beach(new Human.Opt { Top = 0xf4f4f4, Dress = true, Shiny = true, Sleeves = false, Style = "bun", Hair = 0x2a1a10, Height = 1.72f, Shoes = 0xd4a017 }, true, "swim", true));
@@ -583,7 +584,8 @@ namespace HCT15
                 St.BoxPart(L(0x222222), c, V(0, .09f, 0), V(.07f, .06f, .05f));
                 _photogs.Add(h); _nextFlash[h] = Stage3D.Rnd(0, 2); _flashEnd[h] = 0;
             }
-            // six full rows of 13 a side, every one animated (back rows Lite), a third with flags
+            // 2.3.0 second round (the user: "the crowd at the back does not move, its flags are static; the front crowd is too
+            // few and moves too little"): six full rows of 13 a side, every one animated (back rows Lite), a third with flags
             for (int s = -1; s <= 1; s += 2)
                 for (int r = 0; r < 6; r++)
                     for (int i = 0; i < 13; i++)
@@ -614,7 +616,7 @@ namespace HCT15
 
         // ------------------------------------------------------------------ 2.3.3: the beach podium's people and props
 
-        // reported (2026-11-03): "on the jet ski podiums every spectator and everyone waiting for the riders in swimsuits or
+        // the user (2026-11-03): "on the jet ski podiums every spectator and everyone waiting for the riders in swimsuits or
         // bikinis, young and attractive - it is a beach in summer; the riders in jet ski gear". Swimwear for the crowd and the
         // models (bikinis of the platform colours), shorts, tees and sunglasses for the staff, a summer dress for the
         // presenter; wetsuit and life vest for the riders (Cars)
@@ -896,7 +898,7 @@ namespace HCT15
             }
         }
 
-        // 2.3.2 (reported: "the drivers must come out in racing helmets and walk with knees, and when they take the helmets
+        // 2.3.2 (the user: "the drivers must come out in racing helmets and walk with knees, and when they take the helmets
         // off they must have long, full hair like in the eighties"): suit and helmet of one colour, knees, big 80s hair
         private Human.Opt DriverOpt(int col)
         {
@@ -905,7 +907,7 @@ namespace HCT15
             return new Human.Opt { Top = col, Bottom = col, Shoes = 0x111111, Style = "big80", Knees = true, Helmet = col, Height = Stage3D.Rnd(1.7f, 1.84f) };
         }
 
-        // ---- 2.3.5 (reported: "the carreta is one of the few vehicles with a visible driver; on the podium THAT driver has to get
+        // ---- 2.3.5 (the user: "the carreta is one of the few vehicles with a visible driver; on the podium THAT driver has to get
         // off and receive the cup - now he stays in the car and another figure in a uniform turns up"). A model marks its driver
         // as OBJ group "driver" (AssetLibrary: uv2.x = 1 on those vertices, kept through the race body's fitting). On the
         // podium the copy's marked triangles go when the figure gets off, the figure starts at his seat and wears his
@@ -1050,7 +1052,7 @@ namespace HCT15
                 if (a == null || a.DriverMaterials.Count == 0) return null;
                 var col = new Dictionary<string, int>();
                 for (int i = 0; i < a.DriverMaterials.Count; i++) col[a.DriverMaterials[i]] = ToHex(a.DriverColours[i]);
-                // 2.3.5 (reported: "the first place's anda should no longer carry its figure and THAT one should receive the cup - a
+                // 2.3.5 (the user: "the first place's anda should no longer carry its figure and THAT one should receive the cup - a
                 // driver came out of nowhere"; then: "the Virgin coming down for the prize is a sacrilege - one of the men should
                 // leave the anda and receive it"): an anda's driver is its first front bearer (his credential's "badge" gives him
                 // away) - he leaves the poles in his shirt and trousers and takes the prize; the image stays on the anda
@@ -1194,7 +1196,7 @@ namespace HCT15
                         if (t.name.StartsWith("HCT15_leg_", StringComparison.Ordinal)) legs.Add(t);
                         if (t.name == "high" || t.name == "med" || t.name == "medium" || t.name == "low" || t.name == "first_person") parts.Add(t);
                     }
-                    // 2.3.5 (reported: "only one anda was put right, the other two stayed tilted"): in the race an anda rolls up to
+                    // 2.3.5 (the user: "only one anda was put right, the other two stayed tilted"): in the race an anda rolls up to
                     // 25 degrees into a bend and rocks and hops with each stride (TrotBob), and the copy took the pose of the moment
                     // the race ended - the rivals were caught mid-bend. The copy's bodies go back to the race body's rest pose
                     try
@@ -1248,7 +1250,8 @@ namespace HCT15
 
         /// <summary>
         /// The mod's own cars (F-150, taxi, micros, carreta...) wear the library's vertex-colour props material
-        /// (HorizonChase/Props/Props), which bends with the race camera and draws nothing here: those slots get the stage's unlit vertex-colour material.
+        /// (HorizonChase/Props/Props), which bends with the race camera and draws nothing here (the user, 2026-11-03: "I
+        /// played the F-150 and it did not show on the podium"): those slots get the stage's unlit vertex-colour material.
         /// </summary>
         private Material[] Drawable(Material[] mats)
         {
@@ -1266,8 +1269,8 @@ namespace HCT15
 
         private static bool IsFx(Transform t)
         {
-            // the player's car view also carries its camera's sky, background and track backdrop (1.4 km across: a car
-            // copied with them was shrunk to nothing) - only what sits on the car is copied
+            // the player's car view also carries its camera's sky, background and track backdrop (1.4 km across: the
+            // F-150 of the user's race was shrunk to nothing by them) - only what sits on the car is copied
             Renderer rr = t.GetComponent<Renderer>();
             string shader = rr != null && rr.sharedMaterial != null && rr.sharedMaterial.shader != null ? rr.sharedMaterial.shader.name : "";
             if (shader.IndexOf("Environment", StringComparison.OrdinalIgnoreCase) >= 0) return true;
@@ -1949,7 +1952,7 @@ namespace HCT15
                     for (int k = 0; k < 4; k++) { float h4 = 1 / 240f; pv += (100 * (tp - pit) - 2 * .38f * 10 * pv) * h4; pit += pv * h4; rv += (100 * (tr - rol) - 2 * .38f * 10 * rv) * h4; rol += rv * h4; }
                     p.X[f] = (fr.x + rr.x) / 2; p.Z[f] = (fr.y + rr.y) / 2; p.Y[f] = (yF + yR) / 2; p.Yaw[f] = yaw; p.Slope[f] = -Mathf.Atan2(yF - yR, 2 * wb);
                     p.Bp[f] = pit; p.Br[f] = rol; p.Vv[f] = vel; p.Brake[f] = aLong < -.8f || (vel < .5f && t < p.Dur + .6f);
-                    // 2.3.5 (reported: "several andas arrive and stay tilted"): a long vehicle's rear axle (0.38 of its length
+                    // 2.3.5 (the user: "several andas arrive and stay tilted"): a long vehicle's rear axle (0.38 of its length
                     // back) was still on the turn or the ramp when it stopped - it parked askew, one end sunk in the platform.
                     // Over its last 0.8 s it settles straight, level and wholly on top
                     float settle = Mathf.Clamp01((t - (p.Dur - .8f)) / .8f); settle = settle * settle * (3 - 2 * settle);

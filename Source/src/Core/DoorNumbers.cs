@@ -10,8 +10,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.26 (2026-10-15: in the race to Pelambres every red pickup gets a big white number on its doors, each one
-    /// different - and then a different plate on every pickup, under the number, smaller): the mine's
+    /// 2.0.26 (the user, 2026-10-15: "in the race to Pelambres every red pickup should have a big white number on its
+    /// doors, each one different" - and then "a different plate on every pickup, under the number, smaller"): the mine's
     /// fleet markings. On a round whose Cars list is nothing but the F-150 and its colours (the Ruta D-81), every F-150
     /// on the track gets, on both front doors, a white block-digit fleet number (the player's car 1, player 2 gets 2...,
     /// the rivals and the traffic the next free numbers in the order their bodies are dressed) and under it, smaller,
@@ -21,7 +21,7 @@ namespace HCT15
     /// from StreetCars.ApplyVariant, which runs for every body swap. Why that sub-mesh and no other: in a race the game
     /// bends every car body with the road through shader properties it sets per frame on the renderer's FIRST material
     /// (its own instance); a second sub-mesh keeps a material without those values, so its vertices stay unbent and
-    /// the digits drift off the doors as the road curves - fine on the turntable, adrift in a race (reported three
+    /// the digits drift off the doors as the road curves - fine on the turntable, adrift in a race (the user, three
     /// times, 2026-10-15). Child objects were no better (they rode 0.57 above the body: the parts sit that far under
     /// sub_root). CurrentVariant asks BaseOf() for the colour mesh a numbered copy came from. Numbers reset per race.
     /// </summary>
@@ -126,7 +126,7 @@ namespace HCT15
                     {
                         copy = Bake(baseMesh, n, plate, slot);
                         _copies[key] = copy; _baseOf[copy] = baseMesh;
-                        // one line per bake, so a player's log (output_log.txt) tells which build and geometry they run
+                        // one line per bake, so a user's log (output_log.txt) tells which build and geometry they run
                         Debug.Log("[HCT15] door numbers: " + n + " '" + plate + "' baked into '" + baseMesh.name + "' " + part + " (bounds c " + baseMesh.bounds.center.ToString("F2") + " s " + baseMesh.bounds.size.ToString("F2") + ", slot " + slot + " of " + baseMesh.subMeshCount + ", " + (copy.vertexCount - baseMesh.vertexCount) + " mark vertices; door x " + FlankX(baseMesh.vertices, baseMesh.triangles, baseMesh.bounds.min.y + baseMesh.bounds.size.y * 0.46f, baseMesh.bounds.center.z + baseMesh.bounds.size.z * 0.08f, 1, baseMesh.bounds.max.x).ToString("F3") + " vs bounds " + baseMesh.bounds.max.x.ToString("F3") + "; build " + Build + ")");
                     }
                     if (mf.sharedMesh != copy) mf.sharedMesh = copy;
@@ -152,8 +152,8 @@ namespace HCT15
             {
                 // the door's own surface, found with a ray through the mesh at the mark's height - NOT the bounds: the
                 // bounds' flank is the mirrors, 20 cm out, and the marks hung in the air off the door seen from the
-                // front (2026-10-15: the problem only showed from the front, not from the side)
-                // 2026-10-18 (the number's edge cut the window): number and plate 7 % of the body lower
+                // front (the user, 2026-10-15: "the problem only shows from the front, not from the side")
+                // 2026-10-18 (the user: "the number's edge cuts the window"): number and plate 7 % of the body lower
                 float xNum = FlankX(sv, sTri, b.min.y + H * 0.39f, zc, side, (side > 0 ? b.max.x : b.min.x));
                 float xPlate = FlankX(sv, sTri, b.min.y + H * 0.17f, zc, side, xNum);
                 Text(n.ToString(), H * 0.29f, 1.0f, b.min.y + H * 0.245f, xNum + side * 0.012f, zc, side, v, nn, uv, col, tri);
@@ -164,7 +164,7 @@ namespace HCT15
             float tz = EndZ(sv, sTri, tx, ty + th * 0.5f, -1, b.min.z);
             TextZ(n.ToString(), th, ty, tx, tz - 0.012f, -1, v, nn, uv, col, tri);
             // the bumper plates: the model's own plates (one per paint) get this car's plate over them, so every
-            // pickup on the road has its own (2026-10-15/18: all the F-150 plates different while playing)
+            // pickup on the road has its own (the user, 2026-10-15/18: "all the F-150 plates different while playing")
             PlateOver(src, colSrc, plate, +1, v, nn, uv, col, tri);
             PlateOver(src, colSrc, plate, -1, v, nn, uv, col, tri);
             var m = new Mesh { name = src.name + "|" + n };

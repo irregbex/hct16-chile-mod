@@ -2,11 +2,10 @@
  "Mode": "progress",
  "Seconds": 0,
  "Recipe": {
-  "Preset": "golden_sea",
-  "NightAt": 1.0
+  "Preset": "sunset_to_night",
+  "NightAt": 0.08,
+  "NoSun": true,
+  "Blackout": true
  },
- "Comment": "playas_v.py: golden at the beach, the sun held over the road ahead (SunAhead); time of day = race progress (0 start .. 1 finish): preset 'golden_sea', end state at 1.00 - a recipe, composed in the game by HCT15.EnvComposer (the donor's own daylight + the plugin's palette)",
- "SunTexture": "day_sun.png",
- "SunAhead": true,
- "SunAheadYaw": 0.0
+ "Comment": "jetski_especiales.py: dusk to a black, moonless night by 0.08 of the race (NoSun, Blackout); time of day = race progress (0 start .. 1 finish): preset 'sunset_to_night', end state at 0.08 - a recipe, composed in the game by HCT15.EnvComposer (the donor's own daylight + the plugin's palette)"
 }

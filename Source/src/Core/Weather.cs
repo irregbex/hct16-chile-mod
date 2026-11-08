@@ -43,7 +43,7 @@ namespace HCT15
     ///                 (Eyjafjallajokull's "snow_stronger" -> SnowTexture, default snow_flakes.png in assets\env), and the
     ///                 engine's snow grip penalty scaled by SnowGrip * amount. With ash as well, the layer shows ash
     ///                 (its texture) at the larger of the two amounts. environment.json must keep snow:m_IsActive on
-    ///                 (env_timeline.py --snow, or the Track Editor's Ambiente (environment) panel, which writes both files).
+    ///                 (env_timeline.py --snow, or the Track Editor's Ambiente panel, which writes both files).
     ///
     /// "-hct15-rain 0.8" forces an amount on any track (unattended frame captures); "-hct15-rain 0" switches it off.
     /// </summary>

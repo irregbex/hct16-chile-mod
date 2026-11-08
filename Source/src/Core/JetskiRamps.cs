@@ -6,8 +6,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.24: ramps to jump in the jet skis, and nitros in the air over them (2026-10-11, Playas de la Quinta
-    /// Región: ramps to jump with the jet skis and nitros to grab up in the air). tracks\&lt;id&gt;\ramps.json
+    /// 2.0.24: ramps to jump in the jet skis, and nitros in the air over them (the user, 2026-10-11, Playas de la Quinta
+    /// Región: "ramplas para saltar con los jetskis y tomar nitros que deberían estar en el aire"). tracks\&lt;id&gt;\ramps.json
     /// {"Ramps": [{"P": fraction of the lap where the ramp's lip is, "Len": fraction of the lap the flight lasts,
     /// "Height": units at the top of the arc}]} (Tools\playas_v.py writes it and places the ramp prop, rampla_jetski).
     /// The engine has no jumps - a car follows its spline - so the flight is the body's: WaterRide lifts the bodies under

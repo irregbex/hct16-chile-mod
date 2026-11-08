@@ -1,0 +1,11 @@
+{
+  "Id": "remolcador",
+  "Name": "Tug",
+  "Category": "prop",
+  "Description": "A harbour tug: red hull, white wheelhouse, tyres as fenders, 9 m, bow towards +Z",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

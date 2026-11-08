@@ -37,6 +37,7 @@ namespace HCT15
             public float GroundOffset = 0f;
             public bool Recenter = true;
             public bool DoubleSided = false;
+            public float[] Screen; public float LedFps, LedGlow;   // 2.4.2: "Anim": "led" - the LED screen [x, y0, y1, z0, z1] in file metres, frames a second (JetskiMission.LedBoard)
             public string Anim = "";             // 2.0.24: "rollwave" = RollingWave draws and moves a wave on it (asset_kit ola_rompiente); 2.0.26: "smoke" = SmokePlume off its top
         }
 
@@ -394,6 +395,8 @@ namespace HCT15
             else if (def.Meta.Anim == "smoke") child.AddComponent<SmokePlume>();   // 2.0.26: the mine's chimneys
             else if (def.Meta.Anim == "confetti") child.AddComponent<Confetti>();   // 2.0.28: the Plaza de Illapel's crowd
             else if (def.Meta.Anim == "crowd") CrowdJump.Build(child, def);           // 2.0.28: the crowd jumps and dances
+            else if (def.Meta.Anim == "led") LedBoard.Setup(child, def);              // 2.4.2: the betting billboards (Playa Amarilla)
+            else if (def.Meta.Anim == "castle") child.AddComponent<CastleDeflate>();  // 2.4.2: the princess inflatable castle
             _prototypes[key] = go;
             return go;
         }

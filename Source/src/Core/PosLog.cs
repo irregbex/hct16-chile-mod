@@ -6,7 +6,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// "-hct15-poslog" (2.1.2, bug: with two players no one could climb above ninth place): every 5 s of
+    /// "-hct15-poslog" (2.1.2, the user: "with two players it is not possible to climb above ninth place"): every 5 s of
     /// a race, each player's place, distance and the car the game compares him with (GameManager.m_allCars[place - 1],
     /// BaseCar.VerifyTrackPosition), and any slot of m_allCars whose car does not hold that RacePosition.
     /// </summary>

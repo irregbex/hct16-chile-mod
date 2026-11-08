@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -9,9 +9,9 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// Traffic on a long road stage (2.0.11: on very long tracks, over 20 km, other cars along the road -
-    /// cars that are not racing, just going along it - added as a variable of their own, apart from the
-    /// rivals). tracks\&lt;id&gt;\traffic.json adds slow cars - taxis, micros, vans -
+    /// Traffic on a long road stage (2.0.11; the user: "for very long tracks, over 20 km, there should be other cars
+    /// along the tracks" - "cars that are not racing, but just going along the road" - "make more cars as another
+    /// variable, as they are not really racing"). tracks\&lt;id&gt;\traffic.json adds slow cars - taxis, micros, vans -
     /// spread along the road from the start, ON TOP of the race's rivals:
     ///   { "Cars": 24, "Models": ["cl_taxi", "cl_micro", "kombi"], "Speed": [0.2, 0.33], "From": 0.02, "To": 0.38 }
     ///   (Speed: a share of the player's top speed - a carreta cruises near 0.56 of its own.)
@@ -37,13 +37,13 @@ namespace HCT15
             public List<string> Models = new List<string>();
             public float[] Speed = { 0.2f, 0.33f };   // share of the player's top speed
             public float From = 0.04f, To = 0.36f;
-            /// <summary>2.0.16 - two-way roads (2026-10-07: the roads of that campaign are two-way, so cars can
-            /// come the other way on the left): this share of the traffic comes TOWARDS the players, in the left
+            /// <summary>2.0.16 - two-way roads (the user, 2026-10-07: "all the roads of that campaign are two-way, so there should
+            /// be cars coming the other way on the left"): this share of the traffic comes TOWARDS the players, in the left
             /// lanes; the rest keeps to the right lanes. 0 = one-way, every lane for the traffic (as before).</summary>
             public float Oncoming = 0f;
             /// <summary>2.3.1 - the colours (colour ids of streetcars.json) the traffic wears, each car one of them at random;
-            /// empty = the round's colours (or the road's one livery). For a road whose traffic is the same model as the
-            /// rivals: other colours, so the traffic is never mistaken for a rival.</summary>
+            /// empty = the round's colours (or the road's one livery). The D-81's pickups (the user, 2026-11-03: "the F-150s
+            /// that are not racing must not be red, they get mixed up with the rivals").</summary>
             public List<string> Colours = new List<string>();
             public string Comment = "";
         }
@@ -74,8 +74,8 @@ namespace HCT15
         /// <summary>
         /// Traffic cars into the lanes the road has (SetAllCars postfix, after the game placed them): Initialize gave them
         /// the grid's lateral offsets - six lanes wide on Ruta 47's start - while they stand 2-12 % down a road that is
-        /// four lanes there, so some stood on the shoulder (2026-10-07: the race started with cars off the
-        /// track). The narrowest lane count of the stage decides, so every traffic car fits anywhere.
+        /// four lanes there, so some stood on the shoulder (the user, 2026-10-07: "the game starts with cars off the
+        /// track"). The narrowest lane count of the stage decides, so every traffic car fits anywhere.
         /// </summary>
         internal static void PlaceInLanes()
         {
@@ -114,7 +114,7 @@ namespace HCT15
 
         /// <summary>The rivals on the grid, traffic left out - what GameManager.StartGame reads instead of EnemyCarCount
         /// to put the players behind them: with the traffic counted the players started 8-16 grid places further back
-        /// (2026-10-07: the player started much further back than the rest of the cars).</summary>
+        /// (the user, 2026-10-07: "one starts the race much further back than the rest of the cars").</summary>
         public static int RacersOnGrid(EnemyCarManager mgr)
         {
             int n = mgr != null ? mgr.EnemyCarCount : 0;
@@ -123,8 +123,8 @@ namespace HCT15
 
         /// <summary>
         /// The colour a traffic street car gets (StreetCars.ApplyVariant asks before drawing a random one): the same for
-        /// every car of that kind on this road - a bus line has one livery (2026-10-06: micros on one road
-        /// share one colour, because they are one route) - and another on another road. -1 = not traffic.
+        /// every car of that kind on this road - a bus line has one livery (the user, 2026-10-06: "if there are micros
+        /// they must be one colour, because it is one route") - and another on another road. -1 = not traffic.
         /// </summary>
         public static int FixedColour(Transform model, int colours)
         {
@@ -159,7 +159,7 @@ namespace HCT15
         }
         private static readonly List<string> _colours = new List<string>();
 
-        /// <summary>2.3.2: false = no road traffic at all and Options &gt; General shows the switch grey (reported 2026-11-03:
+        /// <summary>2.3.2: false = no road traffic at all and Options &gt; General shows the switch grey (the user, 2026-11-03:
         /// with the traffic on it was impossible to win; to be looked into). true brings both back.</summary>
         public const bool Available = false;
 
@@ -189,7 +189,8 @@ namespace HCT15
             {
                 CustomRaceDef def;
                 string id = StaticData.Race != null ? StaticData.Race.ItemId : null;
-                return id != null && ContentRegistry.RacesById.TryGetValue(id, out def) && def != null ? def.Racers : 0;
+                if (id == null || !ContentRegistry.RacesById.TryGetValue(id, out def) || def == null) return 0;
+                return def.HumansOnly ? StaticData.NumPlayers + 1 : def.Racers;   // 2.4.2: the mission - the humans and one ghost
             }
             catch (Exception) { return 0; }
         }
@@ -255,7 +256,8 @@ namespace HCT15
             string id;
             TrafficJson t = Load(out id);
             if (t == null || t.Cars <= 0) return;
-            // 2.3.1: Options > General "Road traffic" off = only the rivals on the road
+            // 2.3.1: Options > General "Road traffic" off = only the rivals on the road (the user, 2026-11-03: "a toggle to
+            // switch off the other F-150s on the road" of the D-81)
             if (!Available) { Debug.Log("[HCT15] traffic on '" + id + "': off (switched off in this version, see Traffic.Available)"); return; }
             if (!Settings.Data.RoadTraffic) { Debug.Log("[HCT15] traffic on '" + id + "': off (Options > General)"); return; }
             if (t.Colours != null) foreach (string c in t.Colours) if (!string.IsNullOrEmpty(c)) _colours.Add(c);
@@ -428,8 +430,8 @@ namespace HCT15
         private static int _repaired;
 
         /// <summary>
-        /// Traffic has no marker on the minimap (2026-10-06: cars that are not part of the race need not
-        /// show on the minimap, they only confuse). MinimapManager registers every rival's evaluator
+        /// Traffic has no marker on the minimap (the user, 2026-10-06: "the cars that are not part of the race need not
+        /// show on the minimap, they confuse - better take them out"). MinimapManager registers every rival's evaluator
         /// (its Start, and GameManager.OnEnemyEvaluatorInitialized, which fires in EnemyCarManager.Initialize BEFORE
         /// CreateCar marks the car): a traffic car is known by its spline car's index - the traffic infos are the
         /// last of the list, so the spline cars from NumEnemies on are traffic.
@@ -476,8 +478,8 @@ namespace HCT15
 
         /// <summary>
         /// May a traffic car leave the road here (PointToPointRace, in the last stretch before the destination)? Only out
-        /// of every player's sight. 2.0.12 (2026-10-06/07: a car was seen to disappear near the end
-        /// of the stages): the car was hidden the moment it reached the 1.2 % line with the player watching it. A car a
+        /// of every player's sight. 2.0.12 - the user (2026-10-06/07): "I think I saw a car disappear ... near the end
+        /// of the stages": the car was hidden the moment it reached the 1.2 % line with the player watching it. A car a
         /// player can see (ahead of them, within the view distance GetCarsInSight last asked for, with margin) drives on
         /// past the destination instead; TrafficLapPatch keeps it from ever finishing, and it is hidden once unseen.
         /// </summary>
@@ -521,8 +523,8 @@ namespace HCT15
         }
 
         /// <summary>
-        /// Traffic at road speed and still met all along the stage (2026-10-06: cars that are not in the
-        /// race go at normal speeds - slowed to 10-16 % they were caught, but crawled): a traffic car the
+        /// Traffic at road speed and still met all along the stage (2026-10-06; the user: "the cars that are not in the
+        /// race should go at normal speeds" - slowed to 10-16 % they were caught, but crawled): a traffic car the
         /// players have all left behind, out of sight, is moved ahead of the leading one, out of sight too
         /// (CurvePosition.ForceDistanceTraveled; Initialize would register it twice), into a lane of its own - a stream
         /// of cars the carreta keeps overtaking, as on a real road. Not within the last stretch before the destination.

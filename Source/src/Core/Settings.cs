@@ -69,16 +69,16 @@ namespace HCT15
 
         /// <summary>How often the speech bubbles come, as a multiple of the game's own chances (random line 4% every
         /// 10 s, overtake 8%, crash 10%, nitro 30%). 1 = as the game ships; 3 = three times as often. Applied when a race starts.</summary>
-        public float SpeechChance = 3.0f;   // 2.0.11: x5 (many more taunts); 2.1.5: x3 (they came too often); 1 = the game's own chances
+        public float SpeechChance = 3.0f;   // 2.0.11: x5 (the user: "many more taunts"); 2.1.5: x3 (the user: "they come too often now"); 1 = the game's own chances
 
-        /// <summary>The in-game track editor (F7 and the main menu's TRACK EDITOR entry). Off since 2.0.11
-        /// (2026-10-07: the main-menu entry was removed completely - it never worked well and the external editor is
-        /// preferred). true brings both back; -hct15-editor (tests)
+        /// <summary>The in-game track editor (F7 and the main menu's TRACK EDITOR entry). Off since 2.0.11 (the user,
+        /// 2026-10-07: "remove the track editor option from the main menu completely, it never worked well, I prefer the
+        /// external editor" - Tools\TrackEditor, Editor-de-Pistas.cmd). true brings both back; -hct15-editor (tests)
         /// still opens it.</summary>
         public bool TrackEditor = false;
 
         /// <summary>Gain of the spoken taunts (taunts_sfx), applied to the samples when they load: 1.5 = half again as
-        /// loud (2026-10-07: the voices raised to 150 % of their previous volume), soft-limited.</summary>
+        /// loud (the user, 2026-10-07: "the voices should sound at 150 % of the current volume"), soft-limited.</summary>
         public float VoiceGain = 1.5f;
 
         /// <summary>Names of the local players everywhere in the game (HUD, results, podium, car selection): slot 1 and slot 2. Empty = keep the profile's own name; FixedPlayerNames false = retail behaviour.</summary>
@@ -90,8 +90,8 @@ namespace HCT15
         public bool Spectators = true;
         public int Grandstands = 14;
 
-        /// <summary>2.3.1: the traffic of the road stages (a track's traffic.json: the buses, trucks and cars of Rutas de
-        /// Chile). False = only the rivals on the road. Options &gt; General "Road traffic".</summary>
+        /// <summary>2.3.1: the traffic of the road stages (a track's traffic.json: the D-81's pickups, the buses, trucks and
+        /// cars of Rutas de Chile). False = only the rivals on the road. Options &gt; General "Road traffic".</summary>
         public bool RoadTraffic = true;
 
         /// <summary>The ghost car of your own previous run never appears and cannot be switched on: the

@@ -144,7 +144,7 @@ namespace HCT15
                 if (view == null || view.Controller == null || view.Controller.Evaluator == null) return "";
                 float y = view.Controller.Evaluator.transform.localRotation.eulerAngles.y;
                 string s = "   car heading " + y.ToString("0.0") + " deg (track frame: 0 = +Z)";
-                try { s += ", " + (view.Controller.CurrentSpeed * 3.6f).ToString("0") + " km/h at " + view.Controller.Evaluator.TravelledPercentage.ToString("0.###") + " of the lap"; }
+                try { s += ", " + (view.Controller.CurrentSpeed * 3.6f).ToString("0") + " km/h at " + view.Controller.Evaluator.TravelledPercentage.ToString("0.###") + " of the lap, lateral " + view.Controller.LateralOffset.ToString("0.00"); }
                 catch (Exception) { }
                 if (!string.IsNullOrEmpty(SpriteCar.PlayerDebug)) s += "; sprite " + SpriteCar.PlayerDebug;   // a the retro campaign car: which frame it shows
                 return s;

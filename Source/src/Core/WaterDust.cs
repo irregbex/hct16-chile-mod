@@ -6,7 +6,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.3.4 (reported with a screenshot of Playa Las Docas: "it is not the wakes, it is the dust or smoke that would have come out
+    /// 2.3.4 (the user, a screenshot of Playa Las Docas: "it is not the wakes, it is the dust or smoke that would have come out
     /// of the cars' wheels - on the jet skis it should be white, not brown"): the game's own tyre particles. Each car's
     /// ParticleInstantiator puts the track texture's particle (TrackTextureInfo InsideTrack / OutsideTrack: the donor's dirt,
     /// low-poly brown chunks) under both rear wheels, and it is there for a jet ski too. Every particle instance it makes for

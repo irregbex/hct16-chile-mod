@@ -5,8 +5,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.24: a car that rides on the water - the jet skis of "Viña del Mar en jetski" (2026-10-10: "on the beach's
-    /// waves in custom jet skis"). CarDef.Lean / CarDef.Spray. Added to the parked prefab like TrotBob,
+    /// 2.0.24: a car that rides on the water - the jet skis of "Viña del Mar en jetski" (the user, 2026-10-10: "sobre las
+    /// olas de la playa en jetskis personalizados"). CarDef.Lean / CarDef.Spray. Added to the parked prefab like TrotBob,
     /// so the player's, the rivals' and the car selection's copies all carry it.
     ///  * the bodies under root/sub_root (every level of detail) lean into the bend (the steering the game feeds the body's
     ///    tilt, GameAccess.TurningDirection), lift their nose as the hull planes, and pitch and heave on the swell - a slow
@@ -159,7 +159,7 @@ namespace HCT15
             float k = Mathf.Clamp01(_speed / 140f);
             _turn = Mathf.Lerp(_turn, Mathf.Clamp(Turning(), -1f, 1f), Mathf.Clamp01(dt * 8f));
             _t += dt;
-            // 2.0.25 (the movement was almost imperceptible - now faster, smoother, noticeable): a livelier sea - a
+            // 2.0.25 (the user: "the movement is almost imperceptible - faster, smoother, noticeable"): a livelier sea - a
             // quicker swell, a harder chop, and now and then at speed the hull skips off a wave (a hop, nose up, slap down).
             // Heights in the body's own size (_s: the body against the 3.57-unit jet ski of 2.0.24).
             float swell = Mathf.Sin(_t * 2f * Mathf.PI * 0.9f);
@@ -203,7 +203,7 @@ namespace HCT15
                 _parts[i].localRotation = q * _baseRot[i];
                 _parts[i].localPosition = _basePos[i] + new Vector3(0f, heave, 0f);
             }
-            // 2026-10-15 (on the selection screen the jet skis must show no marks on the water): spray and
+            // 2026-10-15 (the user: on the selection screen the jet skis must show no marks on the water): spray and
             // wake only in a race - on the turntable they hung in the air and looked wrong
             bool inRace = false;
             try { inRace = StaticData.IsInRace; } catch (System.Exception) { }

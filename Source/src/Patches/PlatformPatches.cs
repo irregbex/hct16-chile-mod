@@ -54,7 +54,7 @@ namespace HCT15.Patches
         // Steam API is running. Without Steam a DLC is NOT owned - the mod never unlocks paid content.
         // 2.0.2: this used to require _connectedToSteam, which is "connected to Steam's SERVERS" - false in Steam's
         // offline mode and after any SteamServersDisconnected - so a player who owns every DLC saw none of them
-        // (reported 2026-09-24). The retail method has no such condition.
+        // (user, 2026-09-24: "tengo todos los mods pagados"). The retail method has no such condition.
         private static bool Prefix(ref bool __result)
         {
             if (SavePaths.SteamEnabled) return true;

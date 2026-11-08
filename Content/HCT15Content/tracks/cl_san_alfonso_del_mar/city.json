@@ -1,0 +1,11 @@
+{
+ "ItemId": "cl_san_alfonso_del_mar_city",
+ "ItemName": "city_cl_san_alfonso_del_mar",
+ "DisplayName": "Laguna de San Alfonso del Mar, Playas de la Quinta Región",
+ "CupId": "98_chile",
+ "TokenCost": 0,
+ "PrizeCar": "",
+ "RacesIds": [
+  "cl_san_alfonso_del_mar"
+ ]
+}

@@ -7,9 +7,9 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.25 (2026-10-11: a button for the 360 jumps, and points for them): the
-    /// player's stunts off the jet ski ramps (JetskiRamps). In the air, the TONEL (barrel) button (keyboard E or Enter, gamepad RB)
-    /// starts a barrel roll and the TROMPO (spinning top) button (keyboard Q or keypad 0, gamepad LB) a flat 360; pressing again during a
+    /// 2.0.25 (the user, 2026-10-11: "maybe best to define a button for the 360 jumps and earn points for them"): the
+    /// player's stunts off the jet ski ramps (JetskiRamps). In the air, the TONEL button (keyboard E or Enter, gamepad RB)
+    /// starts a barrel roll and the TROMPO button (keyboard Q or keypad 0, gamepad LB) a flat 360; pressing again during a
     /// turn queues the next one. WaterRide turns the body and reports here: a clean landing scores (tonel 500, trompo 400,
     /// times the number of turns in that jump) and gives half a nitro (2.3.7); landing half-way through a turn is a fall - no
     /// points and most of the speed gone. The score of the race shows on the right of the screen with the best of the

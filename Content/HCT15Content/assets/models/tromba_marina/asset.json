@@ -1,0 +1,11 @@
+{
+  "Id": "tromba_marina",
+  "Name": "Waterspout",
+  "Category": "landmark",
+  "Description": "A tornado over the sea: a twisting grey funnel 22 m tall on a ring of spray (crossers.json Spin turns it)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

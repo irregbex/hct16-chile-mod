@@ -27,10 +27,11 @@ namespace HCT15
         // 2.3.0 test aid: "-hct15-nofuelloss" - the autopilot finishes long races (it collects no fuel), e.g. to test the podium
         private static readonly bool NoLoss = Array.Exists(Environment.GetCommandLineArgs(), a => string.Equals(a, "-hct15-nofuelloss", StringComparison.OrdinalIgnoreCase));
 
-        private static void Prefix(ref float change)
+        private static void Prefix(CarFuelTank __instance, ref float change)
         {
             if (NoLoss) { change = 0f; return; }
             if (FuelEconomy.Current > 1f) change /= FuelEconomy.Current;
+            if (RetroRules.Active) change *= RetroRules.FuelScale(__instance);   // 2.4.1: the 16-bit consumption
         }
     }
 }

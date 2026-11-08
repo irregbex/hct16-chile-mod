@@ -9,7 +9,7 @@ namespace HCT15
     /// Scenery drawn as FLAT PIXEL SPRITES, the way a SNES racer drew its roadside: a scenery.json item with a
     /// "Sprite" (a PNG under HCT15Content\assets\sprites\, e.g. "tg/cactus.png") becomes a camera-facing quad
     /// carrying that image, point-filtered, one unit tall in the prototype and scaled by the item's H x S like
-    /// the box prototypes are (PropDresser.PlaceScenery). The retro campaign uses it for every object
+    /// the box prototypes are (PropDresser.PlaceScenery). The the retro campaign campaign uses it for every object
     /// (a sprite tool draws the set); any track can.
     ///
     /// The quad turns to the camera's rotation every frame (screen-aligned, like the sprite cars, so the texels
@@ -24,11 +24,12 @@ namespace HCT15
         public static string SpritesDir { get { return Path.Combine(Path.Combine(ContentRegistry.ContentDir, "assets"), "sprites"); } }
 
         /// <summary>The prototype for one sprite file (cached); null, once warned, when the PNG is missing.</summary>
-        public static GameObject Prototype(string file)
+        public static GameObject Prototype(string file, string hit = "")
         {
             if (string.IsNullOrEmpty(file)) return null;
             GameObject go;
-            if (_protos.TryGetValue(file, out go) && go != null) return go;
+            string key = string.IsNullOrEmpty(hit) ? file : file + "|" + hit;
+            if (_protos.TryGetValue(key, out go) && go != null) return go;
             string path = Path.Combine(SpritesDir, file.Replace('/', Path.DirectorySeparatorChar));
             Texture2D tex = Load(path);
             if (tex == null)
@@ -55,8 +56,44 @@ namespace HCT15
             mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             mr.receiveShadows = false;
             quad.AddComponent<SpriteProp>();
-            _protos[file] = go;
+            if (!string.IsNullOrEmpty(hit)) MakeSolid(go, aspect, hit);
+            _protos[key] = go;
             return go;
+        }
+
+        private static System.Reflection.FieldInfo _fSpeed, _fOverride, _fLateral, _fForce;
+
+        /// <summary>
+        /// 2.4.1 (the user: "when I should crash into the objects beside the track - lamp posts, the direction signs in the
+        /// bends - nothing happens, they practically do not exist"): the sprite gets the game's own prop collision - a box
+        /// collider and a PropCollidable on its root (PropAutoMover links it, PropView scales it, the car's
+        /// SplineCollisionDetector hits it and plays the game's crash). The ROM's crash classes (02-MECANICA): REV bounces
+        /// the car back - here it is stopped dead; EDGE / SIDE halve the speed and push it towards the road - here the speed
+        /// is cut to 180 km/h (the game's units, about half a Top Gear cruise) and the lateral impact is on.
+        /// </summary>
+        private static void MakeSolid(GameObject go, float aspect, string hit)
+        {
+            try
+            {
+                var box = go.AddComponent<BoxCollider>();
+                box.center = new Vector3(0f, 0.5f, 0f);
+                box.size = new Vector3(Mathf.Max(0.2f, aspect * 0.8f), 1f, 0.5f);   // across the road the sprite's own width, along it half a unit
+                box.isTrigger = true;
+                var pc = go.AddComponent<PropCollidable>();
+                if (_fSpeed == null)
+                {
+                    _fSpeed = HarmonyLib.AccessTools.Field(typeof(Collidable), "m_speedBoost");
+                    _fOverride = HarmonyLib.AccessTools.Field(typeof(Collidable), "m_overrideSpeed");
+                    _fLateral = HarmonyLib.AccessTools.Field(typeof(Collidable), "m_applyLateralImpact");
+                    _fForce = HarmonyLib.AccessTools.Field(typeof(Collidable), "m_lateralForceOnHit");
+                }
+                bool rev = string.Equals(hit, "REV", StringComparison.OrdinalIgnoreCase);
+                _fOverride.SetValue(pc, true);
+                _fSpeed.SetValue(pc, rev ? 0f : 180f);
+                _fLateral.SetValue(pc, true);
+                _fForce.SetValue(pc, rev ? 12f : 20f);
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] sprite prop collider: " + ex.Message); }
         }
 
         private static Texture2D Load(string path)

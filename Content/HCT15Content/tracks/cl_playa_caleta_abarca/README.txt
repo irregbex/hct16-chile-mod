@@ -1,7 +1,9 @@
-Playa Caleta Abarca (Viña del Mar · bajo el Reloj de Flores) - Chile campaign, region Playas de la Quinta Región, point to point, jet skis only.
-race.json      the beach's waterline from OpenStreetMap (way 27710762), end to end on the water, scaled up to ~560 raced
-               units, then a return leg over the sea that is never raced (EndPercentage 0.632); swells, buoy slalom
-road_strip.png water: open sea on one side, the course between float ropes, shallows, surf and sand on the beach side
-environment    sunset, the sun held over the road ahead (SunAhead); scenery: the tessellated beach with animated waves
-Regenerate:    python Tools\playas_v.py --lap --only cl_playa_caleta_abarca ; python Tools\chile_build.py --only cl_playa_caleta_abarca ;
-               python Tools\horizon.py cl_playa_caleta_abarca --force ; python Tools\backdrop.py cl_playa_caleta_abarca ; python Tools\playas_v.py --dress --only cl_playa_caleta_abarca
+Puerto de Valparaíso (Valparaíso · entre portacontenedores) - Chile campaign, region Playas de la Quinta Región, 3 laps on the water, jet skis only.
+race.json      a stadium drawn on the bay by puertos_v.py (not OSM: no road on the water, no ships in OSM), checked
+               against the OSM coastline; 680 units a lap; a light harbour chop
+road_strip.png harbour water on both sides, the course between float ropes
+scenery.json   ships moored end to end inside both straights (18-unit segments, asset_kit), the quay with gantry
+               cranes and containers, a ship at anchor, the breakwater and lighthouse, tugs, buoys, ramps, gulls
+environment    golden, the sun held over the road ahead (SunAhead)
+Regenerate:    python Tools\puertos_v.py --lap --only cl_playa_caleta_abarca ; python Tools\chile_build.py --only cl_playa_caleta_abarca ;
+               python Tools\horizon.py cl_playa_caleta_abarca --force ; python Tools\backdrop.py cl_playa_caleta_abarca --sea-front ; python Tools\puertos_v.py --dress --only cl_playa_caleta_abarca

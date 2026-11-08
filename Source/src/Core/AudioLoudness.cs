@@ -62,8 +62,8 @@ namespace HCT15
             Apply();
         }
 
-        // "-hct15-mute": the whole output silent, for the unattended verification runs (the test machine's
-        // speakers should stay quiet while a test drives the game, 2026-09-24). Re-applied every 2 s with the rest.
+        // "-hct15-mute": the whole output silent, for the unattended verification runs (the user's machine
+        // should not play the game while a test drives it, 2026-09-24). Re-applied every 2 s with the rest.
         private static int _mute = -1;
 
         public static bool Muted

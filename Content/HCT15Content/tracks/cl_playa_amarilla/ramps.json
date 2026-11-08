@@ -1,34 +1,14 @@
 {
- "Comment": "playas_v.py: jet ski ramps - P the lip, Len the flight (lap fraction), Height units; a nitro hangs at the top (HCT15.JetskiRamps)",
+ "Comment": "jetski_especiales.py: jet ski ramps (HCT15.JetskiRamps)",
  "Ramps": [
   {
-   "P": 0.06079,
-   "Len": 0.00834,
+   "P": 0.25214,
+   "Len": 0.03929,
    "Height": 1.3
   },
   {
-   "P": 0.16674,
-   "Len": 0.00834,
-   "Height": 1.3
-  },
-  {
-   "P": 0.25405,
-   "Len": 0.00834,
-   "Height": 1.3
-  },
-  {
-   "P": 0.38139,
-   "Len": 0.00834,
-   "Height": 1.3
-  },
-  {
-   "P": 0.46642,
-   "Len": 0.00834,
-   "Height": 1.3
-  },
-  {
-   "P": 0.56056,
-   "Len": 0.00834,
+   "P": 0.74214,
+   "Len": 0.03929,
    "Height": 1.3
   }
  ]

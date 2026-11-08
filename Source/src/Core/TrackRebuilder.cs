@@ -31,6 +31,7 @@ namespace HCT15
             if (GameProps.Loading) return;   // the editor is only borrowing a donor stage for its prop list
             var def = SceneRedirector.PendingCustomRace;
             FuelEconomy.For(def);            // 2.0.24: race.json FuelEconomy, or 1 (as the game has it)
+            RetroRules.For(def);             // 2.4.1: the 16-bit rules of a RetroRules campaign (fuel, rivals), else off
             JetskiRamps.For(def);            // 2.0.24: this race's ramps, or none (a retail stage keeps no ramps from the last race)
             if (def == null) return;
             if (scene.name != def.DonorScene) return;
@@ -198,7 +199,10 @@ namespace HCT15
             if (day != null) data.DayTexture = day;
             if (night != null) data.NightTexture = night;
             if (alpha != null) data.AlphaTexture = alpha;
+            JetskiMission.Attach(def, rdm.gameObject);
+            if (def.NightVeil > 0f) NightVeil.Attach(def, rdm.gameObject);   // 2.4.2: Playa Amarilla - the water and the racers darker than the LED chaos   // 2.4.2: humans only, the countdown, the deflating castle
             StripWaves.Attach(def, strip, texDir, rdm.gameObject);   // 2.0.24: stripwaves.json - waves rolling onto the beach painted in the strip
+            if (ModCampaigns.RetroOf(def.ItemId) != null) { RetroIntro.Attach(rdm.gameObject); RetroHud.Attach(rdm.gameObject); RetroFinish.Attach(rdm.gameObject); TopGearQualify.Attach(rdm.gameObject); }   // 2.4.1: the 16-bit fly-in, HUD and still camera at the line
             try { GroundSections.Apply(data, def, texDir); }   // tracks\<id>\ground.json: sand / sea strips by the beaches (2.0.9)
             catch (System.Exception ex) { Debug.LogError("[HCT15] ground sections failed: " + ex); }
             _dataRewritten = rdm;

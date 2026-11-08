@@ -7,8 +7,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.11: hooves instead of an engine (2026-10-06: a synthesised horse's gallop for the
-    /// carretas). CarDef.EngineSound "gallop" (cl_carreta and its colours). PlayerEngineSound.Initialize
+    /// 2.0.11: hooves instead of an engine (the user, 2026-10-06: "can you synthesise the right sound of a horse's gallop
+    /// for the carretas?"). CarDef.EngineSound "gallop" (cl_carreta and its colours). PlayerEngineSound.Initialize
     /// postfix: the engine loops stay silent (VolumeMultiplier 0 - its LateUpdate and the countdown revving both scale
     /// by it) and no gear-shift clicks; a GallopSound on the same object plays synthesised hoof beats on the engine's
     /// mixer group.
@@ -20,9 +20,9 @@ namespace HCT15
     ///   Under it a wooden cart rumble (low noise with axle knocks, looped), pitch and volume by speed.
     /// Test flag -hct15-gallopwav: writes Logs\hct15-gallop.wav (12 s, standing to full speed) when a race starts.
     /// 2.0.28: EngineSound "march" (the andas of the Plaza de Illapel, cl_anda and its colours): the same silent engine, but
-    /// the eight bearers' steps in step - a soft heel-and-sole "shuff" of several shoes at once, left and right, 0.9-1.9
+    /// the eight bearers' steps in step - a soft heel-and-sole "chas" of several shoes at once, left and right, 0.9-1.9
     /// steps a second by speed - and the procession's hand bell now and then (MarchSteps / Bell).
-    /// 2.3.4 (reported: "on the podiums, when a carreta arrives it has to sound like a galloping horse, not like a car's
+    /// 2.3.4 (the user: "on the podiums, when a carreta arrives it has to sound like a galloping horse, not like a car's
     /// engine"): InitPodium - the same hooves (or march) driven by the podium's arrival instead of a PlayerCar: a speed
     /// share and a distance gain asked every frame, unscaled time, sources that play while the listener is paused.
     /// </summary>
@@ -37,7 +37,7 @@ namespace HCT15
         private static AudioClip _bell;
 
         private PlayerCar _car;
-        private AudioSource _beats, _beats2, _cart;   // two beat sources in step: twice the amplitude (twice as loud)
+        private AudioSource _beats, _beats2, _cart;   // two beat sources in step: twice the amplitude (the user: "twice as loud")
         private float _phase;
         private int _next;
         private bool _march;

@@ -28,13 +28,14 @@ namespace HCT15
         public static float DonorLapUnits;
 
         private const float LANE = 1.527f;
+        private const float EdgeGap = 2.04f;   // the game's prop line lies this far outside the road edge (DonorLanes)
         private static readonly string[] SignWords = { "sign", "seta", "arrow", "chevron", "curve_sign", "direction" };   // sydney_01: sign_23 / sign_24; "plates_*" are billboards, "flowers_*" decor
         private static readonly string[] TreeWords = { "tree", "arvore", "árvore", "palm", "pine", "bush", "arbusto" };
         private static Transform _holder;
         private static Material _propMaterial;
         private static readonly Dictionary<string, GameObject> _prototypes = new Dictionary<string, GameObject>();
 
-        [Serializable] public class SceneryItem { public float P; public int Side; public float Dist; public float W; public float D; public float H; public float S = 1f; public string Kind = ""; public string Name = ""; public string Photo = ""; public string Asset = ""; public float Yaw; public string Colour = ""; public string Roof = ""; public string Sprite = ""; }   // Colour/Roof: "#rrggbb" wall and roof of a block (Tools\town_colours.py), else Palette(kind); Sprite: a PNG under assets\sprites drawn as a flat pixel sprite H x S tall (SpriteProps.cs)
+        [Serializable] public class SceneryItem { public float P; public int Side; public float Dist; public float W; public float D; public float H; public float S = 1f; public string Kind = ""; public string Name = ""; public string Photo = ""; public string Asset = ""; public float Yaw; public string Colour = ""; public string Roof = ""; public string Sprite = ""; public string Hit = ""; }   // Hit (2.4.1): a sprite the car crashes into - "REV" (stops it dead), "EDGE" / "SIDE" (halves its speed); Dist of a sprite may be negative (nearer than the prop line, down to the road edge)   // Colour/Roof: "#rrggbb" wall and roof of a block (Tools\town_colours.py), else Palette(kind); Sprite: a PNG under assets\sprites drawn as a flat pixel sprite H x S tall (SpriteProps.cs)
         private static string _sceneryDir;
         // MaxBuildings / MaxTrees: an optional per-track cap (0 = the hct15.settings.json one, scaled by lap length)
         [Serializable] public class SceneryJson { public List<SceneryItem> Buildings = new List<SceneryItem>(); public List<SceneryItem> Trees = new List<SceneryItem>(); public List<SceneryItem> Landmarks = new List<SceneryItem>(); public int MaxBuildings; public int MaxTrees; public bool FixedProps; }
@@ -90,10 +91,19 @@ namespace HCT15
             foreach (var kv in seen) if (kv.Key != null && !donorPrefabs.ContainsKey(kv.Key.name)) donorPrefabs[kv.Key.name] = kv.Key;
             try { GameProps.Capture(def.DonorScene, donorPrefabs.Values); } catch (Exception ex) { Debug.LogWarning("[HCT15] game props capture: " + ex.Message); }
 
+            // 2.4.1 RetroRules (the Top Gear campaign; the user: "no power-ups, coins, fuel cans or nitros - the original did
+            // not have them"): every collectible of the donor stays off the road; only the finish gantry is kept
+            bool retro = ModCampaigns.RetroOf(def.ItemId) != null;
+            if (retro)
+            {
+                int before = keep.Count;
+                keep.RemoveAll(k => k.Prefab != null && k.Prefab.GetComponent<RaceCollectible>() != null);
+                Debug.Log("[HCT15] props: retro rules - " + (before - keep.Count) + " collectible(s) (coins, nitros, fuel cans) left out");
+            }
             var result = new List<PropData>(keep);
 
             // ---- 1b. fuel: the donor's fuel cans are placed for the donor's lap; a longer lap needs more
-            try
+            if (!retro) try
             {
                 PropData fuel = null; int fuelCount = 0;
                 foreach (var k in keep) if (k.Prefab != null && k.Prefab.GetComponent<RaceFuel>() != null) { fuel = k; fuelCount++; }
@@ -113,7 +123,7 @@ namespace HCT15
             catch (Exception ex) { Debug.LogWarning("[HCT15] fuel cans: " + ex.Message); }
 
             // ---- 1c. nitros the same way (2.0.11: a 7000-unit road stage kept the donor's handful - a carreta driver met none)
-            try
+            if (!retro) try
             {
                 PropData nitro = null; int nitroCount = 0;
                 foreach (var k in keep) if (k.Prefab != null && k.Prefab.GetComponent<RaceNitro>() != null) { nitro = k; nitroCount++; }
@@ -157,7 +167,10 @@ namespace HCT15
             float signScale = 1f;
             foreach (var s in signs) { if (!signPrefabs.Contains(s.Prefab)) signPrefabs.Add(s.Prefab); signScale = s.Scale > 0 ? s.Scale : signScale; }
             int signCount = 0;
-            if (signPrefabs.Count > 0 && Settings.Data.RegenerateSigns)
+            // 2.4.1: a campaign that keeps the donor's decor out (DonorDecor 0, the Top Gear one) gets no generated turn
+            // signs either - its own ROM sprites carry the curve signs, and the donor's 3-D arrows stood among them
+            float decorForSigns = ModCampaigns.DonorDecorOf(def.ItemId);   // the campaign's key only: a track-level 0 (the Antarctic base) keeps its signs
+            if (signPrefabs.Count > 0 && Settings.Data.RegenerateSigns && decorForSigns > 0.001f)
                 signCount = PlaceSigns(result, def.Waypoints, signPrefabs, signScale, rng);
             else if (signPrefabs.Count == 0)
                 Debug.Log("[HCT15] props: the donor has no recognisable sign prefab - chevrons cannot be regenerated for this donor");
@@ -166,7 +179,8 @@ namespace HCT15
             int pitSignCount = 0;
             // A donor stage that carries no sign prefab of its own used to get NO pit signs at all, so the
             // lane arrived with nothing announcing it: fall back on the pit board, the mod's own marker.
-            if (pitSide != 0)
+            // 2.4.1: not in a campaign that keeps the donor's decor out (Top Gear: the ROM's own PITS sprite marks the entry)
+            if (pitSide != 0 && decorForSigns > 0.001f)
                 pitSignCount = signPrefabs.Count > 0
                     ? PlacePitSigns(result, def, signPrefabs, signScale, pitSide)
                     : PlacePitSigns(result, def, new List<GameObject> { PitBoardPrototype() }, 1f, pitSide);
@@ -233,7 +247,7 @@ namespace HCT15
                 {
                     var go = new GameObject("HCT15_PitLane");
                     go.transform.SetParent(owner.transform, false);
-                    go.AddComponent<PitLane>().Init(def.PitStart, def.PitEnd, def.PitSide);
+                    var pl = go.AddComponent<PitLane>(); pl.Sign = def.PitSign; pl.SignLateral = def.PitLateral; pl.Warn = def.PitWarn; pl.Init(def.PitStart, def.PitEnd, def.PitSide);   // 2.4.1: Sign = the PIT sign (RetroRules)
                 }
             }
 
@@ -460,7 +474,7 @@ namespace HCT15
                 float scale;
                 if (!string.IsNullOrEmpty(t.Sprite))
                 {
-                    prefab = SpriteProps.Prototype(t.Sprite);
+                    prefab = SpriteProps.Prototype(t.Sprite, t.Hit);
                     if (prefab == null) { missing++; continue; }
                     scale = (t.H > 0.2f ? t.H : 1f) * (t.S > 0f ? t.S : 1f);
                     sprites++;
@@ -491,7 +505,9 @@ namespace HCT15
                 {
                     SplinePercentage = Mathf.Repeat(t.P, 1f),
                     Position = t.Side == 0 ? PropPosition.Center : t.Side < 0 ? PropPosition.Left : PropPosition.Right,
-                    TrackOffset = t.Side == 0 ? 0f : Mathf.Max(0f, t.Dist) / LANE,
+                    // 2.4.1: a pixel sprite may stand nearer than the prop line (negative Dist, down to the road edge): the
+                    // Top Gear objects are where the ROM has them, not 2 units further out
+                    TrackOffset = t.Side == 0 ? 0f : (!string.IsNullOrEmpty(t.Sprite) ? Mathf.Max(-EdgeGap, t.Dist) : Mathf.Max(0f, t.Dist)) / LANE,
                     Scale = scale,
                     Prefab = prefab,
                 });
@@ -502,8 +518,8 @@ namespace HCT15
         }
 
         /// <summary>
-        /// 2.0.18 (bug: the mountains of the Horizon Chase 2 campaign grew so much that they showed over the roads and
-        /// ended up in front of the car): a library asset keeps the Dist it was placed at - its origin is its footprint's
+        /// 2.0.18 (the user: "the mountains of the Horizon Chase 2 campaign grow so much that they show over the roads and
+        /// end up in front of the car"): a library asset keeps the Dist it was placed at - its origin is its footprint's
         /// centre -, so an HC2 mountain 84 units across placed 20 units out stood on the asphalt and, as the game's road
         /// bends it towards the camera, swung in front of the car. A BIG asset (more than 20 units across) is now kept far
         /// enough that its whole footprint, turned any way (it may stand diagonally in a bend), clears the road: its centre
@@ -528,7 +544,7 @@ namespace HCT15
         /// Where the CENTRE of an item goes, measured from the game's prop line. The game's prop frame has +x across
         /// the road, and the box prototypes are centred on the placement point, so an item whose half-depth exceeds
         /// its Dist would stand on the asphalt - it is pushed out until its near face is 0.3 units off the line.
-        /// Trees and library/game assets keep their Dist (their origin is the footprint centre placed in the editor).
+        /// Trees and library/game assets keep their Dist (their origin is the footprint centre the user placed).
         /// The editor draws with the same rule, so what it shows is what the game builds.
         /// </summary>
         internal static float EffectiveDist(SceneryItem it)

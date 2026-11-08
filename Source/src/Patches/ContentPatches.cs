@@ -138,7 +138,7 @@ namespace HCT15.Patches
         private static void Prefix(ref float p_ratio) { p_ratio = PointToPointRace.RouteRatio(p_ratio); }
     }
 
-    /// <summary>2.3.2 (reported: "the fuel cans, nitros and coins have a dark neon-pink marker over them, it looks like a
+    /// <summary>2.3.2 (the user: "the fuel cans, nitros and coins have a dark neon-pink marker over them, it looks like a
     /// debugging marker"): every pickup prefab carries a 'tutorial_arrow' quad with no material - Unity draws it
     /// magenta - that no game code ever switches; it goes off when the pickup is made.</summary>
     [HarmonyPatch(typeof(RaceCollectible), "Awake")]
@@ -209,6 +209,8 @@ namespace HCT15.Patches
         // "FreePlay" campaigns have every round open, the "DefaultRace" always is
         private static bool Prefix(string id, ref bool __result)
         {
+            bool gateOpen;   // 2.4.2: a campaign with "CountryGate" opens its countries by qualification or password (TopGearQualify)
+            if (StaticData.GameModeData is ExtraCampaignGameModeData && TopGearQualify.Gate(id, out gateOpen)) { __result = gateOpen; if (gateOpen) ExtraCampaignSaveData.GetRaceSave(id).SeenUnlock = true; return false; }
             if (!(StaticData.GameModeData is ExtraCampaignGameModeData) || !ModCampaigns.IsOpen(id)) return true;
             ExtraCampaignSaveData.GetRaceSave(id).SeenUnlock = true;
             __result = true;

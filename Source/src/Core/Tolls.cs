@@ -8,7 +8,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// Toll plazas (2.0.11; toll booths as an annoyance on the road). tracks\&lt;id&gt;\tolls.json lists them:
+    /// Toll plazas (2.0.11; the user: "there should be toll booths to be annoying"). tracks\&lt;id&gt;\tolls.json lists them:
     ///   { "LimitKph": 60, "Tolls": [ { "P": 0.112, "Name": "Peaje Lo Prado", "Price": "$2.600" } ] }
     /// The plaza itself is scenery (asset_kit's "peaje", Side 0 over the road, its booths on islands at +-Islands units
     /// from the centre - the road is widened round it through ground.json Lanes). This component makes it matter:
@@ -41,7 +41,7 @@ namespace HCT15
         private Texture2D _px;
         public static int Paid, Fined, Crashed;    // the player's, this race (tests read them from the log)
 
-        /// <summary>2.3.3 (reported: "tolls in Rutas de Chile - keep the option disabled and grey, and switch them
+        /// <summary>2.3.3 (the user, 2026-11-03: "tolls in Rutas de Chile - keep the option disabled and grey, and switch them
         /// off on all those roads because they do not work well"): false = no toll slows, fines or stops anybody (the
         /// booths stay as scenery) and Options &gt; General shows the row greyed. true brings them back.</summary>
         public const bool Available = false;
@@ -55,6 +55,7 @@ namespace HCT15
             try { id = StaticData.Race != null ? StaticData.Race.ItemId : null; } catch (Exception) { }
             if (!race) { if (!StaticData.IsInRace) { _for = null; _t = null; _last.Clear(); } return; }
             Traffic.Tick(); Traffic.TestLog(); Traffic.TestShot();
+            RetroRules.RivalsTick();      // 2.4.1: the 16-bit rivals at their fixed cruise speed (before the andas' caps)
             StreetCars.CapRivalsTick();   // 2.0.28: the andas' rivals walk too
             PosLog.Tick();                // 2.1.2: -hct15-poslog
             NitroSkin.TestShot();

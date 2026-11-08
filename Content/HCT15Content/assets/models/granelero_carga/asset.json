@@ -1,0 +1,11 @@
+{
+  "Id": "granelero_carga",
+  "Name": "Bulk carrier hold",
+  "Category": "landmark",
+  "Description": "Bulk carrier: two hatch covers and a deck crane, 18 x 9",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

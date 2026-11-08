@@ -86,12 +86,17 @@ namespace HCT15
                 _loadStart = -1f;
             }
             string state = CurrentState();
+            UiState = state;
+            if (state == "EXTRA_CAMPAIGN") { try { QualifyPasswords.Tick(); } catch (Exception) { } }   // 2.4.2: passwords typed on a gated campaign's screen
             if (state != _lastState)
             {
                 _lastState = state;
                 Log("[HCT15] ui state -> " + state);
             }
         }
+
+        /// <summary>2.4.2: the UI state last seen (EXTRA_CAMPAIGN, RESULTS...).</summary>
+        public static string UiState = "";
 
         private static string CurrentState()
         {
@@ -157,6 +162,7 @@ namespace HCT15
 
         private void OnGUI()
         {
+            if (UiState == "EXTRA_CAMPAIGN") { try { QualifyPasswords.Draw(); } catch (Exception) { } }   // 2.4.2
             if (!_visible) return;
             if (_bg == null)
             {

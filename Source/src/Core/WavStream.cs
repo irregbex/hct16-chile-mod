@@ -5,7 +5,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.17 - a WAV song played straight from the disk (2026-10-09: the Agregados songs now last 6 minutes).
+    /// 2.0.17 - a WAV song played straight from the disk (the user, 2026-10-09: the Agregados songs "now last 6 minutes").
     /// MusicPlayer loaded every song whole through UnityWebRequest (streamAudio keeps the whole download anyway): 47 songs,
     /// ~1.3 GB, in a 32-bit game - the next big allocation (the Chile map image) crashed it. Now a .wav is an AudioClip made
     /// with AudioClip.Create(stream: true) whose reader callback reads only the samples the mixer asks for (a 64 KB buffer

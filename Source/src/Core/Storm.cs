@@ -8,9 +8,10 @@ using UnityEngine.Audio;
 namespace HCT15
 {
     /// <summary>
-    /// 2.2.4: a thunderstorm and muddy flood water, from tracks\&lt;id&gt;\storm.json - made for "Santiago inundado", a
-    /// jet ski race through a Santiago flooded by a storm, its water mostly mud. The retail game has rain (Weather.cs
-    /// drives it) but no lightning, no thunder and no muddy water; everything here is the mod's own:
+    /// 2.2.4: a thunderstorm and muddy flood water, from tracks\&lt;id&gt;\storm.json - "Santiago inundado" (the user,
+    /// 2026-10-23: "Santiago completely flooded by a rain, full of mud, thunder and lightning; it is raced in jet skis" -
+    /// "it is water, but mostly mud"). The retail game has rain (Weather.cs drives it) but no lightning, no thunder and
+    /// no muddy water; everything here is the mod's own:
     ///
     ///   Lightning  a strike every MinGap..MaxGap seconds of race time (none while paused, none outside a race): the
     ///              screen flashes blue-white in two or three quick pulses (Flash = the brightest overlay alpha) and, for

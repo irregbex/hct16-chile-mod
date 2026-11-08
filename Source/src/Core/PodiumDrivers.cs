@@ -6,7 +6,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.3.5 (reported: "François, in his 6 variants, stands with his legs apart over two motorbikes - he should get off and
+    /// 2.3.5 (the user: "François, in his 6 variants, stands with his legs apart over two motorbikes - he should get off and
     /// take his cups, in the outfit of his variant; Breeze, 7 variants, its driver gets off too - the co-driver may stay in
     /// the car; The Fuzz, Black and White, police cars: people dressed as police get off for their prizes").
     /// The game's cars have their drivers modelled into the body mesh. HCT15Content\podium\drivers.json says, per game car,
@@ -155,7 +155,7 @@ namespace HCT15
             return best < 0 ? fallback : sum[best] / bn;
         }
 
-        /// <summary>2.3.6 (reported: "on the jet skis the one who takes the cup must be the jet ski's own rider, in its colours
+        /// <summary>2.3.6 (the user: "on the jet skis the one who takes the cup must be the jet ski's own rider, in its colours
         /// and helmet - now another figure in other colours turns up"): the rider's mesh read by height - the top band its
         /// helmet, the chest band its life vest, the bottom band its wetsuit (legs).</summary>
         public static Human.Opt RiderOutfit(Mesh rider)

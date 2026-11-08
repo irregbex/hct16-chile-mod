@@ -13,7 +13,7 @@ namespace HCT15
     /// when the game starts. Remove BepInEx\plugins\HCT15\ and the game is exactly as shipped.
     ///
     /// Where things live (all beside HorizonChase.exe, none inside the game's own folders):
-    ///   HCT15Content\   tracks, campaigns, cars, assets        HCT15Music\   the player's music
+    ///   HCT15Content\   tracks, campaigns, cars, assets        HCT15Music\   the user's music
     ///   HCT15Saves\     the mod's OWN save profile - the Steam save (LocalLow + Steam Cloud) is never read or written
     /// </summary>
     [BepInPlugin(Guid, Name, Version)]
@@ -21,7 +21,7 @@ namespace HCT15
     {
         public const string Guid = "hct15.mod";
         public const string Name = "HCT 1.6";
-        public const string Version = "2.4.0";   // the plugin line (2.x); the 1.x line was an earlier, private build
+        public const string Version = "2.4.2";   // the plugin line (2.x); the 1.x line was an earlier, private build
 
         internal static Plugin Instance;
         internal static ConfigEntry<string> SteamMode;

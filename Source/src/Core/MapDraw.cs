@@ -5,11 +5,11 @@ using UnityEngine.Rendering;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.16 - smooth lines for the campaign maps (2026-10-08: in the Rutas de Chile campaign the routes looked
-    /// pixelated; they should look smooth, like a spline). The roads were rows of square dots along straight segments;
+    /// 2.0.16 - smooth lines for the campaign maps (the user, 2026-10-08: "in the Rutas de Chile campaign the routes look
+    /// pixelated, they should look smooth, like a spline"). The roads were rows of square dots along straight segments;
     /// now a polyline is a Catmull-Rom spline through its points, drawn as a ribbon whose two long edges fade out
     /// (antialiased).
-    /// 2.0.17 (bug: the map of Chile was extremely slow): 2.0.16 drew every short stretch as its own rotated
+    /// 2.0.17 (the user: "the map of Chile is extremely slow"): 2.0.16 drew every short stretch as its own rotated
     /// GUI.DrawTexture plus a round dot at each joint - tens of thousands of draw calls a frame on the Chile map. A line
     /// is now one GL batch of quads (core + two feathered edges, normals averaged at the joints so the bends have no
     /// notches); the old per-stretch drawing stays only as the fallback when the GL shader is missing.

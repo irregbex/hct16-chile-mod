@@ -8,8 +8,9 @@ using UnityEngine.UI;
 namespace HCT15
 {
     /// <summary>
-    /// 2.2.6 (2026-10-29): when a player finishes on the podium, at least two animated stickers show on that player's
-    /// screen - in split screen only theirs - looping until the end of the animation, around the place it shows. HCT15Content\stickers\&lt;name&gt;.png + .json (Tools\stickers.py:
+    /// 2.2.6 (the user, 2026-10-29: "when the race ends and the player wins first place, at least two of these animated
+    /// stickers show on the winner's screen - in split screen only the winner's - looping until the end of the
+    /// animation, around where it says first place"). HCT15Content\stickers\&lt;name&gt;.png + .json (Tools\stickers.py:
     /// a sheet of frames and each frame's milliseconds). The game shows "1st" with PlayerHudViewModel's animator
     /// (race_end_1st) on that player's own HUD; the stickers are RawImages hung on the same HUD, left and right of it,
     /// popping in with a little bounce and rocking, until HideTrophy ends the trophy. Animated stickers first; two of
@@ -43,7 +44,7 @@ namespace HCT15
             return false;
         }
 
-        /// <summary>2.2.7 (one set of stickers per podium place): the podium places' folders,
+        /// <summary>2.2.7 (the user: "three categories of stickers for the three cups"): the podium places' folders,
         /// stickers\oro (1st), stickers\plata (2nd), stickers\bronce (3rd). The 1st place falls back on the stickers
         /// loose in stickers\ (2.2.6) while its folder is empty; 2nd and 3rd show nothing without their own.</summary>
         public static readonly string[] Folders = { "oro", "plata", "bronce" };
@@ -113,7 +114,8 @@ namespace HCT15
         private static readonly Dictionary<int, List<Sticker>> _picked = new Dictionary<int, List<Sticker>>();
 
         /// <summary>
-        /// 2.2.8 (the finish stalled a moment when the stickers showed: they were loaded only then). Decoding a sheet (PNG up
+        /// 2.2.8 (the user: "when you finish first and the stickers show, the computer stops a little, as if it were only
+        /// then loading them; the 6 random stickers should be loaded at the start of the race"). Decoding a sheet (PNG up
         /// to 4096 px) froze the finish for a moment. Now the HUD's Initialize (the race's loading) picks the pair of each
         /// podium place and decodes them; Show uses them as they are. The previous race's sheets are freed first. A quick
         /// retry (no new HUD) shows the same pairs again without a stall.
@@ -157,6 +159,7 @@ namespace HCT15
         {
             if (hud == null) return;
             Hide(hud);
+            if (RetroRules.Active) return;   // 2.4.1: the retro campaign ends the SNES way (RACE OVER, the car drives off) - no stickers
             List<Sticker> all = For(place);
             if (all.Count == 0) return;
             List<Sticker> pool, pre;
@@ -234,7 +237,7 @@ namespace HCT15
             float dx = Mathf.Clamp(0.5f * r.height / Mathf.Max(1f, r.width), 0.12f, 0.35f);
             _rt.anchorMin = _rt.anchorMax = new Vector2(_slot == 0 ? 0.5f - dx : 0.5f + dx, 0.56f);
             float aspect = _s.J.FrameH > 0 ? _s.J.FrameW / (float)_s.J.FrameH : 1f;
-            // 2.3.6 (reported: "the stickers twice as big, growing towards their own side"): the inner edge stays where it was,
+            // 2.3.6 (the user: "the stickers twice as big, growing towards their own side"): the inner edge stays where it was,
             // the sticker doubles outwards (the left one to the left, the right one to the right), stopping at the screen's edge
             float w0 = side * Mathf.Min(1f, aspect), h0 = side / Mathf.Max(1f, aspect);
             float room = r.width * (0.5f - dx - 0.01f) + w0 * 0.5f;   // from the inner edge to the screen's edge (both sides alike)

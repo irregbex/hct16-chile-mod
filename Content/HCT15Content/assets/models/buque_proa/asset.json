@@ -1,0 +1,11 @@
+{
+  "Id": "buque_proa",
+  "Name": "Ship bow",
+  "Category": "landmark",
+  "Description": "Container ship: the bow segment, 18 x 9, stem towards +Z, side to +X",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

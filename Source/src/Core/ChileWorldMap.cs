@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using Aquiris.HorizonChase.Data;
@@ -17,28 +17,29 @@ namespace HCT15
     /// Page Down) the next region; Enter / A puts that round on the track strip and closes the map, M / Y / Esc / B close it.
     /// While it is open the game's menu input is off (InputHandler.ToggleInput(false), what the game does for its own
     /// overlays), so Enter and Back cannot reach the screen underneath; this reads the keyboard and the pad directly.
-    /// 2.0.11 (the campaign looks better with Chile horizontal, with the routes drawn on the map):
+    /// 2.0.11 (the user: "the campaign would look better with Chile horizontal, with the routes drawn on the map"):
     /// worldmap.json "Horizontal" - the same image drawn on its side (GUI.matrix turned a quarter: north left, the Pacific
     /// below), the card under it, left/right the next round north/south and up/down the one beside; every pin's
     /// "Route" (its raced road, magnified by the tool) drawn over the map, the selected one bright.
-    /// 2.0.12 (Chile much closer - its width nearly the screen's height -, sliding sideways as one moves along the
-    /// stages, and a list of the stages top right): the horizontal map fills the screen; worldmap.json "Land"
+    /// 2.0.12 (the user: "Chile much closer - its width nearly the screen's height -, sliding sideways as one moves
+    /// along the stages, and a list of the stages top right"): the horizontal map fills the screen; worldmap.json "Land"
     /// (rows y, x0, x1 of Chile's land, from the tool's mask) sets the zoom so the land at the pin's latitude - coast to
     /// Andes - is LandShare of the screen's height, the view centred on that land and scrolled along the coast to the pin;
     /// the card bottom left, the keys bottom right, the stages in round order top right, the selected one lit.
-    /// 2.0.16 (2026-10-08: the Chile campaign horizontal like Rutas de Chile, with a REGION selector at the top,
-    /// every region clearly outlined on the map with its markers; the region is chosen before the city - there are
-    /// too many cities - but pressing down goes straight to the cities): worldmap.json "RegionPicker" (the
+    /// 2.0.16 (the user, 2026-10-08: "the Chile campaign should be horizontal like Rutas de Chile, with a REGION selector
+    /// at the top, every region clearly outlined on the map with its markers; choose the region before the city - there
+    /// are too many cities - but pressing down should go straight to the cities"): worldmap.json "RegionPicker" (the
     /// Chile campaign, 87 rounds) - two levels. Regions: a bar of region tabs at the top, left/right (LB/RB) moves between
     /// them, the map zooms to fit the whole region (worldmap.json "RegionShapes": its outline in map pixels) and lights
     /// its outline; down or Enter goes to its stages. Stages: left/right round by round (crossing into the next region),
-    /// up goes back to the regions, Enter chooses. The stage list shows the region's own stages. Every region's outline
+    /// up/down move in the list and wrap round it (2.2.6; up from the region tabs = its last stage), Esc / B goes back to
+    /// the regions, Enter chooses. The stage list shows the region's own stages. Every region's outline
     /// is drawn faintly, the chosen one bright. Roads and outlines are smooth (MapDraw: Catmull-Rom, antialiased).
     /// ClosedFor: the campaign whose world map was opened and closed on this visit of the campaign screen - the small
-    /// card map (CampaignMap) waits for it, so it no longer shows for a moment before the world map (for a moment the
-    /// small map of Chile showed, then the big one).
-    /// 2.0.18 (the stage selection of the Chile campaign was confusing - map or list; now region first, then the
-    /// place): with the region picker the map IS the selection. Regions: left/right (LB/RB), down/Enter opens them,
+    /// card map (CampaignMap) waits for it, so it no longer shows for a moment before the world map ("for a moment the
+    /// small map of Chile shows, then the big one").
+    /// 2.0.18 (the user: "the stage selection of the Chile campaign is a disaster - map or list; region first, then the
+    /// place"): with the region picker the map IS the selection. Regions: left/right (LB/RB), down/Enter opens them,
     /// Esc/B goes back to the Campaigns menu. Places: the region's list north to south (the map's order), up/down,
     /// left/right the next region, Enter starts the race (straight to the car selection - no track strip, no Confirm),
     /// Esc/B back to the regions; a locked round (Aventura Chile) is dimmed and says so. The small card map is not shown
@@ -208,8 +209,8 @@ namespace HCT15
             if (!IsOpen) { if (toggle) Open(); TestDrive(); return; }
             bool back = Input.GetKeyDown(KeyCode.Escape) || (dev != null && dev.Action2.WasPressed);
             bool enter = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || (dev != null && dev.Action1.WasPressed);
-            // 2.0.18 (the stage selection in the Chile campaign was confusing - map or list; now region first, then
-            // the place): with the region picker the map IS the selection - it is not closed by hand, Enter on a
+            // 2.0.18 (the user: "the stage selection in the Chile campaign is a disaster - map or list, region first and
+            // then the place"): with the region picker the map IS the selection - it is not closed by hand, Enter on a
             // place starts the race, Esc / B goes back a level (places -> regions -> the Campaigns menu)
             if (Regions) { RegionInput(dev, enter, back || toggle); TestDrive(); return; }
             if (toggle || back) { Close(false); return; }
@@ -291,7 +292,7 @@ namespace HCT15
                 {
                     List<Pin> places = PlacesOf(_doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)]);
                     int k = places.IndexOf(_sel >= 0 && _sel < _byY.Count ? _byY[_sel] : null);
-                    // 2.2.6 (pressing up on the first stage brings up the end of the list): the list
+                    // 2.2.6 (the user: "on the stage selection, pressing up should bring up the end of the list"): the list
                     // wraps - up from the first place is the last, down from the last the first (until 2.2.5 up from
                     // the first went back to the regions; Esc / B still does)
                     if (places.Count > 0) SelectPlace(((k < 0 ? 0 : k + dy) % places.Count + places.Count) % places.Count);
@@ -633,8 +634,8 @@ namespace HCT15
                 Rect rb = new Rect(); bool fitRegion = Regions && _regionBox.TryGetValue(_doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)], out rb)
                     && (_level == 0 || (rb.width < 300f && rb.height < 300f)   // 2.0.18: a small region (the Antarctic inset) stays fitted on its places too
                         || (_doc.FixedRegions != null && _doc.FixedRegions.Contains(_doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)])));
-                // 2.0.24 (the beaches are centred on the screen and the screen does not move while going through
-                // them): worldmap.json FixedRegions (the insets) stay fitted and still while a place is chosen
+                // 2.0.24 (the user: "the beaches should be centred on the screen and the screen should not move while going
+                // through them"): worldmap.json FixedRegions (the insets) stay fitted and still while a place is chosen
                 if (fitRegion)
                 {
                     // the whole region on screen: its length along the screen's width, its breadth within 70 % of the height
@@ -673,8 +674,8 @@ namespace HCT15
                 Road(scr, p.Route, isSel ? ds * 0.7f * pulse : ds * 0.46f, isSel ? new Color(1f, 0.3f, 0.2f, 0.5f) : new Color(0.04f, 0.07f, 0.14f, 0.85f), sw, sh);   // halo
                 Road(scr, p.Route, isSel ? ds * 0.36f : ds * 0.26f, isSel ? new Color(1f, 0.9f, 0.3f, 1f) : new Color(1f, 1f, 1f, 0.95f), sw, sh);
             }
-            // the tracks to come (worldmap.json "Future"; 2026-10-08: on the map with an icon at 50 %
-            // transparency): a smaller diamond at half alpha and its name, not selectable
+            // the tracks to come (worldmap.json "Future"; the user, 2026-10-08: "add them to the map with an icon at 50 %
+            // transparency"): a smaller diamond at half alpha and its name, not selectable
             if (_doc.Future != null)
                 foreach (Pin f in _doc.Future)
                 {
@@ -755,8 +756,8 @@ namespace HCT15
                 // the region level: its name, how many stages, the keys; the stages listed top right
                 string reg = _doc.Regions[Mathf.Clamp(_region, 0, _doc.Regions.Count - 1)];
                 int count = _byY.FindAll(p => p.Region == reg).Count;
-                // 2.2.8 (the minimaps did not show until a key was pressed): the outline of the stage marked in the list shows at
-                // the region level too
+                // 2.2.8 (the user: "the minimaps do not show by themselves; you must press a button and the screen does not
+                // change, but then it appears"): the outline of the stage marked in the list shows at the region level too
                 float textW = cardW;
                 if (sel.Region == reg)
                 {
@@ -780,7 +781,7 @@ namespace HCT15
             else
             {
                 // over the map: the round's card bottom left, the keys bottom right, the stages top right
-                // 2.2.7 (a minimap preview on the stage selection of the Chilean tracks): the lap's
+                // 2.2.7 (the user: "the Chilean tracks show no minimap preview on the stage selection"): the lap's
                 // outline at the card's right end, the texts to its left
                 float pv = cardH - 12f, textW = cardW - pv - 12f;
                 TrackPreview(sel.Id, new Rect(cardX + cardW - pv + 8f, cardY - 8f, pv, pv - 4f));

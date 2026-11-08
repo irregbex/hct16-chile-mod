@@ -1,0 +1,12 @@
+{
+ "Comment": "jetski_especiales.py: 5 lanes all along",
+ "Sections": [],
+ "Lanes": [
+  {
+   "From": 0.0,
+   "To": 1.0,
+   "Lanes": 5,
+   "Name": "course"
+  }
+ ]
+}

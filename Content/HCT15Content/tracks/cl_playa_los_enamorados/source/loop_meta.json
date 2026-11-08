@@ -1,10 +1,11 @@
 {
  "centre": [
-  -32.76975845652174,
-  -71.52972783913043
+  -32.7566,
+  -71.4968
  ],
  "streets": [],
- "beach_osm_way": 137578627,
- "waterline_m": 85,
- "shore": "left of the way out (OSM coastline: land on the left)"
+ "port": "Bahía de Quintero",
+ "ships": "bulk_lng",
+ "nearest_coast_m": 800,
+ "nearest_pier_m": 178
 }

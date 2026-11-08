@@ -1,0 +1,11 @@
+{
+  "Id": "buque_carga_2",
+  "Name": "Container ship section 2",
+  "Category": "landmark",
+  "Description": "Container ship: a cargo segment, 18 x 9, boxes 2-5 high",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

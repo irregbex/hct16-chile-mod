@@ -7493,6 +7493,58 @@
    "Yaw": 212.3
   },
   {
+   "P": 0.21279,
+   "Side": 1,
+   "Dist": 38.0,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.36,
+   "Kind": "landmark",
+   "Name": "Playa Las Docas",
+   "Gen": "playas",
+   "Yaw": 253.8
+  },
+  {
+   "P": 0.61297,
+   "Side": 1,
+   "Dist": 38.06,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.36,
+   "Kind": "landmark",
+   "Name": "Playa Las Docas",
+   "Gen": "playas",
+   "Yaw": 182.8
+  },
+  {
+   "P": 0.58087,
+   "Side": 1,
+   "Dist": 37.71,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.36,
+   "Kind": "landmark",
+   "Name": "Playa Las Docas",
+   "Gen": "playas",
+   "Yaw": 181.0
+  },
+  {
+   "P": 0.10773,
+   "Side": 1,
+   "Dist": 44.74,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.26,
+   "Kind": "landmark",
+   "Name": "Playa Las Docas",
+   "Gen": "playas",
+   "Yaw": 12.8
+  },
+  {
    "P": 0.61682,
    "Side": 1,
    "Dist": 23.93,
@@ -14661,6 +14713,19 @@
    "Yaw": 44.6
   },
   {
+   "P": 0.07958,
+   "Side": -1,
+   "Dist": 4.29,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 2.52,
+   "Kind": "landmark",
+   "Name": "roca",
+   "Gen": "playas",
+   "Yaw": 200.3
+  },
+  {
    "P": 0.0797,
    "Side": -1,
    "Dist": 0.6,
@@ -14899,6 +14964,19 @@
    "Yaw": 43.4
   },
   {
+   "P": 0.26228,
+   "Side": -1,
+   "Dist": 5.65,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 2.16,
+   "Kind": "landmark",
+   "Name": "roca",
+   "Gen": "playas",
+   "Yaw": 15.3
+  },
+  {
    "P": 0.26376,
    "Side": -1,
    "Dist": 0.6,
@@ -15011,6 +15089,19 @@
    "Yaw": 243.0
   },
   {
+   "P": 0.39505,
+   "Side": 1,
+   "Dist": 3.94,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 1.7,
+   "Kind": "landmark",
+   "Name": "roca",
+   "Gen": "playas",
+   "Yaw": 340.6
+  },
+  {
    "P": 0.39601,
    "Side": 1,
    "Dist": 0.6,
@@ -15081,6 +15172,19 @@
    "Yaw": 164.8
   },
   {
+   "P": 0.47358,
+   "Side": 1,
+   "Dist": 5.14,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 2.32,
+   "Kind": "landmark",
+   "Name": "roca",
+   "Gen": "playas",
+   "Yaw": 200.5
+  },
+  {
    "P": 0.47292,
    "Side": 1,
    "Dist": 0.6,
@@ -15107,6 +15211,19 @@
    "Gen": "playas",
    "Asset": "roca_costera",
    "Yaw": 139.7
+  },
+  {
+   "P": 0.50615,
+   "Side": -1,
+   "Dist": 5.33,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 1.82,
+   "Kind": "landmark",
+   "Name": "roca",
+   "Gen": "playas",
+   "Yaw": 236.5
   },
   {
    "P": 0.50686,
@@ -15387,6 +15504,136 @@
    "Gen": "playas",
    "Asset": "muelle_cruce",
    "Yaw": 0.0
+  },
+  {
+   "P": 0.00795,
+   "Side": 1,
+   "Dist": 3.01,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.84,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 252.9
+  },
+  {
+   "P": 0.03196,
+   "Side": 1,
+   "Dist": 4.33,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.9,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 287.9
+  },
+  {
+   "P": 0.04171,
+   "Side": 1,
+   "Dist": 4.68,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.82,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 131.2
+  },
+  {
+   "P": 0.03819,
+   "Side": 1,
+   "Dist": 2.6,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.8,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 63.9
+  },
+  {
+   "P": 0.00686,
+   "Side": 1,
+   "Dist": 3.46,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.87,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 80.5
+  },
+  {
+   "P": 0.03547,
+   "Side": 1,
+   "Dist": 3.05,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.82,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 202.0
+  },
+  {
+   "P": 0.03486,
+   "Side": 1,
+   "Dist": 2.66,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.89,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 331.2
+  },
+  {
+   "P": 0.00402,
+   "Side": 1,
+   "Dist": 1.29,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.77,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 295.6
+  },
+  {
+   "P": 0.01924,
+   "Side": 1,
+   "Dist": 2.95,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.78,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 254.5
+  },
+  {
+   "P": 0.02643,
+   "Side": 1,
+   "Dist": 2.09,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.77,
+   "Kind": "landmark",
+   "Name": "caleta",
+   "Gen": "playas",
+   "Yaw": 70.4
   },
   {
    "P": 0.004,
@@ -16439,6 +16686,45 @@
    "Yaw": 0.0
   },
   {
+   "P": 0.39879,
+   "Side": -1,
+   "Dist": 14.23,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.19,
+   "Kind": "landmark",
+   "Name": "mar",
+   "Gen": "playas",
+   "Yaw": 118.1
+  },
+  {
+   "P": 0.57921,
+   "Side": -1,
+   "Dist": 31.69,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.16,
+   "Kind": "landmark",
+   "Name": "mar",
+   "Gen": "playas",
+   "Yaw": 191.1
+  },
+  {
+   "P": 0.45512,
+   "Side": -1,
+   "Dist": 36.41,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.2,
+   "Kind": "landmark",
+   "Name": "mar",
+   "Gen": "playas",
+   "Yaw": 35.6
+  },
+  {
    "P": 0.05948,
    "Side": -1,
    "Dist": 5.82,
@@ -16453,6 +16739,19 @@
    "Yaw": 320.3
   },
   {
+   "P": 0.01781,
+   "Side": -1,
+   "Dist": 41.59,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.19,
+   "Kind": "landmark",
+   "Name": "mar",
+   "Gen": "playas",
+   "Yaw": 314.4
+  },
+  {
    "P": 0.11153,
    "Side": -1,
    "Dist": 6.04,
@@ -16465,6 +16764,19 @@
    "Gen": "playas",
    "Asset": "jetski",
    "Yaw": 348.0
+  },
+  {
+   "P": 0.60966,
+   "Side": -1,
+   "Dist": 26.22,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.18,
+   "Kind": "landmark",
+   "Name": "mar",
+   "Gen": "playas",
+   "Yaw": 256.7
   },
   {
    "P": 0.45357,
@@ -16493,6 +16805,19 @@
    "Gen": "playas",
    "Asset": "jetski",
    "Yaw": 82.7
+  },
+  {
+   "P": 0.05926,
+   "Side": -1,
+   "Dist": 35.11,
+   "W": 0,
+   "D": 0,
+   "H": 0,
+   "S": 0.18,
+   "Kind": "landmark",
+   "Name": "mar",
+   "Gen": "playas",
+   "Yaw": 53.7
   },
   {
    "P": 0.43173,

@@ -13,7 +13,7 @@ namespace HCT15
     ///
     /// Unity's JsonUtility cannot see the classes of an assembly loaded at run time - a BepInEx plugin: top-level
     /// numbers and strings come through, lists of our own classes come back EMPTY (the campaigns loaded with 0
-    /// rounds, the retro campaign's sprites with no frames). So every JSON file the mod reads or writes goes through here,
+    /// rounds, the the retro campaign sprites with no frames). So every JSON file the mod reads or writes goes through here,
     /// with JsonUtility's own contract: instance fields only - public ones not [NonSerialized], and private ones
     /// with [SerializeField] - no properties, no dictionaries, no readonly fields. The files stay exactly the ones
     /// the old 1.x mod wrote.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Aquiris.HorizonChase.Data;
 using Aquiris.Util;
+using HarmonyLib;
 
 namespace HCT15
 {
@@ -79,6 +80,12 @@ namespace HCT15
                     if (!_demoShown) { ShowCrew(car); _demoShown = true; Debug.Log("[HCT15] pit demo: crew shown around player " + id); }
                     Animate(id, now);
                     if (overheadTarget == null) overheadTarget = CarAnchor(car);   // the demo shows the plan view too, so it can be checked unattended
+                    continue;
+                }
+                if (RetroRules.Active)
+                {
+                    Transform rt = RetroTick(car, id, now, app);
+                    if (overheadTarget == null) overheadTarget = rt;
                     continue;
                 }
                 float p = car.Evaluator.CurrentPercent;
@@ -179,6 +186,205 @@ namespace HCT15
         }
 
         private void Begin(int id, int phase, float now) { _phase[id] = phase; _phaseSince[id] = now; }
+
+        // ------------------------------------------------------------------ the 16-bit stop (RetroRules, 2.4.1)
+        // The ROM (05:D752, state machine 00:90CC; 04-pit-stops of the decode) and the user's video of the San Francisco pit
+        // (@Source Top Gear Decoder\@Source\Top Gear-pits.mp4, 2026-11-07): PITS signs and tyre walls announce it (and the
+        // HUD's pit arrow from $1000 units before it: RetroHud); the stop starts when the car passes the PIT sign (object 0x74)
+        // with its lateral beyond the sign's, on its side; the screen fades out (a blue flash, then black) and the PIT SCENE
+        // takes over (RetroPitScene: the car seen from above, coming in from the right and braking - PITSTOP, SLOW - down to
+        // the STOP line); there it stands with no control while fuel goes up 0x7F a frame until full (43007 = ~340 frames from
+        // empty); ACCELERATE (or the nitro) leaves early - the car drives off to the left past GO, fade, the race again. No
+        // other car can get into the player's pit (the player's car is intangible meanwhile and parked off the road on the pit
+        // side); each human player has their own; the CPU cars have none. Timings read off the video (30 fps).
+        private const float RetroFadeOut = 0.5f, RetroBrakeSeconds = 3.2f, RetroLeaveSeconds = 2.7f, RetroFadeBack = 0.7f;
+        private const float RetroLeaveKPH = 170f;
+        private const float RetroRefuelPerSecond = 0x7F * 60.0988f / 43007f;   // share of a full tank per second
+        private const int PhaseFade = 10, PhaseBack = 11;
+        public float Sign = -1f;   // lap fraction of the PIT sign (race.json PitSign); -1 = this track has no pit in the ROM
+        public float SignLateral;  // how far out the car must pass the sign (race.json PitLateral, the ROM's sign lateral); 0 = the outer lane
+        public float Warn = -1f;   // lap fraction from which the HUD's pit arrow shows (race.json PitWarn: $1000 units before the sign)
+        private readonly Dictionary<int, int> _rPhase = new Dictionary<int, int>();
+        private readonly Dictionary<int, float> _rSince = new Dictionary<int, float>();
+        private readonly Dictionary<int, float> _rLock = new Dictionary<int, float>();
+        private readonly Dictionary<int, float> _rEntry = new Dictionary<int, float>();
+        private readonly Dictionary<int, float> _rFrom = new Dictionary<int, float>(), _rTo = new Dictionary<int, float>();
+        private readonly Dictionary<int, float> _rGas = new Dictionary<int, float>();
+        private static readonly HashSet<int> s_serving = new HashSet<int>();
+        private static readonly HashSet<int> s_leave = new HashSet<int>();
+        private static readonly AccessTools.FieldRef<CarFuelTank, float> _fuelLevel = AccessTools.FieldRefAccess<CarFuelTank, float>("m_currentFuelLevel");
+
+        /// <summary>What the pit scene of one player shows: phase (Fade, Braking, Serving, Leaving, Back), seconds into it,
+        /// the speed it entered with.</summary>
+        public struct RetroScene { public int Phase; public float T; public float EntryKph; public float Speed; }
+        private static readonly Dictionary<int, RetroScene> s_scene = new Dictionary<int, RetroScene>();
+        public const int SceneFade = PhaseFade, SceneBraking = PhaseBraking, SceneServing = PhaseServing, SceneLeaving = PhaseLeaving, SceneBack = PhaseBack;
+        public const float SceneFadeOut = RetroFadeOut, SceneBrake = RetroBrakeSeconds, SceneLeave = RetroLeaveSeconds, SceneBackSeconds = RetroFadeBack;
+        private static PitLane s_current;
+
+        /// <summary>The pit scene of this player, if one is under way.</summary>
+        public static bool Scene(int playerId, out RetroScene s) { return s_scene.TryGetValue(playerId, out s); }
+
+        /// <summary>This player's car is in its pit (from the fade out to the fade back): no car touches it.</summary>
+        /// Read from HCT's collision WORKER thread (RetroRules.IgnoreContact): a plain array, written on the main thread only.
+        public static bool InRetroPit(int playerId) { return playerId >= 0 && playerId < s_inPit.Length && s_inPit[playerId]; }
+        private static readonly bool[] s_inPit = new bool[8];
+
+        /// <summary>The HUD's pit arrow: +1 right / -1 left while the player is between PitWarn and the sign and has not
+        /// stopped this lap; 0 otherwise (no pit on this track, or not there).</summary>
+        public static int ArrowFor(PlayerCar car)
+        {
+            PitLane pl = s_current;
+            if (pl == null || car == null || car.Evaluator == null || pl.Sign < 0f || s_scene.ContainsKey(car.PlayerId)) return 0;
+            var app = RRApplication.Instance;
+            if (app == null || app.Game == null || !app.Game.HasGameStarted) return 0;   // not on the grid / during the fly-in
+            float p = Mathf.Repeat(car.Evaluator.CurrentPercent, 1f), from = pl.Warn >= 0f ? pl.Warn : pl.Sign - 0.08f;
+            bool inside = from <= pl.Sign ? (p >= from && p <= pl.Sign) : (p >= from || p <= pl.Sign);
+            int served;
+            if (!inside || (pl._lastLapServed.TryGetValue(car.PlayerId, out served) && served == car.Evaluator.CurrentLap)) return 0;
+            return pl._side > 0 ? 1 : -1;
+        }
+
+        /// <summary>The nitro button pressed during a retro stop: leave now (true = the press was used for that).</summary>
+        public static bool RequestLeave(int playerId)
+        {
+            if (!s_serving.Contains(playerId)) return false;
+            s_leave.Add(playerId);
+            return true;
+        }
+
+        private void OnDestroy() { if (s_current == this) { s_current = null; s_scene.Clear(); s_serving.Clear(); s_leave.Clear(); for (int i = 0; i < s_inPit.Length; i++) s_inPit[i] = false; } }
+
+        private void SetScene(int id, int phase, float t, float speed)
+        {
+            float e; if (!_rEntry.TryGetValue(id, out e)) e = 160f;
+            s_scene[id] = new RetroScene { Phase = phase, T = t, EntryKph = e, Speed = speed };
+            if (id >= 0 && id < s_inPit.Length) s_inPit[id] = true;
+        }
+
+        private Transform RetroTick(PlayerCar car, int id, float now, RRApplication app)
+        {
+            s_current = this;
+            int phase; if (!_rPhase.TryGetValue(id, out phase)) phase = PhaseNone;
+            // 2.4.1 (the user: "I race Los Angeles, no pit shows, and I got into one by mistake"): a track without a pit in the
+            // ROM (race.json PitSign -1) has none - the pit range in its race.json is only the donor template's
+            if (phase == PhaseNone && Sign < 0f) return null;
+            float kph = car.CarEngine != null ? car.CarEngine.CurrentSpeedKPH : car.CurrentSpeedKPH;
+            if (phase == PhaseNone)
+            {
+                float p = car.Evaluator.CurrentPercent, sign = Sign;
+                if (p < sign - 0.012f || p > sign + 0.004f) return null;   // at the sign, as the ROM checks it
+                int lap = car.Evaluator.CurrentLap, served;
+                if (_lastLapServed.TryGetValue(id, out served) && served == lap) return null;
+                float lateral = car.LateralOffset, threshold = SignLateral > 0.1f ? SignLateral : OuterLaneThreshold(app);
+                bool onPitSide = _side > 0 ? lateral > threshold : lateral < -threshold;
+                if (now >= _nextDiag) { _nextDiag = now + 0.5f; Debug.Log("[HCT15] retro pit: player " + id + " at " + p.ToString("0.###") + " (sign " + sign.ToString("0.###") + "), lateral " + lateral.ToString("0.00") + " need " + (_side > 0 ? "> " : "< -") + threshold.ToString("0.00") + (onPitSide ? " -> PIT" : "")); }
+                if (!onPitSide) return null;
+                _lastLapServed[id] = lap;
+                _rEntry[id] = Mathf.Clamp(kph, 60f, 260f);
+                _rLock[id] = lateral;
+                _rFrom[id] = lateral;                                                       // the lane it came from
+                _rTo[id] = (_side > 0 ? 1f : -1f) * (Mathf.Abs(threshold) + 2.4f);         // parked off the road on the pit side
+                _rGas[id] = 1f;                                                             // the throttle must be let go and pressed again to leave
+                if (car.CarEngine != null) car.CarEngine.BreakNitro();
+                _rPhase[id] = PhaseFade; _rSince[id] = now; s_leave.Remove(id);
+                SetScene(id, PhaseFade, 0f, kph);
+                Debug.Log("[HCT15] retro pit: player " + id + " in at " + p.ToString("0.###") + ", lap " + lap + ", " + kph.ToString("0") + " km/h, fuel " + (car.FuelTank != null ? (car.FuelTank.FuelLevelNormalized * 100f).ToString("0") + " %" : "?"));
+                return null;
+            }
+            float since = now - _rSince[id];
+            if (phase == PhaseFade)
+            {
+                Hold(car, Mathf.Min(kph, _rEntry[id]));
+                SetScene(id, PhaseFade, since, kph);
+                if (since >= RetroFadeOut)
+                {
+                    _rLock[id] = _rTo[id];                                                  // behind the black: off the road on the pit side
+                    _rPhase[id] = PhaseBraking; _rSince[id] = now;
+                }
+                return null;
+            }
+            if (phase == PhaseBraking)
+            {
+                float k = Mathf.Clamp01(since / RetroBrakeSeconds);
+                float v = _rEntry[id] * (1f - k) * (1f - k);
+                Hold(car, v);
+                SetScene(id, PhaseBraking, since, v);
+                if (k >= 1f)
+                {
+                    _rPhase[id] = PhaseServing; _rSince[id] = now; s_serving.Add(id); s_leave.Remove(id);
+                    if (car.FuelTank != null) car.FuelTank.RegainFuel();   // the game's own refuel call first: it clears the low / empty warnings
+                }
+                return null;
+            }
+            if (phase == PhaseServing)
+            {
+                Hold(car, 0f);
+                SetScene(id, PhaseServing, since, 0f);
+                CarFuelTank tank = car.FuelTank;
+                float cap = RetroRules.Capacity(tank);
+                bool full = true;
+                if (tank != null && cap > 0f)
+                {
+                    float lvl = Mathf.Min(cap, _fuelLevel(tank) + cap * RetroRefuelPerSecond * Time.deltaTime);
+                    _fuelLevel(tank) = lvl;
+                    full = lvl >= cap - 1e-3f;
+                    if (lvl > 0f && car.CarEngine != null) car.CarEngine.OutOfFuel = false;
+                }
+                // ACCELERATE leaves early (a fresh press: HCT may keep it held), as does the nitro button; with some fuel in
+                float gas = 0f; try { gas = InputHandler.Instance.GetAcceleration(id); } catch (Exception) { }
+                bool pressed = gas > 0.5f && _rGas[id] <= 0.5f;
+                _rGas[id] = gas;
+                bool leave = s_leave.Contains(id) || pressed;
+                if (full || (leave && since > 0.3f && tank != null && tank.FuelLevelNormalized > 0.01f))
+                {
+                    s_serving.Remove(id); s_leave.Remove(id);
+                    if (car.CarEngine != null) { car.CarEngine.OutOfFuel = false; car.CarEngine.UpdateSlopeData(); }
+                    Debug.Log("[HCT15] retro pit: player " + id + " out after " + since.ToString("0.0") + " s, fuel " + (tank != null ? (tank.FuelLevelNormalized * 100f).ToString("0") + " %" : "?") + (full ? "" : " (accelerate: left early)"));
+                    _rPhase[id] = PhaseLeaving; _rSince[id] = now;
+                }
+                return null;
+            }
+            if (phase == PhaseLeaving)
+            {
+                float g = Mathf.Clamp01(since / RetroLeaveSeconds);
+                float v = RetroLeaveKPH * g;
+                Hold(car, v);
+                SetScene(id, PhaseLeaving, since, v);
+                if (g >= 1f)
+                {
+                    _rLock[id] = _rFrom[id];                                                // behind the black again: back in its lane
+                    _rPhase[id] = PhaseBack; _rSince[id] = now;
+                }
+                return null;
+            }
+            // the fade back into the race
+            Hold(car, Mathf.Max(kph, RetroLeaveKPH));
+            SetScene(id, PhaseBack, since, kph);
+            if (since >= RetroFadeBack)
+            {
+                _rPhase[id] = PhaseNone; _rLock.Remove(id); s_scene.Remove(id); if (id >= 0 && id < s_inPit.Length) s_inPit[id] = false;
+                Debug.Log("[HCT15] retro pit: player " + id + " back in the race");
+            }
+            return null;
+        }
+
+        /// <summary>The retro stop takes the wheel: the car keeps the lateral the stop gives it, whatever the player steers.</summary>
+        private void LateUpdate()
+        {
+            if (_rLock.Count == 0) return;
+            try
+            {
+                var app = RRApplication.Instance;
+                if (app == null || app.Game == null || app.Game.PlayerCars == null) { _rLock.Clear(); s_serving.Clear(); s_scene.Clear(); for (int i = 0; i < s_inPit.Length; i++) s_inPit[i] = false; return; }
+                foreach (PlayerCar car in app.Game.PlayerCars)
+                {
+                    float lat;
+                    if (car != null && car.LateralController != null && _rLock.TryGetValue(car.PlayerId, out lat)) car.LateralController.SetCurrentOffset(lat);
+                }
+            }
+            catch (Exception) { }
+        }
 
         /// <summary>Put the car at this speed for this frame. Frame-rate independent by construction.</summary>
         private static void Hold(PlayerCar car, float kph)

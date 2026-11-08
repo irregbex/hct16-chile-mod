@@ -1,0 +1,22 @@
+{
+  "Id": "portico_led",
+  "Name": "LED gantry over the course",
+  "Category": "landmark",
+  "Description": "A gantry spanning the course with a 16 x 5 m LED screen facing the racers (Anim led)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true,
+  "Anim": "led",
+  "Screen": [
+    0.42,
+    9.0,
+    14.2,
+    -8.2,
+    8.2,
+    1
+  ],
+  "LedFps": 13.0,
+  "LedGlow": 2.2
+}

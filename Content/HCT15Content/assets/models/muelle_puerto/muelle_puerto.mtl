@@ -1,0 +1,19 @@
+# HCT 1.5 asset kit - flat colours from STYLE.txt
+newmtl concrete
+Kd 0.7000 0.7000 0.6800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl yellow
+Kd 0.9500 0.8000 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl black
+Kd 0.0800 0.0800 0.0900
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

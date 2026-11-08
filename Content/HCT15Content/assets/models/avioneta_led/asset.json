@@ -1,0 +1,22 @@
+{
+  "Id": "avioneta_led",
+  "Name": "Plane towing an LED banner",
+  "Category": "landmark",
+  "Description": "A light plane towing a 24 x 4 m LED banner (Anim led, Screen facing +-Z)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true,
+  "Anim": "led",
+  "Screen": [
+    0.06,
+    0.45,
+    4.35,
+    -30.1,
+    -6.3,
+    1
+  ],
+  "LedFps": 8.0,
+  "LedGlow": 0.6
+}

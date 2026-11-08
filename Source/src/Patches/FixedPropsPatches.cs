@@ -8,8 +8,8 @@ namespace HCT15.Patches
     // ------------------------------------------------------------------ 2.2.8: scenery that stays put (scenery.json "FixedProps")
 
     /// <summary>
-    /// 2.2.8 (Plaza de Illapel at a walking pace: the buildings, houses and churches at the sides turned and grew; they
-    /// should stay fixed at the sides of the street, at a normal size). Two retail behaviours of
+    /// The user (2026-11-02, Plaza de Illapel at a walking pace): "the buildings, houses and churches at the sides are
+    /// turning and growing; can they stay fixed at the sides of the street, at a normal size?". Two retail behaviours of
     /// PropAutoMover that the speed of a normal race hides: every prop grows in from nothing (m_scale from 0 at z 325 to 1
     /// at z 75) and a prop without FaceTrackHorizontalFactor keeps its yaw while the road bends under it, so in a bend
     /// it seems to swing round. For the props of a track whose scenery.json says "FixedProps": true

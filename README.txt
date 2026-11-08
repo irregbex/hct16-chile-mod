@@ -1,6 +1,6 @@
 HCT 1.6 - a Chilean fan mod for Horizon Chase Turbo
 ====================================================
-Version 2.4.0. A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game
+Version 2.4.2. A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game
 WITHOUT changing it: it is loaded by BepInEx and removed with one click.
 
 This repository contains NO file of the game. You need your own copy of Horizon Chase Turbo, bought on Steam.
@@ -21,10 +21,10 @@ Trailer (1:47, up to 4 players): https://youtu.be/x8EvNXgQcAc
 1. WHAT IT ADDS
 ---------------
   New campaigns (in the game's Campaigns menu; campaign and track names are Chilean Spanish place names):
-    Chile                    164 races through Chilean cities, the comunas of Santiago, observatories (among them a
+    Chile                    165 races through Chilean cities, the comunas of Santiago, observatories (among them a
                              long lap round and INSIDE the Extremely Large Telescope under construction), ski
                              centres, volcanoes, Easter Island, Antarctic bases, the beaches of the Valparaíso region
-                             (on jet skis), the procession of andas round the Plaza de Illapel and a jet ski race
+                             (on jet skis, with harbour laps, an LED night square and a rescue), the procession of andas round the Plaza de Illapel and a jet ski race
                              through a Santiago flooded by a thunderstorm. A map of Chile to pick the region and the place.
                              The tourist places of Arica y Parinacota, Tarapacá, Ñuble, Los Ríos, Aysén and
                              Magallanes too (Lauca, Iquique, Huilo Huilo, Capillas de Mármol, Torres del Paine...).

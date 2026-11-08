@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 namespace HCT15
 {
     /// <summary>
-    /// Plays the player's own music instead of the game's - inside the mod's content only (InModContent).
+    /// Plays the user's own music instead of the game's - inside the mod's content only (InModContent).
     ///
     /// Folder layout, created on first run next to the executable:
     ///   Game\HCT15Music\Menu\   played in the title and menus
@@ -328,7 +328,7 @@ namespace HCT15
 
         /// <summary>
         /// A track from an album a campaign has claimed ("MusicAlbums" in its campaign.json) is only in the
-        /// rotation while the player is inside that campaign. Without this the retro campaign's albums played over
+        /// rotation while the player is inside that campaign. Without this the the retro campaign albums played over
         /// the retail game, the title screen and every other campaign, because Menu\ and Race\ are collected
         /// whole and a round naming its own track only ever ADDS to the pool, it never fences it off.
         /// </summary>
@@ -541,6 +541,23 @@ namespace HCT15
         /// opens). It becomes the running menu track, so the menu-state changes that follow keep it instead of
         /// skipping to the next of the rotation; the rotation resumes after it as usual.
         /// </summary>
+        /// <summary>2.4.2: a jingle played ONCE on the music channel (the qualification screen), no looping.</summary>
+        public void PlayJingle(string spec)
+        {
+            try
+            {
+                if (!Active || AudioManager.Instance == null) return;
+                Track t = Find(spec);
+                if (t == null || t.Clip == null) { Debug.LogWarning("[HCT15] Music: jingle '" + spec + "' not found"); return; }
+                AudioManager.Instance.PlayMusicClip(t.Clip, true, 0.2f);
+                var f = HarmonyLib.AccessTools.Field(typeof(AudioManager), "_source");
+                var src = f != null ? f.GetValue(AudioManager.Instance) as AudioSource : null;
+                if (src != null) src.loop = false;
+                Debug.Log("[HCT15] Music: jingle '" + t.Label + "'");
+            }
+            catch (Exception ex) { Debug.LogWarning("[HCT15] Music: jingle: " + ex.Message); }
+        }
+
         public void PlayMenuTrack(string spec)
         {
             try

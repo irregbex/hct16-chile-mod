@@ -3,8 +3,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.28: confetti falling over the crowd (2026-10-19: the plaza needed at least ten times more people
-    /// shouting and celebrating, throwing confetti). Library assets whose asset.json says "Anim": "confetti" (asset_kit
+    /// 2.0.28: confetti falling over the crowd (the user, 2026-10-19: the plaza "must have at least ten times more people
+    /// shouting and celebrating, throwing confetti"). Library assets whose asset.json says "Anim": "confetti" (asset_kit
     /// confeti_lluvia) get this on their mesh object in AssetLibrary.Prototype, like SmokePlume. Flakes - small paper
     /// squares in festive colours, both faces - fall through a box over the asset (Width across, Depth along, Height up,
     /// from asset.json-free constants scaled by the prop's own scale), each fluttering on its own: a sideways sway, a
@@ -67,7 +67,7 @@ namespace HCT15
                 Vector3 c;
                 if (i % 5 < 2)
                 {
-                    // 2.0.28 (they throw confetti, "challa" in Chile): two flakes in five are thrown up out of the crowd's hands in
+                    // 2.0.28 (the user: "they throw challas"): two flakes in five are thrown up out of the crowd's hands in
                     // handfuls - a quick rise to ~4 m, a slow drift down, then the next handful
                     float P = 3.0f + 1.5f * Mathf.Repeat(s * 0.37f, 1f);
                     float tt = Mathf.Repeat(t + s, P);

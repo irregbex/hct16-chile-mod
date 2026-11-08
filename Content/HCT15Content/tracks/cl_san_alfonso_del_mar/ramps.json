@@ -1,0 +1,20 @@
+{
+ "Comment": "jetski_especiales.py: jet ski ramps (HCT15.JetskiRamps)",
+ "Ramps": [
+  {
+   "P": 0.68643,
+   "Len": 0.03929,
+   "Height": 1.3
+  },
+  {
+   "P": 0.83286,
+   "Len": 0.03929,
+   "Height": 1.3
+  },
+  {
+   "P": 0.99,
+   "Len": 0.03929,
+   "Height": 1.3
+  }
+ ]
+}

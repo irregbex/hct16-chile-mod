@@ -5,8 +5,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.24: the sun stays ahead, over the rivals (2026-10-10, Viña del Mar en jetski: "with the Sun above the
-    /// rivals"). environment.json "SunAhead": true, "SunAheadYaw".
+    /// 2.0.24: the sun stays ahead, over the rivals (the user, 2026-10-10, Viña del Mar en jetski: "con el Sol encima de
+    /// los contrincantes"). environment.json "SunAhead": true, "SunAheadYaw".
     /// The race sky is camera_prefab/sky (an 837-unit quad, shader HorizonChase/Environment/Sky, which draws the sun disk -
     /// _SunTex / _SunSize / _SunHeight - at a fixed place on itself) with the painted panorama (background), the clouds and
     /// the track backdrop as its children. SkyMovementController slides that object sideways with the car's heading (279

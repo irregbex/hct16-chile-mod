@@ -8,9 +8,9 @@ namespace HCT15
     /// <summary>
     /// 2.0.11: the car's "sting" - the engine rev the game plays when a car is chosen in car selection, at the race start
     /// and on the results (DoctorAudio sound group "sfx_ui_race_totalscoreshine_&lt;car id&gt;", PlayCurrentCarModelSting /
-    /// RRAudio / CarSelectionViewModel.HandleSubmit). Our cars have no group of that name, so they were silent (2026-10-06:
-    /// the added cars should play their rev sound in the selection screen, except the carreta, which plays one of the
-    /// horse sounds when it is chosen). A street car plays its donor's group (the taxi the Specter's,
+    /// RRAudio / CarSelectionViewModel.HandleSubmit). Our cars have no group of that name, so they were silent (the user,
+    /// 2026-10-06: "the added cars should play their rev sound in the selection screen, except the carreta, which should
+    /// play one of the horse sounds when it is chosen"). A street car plays its donor's group (the taxi the Specter's,
     /// the micro the kombi's); a car whose EngineSound is "gallop" plays one of its horn-folder sounds (the neighs);
     /// an Grand Prix 2026 car plays the Senna third-era sting. HasRegisteredSoundGroup says yes for those names, so the game
     /// does not skip them.

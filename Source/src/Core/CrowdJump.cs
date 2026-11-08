@@ -6,8 +6,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.28: the Plaza de Illapel's crowd jumps and dances (2026-10-20: the whole Illapel crowd animated, having fun,
-    /// jumping and throwing confetti). Library assets whose asset.json says "Anim": "crowd" (asset_kit
+    /// 2.0.28: the Plaza de Illapel's crowd jumps and dances (the user, 2026-10-20: "animate all the public of Illapel, let
+    /// them have fun, jump and throw challas"). Library assets whose asset.json says "Anim": "crowd" (asset_kit
     /// multitud_larga_*, baile_chino_*) carry crowd.json beside the OBJ: the people's centres {"People": [[x, z], ...]} in
     /// file coordinates. When the prototype is made (AssetLibrary.Prototype) the one mesh is split by person - every
     /// triangle goes to the nearest centre - into Groups child meshes (person i -> group i % Groups), the original renderer

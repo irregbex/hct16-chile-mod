@@ -340,9 +340,108 @@ namespace HCT15
             if (_season != null) _season.text = Loc.Get("season_line", total);
         }
 
+        // ------------------------------------------------------------------ 2.4.1: the track list grouped by country (Top Gear)
+        // The user, 2026-11-07, with the SNES COUNTRY screen (USA, S AMERICA, JAPAN, GERMANY, SCANDINAVIA, FRANCE, ITALY, UK, each
+        // with its flag): "group the tracks this way on the tracks screen". campaign.json "Countries" (in round order) -> per
+        // country its flag and its name in yellow with the races finished (n/4), and its tracks on the line below.
+        private GameObject _countries;
+        private string _countriesFor = "";
+        private readonly Dictionary<string, Texture2D> _flagTex = new Dictionary<string, Texture2D>();
+
+        private Texture2D Flag(ModCampaign c, string rel)
+        {
+            if (string.IsNullOrEmpty(rel)) return null;
+            string path = System.IO.Path.Combine(c.Dir, rel);
+            Texture2D t;
+            if (_flagTex.TryGetValue(path, out t)) return t;
+            t = null;
+            try
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    t = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+                    if (t.LoadImage(System.IO.File.ReadAllBytes(path))) { t.filterMode = FilterMode.Point; t.wrapMode = TextureWrapMode.Clamp; } else t = null;
+                }
+            }
+            catch (Exception) { t = null; }
+            _flagTex[path] = t;
+            return t;
+        }
+
+        private bool FillCountries(ModCampaign c)
+        {
+            if (c == null || c.Def == null || c.Def.Countries == null || c.Def.Countries.Count == 0) return false;
+            ExtraCampaignSaveData save = null;
+            try { save = UserProfilePersistence.Instance.UserProfile.GetExtraCampaignSaveData(c.Campaign); } catch (Exception) { }
+            int total = c.Def.Rounds.Count, done = 0;
+            var doneBy = new List<int>();
+            int round = 0;
+            foreach (CountryDef cd in c.Def.Countries)
+            {
+                int n = 0;
+                for (int k = 0; k < cd.Rounds && round < total; k++, round++)
+                {
+                    int best = 99;
+                    try { var rd = save != null ? save.GetRaceData(c.Def.Rounds[round].RaceId) : null; if (rd != null) best = rd.BestPosition; } catch (Exception) { }
+                    if (best > 0 && best < 99) { n++; done++; }
+                }
+                doneBy.Add(n);
+            }
+            string key = c.Folder + "|" + Loc.Lang + "|" + done;
+            _title.text = c.Name + "   " + Loc.Get("of_rounds", done, total);
+            if (_season != null) _season.text = c.Name.ToUpperInvariant() + "  -  " + total + " " + Loc.Get("ed_tracks").ToUpperInvariant();
+            _rows.text = ""; _points.text = "";
+            if (_countries != null && key == _countriesFor) return true;
+            _countriesFor = key;
+            if (_countries != null) UnityEngine.Object.Destroy(_countries);
+            _countries = new GameObject("HCT15_Countries", typeof(RectTransform));
+            _countries.transform.SetParent(_panel.transform, false);
+            RectTransform crt = (RectTransform)_countries.transform;
+            crt.anchorMin = Vector2.zero; crt.anchorMax = Vector2.one; crt.offsetMin = new Vector2(14f, 8f); crt.offsetMax = new Vector2(-14f, -50f);
+            float h = crt.rect.height > 10f ? crt.rect.height : ((RectTransform)_panel.transform).rect.height - 58f;
+            int count = c.Def.Countries.Count;
+            float block = h / Mathf.Max(1, count);                       // each country: its line and its tracks' line
+            int big = Mathf.Clamp(Mathf.RoundToInt(block * 0.5f), 10, 34), small = Mathf.Clamp(Mathf.RoundToInt(block * 0.36f), 8, 26);
+            round = 0;
+            for (int i = 0; i < count; i++)
+            {
+                CountryDef cd = c.Def.Countries[i];
+                float top = -i * block;
+                // the flag (x2 of its 16x12 SNES pixels at least, as tall as the name)
+                Texture2D flag = Flag(c, cd.Flag);
+                float fh = big * 0.9f, fw = flag != null ? fh * flag.width / Mathf.Max(1f, flag.height) : 0f;
+                if (flag != null)
+                {
+                    var fgo = new GameObject("flag_" + i, typeof(RectTransform));
+                    fgo.transform.SetParent(_countries.transform, false);
+                    var frt = (RectTransform)fgo.transform;
+                    frt.anchorMin = frt.anchorMax = new Vector2(0f, 1f); frt.pivot = new Vector2(0f, 1f);
+                    frt.sizeDelta = new Vector2(fw, fh); frt.anchoredPosition = new Vector2(0f, top - 2f);
+                    var ri = fgo.AddComponent<RawImage>(); ri.texture = flag; ri.raycastTarget = false;
+                }
+                Text name = MakeText("country_" + i, _countries.transform, _rows, new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(fw + 10f, top - big * 1.3f), new Vector2(0f, top), TextAnchor.UpperLeft, FontStyle.Bold, 1f, new Color(1f, 0.85f, 0.25f));
+                name.fontSize = big; name.text = cd.Name;
+                Text cnt = MakeText("done_" + i, _countries.transform, _rows, new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(0f, top - big * 1.3f), new Vector2(0f, top), TextAnchor.UpperRight, FontStyle.Bold, 1f, doneBy[i] == cd.Rounds ? new Color(1f, 0.85f, 0.25f) : Color.white);
+                cnt.fontSize = big; cnt.text = doneBy[i] + "/" + cd.Rounds;
+                var tracks = new System.Text.StringBuilder();
+                for (int k = 0; k < cd.Rounds && round < total; k++, round++)
+                {
+                    var r = c.Def.Rounds[round];
+                    if (k > 0) tracks.Append("  -  ");
+                    tracks.Append(Loc.Pick(ContentRegistry.Zip(r.TitleLangs, r.TitleTexts), r.Title));
+                }
+                Text tr = MakeText("tracks_" + i, _countries.transform, _rows, new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(fw + 10f, top - big * 1.3f - small * 1.4f), new Vector2(0f, top - big * 1.25f), TextAnchor.UpperLeft, FontStyle.Normal, 1f, new Color(0.88f, 0.88f, 0.92f));
+                tr.fontSize = small; tr.text = tracks.ToString();
+            }
+            Debug.Log("[HCT15] campaign screen: track list grouped in " + count + " countries");
+            return true;
+        }
+
         /// <summary>For campaigns without a championship: the rounds with their best finishing position.</summary>
         private void FillProgress(ModCampaign c)
         {
+            if (FillCountries(c)) return;
+            if (_countries != null) { UnityEngine.Object.Destroy(_countries); _countries = null; _countriesFor = ""; }
             string key = "progress|" + Loc.Lang + "|" + c.Folder + "|" + Time.unscaledTime.ToString("0");
             if (key == _builtFor) return;
             _builtFor = key;

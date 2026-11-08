@@ -1,0 +1,13 @@
+# HCT 1.5 asset kit - flat colours from STYLE.txt
+newmtl spray
+Kd 0.9000 0.9500 1.0000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl spout_grey
+Kd 0.6200 0.6600 0.7200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

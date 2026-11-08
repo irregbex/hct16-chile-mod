@@ -4,7 +4,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// Puts the game on the configured display at every start: full screen at DisplayWidth x DisplayHeight
+    /// Puts the game on the display the user wants at every start: full screen at DisplayWidth x DisplayHeight
     /// from hct15.settings.json (default 2560 x 1440), because the game kept coming up windowed / at another
     /// size between test runs. Runs once from StageSelectMenu.Bootstrap (the title screen). Skipped when the
     /// command line carries Unity's own -screen-width / -screen-height / -screen-fullscreen (the isolated test

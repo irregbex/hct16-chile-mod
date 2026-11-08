@@ -355,7 +355,7 @@ namespace HCT15.Patches
     }
 
     /// <summary>
-    /// 2.1.5 - rule: while one player is saying a taunt, the other does NOT start one, or the two get mixed up. Each
+    /// 2.1.5 - the user's rule: "if one player is saying a taunt, the other does NOT say one, or they get mixed up". Each
     /// player's CarUIViewModel only keeps ITSELF quiet while its bubble is up (_isShowingMessage); with two players both
     /// spoke at once. A taunt now starts only while no other player's bubble is up and no voice is playing or waiting.
     /// The gate is DisplayMessage, before anything is started, so the game's own bookkeeping stays as it was.
@@ -369,6 +369,13 @@ namespace HCT15.Patches
         private static bool Prefix(CarUIViewModel __instance, SpeechController.SpeechType speechType)
         {
             if (Podium.Showing) return false;   // 2.3.5: no taunts (bubble, voice) behind the podium
+            // 2.4.1: a RetroRules campaign (Top Gear) shows the SNES balloons of the player's own car instead (RetroTaunts)
+            if (RetroRules.Active)
+            {
+                try { if (__instance.Type == CarUIViewModel.ViewType.PlayerCar) RetroTaunts.FromGame(__instance._playerCar, speechType); }
+                catch (Exception ex) { Debug.LogWarning("[HCT15] retro balloon: " + ex.Message); }
+                return false;
+            }
             try
             {
                 // 2.2.9: a mod car driven outside the mod campaigns (World Tour, Adventures) says nothing
@@ -401,7 +408,7 @@ namespace HCT15.Patches
         // one log line per bubble, so an unattended run can tell a line that never came from one drawn out of sight
         private static void Prefix(string key, SpeechController.SpeechSide speechSide)
         {
-            // 2.0.15 - bug: with two players a car's taunt sometimes came with the wrong sound. With two players
+            // 2.0.15 - the user: "with two players a car's taunt sometimes comes with the wrong sound". With two players
             // CarUIViewModel.DoDisplayMessage first shows the shout in the OTHER player's view (OnShowSpeech ->
             // ShowAnotherCarSpeech -> ShowMessage), then in its own: two ShowMessage calls, same key, same frame. Each one
             // took the next line and played it, so the first line was heard and the second one was read. The second call
@@ -415,7 +422,7 @@ namespace HCT15.Patches
     }
 
     /// <summary>
-    /// 2.0.15 - the bubbles should last as long as their audio. CarUIViewModel.HideMessage waits 2 s, hides the
+    /// 2.0.15 - the user: "the bubbles should last as long as their audio". CarUIViewModel.HideMessage waits 2 s, hides the
     /// bubble, waits 2 s more and frees the speech slot. The first wait now asks Voices.BubbleSeconds(): until the clip
     /// that bubble started (or queued) has finished, plus a moment, never less than the game's 2 s. The coroutine's first
     /// step runs inside ShowMessage, in the frame the clip was chosen.
@@ -471,7 +478,7 @@ namespace HCT15.Patches
                 PlayerCar pc = cars != null && cars.Count > playerId ? cars[playerId] : null;
                 if (pc == null || pc.LateralController == null) return;
                 float now = pc.LateralController.CurrentOffset;
-                if (Time.time >= _pickAt[playerId]) { _pickAt[playerId] = Time.time + 0.15f; _target[playerId] = Clearest(pc, now); }
+                if (Time.time >= _pickAt[playerId]) { _pickAt[playerId] = Time.time + 0.15f; _target[playerId] = float.IsNaN(AutoPilot.Offset) ? Clearest(pc, now) : AutoPilot.Offset; }
                 __result = Mathf.Clamp((_target[playerId] - now) * 0.6f, -1f, 1f);
             }
             catch (Exception) { }

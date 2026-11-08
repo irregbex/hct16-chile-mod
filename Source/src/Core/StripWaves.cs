@@ -5,8 +5,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.24: waves rolling onto the beach beside the course (2026-10-11, Playas de la Quinta Región: "the beach must be
-    /// tessellated and animated with waves"). tracks\&lt;id&gt;\stripwaves.json beside a race whose road_strip.png has a
+    /// 2.0.24: waves rolling onto the beach beside the course (the user, 2026-10-11, Playas de la Quinta Región: "la playa
+    /// debe ser teselada y animada con olas"). tracks\&lt;id&gt;\stripwaves.json beside a race whose road_strip.png has a
     /// beach on one side (Tools\playas_v.py paints it: the course, the float rope, tessellated shallows, a wet band,
     /// tessellated sand out to the edge).
     /// Props cannot be the beach near the camera - the engine draws the ground over a flat prop's base until it is well

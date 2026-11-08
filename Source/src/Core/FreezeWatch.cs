@@ -9,8 +9,8 @@ using UnityEngine.SceneManagement;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.15 (2026-10-08): the game occasionally hung (twice reported) and there was no data to diagnose it with.
-    /// The game's own log (LocalLow\...\output_log.txt) is overwritten when the game starts again, so what led to a
+    /// 2.0.15 - the user (2026-10-08): "the game occasionally hangs, I don't know how to give you data about it; it happened
+    /// twice". The game's own log (LocalLow\...\output_log.txt) is overwritten when the game starts again, so what led to a
     /// hang is lost by the time anyone looks. This keeps the last 60 log lines in memory (Application.logMessageReceived-
     /// Threaded) and a one-line picture of the game every half second (scene, race, players' progress, traffic, mod
     /// campaign); a background thread watches the main thread's heartbeat, and when it has not beaten for FreezeSeconds

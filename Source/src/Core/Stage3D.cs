@@ -6,7 +6,7 @@ namespace HCT15
 {
     /// <summary>
     /// 2.3.0: a small 3D stage of our own, drawn over the game (the podium ceremony, PodiumScene, and the Playa Luna intro,
-    /// LunaIntro3D - both ported from an out-of-game three.js prototype). Everything lives under one
+    /// LunaIntro3D - both ported from the three.js prototype Prototipo-Podio\podio_v2.html). Everything lives under one
     /// root far from the race (Origin) on a layer no game object uses; its camera renders only that layer into a
     /// RenderTexture, and Draw() puts it on screen from OnGUI (above the game's HUD and loading screen).
     /// COORDINATES: the prototype's numbers are used as they are (metres, y up, the audience at +z looking to -z). Unity is

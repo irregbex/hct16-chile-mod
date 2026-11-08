@@ -11,15 +11,18 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.3.0: a one-minute podium ceremony between the finish and the results of every race of the mod's campaigns. The 3D scene is built live
+    /// 2.3.0 (the user, 2026-11-03, after approving the out-of-game prototype Prototipo-Podio\podio_v2.html: "implement it in
+    /// the game ... the live version, with more assets behind the screen, Costanera Center, La Moneda lit up"): a one-minute
+    /// podium ceremony between the finish and the results of every race of the mod's campaigns. The 3D scene is built live
     /// (PodiumScene, on Stage3D) with the race's real top three - their cars' own models, names, times - and the track's
     /// sky, horizon and scenery. Over it this draws the broadcast graphics: presenters' captions, the lower third of each
     /// arrival, "¡CAMPEÓN!", the results table. Data: HCT15Content\podium\podio.json (Events: the captions and graphics by
     /// time, {N1} {N2} {N3} {N1U} {GAP2} {GAP3} {TRACK} {GREET}; Skyline: what stands behind the LED wall per track
-    /// prefix; AllRaces: also the original game's races) and the sounds,
-    /// podium\sonidos\*.wav, one file per sound so that anyone can replace them (README.txt there lists them): the music,
-    /// the crowd and engine loops and the one-shots the scene calls (PodiumScene.Sfx); a single podio.wav (a full mix) is
-    /// played instead only when that folder is missing. HudManager.HideTrophyShowResults waits (PodiumHoldResultsPatch) until it ends or
+    /// prefix; AllRaces: also the original game's races) and podio.wav (the synthesised soundtrack, recorded from the
+    /// prototype on the same timeline). 2.3.0 fourth round (the user: "make a folder with the sounds labelled so I can change
+    /// them later"): podium\sonidos\*.wav, one file per sound (LEEME.txt there lists them) - the music, the crowd and engine
+    /// loops, and the one-shots the scene calls (PodiumScene.Sfx); podio.wav (the old full mix) only if that folder is missing.
+    /// HudManager.HideTrophyShowResults waits (PodiumHoldResultsPatch) until it ends or
     /// Enter / Space / gamepad A skip it; meanwhile the game's sound is paused and its cameras draw nothing.
     /// "-hct15-nopodium" off; "-hct15-podiotest" plays it 3 s into any race (tests, no results after);
     /// "-hct15-podiojump &lt;s&gt;" starts it at that second (screenshots).
@@ -36,7 +39,7 @@ namespace HCT15
         /// <summary>2.3.5: the ceremony is on screen. The race goes on behind it (the autopilot drives on) with the listener
         /// paused, and every sound it started then waited as a paused voice: a carreta's hooves, the horns and the taunts
         /// piled past Unity's 512 virtual voices ("Ran out of virtual channels") and the podium music was the one dropped,
-        /// about when the first cup came up (as reported). The race's own sounds and taunts hold their peace while this is true.</summary>
+        /// about when the first cup came up (the user). The race's own sounds and taunts hold their peace while this is true.</summary>
         public static bool Showing;
         private static readonly float Jump = ArgFloat("-hct15-podiojump");
         /// <summary>2.3.6, test flag "-hct15-podioshots 37.5,39,40.2": frames at those seconds of the podium's own clock
@@ -127,6 +130,10 @@ namespace HCT15
             string id = StaticData.Race != null ? StaticData.Race.ItemId : null;
             string file = Path.Combine(Dir, "podio.json");
             if (id == null || !File.Exists(file)) return false;
+            // 2.4.1 (the user: "the 3D podium must be off for the Top Gear campaign - it does not work for sprites; that game
+            // has its own, for much later"): no podium in a RetroRules campaign
+            if (JetskiMission.GhostRivals) { Debug.Log("[HCT15] podium: skipped (humans-only mission: its rival is a ghost)"); return false; }
+            if (RetroRules.Active || ModCampaigns.RetroOf(id) != null) { Debug.Log("[HCT15] podium: skipped (retro campaign, sprite cars)"); return false; }
             _json = Json.FromJson<PodioJson>(File.ReadAllText(file)) ?? new PodioJson();
             CustomRaceDef def;
             bool ours = ContentRegistry.RacesById.TryGetValue(id, out def) && def != null;

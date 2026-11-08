@@ -7,9 +7,9 @@ using UnityEngine.Rendering;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.11: a car may see its pickups as something of its own (2026-10-06: a player driving a cart sees the nitro
-    /// 3D model as a bale of hay; then the fuel too, as hay bales in their normal colour, with the nitro
-    /// bales glowing an intense green). CarDef.NitroModel / FuelModel name an asset-library model
+    /// 2.0.11: a car may see its pickups as something of its own (the user, 2026-10-06: "when the user is using a cart the
+    /// nitro 3D model should show up for them as a barrel of hay"; then: "the fuel too, as hay bales in their normal
+    /// colour; the nitro bales should glow an intense green"). CarDef.NitroModel / FuelModel name an asset-library model
     /// (the carreta: fardo_nitro for both). The pickups on the road come from a pool: PropView.SpawnProp takes one
     /// (prefab.Spawn), gives it the player's track and layer - each screen has its own copy of the props -, so the swap is
     /// per player, there: on the track of a player whose car has a model, the bottle's (can's) renderers go off and the

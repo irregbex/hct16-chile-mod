@@ -3,8 +3,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.26: smoke rising off a prop (2026-10-14: the Minera Los Pelambres plant must be there and be seen, smoking
-    /// and all). Library assets whose asset.json says "Anim": "smoke" (asset_kit chimenea_minera) get this on their mesh object
+    /// 2.0.26: smoke rising off a prop (the user, 2026-10-14: "Minera Los Pelambres must be there and be seen - smoking and
+    /// all"). Library assets whose asset.json says "Anim": "smoke" (asset_kit chimenea_minera) get this on their mesh object
     /// in AssetLibrary.Prototype, so every copy the prop system makes carries it. The plume leaves the TOP of the asset's
     /// mesh (its bounds: a chimney's mouth, a stack's crown) as a trail of chunky puffs - an octahedron each, flat vertex
     /// colour, the props' material, like WaterRide's spray - that rise, drift with the wind, swell and thin out to the

@@ -140,7 +140,7 @@ namespace HCT15
 
         // the shadow goes too: the donor's is a car-length quad that, in perspective, spreads into a dark trapezoid
         // twice the size of a 64-pixel sprite. The SNES frames carry their own dark base line.
-        private static readonly string[] HiddenParts = { "high", "med", "medium", "low", "first_person", "brake_lights", "lights", "night_lights", "disabled", "shadow", "shadow_low" };
+        private static readonly string[] HiddenParts = { "high", "med", "medium", "low", "first_person", "brake_lights", "lights", "disabled", "shadow", "shadow_low" };
 
         /// <summary>
         /// Turns a donor copy into a sprite car: empties the meshes of the body, the lights, the wheels and the
@@ -174,9 +174,17 @@ namespace HCT15
             return sc;
         }
 
+        /// <summary>Under the donor's night_lights group (the light the headlights throw on the road).</summary>
+        internal static bool InNightLights(Transform t, Transform root)
+        {
+            for (Transform p = t; p != null && p != root; p = p.parent) if (p.name.ToLowerInvariant() == "night_lights") return true;
+            return false;
+        }
+
         /// <summary>Body, lights and anything under a wheels_* group; the shadow and the nitro effects stay.</summary>
         private static bool IsHidden(Transform t, Transform root)
         {
+            if (InNightLights(t, root)) return false;   // 2.4.1: the light the headlights throw on the road stays (night tracks)
             for (Transform p = t; p != null && p != root; p = p.parent)
             {
                 string n = p.name.ToLowerInvariant();
@@ -254,7 +262,9 @@ namespace HCT15
             Transform car = transform.parent;
             if (_menu < 0)
             {
-                _isPlayer = GetComponentInParent<PlayerCarTrackView>() != null ? 1 : 0;
+                var pv = GetComponentInParent<PlayerCarTrackView>();
+                _isPlayer = pv != null ? 1 : 0;
+                try { var pcc = pv != null ? pv.Controller as PlayerCar : null; _pid = pcc != null ? pcc.PlayerId : 0; } catch (Exception) { _pid = 0; }
                 // a race car hangs under one of the three track views; the RIVALS are EnemyCarTrackView - left out
                 // of this test until 2026-09-24, they were taken for turntable cars and drawn as the side view
                 _menu = _isPlayer == 0 && GetComponentInParent<AnotherPlayerCarTrackView>() == null
@@ -283,6 +293,10 @@ namespace HCT15
             {
                 if (r == _mr || !r.enabled) continue;
                 if (r is ParticleSystemRenderer || r is TrailRenderer || r is LineRenderer) continue;
+                if (r.name.StartsWith("HCT15_")) continue;   // the mod's own pieces on the car (2.4.1: the retro speech balloon)
+                // 2.4.1 (the user: "on the night tracks the headlights should show - HCT has them built in"): the donor's
+                // night_lights (the light thrown on the road) stay; the environment switches them with car_lights
+                if (SpriteCars.InNightLights(r.transform, car)) continue;
                 string n = r.name.ToLowerInvariant();
                 if (n.Contains("nitro") || n.Contains("glow") || n.Contains("smoke") || n.Contains("flame")
                     || n.Contains("wave") || n.Contains("effect") || n.Contains("fire") || n.Contains("particle")) continue;
@@ -299,7 +313,7 @@ namespace HCT15
             // Which way the car leans, and how far. The SNES game read the JOYSTICK: hold left and the car goes
             // through its lean frames one by one, let go and it comes back the same way. Reading the heading
             // against the camera instead (the first build) flickered between the left and the right frames in
-            // every bend - the camera swings about the car and the sign changed with it (2026-09-24). So a
+            // every bend - the camera swings about the car and the sign changed with it (user, 2026-09-24). So a
             // race car now reads the same steering value the game feeds its own body tilt: the player's input, a
             // rival's road curvature (the views' TurningDirection), moved towards at TurnRate per second, so the
             // frames change one step at a time and always pass through the straight one. The camera heading
@@ -307,7 +321,7 @@ namespace HCT15
             // The sprite sheet has ONE turning pose in three widths (48, 56, 64 px: the more the car has turned, the more of
             // its flank shows), mirrored for the other side - not eight degrees. The first builds numbered the
             // mirrored copies as further lean steps, so every step of lean flipped the car to the other side:
-            // "it flickers from one side to the other" (2026-09-24, reported three times). Lean 1..MaxLean (3) it is.
+            // "parpadea de un lado a otro" (user, 2026-09-24, three times). Lean 1..MaxLean (3) it is.
             int maxLean = set.MaxLean;
             float target;
             if (TurningInput(out target)) target = Mathf.Clamp(target, -1f, 1f) * maxLean;
@@ -324,6 +338,7 @@ namespace HCT15
             bool flip = signed * LeanSign > 0;
 
             Vector3 anchor = GroundAnchor(car);
+            if (_isPlayer == 1 && RetroFinish.AheadFor(_pid) > 0f) anchor += Flat(car.forward) * RetroFinish.AheadFor(_pid);   // 2.4.2: per player (split screen)   // 2.4.1: the race is over, the car drives off up the road
             Vector3 sp = cam.WorldToScreenPoint(anchor);
             float depth = Mathf.Max(0.05f, sp.z);
             float k = cam.pixelHeight / (float)Mathf.Max(1, _pixH);                       // screen pixels per rendered pixel
@@ -337,8 +352,8 @@ namespace HCT15
             // per texel = P / MaxWidth x SpriteScale (the 64 px frame spans the 2.0 units of P) - so a car twice as far
             // is half as big, the player included. Until 2.0 the near cars took floor(P/48 x SpriteScale + 0.2) WHOLE
             // pixels: with SpriteScale 1.5 the player (P ~96 on the 224-line view) got 3 while a rival just ahead fell
-            // to 1 or 2 and jumped when it came nearer, and the distance frames ignored SpriteScale - "twice as big
-            // as the other sprites" (2026-09-24). The player is now 1.5 pixels per texel, 72 of the 224
+            // to 1 or 2 and jumped when it came nearer, and the distance frames ignored SpriteScale - "dos veces mas
+            // grande que los otros sprites" (user, 2026-09-24). The player is now 1.5 pixels per texel, 72 of the 224
             // lines' 398 px of width (18 %, the SNES car's own share of its screen was 19 %).
             float t = P / Mathf.Max(1, maxW) * SpriteScale;
             if (t >= 0.9f && Mathf.Abs(t - Mathf.Round(t)) < 0.12f) t = Mathf.Round(t);   // whole pixels when that close: no shimmer
@@ -378,8 +393,8 @@ namespace HCT15
         /// <summary>
         /// Where the sprite's anchor row (the car's ground line) goes: the TRACK VIEW's origin, which is the ground
         /// under the car, not the model prefab's origin - that one sits at the retail body's centre, 0.57 above the
-        /// road, and the car looked like it was flying over its own shadow (2026-09-24: "it seems to be
-        /// flying over the track"). Without a view (the turntable) the model's origin stands.
+        /// road, and the car looked like it was flying over its own shadow (user, 2026-09-24: "parece estar
+        /// volando sobre la pista"). Without a view (the turntable) the model's origin stands.
         /// </summary>
         private Vector3 GroundAnchor(Transform car)
         {
@@ -388,7 +403,7 @@ namespace HCT15
             if (!_shadowLooked)
             {
                 // the donor's shadow quad lies ON the road under the car: the one thing in the prefab that is the
-                // ground for certain (the view origin still left the car over its own tyre smoke, 2026-09-24)
+                // ground for certain (the view origin still left the car over its own tyre smoke, user 2026-09-24)
                 _shadowLooked = true;
                 foreach (Transform t in car.GetComponentsInChildren<Transform>(true))
                 {
@@ -402,7 +417,7 @@ namespace HCT15
             // The frame shows the car's REAR, and its bottom row is where the rear tyres meet the road - which is
             // the rear axle's ground point, a car's half-length nearer the camera than the origin under the car's
             // middle. Anchored at the middle, the bottom edge projected a road's width higher than the tyre smoke
-            // the donor puffs at its rear wheels (2026-09-24, seen twice). So: the ground under the rear axle.
+            // the donor puffs at its rear wheels (user, 2026-09-24, twice). So: the ground under the rear axle.
             Vector3 ground = _shadow != null ? _shadow.position : view != null ? view.position : car.position;
             Vector3 local = car.InverseTransformPoint(ground);
             local.z = _rearZ;
@@ -446,7 +461,7 @@ namespace HCT15
 
         /// <summary>What the player's sprite car is showing right now - DebugShot puts it in the screenshot log line.</summary>
         public static string PlayerDebug = "";
-        private int _isPlayer = -1;
+        private int _isPlayer = -1, _pid;
 
         /// <summary>The lean frame of that width (or the widest below it).</summary>
         private static SpriteCars.Frame Nearest(SpriteCars.SpriteSet set, int lean, int width)
@@ -539,6 +554,19 @@ namespace HCT15
             _mesh.triangles = new[] { 0, 2, 1, 0, 3, 2 };
             _mesh.RecalculateBounds();
         }
+
+        /// <summary>2.4.1: the quad as last built, in this object's local units (left/right/bottom/top, mirror ignored) and the
+        /// size of one texel - so something drawn beside the car (RetroCarFx) gets exactly the car's pixel size.</summary>
+        public bool Quad(out float left, out float right, out float bottom, out float top, out float texel)
+        {
+            left = -_ax; right = _w - _ax; top = _ay; bottom = _ay - _h; texel = 0f;
+            if (_tex == null || _tex.width <= 0 || _w <= 0f) return false;
+            if (_flip) { float t = left; left = -right; right = -t; }
+            texel = _w / _tex.width;
+            return true;
+        }
+
+        public Material SpriteMaterial { get { return _mat; } }
 
         private static Vector3 Flat(Vector3 v)
         {

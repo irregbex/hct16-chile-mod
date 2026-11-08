@@ -3,8 +3,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.24: waves rolling in from the open sea beside the jet ski course, growing as they come and breaking white
-    /// (2026-10-11: 3D waves that grow as they come in from the ocean side). Library assets whose asset.json says
+    /// 2.0.24: waves rolling in from the open sea beside the jet ski course, growing as they come and breaking white (the
+    /// user, 2026-10-11: "simulate 3D waves that come growing from the ocean's side"). Library assets whose asset.json says
     /// "Anim": "rollwave" (asset_kit ola_rompiente) get this on their mesh object in AssetLibrary.Prototype, so every copy
     /// the prop system makes of it carries it; scenery puts them on the SEA side of the course.
     /// The wave is one dynamic mesh in the asset's file frame (+X towards the course; the importer mirrors file X, so mesh
@@ -15,7 +15,7 @@ namespace HCT15
     /// </summary>
     public class RollingWave : MonoBehaviour
     {
-        public float Period = 6.5f, Travel = 30f, Height = 7.0f, Length = 46f;   // 2.0.25 (bigger, they could hardly be seen): was 5.5 / 18 / 3 / 26
+        public float Period = 6.5f, Travel = 30f, Height = 7.0f, Length = 46f;   // 2.0.25 (the user: "they can hardly be seen, bigger"): was 5.5 / 18 / 3 / 26
         private const int Nz = 12;
         private Mesh _mesh;
         private Renderer _r;

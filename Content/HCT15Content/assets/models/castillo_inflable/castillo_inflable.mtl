@@ -1,0 +1,55 @@
+# HCT 1.5 asset kit - flat colours from STYLE.txt
+newmtl castle_blue
+Kd 0.2000 0.5000 0.9500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl castle_red
+Kd 0.9200 0.1800 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl castle_yellow
+Kd 1.0000 0.8500 0.1500
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl castle_pink
+Kd 0.9800 0.5000 0.7400
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl led_frame
+Kd 0.1000 0.1000 0.1200
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl dress_pink
+Kd 1.0000 0.5500 0.8000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl skin
+Kd 0.8400 0.6400 0.4800
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl hair_gold
+Kd 0.9800 0.8200 0.3000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+
+newmtl gold
+Kd 0.8600 0.6600 0.2000
+Ka 0 0 0
+Ks 0 0 0
+illum 1
+

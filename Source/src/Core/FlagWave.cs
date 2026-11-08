@@ -5,14 +5,14 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.11: a flag that flies (2026-10-06: the carretas' flags wave like real flags). legs.json "Flag"
+    /// 2.0.11: a flag that flies (the user, 2026-10-06: "can the carretas' flags wave like flags?"). legs.json "Flag"
     /// {Pole, Length, Height} (file coordinates of the top of the pole; the cloth flies along -X and hangs down) - the body
     /// keeps only the pole. StreetCars.AddLegs makes an HCT15_flag child of the body's first level of detail through the
     /// body's fit (FileToMesh, FitXf), like the legs: the cloth is a 15 x 6 grid in the Chilean flag's colours (blue
     /// canton with its white star, white, red; flat colour per cell, both faces), and every frame each point is pushed
     /// across the cloth by a wave running from the pole to the free end - bigger and faster with the car's speed, a
     /// breeze when standing - and drawn in a little towards the pole as it bends.
-    /// 2.0.22: Style "reflective" (the mines' pickup's whip flag, which should flutter): orange
+    /// 2.0.22: Style "reflective" (the mines' pickup's whip flag, the user: "the reflective flag should flutter"): orange
     /// with a white reflective band, and it flies harder - a small stiff pennant on a 3 m pole in the slipstream.
     /// </summary>
     public class FlagWave : MonoBehaviour

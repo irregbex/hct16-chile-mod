@@ -1,0 +1,11 @@
+{
+  "Id": "contenedores_pila",
+  "Name": "Container stack",
+  "Category": "building",
+  "Description": "Containers stacked on the quay, 2-4 high, 12 x 13 m",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

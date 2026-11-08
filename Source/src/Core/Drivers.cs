@@ -163,6 +163,13 @@ namespace HCT15
             catch (Exception) { return fallback; }
         }
 
+        /// <summary>2.4.1: the retro campaign names each rival car with the ROM rival whose speed it races with (RetroRules) - the
+        /// results board then shows the right name beside the right time (drivers.txt's order did not follow the speeds, and the
+        /// 19th car - the COMPUTER - came out as "RITCHIE 2").</summary>
+        /// <summary>2.4.2: the board name a racer slot was given (SetSlot), or null.</summary>
+        public static string Slot(string key) { string s; return !string.IsNullOrEmpty(key) && _slots.TryGetValue(key, out s) ? s : null; }
+        public static void SetSlot(string key, string driver) { if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(driver)) _slots[key] = driver; }
+
         /// <summary>Forget the assignment (a new campaign, an edited file).</summary>
         public static void Refresh() { _assigned = null; _assignedFor = null; _files.Clear(); _slots.Clear(); }
     }

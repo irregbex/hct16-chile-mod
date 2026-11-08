@@ -1,0 +1,11 @@
+{
+  "Id": "boya_gigante",
+  "Name": "Giant orange buoy",
+  "Category": "landmark",
+  "Description": "A 7 m orange racing buoy with a white band and a light on top: the corners of the betting race",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

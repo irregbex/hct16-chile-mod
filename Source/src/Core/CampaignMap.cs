@@ -149,8 +149,8 @@ namespace HCT15
         {
             if (_map != null && _map.Horizontal && _tex != null)
             {
-                // Chile on its side (2026-10-06: the campaign looks better with Chile horizontal, with the routes
-                // drawn on the map): the card's lower right, under the short round list of a road campaign
+                // Chile on its side (the user, 2026-10-06: "the campaign would look better with Chile horizontal, with the
+                // routes drawn on the map"): the card's lower right, under the short round list of a road campaign
                 float w2 = Screen.width * 0.44f, h2 = w2 * _tex.height / Mathf.Max(1f, _tex.width);
                 return new Rect(Screen.width * 0.414f, Screen.height * 0.545f - h2 / 2f, w2, h2);
             }

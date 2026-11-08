@@ -4,7 +4,14 @@
   -71.70588081025642
  ],
  "streets": [],
- "beach_osm_way": 135677739,
- "waterline_m": 288,
- "shore": "left of the way out (OSM coastline: land on the left)"
+ "shape": "rescue",
+ "nearest_coast_m": 124,
+ "sea": [
+  -0.972494,
+  0.232927
+ ],
+ "along": [
+  -0.232927,
+  -0.972494
+ ]
 }

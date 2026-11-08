@@ -1,0 +1,21 @@
+{
+  "Id": "cartel_led_2",
+  "Name": "LED betting board 2 (BETPLAYA)",
+  "Category": "landmark",
+  "Description": "A huge floating LED billboard of an INVENTED betting brand (BETPLAYA), animated (Anim led, led.png frames)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true,
+  "Anim": "led",
+  "Screen": [
+    0.35,
+    4.5,
+    12.5,
+    -8.0,
+    8.0
+  ],
+  "LedFps": 13.0,
+  "LedGlow": 2.0
+}

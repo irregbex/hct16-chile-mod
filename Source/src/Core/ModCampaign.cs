@@ -374,6 +374,9 @@ namespace HCT15
             {
                 RawImage ri = logo.GetComponent<RawImage>();
                 ri.texture = LogoTexture; ri.color = Color.white; ri.uvRect = new Rect(0f, 0f, 1f, 1f);
+                // 2.4.1: a campaign with an animated logo (assets\ui\logo_anim.*, Top Gear's SNES title) shows it finished on its card
+                CampaignItemViewModel cvm = blade.GetComponent<CampaignItemViewModel>();
+                LogoAnim.On(ri, System.IO.Path.Combine(AssetsDir, "ui"), null, still: true, screenFrac: 0.221f);   // 2.4.2: the same size as on the loading screen   // 2.4.1 the user: static on the card, its animation already done
             }
             if (soon != null) soon.gameObject.SetActive(false);
             Transform comingSoonText = blade.transform.Find("ComingSoonText");
@@ -519,6 +522,12 @@ namespace HCT15
 
         /// <summary>The donor decor density factor of the campaign a race belongs to ("DonorDecor", 1 = the settings' density).</summary>
         public static float DonorDecorOf(string raceId) { ModCampaign c = ForRace(raceId); return c == null || c.Def == null ? 1f : Mathf.Max(0f, c.Def.DonorDecor); }
+
+        /// <summary>2.4.1: the 16-bit rules of the campaign a race belongs to ("RetroRules"), else null.</summary>
+        public static F1CampaignDef RetroOf(string raceId) { ModCampaign c = ForRace(raceId); return c != null && c.Def != null && c.Def.RetroRules ? c.Def : null; }
+
+        /// <summary>2.4.1: the 16-bit rules of the campaign the player is inside, else null.</summary>
+        public static F1CampaignDef RetroActive { get { ModCampaign c = Active; return c != null && c.Def != null && c.Def.RetroRules ? c.Def : null; } }
 
         /// <summary>The grandstand count the campaign a race belongs to asks for (-1 = the settings' count).</summary>
         public static int GrandstandsOf(string raceId) { ModCampaign c = ForRace(raceId); return c == null || c.Def == null ? -1 : c.Def.Grandstands; }

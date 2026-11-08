@@ -12,8 +12,8 @@ namespace HCT15
     /// The mod's own car horns. The game already has a horn: PlayerCarInputActions.Honk (Right Shift / Left Shift
     /// on the keyboard, the touch pad / Select / View button on a pad) plays AudioManager.Honks[player] with the
     /// car model's HonkSound. Our cars are clones of a retail model, so they honked like their donor. This gives
-    /// a car sounds of its own, picked at random every time the button goes down (2026-09-24: the sounds play at
-    /// random whenever the horn button is pressed).
+    /// a car sounds of its own, picked at random every time the button goes down (user, 2026-09-24: "que funcionen
+    /// de manera aleatoria cuando se presione el boton de bocina").
     ///
     ///   Game\HCT15Content\cars\horns\<car id>\*.wav|*.ogg     one folder per car, any number of sounds
     ///
@@ -28,8 +28,8 @@ namespace HCT15
         private class Set { public readonly List<AudioClip> Clips = new List<AudioClip>(); public int Last = -1; public AutoJson Auto; }
 
         /// <summary>
-        /// 2.0.11: auto.json in a horn folder makes its sounds go off by themselves during a race (2026-10-06,
-        /// for the carretas' neighs, which should go off at random): the player's car every Every[0]..Every[1]
+        /// 2.0.11: auto.json in a horn folder makes its sounds go off by themselves during a race (the user, 2026-10-06,
+        /// of the carretas' neighs: "they need to be triggered randomly"): the player's car every Every[0]..Every[1]
         /// seconds, and the nearby rivals that use the same folder now and then, quieter the farther they are along the
         /// road (Reach = share of the lap). They play on the horn's own mixer group, so the effects volume holds.
         ///   { "Every": [6, 16], "Volume": 0.8, "Rivals": true, "Reach": 0.006 }
@@ -46,8 +46,8 @@ namespace HCT15
         private static readonly HashSet<int> _logged = new HashSet<int>();
 
         /// <summary>
-        /// 2.0.11 (bug: the horse sound effects should play from start to finish, but they stopped when the button was
-        /// released): AudioManager.UpdateHonk fades the horn out the moment the button is let go. After it runs, one of
+        /// 2.0.11 (the user: "the horse sound effects should sound from start to finish, they seem to sound until I release
+        /// the button"): AudioManager.UpdateHonk fades the horn out the moment the button is let go. After it runs, one of
         /// our sounds that is still playing gets its volume back, so it plays to its end (they do not loop).
         /// </summary>
         public static void HoldToEnd(AudioSource[] honks, bool[] honking)

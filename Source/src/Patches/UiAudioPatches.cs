@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Aquiris.HorizonChase.Data;
@@ -107,7 +107,7 @@ namespace HCT15.Patches
     }
 
     /// <summary>2.3.1: "Road traffic" yes / no in Options &gt; General (Settings.RoadTraffic; read when a race loads).
-    /// 2.3.2 (reported: "with it on it is impossible to win, so for now switch that option off and leave it grey because
+    /// 2.3.2 (the user: "with it on it is impossible to win, so for now switch that option off and leave it grey because
     /// it does not work"): Traffic.Available is false - the row shows "no" in grey and cannot be changed.</summary>
     [HarmonyPatch(typeof(GeneralOptionsViewModel), "RefreshItems")]
     internal static class RoadTrafficOptionPatch
@@ -296,7 +296,7 @@ namespace HCT15.Patches
 
     internal static class MusicHooks
     {
-        /// <summary>The menu clip the game asks for goes through the player's playlist (HCT15Music\Menu).</summary>
+        /// <summary>The menu clip the game asks for goes through the user's playlist (HCT15Music\Menu).</summary>
         public static void PlayMenu(AudioManager am, AudioClip clip, bool forcePlay, float transition, float offset)
         {
             GameAccess.LastMenuClip = clip;
@@ -304,7 +304,7 @@ namespace HCT15.Patches
             am.PlayMusicClip(mine, forcePlay, transition, mine == clip ? offset : 0f);
         }
 
-        /// <summary>The race's clip: a mod race carries none of its own (the race index's music then), and the player's playlist has the last word.</summary>
+        /// <summary>The race's clip: a mod race carries none of its own (the race index's music then), and the user's playlist has the last word.</summary>
         public static void PlayRace(AudioManager am, AudioClip clip, bool forcePlay, float transition, float offset)
         {
             if (clip == null) clip = am.GetMusicByRaceIndex();

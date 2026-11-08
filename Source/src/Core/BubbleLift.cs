@@ -91,8 +91,8 @@ namespace HCT15
             Vector3 anchorLocal = Car.InverseTransformPoint(home);
             if (Corner && cam == _own)
             {
-                // 2026-10-07: for the micros the player's bubbles appear at the top left of their play area, since
-                // the bus is too big to see them over it. The bubble is put where the camera's viewport point (CornerU,
+                // The user (2026-10-07): "for the micros the player's bubbles should appear at the top left of their play
+                // area, the bus is too big to see them". The bubble is put where the camera's viewport point (CornerU,
                 // CornerV) is at the depth the bubble would have had over the car, so it keeps the size it was drawn at;
                 // the camera's own viewport rect makes this right for each half of a split screen.
                 float depth = Mathf.Clamp(Vector3.Dot(home - cam.transform.position, cam.transform.forward), 3f, 40f);
@@ -107,7 +107,7 @@ namespace HCT15
             {
                 // The micro: lifting the bubble clear of a 5-unit body put it at the body's MIDDLE, and from a
                 // chase camera above the roof a point that far away projects near the horizon - the bubble floated
-                // a screen's fifth above the bus (2026-09-24: it should start at the visible edge). So hang it at the
+                // a screen's fifth above the bus (user, 2026-09-24: "que empiece al borde visible"). So hang it at the
                 // roof edge NEAREST the camera, with its tail touching that edge. The roof there is the mesh's own
                 // height at that end (StreetCars.EdgeTops), not the box top: the micro's roof air conditioner put the
                 // box top 0.2 higher, and two units from the camera that was 60 px of air. The tail's reach below
@@ -118,7 +118,7 @@ namespace HCT15
                 float nearZ = nearIsBack ? Body.min.z + 0.15f : Body.max.z - 0.15f;
                 float roof = nearIsBack ? TopAtMin : TopAtMax;
                 if (roof < Body.min.y + 0.1f) roof = Body.max.y;
-                // 2.3.5 (reported: "the carreta's bubbles still flicker up and down"; -hct15-bubblelog caught it): the right bubble's
+                // 2.3.5 (the user: "the carreta's bubbles still flicker up and down"; -hct15-bubblelog caught it): the right bubble's
                 // measured reach alternated 0.45 / 0.00 frame after frame - each measure moved it, and the next measure of the moved
                 // bubble said the other - so it jumped a seventh of the view. The reach is taken once per bubble shown and held; a
                 // reach under 0.05 is no reach (nothing measurable): the prepared guess stands
@@ -163,14 +163,14 @@ namespace HCT15
         private static bool FrameLog { get { if (_frameLog == null) _frameLog = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-hct15-bubblelog") >= 0; return _frameLog.Value; } }
         private int _frameLogs;
 
-        // 2.1.4 (the speech bubbles did not fit on the screen): the andas' bodies are tall and their camera
+        // 2.1.4 (the user: "las burbujas de comentarios no caben en la pantalla"): the andas' bodies are tall and their camera
         // close, so a two-line bubble over the player's anda ran off the right edge and over the speed and fuel. After placing
         // it, the bubble's box on screen - its pictures' renderers and its text's glyphs, padded for the balloon round them -
         // is slid back inside the view, and out of the top corners where the HUD sits.
         private const float Margin = 0.02f, HudBand = 0.70f, HudLeft = 0.18f, HudRight = 0.74f, Pad = 0.22f;
         private readonly Vector3[] _box = new Vector3[8];
         private int _fitLogs;
-        // 2.3.3 (reported: "when the taunt bubble is too big for the screen it flickers in place, every frame in two
+        // 2.3.3 (the user: "when the taunt bubble is too big for the screen it flickers in place, every frame in two
         // positions"): the correction glides (rate below) instead of being recomputed from scratch every frame, and the
         // HUD band has a margin either way, so a bubble on its edge does not switch between the two widths
         private Vector2 _fit; private bool _fitSnap = true, _inHud;
@@ -219,7 +219,7 @@ namespace HCT15
             else dx = (lo + hi) * 0.5f - (x0 + x1) * 0.5f;
             if (y1 > 1f - Margin) dy = 1f - Margin - y1;
             Vector2 want = new Vector2(dx, dy);
-            // 2.3.4 (reported: "the bubble failed once more, with the carreta" - its box sat on the left margin, x 0.02): a
+            // 2.3.4 (the user: "the bubble failed once more, with the carreta" - its box sat on the left margin, x 0.02): a
             // correction within a dead band of the one in hand is not followed, so a bubble on an edge cannot tremble; and
             // if the wanted correction still swings back and forth frame after frame, the log says so with the numbers
             if (!_fitSnap && (want - _fit).sqrMagnitude < FitDead * FitDead) want = _fit;
@@ -270,8 +270,8 @@ namespace HCT15
             return any ? top - low : Drop;
         }
 
-        // ---- the corner bubble's tail (2.0.14b; the tip must still connect the bubble to the micro that says
-        // it): a long triangle from the bubble's edge nearest the bus down to the roof edge nearest the camera, white over a dark
+        // ---- the corner bubble's tail (2.0.14b; the user: "the tip that connects to the one saying it should still be connected to the
+        // micro"): a long triangle from the bubble's edge nearest the bus down to the roof edge nearest the camera, white over a dark
         // outline, drawn in the world by the car's own camera like the bubble itself
         private Transform _tailFill, _tailLine;
         private Mesh _tailFillMesh, _tailLineMesh;

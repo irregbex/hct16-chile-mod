@@ -4,6 +4,22 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.4.2 (2026-11-08) - the jet ski expansion, part 1
+  - Three beaches become harbour laps (same rounds and map places, 3 laps each): Port of Valparaiso (round 124),
+    Port of San Antonio (121) and Quintero Bay (118). Container ships, a bulk carrier and an LNG tanker moored along
+    the straights, quays with gantry cranes and container stacks, tugs, a breakwater with its lighthouse, sea lions and
+    gulls (14 new assets: buque_*, granelero_*, metanero_*, remolcador, contenedores_pila, muelle_puerto).
+  - "Cuadrado de Playa Amarilla" (round 123): 3 laps of a rounded square round four giant buoys, at night, lit only by
+    some 200 blinding LED boards and gantries of invented betting brands, LED planes and yachts with invented ads
+    (race.json NightVeil darkens everything but the screens).
+  - "Rescate en Las Docas" (round 116): humans only, a 2-minute clock, out to sea to rescue the princess from an
+    inflatable castle past sharks, waterspouts and sea lions (crossers.json "Hazard"); miss the clock and the castle
+    deflates (race.json HumansOnly / TimeLimit).
+  - New round 165, "Laguna de San Alfonso del Mar": 3 laps round the giant seawater pool of Algarrobo.
+  - Engine: retro-style campaign options (campaign.json "RetroRules": solid roadside objects, fixed-speed CPU, simple
+    pits, a split-screen-aware HUD and intro); no campaign in this release uses them yet.
+  - The installer retires the old beach-wave files of the five changed beaches.
+
 2.4.0 (2026-11-05)
   - Plaza de Illapel: 10 racers on the grid (players included), set by the track's race.json "Racers". Four new andas -
     Our Lady of Candlemas, Our Lady of La Tirana, St Rose of Lima and St Peter - make ten, each with its own top speed,

@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace HCT15
 {
     /// <summary>
-    /// 2.3.0: the intro of
+    /// 2.3.0 (the user, 2026-11-03: "make the Playa Luna intro 3D of the same kind, not a flat animation"): the intro of
     /// Playa Luna live, on Stage3D, replacing the 12-fps PIL frames (Tools\cutscene_luna_anim.py). Golden hour, a rolling
     /// sea, foam, umbrellas and towels, the nudist bathers with their black bars (Human Opt.Nude, as on the track), and
     /// three shots: (1) a jet ski tears along the shore, the bathers whip round, one drops an ice cream; (2) a jet ski jumps
@@ -33,7 +33,7 @@ namespace HCT15
         public LunaIntro3D(int width, int height)
         {
             St = new Stage3D("HCT15_Luna3D", width, height);
-            // 2.3.2 (reported: "it looks as if it were winter; it should be a sunny beach, vivid warm colours, a light-blue
+            // 2.3.2 (the user: "it looks as if it were winter; it should be a sunny beach, vivid warm colours, a light-blue
             // sea with waves on the beach"): a summer afternoon - the sun high in front, warm white light
             St.Key.color = new Color(1f, .95f, .84f); St.Key.intensity = 1.15f;
             St.Key.transform.rotation = Quaternion.LookRotation(-V(220, 330, -900).normalized);

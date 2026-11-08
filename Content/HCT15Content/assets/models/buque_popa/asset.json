@@ -1,0 +1,11 @@
+{
+  "Id": "buque_popa",
+  "Name": "Ship stern",
+  "Category": "landmark",
+  "Description": "Container ship: the stern segment with the bridge and funnel, 18 x 9",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

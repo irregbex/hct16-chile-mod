@@ -15,6 +15,30 @@ namespace HCT15
     {
         private static int _state;   // 0 = not looked at the command line yet, 1 = on, 2 = off
 
+        /// <summary>2.4.1 test aid: "-hct15-autopilot-offset X" - the autopilot holds this lateral offset (units from the
+        /// road centre, + = right) instead of the middle, e.g. to drive into the roadside objects; NaN = not given.</summary>
+        public static float Offset
+        {
+            get
+            {
+                if (_offState == 0)
+                {
+                    _offState = 1; _offset = float.NaN;
+                    try
+                    {
+                        string[] a = Environment.GetCommandLineArgs();
+                        for (int i = 0; i + 1 < a.Length; i++)
+                            if (string.Equals(a[i], "-hct15-autopilot-offset", StringComparison.OrdinalIgnoreCase))
+                                _offset = float.Parse(a[i + 1], System.Globalization.CultureInfo.InvariantCulture);
+                    }
+                    catch (Exception) { }
+                }
+                return _offset;
+            }
+        }
+        private static int _offState;
+        private static float _offset;
+
         public static bool Active
         {
             get

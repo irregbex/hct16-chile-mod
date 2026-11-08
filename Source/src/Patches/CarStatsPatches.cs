@@ -8,9 +8,9 @@ using UnityEngine;
 namespace HCT15.Patches
 {
     // ------------------------------------------------------------------ 2.0.28: colours with stats, the shown speed, long texts
-    // Requested 2026-10-19: each anda is a variant with other colours and other stats, chosen in car selection - not other
-    // cars, variants of the same one; the andas walk, no more than 5 km/h; the descriptions in car selection were longer
-    // than the screen: break the lines.
+    // The user (2026-10-19): "each anda is a variant with other colours and other stats, chosen in car selection - not other
+    // cars, variants of the same one"; "the andas walk, no more than 5 km/h"; "the descriptions in car selection are longer
+    // than the screen: break the lines".
 
     [HarmonyPatch(typeof(CarSelectionViewModel), "UpdateBindings")]
     internal static class SelectionStatsPatch
@@ -46,8 +46,9 @@ namespace HCT15.Patches
                     string key = unit.ToString().ToLower() + "_abbreviation";
                     float shown = num * 0.55f * f;
                     __instance.FillSpeedBinding.Value.Stat = (shown < 10f ? shown.ToString("0.0") : Mathf.RoundToInt(shown).ToString()) + " " + TextLocalization.Localize(key).Trim();
-                    // 2.2.3: the game fills the bar on the scale of its own cars (~300 km/h), where a walk is an empty bar -
-                    // a car with a shown speed fills it on a walk's scale instead (60 shown = full)
+                    // 2.2.3 (the user: "the top speed bar cannot be seen, it only says 50 KM/H"): the game fills the bar on the
+                    // scale of its own cars (~300 km/h), where a walk is an empty bar - a car with a shown speed fills it on a
+                    // walk's scale instead (60 shown = full)
                     float fill = Mathf.Clamp01(shown / ShownSpeedFullBar);
                     __instance.FillSpeedBinding.Value.Fill = fill;
                     __instance.FillSpeedBinding.Value.FillSum = fill;
@@ -114,7 +115,7 @@ namespace HCT15.Patches
     }
 
     /// <summary>A car with a top speed of its own (the andas, ~5 km/h) would reach the retail nitro's 100 km/h buff (and
-    /// a bump from behind its 700 km/h boost ceiling): its nitro adds 12 % of its top speed (a quicker step; nitro must not be much faster), and nothing takes it past 1.12x.</summary>
+    /// a bump from behind its 700 km/h boost ceiling): its nitro adds 12 % of its top speed (a quicker step, the user: "nitro cannot be much faster"), and nothing takes it past 1.12x.</summary>
     [HarmonyPatch(typeof(BaseCarPropertyManager), nameof(BaseCarPropertyManager.GetNitroMaxSpeedKPH))]
     internal static class SlowCarNitroBuffPatch
     {
@@ -136,8 +137,8 @@ namespace HCT15.Patches
     }
 
     /// <summary>
-    /// 2.1.5 - bug: in the Plaza de Illapel player 2, after a few crashes, ended up frozen at the edge of the track and
-    /// the race had to be started again. Off the asphalt the game subtracts a terrain-friction speed every frame
+    /// 2.1.5 - the user: "in the Plaza de Illapel player 2, after a few crashes, ends up frozen at the edge of the track and
+    /// the race has to be started again". Off the asphalt the game subtracts a terrain-friction speed every frame
     /// (CarEngine.UpdateEngine: m_currentSpeed -= ReverseEngine.CurrentSpeed), tuned for cars of 300 km/h: an anda of 50
     /// stopped dead on the dirt. And the steering grows with speed (GetTurningStrength: speed / SpeedThreshold), so at
     /// 0 km/h it could not steer back either - stuck for good. For a car with its own top speed (the andas) the friction
@@ -179,7 +180,7 @@ namespace HCT15.Patches
     }
 
     /// <summary>2.1.3: the retail top speed is the car's own plus the save's MaxSpeed upgrade, in km/h - a save with the
-    /// World Tour upgrades put the player's anda at 4.7 + ~100 km/h (it read 104-105 km/h) while the
+    /// World Tour upgrades put the player's anda at 4.7 + ~100 km/h (the user: "parece ser 104 o 105 km/h") while the
     /// rivals, without upgrades, walked. A car with a top speed of its own (the andas) ignores that upgrade.
     /// GetCarMaxSpeed is patched as well: it calls GetCarMaxSpeedKPH, which the JIT may inline.</summary>
     [HarmonyPatch(typeof(BaseCarPropertyManager), nameof(BaseCarPropertyManager.GetCarMaxSpeedKPH))]
@@ -231,7 +232,8 @@ namespace HCT15.Patches
         }
     }
 
-    /// <summary>2.2.7 (in the Grand Prix 2026 the players' cars went far too fast compared with the others): a rival's top speed is its factor x (ReferenceSpeedFactor x the race data's ReferencePlayerSpeed +
+    /// <summary>2.2.7 (the user, Grand Prix 2026 with two players: "the players' cars go far too fast compared with the
+    /// others"): a rival's top speed is its factor x (ReferenceSpeedFactor x the race data's ReferencePlayerSpeed +
     /// ActualSpeedFactor x player 1's top speed) - half of it a fixed reference made for the retail cars (~200 km/h), so
     /// next to a 300+ km/h single-seater (more with the save's upgrades) the grid fell far behind. In the Grand Prix the
     /// reference is the player's own top speed: the rivals keep their factors, on the players' scale.</summary>

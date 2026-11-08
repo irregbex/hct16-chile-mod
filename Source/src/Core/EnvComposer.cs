@@ -6,14 +6,14 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.2.0 - a race's sky composed in the game, from a recipe (2026-10-22: the mod sanitised of every file scraped
-    /// from the original game; until 2.1.5 environment.json carried curves copied from the game's own sky clips).
+    /// 2.2.0 - a race's sky composed in the game, from a recipe (the user, 2026-10-22: "sanitise the mod of every file
+    /// scraped from the original game"; until 2.1.5 environment.json carried curves copied from the game's own sky clips).
     ///
     /// The donor stage's own clip plays first and leaves the sky in ITS daylight - on the player's own copy of the game.
     /// That state is read off the environment's components (Capture) and is the recipe's "day". Every other time of day -
     /// golden hour, sunset, dusk, night, first light, sunrise - is a palette of our own below, and the recipe's preset
-    /// says when the race passes through which (time = race progress, 0 start .. 1 finish). Overcast, volcanic ash, snow
-    /// and the southern lights are our own modifiers on top. Nothing of the game's data is shipped: the day is read where
+    /// says when the race passes through which (time = race progress, 0 start .. 1 finish). Overcast, volcanic ash, snow,
+    /// a thunderstorm's darkness (2.2.4) and the southern lights are our own modifiers on top. Nothing of the game's data is shipped: the day is read where
     /// it lives, the rest is ours.
     /// </summary>
     public static class EnvComposer
@@ -28,6 +28,31 @@ namespace HCT15
             public float[] Storm;           // [start, end] 0..1 - 2.2.4: a thunderstorm's dark slate sky and dim light (Santiago inundado)
             public float Aurora;            // strength 0..1
             public float AuroraFrom = 1f;   // progress from which the southern lights show
+            // 2.4.1 (Top Gear SNES): presets tg_day | tg_night | tg_day_to_night | tg_night_to_day switch ONCE, in a short
+            // fade: Fade = the fade's share of the timeline (the SNES fades ~222 frames at a fixed race time; with Mode
+            // "time" the file's Seconds end where the fade ends). Sky / NightSky [r,g,b 0..1]: the flat SNES sky painted
+            // over the sky shader (sky, horizon and fog), day and night; NoSun: no sun disc (the SNES has none).
+            public float Fade = 0.05f;
+            public float[] Sky;
+            public float[] NightSky;
+            public bool NoSun;
+            public bool Blackout;           // 2.4.2: a pitch-black night past NightAt (no moon, black fog close in) - only lights show (Playa Amarilla's LED chaos)
+        }
+
+        internal static float TgBackdropTint = 0.5f;   // the backdrop shader doubles its tint: 0.5 = the picture as it is
+        private static bool IsTg(Recipe r) { return r != null && r.Preset != null && r.Preset.StartsWith("tg_"); }
+
+        /// <summary>0 = day, 1 = night at progress p for the tg_* presets.</summary>
+        internal static float TgNight(Recipe r, float p)
+        {
+            float f = Mathf.Clamp(r.Fade, 0.001f, 1f), u = Smooth((p - (1f - f)) / f);
+            switch (r.Preset)
+            {
+                case "tg_night": return 1f;
+                case "tg_day_to_night": return u;
+                case "tg_night_to_day": return 1f - u;
+                default: return 0f;
+            }
         }
 
         private class Chan
@@ -230,7 +255,18 @@ namespace HCT15
         /// <summary>The recipe as curves over race progress, the day being the captured state.</summary>
         public static List<EnvironmentTimeline.Curve> Compose(Recipe r, Dictionary<string, float> day)
         {
-            var stops = StopsOf(r.Preset ?? "day");
+            Stop[] stops;
+            int samples = Samples;
+            if (IsTg(r))
+            {
+                // one switch at the end of the timeline, in a short fade; sampled finely so the fade keeps its shape
+                float f = Mathf.Clamp(r.Fade, 0.001f, 1f);
+                State a = r.Preset == "tg_night" || r.Preset == "tg_night_to_day" ? Night : DayMark;
+                State b = r.Preset == "tg_night" || r.Preset == "tg_day_to_night" ? Night : DayMark;
+                stops = new[] { new Stop(0f, a), new Stop(1f - f, a), new Stop(1f, b) };
+                samples = 400;
+            }
+            else stops = StopsOf(r.Preset ?? "day");
             float at = Mathf.Clamp(r.NightAt <= 0f ? 1f : r.NightAt, 0.05f, 1f);
             for (int i = 0; i < stops.Length; i++) stops[i].P *= at;
             var curves = new List<EnvironmentTimeline.Curve>();
@@ -238,10 +274,10 @@ namespace HCT15
             {
                 if (!day.ContainsKey(c.Key)) continue;          // the stage has no such object: leave it alone
                 if (c.Step) { var sc = StepCurve(c, r, day); if (sc != null) curves.Add(sc); continue; }
-                var t = new float[Samples + 1]; var v = new float[Samples + 1];
-                for (int k = 0; k <= Samples; k++)
+                var t = new float[samples + 1]; var v = new float[samples + 1];
+                for (int k = 0; k <= samples; k++)
                 {
-                    float p = k / (float)Samples;
+                    float p = k / (float)samples;
                     t[k] = p;
                     v[k] = Modify(c, r, p, Blend(stops, day, c.Key, p), day);
                 }
@@ -317,6 +353,45 @@ namespace HCT15
                     v = a[c.Comp] * k;
                 }
             }
+            if (IsTg(r))
+            {
+                // 2.4.1: the SNES sky is one flat colour - the sky shader's sky, horizon (and sun, with NoSun) and the fog
+                // take it, so whatever the backdrop leaves uncovered at the top of the screen matches it
+                float w = TgNight(r, p);
+                if (r.Sky != null && r.Sky.Length >= 3 && IsColour(c) && c.Path == "sky"
+                    && (c.Field == "Sky_Color" || c.Field == "Horizon_Color" || c.Field == "FogColor" || (r.NoSun && c.Field == "Sun_Color")))
+                {
+                    float nightV = r.NightSky != null && r.NightSky.Length >= 3 ? r.NightSky[c.Comp] : v;
+                    v = Mathf.Lerp(r.Sky[c.Comp], nightV, w);
+                }
+                if (r.NoSun && c.Path == "sky" && c.Prop == "FloatValue2") v = 0f;   // sun disc size
+                // the road's night blend (track_mesh ColorValue.a) washed the SNES strip out to a pale grey on the donors
+                // tried (meteora_02, 2.4.1 test, the mod's own "night" preset too), and a night DONOR's own "day" carries it
+                // too (los_angeles_02 under New York): no night blend on the road at all, the SNES strip is drawn as it is
+                if (c.Path == "track_mesh" && c.Prop == "ColorValue.a") v = 0f;
+                // 2.4.2 (the user: "the cities' backdrops are drawn wrong"; New York's skyline came out black): the SNES
+                // backdrop carries its own day and night colours - no tint from the donor's daylight or the night state
+                if (c.Path == "background" && IsColour(c)) v = TgBackdropTint;
+            }
+            // 2.4.2 (the user: "no moon that night - a chaos of horrible LED lights so bright the darkness hardly lets the race
+            // be seen"): NoSun takes the sun/moon disc away on any preset; Blackout drives everything to black as the night
+            // comes (progress against NightAt): the sky, the ambient light, the backdrop, the clouds, black fog close in
+            if (r.NoSun && c.Path == "sky" && (c.Prop == "FloatValue2" || c.Field == "Sun_Color")) v = 0f;
+            if (r.Blackout)
+            {
+                float w = Mathf.Clamp01(p / Mathf.Max(0.02f, r.NightAt <= 0f ? 1f : r.NightAt));
+                float target = v;
+                if (c.Path == "sky" && IsColour(c) && (c.Field == "Sky_Color" || c.Field == "Horizon_Color")) target = c.Comp == 2 ? 0.025f : 0.008f;
+                else if (c.Path == "sky" && IsColour(c) && (c.Field == "AmbientLight" || c.Field == "FogColor")) target = 0.01f;
+                else if (c.Path == "sky" && c.Prop == "FogStartDistance") target = 8f;
+                else if (c.Path == "sky" && c.Prop == "FogEndDistance") target = 140f;
+                else if (c.Path == "background" && IsColour(c)) target = 0.02f;
+                else if (c.Path == "clouds" && IsColour(c)) target = 0.01f;
+                else if (c.Path == "shadow_color" && IsColour(c)) target = 0f;
+                else if (c.Path == "track_mesh" && c.Prop == "ColorValue.a") target = 0f;
+                else if (c.Path == "sun_rotation/sun_light" && c.Prop == "m_Intensity") target = 0.12f;
+                v = Mathf.Lerp(v, target, w);
+            }
             return v;
         }
 
@@ -338,6 +413,23 @@ namespace HCT15
                 case "car_lights":
                 {
                     float[] l = LightsOf(r.Preset ?? "day");
+                    if (IsTg(r))
+                    {
+                        // 2.4.1 (the user, 2026-11-07, with an SNES night frame: "on the night tracks the headlights should
+                        // show like this - HCT has that kind of lights built in"): on while it is night (tg_night all race;
+                        // the night half of tg_night_to_day / tg_day_to_night, switching in the middle of the fade), off by
+                        // day. (A first 2.4.1 test on Cologne had them washing the road pale grey together with the road's
+                        // night blend, which stays off - track_mesh ColorValue.a = 0 above.)
+                        float f = Mathf.Clamp(r.Fade, 0.001f, 1f), mid = Mathf.Clamp01(1f - f * 0.5f);
+                        switch (r.Preset)
+                        {
+                            case "tg_night": t.Add(0f); v.Add(1f); break;
+                            case "tg_night_to_day": t.Add(0f); v.Add(1f); t.Add(mid); v.Add(0f); break;
+                            case "tg_day_to_night": t.Add(0f); v.Add(0f); t.Add(mid); v.Add(1f); break;
+                            default: t.Add(0f); v.Add(0f); break;
+                        }
+                        break;
+                    }
                     if (l == null) return null;
                     float at = Mathf.Clamp(r.NightAt <= 0f ? 1f : r.NightAt, 0.05f, 1f);
                     if (l.Length == 1) { t.Add(0f); v.Add(l[0]); }

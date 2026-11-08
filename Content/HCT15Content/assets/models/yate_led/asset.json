@@ -1,0 +1,21 @@
+{
+  "Id": "yate_led",
+  "Name": "Yacht with an LED screen",
+  "Category": "landmark",
+  "Description": "A motor yacht carrying a 12 x 6 m LED screen of a Caribbean travel ad (Anim led)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true,
+  "Anim": "led",
+  "Screen": [
+    0.32,
+    7.5,
+    13.5,
+    -6.0,
+    6.0
+  ],
+  "LedFps": 9.0,
+  "LedGlow": 2.0
+}

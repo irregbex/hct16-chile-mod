@@ -9,11 +9,11 @@ using UnityEngine.Networking;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.11: a car's speech bubbles spoken aloud (2026-10-07: each taunt's sound effect
-    /// fires when its bubble comes up and plays completely from start to end).
+    /// 2.0.11: a car's speech bubbles spoken aloud (the user, 2026-10-07: "the sound effects of the taunts ... each one
+    /// should fire when its bubble comes up, and play completely from start to end").
     /// Files: HCT15Content\taunts_sfx\&lt;car id&gt;\audio\&lt;section&gt;\&lt;section&gt;_NN.wav - one per line of the car's
     /// cars\taunts.&lt;car id&gt;.txt, NN = the line's number within its section ([random] 01..20, [nitro] 01..06, ...), the
-    /// layout first used for cl_taxi (its taunts.cl_taxi.audio.txt lists the pairs). Every file is loaded once at
+    /// layout the user made for cl_taxi (its taunts.cl_taxi.audio.txt lists the pairs). Every file is loaded once at
     /// start. When the game shows a bubble (CarUIViewModel.ShowMessage, key "speech_&lt;car&gt;_&lt;type&gt;&lt;n&gt;") Taunts says
     /// which line of which section that key was given (ClipOf), and the matching clip plays on its own 2D source,
     /// never cut short: a bubble that comes while one is still speaking is shown silent (logged). A car without its own

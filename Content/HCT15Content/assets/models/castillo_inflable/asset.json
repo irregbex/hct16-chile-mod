@@ -1,0 +1,12 @@
+{
+  "Id": "castillo_inflable",
+  "Name": "Inflatable castle",
+  "Category": "landmark",
+  "Description": "The princess's floating inflatable castle, 16 x 12 x 15 m: gates both ways, four towers, the princess waving on top (Anim castle: it deflates when the time runs out)",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true,
+  "Anim": "castle"
+}

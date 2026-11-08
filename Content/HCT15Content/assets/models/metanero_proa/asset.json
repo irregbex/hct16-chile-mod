@@ -1,0 +1,11 @@
+{
+  "Id": "metanero_proa",
+  "Name": "LNG carrier bow",
+  "Category": "landmark",
+  "Description": "LNG carrier: the bow segment, 18 x 9, stem towards +Z",
+  "Scale": 1.0,
+  "Yaw": 0.0,
+  "GroundOffset": 0.0,
+  "Recenter": true,
+  "DoubleSided": true
+}

@@ -50,6 +50,7 @@ namespace HCT15
         public float Margin = 1.2f;
         public float Ease = 1f;
         public float Bob, BobHz, Spin;
+        public float Hazard, HitSpeed = 0.3f;   // 2.4.2: a crosser that hits jet skis within Hazard units (JetskiMission)
         public Transform Body;
 
         private PropAutoMover _mover;
@@ -81,6 +82,7 @@ namespace HCT15
             }
             else if (t < 0.4f) _halfway = false;
 
+            if (Hazard > 0f && t > 0.02f) JetskiMission.CheckHit(Body != null ? Body.position : transform.position, Hazard, HitSpeed, name);
             if (Body == null) return;
             if (!_haveBodyY) { _bodyY = Body.localPosition.y; _haveBodyY = true; }
             if (Bob > 0.001f && BobHz > 0.001f)
@@ -129,6 +131,7 @@ namespace HCT15
             public float Hover;
             public float Bob, BobHz, Spin;
             public float Ease = 1f;
+            public float Hazard, HitSpeed = 0.3f;   // 2.4.2
             public string Comment = "";
         }
 
@@ -193,11 +196,13 @@ namespace HCT15
             var c = go.AddComponent<Crosser>();
             c.FromSide = it.From; c.ToSide = it.To;
             c.StartZ = it.StartZ > 0f ? it.StartZ : 210f;
-            c.EndZ = it.EndZ > 0f ? it.EndZ : 55f;
+            c.EndZ = it.EndZ;   // 2.4.2: may be negative - a crossing still under way where the player is (z ~25: the mission's sharks)
             c.Margin = it.Margin;
             c.Ease = it.Ease;
             c.Bob = it.Bob; c.BobHz = it.BobHz; c.Spin = it.Spin;
+            c.Hazard = it.Hazard; c.HitSpeed = it.HitSpeed;
             c.Body = body.transform;
+            if (ad.Meta.Anim == "castle") body.AddComponent<CastleDeflate>();
             return go;
         }
     }

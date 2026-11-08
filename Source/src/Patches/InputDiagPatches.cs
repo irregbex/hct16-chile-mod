@@ -11,7 +11,7 @@ namespace HCT15.Patches
     // ------------------------------------------------------------------ 2.2.7: which controllers the player screen sees
 
     /// <summary>
-    /// 2.2.7 (a report: with 3 Xbox controllers only the first 2 worked; the original game takes 4). The retail
+    /// The user (2026-11-02): "with 3 Xbox controllers only the first 2 worked; the original game took 4". The retail
     /// "choose up to 4 players" screen (UserLoginViewModel.RefreshDevices) lists InControl's devices, cut to 4, plus the
     /// keyboard's two sides; nothing in the mod limits it. This writes what that screen gets every time the list changes
     /// - InControl's devices (name, driver, location) and Windows' joysticks as Unity sees them - so a log from a

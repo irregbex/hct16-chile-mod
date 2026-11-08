@@ -2,7 +2,7 @@
 
 # HCT 1.6 - a Chilean fan mod for Horizon Chase Turbo
 
-**Version 2.4.0.** A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game **without changing it**: it is loaded by BepInEx and removed with one click.
+**Version 2.4.2.** A free, non-commercial fan mod for Horizon Chase Turbo (PC, Steam). It runs on top of the original game **without changing it**: it is loaded by BepInEx and removed with one click.
 
 > **FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT.** Everything in this mod - the code, the tracks, models, textures, sounds, texts, voices and music - was made with AI (Claude, by Anthropic) from one player's directions in plain language and from open map data. Nobody wrote or reviewed the code by hand. It works and has been played a lot, but expect rough edges. Play it and [report what is wrong](https://github.com/irregbex/hct16-chile-mod/issues), suggest improvements, or send fixes and new tracks as pull requests.
 
@@ -25,7 +25,7 @@ To remove it: **UNINSTALL.cmd** from the same folder.
 ## What it adds
 
 - **Five campaigns:**
-  - **Chile:** 164 races through Chilean cities and the comunas of Santiago, from Arica and the altiplano to the glaciers of Aysén, Tierra del Fuego and Antarctica - observatories (a lap round and inside the Extremely Large Telescope), ski centres, volcanoes, Easter Island, beaches on jet skis, the procession of andas round the Plaza de Illapel, a Santiago flooded by a thunderstorm. A map of Chile to pick the region and the place.
+  - **Chile:** 165 races through Chilean cities and the comunas of Santiago, from Arica and the altiplano to the glaciers of Aysén, Tierra del Fuego and Antarctica - observatories (a lap round and inside the Extremely Large Telescope), ski centres, volcanoes, Easter Island, beaches and harbours on jet skis (an LED night square, a princess to rescue), the procession of andas round the Plaza de Illapel, a Santiago flooded by a thunderstorm. A map of Chile to pick the region and the place.
   - **Rutas de Chile:** point-to-point stages along real roads (Ruta 68, Ruta 47 on a horse cart, the Valparaíso coast, Villarrica - Pucón, Coyhaique - Aysén...).
   - **Aventura Chile:** challenges with the mod's own vehicles.
   - **Competencia Chile 2026:** 40 races in 8 cups.

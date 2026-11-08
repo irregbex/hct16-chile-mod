@@ -80,7 +80,7 @@ namespace HCT15
             public string NitroModel = "";    // 2.0.11: asset-library model this car's driver sees instead of the nitro bottles (the carreta: fardo_nitro, glowing green)
             public bool NitroOwnColours;      // 2.1.5: the NitroModel keeps its own colours (the andas' bottle: white label, black X) instead of being drawn green; the halos stay
             public string FuelModel = "";     // 2.0.11: the same for the fuel cans (the carreta: fardo_nitro in its own colours)
-            public string CoinModel = "";     // 2.0.15: the same for the coins (the carreta: zanahoria - carrots for the carts' coins)
+            public string CoinModel = "";     // 2.0.15: the same for the coins (the carreta: zanahoria - the user, 2026-10-08: "for the carretas the coins should be carrots")
             public string EngineSound = "";   // 2.0.11: "gallop" - synthesised hooves instead of the engine (GallopSound.cs)
             public bool HideWheels;
             public float Bob;                 // 2.0.11: the body bobs this many units at the trot, faster with speed (the carreta; 0 = still)           // 2.0.11: the body brings its own wheels (the carreta's two wooden ones): the donor's tyres are not drawn
@@ -90,7 +90,7 @@ namespace HCT15
             public float Spray;               // 2.0.24: the rooster tail, side spray and wake of a jet ski (WaterRide; 1 = a jet ski's, 0 = none)
             public float SelectScale2P = 0f;  // 2.3.2: the same with two or more players (split screen); 0 = as SelectScale. The andas: 0.55 alone, 0.3 split
         public float SelectScale = 1f;    // 2.0.13: how big the car shows on the car-selection turntable against a retail car (the micro 1.2: half again the bus it was, yet inside the screen's stats); 1 in split screen
-            // 2.0.28 (the andas walk, no more than 5 km/h; each anda is a colour variant with its own stats):
+            // 2.0.28 (the andas: "they walk, no more than 5 km/h"; "each anda a variant with its own stats, chosen with the colours"):
             public float TopSpeedKph;         // the game's own top speed (km/h before its x0.55 masking), unclamped; 0 = donor x Performance
             public float ZeroToMax;           // seconds from standstill to top speed; 0 = donor / Performance^2
             public float Grip = 1f;           // x the turning strength
@@ -148,20 +148,20 @@ namespace HCT15
             new CarDef { Id = "cl_micro", Model = "micro_amarilla_body", Donor = "kombi", NameKey = "car_micro_name", DescKey = "car_micro_desc",
                          Performance = 0.84f, Length = 2.03f, Width = 1.53f, Height = 1.68f, WheelSpread = 1f, Axles = new[] { 2.9f, -3.05f }, WheelScale = 1.65f, SelectScale = 1.2f,
                          CameraUp = 0.7f, CameraBack = 2.0f, AsEnemy = false, BubbleEdge = true, BubbleCorner = true },
-            // The same micro in the other liveries of the old lines (2026-09-24): the same body shape from
+            // The same micro in the other liveries of the old lines (user, 2026-09-24): the same body shape from
             // asset_kit's MICRO_LIVERIES, the same donor and fit, the yellow one's taunts. Aventura Chile's first
             // race is a grid of nothing but these.
-            // A second taxi body (2026-09-24): a textured asset-library body
+            // A second taxi body (user, 2026-09-24): a textured asset-library body
             // (its roof painted yellow), on the Specter's wheels like the first taxi.
             new CarDef { Id = "cl_taxi_v16", Model = "nissan_v16_body", Donor = "ghost", NameKey = "car_taxi_v16_name", DescKey = "car_taxi_v16_desc",
                          VariantOf = "cl_taxi", Taunts = "cl_taxi", Performance = 0.89f, Length = 1f, Width = 1f, Height = 1f, AsEnemy = false },
-            // The carreta (2026-10-05: a horse-drawn cart, generated from scratch to match the game's style):
+            // The carreta (user, 2026-10-05: "a horse ridden cart ... generated from scratch to mimic the game style"):
             // asset_kit's carreta_body - cart, horse and huaso, its own two wooden wheels, so the van's tyres are hidden.
             // The grid of the Los Vilos -> Illapel stage of Rutas de Chile is nothing but these (its round's Cars list).
             new CarDef { Id = "cl_carreta", Model = "carreta_body", Donor = "kombi", NameKey = "car_carreta_name", DescKey = "car_carreta_desc",
                          Performance = 0.8f, Length = 1.45f, Width = 1.22f, Height = 1.25f, HideWheels = true, Shift = 0.9f, Bob = 0.07f, NitroModel = "fardo_nitro", FuelModel = "fardo_nitro", CoinModel = "zanahoria", EngineSound = "gallop",
                          CameraUp = 0.4f, CameraBack = 1.6f, AsEnemy = false, BubbleEdge = true },
-            // ten more carretas (2026-10-06: at least 10 variants, with different colours, horse types, wheels and speeds)
+            // ten more carretas (user, 2026-10-06: "at least 10 variants, with different colors, horse types and wheels, speeds")
             CarretaVariant("potro", 0.87f),
             CarretaVariant("alazan", 0.84f),
             CarretaVariant("bayo", 0.82f),
@@ -172,10 +172,10 @@ namespace HCT15
             CarretaVariant("bueyes", 0.70f),
             CarretaVariant("fonda", 0.83f),
             CarretaVariant("lechero", 0.81f),
-            // The jet skis (2026-10-10: a track in Viña del Mar, on the beach's waves, in custom jet skis): asset_kit's
+            // The jet skis (user, 2026-10-10: "a track in Viña del Mar ... on the waves of the beach in custom jet skis"): asset_kit's
             // jetski_body - hull, rider, race number - on the Mini's engine and shadow, its tyres hidden; WaterRide leans it, heaves it
             // on the swell and throws the spray. The grid of "Viña del Mar en jetski" (campaigns\chile round 116) is nothing but these.
-            // 2026-10-11 (not variants of one another - each has its own stats): eight cars side by side
+            // 2026-10-11 (the user: "each one is not a variant of the other, each has its own stats"): eight cars side by side
             // in car selection, each on a donor of its own - its top speed, acceleration, grip, tank and engine sound - with
             // the body fitted to the same size on every donor (Length/Width/Height against that donor's box)
             Jetski("", "mini", 0.90f, 3.10f, 1.45f, 1.32f), Jetski("turquesa", "beetle", 0.92f, 3.34f, 1.42f, 1.40f),
@@ -196,7 +196,7 @@ namespace HCT15
         /// <summary>A carreta of asset_kit's CARRETA_VARIANTS: its own body, horse and load, its own speed; the first one's taunts.</summary>
         private static CarDef CarretaVariant(string v, float performance)
         {
-            // a COLOUR of cl_carreta (2026-10-06: variants of the SAME car, with the same stats): up / down in car
+            // a COLOUR of cl_carreta (user, 2026-10-06: "variants of the SAME car ... make them the same stats"): up / down in car
             // selection, a random one for each rival; the first carreta's speed (performance kept only as a note)
             return new CarDef { Id = "cl_carreta_" + v, Model = "carreta_" + v + "_body", Donor = "kombi", NameKey = "car_carreta_" + v + "_name", DescKey = "car_carreta_" + v + "_desc",
                                 VariantOf = "cl_carreta", Taunts = "cl_carreta", Performance = 0.8f, Length = 1.45f, Width = 1.22f, Height = 1.25f, HideWheels = true, Shift = 0.9f, Bob = 0.07f,
@@ -207,8 +207,8 @@ namespace HCT15
         public static readonly string[] CarretaIds = { "cl_carreta", "cl_carreta_potro", "cl_carreta_alazan", "cl_carreta_bayo", "cl_carreta_tordillo", "cl_carreta_overo", "cl_carreta_mula", "cl_carreta_percheron", "cl_carreta_bueyes", "cl_carreta_fonda", "cl_carreta_lechero" };
 
         /// <summary>A jet ski of asset_kit's JETSKI_LIVERIES ("" = the red "Viña" one): a car of its own on its donor, the body
-        /// fitted to 1.785 x 0.725 x 0.955 whatever the donor's box (dl, dw, dh) - 2.0.25: half the 2.0.24 size (they looked almost
-        /// twice as big as they should; streetcars.json carries the halved numbers).</summary>
+        /// fitted to 1.785 x 0.725 x 0.955 whatever the donor's box (dl, dw, dh) - 2.0.25: half the 2.0.24 size (the user: "almost
+        /// twice as big, they should look half as small"; streetcars.json carries the halved numbers).</summary>
         private static CarDef Jetski(string livery, string donor, float performance, float dl, float dw, float dh)
         {
             bool first = livery == "";
@@ -400,6 +400,18 @@ namespace HCT15
         // speed while the player was behind his "expected" place, so the player's anda still walked away from the pack
         private static readonly HashSet<BaseCar> _walkers = new HashSet<BaseCar>();
         public static bool IsWalker(BaseCar c) { return c != null && _walkers.Contains(c); }
+
+        /// <summary>2.4.1 (RetroRules): this rival drives at exactly this top speed (the game's km/h), steady - no rubber
+        /// band, no lap/track balance, no slower corners (the walkers' patches) - and CapRivalsTick leaves it alone.</summary>
+        public static bool HoldRival(EnemyCar e, float kph)
+        {
+            if (e == null || e.CarEngine == null || kph <= 0f) return false;
+            float cur = e.CarEngine.MaxSpeedInKPH;
+            if (cur <= 0.1f) return false;
+            e.CarEngine.ApplyMaxSpeedFactor(kph / cur);
+            _capped.Add(e); _walkers.Add(e);
+            return true;
+        }
         private static System.Reflection.FieldInfo _allCars;
 
         /// <summary>Every frame of a race (Tolls' update): a rival whose body is a car with a top speed of its own (the andas;
@@ -424,7 +436,7 @@ namespace HCT15
                     CarDef d;
                     string id = VariantBase(BaseId(e.View.CarModelId ?? ""));
                     if (!_def.TryGetValue(id, out d) || d == null || d.TopSpeedKph <= 0f) continue;
-                    // 2.1.1 (the player's anda went too fast - all should walk at a speed balanced between them): a rival
+                    // 2.1.1 (the user: "my anda goes too fast - they should all walk at a speed balanced between them"): a rival
                     // walked at the PLAYER's own top speed (2.1.2: 95-102 % of it, steady - see _walkers).
                     // 2.3.9 (reported: "each anda has different stats in car selection, but in the race they all behave the
                     // same - after a few laps everybody walks at one speed and all arrive together; Plaza de Illapel cannot be
@@ -563,8 +575,8 @@ namespace HCT15
                     if (prefab == null) continue;
                     if (!string.IsNullOrEmpty(d.VariantOf))
                     {
-                        // one of another car's colours (2026-09-24: "they are variants of the same vehicle, switched with
-                        // up and down"): its fitted body is kept and swapped in by the game's own colour system
+                        // one of another car's colours (user, 2026-09-24: "son variantes del mismo vehiculo, se cambian con
+                        // arriba y abajo"): its fitted body is kept and swapped in by the game's own colour system
                         AddVariant(d.VariantOf, Capture(prefab, d.Id), false);
                         _def[d.Id] = d;
                         Debug.Log("[HCT15] street car '" + d.Id + "': a colour of '" + d.VariantOf + "' (" + (string.IsNullOrEmpty(d.Model) ? "the donor's body" : "model '" + d.Model + "'") + ")");
@@ -1158,7 +1170,7 @@ namespace HCT15
             CarDef d;
             if (!_def.TryGetValue(car.ItemId ?? "", out d) || d == null) return true;
             if (OnlyListedCar(d) && !ListedNow(d)) return false;
-            // 2.3.6 (reported: "straight to Rutas de Chile, Plaza de Illapel: no anda on the car selection, and the game hangs"):
+            // 2.3.6 (the user: "straight to Rutas de Chile, Plaza de Illapel: no anda on the car selection, and the game hangs"):
             // the andas were bound to the "chile" campaign, the Rutas de Chile round lists them, and the screen came up with no
             // car at all (CarSelectionViewModel.SetPlayerCar: index out of range). A round that names a car can always race it
             if (OnlyListedCar(d)) return true;
@@ -1392,7 +1404,7 @@ namespace HCT15
                     {
                     // 2.0.26: a round whose Cars list names some of this car's colours (the D-81's red F-150s) keeps the
                     // rivals and the traffic to those; else any colour
-                    // 2.3.1: a road's traffic.json "Colours" win for its traffic
+                    // 2.3.1: a road's traffic.json "Colours" win for its traffic (the D-81's pickups: none of the racing reds)
                     List<string> trafficColours = Traffic.ColoursFor(model);
                     List<int> allowed = trafficColours != null ? NamedVariants(BaseId(model.name), list, trafficColours, false) : AllowedVariants(BaseId(model.name), list);
                     int fixedColour = trafficColours != null ? -1 : Traffic.FixedColour(model, allowed.Count);   // a traffic micro: the line's one livery on this road
@@ -1808,7 +1820,7 @@ namespace HCT15
             // 2.0.14: CarDef.Axles - the model's arches, through the same turn / scale / shift the body got (FitXf), decide
             // where each wheel group goes: the group whose wheels sit ahead takes the front one. WheelSpread only scaled the
             // groups' z (the kombi's sit at +-1.05, so x1.95 reached 2.05 for arches at 2.14, and x1.53 left the wheels
-            // half a unit inside the arches - 2026-10-07: "two times further away than before").
+            // half a unit inside the arches - the user, 2026-10-07: "two times further away than before").
             float axleFront = float.NaN, axleBack = float.NaN;
             if (d.Axles != null && d.Axles.Length >= 2 && xf != null)
             {
@@ -1816,17 +1828,17 @@ namespace HCT15
                 axleFront = Mathf.Max(a0, a1); axleBack = Mathf.Min(a0, a1);
             }
             // The track: the donor's wheel groups sit where the donor's flanks are; a wider body (the micro's,
-            // 1.59 on a 1.56 van whose wheels are at +-0.58) showed them tucked under it (2026-09-24: "off their
-            // axis, they should be aligned with the edge"). WheelTrack 0 moves them out so the tyre's outer
+            // 1.59 on a 1.56 van whose wheels are at +-0.58) showed them tucked under it (user, 2026-09-24: "fuera
+            // de su eje, deberian estar alineadas con el borde"). WheelTrack 0 moves them out so the tyre's outer
             // face sits at the body's flank: the groups hold both wheels of an axle, so their X scale is the lever.
             // 2.0.13 (WheelTrack 0): each axle's tyres get their outer face a little proud of the body's flank
             // (WheelProud), measured from that wheel group's own renderers after WheelScale - the van's rear wheels
             // reach further out than its front ones, so each group gets its own factor. The old law - the detector's
             // centre minus a guessed tyre half-width - left the face flush with the flank, where the arches and mud
-            // flaps modelled on the micro's flank hid it (2026-10-07: the wheels sat away from the micro's
-            // outer edge; they should be level with it).
+            // flaps modelled on the micro's flank hid it (the user, 2026-10-07: "the wheels sit away from the micro's
+            // outer edge; they should be level with it").
             // 2.0.14c: the body's BOX half-width counts the mirrors and boards (the micro's model is 3.32 wide for a 2.50 body),
-            // so the tyres were set 0.35 outside the real flank - reported as "the wheels are away from the bus's outer edge" (2.0.12:
+            // so the tyres were set 0.35 outside the real flank - the user: "the wheels are away from the bus's outer edge" (2.0.12:
             // 0.19 out), then "two times further away" (2.0.13/14). The flank is measured on the fitted mesh at wheel height round
             // each axle (FlankHalfWidth); the tyre's outer face goes WheelProud past it.
             bool auto = d.WheelTrack < 0.01f && bodyHalfWidth > 0.01f;
@@ -1933,7 +1945,7 @@ namespace HCT15
         public class RiderJson { public string Model = ""; public List<float> Seat = new List<float>(); public string Comment = ""; }
 
         /// <summary>
-        /// 2.0.24 (the rider does tricks when the jet ski jumps): the body model's rider.json {Model, Seat}
+        /// 2.0.24 (the user: "the rider should do tricks when the jet ski jumps"): the body model's rider.json {Model, Seat}
         /// -> 'HCT15_rider' under every level of detail at the seat (hips) as the body was fitted; WaterRide turns and lifts
         /// it in the air (superman, standing, leaning out, a kick) - the body itself flies and now and then spins.
         /// </summary>
@@ -1976,8 +1988,8 @@ namespace HCT15
         public class WhipJson { public string Model = ""; public List<float> Base = new List<float>(); public float Height = 3f, FlagLength = 0.5f, FlagHeight = 0.3f; public string FlagStyle = ""; }
 
         /// <summary>
-        /// 2.0.22: a whip that sways (the mines' F-150: the pole moves with realistic physics and the
-        /// reflective flag flutters). whip.json beside a body model names the pole model (its origin at the base,
+        /// 2.0.22: a whip that sways (the mines' F-150; the user: "the pole should move with realistic physics and the
+        /// reflective flag should flutter"). whip.json beside a body model names the pole model (its origin at the base,
         /// standing up) and the base in the body's file coordinates: the pole becomes a child of the body's first level of
         /// detail at the base as the body was fitted (like the carreta's legs), WhipSway springs it about its base from the
         /// truck's acceleration, bends and the road, and a FlagWave cloth flies from its tip.
@@ -2027,7 +2039,7 @@ namespace HCT15
         }
 
         /// <summary>
-        /// 2.0.11: legs that move (the horse's legs). legs.json beside a body model names a leg model
+        /// 2.0.11: legs that move (the user: "the horse legs should move"). legs.json beside a body model names a leg model
         /// (its origin at the hip, hanging straight down) and the hips in the body's file coordinates: each becomes a
         /// child of the body's first level of detail at the hip as the body was fitted (FileToMesh, then FitXf), its
         /// mesh fitted with the same turn and scale; TrotBob swings them about the axis across the car.
@@ -2145,8 +2157,8 @@ namespace HCT15
         }
 
         /// <summary>
-        /// 2.0.18 (with the carretas, the grid showed the carretas but also the rear lights of an
-        /// invisible car, gone once the race started): a car that hides the donor's wheels (the carreta: a horse
+        /// 2.0.18 (the user: "with the carretas, at the start you see the carretas but also the exhaust lights of an
+        /// imaginary car; they go when the race starts"): a car that hides the donor's wheels (the carreta: a horse
         /// and a cart, no car under it) hides the donor's lights too - the brake lights the game lights on the grid and
         /// turns off once the race is on, glowing in the air behind the cart. Their meshes are emptied (the objects stay
         /// for the game's own switches, as SpriteCars does), and any other lamp renderer is switched off.
@@ -2170,7 +2182,7 @@ namespace HCT15
                 if (nm.Contains("nitro")) continue;
                 if (nm.Contains("brake") || nm.Contains("taillight") || nm.Contains("tail_light") || nm.Contains("exhaust") || nm.Contains("backfire"))
                 { r.enabled = false; n++; }
-                // 2.3.2 (reported: "lights flying in front of or behind the jet skis"):
+                // 2.3.2 (the user, on the jet skis' selection screen: "lights flying in front of or behind the jet skis"):
                 // the turntable's glints sit on the donor's headlamps, in the air in front of or behind our body
                 else if (nm.StartsWith("select_car_bright"))
                 {
@@ -2344,7 +2356,7 @@ namespace HCT15
             return list.ToArray();
         }
 
-        // 2.0.11: the head turns towards the bend (the horse's head leans to the side being turned to)
+        // 2.0.11: the head turns towards the bend (the user: "the horse's head should lean to the side one is turning")
         private Transform[] _heads = new Transform[0];
         private float _turn;
         private int _viewKind = -1;
@@ -2439,11 +2451,11 @@ namespace HCT15
                 _logAt = Time.unscaledTime + 1f;
                 Debug.Log("[HCT15] trot '" + name + "' (" + (_viewKind == 1 ? "player" : _viewKind == 2 ? "player 2" : _viewKind == 3 ? "rival" : "?") + "): " + _speed.ToString("0") + " km/h, turn " + _turn.ToString("0.00") + " (" + _heads.Length + " head(s)), legs " + _legs[0].localEulerAngles.x.ToString("0") + " / " + _legs[1].localEulerAngles.x.ToString("0") + " deg");
             }
-            // 2.1.5 (the andas with their images on top lean a little to the side they are turning, as an unstable load
-            // would): a walker's whole body (bearers, litter, image) rolls into the bend, as the horse's head does
+            // 2.1.5 (the user: "the andas with the virgins on top should lean a little to the side they are turning, it is very
+            // unstable"): a walker's whole body (bearers, litter, image) rolls into the bend, as the horse's head does
             float lean = Cadence > 0f ? -_turn * WalkLean * Mathf.Clamp01(walk * 2f) : 0f;
-            // 2.2.2: the andas hop a little as they walk, for comic effect: one small hop a stride, a parabola off the
-            // ground and back, the whole anda rocking forward on the way up and back on landing
+            // 2.2.2 (the user: "the andas should hop a little as they walk - it must look funny"): one small hop a stride, a
+            // parabola off the ground and back, the whole anda rocking forward on the way up and back on landing
             float pitch = 0f;
             if (Cadence > 0f)
             {

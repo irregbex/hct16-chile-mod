@@ -9,7 +9,7 @@ namespace HCT15
     /// </summary>
     public static class GameAccess
     {
-        /// <summary>The steering the retro campaign's sprite cars lean with: the player's stick (-1..1, right positive).</summary>
+        /// <summary>The steering the the retro campaign sprite cars lean with: the player's stick (-1..1, right positive).</summary>
         public static float TurningDirection(PlayerCarTrackView v)
         {
             if (v == null) return 0f;

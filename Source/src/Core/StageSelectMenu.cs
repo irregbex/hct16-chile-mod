@@ -51,6 +51,7 @@ namespace HCT15
             go.AddComponent<F1UiFixer>();
             go.AddComponent<Horns>();
             go.AddComponent<F1ScreenExtras>();
+            go.AddComponent<RetroScreens>();   // 2.4.1: the retro campaign's CAR TYPE screen and loading background
             go.AddComponent<CampaignMap>();   // 2.0.10: campaigns\<folder>\map\map.json on the campaign screen
             go.AddComponent<ChileWorldMap>(); // 2.0.10: campaigns\<folder>\map\worldmap.json, the low-poly map over it
             go.AddComponent<Tolls>(); go.AddComponent<Voices>(); go.AddComponent<JetskiTricks>(); go.AddComponent<Cutscene>(); go.AddComponent<Podium>();       // 2.0.11: tracks\<id>\tolls.json - toll plazas that slow, fine or stop the cars
@@ -257,6 +258,34 @@ namespace HCT15
                 UIStateManager.ChangeState(_autoMenu);
                 yield return new WaitForSecondsRealtime(2f);
                 UiDump.LogScreen(_autoMenu);
+                // 2.4.1 "-hct15-cardtest <folder>": select that campaign's card and photograph it as its logo plays
+                string card = null;
+                string[] cargs = System.Environment.GetCommandLineArgs();
+                for (int i = 0; i < cargs.Length - 1; i++) if (string.Equals(cargs[i], "-hct15-cardtest", System.StringComparison.OrdinalIgnoreCase)) card = cargs[i + 1];
+                if (card != null)
+                {
+                    GameObject blade = GameObject.Find("HCT15_" + card + "_Blade");
+                    var cvm = blade != null ? blade.GetComponent<global::CampaignItemViewModel>() : null;
+                    Debug.Log("[HCT15] card test: '" + card + "' blade " + (cvm != null ? "found" : "NOT found"));
+                    if (cvm != null)
+                    {
+                        foreach (var other in Object.FindObjectsOfType<global::CampaignItemViewModel>()) if (other != cvm) other.OnDeselect();
+                        cvm.OnSelect();
+                        // and scroll the blades to it the way the game does (CampaignSelectionManager.UpdateUIPosition)
+                        try
+                        {
+                            var mgr = Object.FindObjectOfType<CampaignSelectionManager>();
+                            var bf = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
+                            var list = mgr != null ? typeof(CampaignSelectionManager).GetField("CampaignsList", bf).GetValue(mgr) as System.Collections.Generic.List<global::CampaignItemViewModel> : null;
+                            int idx = list != null ? list.IndexOf(cvm) : -1;
+                            if (idx >= 0) { typeof(CampaignSelectionManager).GetField("_lastBladeSelected", bf).SetValue(mgr, idx); typeof(CampaignSelectionManager).GetMethod("UpdateUIPosition", bf).Invoke(mgr, new object[] { idx }); }
+                            Debug.Log("[HCT15] card test: blade index " + idx);
+                        }
+                        catch (System.Exception ex) { Debug.LogWarning("[HCT15] card test scroll: " + ex.Message); }
+                        float[] at = { 0.5f, 1.6f, 2.6f, 4.6f }; float last = 0f;
+                        for (int i = 0; i < at.Length; i++) { yield return new WaitForSecondsRealtime(at[i] - last); last = at[i]; DebugShot.Capture("hct15-card-" + i + ".png"); }
+                    }
+                }
                 yield break;
             }
             if (race == "__campaign__")
@@ -268,6 +297,55 @@ namespace HCT15
                 yield return new WaitForSecondsRealtime(3f);
                 UiDump.LogScreen("EXTRA_CAMPAIGN " + c.Folder);
                 UiDump.LogRects("live_trials_tracks_extra_campaign");
+                DebugShot.Capture("hct15-walk-0.png");
+                // 2.4.1 "-hct15-campaign-walk": on through the car selection to the loading screen, a frame and a UI dump at each
+                // (the retro campaign's screens are re-skinned there)
+                if (System.Array.Exists(System.Environment.GetCommandLineArgs(), a => string.Equals(a, "-hct15-campaign-walk", System.StringComparison.OrdinalIgnoreCase)))
+                {
+                    for (int step = 1; step <= 3; step++)
+                    {
+                        string pressed = null;
+                        try
+                        {
+                            if (UIStateManager.IsStateActive("CAR_SELECTION"))
+                            {
+                                foreach (var v in Object.FindObjectsOfType<Aquiris.HorizonChase.NewUI.ViewModel.CarSelectionViewModel>())
+                                    if (v.gameObject.activeInHierarchy) { pressed = "car " + (v.Name != null ? v.Name.Value : "?"); v.HandleSubmit(); break; }
+                            }
+                            else { pressed = "ShowNext"; UIStateManager.ShowNext(); }   // the retail route from the campaign screen
+                        }
+                        catch (System.Exception ex) { Debug.LogWarning("[HCT15] campaign walk: " + ex.Message); }
+                        yield return new WaitForSecondsRealtime(step == 2 ? 0.6f : 2.5f);
+                        string st = UIStateManager.GetTopActiveState();
+                        Debug.Log("[HCT15] campaign walk " + step + ": pressed " + (pressed ?? "(nothing)") + ", state " + st + (LoadingManager.IsLoadingScene ? " (loading)" : ""));
+                        DebugShot.Capture("hct15-walk-" + step + ".png");
+                        UiDump.LogScreen("walk " + step + " " + st);
+                        if (step == 1)
+                        {
+                            // the retro grid: right, down, left - a frame after each
+                            foreach (var v in Object.FindObjectsOfType<Aquiris.HorizonChase.NewUI.ViewModel.CarSelectionViewModel>())
+                            {
+                                if (!v.gameObject.activeInHierarchy) continue;
+                                // through the real input path: CarSelectionManager.PlayerInput's OnRight/OnDown/... delegates (what a pad or key fires)
+                                string[] moves = { "OnRight", "OnDown", "OnLeft", "OnUp" };
+                                object pin = HarmonyLib.AccessTools.Field(typeof(Aquiris.HorizonChase.NewUI.ViewModel.CarSelectionViewModel), "_playerInput").GetValue(v);
+                                for (int mv = 0; mv < moves.Length; mv++)
+                                {
+                                    var act = pin != null ? HarmonyLib.AccessTools.Field(pin.GetType(), moves[mv]).GetValue(pin) as System.Action : null;
+                                    Debug.Log("[HCT15] campaign walk: input " + moves[mv] + (act != null ? "" : " (no delegate)"));
+                                    if (act != null) act();
+                                    yield return new WaitForSecondsRealtime(0.8f);
+                                    DebugShot.Capture("hct15-walk-1" + "rdlu"[mv] + ".png");
+                                    yield return new WaitForSecondsRealtime(0.3f);
+                                }
+                                break;
+                            }
+                        }
+                        if (step == 1) foreach (var v in Object.FindObjectsOfType<Aquiris.HorizonChase.NewUI.ViewModel.CarSelectionViewModel>())
+                            Debug.Log("[HCT15] campaign walk: car view '" + v.name + "' active " + v.gameObject.activeInHierarchy + " CarIndex " + v.CarIndex + " name '" + (v.Name != null ? v.Name.Value : "?") + "'");
+                        if (LoadingManager.IsLoadingScene) yield break;
+                    }
+                }
                 yield break;
             }
             if (race == "__editor__")
@@ -289,7 +367,7 @@ namespace HCT15
             if (Settings.Data.ShowBanner)
             {
                 GUI.Label(new Rect(10, 10, 760, 24),
-                    "<color=#FFDD00><b>HCT 1.6 v2.4.0 MOD ACTIVE</b></color>   " + (Settings.Data.TrackEditor ? "F7 track editor | " : "") + "F8 console | F9 stage select | F11 next track | F12 custom music");
+                    "<color=#FFDD00><b>HCT 1.6 v2.4.2 MOD ACTIVE</b></color>   " + (Settings.Data.TrackEditor ? "F7 track editor | " : "") + "F8 console | F9 stage select | F11 next track | F12 custom music");
             }
 
             if (!_visible) return;

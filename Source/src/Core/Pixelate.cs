@@ -162,7 +162,12 @@ namespace HCT15
             int w = Mathf.Max(1, Mathf.RoundToInt(h * (float)src.width / Mathf.Max(1, src.height)));
             RenderTexture rt = RenderTexture.GetTemporary(w, h, 0, src.format);
             rt.filterMode = FilterMode.Point;
-            Graphics.Blit(src, rt);   // down: bilinear, resolves the detail we are throwing away
+            // 2.4.1 (the user: "can the dithering / antialiasing / blurry filtering in the distance be switched off in this
+            // campaign? it must just look pixelated"): a RetroRules race takes every pixel straight (nearest sample), no blend
+            FilterMode keep = src.filterMode;
+            if (RetroRules.Active) src.filterMode = FilterMode.Point;
+            Graphics.Blit(src, rt);   // down: bilinear (retro: nearest), bilinear resolves the detail we are throwing away
+            src.filterMode = keep;
             Graphics.Blit(rt, dst);   // up: Point on rt, so this is the nearest-neighbour magnification
             RenderTexture.ReleaseTemporary(rt);
         }
