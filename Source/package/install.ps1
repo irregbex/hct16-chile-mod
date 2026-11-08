@@ -220,6 +220,8 @@ elseif (-not (Test-Path -LiteralPath $oldRecordPath) -and (Test-Path -LiteralPat
 }
 
 Say 'Copying the mod (the first time takes a while: tracks and music weigh about 2 GB)...'
+$prevItems = @()   # 2.4.5: what the previous install recorded, to retire what this release no longer ships
+foreach ($rp in @($recordPath, $oldRecordPath)) { if ($rp -and (Test-Path -LiteralPath $rp)) { $prevItems += @(Get-Content -LiteralPath $rp -Encoding UTF8 | Where-Object { $_ -and -not $_.StartsWith('#') }) } }
 $installed = New-Object System.Collections.Generic.List[string]
 $src = [IO.Path]::GetFullPath($payload).TrimEnd('\')
 function Write-Record([string]$note) {
@@ -295,18 +297,70 @@ $cut = Join-Path $GameDir 'HCT15Content\tracks\cl_playa_luna\cutscene'
 if (Test-Path -LiteralPath $cut) { Remove-Tree $cut; $old++ }
 if ($old -gt 0) { Say "Retired the old flat intro and old photos ($old folder(s))." }
 if (Test-Path -LiteralPath $oldRecordPath) { Remove-Item -LiteralPath $oldRecordPath -Force }
-# 2.4.5: the mines' pickup was renamed G-151: what an older release installed under the old names goes
-# (mod content only: names under HCT15Content containing "f150")
-$f150 = 0
-$c150 = Join-Path $GameDir 'HCT15Content'
-if (Test-Path -LiteralPath $c150) {
-  Get-ChildItem -LiteralPath $c150 -Recurse -Force | Where-Object { $_.Name -match '(?i)f150' } | Sort-Object { $_.FullName.Length } -Descending | ForEach-Object {
-    if (-not (Test-Path -LiteralPath $_.FullName)) { return }
-    if ($_.PSIsContainer) { Remove-Tree $_.FullName } else { Remove-Item -LiteralPath $_.FullName -Force }
-    $f150++
+# 2.4.5: what an earlier release installed and this one no longer ships goes (generic, no names written here):
+#  1) files the previous record lists that this package does not install;
+#  2) a file this package does not install whose bytes are those of one it does (a renamed copy);
+#  3) a campaign folder this package does not install with the same rounds as one it does (a renamed campaign),
+#     with its <folder>_progress.json in HCT15Saves.
+$retired = 0
+$gameFull = [IO.Path]::GetFullPath($GameDir).TrimEnd('\')
+$now = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
+foreach ($x in $installed) { [void]$now.Add($x) }
+foreach ($rel in $prevItems) {
+  if ($now.Contains($rel) -or $rel -notmatch $ModPathRx -or $rel -match $LoaderRx) { continue }
+  $p = Full-Path $rel
+  if ($p -and (Test-Path -LiteralPath $p -PathType Leaf)) { Remove-Item -LiteralPath $p -Force; $retired++ }
+}
+$camps = Join-Path $gameFull 'HCT15Content\campaigns'
+if (Test-Path -LiteralPath $camps) {
+  function Rounds-Of([string]$f) {
+    try { $j = Get-Content -LiteralPath $f -Raw -Encoding UTF8 | ConvertFrom-Json; return (@($j.Rounds | ForEach-Object { $_.RaceId }) -join '|') } catch { return '' }
+  }
+  $shipped = @{}
+  foreach ($x in $installed) { if ($x -match '^HCT15Content\\campaigns\\([^\\]+)\\campaign\.json$') { $shipped[$matches[1]] = 1 } }
+  $sig = @{}
+  foreach ($k in $shipped.Keys) { $s = Rounds-Of (Join-Path $camps "$k\campaign.json"); if ($s) { $sig[$s] = $k } }
+  foreach ($d in @(Get-ChildItem -LiteralPath $camps -Directory | Where-Object { -not $shipped.ContainsKey($_.Name) })) {
+    $cj = Join-Path $d.FullName 'campaign.json'
+    if (-not (Test-Path -LiteralPath $cj)) { continue }
+    $s = Rounds-Of $cj
+    if (-not $s -or -not $sig.ContainsKey($s)) { continue }
+    Remove-Tree $d.FullName; $retired++
+    $pp = Join-Path $gameFull ("HCT15Saves\" + $d.Name + "_progress.json")
+    if (Test-Path -LiteralPath $pp) { Remove-Item -LiteralPath $pp -Force; $retired++ }
+    Say "Retired a renamed copy of a campaign: $($d.Name) (now $($sig[$s]))."
   }
 }
-if ($f150 -gt 0) { Say "Retired the old files of the mines' pickup ($f150)." }
+$bySize = @{}
+foreach ($x in $installed) {
+  if ($x -notmatch '^(HCT15Content|HCT15Music)\\') { continue }
+  $fi = Get-Item -LiteralPath (Join-Path $gameFull $x) -ErrorAction SilentlyContinue
+  if (-not $fi) { continue }
+  if (-not $bySize.ContainsKey($fi.Length)) { $bySize[$fi.Length] = New-Object System.Collections.Generic.List[string] }
+  $bySize[$fi.Length].Add($fi.FullName)
+}
+$hashes = @{}
+function Hash-Of([string]$p) { if (-not $hashes.ContainsKey($p)) { $hashes[$p] = (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash }; return $hashes[$p] }
+foreach ($base in 'HCT15Content', 'HCT15Music') {
+  $b = Join-Path $gameFull $base
+  if (-not (Test-Path -LiteralPath $b)) { continue }
+  foreach ($f in @(Get-ChildItem -LiteralPath $b -Recurse -File -Force)) {
+    $rel = $f.FullName.Substring($gameFull.Length + 1)
+    if ($now.Contains($rel) -or -not $bySize.ContainsKey($f.Length) -or $rel -match '\\history\\|\.bak$') { continue }   # the editor's undo snapshots stay
+    $h = Hash-Of $f.FullName
+    foreach ($q in $bySize[$f.Length]) { if ((Hash-Of $q) -eq $h) { Remove-Item -LiteralPath $f.FullName -Force; $retired++; break } }
+  }
+}
+$saves2 = Join-Path $gameFull 'HCT15Saves'
+if (Test-Path -LiteralPath $saves2) {
+  # a campaign's progress file whose campaign folder no longer exists (renamed or retired) - mod saves only
+  foreach ($pf in @(Get-ChildItem -LiteralPath $saves2 -File -Filter '*_progress.json')) {
+    $cname = $pf.Name.Substring(0, $pf.Name.Length - '_progress.json'.Length)
+    if (-not (Test-Path -LiteralPath (Join-Path $gameFull "HCT15Content\campaigns\$cname"))) { Remove-Item -LiteralPath $pf.FullName -Force; $retired++ }
+  }
+}
+foreach ($base in 'HCT15Content', 'HCT15Music') { $b = Join-Path $gameFull $base; foreach ($d in @(Get-ChildItem -LiteralPath $b -Directory -Force -ErrorAction SilentlyContinue)) { Remove-EmptyFolders $d.FullName } }
+if ($retired -gt 0) { Say "Retired $retired file(s) an earlier release left behind (renamed or no longer shipped)." }
 Write-Record ''
 Say ""
 Say "Done: HCT 1.6 v2.4.5 installed in $GameDir ($($installed.Count) file(s))." 'Green'
