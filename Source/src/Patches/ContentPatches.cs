@@ -19,7 +19,12 @@ namespace HCT15.Patches
     [HarmonyPatch(typeof(GameItemContainer), "Initialize")]
     internal static class InjectContentPatch
     {
-        private static void Prefix(GameItemContainer __instance) { ContentInjector.Inject(__instance, __instance.m_races, __instance.m_cities, __instance.m_cups); }
+        private static void Prefix(GameItemContainer __instance)
+        {
+            // 2.4.5: never let the mod's content break the game's own item container
+            try { ContentInjector.Inject(__instance, __instance.m_races, __instance.m_cities, __instance.m_cups); }
+            catch (System.Exception ex) { UnityEngine.Debug.LogError("[HCT15] content injection failed, the mod's tracks may be missing: " + ex); }
+        }
     }
 
     [HarmonyPatch(typeof(GameItemContainer), nameof(GameItemContainer.GetGameItem), new[] { typeof(string) })]
@@ -39,8 +44,12 @@ namespace HCT15.Patches
         private static void Postfix(ref CarModelDataList __result)
         {
             CarModelDataList list = __result;
-            if (F1Campaign.IsActive) { CarModelDataList merged = F1Campaign.MergedList(list); if (merged != null) list = merged; }
-            __result = StreetCars.MergedList(list) ?? list;   // + the mod's own cars (taxi, micro, the retro campaign)
+            try
+            {
+                if (F1Campaign.IsActive) { CarModelDataList merged = F1Campaign.MergedList(list); if (merged != null) list = merged; }
+                __result = StreetCars.MergedList(list) ?? list;   // + the mod's own cars (taxi, micro, the retro campaign)
+            }
+            catch (System.Exception ex) { UnityEngine.Debug.LogWarning("[HCT15] car list: the mod's cars left out: " + ex.Message); __result = list; }
         }
     }
 
@@ -172,7 +181,8 @@ namespace HCT15.Patches
         {
             ModCampaign mod = ModCampaigns.ById(__instance.Id);
             if (mod == null) return true;
-            __instance.Data = mod.BuildData();
+            try { __instance.Data = mod.BuildData(); }
+            catch (System.Exception ex) { UnityEngine.Debug.LogError("[HCT15] campaign '" + __instance.Id + "' could not be built: " + ex); }
             __instance._isInitialized = true;
             return false;
         }

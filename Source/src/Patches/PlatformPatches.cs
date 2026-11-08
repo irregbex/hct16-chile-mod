@@ -18,7 +18,7 @@ namespace HCT15.Patches
             try
             {
                 Text t = __instance.GetComponent<Text>();
-                if (t != null) { t.supportRichText = true; t.text += "  <color=#FFDD00><b>[[ HCT 1.6 v2.0.11 MOD ACTIVE ]]</b></color>"; }
+                if (t != null) { t.supportRichText = true; t.text += "  <color=#FFDD00><b>[[ HCT 1.6 v" + Plugin.Version + " MOD ACTIVE ]]</b></color>"; }
             }
             catch (Exception) { }
             StageSelectMenu.Bootstrap();
@@ -94,8 +94,17 @@ namespace HCT15.Patches
 
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> code)
         {
-            code = Il.Swap(code, AccessTools.PropertyGetter(typeof(Application), nameof(Application.persistentDataPath)), AccessTools.Method(typeof(ResetSavePatch), nameof(ModSaveRoot)), "reset save: folder");
-            return Il.Swap(code, AccessTools.Method(typeof(PlayerPrefs), nameof(PlayerPrefs.DeleteAll)), AccessTools.Method(typeof(ResetSavePatch), nameof(KeepPrefs)), "reset save: prefs");
+            MethodInfo root = AccessTools.Method(typeof(ResetSavePatch), nameof(ModSaveRoot));
+            code = Il.Swap(code, AccessTools.PropertyGetter(typeof(Application), nameof(Application.persistentDataPath)), root, "reset save: folder");
+            var list = new List<CodeInstruction>(Il.Swap(code, AccessTools.Method(typeof(PlayerPrefs), nameof(PlayerPrefs.DeleteAll)), AccessTools.Method(typeof(ResetSavePatch), nameof(KeepPrefs)), "reset save: prefs"));
+            // 2.4.5 fail-safe: if the folder swap did not match (a game update), the retail code would wipe the STEAM
+            // save. Then the reset does nothing at all (MoveNext returns false) instead.
+            if (!list.Exists(ci => Equals(ci.operand, root)))
+            {
+                Debug.LogError("[HCT15] reset save: the game's code changed, 'Reset save' is disabled so the Steam save stays safe");
+                return new[] { new CodeInstruction(System.Reflection.Emit.OpCodes.Ldc_I4_0), new CodeInstruction(System.Reflection.Emit.OpCodes.Ret) };
+            }
+            return list;
         }
 
         private static string ModSaveRoot() { return SavePaths.Root; }

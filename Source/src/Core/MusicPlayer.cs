@@ -240,7 +240,7 @@ namespace HCT15
                     if (t.Clip != null) { t.Streamed = true; continue; }
                 }
                 AudioType type = t.Path.EndsWith(".wav", StringComparison.OrdinalIgnoreCase) ? AudioType.WAV : AudioType.OGGVORBIS;
-                string uri = "file:///" + t.Path.Replace('\\', '/');
+                string uri = new Uri(t.Path).AbsoluteUri;   // 2.4.5: escaped, so a "#" or "%" in a song name still loads
                 using (UnityWebRequest req = UnityWebRequestMultimedia.GetAudioClip(uri, type))
                 {
                     ((DownloadHandlerAudioClip)req.downloadHandler).streamAudio = true;

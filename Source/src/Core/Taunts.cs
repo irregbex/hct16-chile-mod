@@ -250,8 +250,13 @@ namespace HCT15
                 string path = Path.Combine(dir, "taunts.txt");
                 if (Directory.Exists(dir))
                 {
-                    WriteIfMissing(path, folder == "f1_2026" ? F1Defaults() : ChileanDefaults());
-                    if (folder == "f1_2026") foreach (string l in F1Languages) WriteIfMissing(Path.Combine(dir, "taunts." + l + ".txt"), F1Defaults(l));
+                    // 2.4.5: a read-only content folder no longer throws away the taunts that ARE there
+                    try
+                    {
+                        WriteIfMissing(path, folder == "f1_2026" ? F1Defaults() : ChileanDefaults());
+                        if (folder == "f1_2026") foreach (string l in F1Languages) WriteIfMissing(Path.Combine(dir, "taunts." + l + ".txt"), F1Defaults(l));
+                    }
+                    catch (Exception ex) { Debug.LogWarning("[HCT15] taunts: default files not written in " + dir + ": " + ex.Message); }
                 }
                 string localised = Path.Combine(dir, "taunts." + lang + ".txt");
                 if (File.Exists(localised)) path = localised;

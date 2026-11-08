@@ -49,7 +49,7 @@ namespace HCT15
                     ItemName = cupDef.ItemName,
                     TokenCost = cupDef.TokenCost,
                     PrizeCar = cupDef.PrizeCar,
-                    CityIds = new List<string>(cupDef.CityIds),
+                    CityIds = cupDef.CityIds != null ? new List<string>(cupDef.CityIds) : new List<string>(),
                     TusSlotIndex = 0 // keep out of server leaderboard slots
                 };
                 Cups[cup.ItemId] = cup;
@@ -65,7 +65,7 @@ namespace HCT15
                     CupId = cityDef.CupId,
                     TokenCost = cityDef.TokenCost,
                     PrizeCar = cityDef.PrizeCar,
-                    RacesIds = new List<string>(cityDef.RacesIds)
+                    RacesIds = cityDef.RacesIds != null ? new List<string>(cityDef.RacesIds) : new List<string>()
                 };
                 cities.Add(city);
                 Debug.Log($"[HCT15] Injected city {city.ItemId}");
@@ -127,7 +127,7 @@ namespace HCT15
 
         private static List<Vector3> BuildMinimapPoints(CustomRaceDef def)
         {
-            int hct15Last = def.PointToPoint ? Mathf.Clamp(Mathf.RoundToInt(def.EndPercentage * def.Waypoints.Count), 2, def.Waypoints.Count) : def.Waypoints.Count;   // point-to-point: no return leg on the map
+            int hct15Last = def.PointToPoint ? Mathf.Min(Mathf.Max(Mathf.RoundToInt(def.EndPercentage * def.Waypoints.Count), 2), def.Waypoints.Count) : def.Waypoints.Count;   // point-to-point: no return leg on the map
             var pts = new List<Vector3>();
             if (def.Waypoints.Count == 0) return pts;
             int step = Mathf.Max(1, def.Waypoints.Count / 60);

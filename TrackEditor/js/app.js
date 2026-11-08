@@ -22,7 +22,7 @@ const App = {
     try {
       step(10, 'Reading HCT15Content…');
       try { await refreshState(); }
-      catch (e) { st.innerHTML = `<b style="color:#ff6b6b">Cannot reach the editor server at ${esc(location.origin)}</b><br><br>${esc(e.message)}<br><br>Start it with <b>Game\\Track-Editor.cmd</b> and keep that window open; the page must be opened from the address it prints (http://127.0.0.1:8360).`; st.style.textAlign = 'center'; clearTimeout(watchdog); return; }
+      catch (e) { st.innerHTML = `<b style="color:#ff6b6b">Cannot reach the editor server at ${esc(location.origin)}</b><br><br>${esc(e.message)}<br><br>Start it with <b>TrackEditor\\Track-Editor.cmd</b> and keep that window open; the page must be opened from the address it prints (http://127.0.0.1:8360).`; st.style.textAlign = 'center'; clearTimeout(watchdog); return; }
       step(35, 'Scanning the asset library…'); await Assets.refresh();
       this.wire(); this.renderToolbar(); this.renderTrackList();
       step(60, 'Opening the last track…');
@@ -32,7 +32,7 @@ const App = {
       step(100, 'Ready');
       log(`content: ${ED.state.content_dir} · ${ED.tracks.length} tracks · ${ED.campaigns.length} campaigns · ${Object.keys(ED.donors).length} donor stages` + (ED.state.has_decoded ? ' · decoded stages available' : ''));
       if (!ED.state.exe_exists) warn('HorizonChase.exe not found next to HCT15Content - "Test in game" is disabled');
-      Assets.makeThumbs();
+      Assets.makeThumbs(null, false);   /* 2.4.5: on start, in memory only - the Thumbs button writes them */
     } catch (e) { clearTimeout(watchdog); st.innerHTML = `<b style="color:#ff6b6b">Failed to start:</b> ${esc(e.message)}<pre style="text-align:left;font:11px ui-monospace,monospace;max-width:80vw;white-space:pre-wrap">${esc((e.stack || '').split('\n').slice(0, 4).join('\n'))}\n\n${esc(Con.lines.slice(-8).join('\n'))}</pre>`; error(e.message); return; }
     clearTimeout(watchdog);
     splash.classList.add('off'); setTimeout(() => splash.remove(), 400);

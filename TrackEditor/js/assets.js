@@ -330,7 +330,7 @@ const Assets = {
       const g = this.gameProps[b.donor]; const ex = ED.state && ED.state.extract;
       const props = (g ? g.props : []).filter(p => !b.filter || p.Name.toLowerCase().includes(b.filter));
       const mark = d => { const gp = this.gameProps[d]; return gp ? (gp.has_meshes ? ' ✓ meshes' : ' · pictures only') : ''; };
-      grid.innerHTML = `<div class="ab-donor" style="flex-wrap:wrap">Donor stage <select id="abDonor">${allDonors.map(d => `<option value="${d}" ${d === b.donor ? 'selected' : ''}>${d}${mark(d)}</option>`).join('')}</select>
+      grid.innerHTML = `<div class="ab-donor" style="flex-wrap:wrap">Donor stage <select id="abDonor">${allDonors.map(d => `<option value="${esc(d)}" ${d === b.donor ? 'selected' : ''}>${esc(d)}${mark(d)}</option>`).join('')}</select>
           <button id="abExtract" class="primary small" ${ex && ex.available ? '' : `disabled title="${esc(ex ? ex.reason : 'server not ready')}"`}>${g && g.has_meshes ? 'Reload' : 'Load'} from the game files</button>
           <button id="abExtractAll" class="small" ${ex && ex.available ? '' : 'disabled'} title="every shipped stage, 5-10 minutes">Load all stages…</button>
           <span class="dim small">${G.donor && G.donor() === b.donor ? 'this track\'s donor' : 'not this track\'s donor - the game can only place props of ' + (G.donor && G.donor() || '?')}${ex && !ex.available ? ' · ' + esc(ex.reason) : ''}</span></div>` +
@@ -364,7 +364,7 @@ const Assets = {
       const p = this.gameInfo(b.donor, b.gameSel) || { Name: b.gameSel, Category: '?', W: 0, H: 0, D: 0, Tris: 0, Rotation: '' };
       const hasMesh = this.hasGameMeshes(b.donor);
       det.innerHTML = `${hasMesh ? '<canvas class="ab-canvas" id="abCanvas"></canvas><div class="dim small">left-drag orbits · right-drag pans · wheel zooms · grey strip = road, red = a car for scale</div>' : `<div class="ab-big">${p.has_thumb !== false ? `<img src="${this.gameThumb(b.donor, p.Name)}" onerror="this.style.display='none'">` : ''}</div>`}
-        <h3>${esc(p.Name)}</h3><div class="kv"><span>Donor</span><b>${esc(b.donor)}</b><span>Category</span><b>${esc(p.Category)}</b><span>Size</span><b>${fmt(p.W)} × ${fmt(p.H)} × ${fmt(p.D)} m</b><span>Triangles</span><b>${p.Tris}</b><span>Rotation</span><b>${esc(p.Rotation || '-')}${p.Rotation === 'SideDependent' ? ' (mirrored on the left side)' : ''}</b></div>
+        <h3>${esc(p.Name)}</h3><div class="kv"><span>Donor</span><b>${esc(b.donor)}</b><span>Category</span><b>${esc(p.Category)}</b><span>Size</span><b>${fmt(p.W)} × ${fmt(p.H)} × ${fmt(p.D)} m</b><span>Triangles</span><b>${esc(p.Tris)}</b><span>Rotation</span><b>${esc(p.Rotation || '-')}${p.Rotation === 'SideDependent' ? ' (mirrored on the left side)' : ''}</b></div>
         <p class="dim">Placed as <code>"Asset": "game:${esc(p.Name)}"</code>. Only tracks whose donor is <b>${esc(b.donor)}</b> can show it; the game's own mover handles the side.${hasMesh ? '' : ' Load the donor from the game files to see the real mesh here and in the 3D view.'}</p>
         <div class="row"><button class="primary" id="abUse">Use as brush</button><button id="abAddL">Add left</button><button id="abAddR">Add right</button></div>`;
       $('#abUse', det).onclick = () => this.useGame(b.donor, p.Name); $('#abAddL', det).onclick = () => this.addAtSelection(-1, null, p.Name); $('#abAddR', det).onclick = () => this.addAtSelection(1, null, p.Name);

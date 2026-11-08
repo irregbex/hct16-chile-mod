@@ -183,28 +183,52 @@ namespace HCT15
             Races.Clear(); Cities.Clear(); Cups.Clear(); RacesById.Clear(); DisplayNames.Clear();
             if (!Directory.Exists(contentDir)) return;
 
+            // 2.4.5: one broken or duplicated file (a hand edit with a missing brace, a copied track folder) is skipped with
+            // a warning; before, the exception escaped into GameItemContainer.Initialize and every menu broke.
+            var cityIds = new HashSet<string>(); var cupIds = new HashSet<string>();
             foreach (var file in FindContent(contentDir, "race.json"))
             {
-                var def = Json.FromJson<CustomRaceDefJson>(File.ReadAllText(file))?.ToDef();
-                if (def == null || string.IsNullOrEmpty(def.ItemId))
+                try
                 {
-                    Debug.LogWarning($"[HCT15] Skipping invalid race file: {file}");
-                    continue;
+                    var def = Json.FromJson<CustomRaceDefJson>(File.ReadAllText(file))?.ToDef();
+                    if (def == null || string.IsNullOrEmpty(def.ItemId) || def.Waypoints == null || def.Waypoints.Count < 2)
+                    {
+                        Debug.LogWarning($"[HCT15] Skipping invalid race file (no id or fewer than 2 waypoints): {file}");
+                        continue;
+                    }
+                    if (RacesById.ContainsKey(def.ItemId))
+                    {
+                        Debug.LogWarning($"[HCT15] Skipping race file with a duplicate id '{def.ItemId}': {file}");
+                        continue;
+                    }
+                    def.SourceFile = file;
+                    Races.Add(def);
+                    RacesById[def.ItemId] = def;
+                    Register(def.ItemName ?? ("race_" + def.ItemId), Loc.Pick(def.Names, def.DisplayName));
                 }
-                def.SourceFile = file;
-                Races.Add(def);
-                RacesById[def.ItemId] = def;
-                Register(def.ItemName ?? ("race_" + def.ItemId), Loc.Pick(def.Names, def.DisplayName));
+                catch (System.Exception ex) { Debug.LogWarning($"[HCT15] Skipping unreadable race file {file}: {ex.Message}"); }
             }
             foreach (var file in FindContent(contentDir, "city.json"))
             {
-                var def = Json.FromJson<CustomCityDef>(File.ReadAllText(file));
-                if (def != null && !string.IsNullOrEmpty(def.ItemId)) { Cities.Add(def); Register(def.ItemName, Loc.Pick(Zip(def.DisplayNameLangs, def.DisplayNameTexts), def.DisplayName)); }
+                try
+                {
+                    var def = Json.FromJson<CustomCityDef>(File.ReadAllText(file));
+                    if (def == null || string.IsNullOrEmpty(def.ItemId)) { Debug.LogWarning($"[HCT15] Skipping invalid city file: {file}"); continue; }
+                    if (!cityIds.Add(def.ItemId)) { Debug.LogWarning($"[HCT15] Skipping city file with a duplicate id '{def.ItemId}': {file}"); continue; }
+                    Cities.Add(def); Register(def.ItemName, Loc.Pick(Zip(def.DisplayNameLangs, def.DisplayNameTexts), def.DisplayName));
+                }
+                catch (System.Exception ex) { Debug.LogWarning($"[HCT15] Skipping unreadable city file {file}: {ex.Message}"); }
             }
             foreach (var file in FindContent(contentDir, "cup.json"))
             {
-                var def = Json.FromJson<CustomCupDef>(File.ReadAllText(file));
-                if (def != null && !string.IsNullOrEmpty(def.ItemId)) { Cups.Add(def); Register(def.ItemName, def.DisplayName); }
+                try
+                {
+                    var def = Json.FromJson<CustomCupDef>(File.ReadAllText(file));
+                    if (def == null || string.IsNullOrEmpty(def.ItemId)) { Debug.LogWarning($"[HCT15] Skipping invalid cup file: {file}"); continue; }
+                    if (!cupIds.Add(def.ItemId)) { Debug.LogWarning($"[HCT15] Skipping cup file with a duplicate id '{def.ItemId}': {file}"); continue; }
+                    Cups.Add(def); Register(def.ItemName, def.DisplayName);
+                }
+                catch (System.Exception ex) { Debug.LogWarning($"[HCT15] Skipping unreadable cup file {file}: {ex.Message}"); }
             }
         }
 

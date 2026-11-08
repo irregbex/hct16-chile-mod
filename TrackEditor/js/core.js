@@ -282,7 +282,7 @@ function applySnapshot(s) {
   ED.sel = { wp: -1, item: null };
 }
 function pushUndo() { if (!ED.cur) return; ED.undo.push(snapshotState()); if (ED.undo.length > 60) ED.undo.shift(); ED.redo = []; }
-function markDirty() { ED.dirty = true; emit('dirty'); emit('change'); }
+function markDirty() { ED.dirty = true; ED.editGen = (ED.editGen || 0) + 1; emit('dirty'); emit('change'); }
 function undo() { if (!ED.undo.length) return say('nothing to undo'); ED.redo.push(snapshotState()); applySnapshot(ED.undo.pop()); markDirty(); emit('geometry'); say('undone'); }
 function redo() { if (!ED.redo.length) return say('nothing to redo'); ED.undo.push(snapshotState()); applySnapshot(ED.redo.pop()); markDirty(); emit('geometry'); say('redone'); }
 
@@ -473,7 +473,7 @@ async function loadTrack(id) {
     const flat = t.race.WaypointsFlat || []; const wp = [];
     for (let i = 0; i + 2 < flat.length; i += 3) wp.push([flat[i], flat[i + 1], flat[i + 2]]);
     const sc = t.scenery || {}; sc.Buildings = sc.Buildings || []; sc.Trees = sc.Trees || []; sc.Landmarks = sc.Landmarks || [];
-    [].concat(sc.Buildings, sc.Trees, sc.Landmarks).forEach(it => { it.S = it.S || 1; it.Kind = it.Kind || ''; it.Name = it.Name || ''; it.Photo = it.Photo || ''; it.Asset = it.Asset || ''; it.Yaw = it.Yaw || 0; it.Side = it.Side || 1; });
+    [].concat(sc.Buildings, sc.Trees, sc.Landmarks).forEach(it => { it.S = it.S || 1; it.Kind = it.Kind || ''; it.Name = it.Name || ''; it.Photo = it.Photo || ''; it.Asset = it.Asset || ''; it.Yaw = it.Yaw || 0; it.Side = (it.Side === 0) ? 0 : (it.Side || 1); });   /* 2.4.5: Side 0 = over the road */
     const r = t.race;
     r.PitStart = r.PitStart ?? 0.9; r.PitEnd = r.PitEnd ?? 0.985; r.PitSide = r.PitSide ?? 1; r.PointToPoint = !!r.PointToPoint; r.EndPercentage = r.EndPercentage ?? 1;
     r.DisplayNameLangs = r.DisplayNameLangs || []; r.DisplayNameTexts = r.DisplayNameTexts || [];
@@ -501,17 +501,18 @@ function racePayload() {
   return r;
 }
 async function saveTrack() {
-  if (!ED.cur) return;
+  if (!ED.cur || ED.saving) return;   /* 2.4.5: one save at a time */
   const st = G.stats();
   if (st.bad > 0 && !(await Dialogs.confirm('Tight bends', `${st.bad} steps turn more than ${MAX_TURN}° - the engine's spline may misbehave. Save anyway? ("Fix spacing & bends" in the Track panel repairs them.)`, 'Save anyway'))) return;
-  Progress.begin('save', 'Saving ' + ED.cur.id);
+  Progress.begin('save', 'Saving ' + ED.cur.id); ED.saving = true;
+  const gen = ED.editGen || 0;   /* 2.4.5: edits made while the save runs stay unsaved (and keep the leave-page warning) */
   try {
     const res = await api(`/api/track/${encodeURIComponent(ED.cur.id)}/save`, { race: racePayload(), scenery: ED.cur.scenery });
-    ED.cur.history = res.history; ED.cur.hasBak = true; ED.dirty = false; emit('dirty'); emit('saved');
+    ED.cur.history = res.history; ED.cur.hasBak = true; if ((ED.editGen || 0) === gen) ED.dirty = false; emit('dirty'); emit('saved');
     toast(`Saved ${ED.cur.id}: race.json + scenery.json (snapshot ${res.stamp})`);
     refreshState(false);
   } catch (e) { toast('Save failed: ' + e.message, 'err'); }
-  finally { Progress.end('save'); }
+  finally { Progress.end('save'); ED.saving = false; }
 }
 
 async function refreshState(force = true) {

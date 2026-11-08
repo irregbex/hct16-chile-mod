@@ -219,7 +219,7 @@ details summary{cursor:pointer;color:var(--dim);font-size:12px;text-transform:up
 /* Opened as a file (double-click on index.html)? The editor needs its server: say so instead of hanging. */
 if (location.protocol === 'file:') {
   document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('splashText').innerHTML = '<b style="color:#ff6b6b">This page needs its server.</b><br><br>Do not open index.html directly - run <b>Game\\Track-Editor.cmd</b> (or <code>python Tools\\TrackEditor\\hct15_editor.py</code>);<br>it starts the server and opens <b>http://127.0.0.1:8360</b> in your browser itself.';
+    document.getElementById('splashText').innerHTML = '<b style="color:#ff6b6b">This page needs its server.</b><br><br>Do not open index.html directly - run <b>TrackEditor\\Track-Editor.cmd</b> (or <code>python TrackEditor\\hct15_editor.py</code>);<br>it starts the server and opens <b>http://127.0.0.1:8360</b> in your browser itself.';
     document.getElementById('splashText').style.textAlign = 'center';
   });
 }

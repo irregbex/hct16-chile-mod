@@ -121,7 +121,7 @@ const Panels = {
     const root = $('#tab-ambient'); if (!ED.cur) { root.innerHTML = ''; return; }
     const id = ED.cur.id; let r;
     root.innerHTML = '<div class="dim">loading…</div>';
-    try { r = await api(`/api/track/${encodeURIComponent(id)}/ambient`); } catch (e) { root.innerHTML = `<div class="warn">${e.message}</div>`; return; }
+    try { r = await api(`/api/track/${encodeURIComponent(id)}/ambient`); } catch (e) { root.innerHTML = `<div class="warn">${esc(e.message)}</div>`; return; }
     if (!ED.cur || ED.cur.id !== id) return;
     const s = r.settings, pct = v => Math.round(v * 100);
     const pair = (key, label, hint) => `<label class="wide" title="${hint}">${label} <span class="dim">start → finish</span>
@@ -244,8 +244,8 @@ const Panels = {
   renderTrackForm() {
     const root = $('#tab-track'); if (!ED.cur) { root.innerHTML = '<div class="dim">no track loaded</div>'; return; }
     const r = ED.cur.race, donors = Object.values(ED.donors), names = {}; (r.DisplayNameLangs || []).forEach((l, i) => names[l] = r.DisplayNameTexts[i]);
-    const donorOpt = donors.map(d => `<option value="${d.id}" ${d.id === r.DonorScene ? 'selected' : ''}>${d.id} · ${d.lanes} lanes${d.dlc ? ' · DLC' : ''}</option>`).join('') + (ED.donors[r.DonorScene] ? '' : `<option selected>${esc(r.DonorScene)} (unknown to donor_lanes.json)</option>`);
-    const uiOpt = ['<option value="">(same as donor)</option>'].concat(donors.filter(d => !d.dlc).map(d => `<option value="${d.id}" ${d.id === r.UiDonor ? 'selected' : ''}>${d.id}</option>`)).join('');
+    const donorOpt = donors.map(d => `<option value="${esc(d.id)}" ${d.id === r.DonorScene ? 'selected' : ''}>${esc(d.id)} · ${esc(d.lanes)} lanes${d.dlc ? ' · DLC' : ''}</option>`).join('') + (ED.donors[r.DonorScene] ? '' : `<option selected>${esc(r.DonorScene)} (unknown to donor_lanes.json)</option>`);
+    const uiOpt = ['<option value="">(same as donor)</option>'].concat(donors.filter(d => !d.dlc).map(d => `<option value="${esc(d.id)}" ${d.id === r.UiDonor ? 'selected' : ''}>${esc(d.id)}</option>`)).join('');
     root.innerHTML = `
       <div class="stats" id="trackStats"></div>
       <div class="row"><button id="btnFix" class="primary" title="re-sample to 0.4-unit steps and open bends over 3.5°">Fix spacing &amp; bends</button><button id="btnSpread" title="push sections of the lap that are closer than a road width apart (orange on the map); scenery keeps its place">Separate overlaps</button><button id="btnFlatten">Flatten</button><button id="btnReverse" title="drive the lap the other way round">Reverse</button></div>
@@ -335,17 +335,17 @@ const Panels = {
     const kinds = list === 'Trees' ? ['tree'] : KINDS.concat(['attraction', 'monument', 'photo', 'prop']);
     root.innerHTML = `
       <h3>${esc(it.Name || it.Asset || it.Kind || 'item')} <span class="dim small">${list}</span></h3>
-      ${a ? `<div class="sel-asset">${a.thumbUrl ? `<img src="${a.thumbUrl}">` : ''}<div><b>${esc(a.meta.Name || a.id)}</b><br><span class="dim small">${esc(a.id)} · ${a.meta.Category}${a.geo ? ` · ${a.geo.tris} tris` : ''}</span></div></div>` : isGame ? `<div class="sel-asset"><img src="${Assets.gameThumb(G.donor(), it.Asset.slice(5))}" onerror="this.remove()"><div><b>${esc(it.Asset.slice(5))}</b><br><span class="dim small">game prop of ${esc(G.donor())}</span></div></div>` : isAsset ? `<div class="bad">asset "${esc(it.Asset)}" is not in the library</div>` : ''}
+      ${a ? `<div class="sel-asset">${a.thumbUrl ? `<img src="${a.thumbUrl}">` : ''}<div><b>${esc(a.meta.Name || a.id)}</b><br><span class="dim small">${esc(a.id)} · ${esc(a.meta.Category)}${a.geo ? ` · ${a.geo.tris} tris` : ''}</span></div></div>` : isGame ? `<div class="sel-asset"><img src="${Assets.gameThumb(G.donor(), it.Asset.slice(5))}" onerror="this.remove()"><div><b>${esc(it.Asset.slice(5))}</b><br><span class="dim small">game prop of ${esc(G.donor())}</span></div></div>` : isAsset ? `<div class="bad">asset "${esc(it.Asset)}" is not in the library</div>` : ''}
       <div class="form">
         ${this.field('Lap %', `<input type="number" step="0.01" min="0" max="100" data-it="P" value="${fmt(it.P * 100, 3)}">`)}
-        ${this.field('Side', `<select data-it="Side"><option value="1" ${it.Side >= 0 ? 'selected' : ''}>right</option><option value="-1" ${it.Side < 0 ? 'selected' : ''}>left</option></select>`)}
+        ${this.field('Side', `<select data-it="Side"><option value="1" ${it.Side > 0 ? 'selected' : ''}>right</option><option value="-1" ${it.Side < 0 ? 'selected' : ''}>left</option><option value="0" ${it.Side === 0 ? 'selected' : ''}>over the road</option></select>`)}
         ${this.field('Dist from prop line', `<input type="number" step="0.5" min="0" data-it="Dist" value="${fmt(it.Dist, 2)}">`)}
         ${this.field('Scale', `<input type="number" step="0.05" min="0.2" max="5" data-it="S" value="${it.S}">`)}
         ${isAsset ? this.field('Yaw °', `<input type="number" step="5" data-it="Yaw" value="${it.Yaw || 0}">`) : ''}
         ${!isAsset ? this.field('Kind', `<select data-it="Kind">${kinds.map(k => `<option ${it.Kind === k ? 'selected' : ''}>${k}</option>`).join('')}</select>`) : ''}
         ${this.field('Name', `<input data-it="Name" value="${esc(it.Name)}">`, true)}
         ${list !== 'Trees' ? this.field('W along road', `<input type="number" step="0.5" min="0" data-it="W" value="${fmt(it.W)}">`) + this.field('D across', `<input type="number" step="0.5" min="0" data-it="D" value="${fmt(it.D)}">`) + this.field('H height', `<input type="number" step="0.5" min="0" data-it="H" value="${fmt(it.H)}">`) : ''}
-        ${it.Kind === 'photo' ? this.field('Photo', `<select data-it="Photo"><option value="">—</option>${(ED.cur.photos || []).map(p => `<option ${it.Photo === p ? 'selected' : ''}>${esc(p)}</option>`).join('')}</select>`, true) + (it.Photo ? `<img class="card-img wide" src="/api/track/${encodeURIComponent(ED.cur.id)}/file/${it.Photo}">` : '') : ''}
+        ${it.Kind === 'photo' ? this.field('Photo', `<select data-it="Photo"><option value="">—</option>${(ED.cur.photos || []).map(p => `<option ${it.Photo === p ? 'selected' : ''}>${esc(p)}</option>`).join('')}</select>`, true) + (it.Photo ? `<img class="card-img wide" src="/api/track/${encodeURIComponent(ED.cur.id)}/file/${it.Photo.split('/').map(encodeURIComponent).join('/')}">` : '') : ''}
       </div>
       <div class="kv"><span>World</span><b>${G.itemWorld(it).map(v => fmt(v)).join(', ')}</b><span>Effective dist</span><b>${fmt(G.effectiveDist(it))} <span class="dim small">(boxes are pushed off the road)</span></b></div>
       <div class="row"><button id="itFocus">Focus</button><button id="itDup">Duplicate (Ctrl+D)</button><button id="itDel" class="danger">Delete</button></div>
@@ -374,7 +374,7 @@ const Panels = {
       ${onRoad.size ? `<div class="row"><button id="scOnRoad" class="danger">Remove ${onRoad.size} item(s) standing on the road</button><span class="dim small">red dashed rings on the map: filed under one road section but standing on another (parallel sections); the game would put them there too and streams them in when you pass their lap fraction</span></div>` : ''}
       <div class="row"><select id="scList"><option value="all" ${f.list === 'all' ? 'selected' : ''}>all lists</option><option ${f.list === 'Buildings' ? 'selected' : ''}>Buildings</option><option ${f.list === 'Landmarks' ? 'selected' : ''}>Landmarks</option><option ${f.list === 'Trees' ? 'selected' : ''}>Trees</option></select><input id="scQ" placeholder="filter kind / name / asset" value="${esc(f.q)}"><label class="chk small"><input type="checkbox" id="scLabels" ${ED.showLabels ? 'checked' : ''}> labels</label></div>
       <div class="row"><button id="scClearTrees" class="danger small">Delete all trees</button><button id="scClearAll" class="danger small">Delete everything</button><button id="scLib">Asset library…</button></div>
-      <div class="list" id="scRows">${rows.slice(0, 600).map(([it, list]) => `<div class="li ${ED.sel.item === it ? 'on' : ''}" data-k="${G.items().indexOf(it)}"><span class="dot" style="background:${it.Asset ? Map2D.assetColor(it.Kind === 'tree' ? 'tree' : (Assets.get(it.Asset) || { meta: {} }).meta.Category) : Map2D.kindColor(list === 'Trees' ? 'tree' : it.Kind)}"></span><span class="p">${fmt(it.P * 100)}%</span><span class="s">${it.Side < 0 ? 'L' : 'R'}</span><span class="n">${esc(it.Name || it.Asset || it.Kind)}</span><span class="dim">${esc(it.Asset ? (it.Asset.startsWith('game:') ? 'game' : 'asset') : it.Kind)}</span></div>`).join('')}${rows.length > 600 ? `<div class="dim">… ${rows.length - 600} more (filter)</div>` : ''}</div>`;
+      <div class="list" id="scRows">${rows.slice(0, 600).map(([it, list]) => `<div class="li ${ED.sel.item === it ? 'on' : ''}" data-k="${G.items().indexOf(it)}"><span class="dot" style="background:${it.Asset ? Map2D.assetColor(it.Kind === 'tree' ? 'tree' : (Assets.get(it.Asset) || { meta: {} }).meta.Category) : Map2D.kindColor(list === 'Trees' ? 'tree' : it.Kind)}"></span><span class="p">${fmt(it.P * 100)}%</span><span class="s">${it.Side === 0 ? 'C' : it.Side < 0 ? 'L' : 'R'}</span><span class="n">${esc(it.Name || it.Asset || it.Kind)}</span><span class="dim">${esc(it.Asset ? (it.Asset.startsWith('game:') ? 'game' : 'asset') : it.Kind)}</span></div>`).join('')}${rows.length > 600 ? `<div class="dim">… ${rows.length - 600} more (filter)</div>` : ''}</div>`;
     $('#scList', root).onchange = e => { this.sceneryFilter = { list: e.target.value, q: $('#scQ', root).value.toLowerCase() }; this.renderScenery(); };
     $('#scQ', root).oninput = e => { this.sceneryFilter = { list: $('#scList', root).value, q: e.target.value.toLowerCase() }; this.renderScenery(); };
     $('#scLabels', root).onchange = e => { ED.showLabels = e.target.checked; emit('view'); };

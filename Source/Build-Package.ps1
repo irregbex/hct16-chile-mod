@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  HCT 1.6 v2.4.4 - builds the double-click install package into <root>\Installer\ .
+  HCT 1.6 v2.4.5 - builds the double-click install package into <root>\Installer\ .
 
     INSTALL.cmd / UNINSTALL.cmd / README.txt       (from package\)
     tools\install.ps1                              the installer logic (package\install.ps1)
@@ -27,6 +27,7 @@ Copy-Item (Join-Path $src 'package\INSTALL.cmd'), (Join-Path $src 'package\UNINS
 Copy-Item (Join-Path $src 'package\install.ps1') (Join-Path $out 'tools') -Force
 Copy-Item (Join-Path $bepin 'winhttp.dll'), (Join-Path $bepin 'doorstop_config.ini'), (Join-Path $bepin '.doorstop_version') $files
 & robocopy (Join-Path $bepin 'BepInEx\core') (Join-Path $files 'BepInEx\core') @('/E', '/NFL', '/NDL', '/NJH', '/NJS', '/NP') | Out-Null
+if ($LASTEXITCODE -ge 8) { throw 'robocopy failed: BepInEx core' }   # 2.4.5
 Copy-Item $dll (Join-Path $files 'BepInEx\plugins\HCT15')
 
 function Link-Tree([string]$from, [string]$to, [string[]]$skip) {

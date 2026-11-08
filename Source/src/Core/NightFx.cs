@@ -642,9 +642,11 @@ namespace HCT15
         /// By day additive sparks vanish into the bright sky: the same sparks alpha-blended (Legacy Particles/Alpha
         /// Blended), so they read as coloured dots against the blue. Null when the build has no such shader.
         /// </summary>
+        private static bool _particleDayTried;
         private static Material ParticleDayMaterial()
         {
-            if (_particleDayMat != null) return _particleDayMat;
+            if (_particleDayMat != null || _particleDayTried) return _particleDayMat;
+            _particleDayTried = true;   // 2.4.5: the shader search ran every frame by day when the build had none
             Shader sh = null;
             foreach (string n in new[] { "Legacy Shaders/Particles/Alpha Blended", "Particles/Alpha Blended", "Mobile/Particles/Alpha Blended", "Legacy Shaders/Particles/Alpha Blended Premultiply" })
             {
@@ -800,7 +802,7 @@ namespace HCT15
             files.Sort(StringComparer.OrdinalIgnoreCase);
             foreach (string f in files)
             {
-                using (UnityWebRequest req = UnityWebRequestMultimedia.GetAudioClip("file:///" + f.Replace('\\', '/'), AudioType.WAV))
+                using (UnityWebRequest req = UnityWebRequestMultimedia.GetAudioClip(new Uri(f).AbsoluteUri, AudioType.WAV))
                 {
                     yield return req.SendWebRequest();
                     if (req.isNetworkError || req.isHttpError) { Debug.LogWarning("[HCT15] night fx: " + Path.GetFileName(f) + ": " + req.error); continue; }

@@ -28,7 +28,7 @@ namespace HCT15
                 string[] args = Environment.GetCommandLineArgs();
                 for (int i = 0; i < args.Length - 1; i++)
                 {
-                    if (string.Equals(args[i], "-hct15-shot", StringComparison.OrdinalIgnoreCase)) { times = args[i + 1]; float.TryParse(times.Split(',')[0], out seconds); }
+                    if (string.Equals(args[i], "-hct15-shot", StringComparison.OrdinalIgnoreCase)) { times = args[i + 1]; float.TryParse(times.Split(',')[0], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out seconds); }
                     if (string.Equals(args[i], "-hct15-shotpath", StringComparison.OrdinalIgnoreCase)) path = args[i + 1];
                     if (string.Equals(args[i], "-hct15-jump", StringComparison.OrdinalIgnoreCase)) jumps = args[i + 1];
                 }
@@ -70,7 +70,7 @@ namespace HCT15
             foreach (string part in (times ?? "").Split(','))
             {
                 float at;
-                if (!float.TryParse(part.Trim(), out at) || at <= 0f) continue;
+                if (!float.TryParse(part.Trim(), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out at) || at <= 0f) continue;
                 n++;
                 // "-hct15-jump 0.1,0.4,0.8": put the player there 1.2 s before each shot, so an unattended
                 // run can photograph any part of a lap nobody is driving

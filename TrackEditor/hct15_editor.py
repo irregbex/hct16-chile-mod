@@ -67,7 +67,7 @@ def jload(path, default=None):
 
 
 def jsave(path, data, indent=1):
-    tmp = path + ".tmp"
+    tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"   # 2.4.5: unique per writer
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         json.dump(data, f, indent=indent, ensure_ascii=False)
         f.write("\n")
@@ -77,14 +77,14 @@ def jsave(path, data, indent=1):
 # Every write is a NEW file (temp + os.replace), never a rewrite in place: the plugin's Contenido folders share
 # their files across versions by hard link, and opening an existing name for writing would change every version.
 def wbytes(path, data):
-    tmp = path + ".tmp"
+    tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"   # 2.4.5: unique per writer
     with open(tmp, "wb") as fh:
         fh.write(data)
     os.replace(tmp, path)
 
 
 def wtext(path, text):
-    tmp = path + ".tmp"
+    tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"   # 2.4.5: unique per writer
     with open(tmp, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(text)
     os.replace(tmp, path)
@@ -101,7 +101,10 @@ def save_scenery(path, sc):
     """One item per line: readable diffs, and JsonUtility does not care about whitespace."""
     lists = ["Buildings", "Trees", "Landmarks"]
     # a track may raise the block / tree caps for itself (PropDresser reads these); keep them
-    caps = [(k, int(sc[k])) for k in ("MaxBuildings", "MaxTrees") if sc.get(k)]
+    caps = [(k, json.dumps(int(sc[k]))) for k in ("MaxBuildings", "MaxTrees") if sc.get(k)]
+    # 2.4.5: any other top-level key (FixedProps...) travels unchanged
+    caps += [(k, json.dumps(v, ensure_ascii=False)) for k, v in sc.items()
+             if k not in lists and k not in ("MaxBuildings", "MaxTrees") and not k.startswith("_")]
     out = ["{"]
     for li, name in enumerate(lists):
         items = sc.get(name) or []
@@ -112,7 +115,7 @@ def save_scenery(path, sc):
     for ci, (k, v) in enumerate(caps):
         out.append(f' "{k}": {v}' + ("," if ci < len(caps) - 1 else ""))
     out.append("}")
-    tmp = path + ".tmp"
+    tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"   # 2.4.5: unique per writer
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(out) + "\n")
     os.replace(tmp, path)
@@ -125,11 +128,20 @@ def norm_item(it):
             return round(float(it.get(k, d)), 4)
         except (TypeError, ValueError):
             return d
-    return {
-        "P": f("P"), "Side": int(it.get("Side", 1) or 1), "Dist": f("Dist"), "W": f("W"), "D": f("D"), "H": f("H"),
+    try:
+        side = int(it.get("Side", 1))   # 2.4.5: Side 0 = over the road (tunnels, gantries) - "or 1" turned it into 1
+    except (TypeError, ValueError):
+        side = 1
+    out = {
+        "P": f("P"), "Side": side, "Dist": f("Dist"), "W": f("W"), "D": f("D"), "H": f("H"),
         "S": f("S", 1.0) or 1.0, "Kind": str(it.get("Kind", "") or ""), "Name": str(it.get("Name", "") or ""),
         "Photo": str(it.get("Photo", "") or ""), "Asset": str(it.get("Asset", "") or ""), "Yaw": f("Yaw"),
     }
+    # 2.4.5: every other field the game reads (Colour, Roof, Sprite, Hit...) travels unchanged
+    for k, v in it.items():
+        if k not in out and not k.startswith("_"):
+            out[k] = v
+    return out
 
 
 def safe_id(s):
@@ -508,6 +520,9 @@ def fix_relative_names(obj_path, d):
             wtext(p, "\n".join(ml) + "\n")
 
 
+ASSET_TYPES = (".obj", ".mtl", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp", ".tga", ".rig.json")
+
+
 def import_asset(body):
     """Mirrors AssetLibrary.Import: a unique id folder, the obj + mtl + textures copied flat, asset.json written."""
     files = body.get("files") or []
@@ -532,6 +547,8 @@ def import_asset(body):
         name = os.path.basename(f["name"].replace("\\", "/"))
         if not name or name.startswith("."):
             continue
+        if not name.lower().endswith(ASSET_TYPES):
+            continue   # 2.4.5: models, materials and pictures only - never an .exe, .dll, .bat...
         if name.lower().endswith(".obj"):
             name = aid + ".obj"
         data = base64.b64decode(f["data_b64"])
@@ -995,8 +1012,14 @@ def delete_track(tid):
         d = track_dir(tid)
         if os.path.normpath(d) == os.path.normpath(tracks_dir()) or os.path.normpath(d) == os.path.normpath(CONTENT):
             raise ValueError("this race file does not live in its own folder; delete the file by hand")
+        rp = race_path(tid)
         dst = trash_path("track", tid)
-        shutil.move(d, dst)
+        if os.path.basename(rp).lower() != "race.json":
+            # 2.4.5: a flat <name>.race.json shares its folder (a campaign's, say): only that file goes to the trash
+            os.makedirs(dst, exist_ok=True)
+            shutil.move(rp, os.path.join(dst, os.path.basename(rp)))
+        else:
+            shutil.move(d, dst)
         # campaigns that list it: leave the round (the game skips unknown races), tell the user
         refs = [c["folder"] for c in list_campaigns() if any(r.get("RaceId") == tid for r in c.get("rounds", []))]
         list_tracks(force=True)
@@ -1198,8 +1221,27 @@ class Handler(BaseHTTPRequestHandler):
             traceback.print_exc()
         self._send(code, {"error": f"{e}" if code != 500 else f"{type(e).__name__}: {e}  [{loc}]"})
 
+    def _untrusted(self, post):
+        """2.4.5: refuse what did not come from the editor's own page. Host must be this machine (DNS rebinding);
+        a POST must carry JSON (a cross-site form or no-cors fetch cannot, without a preflight this server never
+        answers) and, when the browser sends an Origin, it must be this server's."""
+        port = self.server.server_address[1]
+        allowed = {f"127.0.0.1:{port}", f"localhost:{port}"}
+        if (self.headers.get("Host") or "").lower() not in allowed:
+            return "bad host"
+        if post:
+            if not (self.headers.get("Content-Type") or "").lower().startswith("application/json"):
+                return "bad content type"
+            origin = (self.headers.get("Origin") or "").lower()
+            if origin and origin not in {"http://" + a for a in allowed}:
+                return "bad origin"
+        return None
+
     # ------------------------------------------------------------------ GET
     def do_GET(self):
+        why = self._untrusted(False)
+        if why:
+            return self._send(403, {"error": "forbidden: " + why})
         try:
             u = urlparse(self.path)
             path = unquote(u.path)
@@ -1302,6 +1344,9 @@ class Handler(BaseHTTPRequestHandler):
 
     # ----------------------------------------------------------------- POST
     def do_POST(self):
+        why = self._untrusted(True)
+        if why:
+            return self._send(403, {"error": "forbidden: " + why})
         try:
             path = unquote(urlparse(self.path).path)
             body = self._json()

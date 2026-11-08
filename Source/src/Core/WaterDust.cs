@@ -67,8 +67,18 @@ namespace HCT15
 
         /// <summary>A copy of the chunk mesh in foam: white on the faces turned up, a sea-blue white on those turned down,
         /// so an unlit chunk keeps its facets (made once per mesh).</summary>
+        /// <summary>2.4.5: the caches hold one colour (foam or the flood's mud); a different colour starts them again, so mud
+        /// no longer carried over into the next beach race (nor white foam into the flood).</summary>
+        private static Color _cachedFor = new Color(-1f, -1f, -1f, -1f);
+        private static void CacheColour(Color c)
+        {
+            if (_cachedFor == c) return;
+            _cachedFor = c; _white.Clear(); _mats.Clear();
+        }
+
         private static Mesh White(Mesh src, Color c)
         {
+            CacheColour(c);
             Mesh m;
             if (_white.TryGetValue(src, out m) && m != null) return m;
             m = UnityEngine.Object.Instantiate(src);
@@ -86,6 +96,7 @@ namespace HCT15
         private static Material Tinted(Material src, Color c)
         {
             if (src == null) return null;
+            CacheColour(c);
             Material m;
             if (_mats.TryGetValue(src, out m) && m != null) return m;
             m = new Material(src) { name = src.name + " (HCT15 foam)" };

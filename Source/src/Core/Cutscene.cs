@@ -60,7 +60,13 @@ namespace HCT15
 
         private void Update()
         {
-            if (_cur >= 0) { Tick(); return; }
+            if (_cur >= 0)
+            {
+                // 2.4.5: Tick holds Time.timeScale at 0; an exception every frame (a bad frame pattern, a locked file)
+                // froze the race for good. End the cutscene instead.
+                try { Tick(); } catch (Exception ex) { Debug.LogWarning("[HCT15] cutscene stopped: " + ex.Message); try { End(); } catch (Exception) { Time.timeScale = 1f; } }
+                return;
+            }
             bool loading = false, race = false;
             try { loading = LoadingManager.IsLoadingScene; } catch (Exception) { }
             try { race = StaticData.IsInRace && !loading && UIStateManager.IsStateActive("GAMEPLAY"); } catch (Exception) { }

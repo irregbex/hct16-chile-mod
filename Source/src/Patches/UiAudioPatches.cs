@@ -128,6 +128,21 @@ namespace HCT15.Patches
                     items.Add(row);
                     GreyOptionRows.Add(row);
                 }
+                else
+                {
+                    // 2.4.5: the live switch belongs to Traffic.Available (it was the else of the tolls row)
+                    items.Add(new OptionsItemModelBinding(
+                        Loc.Get("opt_traffic"), EOptionsItemType.LeftRight,
+                        new List<string> { Loc.Get("opt_traffic_on"), Loc.Get("opt_loudness_off") }, Settings.Data.RoadTraffic ? 0 : 1,
+                        delegate (int index)
+                        {
+                            if (Settings.Data.RoadTraffic == (index == 0)) return;
+                            Settings.Data.RoadTraffic = index == 0;
+                            Settings.Save();
+                            Debug.Log("[HCT15] road traffic: " + (Settings.Data.RoadTraffic ? "on" : "off"));
+                        },
+                        shouldLocalizeName: false, shouldLocalizeOptions: false));
+                }
                 if (!Tolls.Available)
                 {
                     // 2.3.3: the toll plazas of Rutas de Chile, switched off the same way
@@ -139,18 +154,6 @@ namespace HCT15.Patches
                     items.Add(tolls);
                     GreyOptionRows.Add(tolls);
                 }
-                else
-                items.Add(new OptionsItemModelBinding(
-                    Loc.Get("opt_traffic"), EOptionsItemType.LeftRight,
-                    new List<string> { Loc.Get("opt_traffic_on"), Loc.Get("opt_loudness_off") }, Settings.Data.RoadTraffic ? 0 : 1,
-                    delegate (int index)
-                    {
-                        if (Settings.Data.RoadTraffic == (index == 0)) return;
-                        Settings.Data.RoadTraffic = index == 0;
-                        Settings.Save();
-                        Debug.Log("[HCT15] road traffic: " + (Settings.Data.RoadTraffic ? "on" : "off"));
-                    },
-                    shouldLocalizeName: false, shouldLocalizeOptions: false));
                 __instance.Items.Value = items;
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] road traffic option: " + ex.Message); }
@@ -300,7 +303,9 @@ namespace HCT15.Patches
         public static void PlayMenu(AudioManager am, AudioClip clip, bool forcePlay, float transition, float offset)
         {
             GameAccess.LastMenuClip = clip;
-            AudioClip mine = MusicPlayer.Instance != null ? MusicPlayer.Instance.ForMenu(clip) : clip;
+            AudioClip mine = clip;
+            try { if (MusicPlayer.Instance != null) mine = MusicPlayer.Instance.ForMenu(clip) ?? clip; }
+            catch (System.Exception ex) { Debug.LogWarning("[HCT15] menu music: " + ex.Message); mine = clip; }   // 2.4.5: the game's clip then
             am.PlayMusicClip(mine, forcePlay, transition, mine == clip ? offset : 0f);
         }
 
@@ -308,7 +313,8 @@ namespace HCT15.Patches
         public static void PlayRace(AudioManager am, AudioClip clip, bool forcePlay, float transition, float offset)
         {
             if (clip == null) clip = am.GetMusicByRaceIndex();
-            if (MusicPlayer.Instance != null) clip = MusicPlayer.Instance.ForRace(clip);
+            try { if (MusicPlayer.Instance != null) clip = MusicPlayer.Instance.ForRace(clip) ?? clip; }
+            catch (System.Exception ex) { Debug.LogWarning("[HCT15] race music: " + ex.Message); }   // 2.4.5: the game's clip then
             am.PlayMusicClip(clip, forcePlay, transition, offset);
         }
     }
@@ -339,13 +345,17 @@ namespace HCT15.Patches
         // the moment a honk begins (the retail code is about to Play the horn source), a mod car gets one of its own sounds
         private static void Prefix(AudioManager __instance)
         {
-            if (!StaticData.IsInRace || TimeManager.isPaused || InputHandler.Instance == null) return;
-            for (int j = 0; j < __instance.Honks.Length && j < InputHandler.Instance.Players.Count; j++)
+            try
             {
-                PlayerInputHandler p = InputHandler.Instance.Players[j];
-                if (p != null && p.IsHonking && p.PlayerCar != null && !p.PlayerCar.HasFinishedRace && !__instance.Honks[j].isPlaying)
-                    Horns.Pick(j, __instance.Honks[j]);
+                if (!StaticData.IsInRace || TimeManager.isPaused || InputHandler.Instance == null || __instance.Honks == null || InputHandler.Instance.Players == null) return;
+                for (int j = 0; j < __instance.Honks.Length && j < InputHandler.Instance.Players.Count; j++)
+                {
+                    PlayerInputHandler p = InputHandler.Instance.Players[j];
+                    if (p != null && p.IsHonking && p.PlayerCar != null && !p.PlayerCar.HasFinishedRace && __instance.Honks[j] != null && !__instance.Honks[j].isPlaying)
+                        Horns.Pick(j, __instance.Honks[j]);
+                }
             }
+            catch (System.Exception) { }   // 2.4.5: runs every frame in a race - never throw into the game's audio
         }
 
         // a mod car's sound plays to its end, not just while the button is held (the retail code fades it on release)

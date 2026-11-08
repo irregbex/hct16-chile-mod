@@ -23,6 +23,11 @@ namespace HCT15.Patches
                 try
                 {
                     if (ModCampaigns.IsAnyActive) return true;
+                    // 2.4.5: a mod car (taxi, micro, F1 grid car...) driven in a retail race must not post either
+                    var gm = StaticData.GameModeData;
+                    if (gm != null && gm.PlayerCars != null)
+                        foreach (string id in gm.PlayerCars)
+                            if (StreetCars.IsStreetCarId(id) || F1Campaign.IsGridCarId(id)) return true;
                     var race = StaticData.Race;
                     return race != null && !string.IsNullOrEmpty(race.ItemId) && ContentRegistry.RacesById.ContainsKey(race.ItemId);
                 }

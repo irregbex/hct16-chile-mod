@@ -148,7 +148,8 @@ namespace HCT15
             }
             float t0 = Time.realtimeSinceStartup;
             string dir = Dir(donor);
-            try { Directory.CreateDirectory(dir); } catch (Exception ex) { Debug.LogWarning("[HCT15] game props: " + ex.Message); return; }
+            // 2.4.5: the index lists the game's own props - written to disk only in a developer's dump, kept in memory otherwise
+            if (SavePaths.DumpGameAllowed) { try { Directory.CreateDirectory(dir); } catch (Exception ex) { Debug.LogWarning("[HCT15] game props: " + ex.Message); return; } }
             var idx = new Index { Donor = donor };
             int thumbs = 0;
             foreach (var p in list)
@@ -174,7 +175,7 @@ namespace HCT15
                 idx.Props.Add(info);
             }
             idx.Props.Sort((a, c) => string.Compare(a.Category + a.Name, c.Category + c.Name, StringComparison.OrdinalIgnoreCase));
-            try { File.WriteAllText(Path.Combine(dir, "index.json"), Json.ToJson(idx, true)); } catch (Exception ex) { Debug.LogWarning("[HCT15] game props: index write failed: " + ex.Message); }
+            if (SavePaths.DumpGameAllowed) try { File.WriteAllText(Path.Combine(dir, "index.json"), Json.ToJson(idx, true)); } catch (Exception ex) { Debug.LogWarning("[HCT15] game props: index write failed: " + ex.Message); }
             _indexes[donor] = idx;
             LastMessage = donor + ": " + idx.Props.Count + " prop(s) captured";
             Debug.Log("[HCT15] game props: '" + donor + "' -> " + idx.Props.Count + " prop(s), " + thumbs + " thumbnail(s) in " + ((Time.realtimeSinceStartup - t0) * 1000f).ToString("0") + " ms (" + dir + ")");
