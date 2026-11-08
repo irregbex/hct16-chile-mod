@@ -15,10 +15,10 @@ namespace HCT15
         public bool HumansOnly; public float TimeLimit;   // 2.4.2: race.json - the jet ski mission (JetskiMission): human players only (+ one ghost), a countdown in seconds
         public int Racers;               // 2.4.0: race.json "Racers" - cars on the grid, players included (0 = the game's 20; Plaza de Illapel: 10)
         public float FuelTankSeconds;    // 2.4.1: race.json "FuelTankSeconds" - with RetroRules, seconds of full throttle a tank lasts the reference car (factor 100)
-        public int RetroDifficulty;      // 2.4.1: race.json "RetroDifficulty" - the ROM's per-track rival speed bonus (RetroRules)
-        public float PitSign = -1f;      // 2.4.1: race.json "PitSign" - lap fraction of the PIT sign: the SNES stop starts there (RetroRules)
-        public float RetroLateral;       // 2.4.1: race.json "RetroLateral" - the game's units per Top Gear lateral unit (rival zigzag, RetroRules)
-        public float PitWarn = -1f;      // 2.4.1: race.json "PitWarn" - lap fraction from which the HUD shows the pit arrow ($1000 units before the sign)
+        public int RetroDifficulty;      // 2.4.1: race.json "RetroDifficulty" - the original's per-track rival speed bonus (RetroRules)
+        public float PitSign = -1f;      // 2.4.1: race.json "PitSign" - lap fraction of the PIT sign: the retro stop starts there (RetroRules)
+        public float RetroLateral;       // 2.4.1: race.json "RetroLateral" - the game's units per retro lateral unit (rival zigzag, RetroRules)
+        public float PitWarn = -1f;      // 2.4.1: race.json "PitWarn" - lap fraction from which the HUD shows the pit arrow (4096 units before the sign)
         public float PitLateral;         // 2.4.1: race.json "PitLateral" - how far out (units from the centre) the car must pass the sign (RetroRules)
         public string ItemId;
         public string ItemName;

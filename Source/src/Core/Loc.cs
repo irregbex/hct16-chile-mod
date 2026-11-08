@@ -41,11 +41,6 @@ namespace HCT15
                 ["car_carreta_bueyes_name"] = "Ox cart", ["car_carreta_bueyes_desc"] = "The old Chilean carreta: two oxen under a yoke, solid wheels and firewood. The slowest thing on the road.",
                 ["car_carreta_fonda_name"] = "Fiesta cart", ["car_carreta_fonda_desc"] = "Dressed for the fiestas patrias: a ramada of branches, flags and a barrel of chicha.",
                 ["car_carreta_lechero_name"] = "Milk cart", ["car_carreta_lechero_desc"] = "The milkman's blue cart with its churns rattling on iron tyres, at dawn on the way to town.",
-                ["car_tg1_name"] = "Retro - Car 1", ["car_tg2_name"] = "Retro - Car 2", ["car_tg3_name"] = "Retro - Car 3", ["car_tg4_name"] = "Retro - Car 4",
-                ["car_tg1_desc"] = "The red one from a 16-bit retro racer, pixel sprite and all. 147 mph, 0-60 in 5.9 s, low grip, drinks fuel.",
-                ["car_tg2_desc"] = "The white one from a 16-bit retro racer, pixel sprite and all. 131 mph, 0-60 in 3.5 s, high grip, sips fuel.",
-                ["car_tg3_desc"] = "The purple one from a 16-bit retro racer, pixel sprite and all. 137 mph, 0-60 in 5.0 s, low grip, average fuel.",
-                ["car_tg4_desc"] = "The blue one from a 16-bit retro racer, pixel sprite and all. 137 mph, 0-60 in 4.3 s, medium grip, average fuel.",
                 ["opt_loudness"] = "Loudness (compressed)", ["opt_loudness_off"] = "off", ["opt_tolls"] = "Tolls (Rutas de Chile)", ["opt_traffic"] = "Road traffic", ["opt_traffic_on"] = "yes",
                 ["championship"] = "DRIVERS' CHAMPIONSHIP", ["of_rounds"] = "{0} of {1} rounds", ["pts"] = "pts",
                 ["season_line"] = "2026 GRAND PRIX SEASON  -  {0} GRANDS PRIX", ["no_results"] = "No results yet - win races to move up the table",
@@ -125,11 +120,6 @@ namespace HCT15
                 ["car_carreta_bueyes_name"] = "Carreta de bueyes", ["car_carreta_bueyes_desc"] = "La carreta chilena de siempre: dos bueyes bajo el yugo, ruedas macizas y leña. Lo más lento del camino.",
                 ["car_carreta_fonda_name"] = "Carreta fondera", ["car_carreta_fonda_desc"] = "Vestida para las fiestas patrias: ramada de ramas, banderitas y una pipa de chicha.",
                 ["car_carreta_lechero_name"] = "Carretón lechero", ["car_carreta_lechero_desc"] = "El carretón azul del lechero con los tarros sonando sobre llantas de fierro, de madrugada camino al pueblo.",
-                ["car_tg1_name"] = "Retro - Auto 1", ["car_tg2_name"] = "Retro - Auto 2", ["car_tg3_name"] = "Retro - Auto 3", ["car_tg4_name"] = "Retro - Auto 4",
-                ["car_tg1_desc"] = "El rojo de un juego retro de 16 bits, con sprite de píxeles. 147 mph, 0-60 en 5,9 s, poco agarre, gasta mucha bencina.",
-                ["car_tg2_desc"] = "El blanco de un juego retro de 16 bits, con sprite de píxeles. 131 mph, 0-60 en 3,5 s, mucho agarre, gasta poca bencina.",
-                ["car_tg3_desc"] = "El morado de un juego retro de 16 bits, con sprite de píxeles. 137 mph, 0-60 en 5,0 s, poco agarre, consumo medio.",
-                ["car_tg4_desc"] = "El azul de un juego retro de 16 bits, con sprite de píxeles. 137 mph, 0-60 en 4,3 s, agarre medio, consumo medio.",
                 ["opt_loudness"] = "Volumen comprimido", ["opt_loudness_off"] = "no", ["opt_tolls"] = "Peajes en Rutas de Chile", ["opt_traffic"] = "Tránsito en las rutas", ["opt_traffic_on"] = "sí",
                 ["championship"] = "CAMPEONATO DE PILOTOS", ["of_rounds"] = "{0} de {1} carreras", ["pts"] = "pts",
                 ["season_line"] = "TEMPORADA 2026 DE GRAN PREMIO  -  {0} GRANDES PREMIOS", ["no_results"] = "Aún sin resultados: gana carreras para subir en la tabla",
@@ -198,11 +188,6 @@ namespace HCT15
                 ["car_micro_desc"] = "O onibus amarelo das antigas linhas: pesado, barulhento e impossivel de ultrapassar numa curva.",
                 ["car_micro_variant_desc"] = "O mesmo onibus das antigas linhas com outra pintura: pesado, barulhento e impossivel de ultrapassar numa curva.",
                 ["car_carreta_name"] = "Carroca", ["car_carreta_desc"] = "A carroca puxada a cavalo do vale do Choapa, rodas de madeira e um huaso nas redeas: lenta na largada, imparavel na estrada velha para Illapel.",
-                ["car_tg1_name"] = "Retro - Carro 1", ["car_tg2_name"] = "Retro - Carro 2", ["car_tg3_name"] = "Retro - Carro 3", ["car_tg4_name"] = "Retro - Carro 4",
-                ["car_tg1_desc"] = "O vermelho do jogo de 16-bit de 1992, com o sprite original. 147 mph, 0-60 em 5,9 s, pouca aderencia, bebe combustivel.",
-                ["car_tg2_desc"] = "O branco do jogo de 16-bit de 1992, com o sprite original. 131 mph, 0-60 em 3,5 s, muita aderencia, gasta pouco.",
-                ["car_tg3_desc"] = "O roxo do jogo de 16-bit de 1992, com o sprite original. 137 mph, 0-60 em 5,0 s, pouca aderencia, consumo medio.",
-                ["car_tg4_desc"] = "O azul do jogo de 16-bit de 1992, com o sprite original. 137 mph, 0-60 em 4,3 s, aderencia media, consumo medio.",
                 ["opt_loudness"] = "Volume comprimido", ["opt_loudness_off"] = "não", ["opt_tolls"] = "Pedágios (Rutas de Chile)", ["opt_traffic"] = "Trânsito nas estradas", ["opt_traffic_on"] = "sim",
                 ["championship"] = "CAMPEONATO DE PILOTOS", ["of_rounds"] = "{0} de {1} etapas", ["pts"] = "pts",
                 ["season_line"] = "TEMPORADA 2026 DE GRAN PREMIO  -  {0} GRANDES PRÊMIOS", ["no_results"] = "Ainda sem resultados: vença corridas para subir na tabela",
@@ -228,11 +213,6 @@ namespace HCT15
                 ["car_micro_desc"] = "Le bus jaune des anciennes lignes : lourd, bruyant et impossible a doubler en virage.",
                 ["car_micro_variant_desc"] = "Le meme bus des anciennes lignes dans une autre livree : lourd, bruyant et impossible a doubler en virage.",
                 ["car_carreta_name"] = "Charrette", ["car_carreta_desc"] = "La charrette tiree par un cheval de la vallee du Choapa, roues en bois et un huaso aux renes : lente au depart, inarretable sur la vieille route d'Illapel.",
-                ["car_tg1_name"] = "Retro - Voiture 1", ["car_tg2_name"] = "Retro - Voiture 2", ["car_tg3_name"] = "Retro - Voiture 3", ["car_tg4_name"] = "Retro - Voiture 4",
-                ["car_tg1_desc"] = "La rouge du jeu 16-bit de 1992, sprite d'origine compris. 147 mph, 0-60 en 5,9 s, peu d'adherence, gourmande.",
-                ["car_tg2_desc"] = "La blanche du jeu 16-bit de 1992, sprite d'origine compris. 131 mph, 0-60 en 3,5 s, forte adherence, sobre.",
-                ["car_tg3_desc"] = "La violette du jeu 16-bit de 1992, sprite d'origine compris. 137 mph, 0-60 en 5,0 s, peu d'adherence, consommation moyenne.",
-                ["car_tg4_desc"] = "La bleue du jeu 16-bit de 1992, sprite d'origine compris. 137 mph, 0-60 en 4,3 s, adherence moyenne, consommation moyenne.",
                 ["opt_loudness"] = "Volume compresse", ["opt_loudness_off"] = "non", ["opt_tolls"] = "Péages (Rutas de Chile)", ["opt_traffic"] = "Circulation sur les routes", ["opt_traffic_on"] = "oui",
                 ["championship"] = "CHAMPIONNAT DES PILOTES", ["of_rounds"] = "{0} sur {1} manches", ["pts"] = "pts",
                 ["season_line"] = "SAISON 2026 DE GRAND PRIX  -  {0} GRANDS PRIX", ["no_results"] = "Pas encore de résultats : gagnez des courses pour grimper au classement",
@@ -258,11 +238,6 @@ namespace HCT15
                 ["car_micro_desc"] = "Der gelbe Bus der alten Linien: schwer, laut und in der Kurve nicht zu ueberholen.",
                 ["car_micro_variant_desc"] = "Derselbe Bus der alten Linien in anderer Lackierung: schwer, laut und in der Kurve nicht zu ueberholen.",
                 ["car_carreta_name"] = "Pferdekarren", ["car_carreta_desc"] = "Der Pferdekarren aus dem Choapa-Tal, Holzraeder und ein Huaso an den Zuegeln: langsam am Start, unaufhaltsam auf der alten Strasse nach Illapel.",
-                ["car_tg1_name"] = "Retro - Wagen 1", ["car_tg2_name"] = "Retro - Wagen 2", ["car_tg3_name"] = "Retro - Wagen 3", ["car_tg4_name"] = "Retro - Wagen 4",
-                ["car_tg1_desc"] = "Der rote aus dem 16-bit-Spiel von 1992, mit Original-Sprite. 147 mph, 0-60 in 5,9 s, wenig Grip, durstig.",
-                ["car_tg2_desc"] = "Der weisse aus dem 16-bit-Spiel von 1992, mit Original-Sprite. 131 mph, 0-60 in 3,5 s, viel Grip, sparsam.",
-                ["car_tg3_desc"] = "Der violette aus dem 16-bit-Spiel von 1992, mit Original-Sprite. 137 mph, 0-60 in 5,0 s, wenig Grip, mittlerer Verbrauch.",
-                ["car_tg4_desc"] = "Der blaue aus dem 16-bit-Spiel von 1992, mit Original-Sprite. 137 mph, 0-60 in 4,3 s, mittlerer Grip, mittlerer Verbrauch.",
                 ["opt_loudness"] = "Lautheit (komprimiert)", ["opt_loudness_off"] = "aus", ["opt_tolls"] = "Mautstellen (Rutas de Chile)", ["opt_traffic"] = "Verkehr auf den Straßen", ["opt_traffic_on"] = "an",
                 ["championship"] = "FAHRERWERTUNG", ["of_rounds"] = "{0} von {1} Rennen", ["pts"] = "Pkt.",
                 ["season_line"] = "GRAND-PRIX-SAISON 2026  -  {0} GRANDS PRIX", ["no_results"] = "Noch keine Ergebnisse - gewinne Rennen, um aufzusteigen",
@@ -288,11 +263,6 @@ namespace HCT15
                 ["car_micro_desc"] = "Il bus giallo delle vecchie linee: pesante, rumoroso e impossibile da passare in curva.",
                 ["car_micro_variant_desc"] = "Lo stesso bus delle vecchie linee con un altra livrea: pesante, rumoroso e impossibile da passare in curva.",
                 ["car_carreta_name"] = "Carretto", ["car_carreta_desc"] = "Il carretto trainato da un cavallo della valle del Choapa, ruote di legno e un huaso alle redini: lento in partenza, inarrestabile sulla vecchia strada per Illapel.",
-                ["car_tg1_name"] = "Retro - Auto 1", ["car_tg2_name"] = "Retro - Auto 2", ["car_tg3_name"] = "Retro - Auto 3", ["car_tg4_name"] = "Retro - Auto 4",
-                ["car_tg1_desc"] = "La rossa del gioco 16-bit del 1992, sprite originale compreso. 147 mph, 0-60 in 5,9 s, poca aderenza, beve molto.",
-                ["car_tg2_desc"] = "La bianca del gioco 16-bit del 1992, sprite originale compreso. 131 mph, 0-60 in 3,5 s, molta aderenza, consuma poco.",
-                ["car_tg3_desc"] = "La viola del gioco 16-bit del 1992, sprite originale compreso. 137 mph, 0-60 in 5,0 s, poca aderenza, consumo medio.",
-                ["car_tg4_desc"] = "La blu del gioco 16-bit del 1992, sprite originale compreso. 137 mph, 0-60 in 4,3 s, aderenza media, consumo medio.",
                 ["opt_loudness"] = "Volume compresso", ["opt_loudness_off"] = "no", ["opt_tolls"] = "Pedaggi (Rutas de Chile)", ["opt_traffic"] = "Traffico sulle strade", ["opt_traffic_on"] = "sì",
                 ["championship"] = "CAMPIONATO PILOTI", ["of_rounds"] = "{0} di {1} gare", ["pts"] = "pt",
                 ["season_line"] = "STAGIONE 2026 DI GRAN PREMIO  -  {0} GRAN PREMI", ["no_results"] = "Ancora nessun risultato: vinci le gare per salire in classifica",
@@ -328,10 +298,48 @@ namespace HCT15
         }
 
         /// <summary>2.0.28: whether the key has a text (in English at least).</summary>
-        public static bool Has(string key) { return key != null && T["en"].ContainsKey(key); }
+        public static bool Has(string key) { LoadCampaignTexts(); return key != null && T["en"].ContainsKey(key); }
+
+        private static bool _campaignTexts;
+
+        /// <summary>2.4.3: a campaign's own texts - HCT15Content\campaigns\<folder>\texts.json, {"en": {"key": "text", ...},
+        /// "es": {...}, ...} - are added to the mod's (the names of a campaign's own cars, for example), so no campaign's
+        /// texts live in the code. A key the mod already has keeps the mod's text.</summary>
+        private static void LoadCampaignTexts()
+        {
+            if (_campaignTexts || string.IsNullOrEmpty(ContentRegistry.ContentDir)) return;
+            _campaignTexts = true;
+            try
+            {
+                string camps = System.IO.Path.Combine(ContentRegistry.ContentDir, "campaigns");
+                if (!System.IO.Directory.Exists(camps)) return;
+                foreach (string dir in System.IO.Directory.GetDirectories(camps))
+                {
+                    string f = System.IO.Path.Combine(dir, "texts.json");
+                    if (!System.IO.File.Exists(f)) continue;
+                    try
+                    {
+                        var m = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(System.IO.File.ReadAllText(f));
+                        if (m == null) continue;
+                        int n = 0;
+                        foreach (var lang in m)
+                        {
+                            if (lang.Value == null) continue;
+                            Dictionary<string, string> d;
+                            if (!T.TryGetValue(lang.Key, out d)) T[lang.Key] = d = new Dictionary<string, string>();
+                            foreach (var kv in lang.Value) if (!d.ContainsKey(kv.Key)) { d[kv.Key] = kv.Value; n++; }
+                        }
+                        UnityEngine.Debug.Log("[HCT15] texts: " + n + " from campaigns\\" + System.IO.Path.GetFileName(dir) + "\\texts.json");
+                    }
+                    catch (System.Exception ex) { UnityEngine.Debug.LogWarning("[HCT15] texts: " + f + ": " + ex.Message); }
+                }
+            }
+            catch (System.Exception) { }
+        }
 
         public static string Get(string key)
         {
+            LoadCampaignTexts();
             Dictionary<string, string> d;
             string s;
             if (T.TryGetValue(Lang, out d) && d.TryGetValue(key, out s)) return s;

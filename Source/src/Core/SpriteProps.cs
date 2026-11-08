@@ -6,8 +6,8 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// Scenery drawn as FLAT PIXEL SPRITES, the way a SNES racer drew its roadside: a scenery.json item with a
-    /// "Sprite" (a PNG under HCT15Content\assets\sprites\, e.g. "tg/cactus.png") becomes a camera-facing quad
+    /// Scenery drawn as FLAT PIXEL SPRITES, the way a 16-bit racer drew its roadside: a scenery.json item with a
+    /// "Sprite" (a PNG under HCT15Content\assets\sprites\, e.g. "retro/cactus.png") becomes a camera-facing quad
     /// carrying that image, point-filtered, one unit tall in the prototype and scaled by the item's H x S like
     /// the box prototypes are (PropDresser.PlaceScenery). The the retro campaign campaign uses it for every object
     /// (a sprite tool draws the set); any track can.
@@ -67,9 +67,9 @@ namespace HCT15
         /// 2.4.1 (the user: "when I should crash into the objects beside the track - lamp posts, the direction signs in the
         /// bends - nothing happens, they practically do not exist"): the sprite gets the game's own prop collision - a box
         /// collider and a PropCollidable on its root (PropAutoMover links it, PropView scales it, the car's
-        /// SplineCollisionDetector hits it and plays the game's crash). The ROM's crash classes (02-MECANICA): REV bounces
+        /// SplineCollisionDetector hits it and plays the game's crash). The original's crash classes : REV bounces
         /// the car back - here it is stopped dead; EDGE / SIDE halve the speed and push it towards the road - here the speed
-        /// is cut to 180 km/h (the game's units, about half a Top Gear cruise) and the lateral impact is on.
+        /// is cut to 180 km/h (the game's units, about half a retro cruise) and the lateral impact is on.
         /// </summary>
         private static void MakeSolid(GameObject go, float aspect, string hit)
         {

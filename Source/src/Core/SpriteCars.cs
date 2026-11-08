@@ -6,7 +6,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// Cars drawn as SPRITES, the way the SNES drew them: the four retro sprite cars.
+    /// Cars drawn as SPRITES, the way a 16-bit racer drew them: the four retro sprite cars.
     ///
     /// A street car with a "Sprite" set keeps its donor prefab (wheels, shadow, collider, nitro, everything the
     /// race drives) but loses its body: the body, wheel and light meshes are emptied and a quad is hung under
@@ -55,7 +55,7 @@ namespace HCT15
             /// The width of the family the near cars are drawn from: the widest frame that has a STRAIGHT (lean 0)
             /// view, 48 px in the sprite sheet. The 56 and 64 px frames only exist as turns - drawn as "straight" they are
             /// what made the player's car lean to one side all the time - so the car is the 48 px family scaled by
-            /// whole pixels, exactly the SNES game's own 48 x 32 player car on a 224-line screen.
+            /// whole pixels, exactly a 16-bit game's 48 x 32 player car on a 224-line screen.
             /// </summary>
             public int StraightWidth { get { int m = 0; foreach (Frame f in Frames) if (f.Lean == 0 && f.W > m) m = f.W; return m > 0 ? m : MaxWidth; } }
             /// <summary>The hardest turn the set has (3 in the sprite sheet: the 48, 56 and 64 px turning frames).</summary>
@@ -139,7 +139,7 @@ namespace HCT15
         }
 
         // the shadow goes too: the donor's is a car-length quad that, in perspective, spreads into a dark trapezoid
-        // twice the size of a 64-pixel sprite. The SNES frames carry their own dark base line.
+        // twice the size of a 64-pixel sprite. The 16-bit frames carry their own dark base line.
         private static readonly string[] HiddenParts = { "high", "med", "medium", "low", "first_person", "brake_lights", "lights", "disabled", "shadow", "shadow_low" };
 
         /// <summary>
@@ -310,7 +310,7 @@ namespace HCT15
         {
             Vector3 camF = Flat(cam.transform.forward), carF = Flat(car.forward);
             float angle = Vector3.SignedAngle(camF, carF, Vector3.up);    // > 0: the car heads to the right of the view
-            // Which way the car leans, and how far. The SNES game read the JOYSTICK: hold left and the car goes
+            // Which way the car leans, and how far. The 16-bit game read the JOYSTICK: hold left and the car goes
             // through its lean frames one by one, let go and it comes back the same way. Reading the heading
             // against the camera instead (the first build) flickered between the left and the right frames in
             // every bend - the camera swings about the car and the sign changed with it (user, 2026-09-24). So a
@@ -354,7 +354,7 @@ namespace HCT15
             // pixels: with SpriteScale 1.5 the player (P ~96 on the 224-line view) got 3 while a rival just ahead fell
             // to 1 or 2 and jumped when it came nearer, and the distance frames ignored SpriteScale - "dos veces mas
             // grande que los otros sprites" (user, 2026-09-24). The player is now 1.5 pixels per texel, 72 of the 224
-            // lines' 398 px of width (18 %, the SNES car's own share of its screen was 19 %).
+            // lines' 398 px of width (18 %, the retro car's own share of its screen was 19 %).
             float t = P / Mathf.Max(1, maxW) * SpriteScale;
             if (t >= 0.9f && Mathf.Abs(t - Mathf.Round(t)) < 0.12f) t = Mathf.Round(t);   // whole pixels when that close: no shimmer
             SpriteCars.Frame f;

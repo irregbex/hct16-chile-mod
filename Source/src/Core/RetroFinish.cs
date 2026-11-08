@@ -4,7 +4,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.4.1 - the end of a race in a RetroRules campaign the way the 16-bit Top Gear ended it (the user, 2026-11-07: "when the
+    /// 2.4.1 - the end of a race in a RetroRules campaign the way a 16-bit racer ended it (the user, 2026-11-07: "when the
     /// race ends the camera stays still and the car keeps driving towards infinity"). When player 0 crosses the line the game
     /// puts its car on autopilot (PlayerCar.HandleRaceFinish, 80 % of top speed) and its chase camera keeps following; here a
     /// second camera takes the race camera's place at that instant and stays there, so the car drives away up the road and
@@ -15,8 +15,8 @@ namespace HCT15
     /// the car has driven since (CurvePosition.TravelledDistance). The game draws only a short stretch of road and ground behind
     /// the car (past ~15 units the bottom of the view shows the bare sky colour - tests 2026-11-07, 52 and 32 units), so after
     /// MaxBack the camera keeps that distance and the car's SPRITE goes on ahead of its car instead (Ahead, read by SpriteCar for
-    /// the player): it shrinks and climbs towards the horizon as on the SNES. (Rising the camera showed the game's bare 3-D world
-    /// around the road - tried and dropped.) Claude's compromise; the SNES camera simply stayed.
+    /// the player): it shrinks and climbs towards the horizon as 16-bit racers did. (Rising the camera showed the game's bare 3-D world
+    /// around the road - tried and dropped.) Claude's compromise; the retro camera simply stayed.
     /// </summary>
     public class RetroFinish : MonoBehaviour
     {

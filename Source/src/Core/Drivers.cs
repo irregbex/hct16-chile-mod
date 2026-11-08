@@ -110,7 +110,7 @@ namespace HCT15
         /// Called by EnemyCarManager for each rival it builds: the racer name it records. On a campaign that races
         /// the mod's own cars (StreetCars.CampaignEnemies gave the grid) every rival gets its own driver from
         /// drivers.txt, in the file's order by STRENGTH: the first name goes to the slot the donor stage authored
-        /// fastest (SplineEnemyInfo.Speed), so the retro campaign's driver file's first line, RITCHIE, is the rival to beat.
+        /// fastest (SplineEnemyInfo.Speed), so the retro campaign's driver file's first line, the favourite, is the rival to beat.
         /// Elsewhere the model name is returned untouched and RacerName names by model, as before.
         /// </summary>
         public static string EnemyRacerName(string modelName, int index, List<SplineEnemyInfo> infos)
@@ -163,9 +163,9 @@ namespace HCT15
             catch (Exception) { return fallback; }
         }
 
-        /// <summary>2.4.1: the retro campaign names each rival car with the ROM rival whose speed it races with (RetroRules) - the
+        /// <summary>2.4.1: the retro campaign names each rival car with the original rival whose speed it races with (RetroRules) - the
         /// results board then shows the right name beside the right time (drivers.txt's order did not follow the speeds, and the
-        /// 19th car - the COMPUTER - came out as "RITCHIE 2").</summary>
+        /// 19th car - the COMPUTER - came out with a duplicate name).</summary>
         /// <summary>2.4.2: the board name a racer slot was given (SetSlot), or null.</summary>
         public static string Slot(string key) { string s; return !string.IsNullOrEmpty(key) && _slots.TryGetValue(key, out s) ? s : null; }
         public static void SetSlot(string key, string driver) { if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(driver)) _slots[key] = driver; }

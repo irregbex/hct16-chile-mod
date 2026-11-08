@@ -209,8 +209,8 @@ namespace HCT15.Patches
         // "FreePlay" campaigns have every round open, the "DefaultRace" always is
         private static bool Prefix(string id, ref bool __result)
         {
-            bool gateOpen;   // 2.4.2: a campaign with "CountryGate" opens its countries by qualification or password (TopGearQualify)
-            if (StaticData.GameModeData is ExtraCampaignGameModeData && TopGearQualify.Gate(id, out gateOpen)) { __result = gateOpen; if (gateOpen) ExtraCampaignSaveData.GetRaceSave(id).SeenUnlock = true; return false; }
+            bool gateOpen;   // 2.4.2: a campaign with "CountryGate" opens its countries by qualification or password (RetroQualify)
+            if (StaticData.GameModeData is ExtraCampaignGameModeData && RetroQualify.Gate(id, out gateOpen)) { __result = gateOpen; if (gateOpen) ExtraCampaignSaveData.GetRaceSave(id).SeenUnlock = true; return false; }
             if (!(StaticData.GameModeData is ExtraCampaignGameModeData) || !ModCampaigns.IsOpen(id)) return true;
             ExtraCampaignSaveData.GetRaceSave(id).SeenUnlock = true;
             __result = true;

@@ -369,7 +369,7 @@ namespace HCT15.Patches
         private static bool Prefix(CarUIViewModel __instance, SpeechController.SpeechType speechType)
         {
             if (Podium.Showing) return false;   // 2.3.5: no taunts (bubble, voice) behind the podium
-            // 2.4.1: a RetroRules campaign (Top Gear) shows the SNES balloons of the player's own car instead (RetroTaunts)
+            // 2.4.1: a RetroRules campaign shows the retro balloons of the player's own car instead (RetroTaunts)
             if (RetroRules.Active)
             {
                 try { if (__instance.Type == CarUIViewModel.ViewType.PlayerCar) RetroTaunts.FromGame(__instance._playerCar, speechType); }

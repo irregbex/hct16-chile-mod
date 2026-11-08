@@ -4,6 +4,14 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.4.3 (2026-11-08)
+  - The retro-campaign engine is fully data-driven and campaign-neutral: no campaign, car or file name is built into
+    the code any more. New campaign.json keys "RetroCarLooks" (each car's HUD colour and qualification pictures),
+    "RetroSharpTextures", "QualifyJingle" and "QualifyBackground"; new campaigns\<folder>\texts.json for a campaign's
+    own texts (car names, ...); environment presets retro_day / retro_night / retro_day_to_night / retro_night_to_day.
+    The keys are listed in Content\HCT15Content\campaigns\README.txt.
+  - The retro sprite cars are no longer built in (define sprite cars in cars\streetcars.json).
+
 2.4.2 (2026-11-08) - the jet ski expansion, part 1
   - Three beaches become harbour laps (same rounds and map places, 3 laps each): Port of Valparaiso (round 124),
     Port of San Antonio (121) and Quintero Bay (118). Container ships, a bulk carrier and an LNG tanker moored along

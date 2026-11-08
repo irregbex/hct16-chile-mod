@@ -8,11 +8,11 @@ using Aquiris.HorizonChase.NewUI;
 namespace HCT15
 {
     /// <summary>
-    /// 2.4.1 - the menu screens of a RetroRules campaign dressed as the 16-bit Top Gear (the user, 2026-11-07: "everything should
+    /// 2.4.1 - the menu screens of a RetroRules campaign dressed as a 16-bit racer (the user, 2026-11-07: "everything should
     /// look pixelated, not smoothed"; "recreate the original car selection screen - the buttons below are fine but this campaign
     /// has no upgrades"; "the background of all these screens must be this photo").
-    ///   CAR_SELECTION: the SNES "CAR TYPE" screen of the car being shown (assets\ui\cartype.json -> cartype_*.png: the game's
-    ///                  main screen without its photo, Herramientas-TopGear\tg_cartype.py) as tall as the screen, over the menu
+    ///   CAR_SELECTION: 16-bit racers "CAR TYPE" screen of the car being shown (assets\ui\cartype.json -> cartype_*.png: the game's
+    ///                  main screen without its photo, the campaign's own tool) as tall as the screen, over the menu
     ///                  photo stretched across the whole panel (the user's sketch, 2026-11-07), inserted just before the
     ///                  panel's button row (the 3-D car, HCT stats and upgrades stay underneath, the buttons on top); the four
     ///                  cars are chosen on a 2x2 grid (RetroCarGrid*Patch: up/down change row, left/right column).
@@ -118,7 +118,7 @@ namespace HCT15
                 var fgo = new GameObject("frame", typeof(RectTransform));
                 fgo.transform.SetParent(go.transform, false);
                 _carFrame = fgo.AddComponent<RawImage>(); _carFrame.raycastTarget = false;
-                Debug.Log("[HCT15] retro car type: the SNES CAR TYPE screen over the car selection (" + _json.Ids.Count + " cars, " + _vms.Count + " player(s))");
+                Debug.Log("[HCT15] retro car type: the retro CAR TYPE screen over the car selection (" + _json.Ids.Count + " cars, " + _vms.Count + " player(s))");
             }
             // P1's car -> the big picture
             string id = ShownCarId(vm);
@@ -132,7 +132,7 @@ namespace HCT15
             Rect r = panelRt.rect;
             if (tex != null)
             {
-                // the frame (transparent where the SNES showed its photo, so the stretched photo shows through) as tall as the
+                // the frame (transparent where a 16-bit racer showed its photo, so the stretched photo shows through) as tall as the
                 // screen, the cars as big as that makes them - the game's buttons sit over its bottom edge, as in the sketch
                 float s = Mathf.Min(r.height * 0.97f / tex.height, r.width / tex.width);
                 RectTransform fr = _carFrame.rectTransform;
@@ -143,7 +143,7 @@ namespace HCT15
             for (int i = 0; i < 4; i++) { if (_labels[i] != null) _labels[i].enabled = false; if (_labelCars[i] != null) _labelCars[i].enabled = false; }
             if (!multi) return;
             // P1..P4 with the car each is choosing: left/right of the frame, above/below the middle
-            float px = r.height / 224f;                                     // one SNES pixel of the frame
+            float px = r.height / 224f;                                     // one pixel of the 256x224 frame
             foreach (var v in _vms)
             {
                 int p = Mathf.Clamp(PlayerOf(v), 0, 3);
@@ -202,7 +202,7 @@ namespace HCT15
         {
             if (_carBack == null || !_carBack.gameObject.activeInHierarchy) return;
             HidePanelParts();
-            // a click on one of the four cars of the CAR TYPE picture picks it (the SNES slots: rows 47-95 / 95-143, columns
+            // a click on one of the four cars of the CAR TYPE picture picks it (the retro slots: rows 47-95 / 95-143, columns
             // 24-128 / 128-248 of the 256x224 screen); the game's own button / key confirms as before
             if (Input.GetMouseButtonDown(0) && _carFrame != null && _carFrame.texture != null && _vm != null && RetroCarGrid.On(_vm))
             {
@@ -212,7 +212,7 @@ namespace HCT15
                 if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_carFrame.rectTransform, Input.mousePosition, cam, out lp))
                 {
                     Rect fr = _carFrame.rectTransform.rect;
-                    float u = (lp.x - fr.xMin) / fr.width * 256f, v = (fr.yMax - lp.y) / fr.height * 224f;   // SNES pixels, top-left origin
+                    float u = (lp.x - fr.xMin) / fr.width * 256f, v = (fr.yMax - lp.y) / fr.height * 224f;   // 16-bit pixels, top-left origin
                     if (v >= 40f && v < 150f && u >= 24f && u < 248f) RetroCarGrid.GoTo(_vm, (v < 95f ? 0 : 2) + (u < 128f ? 0 : 1));
                 }
             }

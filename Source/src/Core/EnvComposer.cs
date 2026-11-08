@@ -28,10 +28,10 @@ namespace HCT15
             public float[] Storm;           // [start, end] 0..1 - 2.2.4: a thunderstorm's dark slate sky and dim light (Santiago inundado)
             public float Aurora;            // strength 0..1
             public float AuroraFrom = 1f;   // progress from which the southern lights show
-            // 2.4.1 (Top Gear SNES): presets tg_day | tg_night | tg_day_to_night | tg_night_to_day switch ONCE, in a short
-            // fade: Fade = the fade's share of the timeline (the SNES fades ~222 frames at a fixed race time; with Mode
-            // "time" the file's Seconds end where the fade ends). Sky / NightSky [r,g,b 0..1]: the flat SNES sky painted
-            // over the sky shader (sky, horizon and fog), day and night; NoSun: no sun disc (the SNES has none).
+            // 2.4.1 (retro): presets retro_day | retro_night | retro_day_to_night | retro_night_to_day switch ONCE, in a short
+            // fade: Fade = the fade's share of the timeline (a 16-bit racer fades over ~222 frames at a fixed race time; with Mode
+            // "time" the file's Seconds end where the fade ends). Sky / NightSky [r,g,b 0..1]: the flat 16-bit sky painted
+            // over the sky shader (sky, horizon and fog), day and night; NoSun: no sun disc (16-bit racers had none).
             public float Fade = 0.05f;
             public float[] Sky;
             public float[] NightSky;
@@ -39,18 +39,18 @@ namespace HCT15
             public bool Blackout;           // 2.4.2: a pitch-black night past NightAt (no moon, black fog close in) - only lights show (Playa Amarilla's LED chaos)
         }
 
-        internal static float TgBackdropTint = 0.5f;   // the backdrop shader doubles its tint: 0.5 = the picture as it is
-        private static bool IsTg(Recipe r) { return r != null && r.Preset != null && r.Preset.StartsWith("tg_"); }
+        internal static float RetroBackdropTint = 0.5f;   // the backdrop shader doubles its tint: 0.5 = the picture as it is
+        private static bool IsRetro(Recipe r) { return r != null && r.Preset != null && r.Preset.StartsWith("retro_"); }
 
-        /// <summary>0 = day, 1 = night at progress p for the tg_* presets.</summary>
-        internal static float TgNight(Recipe r, float p)
+        /// <summary>0 = day, 1 = night at progress p for the retro_* presets.</summary>
+        internal static float RetroNight(Recipe r, float p)
         {
             float f = Mathf.Clamp(r.Fade, 0.001f, 1f), u = Smooth((p - (1f - f)) / f);
             switch (r.Preset)
             {
-                case "tg_night": return 1f;
-                case "tg_day_to_night": return u;
-                case "tg_night_to_day": return 1f - u;
+                case "retro_night": return 1f;
+                case "retro_day_to_night": return u;
+                case "retro_night_to_day": return 1f - u;
                 default: return 0f;
             }
         }
@@ -257,12 +257,12 @@ namespace HCT15
         {
             Stop[] stops;
             int samples = Samples;
-            if (IsTg(r))
+            if (IsRetro(r))
             {
                 // one switch at the end of the timeline, in a short fade; sampled finely so the fade keeps its shape
                 float f = Mathf.Clamp(r.Fade, 0.001f, 1f);
-                State a = r.Preset == "tg_night" || r.Preset == "tg_night_to_day" ? Night : DayMark;
-                State b = r.Preset == "tg_night" || r.Preset == "tg_day_to_night" ? Night : DayMark;
+                State a = r.Preset == "retro_night" || r.Preset == "retro_night_to_day" ? Night : DayMark;
+                State b = r.Preset == "retro_night" || r.Preset == "retro_day_to_night" ? Night : DayMark;
                 stops = new[] { new Stop(0f, a), new Stop(1f - f, a), new Stop(1f, b) };
                 samples = 400;
             }
@@ -353,11 +353,11 @@ namespace HCT15
                     v = a[c.Comp] * k;
                 }
             }
-            if (IsTg(r))
+            if (IsRetro(r))
             {
-                // 2.4.1: the SNES sky is one flat colour - the sky shader's sky, horizon (and sun, with NoSun) and the fog
+                // 2.4.1: the retro sky is one flat colour - the sky shader's sky, horizon (and sun, with NoSun) and the fog
                 // take it, so whatever the backdrop leaves uncovered at the top of the screen matches it
-                float w = TgNight(r, p);
+                float w = RetroNight(r, p);
                 if (r.Sky != null && r.Sky.Length >= 3 && IsColour(c) && c.Path == "sky"
                     && (c.Field == "Sky_Color" || c.Field == "Horizon_Color" || c.Field == "FogColor" || (r.NoSun && c.Field == "Sun_Color")))
                 {
@@ -365,13 +365,13 @@ namespace HCT15
                     v = Mathf.Lerp(r.Sky[c.Comp], nightV, w);
                 }
                 if (r.NoSun && c.Path == "sky" && c.Prop == "FloatValue2") v = 0f;   // sun disc size
-                // the road's night blend (track_mesh ColorValue.a) washed the SNES strip out to a pale grey on the donors
+                // the road's night blend (track_mesh ColorValue.a) washed the retro strip out to a pale grey on the donors
                 // tried (meteora_02, 2.4.1 test, the mod's own "night" preset too), and a night DONOR's own "day" carries it
-                // too (los_angeles_02 under New York): no night blend on the road at all, the SNES strip is drawn as it is
+                // too (a night donor under a night track): no night blend on the road at all, the retro strip is drawn as it is
                 if (c.Path == "track_mesh" && c.Prop == "ColorValue.a") v = 0f;
-                // 2.4.2 (the user: "the cities' backdrops are drawn wrong"; New York's skyline came out black): the SNES
+                // 2.4.2 (the user: "the cities' backdrops are drawn wrong"): 16-bit racers
                 // backdrop carries its own day and night colours - no tint from the donor's daylight or the night state
-                if (c.Path == "background" && IsColour(c)) v = TgBackdropTint;
+                if (c.Path == "background" && IsColour(c)) v = RetroBackdropTint;
             }
             // 2.4.2 (the user: "no moon that night - a chaos of horrible LED lights so bright the darkness hardly lets the race
             // be seen"): NoSun takes the sun/moon disc away on any preset; Blackout drives everything to black as the night
@@ -413,19 +413,19 @@ namespace HCT15
                 case "car_lights":
                 {
                     float[] l = LightsOf(r.Preset ?? "day");
-                    if (IsTg(r))
+                    if (IsRetro(r))
                     {
-                        // 2.4.1 (the user, 2026-11-07, with an SNES night frame: "on the night tracks the headlights should
-                        // show like this - HCT has that kind of lights built in"): on while it is night (tg_night all race;
-                        // the night half of tg_night_to_day / tg_day_to_night, switching in the middle of the fade), off by
-                        // day. (A first 2.4.1 test on Cologne had them washing the road pale grey together with the road's
+                        // 2.4.1 (the user, 2026-11-07, with a 16-bit night frame: "on the night tracks the headlights should
+                        // show like this - HCT has that kind of lights built in"): on while it is night (retro_night all race;
+                        // the night half of retro_night_to_day / retro_day_to_night, switching in the middle of the fade), off by
+                        // day. (A first 2.4.1 test on a day-to-night track had them washing the road pale grey together with the road's
                         // night blend, which stays off - track_mesh ColorValue.a = 0 above.)
                         float f = Mathf.Clamp(r.Fade, 0.001f, 1f), mid = Mathf.Clamp01(1f - f * 0.5f);
                         switch (r.Preset)
                         {
-                            case "tg_night": t.Add(0f); v.Add(1f); break;
-                            case "tg_night_to_day": t.Add(0f); v.Add(1f); t.Add(mid); v.Add(0f); break;
-                            case "tg_day_to_night": t.Add(0f); v.Add(0f); t.Add(mid); v.Add(1f); break;
+                            case "retro_night": t.Add(0f); v.Add(1f); break;
+                            case "retro_night_to_day": t.Add(0f); v.Add(1f); t.Add(mid); v.Add(0f); break;
+                            case "retro_day_to_night": t.Add(0f); v.Add(0f); t.Add(mid); v.Add(1f); break;
                             default: t.Add(0f); v.Add(0f); break;
                         }
                         break;

@@ -126,7 +126,7 @@ namespace HCT15
                 "Sub-folders are albums: Race\\My Album\\01 Artist - Song.wav\r\n" +
                 "File names are read as 'NN - Artist - Title', 'NN Artist - Title', 'Artist - Title' or 'Title';\r\n" +
                 "the card shown when a race starts (and on F11) prints title, artist, album and track number.\r\n" +
-                "Formats: .ogg (Vorbis) or .wav. MP3 cannot be decoded by this Unity version -\r\n" +
+                "Formats: .ogg (Vorbis) or .wav. MP3 cannot be by this Unity version -\r\n" +
                 "convert with any audio tool (e.g. ffmpeg -i song.mp3 -q:a 5 song.ogg).\r\n" +
                 "Tracks play in file-name order (prefix 01_, 02_, ... to control it), or shuffled\r\n" +
                 "with \"ShuffleMusic\": true in HCT15Content\\hct15.settings.json.\r\n" +

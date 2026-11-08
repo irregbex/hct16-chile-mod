@@ -7,14 +7,14 @@ using UnityEngine.UI;
 namespace HCT15
 {
     /// <summary>
-    /// 2.4.1 - a campaign's animated logo (the user, 2026-11-07: "when the Top Gear campaign opens this animation should play";
-    /// "the logo at the top of the loading screen should appear the way you animated it"). The frames are the SNES title
-    /// sequence itself (Herramientas-TopGear\tg_logo_anim.py: assets\ui\logo_anim.png, an atlas, and logo_anim.json - frame
+    /// 2.4.1 - a campaign's animated logo (the user, 2026-11-07: "when the retro campaign opens this animation should play";
+    /// "the logo at the top of the loading screen should appear the way you animated it"). The frames are the title
+    /// sequence itself (the campaign's own tool: assets\ui\logo_anim.png, an atlas, and logo_anim.json - frame
     /// size, columns, count, fps and the logo's rest rectangle inside a frame).
     ///
     /// Put on a RawImage that shows the campaign's logo: that image goes invisible (it keeps its place in the layout) and a
     /// child plays the frames, sized so the logo AT REST fills the image's rectangle (aspect kept) - the pieces that fly in
-    /// from above and below go past it, as on the SNES. It plays from the start each time the image is shown, or each time
+    /// from above and below go past it, as 16-bit racers did. It plays from the start each time the image is shown, or each time
     /// Restart() says (the campaign card: when it is selected), and then holds the last frame. Point filtered (pixel art).
     /// </summary>
     public class LogoAnim : MonoBehaviour
@@ -37,7 +37,7 @@ namespace HCT15
 
         /// <summary>Plays the animation on this RawImage (once per showing); 'selected' (optional) restarts it on each false -> true.</summary>
         /// 2.4.1 (the user, 2026-11-07): still = the finished logo only (the campaign card: "static, its animation already done");
-        /// speed = how many times faster than the SNES (the loading screen: 2); scale = the logo at rest this share of the image's
+        /// speed = how many times faster than the original sequence (the loading screen: 2); scale = the logo at rest this share of the image's
         /// rectangle, its top edge kept (loading: 0.75); clip = nothing drawn below the logo at rest (loading: "the animation
         /// runs over everything else on the screen").
         public static LogoAnim On(RawImage host, string uiDir, Func<bool> selected = null, bool still = false, float speed = 1f, float scale = 1f, bool clip = false, float screenFrac = 0f)

@@ -11,7 +11,7 @@ namespace HCT15
     /// 2.0.27 (the user, 2026-10-18: "a cutscene when Playa Luna is chosen" - then "make it run BEFORE the race and show
     /// action scenes with the bathers surprised"): an intro played from the moment a race is chosen. tracks\&lt;id&gt;\
     /// cutscene.json { "Slides": [ { "Frames": "cutscene/shot1/{0:000}.jpg", "Count": 40, "Fps": 12 },
-    /// { "Image": "cutscene/2.png", "Seconds": 2.5 } ] } - a slide is an animation (numbered frames, decoded one at a
+    /// { "Image": "cutscene/2.png", "Seconds": 2.5 } ] } - a slide is an animation (numbered frames, one at a
     /// time into one texture, so 120 frames cost one texture) or a still. It starts as soon as the race id is known
     /// while the game is still LOADING (full screen over the loading screen, which keeps loading underneath); if it
     /// is still playing when the race appears, the game is paused (Time.timeScale 0: grid and countdown wait) until it

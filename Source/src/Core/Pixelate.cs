@@ -5,7 +5,7 @@ namespace HCT15
 {
     /// <summary>
     /// Renders the 3D scene at a console-era resolution, so a campaign can look like the machine it came
-    /// from. "PixelHeight" in campaign.json is the number of scan lines to render (224 = the SNES active
+    /// from. "PixelHeight" in campaign.json is the number of scan lines to render (224 = a 16-bit console's active
     /// display); 0, the default, leaves the campaign alone. "Pixelate": false in hct15.settings.json
     /// switches it off everywhere.
     ///
@@ -16,7 +16,7 @@ namespace HCT15
     /// instead of dropping them and keeps distant scenery from crawling as the car moves.
     ///
     /// Only cameras are affected, so a Screen Space - Overlay canvas is not: the HUD, the lap counter and
-    /// the menus stay sharp over a pixelated world. The colour depth is NOT reduced - the SNES's 15-bit
+    /// the menus stay sharp over a pixelated world. The colour depth is NOT reduced - a 16-bit console's 15-bit
     /// BGR555 palette would need a shader to reproduce, and this is geometry-resolution only.
     /// </summary>
     public class Pixelate : MonoBehaviour
@@ -158,7 +158,7 @@ namespace HCT15
             if (src == null || Height <= 0) { Graphics.Blit(src, dst); return; }
             int h = Mathf.Clamp(Height, 32, src.height);
             // square pixels: the width follows the screen's aspect, so a wide screen shows more of the
-            // world rather than stretching the SNES's own 256x224 across it
+            // world rather than stretching a 16-bit console's 256x224 across it
             int w = Mathf.Max(1, Mathf.RoundToInt(h * (float)src.width / Mathf.Max(1, src.height)));
             RenderTexture rt = RenderTexture.GetTemporary(w, h, 0, src.format);
             rt.filterMode = FilterMode.Point;

@@ -55,7 +55,7 @@ namespace HCT15
             try { id = StaticData.Race != null ? StaticData.Race.ItemId : null; } catch (Exception) { }
             if (!race) { if (!StaticData.IsInRace) { _for = null; _t = null; _last.Clear(); } return; }
             Traffic.Tick(); Traffic.TestLog(); Traffic.TestShot();
-            RetroRules.RivalsTick();      // 2.4.1: the 16-bit rivals at their fixed cruise speed (before the andas' caps)
+            RetroRules.RivalsTick();      // 2.4.1: the retro rivals at their fixed cruise speed (before the andas' caps)
             StreetCars.CapRivalsTick();   // 2.0.28: the andas' rivals walk too
             PosLog.Tick();                // 2.1.2: -hct15-poslog
             NitroSkin.TestShot();

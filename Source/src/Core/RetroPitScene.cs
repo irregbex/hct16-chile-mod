@@ -6,16 +6,16 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.4.1 - the Top Gear pit scene (the user's video of the San Francisco pit, 2026-11-07: "on entering, the screen fades;
+    /// 2.4.1 - the retro pit scene (the user's video of a pit stop, 2026-11-07: "on entering, the screen fades;
     /// this animation of the car stopping and the speed going down; no control while the fuel goes in EXCEPT accelerate to
     /// take the car out, which stops the refuel and starts the animation of the car driving off the screen; then the race
     /// comes back with a fade in"). PitLane runs the stop (phases, speed, fuel, the accelerate press); this draws it over the
     /// race for player 0, under the HUD, at the race's own pixel size:
-    ///   the pit lane seen from above (fx\pit_lane.png, Herramientas-TopGear\tg_pitlane.py: Claude's redraw from the video)
-    ///   scrolling under the car's top sprite (cars\sprites\&lt;car&gt;\top.png, from the ROM, nose to the left), which comes in
+    ///   the pit lane seen from above (fx\pit_lane.png, the campaign's own tool: Claude's redraw from the video)
+    ///   scrolling under the car's top sprite (cars\sprites\&lt;car&gt;\top.png, from the campaign data, nose to the left), which comes in
     ///   from the right braking (PITSTOP, SLOW), stands at the STOP line, and drives off to the left past GO;
     ///   the fades: a blue flash then black on the way in, black between the scene and the race on the way out.
-    /// The view is the pit lane's 112 lines across the screen's height (the SNES showed it in its 112-line half).
+    /// The view is the pit lane's 112 lines across the screen's height (a 16-bit racer showed it in its 112-line half).
     /// </summary>
     public static class RetroPitScene
     {
@@ -52,7 +52,7 @@ namespace HCT15
         {
             string id = null;
             try { id = car.View.Controller.CarModel.ItemId; } catch (Exception) { }
-            if (string.IsNullOrEmpty(id)) id = "tg_car1";
+            if (string.IsNullOrEmpty(id)) id = RetroRules.FallbackCar;
             Texture2D t;
             if (_tops.TryGetValue(id, out t)) return t;
             t = null;

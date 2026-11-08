@@ -6,7 +6,7 @@ namespace HCT15
 {
     /// <summary>
     /// 2.4.1 - the fly-in before each race of a RetroRules campaign (the user, 2026-11-07: "the intro to each race of the
-    /// original game is missing - a flyby towards the cars"). The SNES pre-race sequence was not decoded frame by frame, so
+    /// original game is missing - a flyby towards the cars"). The 16-bit pre-race sequence was not frame by frame, so
     /// this is the game's own scene seen from a second camera (like PitCamera): it starts high over the grid looking down
     /// the road, flies down towards the cars and settles exactly on the race camera behind the player, then hands over.
     /// The game's own wait before the countdown (GameManager m_timeElapsed) is held until the flight is done, so the

@@ -8,17 +8,18 @@ namespace HCT15
 {
     /// <summary>
     /// 2.4.2 - the country qualification of a retro campaign (the user, 2026-11-07: "when the player or players complete a
-    /// country, those in the first 3 places go on to the next and the others are out of the game; the jingle
-    /// 06_jingle_oneshot.wav plays; the qualified drivers stand together, dressed in their cars' colours, over the left 3/4 of
-    /// the screen; the right quarter says who qualified, in order; under them CONGRATULATIONS / YOU QUALIFIED FOR THE NEXT
-    /// COUNTRY / PASSWORD ..." - a placeholder picture of our own, not the SNES scene).
+    /// country, those in the first 3 places go on to the next and the others are out of the game; a jingle plays; the
+    /// qualified drivers stand together, dressed in their cars' colours, over the left 3/4 of the screen; the right quarter
+    /// says who qualified, in order; under them CONGRATULATIONS / YOU QUALIFIED FOR THE NEXT COUNTRY / PASSWORD ...").
+    /// 2.4.3: the jingle (campaign.json "QualifyJingle"), the background ("QualifyBackground") and each car's pictures and
+    /// colour ("RetroCarLooks") come from the campaign; without them, the mod's own placeholder drawings (fx\qualify_*.png).
     ///   points per race (the game's rule): 20 15 12 10 8 6 4 3 2 1 for 1st..10th, summed over the country's 4 races;
     ///   after the country's last race the table is shown: the humans in the top 3 qualify; if one does, the next country
     ///   opens (campaign.json "CountryGate": true closes the countries not reached) and its password ("Passwords", one per
     ///   country, our own words) is shown - typed on the campaign screen it opens that country again later.
-    ///   Progress: Saves\...\topgear_progress.json (the last result of every round, the countries qualified, passwords used).
+    ///   Progress: Saves\...\<campaign folder>_progress.json (the last result of every round, the countries qualified, passwords used).
     /// </summary>
-    public static class TopGearQualify
+    public static class RetroQualify
     {
         public static readonly int[] Points = { 20, 15, 12, 10, 8, 6, 4, 3, 2, 1 };
 
@@ -174,8 +175,8 @@ namespace HCT15
     {
         private static readonly bool QualifyTest = Array.Exists(Environment.GetCommandLineArgs(), x => string.Equals(x, "-hct15-qualifytest", StringComparison.OrdinalIgnoreCase));
         private bool _done, _show; private float _t0; private string _raceId; private ModCampaign _camp;
-        private readonly List<TopGearQualify.Standing> _qualified = new List<TopGearQualify.Standing>();
-        private readonly List<TopGearQualify.Standing> _out = new List<TopGearQualify.Standing>();
+        private readonly List<RetroQualify.Standing> _qualified = new List<RetroQualify.Standing>();
+        private readonly List<RetroQualify.Standing> _out = new List<RetroQualify.Standing>();
         private string _password = ""; private bool _final, _none;
         private Texture2D _bg, _body, _suit;
         private readonly Dictionary<string, Texture2D> _txt = new Dictionary<string, Texture2D>();
@@ -195,17 +196,17 @@ namespace HCT15
         {
             var mc = _camp ?? ModCampaigns.Active; string rid = _raceId;
             if (mc == null || mc.Def == null) { Debug.Log("[HCT15] qualification: no campaign for " + rid); return; }
-            var p = TopGearQualify.Load(mc.Folder);
-            var rr = TopGearQualify.Capture(game, rid);
+            var p = RetroQualify.Load(mc.Folder);
+            var rr = RetroQualify.Capture(game, rid);
             p.Rounds.RemoveAll(x => x.RaceId == rid);
             p.Rounds.Add(rr);
             bool last;
-            int c = TopGearQualify.CountryOf(mc.Def, rid, out last);
+            int c = RetroQualify.CountryOf(mc.Def, rid, out last);
             Debug.Log("[HCT15] qualification: " + rid + " recorded (" + rr.Results.Count + " cars, country " + c + (last ? ", its last race" : "") + ")");
             if (QualifyTest) last = true;   // "-hct15-qualifytest": any race closes its country (screenshots)
             if (c >= 0 && last)
             {
-                var table = TopGearQualify.Table(mc.Def, p, c);
+                var table = RetroQualify.Table(mc.Def, p, c);
                 for (int i = 0; i < table.Count; i++)
                 {
                     if (!table[i].Human) continue;
@@ -221,14 +222,16 @@ namespace HCT15
                 _show = true; _t0 = Time.time;
                 Jingle();
             }
-            TopGearQualify.Save();
+            RetroQualify.Save();
         }
 
         private void Jingle()
         {
             try
             {
-                if (MusicPlayer.Instance != null) MusicPlayer.Instance.PlayJingle("Menu/TopGear/06_jingle_oneshot.wav");
+                var mc = _camp ?? ModCampaigns.Active;
+                string j = mc != null && mc.Def != null ? mc.Def.QualifyJingle : null;
+                if (!string.IsNullOrEmpty(j) && MusicPlayer.Instance != null) MusicPlayer.Instance.PlayJingle(j);
             }
             catch (Exception ex) { Debug.LogWarning("[HCT15] qualification jingle: " + ex.Message); }
         }
@@ -268,18 +271,22 @@ namespace HCT15
             if (!_show) return;
             float age = Time.time - _t0;
             if (age > 14f || (age > 2.5f && Input.anyKeyDown)) { _show = false; return; }
-            if (_bg == null) { _bg = Load("TopGearAPodium.png") ?? Load("qualify_bg.png"); _body = Load("qualify_driver.png"); _suit = Load("qualify_suit.png"); }
+            if (_bg == null)
+            {
+                var mc = _camp ?? ModCampaigns.Active;
+                string bg = mc != null && mc.Def != null ? mc.Def.QualifyBackground : null;
+                _bg = (!string.IsNullOrEmpty(bg) ? Load(bg) : null) ?? Load("qualify_bg.png"); _body = Load("qualify_driver.png"); _suit = Load("qualify_suit.png"); }
             GUI.depth = -1000;
             float W = Screen.width, H = Screen.height, px = Mathf.Max(1f, Mathf.Round(H / 224f));
             if (_bg != null) GUI.DrawTexture(new Rect(0, 0, W, H), _bg);
             else { GUI.color = new Color(0.1f, 0.2f, 0.5f); GUI.DrawTexture(new Rect(0, 0, W, H), Texture2D.whiteTexture); GUI.color = Color.white; }
             float bandTop = H * 0.74f;
             // the drivers, all in a row over the left three quarters: the qualified (Win picture) then the ones out (Loss),
-            // each in his car's colour - the user's pictures fx\TG-<A..D>-<Colour><Win|Loss>.png (256 x 224 frames, the driver
-            // in their left 64 columns, standing at his own height in the frame); the placeholder drawing when they are missing
-            var row = new List<KeyValuePair<TopGearQualify.Standing, bool>>();
-            foreach (var s in _qualified) row.Add(new KeyValuePair<TopGearQualify.Standing, bool>(s, true));
-            foreach (var s in _out) row.Add(new KeyValuePair<TopGearQualify.Standing, bool>(s, false));
+            // each in his car's colour - the campaign's pictures fx\<RetroCarLooks Picture><Win|Loss>.png (256 x 224 frames, the
+            // driver in their left 64 columns, standing at his own height in the frame); the placeholder drawing when they are missing
+            var row = new List<KeyValuePair<RetroQualify.Standing, bool>>();
+            foreach (var s in _qualified) row.Add(new KeyValuePair<RetroQualify.Standing, bool>(s, true));
+            foreach (var s in _out) row.Add(new KeyValuePair<RetroQualify.Standing, bool>(s, false));
             float sx = W / 256f, sy = H / 224f;
             for (int i = 0; i < row.Count; i++)
             {
@@ -327,18 +334,14 @@ namespace HCT15
             }
         }
 
-        private int IndexIn(TopGearQualify.Standing s) { return _qualified.IndexOf(s); }
-
-        private static readonly Dictionary<string, string> Pictures = new Dictionary<string, string>
-        {
-            { "tg_car1", "TG-A-Red" }, { "tg_car2", "TG-B-White" }, { "tg_car3", "TG-C-Purple" }, { "tg_car4", "TG-D-Teal" },
-        };
+        private int IndexIn(RetroQualify.Standing s) { return _qualified.IndexOf(s); }
 
         private Texture2D Driver(int player, bool win)
         {
-            string car = RetroHud.PlayerCarId(player), stem;
-            if (!Pictures.TryGetValue(car ?? "", out stem)) stem = "TG-A-Red";
-            string name = stem + (win ? "Win" : "Loss") + ".png";
+            // 2.4.3: campaign.json "RetroCarLooks" - the car's own picture stem, else the fallback car's, else none
+            RetroCarLook look = RetroRules.Look(RetroHud.PlayerCarId(player)) ?? RetroRules.Look(RetroRules.FallbackCar);
+            if (look == null || string.IsNullOrEmpty(look.Picture)) return null;
+            string name = look.Picture + (win ? "Win" : "Loss") + ".png";
             Texture2D t;
             if (!_drivers.TryGetValue(name, out t)) { t = Load(name); _drivers[name] = t; }
             return t;
@@ -361,7 +364,7 @@ namespace HCT15
                 {
                     if (_typed.Length > 0)
                     {
-                        string c = TopGearQualify.TryPassword(_typed);
+                        string c = RetroQualify.TryPassword(_typed);
                         _msg = c != null ? "OK: " + c.ToUpperInvariant() : "WRONG PASSWORD"; _msgAt = Time.time; _typed = "";
                     }
                 }

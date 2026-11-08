@@ -113,7 +113,7 @@ namespace HCT15
         public bool ReleaseControllerOnExit = false;   // 2.2.0: off by default (a developer's tool for Bluetooth pads; its script is not shipped)
 
         /// <summary>Let a campaign render the world at its console's resolution ("PixelHeight" in its
-        /// campaign.json, e.g. 224 scan lines for the SNES). False keeps every campaign sharp (HCT15\Pixelate.cs).</summary>
+        /// campaign.json, e.g. 224 scan lines for 16-bit racers). False keeps every campaign sharp (HCT15\Pixelate.cs).</summary>
         public bool Pixelate = true;
 
         /// <summary>Start on the display you want every time: DisplayWidth x DisplayHeight, full screen or not (the game kept forgetting it between runs). Skipped when -screen-width/-screen-fullscreen are on the command line.</summary>

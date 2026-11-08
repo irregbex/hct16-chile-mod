@@ -300,7 +300,7 @@ namespace HCT15
             if (_forced >= 0f) p = _forced;
             else if (_def.Mode == "time" && _def.Seconds > 0f)
             {
-                // 2.4.1: seconds of RACE time, counted from the green light like the SNES Top Gear clock (its day/night
+                // 2.4.1: seconds of RACE time, counted from the green light like a 16-bit racer's clock (its day/night
                 // switch comes at a fixed frame count of the race), not from the swap during the countdown
                 var game = RRApplication.Instance.Game;
                 if (pe.RaceT0 < 0f && game != null && game.HasGameStarted) pe.RaceT0 = Time.time;
@@ -313,7 +313,7 @@ namespace HCT15
             p = Mathf.Clamp01(p);
             Progress[track.PlayerId < 0 ? 0 : Mathf.Min(track.PlayerId, 3)] = p;
             if (track.PlayerId <= 0) NightAny = _def.Recipe != null && _def.Recipe.Preset != null && _def.Recipe.Preset.Contains("night") ? Mathf.Clamp01(p / Mathf.Max(0.05f, _def.Recipe.NightAt)) : 0f;
-            NightNow[track.PlayerId < 0 ? 0 : Mathf.Min(track.PlayerId, 3)] = _def.Recipe != null && _def.Recipe.Preset != null && _def.Recipe.Preset.StartsWith("tg_") ? EnvComposer.TgNight(_def.Recipe, p) : 0f;
+            NightNow[track.PlayerId < 0 ? 0 : Mathf.Min(track.PlayerId, 3)] = _def.Recipe != null && _def.Recipe.Preset != null && _def.Recipe.Preset.StartsWith("retro_") ? EnvComposer.RetroNight(_def.Recipe, p) : 0f;
             if (pe.PendingSun != null && p >= _def.SunTextureFrom)
             {
                 try { pe.Env.SetSun(pe.PendingSun); Debug.Log("[HCT15] environment timeline: sun texture " + _def.SunTexture + " in at progress " + p.ToString("0.00") + " for player " + track.PlayerId); }
@@ -327,7 +327,7 @@ namespace HCT15
 
         /// <summary>The race progress each player's sky was last sampled at (night lights and fireworks read it).</summary>
         public static readonly float[] Progress = new float[4];
-        /// <summary>2.4.2: 0 = day, 1 = night for each player's sky on the Top Gear (tg_*) presets - the headlights read it.</summary>
+        /// <summary>2.4.2: 0 = day, 1 = night for each player's sky on the retro_* presets - the headlights read it.</summary>
         public static readonly float[] NightNow = new float[4];
         /// <summary>2.4.2: how dark player 0's sky is now, 0..1, for any recipe (progress against its NightAt) - the LED halos.</summary>
         public static float NightNowAny() { return NightAny; }

@@ -91,7 +91,7 @@ namespace HCT15
             foreach (var kv in seen) if (kv.Key != null && !donorPrefabs.ContainsKey(kv.Key.name)) donorPrefabs[kv.Key.name] = kv.Key;
             try { GameProps.Capture(def.DonorScene, donorPrefabs.Values); } catch (Exception ex) { Debug.LogWarning("[HCT15] game props capture: " + ex.Message); }
 
-            // 2.4.1 RetroRules (the Top Gear campaign; the user: "no power-ups, coins, fuel cans or nitros - the original did
+            // 2.4.1 RetroRules (the retro campaign; the user: "no power-ups, coins, fuel cans or nitros - the original did
             // not have them"): every collectible of the donor stays off the road; only the finish gantry is kept
             bool retro = ModCampaigns.RetroOf(def.ItemId) != null;
             if (retro)
@@ -167,8 +167,8 @@ namespace HCT15
             float signScale = 1f;
             foreach (var s in signs) { if (!signPrefabs.Contains(s.Prefab)) signPrefabs.Add(s.Prefab); signScale = s.Scale > 0 ? s.Scale : signScale; }
             int signCount = 0;
-            // 2.4.1: a campaign that keeps the donor's decor out (DonorDecor 0, the Top Gear one) gets no generated turn
-            // signs either - its own ROM sprites carry the curve signs, and the donor's 3-D arrows stood among them
+            // 2.4.1: a campaign that keeps the donor's decor out (DonorDecor 0, the retro one) gets no generated turn
+            // signs either - its own original sprites carry the curve signs, and the donor's 3-D arrows stood among them
             float decorForSigns = ModCampaigns.DonorDecorOf(def.ItemId);   // the campaign's key only: a track-level 0 (the Antarctic base) keeps its signs
             if (signPrefabs.Count > 0 && Settings.Data.RegenerateSigns && decorForSigns > 0.001f)
                 signCount = PlaceSigns(result, def.Waypoints, signPrefabs, signScale, rng);
@@ -179,7 +179,7 @@ namespace HCT15
             int pitSignCount = 0;
             // A donor stage that carries no sign prefab of its own used to get NO pit signs at all, so the
             // lane arrived with nothing announcing it: fall back on the pit board, the mod's own marker.
-            // 2.4.1: not in a campaign that keeps the donor's decor out (Top Gear: the ROM's own PITS sprite marks the entry)
+            // 2.4.1: not in a campaign that keeps the donor's decor out (retro campaign: the campaign's own PITS sprite marks the entry)
             if (pitSide != 0 && decorForSigns > 0.001f)
                 pitSignCount = signPrefabs.Count > 0
                     ? PlacePitSigns(result, def, signPrefabs, signScale, pitSide)
@@ -506,7 +506,7 @@ namespace HCT15
                     SplinePercentage = Mathf.Repeat(t.P, 1f),
                     Position = t.Side == 0 ? PropPosition.Center : t.Side < 0 ? PropPosition.Left : PropPosition.Right,
                     // 2.4.1: a pixel sprite may stand nearer than the prop line (negative Dist, down to the road edge): the
-                    // Top Gear objects are where the ROM has them, not 2 units further out
+                    // Retro objects are where the original has them, not 2 units further out
                     TrackOffset = t.Side == 0 ? 0f : (!string.IsNullOrEmpty(t.Sprite) ? Mathf.Max(-EdgeGap, t.Dist) : Mathf.Max(0f, t.Dist)) / LANE,
                     Scale = scale,
                     Prefab = prefab,

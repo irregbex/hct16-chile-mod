@@ -374,7 +374,7 @@ namespace HCT15
             {
                 RawImage ri = logo.GetComponent<RawImage>();
                 ri.texture = LogoTexture; ri.color = Color.white; ri.uvRect = new Rect(0f, 0f, 1f, 1f);
-                // 2.4.1: a campaign with an animated logo (assets\ui\logo_anim.*, Top Gear's SNES title) shows it finished on its card
+                // 2.4.1: a campaign with an animated logo (assets\ui\logo_anim.*, a retro title) shows it finished on its card
                 CampaignItemViewModel cvm = blade.GetComponent<CampaignItemViewModel>();
                 LogoAnim.On(ri, System.IO.Path.Combine(AssetsDir, "ui"), null, still: true, screenFrac: 0.221f);   // 2.4.2: the same size as on the loading screen   // 2.4.1 the user: static on the card, its animation already done
             }
@@ -465,7 +465,7 @@ namespace HCT15
                     if (c.Def != null) _all.Add(c);
                 }
                 // the blades' order: campaign.json "Order" (lower first); unset = the F1 campaign leads as before
-                // and the rest follow in folder order (2026-09-24: chile 10, aventura_chile 20, top_gear 30)
+                // and the rest follow in folder order (2026-09-24: chile 10, aventura_chile 20, retro 30)
                 Func<ModCampaign, int> rank = c => c.Def.Order > 0 ? c.Def.Order : (c.Folder == "f1_2026" ? 0 : 50);
                 _all.Sort((a, b) => { int r = rank(a).CompareTo(rank(b)); return r != 0 ? r : string.Compare(a.Folder, b.Folder, StringComparison.OrdinalIgnoreCase); });
                 var order = new List<string>(); foreach (var c in _all) order.Add(c.Folder + " (" + rank(c) + ")");
@@ -574,7 +574,7 @@ namespace HCT15
         /// ("MusicAlbums") plays only while the player is inside that campaign - menus and races both,
         /// which is what IsActive means. An album nobody claims plays anywhere, as before.
         /// The album is the path under HCT15Music\Menu or HCT15Music\Race as MusicPlayer builds it
-        /// ("TopGear", or "TopGear / something" for a nested folder), so a claim matches a sub-folder too.
+        /// ("Retro", or "Retro / something" for a nested folder), so a claim matches a sub-folder too.
         /// </summary>
         /// <summary>2.0.15: may a RACE track of this album play in the running campaign (its "RaceMusicOnly")?</summary>
         public static bool RaceMusicAllowed(string album)

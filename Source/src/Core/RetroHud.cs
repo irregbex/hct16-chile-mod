@@ -7,12 +7,12 @@ using UnityEngine.UI;
 namespace HCT15
 {
     /// <summary>
-    /// 2.4.1 - the race HUD of a RetroRules campaign drawn the way the 16-bit Top Gear laid it out (the user, 2026-11-07:
-    /// "change the interface to look like Top Gear's in that campaign"; layout from the user's own SNES screenshot): the
+    /// 2.4.1 - the race HUD of a RetroRules campaign drawn the way a 16-bit racer laid it out (the user, 2026-11-07:
+    /// "change the interface to look like the retro campaign's in that campaign"; layout from the user's own 16-bit screenshot): the
     /// minimap top left; top right the rising speed bar (green -> red), the speed in red LED digits over "km/h" and the race
-    /// clock; bottom left the nitros (N x n) and the gear (AUTO:n, the ROM's own shift points); bottom right the place
+    /// clock; bottom left the nitros (N x n) and the gear (AUTO:n, the campaign's own shift points); bottom right the place
     /// (20TH) and the upright fuel gauge F..E. Everything is drawn here (a 5x7 pixel font of our own, flat colours) at whole
-    /// multiples of the 224-line SNES screen; nothing is taken from the original's graphics. The game's own HUD is hidden
+    /// multiples of the 224-line 16-bit screen; nothing is taken from the original's graphics. The game's own HUD is hidden
     /// element by element (HideGameHud), so its countdown and speech bubbles stay.
     /// </summary>
     public class RetroHud : MonoBehaviour
@@ -73,7 +73,16 @@ namespace HCT15
         // blurred with distance) are sampled nearest and always from their full-size level; no anisotropic filtering, no MSAA.
         // Pixelate's downscale takes nearest samples too in these races.
         private float _nextSharp;
-        private static readonly string[] SharpNames = { "road_strip", "strip_", "backdrop", "ground", "tg_", "HCT15" };
+        private static readonly string[] SharpNames = { "road_strip", "strip_", "backdrop", "ground", "HCT15" };   // + campaign.json "RetroSharpTextures" (2.4.3)
+
+        private static bool IsSharp(string name)
+        {
+            foreach (string k in SharpNames) if (name.StartsWith(k, StringComparison.OrdinalIgnoreCase)) return true;
+            F1CampaignDef c = RetroRules.Current;
+            if (c != null && c.RetroSharpTextures != null)
+                foreach (string k in c.RetroSharpTextures) if (!string.IsNullOrEmpty(k) && name.StartsWith(k, StringComparison.OrdinalIgnoreCase)) return true;
+            return false;
+        }
         private int _sharpLogged;
         private int _keepAniso = -1, _keepAA = -1;
 
@@ -88,8 +97,7 @@ namespace HCT15
                 foreach (Texture2D t in Resources.FindObjectsOfTypeAll<Texture2D>())
                 {
                     if (t == null || string.IsNullOrEmpty(t.name)) continue;
-                    bool ours = false; foreach (string k in SharpNames) if (t.name.StartsWith(k, StringComparison.OrdinalIgnoreCase)) { ours = true; break; }
-                    if (!ours || (t.filterMode == FilterMode.Point && t.mipMapBias <= -8f)) continue;
+                    if (!IsSharp(t.name) || (t.filterMode == FilterMode.Point && t.mipMapBias <= -8f)) continue;
                     t.filterMode = FilterMode.Point; t.anisoLevel = 0; t.mipMapBias = -16f; n++;
                 }
                 if (n > 0 && _sharpLogged++ < 3) Debug.Log("[HCT15] retro: " + n + " track texture(s) set to hard pixels (nearest, full-size level)");
@@ -180,10 +188,10 @@ namespace HCT15
             var app = RRApplication.Instance;
             if (Event.current.type != EventType.Repaint || app == null || app.Game == null || !RetroRules.Active || _raceT0 < 0f) return;
             if (app.Game.PlayerCars == null || app.Game.PlayerCars.Count == 0) return;
-            if (app.Game.HasResultShown || ResultsUp()) return;   // the results table is its own screen, as on the SNES
+            if (app.Game.HasResultShown || ResultsUp()) return;   // the results table is its own screen, as 16-bit racers did
             if (_white == null) { _white = new Texture2D(1, 1); _white.SetPixel(0, 0, Color.white); _white.Apply(); }
             // 2.4.2 (the user's 2-player video): one HUD per human player, inside his own part of the split screen (his race
-            // camera's viewport), sized by that part's height - as the SNES drew a HUD in each half
+            // camera's viewport), sized by that part's height - as a 16-bit racer drew a HUD in each half
             foreach (PlayerCar pc in app.Game.PlayerCars)
             {
                 if (pc == null) continue;
@@ -200,9 +208,9 @@ namespace HCT15
         private void DrawFor(PlayerCar car, float W, float H)
         {
             int s = Mathf.Max(1, (int)(H / 224f));
-            RetroPitScene.Draw(car, W, H);   // 2.4.1: the pit scene, behind the HUD (as on the SNES)
+            RetroPitScene.Draw(car, W, H);   // 2.4.1: the pit scene, behind the HUD (as 16-bit racers did)
 
-            // speed in Top Gear km/h: the game's raw km/h x (234 / the red car's raw top), the ROM's units for the gear
+            // speed in retro km/h: the game's raw km/h x (234 / the red car's raw top), the original's units for the gear
             float raw = car.CarEngine != null ? car.CarEngine.CurrentSpeedKPH : car.CurrentSpeedKPH;
             var def = RetroRules.Current;
             float tg = raw * 234f / Mathf.Max(1f, def != null ? def.RetroTopKph : 395f);
@@ -262,14 +270,14 @@ namespace HCT15
                 GUI.DrawTexture(new Rect(Mathf.Round(W * 0.5f - nw * 0.5f), Mathf.Round(56 * s + 7 * s - nh * 0.5f), nw, nh), nitroPic);
             }
 
-            // the ROM's "RACE OVER" (message 35, blinking on a 6-frame period) once the car has crossed the line
+            // the original's "RACE OVER" once the car has crossed the line
             if (RetroFinish.OverFor(car.PlayerId) && ((int)(Time.time * 10f)) % 2 == 0)
             {
                 const string over = "RACE OVER";
                 Text(over, Mathf.Round(W * 0.5f - over.Length * 6 * s), 56 * s, 2 * s, Color.white);
             }
 
-            // the ROM's pit arrow (messages 126/127, blinking): from $1000 units before the pit until its sign, pointing to its side
+            // the original's pit arrow: from 4096 units before the pit until its sign, pointing to its side
             int arrow = PitLane.ArrowFor(car);
             if (arrow != _lastArrow) { _lastArrow = arrow; Debug.Log("[HCT15] retro hud: pit arrow " + (arrow == 0 ? "off" : arrow > 0 ? "on (right)" : "on (left)")); }
             if (arrow != 0 && ((int)(Time.time * 10f)) % 2 == 0)
@@ -307,7 +315,7 @@ namespace HCT15
 
         private void LateUpdate()
         {
-            // the SNES speech balloons ride on each player's sprite car (RetroCarFx), at that car's own pixel size
+            // 16-bit racers speech balloons ride on each player's sprite car (RetroCarFx), at that car's own pixel size
             if (RetroRules.Active && Time.unscaledTime > _nextAttach) { _nextAttach = Time.unscaledTime + 1f; RetroTaunts.AttachAll(); }
             // "-hct15-nitrotest": fire a nitro every 5 s from the green light (screenshots of the NITRO text and the flames)
             if (NitroTest && _raceT0 > 0f && Time.time > _nextNitro && Time.time - _raceT0 > 3f)
@@ -396,18 +404,11 @@ namespace HCT15
             return tex;
         }
 
-        private static readonly Dictionary<string, Color> CarColours = new Dictionary<string, Color>
-        {
-            { "tg_car1", new Color(0.86f, 0.12f, 0.12f) }, { "tg_car2", new Color(0.93f, 0.93f, 0.97f) },
-            { "tg_car3", new Color(0.62f, 0.20f, 0.70f) }, { "tg_car4", new Color(0.25f, 0.58f, 0.78f) },
-        };
-
-        /// <summary>2.4.2: a human player's car colour (the qualification screen dresses the driver in it).</summary>
-        /// <summary>2.4.2: a human player's car id (tg_car1..4).</summary>
+        /// <summary>2.4.2: a human player's car id (2.4.3: the campaign's fallback car when it cannot be read).</summary>
         public static string PlayerCarId(int playerId)
         {
             try { foreach (PlayerCar pc in RRApplication.Instance.Game.PlayerCars) if (pc.PlayerId == playerId) return pc.View.Controller.CarModel.ItemId; } catch (Exception) { }
-            return "tg_car1";
+            return RetroRules.FallbackCar;
         }
 
         public static Color PlayerColour(int playerId)
@@ -420,8 +421,8 @@ namespace HCT15
         {
             string id = null;
             try { id = pc.View.Controller.CarModel.ItemId; } catch (Exception) { }
-            Color c;
-            return id != null && CarColours.TryGetValue(id, out c) ? c : new Color(0.9f, 0.1f, 0.1f);
+            RetroCarLook look = RetroRules.Look(id);   // 2.4.3: campaign.json "RetroCarLooks"
+            return RetroRules.ParseColour(look != null ? look.Colour : null, new Color(0.9f, 0.1f, 0.1f));
         }
 
         private EnemyCar _lead;
@@ -452,7 +453,7 @@ namespace HCT15
             GUI.color = c; GUI.DrawTexture(new Rect(x, y, w, h), _white); GUI.color = Color.white;
         }
 
-        /// <summary>Text in the 5x7 pixel font, each font pixel px screen pixels, with a dark drop outline (the SNES HUD look).</summary>
+        /// <summary>Text in the 5x7 pixel font, each font pixel px screen pixels, with a dark drop outline (16-bit racers HUD look).</summary>
         private void Text(string text, float x, float y, float px, Color c)
         {
             for (int pass = 0; pass < 2; pass++)
@@ -466,7 +467,7 @@ namespace HCT15
                     if (Font.TryGetValue(ch, out g))
                         for (int row = 0; row < 7; row++)
                             for (int col2 = 0; col2 < 5; col2++)
-                                if (g[row][col2] == '#') Box(cx + col2 * px + (6 - row) * px * 0.2f, cy + row * px, px, px, col);   // a slight italic, like the SNES font
+                                if (g[row][col2] == '#') Box(cx + col2 * px + (6 - row) * px * 0.2f, cy + row * px, px, px, col);   // a slight italic, like 16-bit racers font
                     cx += 6 * px;
                 }
             }

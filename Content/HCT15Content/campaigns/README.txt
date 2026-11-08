@@ -18,25 +18,25 @@ Keys in campaign.json
                                                test one track. Empty = round 1.
   "CarIds": [...]                              optional: restrict the cars (empty = all)
   "Order": 30                                  place among the campaign blades, lower first (chile 10,
-                                               aventura_chile 20, top_gear 30; unset: f1_2026 leads, others 50)
-  "MenuMusic": "Menu/TopGear/01_title_theme.wav"  the menu track that starts the moment the campaign
+                                               aventura_chile 20, a retro campaign 30; unset: f1_2026 leads, others 50)
+  "MenuMusic": "Menu/Retro/01_title_theme.wav"    the menu track that starts the moment the campaign
                                                screen opens (a file under HCT15Music); the rotation follows it
   "NowPlaying": false                          no "now playing" card with the track name inside this
-                                               campaign (top_gear; default true)
+                                               campaign (a retro campaign; default true)
   "LoadingLogoScale": 1.5                      the loading screen's logo this much bigger, about its centre
-                                               (top_gear 1.5; default 1); a logo that would leave the top
+                                               (a retro campaign: 1.5; default 1); a logo that would leave the top
                                                of the screen is slid down just enough to stay on it. Every
                                                UI override is undone when the campaign is left.
   assets\ui\<sprite>.png                       replaces that UI image on the skinned screens (campaign
                                                selection, campaign, car selection, mode selection, LOADING);
-                                               originals\INDEX.txt lists the names. top_gear: english.png
+                                               originals\INDEX.txt lists the names. A retro campaign: english.png
                                                (loading-screen logo) + a transparent english_turbo.png
   "DonorDecor": 0.0                            how much of the donor stage's own decor stays along the lap
-                                               (1 = the settings' density; top_gear 0: only its pixel sprites)
-  "Grandstands": 0                             grandstands on the start straight / bends (-1 = settings; top_gear 0)
-  "PitOverhead": true                          the pit stop seen from above (top_gear)
-  "PitCrew": false                             no 3-D mechanics at the stop (top_gear: the 16-bit pit had none)
-  "BubbleScale": 2.0                           speech bubbles this much bigger in this campaign (top_gear: 2,
+                                               (1 = the settings' density; a retro campaign: 0, only its pixel sprites)
+  "Grandstands": 0                             grandstands on the start straight / bends (-1 = settings; a retro campaign: 0)
+  "PitOverhead": true                          the pit stop seen from above (a retro campaign)
+  "PitCrew": false                             no 3-D mechanics at the stop (a retro campaign: 16-bit pits had none)
+  "BubbleScale": 2.0                           speech bubbles this much bigger in this campaign (a retro campaign: 2,
                                                its 224-line world made them unreadable; default 1)
   "Blade", "Logo"                              images (1024x1024)
   "Rounds": [{ "RaceId", "Title", ... }]       the rounds, in order; RaceId = a folder in ..\tracks\
@@ -66,8 +66,8 @@ Per-round keys, inside "Rounds"
   "NoHud": true                                hide the HUD
   "Difficulty": 1..3                           rival strength (0 = the campaign's own ramp)
 
-Campaigns shipped: chile (73 city laps, FreePlay), f1_2026 (the 2026 grid), top_gear (the SNES cars as
-sprites) and aventura_chile (50 challenges in 10 chapters on the Chile laps, top-3 to advance, no pits;
+Campaigns shipped: chile (73 city laps, FreePlay), f1_2026 (the 2026 grid)
+and aventura_chile (50 challenges in 10 chapters on the Chile laps, top-3 to advance, no pits;
 built by Tools\aventura_chile_build.py - see its README.txt and ..\AVENTURA-CHILE-PROPUESTA.txt for the
 version with new tracks that is planned). A lap can belong to several campaigns: the one the player is
 inside decides its pits, drivers, taunts and rules.
@@ -86,3 +86,23 @@ Other files per campaign
   drivers.txt                names for the rival drivers on the results board and podium (Chile:
                              48 Chilean names, written on first run; edit freely)
   assets\ui\                 screen images (background.png, sprite overrides), originals\ = dumps
+  texts.json                 (2.4.3) the campaign's own texts, added to the mod's: {"en": {"key": "text"}, "es": {...}}
+                             - e.g. the NameKey / DescKey of its cars in ..\cars\streetcars.json
+
+Retro campaign keys (2.4.1-2.4.3, campaign.json; no campaign shipped here uses them yet)
+  "RetroRules": true                           16-bit style rules: no pickups, no fuel lost in crashes, fuel burnt at
+                                               race.json FuelTankSeconds, rivals at a fixed cruise speed (no rubber
+                                               band), a simple pit stop, its own HUD, fly-in intro and race end
+  "RetroRivals": [{ "Name", "Base", "Edge" }]  the rivals, grid order from the back; cruise = Base + 2 x random(0..255)
+                                               + race.json RetroDifficulty; Edge > 0 = the favourite
+  "RetroComputer", "RetroComputerName", "RetroComputerEdge"   the reference CPU car's cruise, board name and edge
+  "RetroTopKph", "RetroTopUnits"               player units -> the game's km/h
+  "RetroCars", "RetroFuel"                     car ids and their fuel consumption (100 = the reference)
+  "RetroCarLooks": [{ "Car", "Colour", "Picture" }]   HUD minimap colour ("#RRGGBB") and qualification pictures
+                                               (fx\<Picture>Win.png / Loss.png) per car; the first is the fallback car
+  "RetroSharpTextures": ["prefix_"]            more texture-name prefixes drawn with hard pixels
+  "Countries": [{ "Name", "Flag", "Rounds" }]  rounds grouped by country; after a country's last round the top 3
+                                               humans qualify (points 20-15-12-10-8-6-4-3-2-1)
+  "CountryGate", "Passwords"                   countries open one by one / a password per country
+  "QualifyJingle", "QualifyBackground"         a file under HCT15Music / a picture in fx\ for the qualification screen
+  environment.json presets retro_day, retro_night, retro_day_to_night, retro_night_to_day: a flat sky that switches once

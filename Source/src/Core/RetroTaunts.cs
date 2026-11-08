@@ -6,24 +6,24 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.4.1 - the speech balloons of a RetroRules campaign, as the 16-bit Top Gear drew them (the user, 2026-11-07, with six
+    /// 2.4.1 - the speech balloons of a RetroRules campaign, as a 16-bit racer drew them (the user, 2026-11-07, with six
     /// 45x21 balloon pictures: crash "AAARGH", "ARE YOU BLIND?", "WHAT THE HECK??"; first place "LET'S GO!"; overtake "MOVE
     /// THE WRECK!", "OUTTA MY WAY!!"; "the point where it joins the car's left window is at 26,21").
     ///
     /// The pictures live in campaigns\&lt;folder&gt;\balloons\&lt;section&gt;-&lt;words&gt;.png (section = crash, overtake, first_place;
-    /// any PNG drawing works, the tail tip at TailX,TailY). Game data (decoder docs 11-speech-balloons-messages): the balloon
+    /// any PNG drawing works, the tail tip at TailX,TailY). The balloon
     /// is always the player's OWN car's comment, drawn over that player's view; the computer cars' balloons are never shown;
     /// a qualifying car contact or a hard object hit gives one 4 times in 16; two contacts close together (the "heat" byte:
     /// +$30 a contact, -1 a tick, >= $50) always give one. Claude's decisions: the user's sections decide which picture goes
-    /// with which event (the ROM says LET'S GO! is the nitro line - the user filed it under first place); 2 s on screen; no voice;
+    /// with which event (the original says LET'S GO! is the nitro line - the user filed it under first place); 2 s on screen; no voice;
     /// drawn as part of the car sprite at its texel size (RetroCarFx); the game's own bubbles and voices are off here.
     /// </summary>
     public static class RetroTaunts
     {
         public const int TailX = 26, TailY = 21;      // the tail tip in the 45x21 picture (the user)
         private const float Show = 2f;                // seconds a balloon stays (not decoded; the game's own bubble time)
-        private const float Chance = 4f / 16f;        // the ROM's 4 of 16 table entries
-        private const float ObjectKph = 140f;         // an object hit counts from $1770 (about 140 km/h, Top Gear km/h)
+        private const float Chance = 4f / 16f;        // the original's 4 of 16 table entries
+        private const float ObjectKph = 140f;         // an object hit counts from 6000 (about 140 km/h, retro km/h)
 
         private static readonly Dictionary<string, List<Texture2D>> _pics = new Dictionary<string, List<Texture2D>>();
         private static string _loadedFor;
@@ -87,7 +87,7 @@ namespace HCT15
             if (_rng.NextDouble() < Chance) Raise(car, "crash");
         }
 
-        /// <summary>A roadside object hit (REV objects in the ROM; here every solid sprite): only from about 140 km/h, 4 in 16.
+        /// <summary>A roadside object hit (REV objects in the campaign data; here every solid sprite): only from about 140 km/h, 4 in 16.
         /// CALLED ON A WORKER THREAD (HCT's collisions run in a job: SplineCollisionManager.WorkerUpdate) - no Unity call may be
         /// made here (a Texture2D created from it crashed the game, 2026-11-07): the hit is only noted, Pump() (main thread,
         /// every frame from RetroCarFx) raises the balloon.</summary>
@@ -194,7 +194,7 @@ namespace HCT15
     }
 
     /// <summary>
-    /// 2.4.1 - everything the 16-bit Top Gear drew ON a player's car, drawn as part of the car's own sprite (child quads of
+    /// 2.4.1 - everything a 16-bit racer drew ON a player's car, drawn as part of the car's own sprite (child quads of
     /// SpriteCar): one texel of each picture = one texel of the car, so every piece has its car's size on every screen and for
     /// every player (the user: "pixelated and proportional to how much you enlarged the car"), and moves with it.
     ///   balloon  - RetroTaunts' current picture, tail tip (TailX, TailY) on the left rear window (texel 14, 3).
@@ -286,7 +286,7 @@ namespace HCT15
             bool done = Car.HasFinishedRace;
 
 
-            // 2.4.2 (the user: "I asked for the headlights on in front at night, to see better"): at night the SNES lights the
+            // 2.4.2 (the user: "I asked for the headlights on in front at night, to see better"): at night a 16-bit racer lights the
             // road in front of the car - a pale patch behind the sprite (fx\headlights.png, Claude's redraw of the user's
             // TopHeadlightsAtNight capture). 2.4.2b (the user: "it looks oversized from afar during the fly-in and only shrinks at
             // the car - it must be geometry stuck to the car"): a quad lying ON THE ROAD in front of the 3-D car (the sprite is
@@ -301,7 +301,7 @@ namespace HCT15
             float since = now - _nitroAt, blink = Mathf.Max(0.02f, _fx.NitroBlinkSeconds);
             bool textOn = !done && since >= 0f && since < _fx.NitroBlinks * 2f * blink && ((int)(since / blink)) % 2 == 0;
             Texture2D nt = textOn ? Tex("nitro.png") : null;
-            // speech balloon: tail tip on the left rear window; it gives way while NITRO blinks (one message slot, as on the SNES)
+            // speech balloon: tail tip on the left rear window; it gives way while NITRO blinks (one message slot, as 16-bit racers did)
             Texture2D pic = textOn ? null : RetroTaunts.Current(Car);
             Show("balloon", pic, At(l, r, b, t, 14f, 3f), RetroTaunts.TailX, pic != null ? pic.height - RetroTaunts.TailY : 0, false, 1f, texel, 4);
             NitroText[Car.PlayerId] = nt;   // 2.4.1 the user: drawn by the HUD at the height and size of RACE OVER, not on the car
@@ -328,7 +328,7 @@ namespace HCT15
         private GameObject _hlGo; private Material _hlMat;
 
         /// <summary>
-        /// 2.4.2c (the user, New York: "the light leaves the two headlights as CONES forward - you drew a square block; at
+        /// 2.4.2c (the user: "the light leaves the two headlights as CONES forward - you drew a square block; at
         /// worst two circles joined ahead of the car, but make them conical - and the light must BURN the colours in front"):
         /// geometry lying on the road, moved with the 3-D car: from each headlight (HeadlightGap apart, HeadlightFront ahead of
         /// the car's centre) a cone opening forward to a circle of HeadlightRadius at HeadlightReach - the two circles overlap

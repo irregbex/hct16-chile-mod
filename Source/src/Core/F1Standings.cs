@@ -340,8 +340,8 @@ namespace HCT15
             if (_season != null) _season.text = Loc.Get("season_line", total);
         }
 
-        // ------------------------------------------------------------------ 2.4.1: the track list grouped by country (Top Gear)
-        // The user, 2026-11-07, with the SNES COUNTRY screen (USA, S AMERICA, JAPAN, GERMANY, SCANDINAVIA, FRANCE, ITALY, UK, each
+        // ------------------------------------------------------------------ 2.4.1: the track list grouped by country (the retro campaign)
+        // The user, 2026-11-07, with a 16-bit COUNTRY screen (each
         // with its flag): "group the tracks this way on the tracks screen". campaign.json "Countries" (in round order) -> per
         // country its flag and its name in yellow with the races finished (n/4), and its tracks on the line below.
         private GameObject _countries;
@@ -407,7 +407,7 @@ namespace HCT15
             {
                 CountryDef cd = c.Def.Countries[i];
                 float top = -i * block;
-                // the flag (x2 of its 16x12 SNES pixels at least, as tall as the name)
+                // the flag (x2 of its 16x12 pixels at least, as tall as the name)
                 Texture2D flag = Flag(c, cd.Flag);
                 float fh = big * 0.9f, fw = flag != null ? fh * flag.width / Mathf.Max(1f, flag.height) : 0f;
                 if (flag != null)

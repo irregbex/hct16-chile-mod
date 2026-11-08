@@ -68,7 +68,7 @@ namespace HCT15
             // A SPRITE car (SpriteCars.cs): the donor keeps its wheels, shadow and collider, the body is a quad that
             // faces the camera and shows the frames of cars\sprites\<Sprite>\ - the four retro sprite cars.
             public string Sprite = "";        // folder under cars\sprites, empty = a mesh body
-            public string Campaigns = "";     // "top_gear": only selectable (and a rival) inside these mod campaigns; empty = everywhere
+            public string Campaigns = "";     // "my_campaign": only selectable (and a rival) inside these mod campaigns; empty = everywhere
             public float LeanStep = 5f;       // degrees of heading against the camera per lean step (the camera fallback; 3 steps)
             public float LeanSign = 1f;       // -1 if the lean frames turn the wrong way
             public float SpriteScale = 1f;    // 1 = the sprite car as big as its 3-D car in the world (the sheet's 64 px frame = 2.0 units), every car by the same law; 1.5 = half again
@@ -184,13 +184,8 @@ namespace HCT15
             Jetski("oro_cielo", "summer", 0.91f, 3.88f, 1.88f, 1.05f), Jetski("verde", "dustdriver", 0.91f, 3.60f, 1.68f, 1.11f),
             MicroVariant("roja"), MicroVariant("blanca"), MicroVariant("turquesa"), MicroVariant("azul"),
             MicroVariant("verde"), MicroVariant("naranja"), MicroVariant("multicolor"),
-            // The four retro (16-bit retro) cars as sprites, only in the retro campaign, where they are also the
-            // rivals. Donors matched to the SNES menu stats over all four axes (campaigns\top_gear\README.txt):
-            // car 1 fastest/thirstiest/least grip, car 2 slowest but quickest off the line, grips and sips.
-            new CarDef { Id = "tg_car1", Sprite = "tg_car1", SpriteScale = 1f, Donor = "madbot", NameKey = "car_tg1_name", DescKey = "car_tg1_desc", Performance = 1f, Campaigns = "top_gear", AsEnemy = true },
-            new CarDef { Id = "tg_car2", Sprite = "tg_car2", SpriteScale = 1f, Donor = "mini", NameKey = "car_tg2_name", DescKey = "car_tg2_desc", Performance = 1f, Campaigns = "top_gear", AsEnemy = true },
-            new CarDef { Id = "tg_car3", Sprite = "tg_car3", SpriteScale = 1f, Donor = "eclipse", NameKey = "car_tg3_name", DescKey = "car_tg3_desc", Performance = 1f, Campaigns = "top_gear", AsEnemy = true },
-            new CarDef { Id = "tg_car4", Sprite = "tg_car4", SpriteScale = 1f, Donor = "explorer", NameKey = "car_tg4_name", DescKey = "car_tg4_desc", Performance = 1f, Campaigns = "top_gear", AsEnemy = true },
+            // 2.4.3: sprite cars (Sprite = a folder under cars\sprites) are defined in streetcars.json only - none is built in
+
         };
 
         /// <summary>A carreta of asset_kit's CARRETA_VARIANTS: its own body, horse and load, its own speed; the first one's taunts.</summary>
@@ -1058,7 +1053,7 @@ namespace HCT15
             float split = db.min.y + Mathf.Clamp01(d.PaintSplit) * db.size.y;   // the same height on every LOD
             float roofY = d.PaintRoof > 0f ? db.min.y + Mathf.Clamp01(d.PaintRoof) * db.size.y : float.PositiveInfinity;
             // The retail meshes ship non-readable, so their colours cannot be touched here: Tools\car_repaint.py
-            // bakes the same repaint from the decoded car into cars\bodies\<id>.<part>.mesh. A readable donor
+            // bakes the same repaint from the car into cars\bodies\<id>.<part>.mesh. A readable donor
             // (a DLC car) is repainted on the spot, which also keeps an edited colour working without a bake.
             int painted = 0, baked = 0, missing = 0;
             Transform sub = inst.transform.Find("root/sub_root");
@@ -1616,7 +1611,7 @@ namespace HCT15
         /// A colour with r below zero means "leave this half alone". Above roofY, the triangles that face up
         /// take the high colour even if they are glass (the Specter's glass roof becomes a taxi's yellow one),
         /// lit as brightly as the painted roof around them. Null when the mesh cannot be read.
-        /// Tools\car_repaint.py does exactly the same from the decoded car, for the meshes that are not readable.
+        /// Tools\car_repaint.py does exactly the same from the car, for the meshes that are not readable.
         /// </summary>
         public static Mesh RepaintBody(Mesh src, Color low, Color high, float splitY, float roofY)
         {

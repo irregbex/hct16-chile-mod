@@ -202,7 +202,7 @@ namespace HCT15
             JetskiMission.Attach(def, rdm.gameObject);
             if (def.NightVeil > 0f) NightVeil.Attach(def, rdm.gameObject);   // 2.4.2: Playa Amarilla - the water and the racers darker than the LED chaos   // 2.4.2: humans only, the countdown, the deflating castle
             StripWaves.Attach(def, strip, texDir, rdm.gameObject);   // 2.0.24: stripwaves.json - waves rolling onto the beach painted in the strip
-            if (ModCampaigns.RetroOf(def.ItemId) != null) { RetroIntro.Attach(rdm.gameObject); RetroHud.Attach(rdm.gameObject); RetroFinish.Attach(rdm.gameObject); TopGearQualify.Attach(rdm.gameObject); }   // 2.4.1: the 16-bit fly-in, HUD and still camera at the line
+            if (ModCampaigns.RetroOf(def.ItemId) != null) { RetroIntro.Attach(rdm.gameObject); RetroHud.Attach(rdm.gameObject); RetroFinish.Attach(rdm.gameObject); RetroQualify.Attach(rdm.gameObject); }   // 2.4.1: the 16-bit fly-in, HUD and still camera at the line
             try { GroundSections.Apply(data, def, texDir); }   // tracks\<id>\ground.json: sand / sea strips by the beaches (2.0.9)
             catch (System.Exception ex) { Debug.LogError("[HCT15] ground sections failed: " + ex); }
             _dataRewritten = rdm;

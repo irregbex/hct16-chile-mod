@@ -3,7 +3,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// The pit stop seen from above, the way the SNES game showed it: while the car is in the pit lane the
+    /// The pit stop seen from above, the way a 16-bit game showed it: while the car is in the pit lane the
     /// view lifts to a plan view of it driving in, standing while the crew works, and driving out again.
     /// "PitOverhead": true in campaign.json turns it on for that campaign; every other campaign keeps the
     /// ordinary chase camera through its pit stops.

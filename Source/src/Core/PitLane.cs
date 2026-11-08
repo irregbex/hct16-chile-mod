@@ -187,10 +187,10 @@ namespace HCT15
 
         private void Begin(int id, int phase, float now) { _phase[id] = phase; _phaseSince[id] = now; }
 
-        // ------------------------------------------------------------------ the 16-bit stop (RetroRules, 2.4.1)
-        // The ROM (05:D752, state machine 00:90CC; 04-pit-stops of the decode) and the user's video of the San Francisco pit
-        // (@Source Top Gear Decoder\@Source\Top Gear-pits.mp4, 2026-11-07): PITS signs and tyre walls announce it (and the
-        // HUD's pit arrow from $1000 units before it: RetroHud); the stop starts when the car passes the PIT sign (object 0x74)
+        // ------------------------------------------------------------------ the retro stop (RetroRules, 2.4.1)
+        // The user's video of a pit stop
+        // (2026-11-07): PITS signs and tyre walls announce it (and the
+        // HUD's pit arrow from 4096 units before it: RetroHud); the stop starts when the car passes the PIT sign (object 0x74)
         // with its lateral beyond the sign's, on its side; the screen fades out (a blue flash, then black) and the PIT SCENE
         // takes over (RetroPitScene: the car seen from above, coming in from the right and braking - PITSTOP, SLOW - down to
         // the STOP line); there it stands with no control while fuel goes up 0x7F a frame until full (43007 = ~340 frames from
@@ -201,9 +201,9 @@ namespace HCT15
         private const float RetroLeaveKPH = 170f;
         private const float RetroRefuelPerSecond = 0x7F * 60.0988f / 43007f;   // share of a full tank per second
         private const int PhaseFade = 10, PhaseBack = 11;
-        public float Sign = -1f;   // lap fraction of the PIT sign (race.json PitSign); -1 = this track has no pit in the ROM
-        public float SignLateral;  // how far out the car must pass the sign (race.json PitLateral, the ROM's sign lateral); 0 = the outer lane
-        public float Warn = -1f;   // lap fraction from which the HUD's pit arrow shows (race.json PitWarn: $1000 units before the sign)
+        public float Sign = -1f;   // lap fraction of the PIT sign (race.json PitSign); -1 = this track has no pit in the campaign data
+        public float SignLateral;  // how far out the car must pass the sign (race.json PitLateral, the original's sign lateral); 0 = the outer lane
+        public float Warn = -1f;   // lap fraction from which the HUD's pit arrow shows (race.json PitWarn: 4096 units before the sign)
         private readonly Dictionary<int, int> _rPhase = new Dictionary<int, int>();
         private readonly Dictionary<int, float> _rSince = new Dictionary<int, float>();
         private readonly Dictionary<int, float> _rLock = new Dictionary<int, float>();
@@ -267,13 +267,13 @@ namespace HCT15
             s_current = this;
             int phase; if (!_rPhase.TryGetValue(id, out phase)) phase = PhaseNone;
             // 2.4.1 (the user: "I race Los Angeles, no pit shows, and I got into one by mistake"): a track without a pit in the
-            // ROM (race.json PitSign -1) has none - the pit range in its race.json is only the donor template's
+            // original (race.json PitSign -1) has none - the pit range in its race.json is only the donor template's
             if (phase == PhaseNone && Sign < 0f) return null;
             float kph = car.CarEngine != null ? car.CarEngine.CurrentSpeedKPH : car.CurrentSpeedKPH;
             if (phase == PhaseNone)
             {
                 float p = car.Evaluator.CurrentPercent, sign = Sign;
-                if (p < sign - 0.012f || p > sign + 0.004f) return null;   // at the sign, as the ROM checks it
+                if (p < sign - 0.012f || p > sign + 0.004f) return null;   // at the sign, as the original checks it
                 int lap = car.Evaluator.CurrentLap, served;
                 if (_lastLapServed.TryGetValue(id, out served) && served == lap) return null;
                 float lateral = car.LateralOffset, threshold = SignLateral > 0.1f ? SignLateral : OuterLaneThreshold(app);

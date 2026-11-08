@@ -18,7 +18,7 @@ namespace HCT15
     /// donor the game puts the same item 9.7 + Dist out. Buildings looked as if they stood on the
     /// street in the editor while the race itself was right.
     ///
-    /// Data: Game\HCT15Content\donor_lanes.json (Tools\donor_lanes.py, from the decoded RaceData of
+    /// Data: Game\HCT15Content\donor_lanes.json (Tools\donor_lanes.py, from the RaceData of
     /// every shipped stage). A section is valid from its P to the next section's P; the last one wraps.
     /// Unknown donor: 5 lanes.
     /// </summary>
@@ -100,7 +100,7 @@ namespace HCT15
 
         /// <summary>
         /// The truth from a running race: the donor's RaceData.TextureInfos (SplinePosition, NumberOfLanes) as the
-        /// game has them. Replaces the decoded table entry for that stage and saves donor_lanes.json, so the editor
+        /// game has them. Replaces the table entry for that stage and saves donor_lanes.json, so the editor
         /// is exact for every donor that has been raced once.
         /// </summary>
         public static void Learn(string donor, List<Section> sections)

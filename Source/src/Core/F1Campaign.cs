@@ -40,10 +40,14 @@ namespace HCT15
     }
 
     [Serializable]
-    public class RetroRival { public string Name = ""; public int Base; public float Edge; }   // 2.4.2 Edge > 0: always his top cruise, and at least Edge x the COMPUTER's (the favourite: RITCHIE)
+    public class RetroRival { public string Name = ""; public int Base; public float Edge; }   // 2.4.2 Edge > 0: always his top cruise, and at least Edge x the reference car's (the favourite)
     /// <summary>2.4.1: a country of a campaign's track list (campaign.json "Countries", in round order): its name, flag picture
-    /// (relative to the campaign folder) and how many consecutive rounds it holds - the Top Gear screen groups them so.</summary>
+    /// (relative to the campaign folder) and how many consecutive rounds it holds - the campaign screen groups them so.</summary>
     [Serializable] public class CountryDef { public string Name = ""; public string Flag = ""; public int Rounds = 4; }
+    /// <summary>2.4.3: how a retro campaign shows one of its cars (campaign.json "RetroCarLooks"): the colour of its dot on the
+    /// HUD's minimap and of the driver's suit on the qualification screen ("#RRGGBB"), and the stem of its qualification
+    /// pictures under the campaign's fx folder (stem + "Win.png" / "Loss.png"). The first entry is the fallback car.</summary>
+    [Serializable] public class RetroCarLook { public string Car = ""; public string Colour = ""; public string Picture = ""; }
 
     [Serializable]
     public class F1CampaignDef
@@ -52,33 +56,37 @@ namespace HCT15
         public bool FreePlay;      // every round open from the start (no "finish the previous round in the top 3")
         public string DefaultRace = "";   // race id the campaign screen opens on; that round is always playable
         public bool Pits = true;          // false: no pit garages and no pit stops on this campaign's tracks (the tracks keep their pit lane definition)
-        public int PixelHeight;           // scan lines to render the world at (224 = SNES); 0 = full resolution (HCT15\Pixelate.cs)
-        public bool PitOverhead;          // show the pit stop from above, as the SNES game did (HCT15\PitCamera.cs)
+        public int PixelHeight;           // scan lines to render the world at (224 = 16-bit consoles); 0 = full resolution (HCT15\Pixelate.cs)
+        public bool PitOverhead;          // show the pit stop from above, as a 16-bit game did (HCT15\PitCamera.cs)
         public bool PitCrew = true;       // false: no mechanics around the car (the 16-bit pit had none; the retro campaign says false)
         public float DonorDecor = 1f;     // how much of the donor stage's own decor is kept along the lap (1 = the settings' density, 0 = none: the retro campaign keeps only its pixel sprites)
         public int Grandstands = -1;      // grandstands on the start straight and the bends (-1 = the settings' count, 0 = none)
         public float BubbleScale = 1f;    // the speech bubbles this much bigger in this campaign (the retro campaign: 2, its 224-line world made them unreadable)
-        // 2.4.1 "RetroRules" (the Top Gear campaign, RetroRules.cs): the 16-bit game's rules - no pickups on the road (coins,
-        // nitros, fuel cans), no fuel lost in crashes, fuel burnt at the track's FuelTankSeconds, the SNES pit stop (PitLane),
-        // and the rivals at a fixed cruise speed with no rubber band: RetroRivals in grid order from the BACK (Base = the
-        // ROM's base speed in rival units; cruise = Base + 2 x random(0..255) + race.json RetroDifficulty), RetroComputer = the
-        // white COMPUTER car's cruise in player units; player units -> the game's km/h: x RetroTopKph / RetroTopUnits.
+        // 2.4.1 "RetroRules" (RetroRules.cs): 16-bit style racing rules - no pickups on the road (coins, nitros, fuel cans),
+        // no fuel lost in crashes, fuel burnt at the track's FuelTankSeconds, a simple pit stop (PitLane), and the rivals at a
+        // fixed cruise speed with no rubber band: RetroRivals in grid order from the BACK (Base = the base speed in rival
+        // units; cruise = Base + 2 x random(0..255) + race.json RetroDifficulty), RetroComputer = the reference CPU car's
+        // cruise in player units; player units -> the game's km/h: x RetroTopKph / RetroTopUnits.
         public bool RetroRules;
         public List<RetroRival> RetroRivals = new List<RetroRival>();
-        public bool CountryGate; public List<string> Passwords = new List<string>();   // 2.4.2: countries open one by one (top 3 of the table), a password per country (TopGearQualify)
-        public List<CountryDef> Countries = new List<CountryDef>();   // 2.4.1: the track list grouped by country (Top Gear)
+        public bool CountryGate; public List<string> Passwords = new List<string>();   // 2.4.2: countries open one by one (top 3 of the table), a password per country (RetroQualify)
+        public List<CountryDef> Countries = new List<CountryDef>();   // 2.4.1: the track list grouped by country
         public int RetroComputer;
-        public string RetroComputerName = ""; public float RetroComputerEdge;   // 2.4.2: the white car's board name (RITCHIE) and its speed x this
+        public string RetroComputerName = ""; public float RetroComputerEdge;   // 2.4.2: the reference CPU car's board name and its speed x this
+        public List<RetroCarLook> RetroCarLooks = new List<RetroCarLook>();     // 2.4.3: HUD colour + qualification pictures per car
+        public List<string> RetroSharpTextures = new List<string>();            // 2.4.3: more texture-name prefixes drawn with hard pixels
+        public string QualifyJingle = "";        // 2.4.3: a file under HCT15Music played once on the qualification screen ("" = none)
+        public string QualifyBackground = "";    // 2.4.3: the qualification screen's picture in the fx folder ("" = qualify_bg.png)
         public float RetroTopKph = 395f;
         public int RetroTopUnits = 10000;
         public List<string> RetroCars = new List<string>();   // car ids (prefix match) ...
-        public List<float> RetroFuel = new List<float>();     // ... and their ROM fuel consumption (100 = the reference)
+        public List<float> RetroFuel = new List<float>();     // ... and their original fuel consumption (100 = the reference)
         /// <summary>
         /// Music albums (the sub-folder names under HCT15Music\Menu and HCT15Music\Race) that belong to
         /// THIS campaign: they play only while the player is inside it, and are kept out of the general
         /// rotation everywhere else. An album no campaign claims plays anywhere, as it always did.
         /// A campaign whose music would otherwise leak into the retail game and the other campaigns names
-        /// it here, e.g. "MusicAlbums": [ "TopGear" ].
+        /// it here, e.g. "MusicAlbums": [ "Retro" ].
         /// </summary>
         public List<string> MusicAlbums = new List<string>();
         /// <summary>2.0.11: albums whose songs are dealt out round by round to this campaign's races that name no music
@@ -92,7 +100,7 @@ namespace HCT15
         /// Menus are not touched. Empty or absent: every allowed album, as before.</summary>
         public List<string> RaceMusicOnly = null;
         public int Order;                 // place among the campaign blades (lower first; 0 = unset: f1_2026 leads, the rest follow in folder order at 50)
-        public string MenuMusic = "";     // the menu track that starts the moment the campaign screen opens (a file under HCT15Music, e.g. "Menu/TopGear/01_title_theme.ogg")
+        public string MenuMusic = "";     // the menu track that starts the moment the campaign screen opens (a file under HCT15Music, e.g. "Menu/Retro/01_title_theme.ogg")
         public bool NowPlaying = true;    // false: no "now playing" card when a track starts inside this campaign (the retro campaign)
         /// <summary>2.4.0: the asset-library model every coin on the road is drawn as inside this campaign (the Chile campaign:
         /// "moneda_500", the 500-peso coin - reported: "replace the blue coins in the Chile campaign"); a car's own CoinModel
@@ -1392,7 +1400,7 @@ namespace HCT15
                             ri.texture = user; overridden++;
                         }
                         ScaleLoadingLogo(ri.transform, active);
-                        if (key == "english") LogoAnim.On(ri, ui, null, false, 4f, 0.5f, true, 0.221f);   /* 2.4.2: 22.1 % of the screen width (the user's measure) */   // the user: four times as fast, 50 %, kept under the rest   // 2.4.1: the loading screen's logo animated (Top Gear's SNES title)
+                        if (key == "english") LogoAnim.On(ri, ui, null, false, 4f, 0.5f, true, 0.221f);   /* 2.4.2: 22.1 % of the screen width (the user's measure) */   // the user: four times as fast, 50 %, kept under the rest   // 2.4.1: the loading screen's logo animated (a retro title)
                         continue;
                     }
                     if (ours)

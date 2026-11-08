@@ -130,7 +130,7 @@ namespace HCT15
             string id = StaticData.Race != null ? StaticData.Race.ItemId : null;
             string file = Path.Combine(Dir, "podio.json");
             if (id == null || !File.Exists(file)) return false;
-            // 2.4.1 (the user: "the 3D podium must be off for the Top Gear campaign - it does not work for sprites; that game
+            // 2.4.1 (the user: "the 3D podium must be off for the retro campaign - it does not work for sprites; that game
             // has its own, for much later"): no podium in a RetroRules campaign
             if (JetskiMission.GhostRivals) { Debug.Log("[HCT15] podium: skipped (humans-only mission: its rival is a ghost)"); return false; }
             if (RetroRules.Active || ModCampaigns.RetroOf(id) != null) { Debug.Log("[HCT15] podium: skipped (retro campaign, sprite cars)"); return false; }

@@ -6,22 +6,50 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.4.1 - the 16-bit game's rules for a campaign whose campaign.json says "RetroRules": true (the Top Gear one; the
-    /// user, 2026-11-07: "no power-ups, coins, fuel cans or nitros - the original did not have them"; "replicate the CPU of
-    /// the other players as much as you can - it is an old game, it should be simple"). Read from the decoded ROM
-    /// (@Source Top Gear Decoder ... 02-MECANICA / 03-CPU-RIVALES):
+    /// 2.4.1 - 16-bit style racing rules for a campaign whose campaign.json says "RetroRules": true (the user, 2026-11-07:
+    /// "no power-ups, coins, fuel cans or nitros"; "the CPU of the other players should be simple"). Every number comes
+    /// from the campaign's own campaign.json and race.json:
     ///   - fuel: burnt while accelerating like the game's own, at the rate race.json FuelTankSeconds gives (seconds of full
-    ///     throttle a tank lasts a consumption-100 car), times the car's ROM consumption (RetroCars / RetroFuel); no fuel
-    ///     lost in crashes (the SNES has none); pickups are kept off the road by PropDresser.
-    ///   - rivals: 18 simple cars at a FIXED cruise speed after the start, no rubber band, no corner slowdown:
+    ///     throttle a tank lasts a consumption-100 car), times the car's consumption (RetroCars / RetroFuel); no fuel
+    ///     lost in crashes; pickups are kept off the road by PropDresser.
+    ///   - rivals: simple cars at a FIXED cruise speed after the start, no rubber band, no corner slowdown:
     ///     cruise = Base + 2 x random(0..255) + RetroDifficulty (rival units; the player's units are twice as big), plus the
-    ///     white COMPUTER car at RetroComputer (player units). Grid order from the back = RetroRivals order.
-    ///   - the pit stop: PitLane's retro sequence (no control, refuel at the ROM's rate, nitro / accelerate leaves early).
+    ///     reference CPU car at RetroComputer (player units). Grid order from the back = RetroRivals order.
+    ///   - the pit stop: PitLane's retro sequence (no control, refuel at a fixed rate, nitro / accelerate leaves early).
+    /// 2.4.3: no campaign is named in the code - cars, colours, pictures and sounds come from campaign.json.
     /// </summary>
     public static class RetroRules
     {
         public static F1CampaignDef Current { get; private set; }
         public static CustomRaceDef Race { get; private set; }
+
+        /// <summary>2.4.3: the campaign.json "RetroCarLooks" entry of a car (null = none).</summary>
+        public static RetroCarLook Look(string carId)
+        {
+            if (Current == null || Current.RetroCarLooks == null || string.IsNullOrEmpty(carId)) return null;
+            foreach (RetroCarLook l in Current.RetroCarLooks) if (l != null && string.Equals(l.Car, carId, StringComparison.OrdinalIgnoreCase)) return l;
+            return null;
+        }
+
+        /// <summary>2.4.3: the car to assume when a player's car cannot be read: the first "RetroCarLooks" entry, else the
+        /// first "RetroCars" id, else "".</summary>
+        public static string FallbackCar
+        {
+            get
+            {
+                if (Current != null && Current.RetroCarLooks != null)
+                    foreach (RetroCarLook l in Current.RetroCarLooks) if (l != null && !string.IsNullOrEmpty(l.Car)) return l.Car;
+                if (Current != null && Current.RetroCars != null && Current.RetroCars.Count > 0) return Current.RetroCars[0] ?? "";
+                return "";
+            }
+        }
+
+        /// <summary>2.4.3: a "#RRGGBB" colour, or the fallback.</summary>
+        public static Color ParseColour(string hex, Color fallback)
+        {
+            Color c;
+            return !string.IsNullOrEmpty(hex) && ColorUtility.TryParseHtmlString(hex, out c) ? c : fallback;
+        }
 
         public static void For(CustomRaceDef def)
         {
@@ -35,7 +63,7 @@ namespace HCT15
 
         public static bool Active { get { return Current != null; } }
 
-        /// <summary>Two rivals touching under RetroRules: the contact is ignored (the SNES rivals pass through each other).</summary>
+        /// <summary>Two rivals touching under RetroRules: the contact is ignored (the retro rivals pass through each other).</summary>
         public static bool IgnoreContact(BaseCar me, Collidable other)
         {
             if (JetskiMission.IgnoreContact(me, other)) return true;   // 2.4.2: the mission's ghost rival
@@ -117,7 +145,7 @@ namespace HCT15
                 foreach (BaseCar c in all) { var e = c as EnemyCar; if (e != null && !Traffic.IsTrafficCar(e) && e.CarEngine != null) rivals.Add(e); }
                 if (rivals.Count == 0) return;
                 _rivalsDone = true;
-                rivals.Sort((a, b) => b.RacePosition.CompareTo(a.RacePosition));   // the back of the grid first, like the ROM's list
+                rivals.Sort((a, b) => b.RacePosition.CompareTo(a.RacePosition));   // the back of the grid first, like the original's list
                 var rng = new System.Random(Environment.TickCount);
                 float k = Current.RetroTopKph / Mathf.Max(1, Current.RetroTopUnits);
                 var log = new System.Text.StringBuilder();
@@ -130,23 +158,23 @@ namespace HCT15
                         RetroRival r = Current.RetroRivals[i];
                         int cruise = r.Base + 2 * rng.Next(0, 256) + (Race != null ? Race.RetroDifficulty : 0);
                         units = 2 * cruise; name = r.Name;
-                        // 2.4.2 (the user: "RITCHIE should almost always win - give him more help"): the favourite drives at
+                        // 2.4.2 (the user: "the favourite should almost always win - give him more help"): the favourite drives at
                         // his top cruise every race and a little faster than the COMPUTER, so he comes through from his grid place
                         if (r.Edge > 0f) units = Mathf.Max(2 * (r.Base + 510 + (Race != null ? Race.RetroDifficulty : 0)), Mathf.RoundToInt(Current.RetroComputer * r.Edge));
                     }
                     else
                     {
-                        // 2.4.2 (the user: "there was no COMPUTER player in Top Gear - that one would be RITCHIE, he wins most"): the
-                        // white car races as RITCHIE (campaign.json RetroComputerName) at RetroComputerEdge x its speed, from the front
+                        // 2.4.2 (the user: "there was no COMPUTER player in the retro campaign - that one would be the favourite, he wins most"): the
+                        // white car races as the favourite (campaign.json RetroComputerName) at RetroComputerEdge x its speed, from the front
                         units = Current.RetroComputer; if (Current.RetroComputerEdge > 0f) units = Mathf.RoundToInt(units * Current.RetroComputerEdge);
                         name = string.IsNullOrEmpty(Current.RetroComputerName) ? "COMPUTER" : Current.RetroComputerName; computer = true;
                     }
                     float kph = units * k;
-                    try { if (rivals[i].GameplayData != null) Drivers.SetSlot(rivals[i].GameplayData.RacerName, name); } catch (Exception) { }   // the board's name = the ROM rival it races as
+                    try { if (rivals[i].GameplayData != null) Drivers.SetSlot(rivals[i].GameplayData.RacerName, name); } catch (Exception) { }   // the board's name = the original rival it races as
                     if (StreetCars.HoldRival(rivals[i], kph))
                     {
                         log.Append(name).Append(' ').Append(kph.ToString("0")).Append(" (grid ").Append(rivals[i].RacePosition + 1).Append("); ");
-                        // the ROM's zigzag: a constant lateral speed of +-(100 + random(0..255)) lateral units a tick (40 ticks a
+                        // the original's zigzag: a constant lateral speed of +-(100 + random(0..255)) lateral units a tick (40 ticks a
                         // second, 108.65 lateral units = 1 world unit), turned round at the road's edges; the COMPUTER drives
                         // with the player's physics instead - no zigzag, but it pits for fuel
                         float lat = (100 + rng.Next(0, 256)) * 40f / 108.65f * (Race != null && Race.RetroLateral > 0f ? Race.RetroLateral : 0.0486f);
@@ -165,7 +193,7 @@ namespace HCT15
     ///     whatever the game's own AI wanted (its offset is written last, in LateUpdate);
     ///   - the COMPUTER (white car) carries a fuel tank of its own (consumption 64) and, on a track with a pit, pulls in at
     ///     the PIT sign when it has under 28 % and not enough to finish (05:F1AF / sub_05F79F): it stops on the pit side,
-    ///     refuels at the ROM's rate until it has enough to finish (05:EDC5) and drives on.
+    ///     refuels at the original's rate until it has enough to finish and drives on.
     /// </summary>
     public class RetroDriver : MonoBehaviour
     {
@@ -186,7 +214,7 @@ namespace HCT15
             float dt = Time.deltaTime;
             CustomRaceDef race = RetroRules.Race;
             if (_t0 < 0f) _t0 = Time.time;
-            // the grid starts bunched: the zigzag waits until the field has spread (the ROM only simulates it near the player
+            // the grid starts bunched: the zigzag waits until the field has spread (the original only simulates it near the player
             // anyway); before that each rival keeps the place the game gives it
             bool zig = Time.time - _t0 > ZigDelay;
             float edge = 3 * 1.527f - CarHalf;   // the road's half-width (3 lanes) less half a car
@@ -214,7 +242,7 @@ namespace HCT15
             if (tank <= 0f) return;
             if (r.State == 0) r.Fuel = Mathf.Max(0f, r.Fuel - dt / tank);
             // 2.4.1 (the user: "the CPU enemies have no pits"): the COMPUTER car no longer stops - it pulled up on the road at the
-            // sign, in the player's way. Its fuel is still counted (the race never runs it dry: its tank is the ROM's 64).
+            // sign, in the player's way. Its fuel is still counted (the race never runs it dry: its tank is the original's 64).
             if (NoCpuPits || race.PitSide == 0 || race.PitSign <= 0f || r.Car.Evaluator == null) return;
             float p = r.Car.Evaluator.CurrentPercent;
             int lap = r.Car.Evaluator.CurrentLap;
@@ -232,7 +260,7 @@ namespace HCT15
                 }
                 return;
             }
-            // in the pit: on the pit side, filling until the rest of the race is covered (the ROM's X = 0x50 check), then out
+            // in the pit: on the pit side, filling until the rest of the race is covered (the original's X = 0x50 check), then out
             r.Car.LateralController.SetCurrentOffset(race.PitSide * 2.6f);
             r.Fuel = Mathf.Min(1f, r.Fuel + Refuel * dt);
             if (r.Fuel >= 1f || r.Fuel * tank > left * lapSeconds * 1.1f)
@@ -261,7 +289,7 @@ namespace HCT15
     }
 
     /// <summary>
-    /// 2.4.1 (the user, first race: "I hit many CPU cars and we all stayed crashing at the start of the track"): the SNES
+    /// 2.4.1 (the user, first race: "I hit many CPU cars and we all stayed crashing at the start of the track"): 16-bit racers
     /// rivals never collide with each other and no car is ever hit from the side (02-MECANICA: "lateral entre autos: no
     /// existe") - only the hit from behind / in front (speed exchange) is kept. HCT's car contact keeps two touching cars
     /// in a "collision stay" that cuts their speed every frame until they part, and the zigzag held the rivals' lateral, so
@@ -290,14 +318,14 @@ namespace HCT15
         private static bool Prefix() { return !RetroRules.Active; }
     }
 
-    /// <summary>No fuel lost when hitting a roadside object or a car under RetroRules (the SNES takes none).</summary>
+    /// <summary>No fuel lost when hitting a roadside object or a car under RetroRules (16-bit racers had none).</summary>
     [HarmonyPatch(typeof(CarFuelTank), nameof(CarFuelTank.LosePropCollisionFuel))]
     internal static class RetroPropFuelPatch { private static bool Prefix() { return !RetroRules.Active; } }
 
     [HarmonyPatch(typeof(CarFuelTank), nameof(CarFuelTank.LoseCarCollisionFuel))]
     internal static class RetroCarFuelPatch { private static bool Prefix() { return !RetroRules.Active; } }
 
-    /// <summary>The nitro button during a retro pit stop leaves the pit instead (the SNES: accelerate leaves early); the
+    /// <summary>The nitro button during a retro pit stop leaves the pit instead (16-bit racers: accelerate leaves early); the
     /// charge is not spent.</summary>
     [HarmonyPatch(typeof(PlayerCar), nameof(PlayerCar.DoNitro))]
     internal static class RetroPitNitroPatch
@@ -312,7 +340,7 @@ namespace HCT15
 
 namespace HCT15
 {
-    /// <summary>2.4.1 - the SNES race end (the user: "when the race ends the camera stays still and the car drives on to infinity"):
+    /// <summary>2.4.1 - the retro race end (the user: "when the race ends the camera stays still and the car drives on to infinity"):
     /// no HCT trophy (its dimming, cup and confetti covered the car driving away) in a RetroRules campaign - only RACE OVER.</summary>
     [HarmonyLib.HarmonyPatch(typeof(Aquiris.HorizonChase.NewUI.ViewModel.PlayerHudViewModel), "OnRaceFinished")]
     internal static class RetroNoTrophyPatch
