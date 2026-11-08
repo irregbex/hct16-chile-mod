@@ -67,7 +67,7 @@ namespace HCT15
         /// 2.4.1 (the user: "when I should crash into the objects beside the track - lamp posts, the direction signs in the
         /// bends - nothing happens, they practically do not exist"): the sprite gets the game's own prop collision - a box
         /// collider and a PropCollidable on its root (PropAutoMover links it, PropView scales it, the car's
-        /// SplineCollisionDetector hits it and plays the game's crash). The original's crash classes : REV bounces
+        /// SplineCollisionDetector hits it and plays the game's crash). The original's crash classes: REV bounces
         /// the car back - here it is stopped dead; EDGE / SIDE halve the speed and push it towards the road - here the speed
         /// is cut to 180 km/h (the game's units, about half a retro cruise) and the lateral impact is on.
         /// </summary>

@@ -50,7 +50,7 @@ namespace HCT15
         public static readonly string[] Folders = { "oro", "plata", "bronce" };
         private static readonly Dictionary<int, List<Sticker>> _sets = new Dictionary<int, List<Sticker>>();
 
-        /// <summary>The stickers of a podium place (0 = 1st), read once (their sheets are only when first shown).</summary>
+        /// <summary>The stickers of a podium place (0 = 1st), read once (their sheets are decoded only when first shown).</summary>
         private static List<Sticker> For(int place)
         {
             List<Sticker> list;
@@ -94,7 +94,7 @@ namespace HCT15
             {
                 var t = new Texture2D(2, 2, TextureFormat.RGBA32, false) { filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp, name = "HCT15:sticker:" + s.Name };
                 if (!t.LoadImage(File.ReadAllBytes(s.Png))) return false;
-                t.Apply(false, true);                 // 2.2.8: GPU copy only (the CPU copy doubled the memory)
+                t.Apply(false, true);                 // 2.2.8: GPU copy only (the decoded CPU copy doubled the memory)
                 s.Tex = t;
                 return true;
             }
@@ -110,7 +110,7 @@ namespace HCT15
             return pool;
         }
 
-        // 2.2.8: the pair of each podium place, chosen and at the race's start
+        // 2.2.8: the pair of each podium place, chosen and decoded at the race's start
         private static readonly Dictionary<int, List<Sticker>> _picked = new Dictionary<int, List<Sticker>>();
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace HCT15
         {
             if (hud == null) return;
             Hide(hud);
-            if (RetroRules.Active) return;   // 2.4.1: the retro campaign ends 16-bit racers way (RACE OVER, the car drives off) - no stickers
+            if (RetroRules.Active) return;   // 2.4.1: the retro campaign ends the 16-bit way (RACE OVER, the car drives off) - no stickers
             List<Sticker> all = For(place);
             if (all.Count == 0) return;
             List<Sticker> pool, pre;
@@ -186,7 +186,7 @@ namespace HCT15
             }
             _shown[hud.GetInstanceID()] = list;
             _since[hud.GetInstanceID()] = Time.unscaledTime;
-            // a sheet of 90 frames is ~26 MB and the game is 32-bit: keep only the sheets on screen or preloaded
+            // a sheet of 90 frames is ~26 MB decoded and the game is 32-bit: keep only the sheets on screen or preloaded
             var inUse = InUse();
             foreach (List<Sticker> set in _sets.Values)
                 foreach (Sticker s in set)

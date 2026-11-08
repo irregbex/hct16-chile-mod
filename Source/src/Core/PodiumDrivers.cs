@@ -13,7 +13,7 @@ namespace HCT15
     /// how to find its driver there; the body is read from the player's own game files (GameMeshReader), split into its
     /// connected pieces (welded by position, per sub-mesh), and the driver is every piece of MinTris-MaxTris triangles whose
     /// box centre lies in the driver's seat column: X and Z ranges and above MinY, in the car's own mesh space (the game's;
-    /// the glTF is mirrored in x). The column was fitted on every variant: Breeze's driver sits by the wheel at
+    /// the decoded glTF is mirrored in x). The column was fitted on every variant: Breeze's driver sits by the wheel at
     /// x < 0 (the co-driver and the friend standing in the middle stay), François's centre stands behind z -0.3 (the woman
     /// riding in front of him in one variant stays). Body, seats, wheel and dashboard fall outside it.
     /// On the podium those triangles go when the figure gets off, the figure hops down from where they were and dresses in

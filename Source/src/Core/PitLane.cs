@@ -190,7 +190,7 @@ namespace HCT15
         // ------------------------------------------------------------------ the retro stop (RetroRules, 2.4.1)
         // The user's video of a pit stop
         // (2026-11-07): PITS signs and tyre walls announce it (and the
-        // HUD's pit arrow from 4096 units before it: RetroHud); the stop starts when the car passes the PIT sign (object 0x74)
+        // HUD's pit arrow from 4096 units before it: RetroHud); the stop starts when the car passes the PIT sign
         // with its lateral beyond the sign's, on its side; the screen fades out (a blue flash, then black) and the PIT SCENE
         // takes over (RetroPitScene: the car seen from above, coming in from the right and braking - PITSTOP, SLOW - down to
         // the STOP line); there it stands with no control while fuel goes up 0x7F a frame until full (43007 = ~340 frames from

@@ -1053,7 +1053,7 @@ namespace HCT15
             float split = db.min.y + Mathf.Clamp01(d.PaintSplit) * db.size.y;   // the same height on every LOD
             float roofY = d.PaintRoof > 0f ? db.min.y + Mathf.Clamp01(d.PaintRoof) * db.size.y : float.PositiveInfinity;
             // The retail meshes ship non-readable, so their colours cannot be touched here: Tools\car_repaint.py
-            // bakes the same repaint from the car into cars\bodies\<id>.<part>.mesh. A readable donor
+            // bakes the same repaint from the decoded car into cars\bodies\<id>.<part>.mesh. A readable donor
             // (a DLC car) is repainted on the spot, which also keeps an edited colour working without a bake.
             int painted = 0, baked = 0, missing = 0;
             Transform sub = inst.transform.Find("root/sub_root");
@@ -1611,7 +1611,7 @@ namespace HCT15
         /// A colour with r below zero means "leave this half alone". Above roofY, the triangles that face up
         /// take the high colour even if they are glass (the Specter's glass roof becomes a taxi's yellow one),
         /// lit as brightly as the painted roof around them. Null when the mesh cannot be read.
-        /// Tools\car_repaint.py does exactly the same from the car, for the meshes that are not readable.
+        /// Tools\car_repaint.py does exactly the same from the decoded car, for the meshes that are not readable.
         /// </summary>
         public static Mesh RepaintBody(Mesh src, Color low, Color high, float splitY, float roofY)
         {

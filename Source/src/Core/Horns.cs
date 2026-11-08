@@ -18,7 +18,7 @@ namespace HCT15
     ///   Game\HCT15Content\cars\horns\<car id>\*.wav|*.ogg     one folder per car, any number of sounds
     ///
     /// A car with no folder of its own uses the one of the car it speaks with (CarDef.Taunts: the micro's colour
-    /// variants honk like the yellow micro). The clips are loaded once at start-up, in memory (they are
+    /// variants honk like the yellow micro). The clips are loaded once at start-up, decoded in memory (they are
     /// short). AudioManager.UpdateHonk asks Pick() the moment a honk starts and keeps its own volume curve and
     /// fade; our clips do not loop (one blast per press), the retail loop is restored for a retail car.
     /// -hct15-honk &lt;seconds&gt;: the unattended runs press the horn for a second at that moment (TestHonking).
