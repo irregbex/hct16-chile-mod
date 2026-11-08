@@ -354,6 +354,11 @@ namespace HCT15
             for (int pass = 0; pass < 2; pass++)
                 foreach (Vector2 p in _mapPts)
                     Box(x + p.x * size - r * (pass == 0 ? 1.6f : 0.8f), y + p.y * size - r * (pass == 0 ? 1.6f : 0.8f), r * (pass == 0 ? 3.2f : 1.6f), r * (pass == 0 ? 3.2f : 1.6f), pass == 0 ? Color.black : Color.white);
+            // 2.4.4 (the user: "the minimaps should show a chequered mark where a lap starts and ends, and a small red circle
+            // where the pits are"): the start/finish line across the track at lap fraction 0, the pit at race.json PitSign
+            // (tracks without a pit have PitSign -1: no circle); both under the cars' markers
+            FinishMark(x, y, size, r);
+            if (race.PitSign >= 0f) PitMark(MapPoint(race.PitSign), x, y, size, r);
             // 2.4.1 (the user: "the leading CPU car's marker in grey; mine in my car's colour with a black outline, the other
             // humans the same, each in its car's colour"): the leader among the CPU cars first, then the players on top
             var app = RRApplication.Instance;
@@ -365,6 +370,41 @@ namespace HCT15
                     PlayerCar pc = app.Game.PlayerCars[k];
                     if (pc != null && pc.Evaluator != null) Dot(MapPoint(pc.Evaluator.CurrentPercent), x, y, size, r, CarColour(pc), (pc.PlayerId + 1) + "P");
                 }
+        }
+
+        /// <summary>2.4.4: a chequered flag laid ACROSS the track at the start/finish line (lap fraction 0): 2 rows of 6 squares,
+        /// the rows along the track, the squares across it, in a black frame.</summary>
+        private void FinishMark(float x, float y, float size, float r)
+        {
+            if (_mapPts == null || _mapPts.Length < 3) return;
+            Vector2 a = _mapPts[0], b = _mapPts[Mathf.Min(2, _mapPts.Length - 1)];
+            Vector2 along = (b - a) * size; if (along.sqrMagnitude < 1e-6f) return;
+            along.Normalize();
+            Vector2 across = new Vector2(-along.y, along.x);
+            Vector2 c = new Vector2(x + a.x * size, y + a.y * size);
+            float sq = Mathf.Max(1f, Mathf.Round(r * 1.1f));            // one square, in screen pixels
+            const int nAcross = 6, nAlong = 2;
+            // the black frame first (each square a little bigger), then the squares
+            for (int pass = 0; pass < 2; pass++)
+                for (int i = 0; i < nAcross; i++)
+                    for (int j = 0; j < nAlong; j++)
+                    {
+                        Vector2 p = c + across * ((i - (nAcross - 1) * 0.5f) * sq) + along * ((j - (nAlong - 1) * 0.5f) * sq);
+                        float s = pass == 0 ? sq + 2f : sq;
+                        Color col = pass == 0 ? Color.black : ((i + j) % 2 == 0 ? Color.white : Color.black);
+                        Box(Mathf.Round(p.x - s * 0.5f), Mathf.Round(p.y - s * 0.5f), s, s, col);
+                    }
+        }
+
+        /// <summary>2.4.4: the pits on the minimap - a small red circle in a black ring, smaller than the cars' markers.</summary>
+        private void PitMark(Vector2 p, float x, float y, float size, float r)
+        {
+            if (_disc == null) _disc = Disc(16);
+            float o = r * 2.4f, i = r * 1.5f, cx = x + p.x * size, cy = y + p.y * size;
+            Color keep = GUI.color;
+            GUI.color = Color.black; GUI.DrawTexture(new Rect(cx - o, cy - o, o * 2f, o * 2f), _disc);
+            GUI.color = new Color(0.9f, 0.08f, 0.08f); GUI.DrawTexture(new Rect(cx - i, cy - i, i * 2f, i * 2f), _disc);
+            GUI.color = keep;
         }
 
         private Vector2 MapPoint(float percent)

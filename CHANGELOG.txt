@@ -4,6 +4,10 @@ HCT 1.6 - changelog
 Fully vibecoded: every version below was made by an AI (Claude, by Anthropic) from one player's directions.
 We need your help in refining it - report bugs or send fixes on GitHub (Issues / pull requests).
 
+2.4.4 (2026-11-08)
+  - Retro campaigns: the minimap shows a chequered flag across the start/finish line and a small red circle where the
+    pits are (race.json PitSign; tracks without a pit show none).
+
 2.4.3 (2026-11-08)
   - The retro-campaign engine is fully data-driven and campaign-neutral: no campaign, car or file name is built into
     the code any more. New campaign.json keys "RetroCarLooks" (each car's HUD colour and qualification pictures),

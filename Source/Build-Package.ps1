@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  HCT 1.6 v2.4.3 - builds the double-click install package into <root>\Installer\ .
+  HCT 1.6 v2.4.4 - builds the double-click install package into <root>\Installer\ .
 
     INSTALL.cmd / UNINSTALL.cmd / README.txt       (from package\)
     tools\install.ps1                              the installer logic (package\install.ps1)

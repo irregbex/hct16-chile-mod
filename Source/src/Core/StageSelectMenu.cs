@@ -367,7 +367,7 @@ namespace HCT15
             if (Settings.Data.ShowBanner)
             {
                 GUI.Label(new Rect(10, 10, 760, 24),
-                    "<color=#FFDD00><b>HCT 1.6 v2.4.3 MOD ACTIVE</b></color>   " + (Settings.Data.TrackEditor ? "F7 track editor | " : "") + "F8 console | F9 stage select | F11 next track | F12 custom music");
+                    "<color=#FFDD00><b>HCT 1.6 v2.4.4 MOD ACTIVE</b></color>   " + (Settings.Data.TrackEditor ? "F7 track editor | " : "") + "F8 console | F9 stage select | F11 next track | F12 custom music");
             }
 
             if (!_visible) return;
