@@ -42,7 +42,7 @@ namespace HCT15
             /// lanes; the rest keeps to the right lanes. 0 = one-way, every lane for the traffic (as before).</summary>
             public float Oncoming = 0f;
             /// <summary>2.3.1 - the colours (colour ids of streetcars.json) the traffic wears, each car one of them at random;
-            /// empty = the round's colours (or the road's one livery). The D-81's pickups (the user, 2026-11-03: "the F-150s
+            /// empty = the round's colours (or the road's one livery). The D-81's pickups (the user, 2026-11-03: "the G-151s
             /// that are not racing must not be red, they get mixed up with the rivals").</summary>
             public List<string> Colours = new List<string>();
             public string Comment = "";
@@ -257,7 +257,7 @@ namespace HCT15
             TrafficJson t = Load(out id);
             if (t == null || t.Cars <= 0) return;
             // 2.3.1: Options > General "Road traffic" off = only the rivals on the road (the user, 2026-11-03: "a toggle to
-            // switch off the other F-150s on the road" of the D-81)
+            // switch off the other G-151s on the road" of the D-81)
             if (!Available) { Debug.Log("[HCT15] traffic on '" + id + "': off (switched off in this version, see Traffic.Available)"); return; }
             if (!Settings.Data.RoadTraffic) { Debug.Log("[HCT15] traffic on '" + id + "': off (Options > General)"); return; }
             if (t.Colours != null) foreach (string c in t.Colours) if (!string.IsNullOrEmpty(c)) _colours.Add(c);

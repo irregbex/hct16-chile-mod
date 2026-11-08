@@ -509,7 +509,7 @@ namespace HCT15
             if (_syncedFor != (active != null ? active.Folder : "")) Refresh();
         }
 
-        /// <summary>2.2.9: the mod's own cars (taxi, micro, carreta, F-150, jet ski, anda) speak only inside a mod campaign;
+        /// <summary>2.2.9: the mod's own cars (taxi, micro, carreta, G-151, jet ski, anda) speak only inside a mod campaign;
         /// driven in the World Tour or an Adventure they stay quiet (no Chilean bubble, no voice).</summary>
         public static bool Silenced(string carId)
         {

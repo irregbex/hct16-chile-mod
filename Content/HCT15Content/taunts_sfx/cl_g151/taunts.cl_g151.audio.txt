@@ -1,4 +1,4 @@
-# archivo wav (mismo nombre en ogg\) ; seccion ; frase (texto de la burbuja en taunts.cl_f150.txt)
+# archivo wav (mismo nombre en ogg\) ; seccion ; frase (texto de la burbuja en taunts.cl_g151.txt)
 random_01.wav ; random ; ¡Córrete, weón, que llego atrasao a la charla de seguridad!
 random_02.wav ; random ; ¡Voy al turno de las siete, conchetumare, no me atraséis!
 random_03.wav ; random ; ¡Puta la weá, si marco tarde el jefe de turno me saca la cresta!

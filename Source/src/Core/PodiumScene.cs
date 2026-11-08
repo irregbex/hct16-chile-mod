@@ -1249,9 +1249,9 @@ namespace HCT15
         }
 
         /// <summary>
-        /// The mod's own cars (F-150, taxi, micros, carreta...) wear the library's vertex-colour props material
+        /// The mod's own cars (G-151, taxi, micros, carreta...) wear the library's vertex-colour props material
         /// (HorizonChase/Props/Props), which bends with the race camera and draws nothing here (the user, 2026-11-03: "I
-        /// played the F-150 and it did not show on the podium"): those slots get the stage's unlit vertex-colour material.
+        /// played the G-151 and it did not show on the podium"): those slots get the stage's unlit vertex-colour material.
         /// </summary>
         private Material[] Drawable(Material[] mats)
         {
@@ -1270,7 +1270,7 @@ namespace HCT15
         private static bool IsFx(Transform t)
         {
             // the player's car view also carries its camera's sky, background and track backdrop (1.4 km across: the
-            // F-150 of the user's race was shrunk to nothing by them) - only what sits on the car is copied
+            // G-151 of the user's race was shrunk to nothing by them) - only what sits on the car is copied
             Renderer rr = t.GetComponent<Renderer>();
             string shader = rr != null && rr.sharedMaterial != null && rr.sharedMaterial.shader != null ? rr.sharedMaterial.shader.name : "";
             if (shader.IndexOf("Environment", StringComparison.OrdinalIgnoreCase) >= 0) return true;

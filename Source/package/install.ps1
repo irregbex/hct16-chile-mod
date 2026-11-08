@@ -295,6 +295,18 @@ $cut = Join-Path $GameDir 'HCT15Content\tracks\cl_playa_luna\cutscene'
 if (Test-Path -LiteralPath $cut) { Remove-Tree $cut; $old++ }
 if ($old -gt 0) { Say "Retired the old flat intro and old photos ($old folder(s))." }
 if (Test-Path -LiteralPath $oldRecordPath) { Remove-Item -LiteralPath $oldRecordPath -Force }
+# 2.4.5: the mines' pickup was renamed G-151: what an older release installed under the old names goes
+# (mod content only: names under HCT15Content containing "f150")
+$f150 = 0
+$c150 = Join-Path $GameDir 'HCT15Content'
+if (Test-Path -LiteralPath $c150) {
+  Get-ChildItem -LiteralPath $c150 -Recurse -Force | Where-Object { $_.Name -match '(?i)f150' } | Sort-Object { $_.FullName.Length } -Descending | ForEach-Object {
+    if (-not (Test-Path -LiteralPath $_.FullName)) { return }
+    if ($_.PSIsContainer) { Remove-Tree $_.FullName } else { Remove-Item -LiteralPath $_.FullName -Force }
+    $f150++
+  }
+}
+if ($f150 -gt 0) { Say "Retired the old files of the mines' pickup ($f150)." }
 Write-Record ''
 Say ""
 Say "Done: HCT 1.6 v2.4.5 installed in $GameDir ($($installed.Count) file(s))." 'Green'

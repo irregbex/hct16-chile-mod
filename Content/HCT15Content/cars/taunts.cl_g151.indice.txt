@@ -1,4 +1,4 @@
-# Indice de taunts.cl_f150.txt: archivo de audio ; tipo (seccion) ; linea en el txt ; frase (2026-10-15)
+# Indice de taunts.cl_g151.txt: archivo de audio ; tipo (seccion) ; linea en el txt ; frase (2026-10-15)
 # Tipos: random = en cualquier momento; nitro = al usar nitro; out_of_nitros = sin nitros; crash = al chocar; overtake = al adelantar; first_place = al pasar a primero
 random_01.wav ; random ; linea 8 ; ¡Córrete, weón, que llego atrasao a la charla de seguridad!
 random_02.wav ; random ; linea 9 ; ¡Voy al turno de las siete, conchetumare, no me atraséis!

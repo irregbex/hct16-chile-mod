@@ -1,7 +1,7 @@
-# HCT 1.6 asset kit - f150_whip
+# HCT 1.6 asset kit - g151_whip
 # metres, Y up, origin at the footprint centre on the ground, front faces +X
-mtllib f150_whip.mtl
-o f150_whip
+mtllib g151_whip.mtl
+o g151_whip
 v 0.0350 0.0000 0.0000
 v 0.0175 0.0000 0.0303
 v -0.0175 0.0000 0.0303

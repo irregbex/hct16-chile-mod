@@ -1397,7 +1397,7 @@ namespace HCT15
                     if (_inRivalColour && _rivalPick >= 0) index = _rivalPick;   // 2.4.0: the same colour on every screen's view of this rival
                     else
                     {
-                    // 2.0.26: a round whose Cars list names some of this car's colours (the D-81's red F-150s) keeps the
+                    // 2.0.26: a round whose Cars list names some of this car's colours (the D-81's red G-151s) keeps the
                     // rivals and the traffic to those; else any colour
                     // 2.3.1: a road's traffic.json "Colours" win for its traffic (the D-81's pickups: none of the racing reds)
                     List<string> trafficColours = Traffic.ColoursFor(model);
@@ -1434,7 +1434,7 @@ namespace HCT15
                     PlayerCarTrackView pv = model.GetComponentInParent<PlayerCarTrackView>();
                     if (cm != null && pv != null && pv.Controller != null && pv.Controller.PropertyManager != null) pv.Controller.PropertyManager.OverrideCarModelValues(cm);
                 }
-                DoorNumbers.Apply(model, BaseId(model.name), playerIndex);   // 2.0.26: the mine fleet's door numbers (F-150, fleet rounds)
+                DoorNumbers.Apply(model, BaseId(model.name), playerIndex);   // 2.0.26: the mine fleet's door numbers (G-151, fleet rounds)
                 if (playerIndex >= 0 && StaticData.GameModeData != null && StaticData.GameModeData.PlayerCarColorIndex != null && playerIndex < StaticData.GameModeData.PlayerCarColorIndex.Count)
                     StaticData.GameModeData.PlayerCarColorIndex[playerIndex] = index;
                 return true;
@@ -1522,7 +1522,7 @@ namespace HCT15
         /// <summary>
         /// 2.0.26: the colour indices of this car a race may wear - all of them, unless the active round's "Cars" list names
         /// one or more of its colours (a colour's id, or the car's own for colour 0): then only those (the Ruta D-81 lists
-        /// the four red F-150s, so the grid, the traffic and the player's up/down never show a white or blue one).
+        /// the four red G-151s, so the grid, the traffic and the player's up/down never show a white or blue one).
         /// </summary>
         private static List<int> AllowedVariants(string baseId, List<Variant> list)
         {
@@ -1983,7 +1983,7 @@ namespace HCT15
         public class WhipJson { public string Model = ""; public List<float> Base = new List<float>(); public float Height = 3f, FlagLength = 0.5f, FlagHeight = 0.3f; public string FlagStyle = ""; }
 
         /// <summary>
-        /// 2.0.22: a whip that sways (the mines' F-150; the user: "the pole should move with realistic physics and the
+        /// 2.0.22: a whip that sways (the mines' G-151; the user: "the pole should move with realistic physics and the
         /// reflective flag should flutter"). whip.json beside a body model names the pole model (its origin at the base,
         /// standing up) and the base in the body's file coordinates: the pole becomes a child of the body's first level of
         /// detail at the base as the body was fitted (like the carreta's legs), WhipSway springs it about its base from the

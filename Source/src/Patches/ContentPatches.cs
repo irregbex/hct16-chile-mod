@@ -56,8 +56,10 @@ namespace HCT15.Patches
     [HarmonyPatch(typeof(CarModelDataList), nameof(CarModelDataList.GetCarModelById))]
     internal static class CarByIdPatch
     {
-        private static bool Prefix(string id, ref CarModel __result)
+        private static bool Prefix(ref string id, ref CarModel __result)
         {
+            // 2.4.5: the mines' pickup was renamed cl_f150* -> cl_g151*; saves and ghost replays still name the old ids
+            if (id != null && id.StartsWith("cl_" + "f150", System.StringComparison.OrdinalIgnoreCase)) id = "cl_g151" + id.Substring(7);
             if (string.IsNullOrEmpty(id) || CarModelDataList._carModelDictionary == null || CarModelDataList._carModelDictionary.ContainsKey(id)) return true;
             CarModel f1 = F1Campaign.FindF1Car(id);
             if (f1 == null) return true;

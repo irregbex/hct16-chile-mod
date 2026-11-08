@@ -1,5 +1,5 @@
 {
- "Comment": "pelambres_dress.py (2026-10-14: only red F-150s): the mine's pickups alone - every traffic car is a cl_f150, in the reds the round's Cars list names (HCT15.StreetCars.AllowedVariants); one way (Oncoming 0)",
+ "Comment": "pelambres_dress.py (2026-10-14: only red G-151s): the mine's pickups alone - every traffic car is a cl_g151, in the reds the round's Cars list names (HCT15.StreetCars.AllowedVariants); one way (Oncoming 0)",
  "Cars": 20,
  "Models": [
   "cl_micro",

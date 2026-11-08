@@ -12,7 +12,7 @@ namespace HCT15
     /// <summary>
     /// 2.0.26 (the user, 2026-10-15: "in the race to Pelambres every red pickup should have a big white number on its
     /// doors, each one different" - and then "a different plate on every pickup, under the number, smaller"): the mine's
-    /// fleet markings. On a round whose Cars list is nothing but the F-150 and its colours (the Ruta D-81), every F-150
+    /// fleet markings. On a round whose Cars list is nothing but the G-151 and its colours (the Ruta D-81), every G-151
     /// on the track gets, on both front doors, a white block-digit fleet number (the player's car 1, player 2 gets 2...,
     /// the rivals and the traffic the next free numbers in the order their bodies are dressed) and under it, smaller,
     /// a plate of its own (LL-LL-NN, consonants and digits, drawn from the number so it never changes for that car).
@@ -90,7 +90,7 @@ namespace HCT15
         {
             try
             {
-                if (model == null || baseId != "cl_f150") return;
+                if (model == null || baseId != "cl_g151") return;
                 Transform sub = model.Find("root/sub_root");
                 if (sub == null) return;
                 if (!FleetRace(baseId)) return;                           // the parts keep the plain colour meshes ApplyVariant set
@@ -164,7 +164,7 @@ namespace HCT15
             float tz = EndZ(sv, sTri, tx, ty + th * 0.5f, -1, b.min.z);
             TextZ(n.ToString(), th, ty, tx, tz - 0.012f, -1, v, nn, uv, col, tri);
             // the bumper plates: the model's own plates (one per paint) get this car's plate over them, so every
-            // pickup on the road has its own (the user, 2026-10-15/18: "all the F-150 plates different while playing")
+            // pickup on the road has its own (the user, 2026-10-15/18: "all the G-151 plates different while playing")
             PlateOver(src, colSrc, plate, +1, v, nn, uv, col, tri);
             PlateOver(src, colSrc, plate, -1, v, nn, uv, col, tri);
             var m = new Mesh { name = src.name + "|" + n };

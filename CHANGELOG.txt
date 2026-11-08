@@ -16,6 +16,7 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
   - A race intro that fails no longer freezes the race. "Reset save" switches itself off if a game update ever changes
     the code it relies on, so it can never touch the Steam save.
   - Times driven with the mod's cars in the World Tour are not sent to the online leaderboards.
+  - The mines' pickup is now the G-151 (ids cl_g151*, its own colour names); saves that name the old ids still work.
   - The title screen shows the right version. Songs with "#" or "%" in their name load.
   - Track editor: it only accepts requests from its own page (other websites cannot reach it); saving keeps every
     scenery field (colours, sprites, props over the road, fixed props); imported assets accept models, materials
@@ -72,7 +73,7 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
   - Rutas de Chile > Los Vilos - Illapel: its three toll plazas are taken out (kept aside in scenery_peajes_quitados.json
     and tolls_quitados.json, to put back later).
   - Win stickers back to their original size (1.5x was still too big).
-  - F-150: the chase camera further back again.
+  - G-151: the chase camera further back again.
 
 2.3.7 (2026-11-05)
   - Jet ski stunts: a clean landing gives half a nitro (the game's own boost, half the car's nitro time, no charge spent).
@@ -80,7 +81,7 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
   - Podium: the Chilean flags wave and have their white star (the crowd's flags and La Moneda's).
   - Podium: a parked jet ski no longer trails its white wake streaks.
   - Win stickers at 1.5x their old size (2x was too much), still growing towards their own side.
-  - F-150: the chase camera a little further back.
+  - G-151: the chase camera a little further back.
 
 2.3.6 (2026-11-05)
   - Fixed: Rutas de Chile > Plaza de Illapel opened a car selection with no anda and the game hung; a round that names
@@ -90,7 +91,7 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
   - Podium: a jet ski's winner is its own rider, in his wetsuit, life vest and helmet colours.
   - Playa Luna's podium: the whole crowd as the beach's bathers (black bars).
   - The end-of-race stickers are twice as big, each growing towards its own side.
-  - The F-150's chase camera sits a little further back (a fifth of the micro's pull-back).
+  - The G-151's chase camera sits a little further back (a fifth of the micro's pull-back).
 
 2.3.5 (2026-11-03)
   - Podium: a vehicle's own visible driver gets off and takes the prize - the carreta's huaso leaves his seat in his

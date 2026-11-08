@@ -4,7 +4,7 @@ using UnityEngine;
 namespace HCT15
 {
     /// <summary>
-    /// 2.0.22 - the whip of the mines' pickup sways (the user, 2026-10-10: "the long pole and the reflective flag of the Ford
+    /// 2.0.22 - the whip of the mines' pickup sways (the user, 2026-10-10: "the long pole and the reflective flag of the G-151
     /// 150: the pole should move with realistic physics and the reflective flag should flutter").
     ///
     /// The pole is a stiff rod clamped at its base on the bed: a damped spring on two angles, driven by what the truck does.
