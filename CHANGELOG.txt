@@ -16,6 +16,7 @@ We need your help in refining it - report bugs or send fixes on GitHub (Issues /
   - A race intro that fails no longer freezes the race. "Reset save" switches itself off if a game update ever changes
     the code it relies on, so it can never touch the Steam save.
   - Times driven with the mod's cars in the World Tour are not sent to the online leaderboards.
+  - Ages 15+ notice in the READMEs and release notes (Chilean swear words and slang in the voices and bubbles).
   - The mines' pickup is now the G-151 (ids cl_g151*, its own colour names); saves that name the old ids still work.
   - The title screen shows the right version. Songs with "#" or "%" in their name load.
   - Track editor: it only accepts requests from its own page (other websites cannot reach it); saving keeps every

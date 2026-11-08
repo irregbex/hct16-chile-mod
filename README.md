@@ -6,6 +6,8 @@
 
 > **FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT.** Everything in this mod - the code, the tracks, models, textures, sounds, texts, voices and music - was made with AI (Claude, by Anthropic) from one player's directions in plain language and from open map data. Nobody wrote or reviewed the code by hand. It works and has been played a lot, but expect rough edges. Play it and [report what is wrong](https://github.com/irregbex/hct16-chile-mod/issues), suggest improvements, or send fixes and new tracks as pull requests.
 
+> **AGES 15+.** The voices and speech bubbles use Chilean swear words ("garabatos") and local slang. Not suitable for younger players.
+
 This repository contains **no file of the game**. You need your own copy of Horizon Chase Turbo, bought on Steam. Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated with or endorsed by Aquiris.
 
 ## Trailer

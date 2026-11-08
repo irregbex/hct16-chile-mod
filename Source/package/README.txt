@@ -1,6 +1,9 @@
 HCT 1.6 v2.4.5 - A MOD FOR HORIZON CHASE TURBO (STEAM)
 =====================================================
 
+AGES 15+
+  The voices and speech bubbles use Chilean swear words ("garabatos") and local slang. Not suitable for younger players.
+
 FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT
   This mod is fully vibecoded: all of its code and content were made by an AI (Claude, by Anthropic) from one
   player's directions in plain language. Nobody wrote or reviewed the code by hand, so expect rough edges.

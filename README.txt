@@ -6,6 +6,9 @@ WITHOUT changing it: it is loaded by BepInEx and removed with one click.
 This repository contains NO file of the game. You need your own copy of Horizon Chase Turbo, bought on Steam.
 Horizon Chase Turbo belongs to Aquiris Game Studio; this mod is not affiliated with or endorsed by Aquiris.
 
+*** AGES 15+ ***
+  The voices and speech bubbles use Chilean swear words ("garabatos") and local slang. Not suitable for younger players.
+
 *** FULLY VIBECODED - WE NEED YOUR HELP IN REFINING IT ***
   This mod is FULLY VIBECODED: everything in it - the code, the tracks, models, textures, sounds, texts and voices -
   was made with AI from one player's directions in plain language and from open map data (see CREDITS.txt); the code

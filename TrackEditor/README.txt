@@ -3,6 +3,7 @@ HCT 1.6 Track Editor
 A browser editor for the mod's tracks, scenery, assets and campaigns: the same files the game reads, so what you
 save is what you race. It runs locally (a small Python server plus a page in Chrome or Edge); nothing is uploaded.
 
+The mod itself is for ages 15+ (Chilean swear words and slang in its voices and speech bubbles).
 Like the rest of HCT 1.6 it is FULLY VIBECODED (made with AI) - we need your help in refining it. Report problems or
 send improvements on GitHub (Issues / pull requests).
 
